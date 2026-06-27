@@ -42,8 +42,7 @@ EXHAUSTED_MODELS = set()
 API_KEYS = [
     os.environ.get("GEMINI_API_KEY_1", ""),
     os.environ.get("GEMINI_API_KEY_2", ""),
-    os.environ.get("GEMINI_API_KEY_3", ""),
-    os.environ.get("GEMINI_API_KEY_4", "")
+    os.environ.get("GEMINI_API_KEY_3", "")
 ]
 
 # Filter out empty or whitespace-only keys
