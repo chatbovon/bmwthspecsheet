@@ -1,0 +1,53 @@
+name: BMW Auto-Update Specs
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at 07:00 AM ICT (UTC+7 -> 00:00 UTC)
+  workflow_dispatch: # Allows manual runs from the GitHub Actions tab
+
+jobs:
+  update-specs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install playwright google-genai
+        playwright install chromium
+
+    - name: Run Scraper (Download new PDFs)
+      run: |
+        python pdf_scraper.py
+
+    - name: Run Extractor (Process new PDFs with Gemini)
+      env:
+        GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}
+        GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
+        GEMINI_API_KEY_3: ${{ secrets.GEMINI_API_KEY_3 }}
+      run: |
+        python -u batch_extractor.py --lang th
+        python -u batch_extractor.py --lang en
+
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        
+        # Check if there are any PDF changes or JSON changes
+        git add bmw_brochures_auto/*.pdf bmw_brochures_auto_en/*.pdf bmw_master_specs.json bmw_master_specs_en.json bmw_ai_specs.json bmw_ai_specs_en.json
+        if [ -n "$(git status --porcelain)" ]; then
+          git commit -m "Auto-update: New brochures and specifications [skip ci]"
+          git push
+        else
+          git status
+          echo "No changes to commit"
+        fi

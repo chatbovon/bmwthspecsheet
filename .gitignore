@@ -1,0 +1,34 @@
+# ========================================
+# BMW Dynamic Specsheet - .gitignore
+# ========================================
+
+# 1. Environment & Secrets (ห้ามเอาขึ้นเด็ดขาด)
+.env
+.env.*
+
+# 2. Source PDFs & Large Binary Files (ไฟล์ลิขสิทธิ์และไฟล์ขนาดใหญ่)
+bmw_brochures_auto/
+bmw_brochures_auto_en/
+bmw_brochures_custom/
+bmw_brochures_custom_en/
+
+# 3. Temporary & Backup Data (ไฟล์ชั่วคราวและแบคอัพ)
+bmw_master_specs_backup.json
+bmw_master_specs_en_backup.json
+bmw_ai_specs.json
+bmw_ai_specs_en.json
+
+# 4. Developer Scratch & Debug Files (ไฟล์ทดสอบและ Log)
+scratch/
+scratch.zip
+audit_test_debug.log
+*.log
+
+# 5. Duplicated/Redundant Folders (โฟลเดอร์ซ้ำซ้อน)
+BMW_Web_Deploy/
+BMW_Web_Deploy - Copy/
+
+# 6. System & Python Cache (ไฟล์แคชของระบบและ Python)
+__pycache__/
+*.pyc
+.DS_Store
