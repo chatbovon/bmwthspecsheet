@@ -462,7 +462,7 @@
                                 "value": "19 ตุลาคม 2566"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z6A)"
                             }
                         ]
@@ -928,7 +928,7 @@
                                 "value": "19 ตุลาคม 2566"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(ZIS, Z4E)"
                             }
                         ]
@@ -1402,7 +1402,7 @@
                                 "value": "19 ตุลาคม 2566"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(ZIR, Z4D)"
                             }
                         ]
@@ -1802,7 +1802,7 @@
                                 "value": "25 กันยายน 2568"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z8U)"
                             }
                         ]
@@ -2195,7 +2195,7 @@
                                 "value": "25 กันยายน 2568"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z7R, Z9L)"
                             }
                         ]
@@ -2588,7 +2588,7 @@
                                 "value": "25 กันยายน 2568"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z7O, Z7Q, Z9G, Z9M)"
                             }
                         ]
@@ -3072,7 +3072,7 @@
                                 "value": "25 กันยายน 2568"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(ZJT, ZKO, ZLE)"
                             }
                         ]
@@ -3553,7 +3553,7 @@
                                 "value": "25 กันยายน 2568"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(ZJR, ZKP)"
                             }
                         ]
@@ -4034,7 +4034,7 @@
                                 "value": "25 กันยายน 2568"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(ZJQ, ZLB)"
                             }
                         ]
@@ -4426,23 +4426,11 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "4-20241113-03"
-                            },
-                            {
-                                "topic": "วันที่พิมพ์",
-                                "value": "18 กุมภาพันธ์ 2568"
-                            },
-                            {
-                                "topic": "รหัสรุ่นการผลิต",
-                                "value": "(Z0X, Z0V), (Z0Y), (Z0Z, Z8Y)"
-                            },
-                            {
                                 "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "18 กุมภาพันธ์ 2568"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z0X, Z0V)"
                             }
                         ]
@@ -4827,23 +4815,11 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "4-20241113-03"
-                            },
-                            {
-                                "topic": "วันที่พิมพ์",
-                                "value": "18 กุมภาพันธ์ 2568"
-                            },
-                            {
-                                "topic": "รหัสรุ่นการผลิต",
-                                "value": "(Z0X, Z0V), (Z0Y), (Z0Z, Z8Y)"
-                            },
-                            {
                                 "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "18 กุมภาพันธ์ 2568"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z0Y)"
                             }
                         ]
@@ -5236,23 +5212,11 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "4-20241113-03"
-                            },
-                            {
-                                "topic": "วันที่พิมพ์",
-                                "value": "18 กุมภาพันธ์ 2568"
-                            },
-                            {
-                                "topic": "รหัสรุ่นการผลิต",
-                                "value": "(Z0X, Z0V), (Z0Y), (Z0Z, Z8Y)"
-                            },
-                            {
                                 "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "18 กุมภาพันธ์ 2568"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z0Z, Z8Y)"
                             }
                         ]
@@ -5692,7 +5656,7 @@
                                 "value": "3 กรกฎาคม 2568"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z7J, Z8G)"
                             }
                         ]
@@ -6125,7 +6089,7 @@
                                 "value": "3 กรกฎาคม 2568"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z7G, Z7U)"
                             }
                         ]
@@ -6558,7 +6522,7 @@
                                 "value": "3 กรกฎาคม 2568"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z7H, Z8H)"
                             }
                         ]
@@ -7006,8 +6970,12 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "พิมพ์วันที่",
-                                "value": "27 กุมภาพันธ์ 2568 | (ZJP), (Z4T, Z8L)"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "27 กุมภาพันธ์ 2568"
+                            },
+                            {
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(ZJP)"
                             }
                         ]
                     }
@@ -7447,44 +7415,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "พิมพ์วันที่",
-                                "value": "27 กุมภาพันธ์ 2568 | (ZJP), (Z4T, Z8L)"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "27 กุมภาพันธ์ 2568"
+                            },
+                            {
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(Z4T, Z8L)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "740d M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "740d M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            },
-            {
-                "model_name": "750e xDrive M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "750e xDrive M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "7-20250130-01_TH_WLTP.pdf.asset.1740723717847.pdf"
     },
     {
@@ -7935,32 +7878,12 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "15 มกราคม 2568"
                             },
                             {
-                                "topic": "รหัสอ้างอิง",
-                                "value": "(ZIL, Z3T, Z4Y, Z7Z, Z9B, Z9R), (ZIM, Z3U, Z5E, Z6P, Z8B, Z9S, ZKR)"
-                            },
-                            {
-                                "topic": "รหัสเอกสาร",
-                                "value": "X5-20260417-01"
-                            },
-                            {
-                                "topic": "หมายเหตุ 1",
-                                "value": "¹ ระยะทางขึ้นอยู่กับพฤติกรรมการขับขี่ของแต่ละบุคคล ลักษณะเส้นทาง อุณหภูมิภายนอก และการควบคุมระบบปรับอากาศ"
-                            },
-                            {
-                                "topic": "หมายเหตุ 2",
-                                "value": "* รับสิทธิ์เลือกแพคเกจการรับประกันนานสูงสุด 5 ปี ไม่จำกัดระยะทาง และการบริการดูแลบำรุงรักษาสูงสุด 5 ปี หรือ 100,000 กม. (แล้วแต่ระยะใดถึงก่อน)"
-                            },
-                            {
-                                "topic": "หมายเหตุ 3",
-                                "value": "บริษัทฯ ขอสงวนสิทธิ์ในการเปลี่ยนแปลงข้อมูล ไม่ว่าจะเป็นข้อกำหนดเรื่องรายละเอียด, สเปค และรุ่น ณ เวลาใดๆ โดยไม่ต้องบอกกล่าวล่วงหน้า และไม่จัดอยู่ในความรับผิดชอบในกรณีที่มีการผิดพลาดทางการพิมพ์"
-                            },
-                            {
-                                "topic": "BMW CONTACT CENTER",
-                                "value": "1397"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(ZIL, Z3T, Z4Y, Z7Z, Z9B, Z9R)"
                             }
                         ]
                     }
@@ -8411,68 +8334,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "15 มกราคม 2568"
                             },
                             {
-                                "topic": "รหัสอ้างอิง",
-                                "value": "(ZIL, Z3T, Z4Y, Z7Z, Z9B, Z9R), (ZIM, Z3U, Z5E, Z6P, Z8B, Z9S, ZKR)"
-                            },
-                            {
-                                "topic": "รหัสเอกสาร",
-                                "value": "X5-20260417-01"
-                            },
-                            {
-                                "topic": "หมายเหตุ 1",
-                                "value": "¹ ระยะทางขึ้นอยู่กับพฤติกรรมการขับขี่ของแต่ละบุคคล ลักษณะเส้นทาง อุณหภูมิภายนอก และการควบคุมระบบปรับอากาศ"
-                            },
-                            {
-                                "topic": "หมายเหตุ 2",
-                                "value": "* รับสิทธิ์เลือกแพคเกจการรับประกันนานสูงสุด 5 ปี ไม่จำกัดระยะทาง และการบริการดูแลบำรุงรักษาสูงสุด 5 ปี หรือ 100,000 กม. (แล้วแต่ระยะใดถึงก่อน)"
-                            },
-                            {
-                                "topic": "หมายเหตุ 3",
-                                "value": "บริษัทฯ ขอสงวนสิทธิ์ในการเปลี่ยนแปลงข้อมูล ไม่ว่าจะเป็นข้อกำหนดเรื่องรายละเอียด, สเปค และรุ่น ณ เวลาใดๆ โดยไม่ต้องบอกกล่าวล่วงหน้า และไม่จัดอยู่ในความรับผิดชอบในกรณีที่มีการผิดพลาดทางการพิมพ์"
-                            },
-                            {
-                                "topic": "BMW CONTACT CENTER",
-                                "value": "1397"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(ZIM, Z3U, Z5E, Z6P, Z8B, Z9S, ZKR)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "X5 xDrive30d M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "X5 xDrive30d M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            },
-            {
-                "model_name": "X5 xDrive50e M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "X5 xDrive50e M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "X5-20260417-01_TH.pdf.asset.1779075010632.pdf"
     },
     {
@@ -8800,42 +8674,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "เลขที่เอกสาร",
-                                "value": "2-20260417-01"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "3 กรกฎาคม 2568"
                             },
                             {
-                                "topic": "วันที่พิมพ์",
-                                "value": "3 กรกฎาคม 2568 | (ZAW)"
-                            },
-                            {
-                                "topic": "หมายเหตุ 1",
-                                "value": "ระยะทางขึ้นอยู่กับพฤติกรรมการขับขี่ของแต่ละบุคคล ลักษณะเส้นทาง อุณหภูมิภายนอก และการควบคุมระบบปรับอากาศ"
-                            },
-                            {
-                                "topic": "การรับประกัน",
-                                "value": "รับสิทธิ์เลือกแพคเกจการรับประกันนานสูงสุด 5 ปี ไม่จำกัดระยะทาง และการบริการดูแลบำรุงรักษาสูงสุด 5 ปี หรือ 100,000 กม. (แล้วแต่ระยะใดถึงก่อน)"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "-"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "2-20260417-01_TH.pdf.asset.1778752587612.pdf"
     },
     {
@@ -8986,7 +8837,7 @@
                             },
                             {
                                 "topic": "ภายนอกพร้อมชุดตกแต่งด้วยวัสดุสีดำเงา",
-                                "value": "■"
+                                "value": "-"
                             },
                             {
                                 "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สีดำเงา",
@@ -9170,7 +9021,7 @@
                                 "value": "27 กุมภาพันธ์ 2568"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "((Z3R, Z4J, Z6D, Z8R))"
                             }
                         ]
@@ -9322,7 +9173,7 @@
                             },
                             {
                                 "topic": "ภายนอกพร้อมชุดตกแต่งด้วยวัสดุสีดำเงา",
-                                "value": "■"
+                                "value": "-"
                             },
                             {
                                 "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สีดำเงา",
@@ -9506,7 +9357,7 @@
                                 "value": "27 กุมภาพันธ์ 2568"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "((ZJC, Z4K, Z6C, Z8Q, Z8X, Z9Y))"
                             }
                         ]
@@ -9901,12 +9752,12 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "X3-20260116-01"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "18 กุมภาพันธ์ 2568"
                             },
                             {
-                                "topic": "พิมพ์วันที่",
-                                "value": "18 กุมภาพันธ์ 2568 | (ZAD, ZKN), (ZKM, ZKQ)"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(ZAD, ZKN)"
                             }
                         ]
                     }
@@ -10281,8 +10132,8 @@
                         "category": "Paintwork / สีตัวถังและวัสดุภายใน",
                         "details": [
                             {
-                                "topic": "วัสดุภายใน BMW Individual leather Merino - สี Black",
-                                "value": "Atlas Grey (สีตัวถัง Alpine White Solid), Atlas Grey (สีตัวถัง Black Sapphire Metallic), Atlas Grey (สีตัวถัง Brooklyn Grey Metallic), Atlas Grey (สีตัวถัง Tanzanite Blue Metallic), Atlas Grey (สีตัวถัง Dune Grey Metallic)"
+                                "topic": "สีตัวถัง Alpine White Solid",
+                                "value": "วัสดุภายใน BMW Individual leather Merino - สี Black"
                             }
                         ]
                     },
@@ -10290,48 +10141,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "X3-20260116-01"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "18 กุมภาพันธ์ 2568"
                             },
                             {
-                                "topic": "พิมพ์วันที่",
-                                "value": "18 กุมภาพันธ์ 2568 | (ZAD, ZKN), (ZKM, ZKQ)"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(ZKM, ZKQ)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "X3 20d xDrive M Sport Pro",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "X3 20d xDrive M Sport Pro",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            },
-            {
-                "model_name": "X3 M50 xDrive",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "X3 M50 xDrive",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "X3-20260116-01_TH.pdf.asset.1778752585808.pdf"
     },
     {
@@ -10638,6 +10460,19 @@
                                 "value": "Frozen Grey II Metallic, Frozen Deep Green II Metallic"
                             }
                         ]
+                    },
+                    {
+                        "category": "ข้อมูลเอกสารอ้างอิง",
+                        "details": [
+                            {
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "10 มิถุนายน 2567"
+                            },
+                            {
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(Z5L)"
+                            }
+                        ]
                     }
                 ]
             },
@@ -10938,26 +10773,24 @@
                                 "value": "Alpine White Solid (Leather 'Vernasca' Magma Red decor stitching | Black), Black Sapphire Metallic (Leather 'Vernasca' Magma Red decor stitching | Black), Frozen Grey II Metallic (Leather 'Vernasca' Magma Red decor stitching | Black), San Francisco Red Metallic (Leather 'Vernasca' Black decor stitching | Black), Thundernight Metallic (Leather 'Vernasca' Black decor stitching | Black), Skyscraper Grey Metallic (Leather 'Vernasca' Magma Red decor stitching | Black), San Remo Green Metallic (Leather 'Vernasca' Black decor stitching | Black), Frozen Deep Green II Metallic (Leather 'Vernasca' Black decor stitching | Black)"
                             }
                         ]
+                    },
+                    {
+                        "category": "ข้อมูลเอกสารอ้างอิง",
+                        "details": [
+                            {
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "10 มิถุนายน 2567"
+                            },
+                            {
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(Z5X)"
+                            }
+                        ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "Z4 sDrive30i M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "หมวดหมู่ข้อมูลเอกสารอ้างอิง",
-                "type": "Missing Footer References",
-                "reason": "ไม่พบหมวดหมู่ข้อมูลเอกสารอ้างอิงในผลลัพธ์การสกัด"
-            },
-            {
-                "model_name": "Z4 M40i",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "หมวดหมู่ข้อมูลเอกสารอ้างอิง",
-                "type": "Missing Footer References",
-                "reason": "ไม่พบหมวดหมู่ข้อมูลเอกสารอ้างอิงในผลลัพธ์การสกัด"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "Z4-20240610-02_TH.pdf.asset.1758628086952.pdf"
     },
     {
@@ -11276,38 +11109,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "2-20260218-01"
-                            },
-                            {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "10 มกราคม 2568"
                             },
                             {
-                                "topic": "รหัสรุ่น",
-                                "value": "(Z5N)"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "-"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "M240i xDrive",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "M240i xDrive",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "2-20260218-01_TH.pdf.asset.1771910215806.pdf"
     },
     {
@@ -11623,34 +11437,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "3-20260112-01"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "12 มกราคม 2569"
                             },
                             {
-                                "topic": "วันที่พิมพ์",
-                                "value": "12 มกราคม 2569 | (Z7T, Z8V, Z9Z)"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(Z7T, Z8V, Z9Z)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "320Li M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "320Li M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "3-20260112-01_TH_Li.pdf.asset.1768894796709.pdf"
     },
     {
@@ -11978,34 +11777,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "18 กุมภาพันธ์ 2568"
                             },
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "4-20241113-02 / (Z9A, Z9F)"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(Z9A, Z9F)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "430i Convertible M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "430i Convertible M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "4-20241113-02_TH.pdf.asset.1745407581563.pdf"
     },
     {
@@ -12416,12 +12200,20 @@
                         "category": "Paintwork / สีตัวถังและวัสดุภายใน",
                         "details": [
                             {
-                                "topic": "BMW Individual leather Merino Amarone",
-                                "value": "Mineral White Metallic, Black Sapphire Metallic"
+                                "topic": "Mineral White Metallic",
+                                "value": "BMW Individual leather Merino Amarone"
                             },
                             {
-                                "topic": "BMW Individual leather Merino Black",
-                                "value": "Dravit Grey Metallic, Brooklyn Grey Metallic"
+                                "topic": "Black Sapphire Metallic",
+                                "value": "BMW Individual leather Merino Amarone"
+                            },
+                            {
+                                "topic": "Dravit Grey Metallic",
+                                "value": "BMW Individual leather Merino Black"
+                            },
+                            {
+                                "topic": "Brooklyn Grey Metallic",
+                                "value": "BMW Individual leather Merino Black"
                             }
                         ]
                     },
@@ -12429,15 +12221,11 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "7-20250130-02"
-                            },
-                            {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "27 กุมภาพันธ์ 2568"
                             },
                             {
-                                "topic": "รหัสรุ่น",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z6O, Z7L)"
                             }
                         ]
@@ -12445,22 +12233,7 @@
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "M760e xDrive",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "M760e xDrive",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "7-20250130-02_TH.pdf.asset.1745407582934.pdf"
     },
     {
@@ -12829,34 +12602,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "M2-20250910-01"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "25 กันยายน 2568"
                             },
                             {
-                                "topic": "พิมพ์วันที่",
-                                "value": "25 กันยายน 2568 | (ZJW, ZJX, ZKJ)"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(ZJW, ZJX, ZKJ)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "BMW M2 CS",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "BMW M2 CS",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "M2-CS-20250910-01_TH.pdf.asset.1758261830128.pdf"
     },
     {
@@ -13180,15 +12938,11 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "M3-20230815-01"
-                            },
-                            {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "29 พฤษภาคม 2566"
                             },
                             {
-                                "topic": "รหัสรุ่นย่อยท้ายเอกสาร",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(ZGQ, ZIT, ZIW, ZIX, ZIY, ZJL, ZJN, ZJ0, ZJ1)"
                             }
                         ]
@@ -13196,22 +12950,7 @@
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "M3 CS",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "M3 CS",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "M3-20230815-01_TH.pdf.asset.1724906649623.pdf"
     },
     {
@@ -13547,15 +13286,11 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "M3-20250312-02"
-                            },
-                            {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "24 มีนาคม 2568"
                             },
                             {
-                                "topic": "รหัสอ้างอิงท้ายเอกสาร",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z0R, Z0S, Z6V, Z7S, Z9C)"
                             }
                         ]
@@ -13563,22 +13298,7 @@
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "M3 Competition M xDrive Touring",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "M3 Competition M xDrive Touring",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "M3-20250312-02_TH_Touring.pdf.asset.1745407583409.pdf"
     },
     {
@@ -13946,34 +13666,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "25 กันยายน 2568"
                             },
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "M3-20250818-01"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(ZJV)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "M3 CS Touring",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "M3 CS Touring",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "M3-20250818-01_TH.pdf.asset.1758516215456.pdf"
     },
     {
@@ -14300,34 +14005,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "M4-20230410-01"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "11 เมษายน 2566"
                             },
                             {
-                                "topic": "วันที่พิมพ์",
-                                "value": "11 เมษายน 2566"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "-"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "M4 Competition M xDrive Coupé",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "M4 Competition M xDrive Coupé",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "M4-20230410-01_TH.pdf.asset.1741838082338.pdf"
     },
     {
@@ -14675,15 +14365,11 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "M4.-20241113-01"
-                            },
-                            {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "21 พฤศจิกายน 2567"
                             },
                             {
-                                "topic": "รหัสรุ่นผลิต",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z0U, Z6Q, Z6R)"
                             }
                         ]
@@ -14691,22 +14377,7 @@
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "M4 CS",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "M4 CS",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "M4-20241113-01_TH.pdf.asset.1732168871735.pdf"
     },
     {
@@ -15023,38 +14694,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "M4-20250312-01"
-                            },
-                            {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "24 มีนาคม 2568"
                             },
                             {
-                                "topic": "รหัสรุ่น",
-                                "value": "Z0L, Z6S, Z6W, Z7P"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(Z0L, Z6S, Z6W, Z7P)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "M4-20250312-01_TH.pdf.asset.1745407583372.pdf"
     },
     {
@@ -15401,34 +15053,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "M5-20250130-05"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "30 มกราคม 2568"
                             },
                             {
-                                "topic": "พิมพ์วันที่",
-                                "value": "30 มกราคม 2568 | (Z6N, Z8P, Z9N)"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(Z6N, Z8P, Z9N)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "BMW M5",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "BMW M5",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "M5-20250130-05_TH.pdf.asset.1745407582783.pdf"
     },
     {
@@ -15528,7 +15165,7 @@
                             },
                             {
                                 "topic": "ขนาดยาง",
-                                "value": "ล้อหน้า : 10.5J × 20 / ยาง 285/40 ZR20 | ล้อหลัง : 11J × 21 / ยาง 295/35 ZR20"
+                                "value": "ล้อหน้า : 10.5J × 20 / ยาง 285/40 ZR20 | ล้อหลัง : 11J × 21 / ยาง 295/35 ZR21"
                             }
                         ]
                     },
@@ -15797,15 +15434,11 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "M5-20260417-01"
-                            },
-                            {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "18 กุมภาพันธ์ 2568"
                             },
                             {
-                                "topic": "รหัสรุ่นย่อย",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z9D, Z9E, ZJZ)"
                             }
                         ]
@@ -15813,22 +15446,7 @@
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "M5 Touring",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "M5 Touring",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "M5-20260417-01_TH.pdf.asset.1778752587556.pdf"
     },
     {
@@ -16136,34 +15754,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "X1-20260417-01"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "3 กรกฎาคม 2568"
                             },
                             {
-                                "topic": "วันที่พิมพ์",
-                                "value": "3 กรกฎาคม 2568"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(Z9P)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "X1 sDrive20i M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "X1 sDrive20i M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "X1-20260417-01_TH.pdf.asset.1778752587262.pdf"
     },
     {
@@ -16511,11 +16114,7 @@
                                 "value": "15 มกราคม 2568"
                             },
                             {
-                                "topic": "รหัสอ้างอิง",
-                                "value": "X4-20240418-01"
-                            },
-                            {
-                                "topic": "รหัสแพ็คเกจ",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(ZCT, Z2C, Z2D, ZEX, ZFS, ZIK, Z3Y, Z5D, Z8T)"
                             }
                         ]
@@ -16523,15 +16122,7 @@
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "X4-20240418-01_TH.pdf.asset.1758627513274.pdf"
     },
     {
@@ -16906,12 +16497,20 @@
                         "category": "Paintwork / สีตัวถังและวัสดุภายใน",
                         "details": [
                             {
-                                "topic": "BMW Individual extended leather trim Merino - Black | Black",
-                                "value": "Brooklyn Grey Metallic"
+                                "topic": "Brooklyn Grey Metallic",
+                                "value": "BMW Individual extended leather trim Merino - Black | Black"
                             },
                             {
-                                "topic": "BMW Individual extended leather trim Merino - Coffee | Black",
-                                "value": "Mineral White Metallic, Black Sapphire Metallic, Manhattan Metallic"
+                                "topic": "Mineral White Metallic",
+                                "value": "BMW Individual extended leather trim Merino - Coffee | Black"
+                            },
+                            {
+                                "topic": "Black Sapphire Metallic",
+                                "value": "BMW Individual extended leather trim Merino - Coffee | Black"
+                            },
+                            {
+                                "topic": "Manhattan Metallic",
+                                "value": "BMW Individual extended leather trim Merino - Coffee | Black"
                             }
                         ]
                     },
@@ -16919,34 +16518,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "1 กันยายน 2566"
                             },
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "X6-20260223-01"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(Z9V)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "X6 xDrive40i M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "X6 xDrive40i M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "X6-20260223-01_TH.pdf.asset.1778752585977.pdf"
     },
     {
@@ -17365,8 +16949,16 @@
                         "category": "Paintwork / สีตัวถังและวัสดุภายใน",
                         "details": [
                             {
-                                "topic": "BMW Individual extended leather trim Merino (Tartufo | Black)",
-                                "value": "Black Sapphire Metallic, Mineral White Metalic, Brooklyn Grey Metallic"
+                                "topic": "Black Sapphire Metallic",
+                                "value": "BMW Individual extended leather trim Merino (Tartufo | Black)"
+                            },
+                            {
+                                "topic": "Mineral White Metalic",
+                                "value": "BMW Individual extended leather trim Merino (Tartufo | Black)"
+                            },
+                            {
+                                "topic": "Brooklyn Grey Metallic",
+                                "value": "BMW Individual extended leather trim Merino (Tartufo | Black)"
                             }
                         ]
                     },
@@ -17374,34 +16966,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "X7-20251126-01"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "10 กรกฎาคม 2567"
                             },
                             {
-                                "topic": "วันที่พิมพ์",
-                                "value": "10 กรกฎาคม 2567 | (Z3L, Z5A)"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(Z3L, Z5A)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "X7 xDrive40d M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "X7 xDrive40d M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "X7-20251126-01_TH.pdf.asset.1778752587434.pdf"
     },
     {
@@ -17736,15 +17313,11 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "XM-20250130-02"
-                            },
-                            {
-                                "topic": "พิมพ์วันที่",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "27 กุมภาพันธ์ 2568"
                             },
                             {
-                                "topic": "รหัสรุ่นย่อย",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "((ZFX, Z3P, Z4F), (ZIH, Z3Q, Z4G))"
                             }
                         ]
@@ -17752,22 +17325,7 @@
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "XM",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "XM",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "XM-20250130-02_TH_WLTP.pdf.asset.1740723963122.pdf"
     },
     {
@@ -17867,7 +17425,7 @@
                             },
                             {
                                 "topic": "ขนาดยาง",
-                                "value": "ล้อหน้า: 10 J x 22 / tyres 275/40 R 22, ล้อหลัง: 11 J x 22 / tyres 315/35 R 22"
+                                "value": "ล้อหน้า: 10 J x 22 / tyres 275/40 R 22, ล้อหลัง: 11 J x 21 / tyres 315/35 R 21"
                             }
                         ]
                     },
@@ -18087,15 +17645,11 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "พิมพ์วันที่",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "27 กุมภาพันธ์ 2568"
                             },
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "XM-20250130-03"
-                            },
-                            {
-                                "topic": "โค้ดอ้างอิง",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(ZJD, Z4H)"
                             }
                         ]
@@ -18103,22 +17657,7 @@
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "XM Label Red",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "XM Label Red",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "XM-20250130-03_TH_WLTP.pdf.asset.1740723896658.pdf"
     },
     {
@@ -18557,38 +18096,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "i5-20260417-01"
-                            },
-                            {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "26 มกราคม 2569"
                             },
                             {
-                                "topic": "รหัสอ้างอิงเพิ่มเติม",
-                                "value": "ZKK, ZLC"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(ZKK, ZLC)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "i5 eDrive40 M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "i5 eDrive40 M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "i5-20260417-01_TH.pdf.asset.1778752587155.pdf"
     },
     {
@@ -19044,6 +18564,19 @@
                                 "value": "BMW Individual leather Merino Black, BMW Individual leather Merino Mocha, BMW Individual leather Merino Amarone"
                             }
                         ]
+                    },
+                    {
+                        "category": "ข้อมูลเอกสารอ้างอิง",
+                        "details": [
+                            {
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "1 พฤษภาคม 2567"
+                            },
+                            {
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "((Z6A, Z0M))"
+                            }
+                        ]
                     }
                 ]
             },
@@ -19497,26 +19030,24 @@
                                 "value": "BMW Individual leather Merino Black, BMW Individual leather Merino Mocha, BMW Individual leather Merino Amarone"
                             }
                         ]
+                    },
+                    {
+                        "category": "ข้อมูลเอกสารอ้างอิง",
+                        "details": [
+                            {
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "1 พฤษภาคม 2567"
+                            },
+                            {
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "((ZIR, Z4D))"
+                            }
+                        ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "i7 eDrive50 M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "หมวดหมู่ข้อมูลเอกสารอ้างอิง",
-                "type": "Missing Footer References",
-                "reason": "ไม่พบหมวดหมู่ข้อมูลเอกสารอ้างอิงในผลลัพธ์การสกัด"
-            },
-            {
-                "model_name": "i7 xDrive60 M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "หมวดหมู่ข้อมูลเอกสารอ้างอิง",
-                "type": "Missing Footer References",
-                "reason": "ไม่พบหมวดหมู่ข้อมูลเอกสารอ้างอิงในผลลัพธ์การสกัด"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "i7-20240410-01_TH.pdf"
     },
     {
@@ -19963,15 +19494,11 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "พิมพ์วันที่",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "28 มกราคม 2568"
                             },
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "i7-20240710-01"
-                            },
-                            {
-                                "topic": "เวอร์ชัน",
+                                "topic": "รหัสแพ็กเกจ",
                                 "value": "(Z4A)"
                             }
                         ]
@@ -19979,22 +19506,7 @@
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "i7 xDrive60 M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "i7 xDrive60 M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "i7-20240710-01_TH.pdf.asset.1758628809179.pdf"
     },
     {
@@ -20465,34 +19977,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "iX-20251030-01"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "28 พฤศจิกายน 2568"
                             },
                             {
-                                "topic": "พิมพ์วันที่",
-                                "value": "28 พฤศจิกายน 2568"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(ZJU)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "iX xDrive45 M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "iX xDrive45 M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "iX-20251030-01_TH_REV-Color.pdf.asset.1763711932423.pdf"
     },
     {
@@ -20873,34 +20370,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "iX1 L-20251110-01"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "3 กรกฎาคม 2568"
                             },
                             {
-                                "topic": "วันที่พิมพ์",
-                                "value": "3 กรกฎาคม 2568 | (ZK8)"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(ZK8)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "iX1 eDrive20L M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "iX1 eDrive20L M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "iX1-L-20251110-01_TH.pdf.asset.1763618806206.pdf"
     },
     {
@@ -21271,38 +20753,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "iX2-20240710-01"
-                            },
-                            {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "15 มกราคม 2568"
                             },
                             {
-                                "topic": "รหัสรุ่นการผลิต",
-                                "value": "Z2O, Z0N, Z8C, Z8D"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "(Z2O, Z0N, Z8C, Z8D)"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "iX2 xDrive30 M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "iX2 xDrive30 M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "iX2-20240710-01_TH-(1).pdf.asset.1738060128032.pdf"
     },
     {
@@ -21778,38 +21241,19 @@
                         "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "รหัสเอกสาร",
-                                "value": "iX3-20260213-02"
-                            },
-                            {
-                                "topic": "วันที่พิมพ์",
+                                "topic": "วันที่พิมพ์เอกสาร",
                                 "value": "19 มีนาคม 2569"
                             },
                             {
-                                "topic": "รหัสอ้างอิง",
-                                "value": "ZKS"
+                                "topic": "รหัสแพ็กเกจ",
+                                "value": "-"
                             }
                         ]
                     }
                 ]
             }
         ],
-        "low_confidence_flags": [
-            {
-                "model_name": "iX3 50 xDrive M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "วันที่พิมพ์เอกสาร",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: วันที่พิมพ์เอกสาร"
-            },
-            {
-                "model_name": "iX3 50 xDrive M Sport",
-                "category": "ข้อมูลเอกสารอ้างอิง",
-                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                "type": "Missing Footer References",
-                "reason": "ขาดหัวข้ออ้างอิงที่จำเป็น: รหัสแพ็กเกจ (Local Pack)"
-            }
-        ],
+        "low_confidence_flags": [],
         "pdf_source": "iX3-20260213-02_TH_REV.pdf.asset.1778752586444.pdf"
     }
 ]

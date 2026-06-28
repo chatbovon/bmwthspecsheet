@@ -8,6 +8,9 @@ on:
 jobs:
   update-specs:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
 
     steps:
     - name: Checkout repository
@@ -28,7 +31,7 @@ jobs:
       run: |
         python pdf_scraper.py
 
-    - name: Run Extractor (Process new PDFs with Gemini)
+    - name: Run Extractor & Compare (Process PDFs with Gemini)
       env:
         GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}
         GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
@@ -36,6 +39,19 @@ jobs:
       run: |
         python -u batch_extractor.py --lang th
         python -u batch_extractor.py --lang en
+        python -u scratch/compare_th_en_db.py
+
+    - name: Generate Run Report
+      run: |
+        python scratch/generate_report.py
+
+    - name: Create GitHub Issue (Email Notification)
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        if [ -f report.md ]; then
+          gh issue create --title "BMW Auto-Update Report - $(date +'%Y-%m-%d')" --body-file report.md
+        fi
 
     - name: Commit and Push changes
       run: |

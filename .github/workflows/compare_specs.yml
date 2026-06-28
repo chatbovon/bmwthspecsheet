@@ -27,4 +27,4 @@ jobs:
         GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
         GEMINI_API_KEY_3: ${{ secrets.GEMINI_API_KEY_3 }}
       run: |
-        python -u scratch/compare_specs.py
+        python -u scratch/compare_th_en_db.py

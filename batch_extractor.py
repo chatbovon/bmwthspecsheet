@@ -26,7 +26,7 @@ override_model = os.environ.get("GEMINI_MODEL_NAME")
 if override_model:
     MODEL_CHAIN = [override_model]
 else:
-    MODEL_CHAIN = ["gemini-3.5-flash", "gemini-2.5-flash", "models/gemini-3-flash-preview"]
+    MODEL_CHAIN = ["gemini-3.5-flash", "models/gemini-3-flash-preview", "gemini-2.5-flash"]
 
 THREE_MODEL_FILES = {
     "i5-20240314-01_TH_edit.pdf",
@@ -97,9 +97,7 @@ PROMPT = """
    - ระบุหัวข้อคอลัมน์ของตารางซึ่งก็คือวัสดุหุ้มเบาะ/สีเบาะภายใน (เช่น Black, Espresso Brown, Copper Brown/Atlas Grey)
    - สำหรับแต่ละแถว (สีตัวถัง/Paintwork):
      1. ไล่ดูทีละช่องในแนวนอนเพื่อหาเครื่องหมายสี่เหลี่ยมสีดำ (■)
-     2. ตรวจสอบแนวตั้ง (คอลัมน์) ของเครื่องหมายนั้นว่าตรงกับวัสดุหุ้มเบาะ/สีเบาะชื่ออะไร
-     3. นำชื่อสีเบาะนั้นมาระบุในช่อง value ให้ถูกต้องตรงรุ่น
-     4. หากในแถวเดียวกันมีสัญลักษณ์ (■) หลายช่อง (จับคู่ได้หลายสี) ให้นำชื่อสีเบาะทั้งหมดมาเขียนรวมกันโดยคั่นด้วยเครื่องหมายลูกน้ำ (,) เช่น "Black, Mocha, Amarone"
+     2. ตร�    - ดึงรหัส local pack ที่อยู่ในวงเล็บมาเก็บแยกตามรุ่นย่อย โดยใช้กฎการเรียงลำดับจากซ้ายไปขวา (Sequential mapping from left to right) ให้ตรงกับคอลัมน์ของรุ่นย่อยใน specsheet เช่น วงเล็บแรกสุด `(Z7J, Z8G)` จะเป็นของรุ่นย่อยแรกสุดในตาราง, วงเล็บที่สอง `(Z7G, Z7U)` จะเป็นของรุ่นย่อยที่สอง และวงเล็บที่สาม `(Z7H, Z8H)` จะเป็นของรุ่นย่อยที่สาม ให้ใส่ลงในหัวข้อ `"รหัสแพ็กเกจ"` (รวมวงเล็บ) ให้ตรงกับรุ่นย่อยนั้นๆ หากรุ่นย่อยใดไม่มีรหัส local pack ให้ใส่ "-"(■) หลายช่อง (จับคู่ได้หลายสี) ให้นำชื่อสีเบาะทั้งหมดมาเขียนรวมกันโดยคั่นด้วยเครื่องหมายลูกน้ำ (,) เช่น "Black, Mocha, Amarone"
      5. หากแถวไหนไม่มีสัญลักษณ์ (■) ปรากฏอยู่เลย ให้ระบุเป็น "-" ห้ามตอบแค่คำว่า "มี" หรือข้ามแถวนั้นเด็ดขาด
    - **กรณีมีตารางหลายรุ่นย่อยซ้อนกันในแนวตั้ง (เช่น BMW 5 Series):**
      * ต้องอ่านและดึงข้อมูลของแต่ละตารางแยกกันตามลำดับจากบนลงล่างอย่างเข้มงวด
@@ -320,7 +318,7 @@ def verify_extracted_data(data, lang="th"):
         else:
             details = ref_cat.get("details", [])
             topics = {d.get("topic", "") for d in details}
-            required_topics = ["วันที่พิมพ์เอกสาร", "รหัสแพ็กเกจ (Local Pack)"]
+            required_topics = ["วันที่พิมพ์เอกสาร", "รหัสแพ็กเกจ"]
             missing_topics = [t for t in required_topics if t not in topics]
             if missing_topics:
                 if "low_confidence_flags" not in data:
@@ -349,21 +347,55 @@ def find_matching_english_pdf(th_filename):
                     return os.path.join(folder, f)
     return None
 
+def find_matching_thai_pdf(en_filename):
+    if "_EN" not in en_filename:
+        return None
+    prefix = en_filename.split("_EN")[0] + "_TH"
+    th_folders = ["bmw_brochures_auto", "bmw_brochures_custom"]
+    for folder in th_folders:
+        if os.path.exists(folder):
+            for f in os.listdir(folder):
+                if f.startswith(prefix) and f.lower().endswith(".pdf"):
+                    return os.path.join(folder, f)
+    return None
+
 def extract_pdf_with_retry(pdf_path, en_pdf_path=None, lang="th", max_retries=3):
     filename = os.path.basename(pdf_path)
     
     # Select prompt based on language and availability of English PDF for cross-validation
+        # Load Thai JSON database for English cross-checking
+    th_json_data = None
     if lang == "en":
-        prompt = PROMPT_EN
+        th_db_path = "bmw_master_specs.json"
+        if os.path.exists(th_db_path):
+            try:
+                import json
+                with open(th_db_path, "r", encoding="utf-8") as f:
+                    th_db = json.load(f)
+                prefix = filename.split("_EN")[0]
+                th_entry = next((e for e in th_db if e.get("pdf_source", "").split("_TH")[0] == prefix), None)
+                if th_entry:
+                    th_json_data = th_entry
+            except Exception as e:
+                print(f"   [WARNING] Failed to load matching Thai JSON data: {e}")
+
+    # Select prompt based on language and availability of other PDF
+    if lang == "en":
+        if th_json_data:
+            prompt = PROMPT_EN + f"\n\nHere is the already-extracted Thai JSON data for this model. Use this to cross-check options, values, and details. If you find any discrepancies (e.g. options enabled in the Thai JSON but not in the English PDF, or vice-versa), you MUST write a detail entry in the 'low_confidence_flags' list of the output JSON:\n\n{json.dumps(th_json_data, ensure_ascii=False, indent=2)}"
+            print(f"[VALIDATE] Found matching Thai JSON data. Appended to prompt context for Triple-Checking.")
+        else:
+            prompt = PROMPT_EN
+            print(f"[VALIDATE] No matching Thai JSON data found.")
     else:
         if en_pdf_path:
             from prompt_validation_th import PROMPT_DUAL_VALIDATED
             prompt = PROMPT_DUAL_VALIDATED
-            print(f"[VALIDATE] Found matching English PDF: {os.path.basename(en_pdf_path)}. Using Dual-PDF cross-lingual validation.")
+            print(f"[VALIDATE] Found matching PDF: {os.path.basename(en_pdf_path)}. Using Dual-PDF cross-lingual validation.")
         else:
             from prompt_validation_th import PROMPT_SINGLE_VALIDATED
             prompt = PROMPT_SINGLE_VALIDATED
-            print(f"[VALIDATE] No matching English PDF found. Using Single-PDF logical validation.")
+            print(f"[VALIDATE] No matching PDF found. Using Single-PDF logical validation.")
             
     # Filter out models that are already known to be exhausted globally in this run
     active_models = [m for m in MODEL_CHAIN if m not in EXHAUSTED_MODELS]
@@ -388,16 +420,17 @@ def extract_pdf_with_retry(pdf_path, en_pdf_path=None, lang="th", max_retries=3)
                 client = genai.Client(api_key=current_key, http_options={'timeout': 300000})
                 print(f"[EXTRACT] Trying model: {model_name} with Key #{key_manager.current_idx + 1}/{num_keys} for {filename}...")
                 
-                print(f"[UPLOAD] Uploading Thai PDF: {filename} ...")
+                print(f"[UPLOAD] Uploading main PDF: {filename} ...")
                 thai_doc = client.files.upload(file=pdf_path)
-                print("   -> Thai PDF upload success!")
+                print("   -> Main PDF upload success!")
                 
                 contents = [thai_doc]
                 
-                if lang == "th" and en_pdf_path:
-                    print(f"[UPLOAD] Uploading English PDF: {os.path.basename(en_pdf_path)} ...")
+                if en_pdf_path:
+                    other_filename = os.path.basename(en_pdf_path)
+                    print(f"[UPLOAD] Uploading secondary PDF for validation: {other_filename} ...")
                     english_doc = client.files.upload(file=en_pdf_path)
-                    print("   -> English PDF upload success!")
+                    print("   -> Secondary PDF upload success!")
                     contents.append(english_doc)
                 
                 contents.append(prompt)
@@ -484,6 +517,7 @@ def extract_pdf_with_retry(pdf_path, en_pdf_path=None, lang="th", max_retries=3)
     return None
 
 def run_batch_extraction(lang="th", target_file=None):
+
     if lang == "en":
         auto_folder = "bmw_brochures_auto_en"
         custom_folder = "bmw_brochures_custom_en"
@@ -570,10 +604,12 @@ def run_batch_extraction(lang="th", target_file=None):
         pdf_path = os.path.join(folder, filename)
         print(f"\n--- [{i}/{len(pdf_entries)}] Starting: {filename} (from '{folder}') ---")
         
-        # Find matching English PDF
+        # Find matching PDF
         en_pdf_path = None
         if lang == "th":
             en_pdf_path = find_matching_english_pdf(filename)
+        elif lang == "en":
+            en_pdf_path = find_matching_thai_pdf(filename)
             
         result = extract_pdf_with_retry(pdf_path, en_pdf_path=en_pdf_path, lang=lang)
         if result:
@@ -600,6 +636,16 @@ def run_batch_extraction(lang="th", target_file=None):
             
     print(f"\n[SUCCESS] [{lang.upper()}] Master specs successfully saved to '{output_file}'!")
     print(f"[SUMMARY] Successfully extracted {success_count}/{len(pdf_entries)} files")
+    
+    # Run the cross-database validation comparison after English batch extraction finishes
+    if lang == "en":
+        print("\n[BATCH] Running cross-database validation...")
+        try:
+            import subprocess
+            import sys
+            subprocess.run([sys.executable, "scratch/compare_th_en_db.py"], check=True)
+        except Exception as e:
+            print(f"[ERROR] Cross-database validation failed: {e}")
 
 if __name__ == "__main__":
     import argparse
