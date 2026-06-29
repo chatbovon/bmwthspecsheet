@@ -186,6 +186,12 @@ def main():
         else:
             en_entry["low_confidence_flags"] = []
 
+        # Clear existing Cross-DB Discrepancy flags in the Thai entry
+        if "low_confidence_flags" in th_entry:
+            th_entry["low_confidence_flags"] = [f for f in th_entry["low_confidence_flags"] if f.get("type") != "Cross-DB Discrepancy"]
+        else:
+            th_entry["low_confidence_flags"] = []
+
         for en_model in en_entry.get("models", []):
             model_name = en_model.get("model_name")
             norm_name = normalize_model_name(model_name)
@@ -230,13 +236,23 @@ def main():
                             if not is_paintwork_value_similar(val_th, val_en):
                                 reason = f"Paintwork color '{topic_en}' upholstery mismatch: Thai has '{val_th}', English has '{val_en}'"
                                 print(f"    [MISMATCH] {model_name} / Paintwork - {reason}")
-                                en_entry["low_confidence_flags"].append({
+                                flag_data_en = {
                                     "model_name": model_name,
                                     "category": cat_en,
                                     "topic": topic_en,
                                     "type": "Cross-DB Discrepancy",
                                     "reason": reason
-                                })
+                                }
+                                en_entry["low_confidence_flags"].append(flag_data_en)
+                                
+                                flag_data_th = {
+                                    "model_name": th_model.get("model_name", model_name),
+                                    "category": ts.get("category", cat_en),
+                                    "topic": dt.get("topic", topic_en),
+                                    "type": "Cross-DB Discrepancy",
+                                    "reason": reason
+                                }
+                                th_entry["low_confidence_flags"].append(flag_data_th)
                                 discrepancies_count += 1
                 else:
                     if len(details_en) == len(details_th):
@@ -253,13 +269,23 @@ def main():
                             if clean_en != clean_th:
                                 reason = f"Value mismatch for '{topic_th}' / '{topic_en}': Thai has '{val_th}', English has '{val_en}'"
                                 print(f"    [MISMATCH] {model_name} / {cat_en} - {reason}")
-                                en_entry["low_confidence_flags"].append({
+                                flag_data_en = {
                                     "model_name": model_name,
                                     "category": cat_en,
                                     "topic": f"{topic_th} / {topic_en}",
                                     "type": "Cross-DB Discrepancy",
                                     "reason": reason
-                                })
+                                }
+                                en_entry["low_confidence_flags"].append(flag_data_en)
+                                
+                                flag_data_th = {
+                                    "model_name": th_model.get("model_name", model_name),
+                                    "category": ts.get("category", cat_en),
+                                    "topic": topic_th,
+                                    "type": "Cross-DB Discrepancy",
+                                    "reason": reason
+                                }
+                                th_entry["low_confidence_flags"].append(flag_data_th)
                                 discrepancies_count += 1
                     else:
                         th_details_map = {d.get("topic").strip(): d for d in details_th}
@@ -289,18 +315,32 @@ def main():
                                 if clean_en != clean_th:
                                     reason = f"Value mismatch for '{topic_th}' / '{topic_en}': Thai has '{val_th}', English has '{val_en}'"
                                     print(f"    [MISMATCH] {model_name} / {cat_en} - {reason}")
-                                    en_entry["low_confidence_flags"].append({
+                                    flag_data_en = {
                                         "model_name": model_name,
                                         "category": cat_en,
                                         "topic": f"{topic_th} / {topic_en}",
                                         "type": "Cross-DB Discrepancy",
                                         "reason": reason
-                                    })
+                                    }
+                                    en_entry["low_confidence_flags"].append(flag_data_en)
+                                    
+                                    flag_data_th = {
+                                        "model_name": th_model.get("model_name", model_name),
+                                        "category": ts.get("category", cat_en),
+                                        "topic": topic_th,
+                                        "type": "Cross-DB Discrepancy",
+                                        "reason": reason
+                                    }
+                                    th_entry["low_confidence_flags"].append(flag_data_th)
                                     discrepancies_count += 1
 
     # Save English database with the new flags
     with open(db_en_path, "w", encoding="utf-8") as f:
         json.dump(db_en, f, ensure_ascii=False, indent=4)
+
+    # Save Thai database with the new flags
+    with open(db_th_path, "w", encoding="utf-8") as f:
+        json.dump(db_th, f, ensure_ascii=False, indent=4)
 
     print(f"\n[COMPLETE] Comparison complete. Found {discrepancies_count} cross-database discrepancies.")
 

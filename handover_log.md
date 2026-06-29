@@ -1,6 +1,6 @@
 # BMW Dynamic Specsheet — Handover Log
 
-**Last Updated:** 27 June 2026, 22:05 (ICT)  
+**Last Updated:** 29 June 2026, 13:30 (ICT)  
 **Project Root:** `c:\Ddrive\BMW\Web interaction\BMW_Dynamic_Specsheet`  
 **GitHub Repo:** Private (changed from Public during this session)
 
@@ -28,7 +28,17 @@ bmw_brochures_custom/    <- 2 custom i7 PDFs (source)
         |
         v
 batch_extractor.py       <- Main extraction engine
+                            [NEW] Routes dual-PDF pairs through page-by-page extractor
+                            [NEW] scan_model_header_page() — column-to-model mapping
+                            [NEW] build_page_prompt()      — per-page prompt injection
+                            [NEW] merge_page_results()     — JSON deep-union merger
+                            [NEW] extract_pdf_page_by_page() — orchestrator
+                            [NEW] _extract_page_with_retry() — per-page API caller
+page_splitter.py         <- [NEW] PDF splitting utility (requires: pip install pypdf)
+                            split_all_pages(), extract_single_page(), cleanup_temp_pages()
 prompt_validation_th.py  <- Prompt library (TH single + TH/EN dual validated)
+scratch/tmp_pages/th/   <- [NEW] Temp dir for single-page TH PDFs (auto-cleaned)
+scratch/tmp_pages/en/   <- [NEW] Temp dir for single-page EN PDFs (auto-cleaned)
         |
         v
 bmw_master_specs.json    <- Master database (37 entries, 1.28 MB)
@@ -46,7 +56,7 @@ gemini-3.5-flash  ->  gemini-2.5-flash  ->  gemini-3-flash-preview
 **Lite models are NEVER used.**
 
 ### API Key Pooling
-- 4 keys registered: `GEMINI_API_KEY_1` through `GEMINI_API_KEY_4`
+- 3 keys registered: `GEMINI_API_KEY_1` through `GEMINI_API_KEY_3`
 - Automatic rotation on rate limit (RPM -> wait 20s, RPD exhausted -> rotate key)
 - If a model exhausts daily quota across ALL keys -> skip to next model in chain
 
@@ -57,7 +67,7 @@ gemini-3.5-flash  ->  gemini-2.5-flash  ->  gemini-3-flash-preview
 | # | Task | Status |
 |---|---|---|
 | 1 | Extract specs from all 37 PDF brochures | COMPLETE |
-| 2 | API Key Pooling (4 keys, auto-rotation) | COMPLETE |
+| 2 | API Key Pooling (3 keys, auto-rotation) | COMPLETE |
 | 3 | Model chain fallback (no lite models) | COMPLETE |
 | 4 | Paintwork matrix formatting (Exterior -> Seat Leather/Material) | COMPLETE |
 | 5 | Footer References extraction (date + local pack codes) | PARTIAL (see flags) |
@@ -66,6 +76,7 @@ gemini-3.5-flash  ->  gemini-2.5-flash  ->  gemini-3-flash-preview
 | 8 | Hardest files (3 sub-models) processed first | COMPLETE |
 | 9 | Web frontend (index.html) with search & column toggle | COMPLETE |
 | 10 | GitHub repo changed to Private | COMPLETE |
+| 11 | Page-by-Page Dual-PDF extraction (timeout prevention) | **COMPLETE** |
 
 ---
 
@@ -136,7 +147,8 @@ The 4 PDFs missing the entire footer category (most severe):
 | index.html | Web frontend |
 | bmw_master_specs.json | Master spec database (Thai) |
 | bmw_master_specs_en.json | Master spec database (English) |
-| batch_extractor.py | Extraction engine |
+| batch_extractor.py | Extraction engine (now with page-by-page mode) |
+| page_splitter.py | PDF splitting utility (new dependency: pypdf) |
 | prompt_validation_th.py | Prompt engineering library |
 | pdf_scraper.py | PDF utility |
 | .github/workflows/auto_update.yml | GitHub Actions workflow |
@@ -159,6 +171,7 @@ The 4 PDFs missing the entire footer category (most severe):
 | BMW_Web_Deploy - Copy/ | Duplicate copy |
 | __pycache__/ | Python bytecode cache |
 | scratch/ | Dev/debug scripts |
+| scratch/tmp_pages/ | Auto-generated single-page temp PDFs (always cleaned up) |
 | scratch.zip | Archived scratch files |
 | audit_test_debug.log | Temporary log |
 
@@ -192,7 +205,6 @@ python batch_extractor.py --target <filename>
 GEMINI_API_KEY_1=<key1>
 GEMINI_API_KEY_2=<key2>
 GEMINI_API_KEY_3=<key3>
-GEMINI_API_KEY_4=<key4>
 ```
 
 ---
@@ -206,8 +218,27 @@ GEMINI_API_KEY_4=<key4>
 | Save after each file | Prevents data loss if extraction is interrupted mid-batch |
 | Flag instead of fail on missing footer | Advisory issue; halting extraction wastes API quota |
 | Hardest files processed first | 3-sub-model PDFs use most tokens; process while quota is fresh |
-| 4-key pooling | Single key has RPD=20; 4 keys = up to 80 RPD per model |
+| 3-key pooling | Single key has RPD=20; 3 keys = up to 60 RPD per model |
 
 ---
+
+## [Update: 2026-06-29] Architecture Corrections & Gemini 3.1 Flash Lite Testing
+
+**1. Project Environment & Configuration Updates:**
+* โครงสร้างการทำงานปัจจุบันถูกแยกเป็นอิสระผ่าน Git Worktree บนสาขา `implement-page-batch-extraction` เพื่อให้มั่นใจว่าไฟล์หลักจะไม่ถูกกระทบ.
+* ตรวจสอบพบว่าโค้ดใน `batch_extractor.py` มีการตั้งค่าตัวแปรเพื่อรับ API Key เพียง 3 ตัว (`GEMINI_API_KEY_1`, `2`, `3`) ไม่ใช่ 4 ตัวตามที่เคยบันทึกไว้[cite: 2].
+
+**2. Testing Gemini 3.1 Flash Lite & Hallucination Discovery:**
+* มีการทดลองใช้โมเดล `gemini-3.1-flash-lite` ร่วมกับระบบ Page-by-page เพื่อประหยัดโควต้า[cite: 2].
+* ผลการทดสอบกับไฟล์ 3 Series พบว่าโมเดลสกัดข้อมูลโครงสร้างได้ครบถ้วน แต่เกิดการ "มโนข้อมูล" (Hallucination) โดยระบุว่ารุ่น 320d M Sport (ซึ่งเป็นเครื่องยนต์ดีเซล) มีออปชัน "BMW Iconic sounds electric" เป็น "■"[cite: 2].
+* มีการรันทดสอบโหมดภาษาอังกฤษ (EN) เพื่อทำ Cross-validation แต่ระบบไม่สามารถแจ้งเตือนข้อผิดพลาดนี้ได้ (ไม่มี flag)[cite: 2].
+* สาเหตุที่ระบบไม่แจ้งเตือน เป็นเพราะโมเดล Lite สกัดข้อมูลผิดพลาดในจุดเดียวกันทั้งฝั่ง TH และ EN เมื่อนำผลลัพธ์มาเทียบกัน ระบบจึงเข้าใจผิดว่าข้อมูลนั้นถูกต้องแล้ว[cite: 2].
+* ข้อสรุป: โมเดล Lite มีขีดความสามารถไม่เพียงพอสำหรับงานที่ต้องวิเคราะห์ข้อมูลซับซ้อนพร้อมกับการตรวจสอบความถูกต้องข้ามภาษาในบริบทเดียวกัน[cite: 2].
+
+**3. Final Implemented Solutions (Accuracy over API Cost):**
+* **Temperature = 0:** ปรับตั้งค่า `config={"temperature": 0}` ในโค้ดทุกจุด เพื่อลดการสุ่มและบังคับให้ AI อ้างอิงข้อมูลตามไฟล์เอกสารอย่างเคร่งครัด[cite: 2].
+* **Per-Column Extraction:** เปลี่ยนสถาปัตยกรรมจากการสกัดทีละหน้า เป็นการสกัดทีละคอลัมน์ (รุ่นย่อย) แทน เพื่อลดขนาดบริบทข้อมูลและแก้ปัญหาการสลับคอลัมน์[cite: 2].
+* ระบบ Per-Column จะใช้จำนวน API Call เพิ่มขึ้น (เช่น ไฟล์ที่มีรถ 3 รุ่น จะใช้ 13 API Calls) แต่สามารถรองรับได้ด้วยโควต้า 1,500 Requests/วัน จาก API Key ทั้ง 3 ตัว[cite: 2].
+
 
 *End of Handover Log*

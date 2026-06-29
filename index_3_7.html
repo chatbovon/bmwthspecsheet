@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW 3 & 7 Series — Smart Specsheet</title>
+    <meta name="description" content="ตารางเปรียบเทียบสเปครถยนต์ BMW 3 Series และ 7 Series แบบครบถ้วนพร้อมระบบตรวจสอบความถูกต้อง">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg-deep:    #080f1e;
+            --bg-card:    #0f1e35;
+            --bg-surface: #162340;
+            --bg-row:     #0d1a2e;
+            --border:     #1e3558;
+            --border-lit: #2a4a7f;
+            --accent:     #1d7fd4;
+            --accent-glow:#1d7fd480;
+            --accent-lit: #4fa8f0;
+            --text-primary: #e8f1ff;
+            --text-secondary: #7a9cc9;
+            --text-muted:    #445e80;
+            --green:  #22d3a0;
+            --dash:   #2a4060;
+            --flag-resolved:  #166534;
+            --flag-resolved-text: #bbf7d0;
+            --flag-review:   #7c4e00;
+            --flag-review-text: #fde68a;
+            --flag-cosmetic: #1e3a5f;
+            --flag-cosmetic-text: #93c5fd;
+            --series3: #0ea5e9;
+            --series7: #a78bfa;
+        }
+
+        body {
+            font-family: 'Prompt', 'Inter', sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        /* ─── Header ─── */
+        header {
+            background: linear-gradient(135deg, #080f1e 0%, #0a1628 60%, #0f1e35 100%);
+            border-bottom: 1px solid var(--border-lit);
+            padding: 20px 24px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+        .header-inner {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .logo-area { flex-shrink: 0; }
+        .bmw-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .bmw-roundel {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            overflow: hidden;
+            box-shadow: 0 0 16px var(--accent-glow);
+        }
+        .bmw-roundel span:nth-child(1) { background: #fff; }
+        .bmw-roundel span:nth-child(2) { background: var(--accent); }
+        .bmw-roundel span:nth-child(3) { background: var(--accent); }
+        .bmw-roundel span:nth-child(4) { background: #fff; }
+        .brand-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+        }
+        .brand-sub {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .header-controls {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        .lang-toggle {
+            display: flex;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .lang-btn {
+            padding: 7px 16px;
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            background: transparent;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            letter-spacing: 0.05em;
+        }
+        .lang-btn.active {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        /* ─── Series Tabs ─── */
+        .series-tabs {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 16px 24px 0;
+            display: flex;
+            gap: 8px;
+        }
+        .series-tab {
+            padding: 10px 24px;
+            border-radius: 10px 10px 0 0;
+            font-family: 'Prompt', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            transition: all 0.2s;
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            letter-spacing: 0.03em;
+        }
+        .series-tab[data-series="3"].active { border-color: var(--series3); color: var(--series3); background: #0a1c2e; }
+        .series-tab[data-series="7"].active { border-color: var(--series7); color: var(--series7); background: #130d25; }
+        .series-tab:not(.active):hover { color: var(--text-primary); background: var(--bg-surface); }
+
+        /* ─── Main Layout ─── */
+        .main {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 24px 40px;
+        }
+        .panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0 12px 12px 12px;
+            overflow: hidden;
+        }
+
+        /* ─── Toolbar ─── */
+        .toolbar {
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            background: var(--bg-surface);
+        }
+        .search-wrap {
+            flex: 1;
+            min-width: 220px;
+            position: relative;
+        }
+        .search-wrap svg {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px; height: 15px;
+            color: var(--text-muted);
+        }
+        #searchInput {
+            width: 100%;
+            padding: 9px 14px 9px 36px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.88rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        #searchInput:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+        #searchInput::placeholder { color: var(--text-muted); }
+        .model-filters { display: flex; gap: 6px; flex-wrap: wrap; }
+        .filter-chip {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 500;
+            border: 1px solid var(--border-lit);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-chip.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            box-shadow: 0 2px 8px var(--accent-glow);
+        }
+
+        /* ─── Flag legend ─── */
+        .flag-legend {
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+            background: var(--bg-deep);
+        }
+        .legend-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+        .legend-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+        }
+        .legend-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .dot-resolved { background: #22c55e; }
+        .dot-review   { background: #f59e0b; }
+        .dot-cosmetic { background: #60a5fa; }
+
+        /* ─── Table ─── */
+        .table-wrap {
+            overflow: auto;
+            max-height: calc(100vh - 280px);
+        }
+        table { border-collapse: separate; border-spacing: 0; width: 100%; }
+        th, td {
+            padding: 10px 14px;
+            font-size: 0.83rem;
+            border-bottom: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+        }
+        /* Sticky header */
+        thead th {
+            position: sticky; top: 0; z-index: 20;
+            background: #0d1a2e;
+            color: var(--text-primary);
+            font-weight: 600;
+            text-align: center;
+            min-width: 140px;
+            border-bottom: 2px solid var(--border-lit);
+            white-space: nowrap;
+        }
+        thead th:first-child {
+            min-width: 200px;
+            text-align: left;
+            background: #0a1424;
+            border-right: 2px solid var(--accent);
+            z-index: 30;
+        }
+        /* Sticky first column */
+        td:first-child, th:first-child {
+            position: sticky; left: 0;
+        }
+        td:first-child {
+            background: var(--bg-row);
+            font-weight: 500;
+            border-right: 2px solid var(--border-lit);
+            color: var(--text-secondary);
+            min-width: 200px;
+            max-width: 240px;
+        }
+        td:not(:first-child) {
+            text-align: center;
+            background: var(--bg-deep);
+            vertical-align: middle;
+        }
+        /* Section header rows */
+        tr.section-row td {
+            background: var(--bg-surface) !important;
+            color: var(--accent-lit);
+            font-weight: 700;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-bottom: 1px solid var(--border-lit);
+            position: sticky; left: 0; z-index: 10;
+        }
+        tr:hover td { background: #0f2040 !important; }
+        tr.section-row:hover td { background: var(--bg-surface) !important; }
+
+        /* Values */
+        .v-check { color: var(--green); display: inline-flex; align-items: center; }
+        .v-check svg { width: 16px; height: 16px; }
+        .v-dash { color: var(--dash); font-weight: 700; font-size: 1.1em; }
+        .v-text { color: var(--text-primary); font-size: 0.82rem; line-height: 1.4; text-align: left; display: block; }
+
+        /* Flag badges on cells */
+        .cell-flagged { position: relative; }
+        .flag-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-top: 4px;
+            white-space: nowrap;
+            cursor: help;
+        }
+        .flag-badge svg { width: 9px; height: 9px; flex-shrink: 0; }
+        .badge-resolved  { background: var(--flag-resolved);  color: var(--flag-resolved-text); }
+        .badge-review    { background: var(--flag-review);    color: var(--flag-review-text); }
+        .badge-cosmetic  { background: var(--flag-cosmetic);  color: var(--flag-cosmetic-text); }
+
+        /* Hide-column class */
+        .hide-col { display: none !important; }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 640px) {
+            .header-inner { flex-direction: column; align-items: flex-start; }
+            .header-controls { justify-content: flex-start; }
+            .series-tabs { padding: 12px 12px 0; }
+            .main { padding: 0 12px 32px; }
+            .toolbar { padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ─── Header ─── -->
+<header>
+    <div class="header-inner">
+        <div class="logo-area">
+            <div class="bmw-badge">
+                <div class="bmw-roundel">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+                <div>
+                    <div class="brand-title">Smart Specsheet</div>
+                    <div class="brand-sub">BMW 3 &amp; 7 Series · AI-Verified Data</div>
+                </div>
+            </div>
+        </div>
+        <div class="header-controls">
+            <div class="lang-toggle">
+                <button id="btnTh" class="lang-btn active" onclick="setLang('th')">TH</button>
+                <button id="btnEn" class="lang-btn" onclick="setLang('en')">EN</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ─── Series Tabs ─── -->
+<div class="series-tabs">
+    <button class="series-tab active" data-series="3" onclick="selectSeries('3')">BMW 3 Series</button>
+    <button class="series-tab" data-series="7" onclick="selectSeries('7')">BMW 7 Series</button>
+</div>
+
+<!-- ─── Main Panel ─── -->
+<div class="main">
+<div class="panel">
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+        <div class="search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="searchInput" placeholder="ค้นหาสเปก / Search specs..." autocomplete="off">
+        </div>
+        <div class="model-filters" id="modelFilters"></div>
+    </div>
+
+    <!-- Flag legend -->
+    <div class="flag-legend">
+        <span class="legend-label">Flag Legend:</span>
+        <span class="legend-item"><span class="legend-dot dot-resolved"></span> Resolved — ค่าถูกแก้ไขแล้ว</span>
+        <span class="legend-item"><span class="legend-dot dot-review"></span> Needs Review — รอตรวจสอบโบรชัวร์จริง</span>
+        <span class="legend-item"><span class="legend-dot dot-cosmetic"></span> Cosmetic — ต่างเชิงภาษาเท่านั้น</span>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+        <table id="specTable">
+            <thead><tr id="tableHeader"><th id="topicHeader">ข้อมูล / รุ่นรถ</th></tr></thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<script>
+/* ───────────────────────────────────────────────
+   DATA & STATE
+─────────────────────────────────────────────── */
+const FILES = {
+    th: 'bmw_master_specs_corrected.json',
+    en: 'bmw_master_specs_en.json',
+};
+const FALLBACKS = {
+    th: 'bmw_master_specs.json',
+    en: 'bmw_ai_specs_en.json',
+};
+const UI = {
+    th: { topic: 'ข้อมูล / รุ่นรถ', search: 'ค้นหาสเปก... (เช่น เบาะ, ล้อ, เครื่องยนต์)' },
+    en: { topic: 'Specs / Model',    search: 'Search specs... (e.g. seat, wheel, engine)' },
+};
+
+let lang = 'th';
+let allData = [];          // full JSON array (corrected)
+let currentSeriesKey = '3';
+let flagMap = {};          // flagMap[seriesKey][modelName][topicKeyword] = flag
+
+const CHECK_SVG = `<span class="v-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>`;
+const DASH_HTML = `<span class="v-dash">—</span>`;
+const YES_SYMS  = new Set(['■', '▪', '●', 'มี', 'yes', 'standard']);
+
+const BADGE = {
+    'Resolved':     `<span class="flag-badge badge-resolved" title="ค่าถูกแก้ไขจาก AI hallucination โดยใช้ EN database เป็นหลักฐาน"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Resolved</span>`,
+    'Needs Review': `<span class="flag-badge badge-review" title="ค่าในสองภาษาไม่ตรงกัน — รอการตรวจสอบจากโบรชัวร์ต้นฉบับ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Needs Review</span>`,
+    'Cosmetic':     `<span class="flag-badge badge-cosmetic" title="ข้อความต่างกันเชิงการแปล — ข้อมูลจริงตรงกัน"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Cosmetic</span>`,
+};
+
+/* ───────────────────────────────────────────────
+   SERIES FILTER
+─────────────────────────────────────────────── */
+function getSeriesEntries(data, key) {
+    return data.filter(s => (s.series || '').toUpperCase().includes(key + ' SERIES'));
+}
+
+/* ───────────────────────────────────────────────
+   BUILD FLAG MAP
+─────────────────────────────────────────────── */
+function buildFlagMap(seriesEntries) {
+    const map = {};
+    for (const entry of seriesEntries) {
+        for (const flag of (entry.low_confidence_flags || [])) {
+            const mn = flag.model_name || '';
+            const topic = (flag.topic || '').toLowerCase();
+            if (!map[mn]) map[mn] = {};
+            map[mn][topic] = flag;
+        }
+    }
+    return map;
+}
+
+function getFlag(modelName, topicName) {
+    const mn = modelName;
+    const t  = topicName.toLowerCase();
+    if (!flagMap[mn]) return null;
+    // exact match first
+    if (flagMap[mn][t]) return flagMap[mn][t];
+    // substring match
+    for (const key of Object.keys(flagMap[mn])) {
+        if (t.includes(key) || key.includes(t)) return flagMap[mn][key];
+    }
+    return null;
+}
+
+/* ───────────────────────────────────────────────
+   RENDER
+─────────────────────────────────────────────── */
+function formatValue(val) {
+    if (!val || val === 'null' || val.trim() === '-') return DASH_HTML;
+    const v = val.trim();
+    if (YES_SYMS.has(v.toLowerCase())) return CHECK_SVG;
+    return `<span class="v-text">${escapeHtml(val)}</span>`;
+}
+
+function escapeHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function toggleColumn(idx, btn) {
+    btn.classList.toggle('active');
+    document.querySelectorAll('.col-' + idx).forEach(el => el.classList.toggle('hide-col'));
+}
+
+function renderSeries() {
+    const entries = getSeriesEntries(allData, currentSeriesKey);
+    if (!entries.length) {
+        document.getElementById('tableBody').innerHTML = '<tr><td colspan="99" style="text-align:center;padding:40px;color:var(--text-muted)">ไม่พบข้อมูล</td></tr>';
+        return;
+    }
+
+    // Merge all models across entries (e.g. 7 series has 2 PDF files)
+    let allModels = [];
+    for (const entry of entries) {
+        allModels = allModels.concat(entry.models || []);
+    }
+
+    flagMap = buildFlagMap(entries);
+
+    // ─── Build header & filter chips ───
+    const thead = document.getElementById('tableHeader');
+    const filtersDiv = document.getElementById('modelFilters');
+    document.getElementById('topicHeader').innerText = UI[lang].topic;
+    while (thead.cells.length > 1) thead.deleteCell(1);
+    filtersDiv.innerHTML = '';
+
+    allModels.forEach((model, idx) => {
+        // header cell
+        const th = document.createElement('th');
+        th.innerText = model.model_name;
+        th.className = 'col-' + idx;
+        thead.appendChild(th);
+        // filter chip
+        const chip = document.createElement('button');
+        chip.className = 'filter-chip active';
+        chip.textContent = model.model_name;
+        chip.onclick = function() { toggleColumn(idx, this); };
+        filtersDiv.appendChild(chip);
+    });
+
+    // ─── Build category union ───
+    let cats = [];
+    allModels.forEach(m => {
+        (m.specifications || []).forEach(s => {
+            if (s.category && !cats.includes(s.category)) cats.push(s.category);
+        });
+    });
+
+    // Sort categories
+    const catScore = name => {
+        const n = (name || '').toLowerCase();
+        if (n.includes('เครื่องยนต์') || n.includes('engine'))         return 1;
+        if (n.includes('สิ้นเปลือง') || n.includes('fuel'))            return 2;
+        if (n.includes('ล้อ') || n.includes('wheel') || n.includes('tyre')) return 10;
+        if (n.includes('อ้างอิง') || n.includes('reference'))          return 99;
+        if (n.includes('paintwork') || n.includes('สีตัวถัง'))         return 98;
+        return 50;
+    };
+    cats.sort((a, b) => {
+        const d = catScore(a) - catScore(b);
+        return d !== 0 ? d : cats.indexOf(a) - cats.indexOf(b);
+    });
+
+    // ─── Build tbody ───
+    const tbody = document.getElementById('tableBody');
+    tbody.innerHTML = '';
+
+    cats.forEach(catName => {
+        // Gather all topics in this category across models
+        let topics = [];
+        allModels.forEach(m => {
+            const blk = (m.specifications || []).find(s => s.category === catName);
+            if (blk) {
+                (blk.details || []).forEach(d => {
+                    if (d.topic && !topics.includes(d.topic)) topics.push(d.topic);
+                });
+            }
+        });
+        if (!topics.length) return;
+
+        // Section row
+        const trSec = document.createElement('tr');
+        trSec.className = 'section-row';
+        const tdSec = document.createElement('td');
+        tdSec.colSpan = allModels.length + 1;
+        tdSec.innerText = catName;
+        trSec.appendChild(tdSec);
+        tbody.appendChild(trSec);
+
+        // Data rows
+        topics.forEach(topicName => {
+            const tr = document.createElement('tr');
+
+            const tdTopic = document.createElement('td');
+            tdTopic.innerText = topicName;
+            tr.appendChild(tdTopic);
+
+            allModels.forEach((model, idx) => {
+                const td = document.createElement('td');
+                td.className = 'col-' + idx;
+
+                const blk = (model.specifications || []).find(s => s.category === catName);
+                let val = '-';
+                if (blk) {
+                    const d = (blk.details || []).find(d => d.topic === topicName);
+                    if (d) val = d.value;
+                }
+
+                let html = formatValue(val);
+
+                // Check for flag on this (model, topic)
+                const flag = getFlag(model.model_name, topicName);
+                if (flag && flag.type !== 'Cross-DB Discrepancy') {
+                    const badgeType = flag.type;
+                    html += `<div>${BADGE[badgeType] || ''}</div>`;
+                    td.classList.add('cell-flagged');
+                }
+
+                td.innerHTML = html;
+                tr.appendChild(td);
+            });
+
+            tbody.appendChild(tr);
+        });
+    });
+
+    document.getElementById('searchInput').value = '';
+    applySearch('');
+}
+
+/* ───────────────────────────────────────────────
+   SEARCH
+─────────────────────────────────────────────── */
+function fuzzyMatch(text, q) {
+    text = text.toLowerCase(); q = q.toLowerCase().trim();
+    if (!q) return true;
+    for (const term of q.split(/\s+/)) {
+        if (!text.includes(term)) return false;
+    }
+    return true;
+}
+
+function applySearch(q) {
+    let curSection = null, sectionHasRows = false;
+    document.querySelectorAll('#tableBody tr').forEach(row => {
+        if (row.classList.contains('section-row')) {
+            if (curSection) curSection.style.display = sectionHasRows ? '' : 'none';
+            curSection = row; sectionHasRows = false;
+            return;
+        }
+        const match = fuzzyMatch(row.innerText, q);
+        row.style.display = match ? '' : 'none';
+        if (match) sectionHasRows = true;
+    });
+    if (curSection) curSection.style.display = sectionHasRows ? '' : 'none';
+}
+
+document.getElementById('searchInput').addEventListener('input', function() { applySearch(this.value); });
+
+/* ───────────────────────────────────────────────
+   SERIES SELECT
+─────────────────────────────────────────────── */
+function selectSeries(key) {
+    currentSeriesKey = key;
+    document.querySelectorAll('.series-tab').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.series === key);
+    });
+    renderSeries();
+}
+
+/* ───────────────────────────────────────────────
+   LANGUAGE
+─────────────────────────────────────────────── */
+function setLang(l) {
+    if (lang === l) return;
+    lang = l;
+    document.getElementById('btnTh').classList.toggle('active', l === 'th');
+    document.getElementById('btnEn').classList.toggle('active', l === 'en');
+    document.getElementById('searchInput').placeholder = UI[l].search;
+    loadData();
+}
+
+/* ───────────────────────────────────────────────
+   DATA LOADING
+─────────────────────────────────────────────── */
+function loadData() {
+    const primary  = FILES[lang];
+    const fallback = FALLBACKS[lang];
+
+    document.getElementById('tableBody').innerHTML =
+        '<tr><td colspan="99" style="text-align:center;padding:40px;color:var(--text-muted)">กำลังโหลดข้อมูล...</td></tr>';
+
+    fetch(primary)
+        .then(r => { if (!r.ok) throw new Error('not found'); return r.json(); })
+        .then(init)
+        .catch(() => fetch(fallback).then(r => r.json()).then(init));
+}
+
+function init(data) {
+    allData = Array.isArray(data) ? data : [data];
+    renderSeries();
+}
+
+// Boot
+loadData();
+</script>
+</body>
+</html>

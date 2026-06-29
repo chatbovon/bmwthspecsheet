@@ -5,6 +5,8 @@ import sys
 import socket
 from google import genai
 from google.genai import types
+import page_splitter
+import pdf_table_extractor as pte
 
 # Set global socket timeout of 300 seconds to prevent hanging on network drops
 socket.setdefaulttimeout(300)
@@ -26,7 +28,8 @@ override_model = os.environ.get("GEMINI_MODEL_NAME")
 if override_model:
     MODEL_CHAIN = [override_model]
 else:
-    MODEL_CHAIN = ["gemini-3.5-flash", "models/gemini-3-flash-preview", "gemini-2.5-flash"]
+    # [TEMP TEST] Lite model only — worktree experiment (gemini-3.1-flash-lite + page-by-page)
+    MODEL_CHAIN = ["gemini-3.1-flash-lite"]
 
 THREE_MODEL_FILES = {
     "i5-20240314-01_TH_edit.pdf",
@@ -215,6 +218,625 @@ JSON response structure:
     ]
 }
 """
+
+# ==============================================================================
+# PAGE-BY-PAGE DUAL-PDF EXTRACTION  —  Components 2-5
+# ==============================================================================
+
+# --- Component 2a: Lightweight prompt for header scan (page 0 only) -----------
+
+PROMPT_COLUMN_SCAN = """
+You are reading the first page of a BMW brochure specification table.
+Your ONLY task: identify the sub-model names that appear as column headers
+in the specification table, in order from LEFT TO RIGHT.
+
+Return ONLY a JSON array of strings. Example:
+["420i Coupé M Sport", "430i Coupé M Sport", "M440i xDrive"]
+
+Do NOT add any other JSON keys, explanations, or markdown formatting.
+If you cannot identify any column headers, return an empty array: []
+"""
+
+
+# --- Component 2b: scan_model_header_page() -----------------------------------
+
+def scan_model_header_page(client, model_name: str,
+                           th_page_path: str,
+                           en_page_path: str = None) -> list:
+    """
+    Upload only the first-page single-page PDFs and ask Gemini to return the
+    ordered list of sub-model column headers (left to right).
+
+    Args:
+        client:        An initialised genai.Client instance.
+        model_name:    The Gemini model name to use for the scan.
+        th_page_path:  Path to the TH single-page PDF (page 1 of source).
+        en_page_path:  Path to the EN single-page PDF (optional, for context).
+
+    Returns:
+        Ordered list of sub-model name strings, e.g.:
+            ["420i Coupé M Sport", "430i Coupé M Sport", "M440i xDrive"]
+        Returns [] on any error (graceful degradation).
+    """
+    th_doc = None
+    en_doc = None
+    try:
+        print(f"   [COLUMN_SCAN] Scanning column headers from page 1...")
+        contents = []
+
+        th_doc = client.files.upload(file=th_page_path)
+        contents.append(th_doc)
+
+        if en_page_path and os.path.exists(en_page_path):
+            en_doc = client.files.upload(file=en_page_path)
+            contents.append(en_doc)
+
+        contents.append(PROMPT_COLUMN_SCAN)
+
+        response = client.models.generate_content(
+            model=model_name,
+            contents=contents,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+                temperature=0.0
+            )
+        )
+
+        column_order = json.loads(response.text)
+        if isinstance(column_order, list) and all(isinstance(x, str) for x in column_order):
+            print(f"   [COLUMN_SCAN] Detected {len(column_order)} sub-model columns: {column_order}")
+            return column_order
+        else:
+            print(f"   [COLUMN_SCAN] Unexpected response format — skipping column mapping.")
+            return []
+
+    except Exception as e:
+        print(f"   [COLUMN_SCAN WARNING] Could not scan column headers: {e}. Proceeding without mapping context.")
+        return []
+
+    finally:
+        for doc in [th_doc, en_doc]:
+            if doc and client:
+                try:
+                    client.files.delete(name=doc.name)
+                except Exception:
+                    pass
+
+
+# --- Component 4: build_page_prompt() -----------------------------------------
+
+def build_page_prompt(base_prompt: str, column_order: list,
+                      page_idx: int, total_pages: int,
+                      target_column: str = None,
+                      structured_table: str = None) -> str:
+    """
+    Inject page-context, column-mapping hints, and (optionally) a
+    pdfplumber-extracted structured table into the base extraction prompt.
+
+    Args:
+        base_prompt:       The original PROMPT or PROMPT_SINGLE_VALIDATED string.
+        column_order:      Ordered list of sub-model names from scan_model_header_page().
+        page_idx:          Zero-based index of the current page being extracted.
+        total_pages:       Total number of pages in the source PDF.
+        target_column:     If provided, instruct AI to extract ONLY this column.
+        structured_table:  Pre-extracted ASCII table from pdf_table_extractor.
+                           When provided, AI trusts this table for checkbox values
+                           and only needs to infer topic grouping + text values.
+
+    Returns:
+        Augmented prompt string.
+    """
+    column_lines = "\n".join(
+        f'  Column {i + 1} \u2192 "{name}"'
+        for i, name in enumerate(column_order)
+    ) if column_order else "  (Column order could not be determined — infer from this page.)"
+
+    page_context = f"""
+
+[PAGE CONTEXT — DO NOT IGNORE]
+You are extracting from page {page_idx + 1} of {total_pages} of a BMW spec brochure.
+The sub-model columns appear LEFT TO RIGHT in this fixed order:
+{column_lines}
+
+Apply this column order strictly. If column headers are absent or abbreviated on
+this page, use the mapping above — do NOT re-derive column order from partial
+headers visible on this page alone.
+
+IMPORTANT: If a category or topic from this page already exists in a previous
+page extraction, your output for this page will be merged (union). Output ALL
+data you find on THIS page. The merger will deduplicate by topic key.
+"""
+
+    if structured_table:
+        page_context += f"""
+
+[PRE-EXTRACTED CHECKBOX TABLE — HIGH CONFIDENCE]
+The following table was extracted from this page using coordinate-based pixel
+scanning (NOT AI inference). The CHECK/- values are mathematically accurate:
+  CHECK = checkbox ■ is present in that column for that row
+  -     = no checkbox in that column for that row
+
+You MUST use these CHECK/- values as the authoritative source for all ■ symbols.
+Do NOT override them based on visual inspection of the PDF.
+Your task for these rows: assign each topic to the correct category and
+copy the value as-is ("■" for CHECK, "-" for -).
+
+{structured_table}
+
+For rows NOT in this table (e.g. text-value rows like engine displacement,
+paintwork colors, wheel descriptions), extract values from the PDF normally.
+"""
+
+    if target_column:
+        page_context += f"""
+
+[COLUMN FOCUS — STRICT]
+Extract data ONLY for the sub-model column named: "{target_column}"
+Do NOT extract or include any data for other sub-model columns.
+Your "models" array MUST contain EXACTLY ONE entry with model_name="{target_column}".
+"""
+
+    return base_prompt + page_context
+
+
+# --- Component 3: merge_page_results() ----------------------------------------
+
+def merge_page_results(page_results: list) -> dict:
+    """
+    Merge a list of per-page extraction results (each in the standard
+    {series, models:[...]} schema) into a single unified dict.
+
+    Merge strategy:
+    - series        : taken from page 1 result.
+    - models        : union by model_name.
+    - specifications: union by category name.
+    - details       : union by topic key — first occurrence wins, no duplicates.
+    - low_confidence_flags: all flags from all pages are concatenated.
+
+    Args:
+        page_results: List of dicts from per-page extract_pdf_with_retry() calls.
+                      Items may be None (failed pages) — they are skipped.
+
+    Returns:
+        Single merged dict in the standard schema, or None if no valid page
+        results are available.
+    """
+    valid_results = [r for r in page_results if r is not None]
+    if not valid_results:
+        return None
+
+    merged = {"series": valid_results[0].get("series", ""), "models": []}
+
+    # model_name -> {"specs": list, "cat_map": {cat_name: {"details": list, "topic_map": {topic: detail}}}}
+    model_map = {}
+
+    for page_data in valid_results:
+        for model in page_data.get("models", []):
+            name = model.get("model_name", "")
+            if not name:
+                continue
+
+            if name not in model_map:
+                model_map[name] = {"specs": [], "cat_map": {}}
+                merged["models"].append({
+                    "model_name": name,
+                    "specifications": model_map[name]["specs"]
+                })
+
+            for cat in model.get("specifications", []):
+                cat_name = cat.get("category", "")
+                if not cat_name:
+                    continue
+
+                if cat_name not in model_map[name]["cat_map"]:
+                    new_cat = {"category": cat_name, "details": []}
+                    model_map[name]["specs"].append(new_cat)
+                    model_map[name]["cat_map"][cat_name] = {
+                        "ref": new_cat,
+                        "topic_map": {}
+                    }
+
+                cat_entry = model_map[name]["cat_map"][cat_name]
+                cat_ref   = cat_entry["ref"]
+                topic_map = cat_entry["topic_map"]
+
+                for detail in cat.get("details", []):
+                    topic   = detail.get("topic", "")
+                    new_val = detail.get("value", "-")
+                    if not topic:
+                        continue
+                    if topic not in topic_map:
+                        cat_ref["details"].append(detail)
+                        topic_map[topic] = detail
+                    else:
+                        # Last-wins-for-dash: update if existing is "-" and new is not
+                        existing = topic_map[topic]
+                        if existing.get("value", "-") in ("-", "", None) and \
+                           new_val not in ("-", "", None):
+                            existing["value"] = new_val
+
+    # Collect low_confidence_flags
+    all_flags = []
+    for page_data in valid_results:
+        all_flags.extend(page_data.get("low_confidence_flags", []))
+    if all_flags:
+        merged["low_confidence_flags"] = all_flags
+
+    print(f"   [MERGE] Merged {len(valid_results)} page results into "
+          f"{len(merged['models'])} model(s).")
+    return merged
+
+
+# --- Component 3b: assemble_page_from_columns() --------------------------------
+
+def assemble_page_from_columns(column_results: list, column_order: list) -> dict:
+    """
+    Combine N single-model results (one per column call) into a single
+    multi-model page result in the standard {series, models} schema.
+
+    Used by extract_pdf_page_by_page() when per-column mode is active.
+    Columns whose extraction failed (None) are skipped — partial pages are
+    better than a total failure.
+
+    Args:
+        column_results: List of per-column extraction dicts (or None on failure),
+                        in the same order as column_order.
+        column_order:   Ordered list of sub-model column names.
+
+    Returns:
+        Assembled {series, models} dict, or None if every column failed.
+    """
+    paired = list(zip(column_order, column_results))
+    valid_pairs = [(name, res) for name, res in paired if res is not None]
+
+    if not valid_pairs:
+        return None
+
+    series_name = valid_pairs[0][1].get("series", "")
+    assembled = {"series": series_name, "models": []}
+
+    for col_name, result in valid_pairs:
+        models = result.get("models", [])
+        if models:
+            # Each column call returns exactly one model; take the first.
+            assembled["models"].append(models[0])
+        else:
+            print(f"   [ASSEMBLE WARNING] Column '{col_name}': "
+                  f"AI returned no model entry — skipping.")
+
+    return assembled if assembled["models"] else None
+
+
+# --- Component 5: extract_pdf_page_by_page() ----------------------------------
+
+def extract_pdf_page_by_page(pdf_path: str, lang: str = "th") -> dict:
+    """
+    Independent page-by-page extraction orchestrator for BMW brochures.
+    Processes the main PDF page-by-page without sending the other language's PDF.
+
+    Flow:
+        1. Split the PDF into single-page PDFs (scratch/tmp_pages/<lang>/).
+        2. Scan page 1 to determine sub-model column order.
+        3. For each page: call extract_pdf_with_retry() with single-page PDFs
+           and an augmented prompt containing the column-mapping context.
+        4. Merge all per-page results via merge_page_results().
+        5. Verify the merged result.
+        6. Clean up all temp page files.
+        7. Return the merged dict (identical schema to whole-PDF extraction).
+
+    Args:
+        pdf_path:     Path to the brochure PDF to extract.
+        lang:         Extraction language mode ("th" or "en").
+
+    Returns:
+        Merged extraction dict in the standard {series, models} schema,
+        or None if extraction completely failed for all pages.
+    """
+    basename = os.path.basename(pdf_path)
+    TMP_DIR = os.path.join("scratch", "tmp_pages", lang)
+
+    page_paths = []
+
+    try:
+        # ------------------------------------------------------------------
+        # STEP 1: Split the PDF into single-page PDFs
+        # ------------------------------------------------------------------
+        print(f"[PAGE_SPLIT] Splitting PDF: {basename}")
+        page_paths = page_splitter.split_all_pages(pdf_path, TMP_DIR)
+        print(f"   -> {len(page_paths)} page(s) written to '{TMP_DIR}'")
+
+        total_pages = len(page_paths)
+
+        # ------------------------------------------------------------------
+        # STEP 2: Scan page 1 for column-to-model mapping
+        # ------------------------------------------------------------------
+        active_models = [m for m in MODEL_CHAIN if m not in EXHAUSTED_MODELS]
+        scan_model = active_models[0] if active_models else MODEL_CHAIN[0]
+        scan_client = genai.Client(
+            api_key=key_manager.get_current_key(),
+            http_options={'timeout': 60000}  # 60s is plenty for a 1-page scan
+        )
+        column_order = scan_model_header_page(
+            scan_client, scan_model, page_paths[0], None
+        )
+
+        # ------------------------------------------------------------------
+        # STEP 3: Per-page extraction loop
+        # When column_order has >1 sub-model, use per-column mode:
+        #   one dedicated API call per column → smaller context, less drift.
+        # When column_order has <=1 entry (single-model PDF or scan failed),
+        #   use whole-page mode.
+        # ------------------------------------------------------------------
+        use_per_column = len(column_order) > 1
+        if use_per_column:
+            print(f"[PER_COLUMN] {len(column_order)}-model PDF detected — "
+                  f"per-column extraction enabled "
+                  f"({total_pages} pages × {len(column_order)} cols = "
+                  f"{total_pages * len(column_order)} API calls).")
+
+        # ------------------------------------------------------------------
+        # PRE-DETECT pdfplumber columns (once, from best header page)
+        # ------------------------------------------------------------------
+        pte_cols = None
+        try:
+            header_pg = min(1, total_pages - 1)
+            pte_cols = pte.detect_columns(pdf_path, page_idx=header_pg)
+            if not pte_cols:
+                pte_cols = pte.detect_columns(pdf_path, page_idx=0)
+            if pte_cols:
+                print(f"[PTE] Columns detected: {[c.name for c in pte_cols]}")
+            else:
+                print(f"[PTE] Column detection failed — structured table disabled.")
+        except Exception as e:
+            print(f"[PTE WARNING] Column detection error (non-fatal): {e}")
+            pte_cols = None
+
+        page_results = []
+
+        for page_idx in range(total_pages):
+            page_file = page_paths[page_idx]
+
+            print(f"\n[PAGE_EXTRACT] Page {page_idx + 1}/{total_pages}: "
+                  f"{os.path.basename(page_file)}")
+
+            # Select base prompt for this lang mode
+            if lang == "th":
+                from prompt_validation_th import PROMPT_SINGLE_VALIDATED
+                base_prompt = PROMPT_SINGLE_VALIDATED
+            else:
+                base_prompt = PROMPT_EN
+
+            # ------------------------------------------------------------------
+            # Run pdfplumber pixel scan → structured table for this page
+            # ------------------------------------------------------------------
+            structured_table = None
+            if pte_cols:
+                try:
+                    s_text, s_rows = pte.extract_page_structured(pdf_path, page_idx, pte_cols)
+                    if s_text and pte.quality_check(s_rows):
+                        structured_table = s_text
+                        check_count = sum(
+                            1 for r in s_rows
+                            if any(v == '■' for v in r.values.values())
+                        )
+                        print(f"   [PTE] Page {page_idx+1}: {len(s_rows)} rows, "
+                              f"{check_count} CHECK rows — table injected into prompt.")
+                    else:
+                        print(f"   [PTE] Page {page_idx+1}: quality check failed — "
+                              f"using raw PDF only.")
+                except Exception as pte_err:
+                    print(f"   [PTE WARNING] Page {page_idx+1} error (non-fatal): {pte_err}")
+
+            if use_per_column:
+                # ---- Per-column mode: one API call per sub-model column ----
+                column_results = []
+                for col_idx, col_name in enumerate(column_order):
+                    col_label = (f"page {page_idx + 1}/{total_pages}, "
+                                 f"col {col_idx + 1}/{len(column_order)} "
+                                 f'("{col_name}") of {basename}')
+                    print(f"   [COLUMN_EXTRACT] {col_label}")
+
+                    col_prompt = build_page_prompt(
+                        base_prompt, column_order,
+                        page_idx, total_pages,
+                        target_column=col_name,
+                        structured_table=structured_table
+                    )
+                    col_result = _extract_page_with_retry(
+                        th_page_path=page_file,
+                        en_page_path=None,
+                        lang=lang,
+                        override_prompt=col_prompt,
+                        page_label=col_label
+                    )
+                    column_results.append(col_result)
+
+                # Combine column results into a single page result
+                page_result = assemble_page_from_columns(column_results, column_order)
+                ok_count = sum(1 for r in column_results if r is not None)
+                print(f"   [ASSEMBLE] Page {page_idx + 1}/{total_pages}: "
+                      f"assembled {ok_count}/{len(column_order)} column(s).")
+
+            else:
+                # ---- Whole-page mode: one API call for all columns ----------
+                augmented_prompt = build_page_prompt(
+                    base_prompt, column_order, page_idx, total_pages,
+                    structured_table=structured_table
+                )
+                page_result = _extract_page_with_retry(
+                    th_page_path=page_file,
+                    en_page_path=None,
+                    lang=lang,
+                    override_prompt=augmented_prompt,
+                    page_label=f"page {page_idx + 1}/{total_pages} of {basename}"
+                )
+
+            if page_result is not None:
+                page_results.append(page_result)
+                print(f"   [PAGE_EXTRACT] Page {page_idx + 1} OK: "
+                      f"{len(page_result.get('models', []))} model(s) found.")
+            else:
+                print(f"   [PAGE_EXTRACT WARNING] Page {page_idx + 1} failed "
+                      f"(all models/keys exhausted). Skipping this page.")
+
+        # ------------------------------------------------------------------
+        # STEP 4: Merge all page results
+        # ------------------------------------------------------------------
+        print(f"\n[MERGE] Merging {len(page_results)}/{total_pages} successful page result(s)...")
+        merged = merge_page_results(page_results)
+
+        if merged is None:
+            print(f"[FATAL] extract_pdf_page_by_page: all pages failed for {basename}.")
+            return None
+
+        # ------------------------------------------------------------------
+        # STEP 5: Verify merged result
+        # ------------------------------------------------------------------
+        is_valid, validation_msg = verify_extracted_data(merged, lang=lang)
+        if not is_valid:
+            print(f"[ERROR] Merged result failed verification for {basename}: "
+                  f"{validation_msg}")
+            # Return the merged data even if verification fails — the caller
+            # will decide whether to retry. Partial data is better than None.
+            return None
+
+        print(f"[PAGE_EXTRACT] {basename} — page-by-page extraction complete. "
+              f"Series: '{merged['series']}', Models: {len(merged['models'])}")
+        return merged
+
+    finally:
+        # ------------------------------------------------------------------
+        # STEP 6: Always clean up temp page files
+        # ------------------------------------------------------------------
+        page_splitter.cleanup_temp_pages(TMP_DIR)
+
+
+
+def _extract_page_with_retry(th_page_path: str,
+                             en_page_path: str,
+                             lang: str,
+                             override_prompt: str,
+                             page_label: str) -> dict:
+    """
+    Internal helper: call the Gemini API for a single-page PDF pair using a
+    pre-built prompt, with full model-chain and key-rotation retry logic.
+
+    This mirrors extract_pdf_with_retry() but accepts an explicit prompt
+    (already augmented with column context) instead of selecting one internally.
+
+    Args:
+        th_page_path:    Path to the single-page TH PDF.
+        en_page_path:    Path to the single-page EN PDF (may be None).
+        lang:            Language mode for verify_extracted_data().
+        override_prompt: Pre-built prompt string (base + column context).
+        page_label:      Human-readable label for log messages.
+
+    Returns:
+        Extracted dict in the standard schema, or None on complete failure.
+    """
+    active_models = [m for m in MODEL_CHAIN if m not in EXHAUSTED_MODELS]
+    if not active_models:
+        active_models = [MODEL_CHAIN[-1]]
+        print(f"[WARNING] All models exhausted. Forcing retry with: {active_models[0]}")
+
+    for model_name in active_models:
+        num_keys = len(key_manager.keys)
+        all_keys_quota_exhausted = True
+
+        for key_attempt in range(num_keys):
+            current_key = key_manager.get_current_key()
+            client = None
+            th_doc = None
+            en_doc = None
+            try:
+                client = genai.Client(
+                    api_key=current_key,
+                    http_options={'timeout': 120000}  # 2 min — single page is fast
+                )
+                print(f"   [EXTRACT] {page_label} | model={model_name} "
+                      f"key=#{key_manager.current_idx + 1}/{num_keys}")
+
+                th_doc = client.files.upload(file=th_page_path)
+                contents = [th_doc]
+
+                if en_page_path and os.path.exists(en_page_path):
+                    en_doc = client.files.upload(file=en_page_path)
+                    contents.append(en_doc)
+
+                contents.append(override_prompt)
+
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=contents,
+                    config=types.GenerateContentConfig(
+                        response_mime_type="application/json",
+                        temperature=0.0
+                    )
+                )
+
+                data = json.loads(response.text)
+
+                if "series" not in data or "models" not in data:
+                    raise ValueError(
+                        f"AI output missing required keys ('series' or 'models') "
+                        f"for {page_label}"
+                    )
+
+                # Lightweight check — don't require all categories on every page
+                if not data.get("models"):
+                    raise ValueError(f"No models found in page result for {page_label}")
+
+                print(f"      -> OK: {len(data['models'])} model(s) returned.")
+                return data
+
+            except Exception as e:
+                error_msg = str(e)
+                print(f"   [ERROR] {page_label} | model={model_name} "
+                      f"key=#{key_manager.current_idx + 1}: {error_msg}")
+
+                is_rate_limit = any(
+                    term in error_msg.lower()
+                    for term in ["429", "limit", "exhausted", "quota", "503", "unavailable"]
+                )
+                is_daily_limit = False
+                if is_rate_limit:
+                    if any(
+                        term in error_msg.lower()
+                        for term in ["limit: 20", "limit: 0", "daily", "day", "quota exceeded"]
+                    ):
+                        is_daily_limit = True
+
+                if not is_daily_limit:
+                    all_keys_quota_exhausted = False
+
+                key_manager.rotate_key()
+                sleep_time = 20 if is_rate_limit else 3
+                if is_rate_limit:
+                    print(f"      -> [RATE_LIMIT] Waiting {sleep_time}s...")
+                time.sleep(sleep_time)
+
+            finally:
+                # Ensure uploaded files are always deleted even on success
+                for doc in [th_doc, en_doc]:
+                    if doc and client:
+                        try:
+                            client.files.delete(name=doc.name)
+                        except Exception:
+                            pass
+
+        if all_keys_quota_exhausted:
+            print(f"[EXHAUSTED] Model '{model_name}' daily limit hit across all keys.")
+            EXHAUSTED_MODELS.add(model_name)
+        else:
+            print(f"[INFO] All keys tried for model {model_name}. Falling back...")
+
+    print(f"[FATAL] All models and keys failed for {page_label}.")
+    return None
+
+
+# ==============================================================================
+# END OF PAGE-BY-PAGE COMPONENTS
+# ==============================================================================
 
 def verify_extracted_data_en(data):
     if not isinstance(data, dict):
@@ -610,7 +1232,12 @@ def run_batch_extraction(lang="th", target_file=None):
         elif lang == "en":
             en_pdf_path = find_matching_thai_pdf(filename)
             
-        result = extract_pdf_with_retry(pdf_path, en_pdf_path=en_pdf_path, lang=lang)
+        # Route: page-by-page for dual-PDF pairs (TH + EN), whole-PDF for TH-only
+        if en_pdf_path:
+            print(f"[ROUTE] Dual-PDF detected — using independent page-by-page extraction.")
+            result = extract_pdf_page_by_page(pdf_path, lang=lang)
+        else:
+            result = extract_pdf_with_retry(pdf_path, en_pdf_path=en_pdf_path, lang=lang)
         if result:
             result["pdf_source"] = filename  # บันทึกแหล่งที่มาของไฟล์ PDF
             
