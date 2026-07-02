@@ -60,7 +60,9 @@ jobs:
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         
         # Check if there are any PDF changes or JSON changes
-        git add bmw_brochures_auto/*.pdf bmw_brochures_auto_en/*.pdf bmw_master_specs.json bmw_master_specs_en.json bmw_ai_specs.json bmw_ai_specs_en.json
+        git add bmw_master_specs.json bmw_master_specs_en.json
+        git add -f bmw_ai_specs.json bmw_ai_specs_en.json || true
+        git add -f bmw_brochures_auto/*.pdf bmw_brochures_auto_en/*.pdf || true
         if [ -n "$(git status --porcelain)" ]; then
           git commit -m "Auto-update: New brochures and specifications [skip ci]"
           git push
