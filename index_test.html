@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW Smart Specsheet</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap');
+
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            margin: 0;
+            padding: 10px;
+        }
+        .wrapper {
+            max-width: 100%;
+            margin: 0 auto;
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-size: 1.8em;
+            margin: 5px 0;
+            text-align: center;
+            color: #38bdf8;
+        }
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+        .controls {
+            background: #0f172a;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .select-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            background: #1e293b;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+        .select-label {
+            color: #38bdf8;
+            font-size: 0.9em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .series-select {
+            flex: 1;
+            min-width: 0;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #475569;
+            background: #0f172a;
+            color: #fff;
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.95em;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .series-select:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            .select-container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+            .series-select {
+                width: 100%;
+            }
+        }
+        .search-box {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #1e293b;
+            color: #fff;
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+        
+        /* สไตล์ของปุ่ม Filter */
+        .filter-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .tag-btn {
+            background: #334155;
+            color: #cbd5e1;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            cursor: pointer;
+            font-family: 'Prompt', sans-serif;
+            transition: all 0.2s;
+        }
+        .tag-btn.active {
+            background: #0284c7;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* ตาราง */
+        .table-container {
+            overflow: auto;
+            max-height: 75vh;
+            border: 1px solid #334155;
+            border-radius: 8px;
+        }
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+        }
+        th, td {
+            padding: 12px 14px;
+            font-size: 0.85em;
+            border-bottom: 1px solid #334155;
+            border-right: 1px solid #334155;
+        }
+        thead th {
+            position: sticky;
+            top: 0;
+            background-color: #0284c7;
+            color: white;
+            z-index: 10;
+            font-weight: 600;
+            text-align: center;
+            min-width: 150px;
+        }
+        td:first-child, th:first-child {
+            position: sticky;
+            left: 0;
+            background-color: #1e293b;
+            z-index: 5;
+            font-weight: 600;
+            min-width: 160px;
+            max-width: 160px;
+            border-right: 2px solid #38bdf8;
+        }
+        thead th:first-child {
+            z-index: 15;
+            background-color: #0369a1;
+        }
+        td:not(:first-child) {
+            text-align: center;
+            background-color: #1e293b;
+            vertical-align: middle;
+        }
+        tr.section-title td {
+            background-color: #334155 !important;
+            color: #38bdf8;
+            font-weight: 600;
+            position: sticky;
+            left: 0;
+            z-index: 6;
+            text-align: left !important;
+        }
+        tr:hover td { background-color: #24334d !important; }
+        .check-icon { color: #34d399; width: 1.2em; height: 1.2em; display: inline-block; vertical-align: middle; }
+        .dash-icon { color: #64748b; font-weight: bold; }
+        
+        /* คลาสสำหรับซ่อนคอลัมน์ */
+        .hide-col { display: none !important; }
+
+        /* แถบเลือกภาษา */
+        .lang-selector {
+            display: flex;
+            justify-content: flex-end;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+        .lang-btn {
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: #94a3b8;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.85em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .lang-btn:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+        .lang-btn.active {
+            background: #0284c7;
+            border-color: #38bdf8;
+            color: #fff;
+            font-weight: 600;
+        }
+        .archived-toggle-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+            font-size: 0.85em;
+            margin-top: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .archived-toggle-container input {
+            cursor: pointer;
+            accent-color: #0284c7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+        <a href="custom.html" id="navLink" style="color: #38bdf8; text-decoration: none; font-size: 0.9em; font-weight: 600; display: flex; align-items: center; gap: 4px;">📂 ดูสเปกโบรชัวร์รุ่นเก่า (Custom Specsheets)</a>
+        <div class="lang-selector" style="margin-bottom: 0;">
+            <button id="langTh" class="lang-btn active" onclick="setLanguage('th')">TH</button>
+            <button id="langEn" class="lang-btn" onclick="setLanguage('en')">EN</button>
+        </div>
+    </div>
+    
+    <h1 id="seriesTitle">กำลังโหลดข้อมูล...</h1>
+    <div id="seriesSubtitle" class="subtitle">ระบบข้อมูลสเปกพรีเมียม (Auto-Updated)</div>
+
+    <div class="controls">
+        <div class="select-container">
+            <span id="selectLabel" class="select-label">เลือกรุ่น / ซีรีส์:</span>
+            <select id="seriesSelect" class="series-select">
+                <option value="">กำลังโหลดข้อมูล...</option>
+            </select>
+        </div>
+        <input type="text" id="searchInput" class="search-box" placeholder="🔍 พิมพ์เพื่อค้นหาสเปก/ออปชัน... (เช่น เบาะ, ล้อ, ไฟหน้า)">
+        <div class="filter-tags" id="modelFilters"></div>
+    </div>
+
+    <div class="table-container">
+        <table id="specTable">
+            <thead>
+                <tr id="tableHeader">
+                    <th>ข้อมูล / รุ่นรถ</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    const TRANSLATIONS = {
+        th: {
+            title: "BMW Smart Specsheet",
+            subtitle: "ระบบข้อมูลสเปกพรีเมียม (Auto-Updated)",
+            selectLabel: "เลือกรุ่น / ซีรีส์:",
+            searchPlaceholder: "🔍 พิมพ์เพื่อค้นหาสเปก/ออปชัน... (เช่น เบาะ, ล้อ, ไฟหน้า)",
+            tableHeaderTopic: "ข้อมูล / รุ่นรถ",
+            loadingText: "กำลังโหลดข้อมูล...",
+            noDataText: "ไม่มีข้อมูลรุ่นรถ",
+            errorLoading: "ไม่สามารถโหลดข้อมูลสเปกรถยนต์ได้",
+            yesWords: ["มี", "yes", "■", "▪", "●", "□"],
+            seriesPrefix: "รุ่นรถยนต์ #",
+            navLinkLabel: "📂 ดูสเปกรุ่นรถเก่า / Custom"
+        },
+        en: {
+            title: "BMW Smart Specsheet",
+            subtitle: "Premium Specifications Sheet (Auto-Updated)",
+            selectLabel: "Select Series / Model:",
+            searchPlaceholder: "🔍 Type to search specifications/options... (e.g. seat, wheel, headlight)",
+            tableHeaderTopic: "Specifications / Model",
+            loadingText: "Loading data...",
+            noDataText: "No series data available",
+            errorLoading: "Failed to load specification data",
+            yesWords: ["มี", "yes", "■", "▪", "●", "□"],
+            seriesPrefix: "Series #",
+            navLinkLabel: "📂 View Custom / Archived Specsheets"
+        }
+    };
+
+    let currentLang = 'th';
+    let allSeriesData = [];
+
+    // สลับภาษาและโหลดข้อมูลใหม่
+    function setLanguage(lang) {
+        if (currentLang === lang) return;
+        currentLang = lang;
+        
+        // อัปเดตการแสดงผลปุ่มเลือกภาษา
+        document.getElementById('langTh').classList.toggle('active', lang === 'th');
+        document.getElementById('langEn').classList.toggle('active', lang === 'en');
+        
+        // แปลข้อความ UI ต่างๆ ทันที
+        const trans = TRANSLATIONS[lang];
+        document.getElementById('seriesSubtitle').innerText = trans.subtitle;
+        document.getElementById('selectLabel').innerText = trans.selectLabel;
+        document.getElementById('searchInput').placeholder = trans.searchPlaceholder;
+        document.getElementById('navLink').innerText = trans.navLinkLabel;
+        
+        // โหลดข้อมูลตามภาษาใหม่
+        loadSpecsData();
+    }
+
+    // แปลงข้อความและสัญลักษณ์ต่างๆ ให้เป็น Icon อย่างเป็นมาตรฐาน
+    function formatValue(val) {
+        if (!val || val === "null" || val.trim() === "-") return '<span class="dash-icon">-</span>';
+        
+        let textVal = val.trim();
+        // ดักจับทั้งภาษาไทยและอังกฤษตามสัญลักษณ์ที่ระบุใน dictionary
+        if (TRANSLATIONS[currentLang].yesWords.includes(textVal.toLowerCase())) {
+            return '<svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+        }
+        
+        return val; 
+    }
+
+    // ฟังก์ชันซ่อน/แสดงคอลัมน์ (ห้ามแก้ไข logic ในการซ่อนคอลัมน์เดิมเพื่อไม่ให้โค้ดพัง)
+    function toggleColumn(colIndex, btn) {
+        btn.classList.toggle('active');
+        let elements = document.querySelectorAll('.col-' + colIndex);
+        elements.forEach(el => el.classList.toggle('hide-col'));
+    }
+
+    // ฟังก์ชันคำนวณ Fuzzy Match สำหรับการค้นหาภาษาไทย-อังกฤษ
+    function fuzzyMatch(text, query) {
+        text = text.toLowerCase();
+        query = query.toLowerCase().trim();
+        if (!query) return true;
+        
+        const terms = query.split(/\s+/);
+        return terms.every(term => {
+            // direct match
+            if (text.includes(term)) return true;
+            
+            // fuzzy sequence match
+            let textIdx = 0;
+            for (let charIdx = 0; charIdx < term.length; charIdx++) {
+                const char = term[charIdx];
+                textIdx = text.indexOf(char, textIdx);
+                if (textIdx === -1) return false;
+                textIdx++;
+            }
+            return true;
+        });
+    }
+
+    // ฟังก์ชันสำหรับเรนเดอร์ซีรีส์ที่เลือก
+    function renderSeries(seriesIndex) {
+        const data = allSeriesData[seriesIndex];
+        if (!data) return;
+
+        document.getElementById('seriesTitle').innerText = data.series || 'BMW Specsheet';
+        
+        const thead = document.getElementById('tableHeader');
+        const tbody = document.getElementById('tableBody');
+        const filtersDiv = document.getElementById('modelFilters');
+        const models = data.models || [];
+
+        // ล้างข้อมูลตารางและปุ่มฟิลเตอร์ตัวเก่า (เก็บคอลัมน์แรกไว้ และเปลี่ยนชื่อคอลัมน์แรกให้เข้ากับภาษา)
+        const firstTh = thead.cells[0];
+        firstTh.innerText = TRANSLATIONS[currentLang].tableHeaderTopic;
+        
+        while (thead.cells.length > 1) {
+            thead.deleteCell(1);
+        }
+        filtersDiv.innerHTML = '';
+        tbody.innerHTML = '';
+
+        if (models.length === 0) return;
+
+        // 1. สร้างปุ่ม Filter และ หัวตารางแบบ Dynamic (ใช้ class col-X เพื่อคง logic ซ่อน/แสดงเดิม)
+        models.forEach((model, index) => {
+            // สร้างปุ่มฟิลเตอร์
+            let btn = document.createElement('button');
+            btn.className = 'tag-btn active';
+            btn.innerText = model.model_name;
+            btn.onclick = function() { toggleColumn(index, this); };
+            filtersDiv.appendChild(btn);
+
+            // สร้างหัวข้อคอลัมน์ในตาราง
+            let th = document.createElement('th');
+            th.innerText = model.model_name;
+            th.className = 'col-' + index;
+            thead.appendChild(th);
+        });
+
+        // 2. สร้างแถวข้อมูลตามหมวดหมู่ (ดึงข้อมูลหมวดหมู่และหัวข้อแบบ Union ของทุกรุ่นย่อยเพื่อไม่ให้แถวสลับและแสดงครบ)
+        let uniqueCategories = [];
+        models.forEach(model => {
+            (model.specifications || []).forEach(spec => {
+                if (spec.category && !uniqueCategories.includes(spec.category)) {
+                    uniqueCategories.push(spec.category);
+                }
+            });
+        });
+
+        // จัดเรียงหมวดหมู่ตามลำดับที่ต้องการ
+        const getCategoryScore = (catName) => {
+            const name = catName.toLowerCase().trim();
+            if (name.includes("อ้างอิง") || name.includes("reference")) {
+                return 99; // ข้อมูลเอกสารอ้างอิง อยู่ล่างสุด
+            }
+            if (name.includes("paintwork") || name.includes("สีตัวถัง")) {
+                return 98; // Paintwork อยู่ถัดขึ้นมาจากล่างสุด
+            }
+            if (name.includes("ชุดตกแต่งพิเศษ") || name.includes("แพ็กเกจ") || name.includes("package") || name === "ชุดตกแต่ง") {
+                return 97; // ชุดตกแต่งพิเศษ อยู่ถัดขึ้นมาจาก Paintwork
+            }
+            if (name.includes("เครื่องยนต์และสมรรถนะ") || name.includes("engine")) {
+                return 1; // เครื่องยนต์และสมรรถนะ อยู่บนสุด
+            }
+            if (name.includes("อัตราสิ้นเปลือง") || name.includes("fuel")) {
+                return 2; // อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง... อยู่ต่อจากเครื่องยนต์
+            }
+            return 50; // หมวดหมู่อื่นๆ อยู่ตรงกลางและคงลำดับเดิมไว้
+        };
+
+        const categoryWithIndices = uniqueCategories.map((cat, idx) => ({
+            name: cat,
+            originalIndex: idx,
+            score: getCategoryScore(cat)
+        }));
+
+        categoryWithIndices.sort((a, b) => {
+            if (a.score !== b.score) {
+                return a.score - b.score;
+            }
+            return a.originalIndex - b.originalIndex;
+        });
+
+        uniqueCategories = categoryWithIndices.map(item => item.name);
+
+        uniqueCategories.forEach(categoryName => {
+            // ดึงหัวข้อสเปกย่อยแบบไม่ซ้ำกันทั้งหมดสำหรับหมวดหมู่นี้ในทุกรุ่นย่อย
+            let uniqueTopics = [];
+            models.forEach(model => {
+                const specBlock = (model.specifications || []).find(s => s.category === categoryName);
+                if (specBlock) {
+                    (specBlock.details || []).forEach(detail => {
+                        if (detail.topic && !uniqueTopics.includes(detail.topic)) {
+                            uniqueTopics.push(detail.topic);
+                        }
+                    });
+                }
+            });
+
+            if (uniqueTopics.length === 0) return;
+
+            // สร้างแถวหัวข้อหมวดหมู่ (Section title)
+            let trSection = document.createElement('tr');
+            trSection.className = 'section-title';
+            let tdSection = document.createElement('td');
+            tdSection.colSpan = models.length + 1;
+            tdSection.innerText = categoryName;
+            trSection.appendChild(tdSection);
+            tbody.appendChild(trSection);
+
+            // สร้างแถวข้อมูลสเปกย่อยโดยใช้วิธีค้นหาตรงตามชื่อหัวข้อ (Topic Matching)
+            uniqueTopics.forEach(topicName => {
+                let tr = document.createElement('tr');
+                
+                let tdTopic = document.createElement('td');
+                tdTopic.innerText = topicName;
+                tr.appendChild(tdTopic);
+
+                models.forEach((model, index) => {
+                    let tdValue = document.createElement('td');
+                    tdValue.className = 'col-' + index; // ผูกคลาสเพื่อให้ปุ่มฟิลเตอร์ซ่อนได้
+                    
+                    // ค้นหาสเปกของหัวข้อนี้ในรุ่นปัจจุบัน
+                    let specValue = "-";
+                    const specBlock = (model.specifications || []).find(s => s.category === categoryName);
+                    if (specBlock) {
+                        const detail = (specBlock.details || []).find(d => d.topic === topicName);
+                        if (detail) {
+                            specValue = detail.value;
+                        }
+                    }
+                    
+                    tdValue.innerHTML = formatValue(specValue);
+                    tr.appendChild(tdValue);
+                });
+
+                tbody.appendChild(tr);
+            });
+        });
+
+        // รีเซ็ตช่องค้นหาเมื่อเปลี่ยนซีรีส์
+        document.getElementById('searchInput').value = '';
+    }
+
+    // โหลดข้อมูลแบบ Pooling / Fallback
+    function loadSpecsData() {
+        const trans = TRANSLATIONS[currentLang];
+        const specFile = currentLang === 'en' ? 'bmw_master_specs_en.json' : 'bmw_master_specs.json';
+        const fallbackFile = currentLang === 'en' ? 'bmw_ai_specs_en.json' : 'bmw_ai_specs.json';
+
+        document.getElementById('seriesTitle').innerText = trans.loadingText;
+        document.getElementById('seriesSelect').innerHTML = `<option value="">${trans.loadingText}</option>`;
+        
+        fetch(specFile)
+            .then(response => {
+                if (!response.ok) throw new Error('Master spec file not found');
+                return response.json();
+            })
+            .then(data => {
+                initializeData(data);
+            })
+            .catch(err => {
+                console.warn(`Cannot load ${specFile}, falling back to ${fallbackFile}:`, err);
+                fetch(fallbackFile)
+                    .then(response => response.json())
+                    .then(data => {
+                        initializeData(data);
+                    })
+                    .catch(error => {
+                        console.error('Failed to load any spec file:', error);
+                        document.getElementById('seriesTitle').innerText = trans.errorLoading;
+                    });
+            });
+    }
+
+    // ฟังก์ชันช่วยคำนวณคะแนนสำหรับจัดเรียงข้อมูลรถยนต์
+    function getSortScore(seriesName) {
+        let name = seriesName.trim().toUpperCase();
+        if (name.startsWith("BMW ")) {
+            name = name.substring(4).trim();
+        }
+        
+        let category = 99; // อื่นๆ
+        let secondary = name;
+        
+        if (/^\d/.test(name)) {
+            category = 1; // Series 2-7
+            let match = name.match(/^(\d+)/);
+            if (match) {
+                secondary = String(match[1]).padStart(3, '0');
+            }
+        } else if (name.startsWith("X") && /^\d/.test(name.substring(1))) {
+            category = 2; // X1-7
+            let match = name.substring(1).match(/^(\d+)/);
+            if (match) {
+                secondary = String(match[1]).padStart(3, '0');
+            }
+        } else if (name.startsWith("Z")) {
+            category = 3; // Z
+        } else if (name.startsWith("I")) {
+            category = 4; // i
+        } else if (name.startsWith("M") || name.startsWith("XM")) {
+            category = 5; // M & XM
+        }
+        
+        return { category, secondary };
+    }
+
+    // ฟังก์ชันจัดเรียงตามกลุ่ม Series 2-7, X1-7, Z, i, M
+    function sortSeriesData(data) {
+        return data.sort((a, b) => {
+            let scoreA = getSortScore(a.series || "");
+            let scoreB = getSortScore(b.series || "");
+            
+            if (scoreA.category !== scoreB.category) {
+                return scoreA.category - scoreB.category;
+            }
+            return scoreA.secondary.localeCompare(scoreB.secondary);
+        });
+    }
+
+    function initializeData(data) {
+        const trans = TRANSLATIONS[currentLang];
+        
+        // Filter out archived/custom models for the main page
+        let parsedData = Array.isArray(data) ? data : (data ? [data] : []);
+        parsedData = parsedData.map(series => {
+            const activeModels = (series.models || []).filter(m => !m.is_custom_archived);
+            return {
+                ...series,
+                models: activeModels
+            };
+        }).filter(series => series.models.length > 0);
+        
+        allSeriesData = sortSeriesData(parsedData);
+
+        const seriesSelect = document.getElementById('seriesSelect');
+        seriesSelect.innerHTML = '';
+
+        if (allSeriesData.length === 0) {
+            let opt = document.createElement('option');
+            opt.text = trans.noDataText;
+            seriesSelect.appendChild(opt);
+            document.getElementById('seriesTitle').innerText = trans.noDataText;
+            return;
+        }
+
+        // เพิ่มตัวเลือกใน Dropdown พร้อมต่อท้ายด้วยชื่อรุ่นย่อยเพื่อป้องกันชื่อซ้ำ
+        allSeriesData.forEach((item, index) => {
+            let opt = document.createElement('option');
+            opt.value = index;
+            
+            let modelNames = (item.models || []).map(m => m.model_name).join(', ');
+            let displayName = item.series || (trans.seriesPrefix + (index + 1));
+            if (displayName.endsWith('.')) {
+                displayName = displayName.slice(0, -1); // เอาจุดท้ายประโยคออกเพื่อความสวยงาม
+            }
+            if (modelNames) {
+                displayName += ` (${modelNames})`;
+            }
+            
+            opt.innerText = displayName;
+            seriesSelect.appendChild(opt);
+        });
+
+        // สั่งแสดงผลรุ่นแรกเป็นค่าเริ่มต้น
+        renderSeries(0);
+    }
+
+    // จัดการ Event การเปลี่ยนรุ่นใน Dropdown
+    document.getElementById('seriesSelect').addEventListener('change', function() {
+        renderSeries(parseInt(this.value));
+    });
+
+    // ระบบค้นหาแบบ Fuzzy Match + ซ่อนหัวข้อหมวดหมู่ที่ไม่มีข้อมูลแสดงผล
+    document.getElementById('searchInput').addEventListener('input', function() {
+        const query = this.value;
+        const rows = document.querySelectorAll('#specTable tbody tr');
+        
+        let currentSectionHeader = null;
+        let sectionHasVisibleRows = false;
+        
+        rows.forEach(row => {
+            if (row.classList.contains('section-title')) {
+                if (currentSectionHeader) {
+                    currentSectionHeader.style.display = sectionHasVisibleRows ? '' : 'none';
+                }
+                currentSectionHeader = row;
+                sectionHasVisibleRows = false;
+                return;
+            }
+            
+            const text = row.innerText;
+            const isMatch = fuzzyMatch(text, query);
+            
+            if (isMatch) {
+                row.style.display = '';
+                sectionHasVisibleRows = true;
+            } else {
+                row.style.display = 'none';
+            }
+        });
+        
+        if (currentSectionHeader) {
+            currentSectionHeader.style.display = sectionHasVisibleRows ? '' : 'none';
+        }
+    });
+
+    // เริ่มต้นโหลดข้อมูล
+    loadSpecsData();
+</script>
+
+</body>
+</html>
