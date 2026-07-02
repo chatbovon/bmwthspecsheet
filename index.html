@@ -214,6 +214,20 @@
             color: #fff;
             font-weight: 600;
         }
+        .archived-toggle-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+            font-size: 0.85em;
+            margin-top: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .archived-toggle-container input {
+            cursor: pointer;
+            accent-color: #0284c7;
+        }
     </style>
 </head>
 <body>
@@ -235,6 +249,12 @@
             </select>
         </div>
         <input type="text" id="searchInput" class="search-box" placeholder="🔍 พิมพ์เพื่อค้นหาสเปก/ออปชัน... (เช่น เบาะ, ล้อ, ไฟหน้า)">
+        <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <label class="archived-toggle-container">
+                <input type="checkbox" id="showArchivedCheck" onchange="onArchivedToggle()">
+                <span id="showArchivedLabel">แสดงรุ่นรถเก่า / ยกเลิกนำเข้า</span>
+            </label>
+        </div>
         <div class="filter-tags" id="modelFilters"></div>
     </div>
 
@@ -263,7 +283,8 @@
             noDataText: "ไม่มีข้อมูลรุ่นรถ",
             errorLoading: "ไม่สามารถโหลดข้อมูลสเปกรถยนต์ได้",
             yesWords: ["มี", "yes", "■", "▪", "●", "□"],
-            seriesPrefix: "รุ่นรถยนต์ #"
+            seriesPrefix: "รุ่นรถยนต์ #",
+            showArchivedLabel: "แสดงรุ่นรถเก่า / ยกเลิกนำเข้า"
         },
         en: {
             title: "BMW Smart Specsheet",
@@ -275,7 +296,8 @@
             noDataText: "No series data available",
             errorLoading: "Failed to load specification data",
             yesWords: ["มี", "yes", "■", "▪", "●", "□"],
-            seriesPrefix: "Series #"
+            seriesPrefix: "Series #",
+            showArchivedLabel: "Show Archived / Discontinued Models"
         }
     };
 
@@ -296,9 +318,17 @@
         document.getElementById('seriesSubtitle').innerText = trans.subtitle;
         document.getElementById('selectLabel').innerText = trans.selectLabel;
         document.getElementById('searchInput').placeholder = trans.searchPlaceholder;
+        document.getElementById('showArchivedLabel').innerText = trans.showArchivedLabel;
         
         // โหลดข้อมูลตามภาษาใหม่
         loadSpecsData();
+    }
+
+    function onArchivedToggle() {
+        const seriesSelect = document.getElementById('seriesSelect');
+        if (seriesSelect.value !== "") {
+            renderSeries(parseInt(seriesSelect.value));
+        }
     }
 
     // แปลงข้อความและสัญลักษณ์ต่างๆ ให้เป็น Icon อย่างเป็นมาตรฐาน
@@ -354,7 +384,14 @@
         const thead = document.getElementById('tableHeader');
         const tbody = document.getElementById('tableBody');
         const filtersDiv = document.getElementById('modelFilters');
-        const models = data.models || [];
+        
+        const showArchived = document.getElementById('showArchivedCheck').checked;
+        const models = (data.models || []).filter(model => {
+            if (model.is_custom_archived && !showArchived) {
+                return false;
+            }
+            return true;
+        });
 
         // ล้างข้อมูลตารางและปุ่มฟิลเตอร์ตัวเก่า (เก็บคอลัมน์แรกไว้ และเปลี่ยนชื่อคอลัมน์แรกให้เข้ากับภาษา)
         const firstTh = thead.cells[0];
