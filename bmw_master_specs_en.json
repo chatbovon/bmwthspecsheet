@@ -2180,611 +2180,6 @@
         ]
     },
     {
-        "series": "BMW 7 SERIES",
-        "source_file": "7-20250130-01_EN_WLTP.pdf.asset.1740723701308.pdf",
-        "pdf_source": "7-20250130-01_EN_WLTP.pdf.asset.1740723701308.pdf",
-        "models": [
-            {
-                "model_name": "740d M Sport",
-                "specifications": [
-                    {
-                        "category": "Engine and Performance",
-                        "details": [
-                            {
-                                "topic": "Engine type",
-                                "value": "BMW TwinPower Turbo 6-cylinder diesel engine"
-                            },
-                            {
-                                "topic": "Displacement (cm³)",
-                                "value": "2,993"
-                            },
-                            {
-                                "topic": "Engine power (kW/hp/rpm)",
-                                "value": "210 / 286 / 4,000"
-                            },
-                            {
-                                "topic": "Engine torque (Nm/rpm)",
-                                "value": "650 / 1,500 - 2,500"
-                            },
-                            {
-                                "topic": "Electric motor power (kW/hp)",
-                                "value": "13 / 18"
-                            },
-                            {
-                                "topic": "Electric motor torque (Nm)",
-                                "value": "200"
-                            },
-                            {
-                                "topic": "Electrical range¹, NEDC (km)",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "Electrical range¹, WLTP (km)",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "High voltage battery energy content (kWh)",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "System output (kW/hp)",
-                                "value": "220 / 299"
-                            },
-                            {
-                                "topic": "System torque (Nm)",
-                                "value": "670"
-                            },
-                            {
-                                "topic": "Top speed (km/h)",
-                                "value": "250"
-                            },
-                            {
-                                "topic": "0 - 100 km/h (s)",
-                                "value": "6"
-                            },
-                            {
-                                "topic": "Electric energy consumption, NEDC (kWh/100 km)",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "Electric energy consumption, WLTP (kWh/100 km)",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "Displacement (cm3)",
-                                "value": "2,993"
-                            },
-                            {
-                                "topic": "Electrical range1 , NEDC (km)",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "Electrical range1 , WLTP (km)",
-                                "value": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Fuel Consumption and CO2",
-                        "details": [
-                            {
-                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                                "value": "17.9"
-                            },
-                            {
-                                "topic": "Combined CO2 (g/km)",
-                                "value": "150"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Wheels and Tyres",
-                        "details": [
-                            {
-                                "topic": "Wheels",
-                                "value": "20\" M aerodynamic wheels Bicolour"
-                            },
-                            {
-                                "topic": "Tyre size",
-                                "value": "Front: 9J × 20 / tyres 255/45 R 20 Rear: 10.5 J × 20 tyres 285/40 R 20"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Dimension",
-                        "details": [
-                            {
-                                "topic": "Length / width / height (mm)",
-                                "value": "5,391 / 1,950 / 1,544"
-                            },
-                            {
-                                "topic": "Luggage capacity (l)",
-                                "value": "540"
-                            },
-                            {
-                                "topic": "Curb weight (kg)",
-                                "value": "2,205"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "27 February 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(ZJP)"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Transmission and technology",
-                        "details": [
-                            {
-                                "topic": "8-speed Steptronic Sport transmission",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "xDrive",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "Driving Assistant",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Driving Assistant Plus",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Driving Assistant Professional",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "Parking Assistant Plus",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Parking Assistant Professional",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "Adaptive 2-axle air suspension",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Exterior",
-                        "details": [
-                            {
-                                "topic": "Panorama glass roof",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Panorama glass roof Sky Lounge",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "BMW kidney 'Iconic Glow'",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW crystal headlights Iconic Glow",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M high-gloss Shadowline",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M rear spoiler",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M sport brake, dark blue metallic",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Sport exterior parts",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Comfort Access System",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Soft-close function for doors",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Interior",
-                        "details": [
-                            {
-                                "topic": "Seat heating front and rear",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Massage function front",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Massage function for rear-seat passengers",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Active seat ventilation in the front seats",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Active seat ventilation, rear",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Multifunctional seats for driver and front passenger",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Multifunction seats at rear",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Leather steering wheel",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Carbon Fibre M interior trim with silver stitching/Piano Finish Black",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Glass application 'CraftedClarity' for interior elements",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "BMW Individual Interior",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M headliner anthracite",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M headliner Alcantara anthracite",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "M Sport interior parts",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Ambient light",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Roller sunblinds",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "4-Zone Automatic air conditioning",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Automatic Doors",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "Executive Lounge rear console",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Executive Lounge seating",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Entertainment and communication",
-                        "details": [
-                            {
-                                "topic": "BMW Live Cockpit Professional",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW ConnectedDrive",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW Connected Package Professional",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Bowers & Wilkins surround sound system",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW IconicSounds Electric",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "BMW Interaction Bar",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW Touch Command",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW Theatre Screen",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW Natural Interaction",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Smartphone integration",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Rear-seat Entertainment Experience",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Wireless charging tray",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Personal eSIM",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Safety",
-                        "details": [
-                            {
-                                "topic": "Airbag for driver and front passenger",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Side airbags for driver and front passenger",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Head airbags for 1st and 2nd seat row",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Central airbag (driver's seat)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Teleservices",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Intelligent Emergency Call",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ISOFIX child seat mounting",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Dynamic Stability Control (DSC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Anti-lock braking system (ABS)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Brake Assist (BA)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Crash sensor",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Acoustic protection for pedestrians",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "Tyre Pressure Monitoring System",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Tyre repair kit",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Alarm System",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Line / package",
-                        "details": [
-                            {
-                                "topic": "M Sport package",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Paintwork",
-                        "details": [
-                            {
-                                "topic": "Mineral White Metallic",
-                                "value": "BMW Individual leather 'Merino' - Mocha"
-                            },
-                            {
-                                "topic": "Black Sapphire Metallic",
-                                "value": "BMW Individual leather 'Merino' - Mocha"
-                            },
-                            {
-                                "topic": "Dravit Grey Metallic",
-                                "value": "Black"
-                            },
-                            {
-                                "topic": "Oxide Grey Metallic",
-                                "value": "Black"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Fuel Consumption and CO2 Emission",
-                        "details": [
-                            {
-                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                                "value": "17.9"
-                            },
-                            {
-                                "topic": "Combined CO2 (g/km)",
-                                "value": "150"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Interior Equipment",
-                        "details": [
-                            {
-                                "topic": "M headliner anthracite",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M headliner Alcantara anthracite",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "M Sport interior parts",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Ambient light",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Roller sunblinds",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "4-Zone Automatic air conditioning",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Automatic Doors",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "Executive Lounge rear console",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Executive Lounge seating",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Entertainment and Communication",
-                        "details": [
-                            {
-                                "topic": "BMW Live Cockpit Professional",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW ConnectedDrive",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW Connected Package Professional",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Bowers & Wilkins surround sound system",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW IconicSounds Electric",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "BMW Interaction Bar",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW Touch Command",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW Theatre Screen",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW Natural Interaction",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Smartphone integration",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Rear-seat Entertainment Experience",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Wireless charging tray",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Personal eSIM",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Paintwork & Upholstery",
-                        "details": [
-                            {
-                                "topic": "Mineral White Metallic",
-                                "value": "BMW Individual leather 'Merino' - Mocha"
-                            },
-                            {
-                                "topic": "Black Sapphire Metallic",
-                                "value": "BMW Individual leather 'Merino' - Mocha"
-                            },
-                            {
-                                "topic": "Dravit Grey Metallic",
-                                "value": "BMW Individual leather 'Merino' - Black"
-                            },
-                            {
-                                "topic": "Oxide Grey Metallic",
-                                "value": "BMW Individual leather 'Merino' - Black"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ],
-        "low_confidence_flags": [
-            {
-                "model_name": "740d M Sport",
-                "category": "Wheels and Tyres",
-                "topic": "ล้อ / Wheels",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้ออัลลอย M aerodynamic ขนาด 20 นิ้วแบบสลับสี', English has '20\" M aerodynamic wheels Bicolour'"
-            }
-        ]
-    },
-    {
         "series": "BMW 2 SERIES",
         "models": [
             {
@@ -18562,5 +17957,902 @@
         ],
         "source_file": "4-20241113-03_EN.pdf.asset.1745391120731.pdf",
         "pdf_source": "4-20241113-03_EN.pdf.asset.1745391120731.pdf"
+    },
+    {
+        "series": "BMW 7 SERIES",
+        "models": [
+            {
+                "model_name": "740d M Sport",
+                "specifications": [
+                    {
+                        "category": "Engine and Performance",
+                        "details": [
+                            {
+                                "topic": "Engine type",
+                                "value": "BMW TwinPower Turbo 6-cylinder diesel engine"
+                            },
+                            {
+                                "topic": "Displacement (cm3)",
+                                "value": "2,993"
+                            },
+                            {
+                                "topic": "Engine power (kW/hp/rpm)",
+                                "value": "210 / 286 / 4,000"
+                            },
+                            {
+                                "topic": "Engine torque (Nm/rpm)",
+                                "value": "650 / 1,500 - 2,500"
+                            },
+                            {
+                                "topic": "Electric motor power (kW/hp)",
+                                "value": "13 / 18"
+                            },
+                            {
+                                "topic": "Electric motor torque (Nm)",
+                                "value": "200"
+                            },
+                            {
+                                "topic": "Electrical range1 , NEDC (km)",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Electrical range1 , WLTP (km)",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "High voltage battery energy content (kWh)",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "System output (kW/hp)",
+                                "value": "220 / 299"
+                            },
+                            {
+                                "topic": "System torque (Nm)",
+                                "value": "670"
+                            },
+                            {
+                                "topic": "Top speed (km/h)",
+                                "value": "250"
+                            },
+                            {
+                                "topic": "0 - 100 km/h (s)",
+                                "value": "6"
+                            },
+                            {
+                                "topic": "Electric energy consumption, NEDC (kWh/100 km)",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Electric energy consumption, WLTP (kWh/100 km)",
+                                "value": "-"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Fuel Consumption and CO2 Emission",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "17.9"
+                            },
+                            {
+                                "topic": "Combined CO2 (g/km)",
+                                "value": "150"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Wheels and Tyres",
+                        "details": [
+                            {
+                                "topic": "Wheels",
+                                "value": "20\" M aerodynamic wheelsBicolour"
+                            },
+                            {
+                                "topic": "Tyre size",
+                                "value": "Front: 9J × 20 / tyres 255/45 R 20Rear: 10.5 J × 20 tyres 285/40 R 20"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Dimension",
+                        "details": [
+                            {
+                                "topic": "Length / width / height (mm)",
+                                "value": "5,391 / 1,950 / 1,544"
+                            },
+                            {
+                                "topic": "Luggage capacity (l)",
+                                "value": "540"
+                            },
+                            {
+                                "topic": "Curb weight (kg)",
+                                "value": "2,205"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Drivetrain and Technology",
+                        "details": [
+                            {
+                                "topic": "8-speed Steptronic Sport transmission",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "xDrive",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Driving Assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Driving Assistant Plus",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Driving Assistant Professional",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Parking Assistant Plus",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Parking Assistant Professional",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Adaptive 2-axle air suspension",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Exterior Equipment",
+                        "details": [
+                            {
+                                "topic": "Panorama glass roof",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Panorama glass roof Sky Lounge",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "BMW kidney 'Iconic Glow'",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW crystal headlights Iconic Glow",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "M high-gloss Shadowline",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M rear spoiler",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M sport brake, dark blue metallic",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport exterior parts",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Comfort Access System",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Soft-close function for doors",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Interior Equipment",
+                        "details": [
+                            {
+                                "topic": "Seat heating front and rear",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Massage function front",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Massage function for rear-seat passengers",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Active seat ventilation in the front seats",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Active seat ventilation, rear",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Multifunctional seats for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Multifunction seats at rear",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Leather steering wheel",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Carbon Fibre M interior trim with silver stitching/Piano Finish Black",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Glass application 'CraftedClarity' for interior elements",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "BMW Individual Interior",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M headliner anthracite",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M headliner Alcantara anthracite",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "M Sport interior parts",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Ambient light",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Roller sunblinds",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "4-Zone Automatic air conditioning",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Automatic Doors",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Executive Lounge rear console",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Executive Lounge seating",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Entertainment and Communication",
+                        "details": [
+                            {
+                                "topic": "BMW Live Cockpit Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW ConnectedDrive",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Connected Package Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Bowers & Wilkins surround sound system",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW IconicSounds Electric",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "BMW Interaction Bar",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Touch Command",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Theatre Screen",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Natural Interaction",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Smartphone integration",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Rear-seat Entertainment Experience",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Wireless charging tray",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Personal eSIM",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Safety",
+                        "details": [
+                            {
+                                "topic": "Airbag for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Side airbags for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Head airbags for 1st and 2nd seat row",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Central airbag (driver's seat)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Teleservices",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Intelligent Emergency Call",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ISOFIX child seat mounting",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Stability Control (DSC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Anti-lock braking system (ABS)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Brake Assist (BA)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Crash sensor",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Acoustic protection for pedestrians",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Tyre Pressure Monitoring System",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre repair kit",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Alarm System",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Line / package",
+                        "details": [
+                            {
+                                "topic": "M Sport package",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "27 February 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(ZJP)"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork & Upholstery",
+                        "details": [
+                            {
+                                "topic": "Mineral White Metallic",
+                                "value": "BMW Individual leather 'Merino' - Mocha"
+                            },
+                            {
+                                "topic": "Black Sapphire Metallic",
+                                "value": "BMW Individual leather 'Merino' - Mocha"
+                            },
+                            {
+                                "topic": "Dravit Grey Metallic",
+                                "value": "BMW Individual leather 'Merino' - Black"
+                            },
+                            {
+                                "topic": "Oxide Grey Metallic",
+                                "value": "BMW Individual leather 'Merino' - Black"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "model_name": "750e xDrive M Sport",
+                "specifications": [
+                    {
+                        "category": "Engine and Performance",
+                        "details": [
+                            {
+                                "topic": "Engine type",
+                                "value": "BMW TwinPower Turbo 6-cylinder petrol engine"
+                            },
+                            {
+                                "topic": "Displacement (cm3)",
+                                "value": "2,998"
+                            },
+                            {
+                                "topic": "Engine power (kW/hp/rpm)",
+                                "value": "230 / 313 / 5,000-6,500"
+                            },
+                            {
+                                "topic": "Engine torque (Nm/rpm)",
+                                "value": "450 / 1,750 - 4,700"
+                            },
+                            {
+                                "topic": "Electric motor power (kW/hp)",
+                                "value": "145 / 197"
+                            },
+                            {
+                                "topic": "Electric motor torque (Nm)",
+                                "value": "280"
+                            },
+                            {
+                                "topic": "Electrical range1 , NEDC (km)",
+                                "value": "85"
+                            },
+                            {
+                                "topic": "Electrical range1 , WLTP (km)",
+                                "value": "83 - 87"
+                            },
+                            {
+                                "topic": "High voltage battery energy content (kWh)",
+                                "value": "22.1"
+                            },
+                            {
+                                "topic": "System output (kW/hp)",
+                                "value": "360 / 489"
+                            },
+                            {
+                                "topic": "System torque (Nm)",
+                                "value": "700"
+                            },
+                            {
+                                "topic": "Top speed (km/h)",
+                                "value": "250"
+                            },
+                            {
+                                "topic": "0 - 100 km/h (s)",
+                                "value": "4.8"
+                            },
+                            {
+                                "topic": "Electric energy consumption, NEDC (kWh/100 km)",
+                                "value": "20.05"
+                            },
+                            {
+                                "topic": "Electric energy consumption, WLTP (kWh/100 km)",
+                                "value": "20.8 - 19.7"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Fuel Consumption and CO2 Emission",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "55.6"
+                            },
+                            {
+                                "topic": "Combined CO2 (g/km)",
+                                "value": "40"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Wheels and Tyres",
+                        "details": [
+                            {
+                                "topic": "Wheels",
+                                "value": "20\" M aerodynamic wheelsBicolour"
+                            },
+                            {
+                                "topic": "Tyre size",
+                                "value": "Front: 9J × 20 / tyres 255/45 R 20Rear: 10.5 J × 20 tyres 285/40 R 20"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Dimension",
+                        "details": [
+                            {
+                                "topic": "Length / width / height (mm)",
+                                "value": "5,391 / 1,950 / 1,544"
+                            },
+                            {
+                                "topic": "Luggage capacity (l)",
+                                "value": "525"
+                            },
+                            {
+                                "topic": "Curb weight (kg)",
+                                "value": "2,445"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Drivetrain and Technology",
+                        "details": [
+                            {
+                                "topic": "8-speed Steptronic Sport transmission",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "xDrive",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Driving Assistant",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Driving Assistant Plus",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Driving Assistant Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Parking Assistant Plus",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Parking Assistant Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Adaptive 2-axle air suspension",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Exterior Equipment",
+                        "details": [
+                            {
+                                "topic": "Panorama glass roof",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Panorama glass roof Sky Lounge",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW kidney 'Iconic Glow'",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW crystal headlights Iconic Glow",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M high-gloss Shadowline",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M rear spoiler",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M sport brake, dark blue metallic",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport exterior parts",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Comfort Access System",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Soft-close function for doors",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Interior Equipment",
+                        "details": [
+                            {
+                                "topic": "Seat heating front and rear",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Massage function front",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Massage function for rear-seat passengers",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Active seat ventilation in the front seats",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Active seat ventilation, rear",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Multifunctional seats for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Multifunction seats at rear",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Leather steering wheel",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Carbon Fibre M interior trim with silver stitching/Piano Finish Black",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Glass application 'CraftedClarity' for interior elements",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Individual Interior",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M headliner anthracite",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "M headliner Alcantara anthracite",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport interior parts",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Ambient light",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Roller sunblinds",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "4-Zone Automatic air conditioning",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Automatic Doors",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Executive Lounge rear console",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Executive Lounge seating",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Entertainment and Communication",
+                        "details": [
+                            {
+                                "topic": "BMW Live Cockpit Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW ConnectedDrive",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Connected Package Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Bowers & Wilkins surround sound system",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW IconicSounds Electric",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Interaction Bar",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Touch Command",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Theatre Screen",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Natural Interaction",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Smartphone integration",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Rear-seat Entertainment Experience",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Wireless charging tray",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Personal eSIM",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Safety",
+                        "details": [
+                            {
+                                "topic": "Airbag for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Side airbags for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Head airbags for 1st and 2nd seat row",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Central airbag (driver's seat)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Teleservices",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Intelligent Emergency Call",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ISOFIX child seat mounting",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Stability Control (DSC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Anti-lock braking system (ABS)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Brake Assist (BA)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Crash sensor",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Acoustic protection for pedestrians",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre Pressure Monitoring System",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre repair kit",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Alarm System",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Line / package",
+                        "details": [
+                            {
+                                "topic": "M Sport package",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "27 February 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z4T, Z8L)"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork & Upholstery",
+                        "details": [
+                            {
+                                "topic": "Mineral White Metallic",
+                                "value": "BMW Individual leather 'Merino' - Mocha"
+                            },
+                            {
+                                "topic": "Black Sapphire Metallic",
+                                "value": "BMW Individual leather 'Merino' - Mocha"
+                            },
+                            {
+                                "topic": "Dravit Grey Metallic",
+                                "value": "BMW Individual leather 'Merino' - Black"
+                            },
+                            {
+                                "topic": "Oxide Grey Metallic",
+                                "value": "BMW Individual leather 'Merino' - Black"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "source_file": "7-20250130-01_EN_WLTP.pdf.asset.1740723701308.pdf",
+        "pdf_source": "7-20250130-01_EN_WLTP.pdf.asset.1740723701308.pdf"
     }
 ]
