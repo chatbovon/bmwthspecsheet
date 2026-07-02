@@ -598,7 +598,7 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
             attempts += 1
             key = API_KEYS[key_idx]
             current_model = model_pool[model_idx]
-            client = genai.Client(api_key=key)
+            client = genai.Client(api_key=key, http_options=types.HttpOptions(timeout=60000))
             prompt = f"{system_prompt}\n\nHere is the input table segment:\n\n{seg}"
             if footer_text:
                 prompt += f"\n\nHere is the footer metadata from the document page:\n{footer_text}"

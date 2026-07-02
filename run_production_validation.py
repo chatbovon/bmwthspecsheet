@@ -108,7 +108,7 @@ def generate_content_with_pooling(prompt_text):
             try:
                 # Add spacing sleep to prevent rate limiting
                 time.sleep(3)
-                client = genai.Client(api_key=key)
+                client = genai.Client(api_key=key, http_options=types.HttpOptions(timeout=60000))
                 response = client.models.generate_content(
                     model=model_name,
                     contents=[prompt_text],
