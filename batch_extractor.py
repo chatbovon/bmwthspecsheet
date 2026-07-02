@@ -100,6 +100,35 @@ def run_batch_extraction(lang="th", target_file=None):
                     json.dump(result, f, ensure_ascii=False, indent=4)
 
                 print(f"[BATCH] Successfully processed and saved: {filename}")
+                
+                # Auto-commit & push to GitHub after each file if running in GitHub Actions
+                if os.environ.get("GITHUB_ACTIONS") == "true":
+                    try:
+                        import subprocess
+                        print(f"[GIT] Committing and pushing progress for {filename}...")
+                        subprocess.run(["git", "config", "--global", "user.name", "github-actions[bot]"], check=False)
+                        subprocess.run(["git", "config", "--global", "user.email", "github-actions[bot]@users.noreply.github.com"], check=False)
+                        
+                        # Rebase pull to prevent conflicts
+                        subprocess.run(["git", "pull", "--rebase"], check=False)
+                        
+                        # Stage updated files
+                        subprocess.run(["git", "add", output_file], check=False)
+                        subprocess.run(["git", "add", "-f", compat_file], check=False)
+                        subprocess.run(["git", "add", "-f", pdf_path], check=False)
+                        
+                        # Commit progress
+                        subprocess.run(["git", "commit", "-m", f"Auto-update: Processed {filename} [skip ci]"], check=False)
+                        
+                        # Push changes
+                        push_res = subprocess.run(["git", "push"], capture_output=True, text=True, check=False)
+                        if push_res.returncode == 0:
+                            print(f"[GIT] Successfully committed and pushed progress for: {filename}")
+                        else:
+                            print(f"[GIT WARNING] Git push failed: {push_res.stderr.strip()}")
+                    except Exception as push_err:
+                        print(f"[GIT WARNING] Failed to run Git progress push: {push_err}")
+
                 os.remove(temp_json)
             else:
                 print(f"[ERROR] Extraction pipeline finished but output file was not created for {filename}")
