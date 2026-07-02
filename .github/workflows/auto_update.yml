@@ -36,6 +36,7 @@ jobs:
         GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}
         GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
         GEMINI_API_KEY_3: ${{ secrets.GEMINI_API_KEY_3 }}
+        MINERU_API_TOKEN: ${{ secrets.MINERU_API_TOKEN }}
       run: |
         python -u batch_extractor.py --lang th
         python -u batch_extractor.py --lang en
