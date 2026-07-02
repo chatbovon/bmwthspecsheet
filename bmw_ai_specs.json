@@ -1,0 +1,327 @@
+{
+    "series": "BMW 2 SERIES",
+    "models": [
+        {
+            "model_name": "220 Gran Coupe M Sport Pro",
+            "specifications": [
+                {
+                    "category": "เครื่องยนต์และสมรรถนะ",
+                    "details": [
+                        {
+                            "topic": "ชนิดเครื่องยนต์",
+                            "value": "เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี TwinPower Turbo"
+                        },
+                        {
+                            "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)",
+                            "value": "1,998"
+                        },
+                        {
+                            "topic": "กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
+                            "value": "150 / 204 / 5,000 - 6,500"
+                        },
+                        {
+                            "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)",
+                            "value": "300 / 1,450 - 4,500"
+                        },
+                        {
+                            "topic": "ความเร็วสูงสุด (กิโลเมตร/ช่วโมง)",
+                            "value": "250"
+                        },
+                        {
+                            "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ช่วโมง (วินาที)",
+                            "value": "7.3"
+                        }
+                    ]
+                },
+                {
+                    "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
+                    "details": [
+                        {
+                            "topic": "อัตราสิ้นเปลืองน้ำบันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
+                            "value": "15.4"
+                        },
+                        {
+                            "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
+                            "value": "147"
+                        }
+                    ]
+                },
+                {
+                    "category": "ล้อและยาง",
+                    "details": [
+                        {
+                            "topic": "ล้อ",
+                            "value": "ล้ออัลลอย M ขนาด 19 นี้ว ลาย Y-spoke Bicolour"
+                        },
+                        {
+                            "topic": "ขนาดยาง",
+                            "value": "8 J × 19 / ยาง 225/40 R19"
+                        }
+                    ]
+                },
+                {
+                    "category": "มิติรถยนต์",
+                    "details": [
+                        {
+                            "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)",
+                            "value": "4,546 / 1,800 / 1,445"
+                        },
+                        {
+                            "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
+                            "value": "430"
+                        },
+                        {
+                            "topic": "น้ําหนักรกสุทธิ (กิโลกรัม)",
+                            "value": "1,525"
+                        }
+                    ]
+                },
+                {
+                    "category": "ระบบขับเคลื่อนและเทคโนโลยี",
+                    "details": [
+                        {
+                            "topic": "เกียร์อัตโนมัติ 7 จังหวะแบบ Steptronic พร้อมคลัตซ์คู่และ Gearshift Paddles",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ช่วงล่าง Adaptive M",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบช่วยการชัยชี่ (Driving Assistant)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบช่วยการชัยชี่รุ่น Plus (Driving Assistant Plus)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบช่วยนํารถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus)",
+                            "value": "■"
+                        }
+                    ]
+                },
+                {
+                    "category": "อุปกรณ์ภายนอก",
+                    "details": [
+                        {
+                            "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบปรับการทํางานไฟสูงอัตโนมัติ (High-beam Assistant)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สีแดงเขา",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "หลังคากระจก Panorama เปิด-ปิดด้วยระบบไฟฟ้า",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "กระจังหน้า BMW kidney 'Iconic Glow'",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "โคมไฟหน้าตกแต่งสีดํา (M Lights Shadowline)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ภายนอกตกแต่งด้วยวัสดุสีดําเขา",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดําเขา",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "สปอยเลอร์หลังดีไซน์ M",
+                            "value": "■"
+                        }
+                    ]
+                },
+                {
+                    "category": "อุปกรณ์ภายใน",
+                    "details": [
+                        {
+                            "topic": "กระจกมองข้างฝั่งคนขับและกระจกมองหลังตัดแสงอัตโนมัติ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจําตําแหน่งเฉพาะฝั่งคนขับ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "เบาะนั่งตอนหน้าดีไซน์ Sport",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "พวงมาลัยหุ้มหนังดีไซน์ M",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "เพดานหลังคาภายในดีไซน์ M สี Anthracite",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ภายในตกแต่งด้วยอะลูมิเนียมแกรไฟต์แบบเรืองแสง",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบปรับอากาศอัตโนมัติแบบ 2 โซน",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบกล้องภายในรถ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "เซ็มชัดนิภัยดีไซน์ M",
+                            "value": "■"
+                        }
+                    ]
+                },
+                {
+                    "category": "ระบบความบันเกิงและการสื่อสาร",
+                    "details": [
+                        {
+                            "topic": "BMW Live Cockpit Professional",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบ BMW Head-up Display",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบ BMW ConnectedDrive",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบเครื่องเสียง HiFi loudspeaker Harman Kardon",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM)",
+                            "value": "■"
+                        }
+                    ]
+                },
+                {
+                    "category": "ความปลอดภัย",
+                    "details": [
+                        {
+                            "topic": "ถุงลมนิรภัยสําหรับคนขับและผู้โดยสารตอนหน้า",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ถุงลมนิรภัยด้านข้างสําหรับคนขับและผู้โดยสารตอนหน้า",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ถุงลมนิรภัยศีรษะสําหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบ Teleservices",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ปุ่มโทรศอกฉุกเฉิน (Intelligent Emergency Call)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบควบคุมเสถียรภาพการซับซี่ (DSC)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบควบคุมการยืดเกาะถน (DTC)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบควบคุมแรงดันเบรกแบบแปรผัน (DBC)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบติดตั้งคาร์ซีทแบบ ISOFIX",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบตรวจสอบวัดลมยาง",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ชุดปะยางฉุกเฉินรุ่น Plus",
+                            "value": "■"
+                        }
+                    ]
+                },
+                {
+                    "category": "Paintwork / สีตัวถังและวัสดุภายใน",
+                    "details": [
+                        {
+                            "topic": "Black Sapphire Metallic",
+                            "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
+                        },
+                        {
+                            "topic": "Alpine White Solid",
+                            "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
+                        },
+                        {
+                            "topic": "Brooklyn Grey Metallic",
+                            "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
+                        },
+                        {
+                            "topic": "Portimao Blue Metallic",
+                            "value": "Leather 'Veganza' - Veganza perforated | Black"
+                        }
+                    ]
+                },
+                {
+                    "category": "ข้อมูลเอกสารอ้างอิง",
+                    "details": [
+                        {
+                            "topic": "วันที่พิมพ์เอกสาร",
+                            "value": "22 มิถุนายน 2569"
+                        },
+                        {
+                            "topic": "รหัสแพ็กเกจ (Local Pack)",
+                            "value": "(ZKT)"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "source_file": "2-20260622-01_TH.pdf.asset.1782450623206.pdf",
+    "pdf_source": "2-20260622-01_TH.pdf.asset.1782450623206.pdf"
+}
