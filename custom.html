@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMW Smart Specsheet</title>
+    <title>BMW Custom Specsheet (รุ่นเก่า/ยกเลิกนำเข้า)</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap');
 
@@ -214,27 +214,13 @@
             color: #fff;
             font-weight: 600;
         }
-        .archived-toggle-container {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #94a3b8;
-            font-size: 0.85em;
-            margin-top: 10px;
-            cursor: pointer;
-            user-select: none;
-        }
-        .archived-toggle-container input {
-            cursor: pointer;
-            accent-color: #0284c7;
-        }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
-        <a href="custom.html" id="navLink" style="color: #38bdf8; text-decoration: none; font-size: 0.9em; font-weight: 600; display: flex; align-items: center; gap: 4px;">📂 ดูสเปกโบรชัวร์รุ่นเก่า (Custom Specsheets)</a>
+        <a href="index.html" id="navLink" style="color: #38bdf8; text-decoration: none; font-size: 0.9em; font-weight: 600; display: flex; align-items: center; gap: 4px;">⬅️ กลับหน้าสเปครุ่นปัจจุบัน</a>
         <div class="lang-selector" style="margin-bottom: 0;">
             <button id="langTh" class="lang-btn active" onclick="setLanguage('th')">TH</button>
             <button id="langEn" class="lang-btn" onclick="setLanguage('en')">EN</button>
@@ -271,8 +257,8 @@
 <script>
     const TRANSLATIONS = {
         th: {
-            title: "BMW Smart Specsheet",
-            subtitle: "ระบบข้อมูลสเปกพรีเมียม (Auto-Updated)",
+            title: "BMW Custom Specsheet (รุ่นเก่า/ยกเลิกนำเข้า)",
+            subtitle: "ระบบสเปกจากโบชัวร์เก่าหรือยกเลิกการขาย (Custom)",
             selectLabel: "เลือกรุ่น / ซีรีส์:",
             searchPlaceholder: "🔍 พิมพ์เพื่อค้นหาสเปก/ออปชัน... (เช่น เบาะ, ล้อ, ไฟหน้า)",
             tableHeaderTopic: "ข้อมูล / รุ่นรถ",
@@ -281,11 +267,11 @@
             errorLoading: "ไม่สามารถโหลดข้อมูลสเปกรถยนต์ได้",
             yesWords: ["มี", "yes", "■", "▪", "●", "□"],
             seriesPrefix: "รุ่นรถยนต์ #",
-            navLinkLabel: "📂 ดูสเปกรุ่นรถเก่า / Custom"
+            navLinkLabel: "⬅️ กลับหน้าสเปครุ่นปัจจุบัน"
         },
         en: {
-            title: "BMW Smart Specsheet",
-            subtitle: "Premium Specifications Sheet (Auto-Updated)",
+            title: "BMW Custom Specsheet (Archived)",
+            subtitle: "Specifications from discontinued/archived brochures",
             selectLabel: "Select Series / Model:",
             searchPlaceholder: "🔍 Type to search specifications/options... (e.g. seat, wheel, headlight)",
             tableHeaderTopic: "Specifications / Model",
@@ -294,7 +280,7 @@
             errorLoading: "Failed to load specification data",
             yesWords: ["มี", "yes", "■", "▪", "●", "□"],
             seriesPrefix: "Series #",
-            navLinkLabel: "📂 View Custom / Archived Specsheets"
+            navLinkLabel: "⬅️ Back to Current Models"
         }
     };
 
@@ -589,13 +575,13 @@
     function initializeData(data) {
         const trans = TRANSLATIONS[currentLang];
         
-        // Filter out archived/custom models for the main page
+        // Filter in only archived/custom models for this custom page
         let parsedData = Array.isArray(data) ? data : (data ? [data] : []);
         parsedData = parsedData.map(series => {
-            const activeModels = (series.models || []).filter(m => !m.is_custom_archived);
+            const customModels = (series.models || []).filter(m => m.is_custom_archived);
             return {
                 ...series,
-                models: activeModels
+                models: customModels
             };
         }).filter(series => series.models.length > 0);
         
