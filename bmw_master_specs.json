@@ -1922,46 +1922,11 @@
         ],
         "low_confidence_flags": [
             {
-                "model_name": "420i Coupé M Sport",
-                "category": "เครื่องยนต์และสมรรถนะ",
-                "topic": "ชนิดเครื่องยนต์",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 4-cylinder inline petrol engine'"
-            },
-            {
-                "model_name": "420i Coupé M Sport",
-                "category": "ล้อและยาง",
-                "topic": "ล้อ",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 18 นิ้ว ลาย Double-spoke แบบสลับสี', English has '18\" M light alloy wheels Double-spoke style Bicolour'"
-            },
-            {
-                "model_name": "430i Coupé M Sport",
-                "category": "เครื่องยนต์และสมรรถนะ",
-                "topic": "ชนิดเครื่องยนต์",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 4-cylinder inline petrol engine'"
-            },
-            {
                 "model_name": "430i Coupé M Sport",
                 "category": "ล้อและยาง",
                 "topic": "ล้อ",
                 "type": "Cross-DB Discrepancy",
                 "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้ว ลาย Double-spoke แบบสลับสี', English has '19\" M light alloy wheels Double-spoke style, Bicolour'"
-            },
-            {
-                "model_name": "M440i xDrive",
-                "category": "เครื่องยนต์และสมรรถนะ",
-                "topic": "ชนิดเครื่องยนต์",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder inline petrol engine'"
-            },
-            {
-                "model_name": "M440i xDrive",
-                "category": "ล้อและยาง",
-                "topic": "ล้อ",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้ว ลาย Double-spoke สี Jet Black', English has '19\" M light alloy wheels Double-spoke style Jet Black'"
             }
         ]
     },
@@ -3192,41 +3157,6 @@
         "low_confidence_flags": [
             {
                 "model_name": "740d M Sport",
-                "category": "เครื่องยนต์และสมรรถนะ",
-                "topic": "ชนิดเครื่องยนต์",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์ดีเซล 6 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder diesel engine'"
-            },
-            {
-                "model_name": "740d M Sport",
-                "category": "ล้อและยาง",
-                "topic": "ล้อ",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้ออัลลอย M aerodynamic ขนาด 20 นิ้วแบบสลับสี', English has '20\" M aerodynamic wheels Bicolour'"
-            },
-            {
-                "model_name": "740d M Sport",
-                "category": "ระบบความบันเทิงและการสื่อสาร",
-                "topic": "ระบบจำลองเสียงเครื่องยนต์ Iconic sounds electric",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ระบบจำลองเสียงเครื่องยนต์ Iconic sounds electric' / 'BMW IconicSounds Electric': Thai has '■', English has '-'"
-            },
-            {
-                "model_name": "740d M Sport",
-                "category": "ความปลอดภัย",
-                "topic": "ระบบสร้างเสยีงจำลองเตือนผู้ใช้ถนนรอบข้าง",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ระบบสร้างเสยีงจำลองเตือนผู้ใช้ถนนรอบข้าง' / 'Acoustic protection for pedestrians': Thai has '-', English has '■'"
-            },
-            {
-                "model_name": "750e xDrive M Sport",
-                "category": "เครื่องยนต์และสมรรถนะ",
-                "topic": "ชนิดเครื่องยนต์",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder petrol engine'"
-            },
-            {
-                "model_name": "750e xDrive M Sport",
                 "category": "ล้อและยาง",
                 "topic": "ล้อ",
                 "type": "Cross-DB Discrepancy",
@@ -3559,7 +3489,23 @@
             }
         ],
         "source_file": "2-20260622-01_TH.pdf.asset.1782450623206.pdf",
-        "pdf_source": "2-20260622-01_TH.pdf.asset.1782450623206.pdf"
+        "pdf_source": "2-20260622-01_TH.pdf.asset.1782450623206.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "220 Gran Coupe M Sport Pro",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี TwinPower Turbo', English has 'BMW TwinPower Turbo 4-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "220 Gran Coupe M Sport Pro",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นี้ว ลาย Y-spoke Bicolour', English has '19\" M light alloy wheels Y-spoke style Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW 3 SERIES",
@@ -4865,7 +4811,58 @@
             }
         ],
         "source_file": "3-20250625-01_TH.pdf.asset.1763550244972.pdf",
-        "pdf_source": "3-20250625-01_TH.pdf.asset.1763550244972.pdf"
+        "pdf_source": "3-20250625-01_TH.pdf.asset.1763550244972.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "320d M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์ดีเซล 4 สูบ เทคโนโลยี TwinPower Turbo', English has 'BMW TwinPower Turbo4-cylinder inline diesel engine'"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 18 นิ้ว ลาย Double-spoke Bicolour', English has '18\" M light alloy wheelsDouble-spoke Bicolour'"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี TwinPower Turbo', English has 'BMW TwinPower Turbo4-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้ว ลาย Double-spoke Bicolour', English has '19\" M light alloy wheelsDouble-spoke Bicolour'"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี TwinPower Turbo', English has 'BMW TwinPower Turbo6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' / 'Engine torque (Nm/rpm)': Thai has '500 / 1,900 - 5,000', English has '500 / 1,800 - 5,000'"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย BMW Individual ขนาด 19 นิ้ว ลาย Y-spoke Bicolour', English has '19\" BMW Individual light alloy wheelsY-spoke Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW 3 SERIES",
@@ -5188,7 +5185,30 @@
             }
         ],
         "source_file": "3-20260112-01_TH_Li.pdf.asset.1768894796709.pdf",
-        "pdf_source": "3-20260112-01_TH_Li.pdf.asset.1768894796709.pdf"
+        "pdf_source": "3-20260112-01_TH_Li.pdf.asset.1768894796709.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "320Li M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 4-cylinder petrol engine'"
+            },
+            {
+                "model_name": "320Li M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 18 นิ้ว ลาย Double-spoke แบบสลับสี', English has '18\" M light alloy wheels Double-spoke style Bicolour'"
+            },
+            {
+                "model_name": "320Li M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ขนาดยาง",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'หน้า: 7.5 J × 18, 225/45 R 18 หลัง: 8.5 J × 18, 255/40 R 18', English has 'Front: 7.5 J × 18, 225/45 R 18Rear: 8.5 J × 18, 255/40 R 18'"
+            }
+        ]
     },
     {
         "series": "BMW 4 SERIES",
@@ -5528,7 +5548,23 @@
             }
         ],
         "source_file": "4-20241113-02_TH.pdf.asset.1745407581563.pdf",
-        "pdf_source": "4-20241113-02_TH.pdf.asset.1745407581563.pdf"
+        "pdf_source": "4-20241113-02_TH.pdf.asset.1745407581563.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "430i Convertible M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 4-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "430i Convertible M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้ว ลาย Double-spoke แบบสลับสี', English has '19\" M light alloy wheels Double-spoke style, Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW 7 SERIES",
@@ -5955,7 +5991,23 @@
             }
         ],
         "source_file": "7-20250130-02_TH.pdf.asset.1745407582934.pdf",
-        "pdf_source": "7-20250130-02_TH.pdf.asset.1745407582934.pdf"
+        "pdf_source": "7-20250130-02_TH.pdf.asset.1745407582934.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M760e xDrive",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'BMW เครื่องยนต์เบนซิน 6 สูบเทคโนโลยี TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้ออัลลอย BMW Individual aerodynamic ขนาด 21 นิ้ว ตกแต่งสี Dark Grey ขัดเงา ลาย 3 มิติ', English has '21\" BMW Individual aerodynamic wheels I Multicolour Dark Grey 3D polished buff'"
+            }
+        ]
     },
     {
         "series": "BMW M2",
@@ -7114,7 +7166,58 @@
             }
         ],
         "source_file": "M2-20250827-01_TH_Edit.pdf.asset.1758278358157.pdf",
-        "pdf_source": "M2-20250827-01_TH_Edit.pdf.asset.1758278358157.pdf"
+        "pdf_source": "M2-20250827-01_TH_Edit.pdf.asset.1758278358157.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M2 (MT)",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี M TwinPower Turbo', English has 'M TwinPower Turbo6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "M2 (MT)",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 และ 20 นิ้ว ลาย Double-spoke', English has '19\" / 20\" M light alloy wheels Double-spoke style'"
+            },
+            {
+                "model_name": "M2 (M Racetrack)",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี M TwinPower Turbo', English has 'M TwinPower Turbo6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "M2 (M Racetrack)",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 และ 20 นิ้ว ลาย Double-spoke', English has '19\" / 20\" M light alloy wheels Double-spoke style'"
+            },
+            {
+                "model_name": "M2",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี M TwinPower Turbo', English has 'M TwinPower Turbo6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "M2",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 และ 20 นิ้ว ลาย Double-spoke', English has '19\" / 20\" M light alloy wheels Double-spoke style'"
+            },
+            {
+                "model_name": "M2",
+                "category": "ล้อและยาง",
+                "topic": "ขนาดยาง",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า: 9.5 J × 19 / ยาง 275/35 ZR 19 ล้อหลัง: 1.05 J × 20 / ยาง 285/30 ZR 20', English has 'Front: 9.5 J × 19 / tyres 275/35 ZR 19Rear: 10.5 J × 20 / tyres 285/3O ZR 20'"
+            }
+        ]
     },
     {
         "series": "BMW M2 CS",
@@ -7495,7 +7598,23 @@
             }
         ],
         "source_file": "M2-CS-20250910-01_TH.pdf.asset.1758261830128.pdf",
-        "pdf_source": "M2-CS-20250910-01_TH.pdf.asset.1758261830128.pdf"
+        "pdf_source": "M2-CS-20250910-01_TH.pdf.asset.1758261830128.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M2 CS",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบเทคโนโลยี M TwinPower Turbo', English has 'M TwinPower Turbo6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "M2 CS",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 และ 20 นิ้วลาย star spoke Gold Bronze', English has '19\"/20\" M light alloy wheels star spoke style Gold Bronze'"
+            }
+        ]
     },
     {
         "series": "BMW M3",
@@ -7818,7 +7937,30 @@
             }
         ],
         "source_file": "M3-20230815-01_TH.pdf.asset.1724906649623.pdf",
-        "pdf_source": "M3-20230815-01_TH.pdf.asset.1724906649623.pdf"
+        "pdf_source": "M3-20230815-01_TH.pdf.asset.1724906649623.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M3 CS",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี BMW M TwinPower Turbo', English has 'M TwinPower Turbo6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "M3 CS",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 และ 20 นิ้วลาย Star-spoke', English has '19\" / 20\" M light alloy wheelsStar-spoke'"
+            },
+            {
+                "model_name": "M3 CS",
+                "category": "ล้อและยาง",
+                "topic": "ขนาดยาง",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า: 9.5 J × 19 / ยาง 275/35 R19 ล้อหลัง: 10.5 J × 20 / ยาง 285/30 R20', English has 'front: 9.5 J × 19 / tyres 275/35 R 19rear: 10.5 J × 20 / tyres 285/35 R 20'"
+            }
+        ]
     },
     {
         "series": "BMW M3 CS TOURING",
@@ -8198,7 +8340,23 @@
             }
         ],
         "source_file": "M3-20250818-01_TH.pdf.asset.1758516215456.pdf",
-        "pdf_source": "M3-20250818-01_TH.pdf.asset.1758516215456.pdf"
+        "pdf_source": "M3-20250818-01_TH.pdf.asset.1758516215456.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M3 CS Touring",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้อ M ขนาด 19 นิ้ว / 20 นิ้วลาย Star-spoke', English has '19\"/20\" M light alloy wheels Star-spoke style'"
+            },
+            {
+                "model_name": "M3 CS Touring",
+                "category": "ล้อและยาง",
+                "topic": "ขนาดยาง",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า: 9.5 J × 19 / ยาง 275/35 R 19ล้อหลัง: 10.5 J × 20 / ยาง 285/30 R 20', English has 'Front: 9.5 J × 19, 275/35 R19Rear: 10.5 J × 20, 285/30 R20'"
+            }
+        ]
     },
     {
         "series": "BMW M3",
@@ -8542,7 +8700,30 @@
             }
         ],
         "source_file": "M3-20260622-01_TH.pdf.asset.1782451194798.pdf",
-        "pdf_source": "M3-20260622-01_TH.pdf.asset.1782451194798.pdf"
+        "pdf_source": "M3-20260622-01_TH.pdf.asset.1782451194798.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M3 Competition M xDrive Touring",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี BMW M TwinPower Turbo', English has 'M TwinPower Turbo 6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "M3 Competition M xDrive Touring",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้อ M Forged ขนาด 19 นิ้ว / 20 นิ้วลาย Double-spoke', English has '19\"/20\" M forged wheels Double-spoke style'"
+            },
+            {
+                "model_name": "M3 Competition M xDrive Touring",
+                "category": "ล้อและยาง",
+                "topic": "ขนาดยาง",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า: 9.5 J × 19 / ยาง 275/35 R 19 ล้อหลัง: 10.5 J × 20 / ยาง 285/30 R 20', English has 'Front: 9.5 J × 19, 275/35 R 19Rear: 10.5 J × 20, 285/30 R 20'"
+            }
+        ]
     },
     {
         "series": "BMW M4",
@@ -8889,7 +9070,23 @@
             }
         ],
         "source_file": "M4-20241113-01_TH.pdf.asset.1732168871735.pdf",
-        "pdf_source": "M4-20241113-01_TH.pdf.asset.1732168871735.pdf"
+        "pdf_source": "M4-20241113-01_TH.pdf.asset.1732168871735.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M4 CS",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี BMW M TwinPower Turbo', English has 'M TwinPower Turbo6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "M4 CS",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 และ 20 นิ้วลาย Star-spoke', English has '19\" / 20\" M light alloy wheelsStar-spoke style'"
+            }
+        ]
     },
     {
         "series": "BMW M4",
@@ -9216,7 +9413,30 @@
             }
         ],
         "source_file": "M4-20250312-01_TH.pdf.asset.1745407583372.pdf",
-        "pdf_source": "M4-20250312-01_TH.pdf.asset.1745407583372.pdf"
+        "pdf_source": "M4-20250312-01_TH.pdf.asset.1745407583372.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "BMW M4 Competition M xDrive",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี BMW M TwinPower Turbo', English has 'M TwinPower Turbo 6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "BMW M4 Competition M xDrive",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้อ M Forged ขนาด 19 นิ้ว / 20 นิ้วลาย Double-spoke', English has '19\"/20\" M forged wheels Double-spoke style'"
+            },
+            {
+                "model_name": "BMW M4 Competition M xDrive",
+                "category": "ล้อและยาง",
+                "topic": "ขนาดยาง",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า: 9.5 J × 19 / ยาง 275/35 R 19ล้อหลัง: 10.5 J × 20 / ยาง 285/30 R20', English has 'Front: 9.5 J × 19, 275/35 R 19Rear: 10.5 J × 20, 285/30 R 20'"
+            }
+        ]
     },
     {
         "series": "BMW M5",
@@ -9580,7 +9800,30 @@
             }
         ],
         "source_file": "M5-20250130-05_TH.pdf.asset.1745407582783.pdf",
-        "pdf_source": "M5-20250130-05_TH.pdf.asset.1745407582783.pdf"
+        "pdf_source": "M5-20250130-05_TH.pdf.asset.1745407582783.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M5",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 8 สูบ เทคโนโลยี M TwinPower Turbo', English has 'M TwinPower Turbo V8-cylinder petrol engine'"
+            },
+            {
+                "model_name": "M5",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 20/21 นิ้ว ลาย Double Spoke สีดำ พร้อมยางแบบผสม', English has '20\"/21\" M light alloy wheels double spoke style Black with mixed tyres'"
+            },
+            {
+                "model_name": "M5",
+                "category": "ล้อและยาง",
+                "topic": "ขนาดยาง",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า : 10.5J × 20 / ยาง 285/40 ZR20 ล้อหลัง : 11J × 21 / ยาง 295/35 ZR21', English has 'Front: 10.5J × 20 / tyres: 285/40 ZR20Rear: 11J × 21 / tyres: 295/35 ZR21'"
+            }
+        ]
     },
     {
         "series": "BMW M5",
@@ -9952,7 +10195,30 @@
             }
         ],
         "source_file": "M5-20260417-01_TH.pdf.asset.1778752587556.pdf",
-        "pdf_source": "M5-20260417-01_TH.pdf.asset.1778752587556.pdf"
+        "pdf_source": "M5-20260417-01_TH.pdf.asset.1778752587556.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M5 Touring",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 8 สูบ เทคโนโลยี M TwinPower Turbo', English has 'M TwinPower Turbo V8-cylinder petrol engine'"
+            },
+            {
+                "model_name": "M5 Touring",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 20/21 นิ้ว ลาย Double Spoke', English has '20\"/21\" M light alloy wheels double spoke style'"
+            },
+            {
+                "model_name": "M5 Touring",
+                "category": "ล้อและยาง",
+                "topic": "ขนาดยาง",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า : 10.5J × 20 / ยาง 285/40 ZR20ล้อหลัง : 11J × 21 / ยาง 295/35 ZR20', English has 'Front: 10.5J × 20 / tyres: 285/40 ZR20Rear: 11J × 21 / tyres: 295/35 ZR21'"
+            }
+        ]
     },
     {
         "series": "BMW X1",
@@ -10272,7 +10538,37 @@
             }
         ],
         "source_file": "X1-20260417-01_TH.pdf.asset.1778752587262.pdf",
-        "pdf_source": "X1-20260417-01_TH.pdf.asset.1778752587262.pdf"
+        "pdf_source": "X1-20260417-01_TH.pdf.asset.1778752587262.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 4 สูบเทคโนโลยี TwinPower Turbo', English has 'BMW TwinPower Turbo4-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' / 'Engine power (kW/hp/rpm)': Thai has '150 / 204 / 5,000 - 6,500', English has '150 / 204 / 5,000 – 6,500'"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' / 'Engine torque (Nm/rpm)': Thai has '300 / 1,450 - 4,500', English has '300 / 1,450 – 4,500'"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้วลาย Double-spoke Bicolour', English has '19\" M light alloy wheelsDouble-spoke Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW X3",
@@ -11089,7 +11385,37 @@
             }
         ],
         "source_file": "X3-20260116-01_TH.pdf.asset.1778752585808.pdf",
-        "pdf_source": "X3-20260116-01_TH.pdf.asset.1778752585808.pdf"
+        "pdf_source": "X3-20260116-01_TH.pdf.asset.1778752585808.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "X3 20d xDrive M Sport Pro",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์ดีเซล 4 สูบเทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo4-cylinder inline diesel engine'"
+            },
+            {
+                "model_name": "X3 20d xDrive M Sport Pro",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 20 นิ้วลาย Double-spoke แบบสลับสี', English has '20\" M light alloy wheelsDouble-spoke Bicolour'"
+            },
+            {
+                "model_name": "X3 M50 xDrive",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบเทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "X3 M50 xDrive",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 21 นิ้ว ลาย Star-spoke แบบสลับสี', English has '21\" M light alloy wheels Star-spoke styleBicolour'"
+            }
+        ]
     },
     {
         "series": "BMW X4",
@@ -11445,7 +11771,23 @@
             }
         ],
         "source_file": "X4-20240418-01_TH.pdf.asset.1758627513274.pdf",
-        "pdf_source": "X4-20240418-01_TH.pdf.asset.1758627513274.pdf"
+        "pdf_source": "X4-20240418-01_TH.pdf.asset.1758627513274.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์ดีเซล 4 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 4-cylinder diesel engine'"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 20 นิ้ว ลาย Double-spoke', English has '20\" M light alloy wheels Double-spoke style'"
+            }
+        ]
     },
     {
         "series": "BMW X5",
@@ -12390,7 +12732,37 @@
             }
         ],
         "source_file": "X5-20260417-01_TH.pdf.asset.1779075010632.pdf",
-        "pdf_source": "X5-20260417-01_TH.pdf.asset.1779075010632.pdf"
+        "pdf_source": "X5-20260417-01_TH.pdf.asset.1779075010632.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "X5 xDrive30d M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์ดีเซล 6 สูบเทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo6-cylinder diesel engine'"
+            },
+            {
+                "model_name": "X5 xDrive30d M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 20 นิ้วลาย Star-spoke แบบสลับสี', English has '20\" M light alloy wheelsStar-spoke style, Bicolour'"
+            },
+            {
+                "model_name": "X5 xDrive50e M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบเทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo6-cylinder petrol engine'"
+            },
+            {
+                "model_name": "X5 xDrive50e M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 21 นิ้วลาย Y-spoke แบบสลับสี', English has '21\" M light alloy wheelsY-spoke style, Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW X6",
@@ -12798,7 +13170,30 @@
             }
         ],
         "source_file": "X6-20260223-01_TH.pdf.asset.1778752585977.pdf",
-        "pdf_source": "X6-20260223-01_TH.pdf.asset.1778752585977.pdf"
+        "pdf_source": "X6-20260223-01_TH.pdf.asset.1778752585977.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "X6 xDrive40i M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder petrol engine'"
+            },
+            {
+                "model_name": "X6 xDrive40i M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 22 นิ้ว ลาย Double-spoke แบบสลับสี', English has '22\" M light alloy wheels Double-spoke style, Bicolour'"
+            },
+            {
+                "model_name": "X6 xDrive40i M Sport",
+                "category": "ความปลอดภัย",
+                "topic": "ยางอะไหล่",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ยางอะไหล่' / 'Emergency spare wheel': Thai has '-', English has '■'"
+            }
+        ]
     },
     {
         "series": "BMW X7",
@@ -13238,7 +13633,23 @@
             }
         ],
         "source_file": "X7-20260529-01_TH.pdf.asset.1782451059580.pdf",
-        "pdf_source": "X7-20260529-01_TH.pdf.asset.1782451059580.pdf"
+        "pdf_source": "X7-20260529-01_TH.pdf.asset.1782451059580.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "X7 xDrive40d M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์ดีเซล 6 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder diesel engine'"
+            },
+            {
+                "model_name": "X7 xDrive40d M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย BMW Individual ขนาด 23 นิ้ว ลาย V-spoke แบบสลับสี', English has '23\" BMW Individual light alloy wheels V-spoke Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW XM",
@@ -13581,7 +13992,23 @@
             }
         ],
         "source_file": "XM-20250130-02_TH_WLTP.pdf.asset.1740723963122.pdf",
-        "pdf_source": "XM-20250130-02_TH_WLTP.pdf.asset.1740723963122.pdf"
+        "pdf_source": "XM-20250130-02_TH_WLTP.pdf.asset.1740723963122.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "XM",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 8 สูบ เทคโนโลยี BMW M TwinPower Turbo', English has 'M TwinPower Turbo V8-cylinder petrol engine'"
+            },
+            {
+                "model_name": "XM",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 23 นิ้ว ลาย star spoke แบบสลับสี', English has '23\" M light-alloy wheels star spoke Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW XM",
@@ -13913,7 +14340,23 @@
             }
         ],
         "source_file": "XM-20250130-03_TH_WLTP.pdf.asset.1740723896658.pdf",
-        "pdf_source": "XM-20250130-03_TH_WLTP.pdf.asset.1740723896658.pdf"
+        "pdf_source": "XM-20250130-03_TH_WLTP.pdf.asset.1740723896658.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "XM Label Red",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 8 สูบ เทคโนโลยี BMW M TwinPower Turbo', English has 'M TwinPower Turbo V8-cylinder petrol engine'"
+            },
+            {
+                "model_name": "XM Label Red",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 22 นิ้ว ลาย Double-spoke ตกแต่งด้วยสีแดง', English has '22\" M light-alloy wheels double spoke Bicolour Red accent'"
+            }
+        ]
     },
     {
         "series": "BMW Z4",
@@ -14584,7 +15027,37 @@
             }
         ],
         "source_file": "Z4-20240610-02_TH.pdf.asset.1758628086952.pdf",
-        "pdf_source": "Z4-20240610-02_TH.pdf.asset.1758628086952.pdf"
+        "pdf_source": "Z4-20240610-02_TH.pdf.asset.1758628086952.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "Z4 sDrive30i M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 4 สูบเทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo4-cylinder petrol engine'"
+            },
+            {
+                "model_name": "Z4 sDrive30i M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้วลาย Double-spoke แบบสลับสี', English has '19\" M light alloy wheelsDouble-spoke style, Bicolour'"
+            },
+            {
+                "model_name": "Z4 M40i",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบเทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo6-cylinder petrol engine'"
+            },
+            {
+                "model_name": "Z4 M40i",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้วลาย Double-spoke แบบสลับสี', English has '19\" M light alloy wheelsDouble-spoke style, Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW i5",
@@ -15051,7 +15524,30 @@
             }
         ],
         "source_file": "i5-20260417-01_TH.pdf.asset.1778752587155.pdf",
-        "pdf_source": "i5-20260417-01_TH.pdf.asset.1778752587155.pdf"
+        "pdf_source": "i5-20260417-01_TH.pdf.asset.1778752587155.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "มอเตอร์ไฟฟ้า",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'มอเตอร์ไฟฟ้า' / 'Electric motor': Thai has 'เทคโนโลยี BMW eDrive', English has 'BMW eDrive technology'"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดแบตเตอรี่ (แรงดันสูง)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดแบตเตอรี่ (แรงดันสูง)' / 'Battery type (High voltage)': Thai has 'ลิเทียม-ไอออน (Lithium-ion)', English has 'Lithium-ion'"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้ออัลลอย M aerodynamic ขนาด 20 นิ้ว ตกแต่งสี Black Grey แบบสลับสี', English has '20\" M aerodynamic wheelsBicolour Black Grey'"
+            }
+        ]
     },
     {
         "series": "BMW i7",
@@ -15473,7 +15969,37 @@
             }
         ],
         "source_file": "i7-20240710-01_TH.pdf.asset.1758628809179.pdf",
-        "pdf_source": "i7-20240710-01_TH.pdf.asset.1758628809179.pdf"
+        "pdf_source": "i7-20240710-01_TH.pdf.asset.1758628809179.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "i7 xDrive60 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "มอเตอร์ไฟฟ้า",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'มอเตอร์ไฟฟ้า' / 'Electric motor': Thai has 'เทคโนโลยี BMW eDrive', English has 'BMW eDrive technology'"
+            },
+            {
+                "model_name": "i7 xDrive60 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า1 , มาตรฐาน NEDC (กิโลเมตร)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ระยะทางขับเคลื่อนไฟฟ้า1 , มาตรฐาน NEDC (กิโลเมตร)' / 'Electric range1, NEDC (km)': Thai has 'สูงสุดถึง 625', English has 'up to1 625'"
+            },
+            {
+                "model_name": "i7 xDrive60 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดแบตเตอรี่ (แรงดันสูง)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดแบตเตอรี่ (แรงดันสูง)' / 'Battery type (High voltage)': Thai has 'ลิเทียม-ไอออน (Lithium-ion)', English has 'Lithium-ion'"
+            },
+            {
+                "model_name": "i7 xDrive60 M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้ออัลลอย M ขนาด 21 นิ้ว แบบสลับสี', English has '21\" M light-alloy wheels, Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW iX",
@@ -15875,7 +16401,30 @@
             }
         ],
         "source_file": "iX-20251030-01_TH_REV-Color.pdf.asset.1763711932423.pdf",
-        "pdf_source": "iX-20251030-01_TH_REV-Color.pdf.asset.1763711932423.pdf"
+        "pdf_source": "iX-20251030-01_TH_REV-Color.pdf.asset.1763711932423.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "iX xDrive45 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "มอเตอร์ไฟฟ้า",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'มอเตอร์ไฟฟ้า' / 'Electric motor': Thai has 'เทคโนโลยี BMW eDrive', English has 'BMW eDrive Technology'"
+            },
+            {
+                "model_name": "iX xDrive45 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดแบตเตอรี่ (แรงดันสูง)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดแบตเตอรี่ (แรงดันสูง)' / 'Battery type (High voltage)': Thai has 'ลิเทียม-ไอออน (Lithium-ion)', English has 'Lithium-ion'"
+            },
+            {
+                "model_name": "iX xDrive45 M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้อ M aerodynamic ขนาด 21 นิ้วแบบสลับสี 3D ขัดเงา', English has '21\" M aerodynamic wheels Multicolour 3D polished buff'"
+            }
+        ]
     },
     {
         "series": "BMW iX1",
@@ -16278,7 +16827,23 @@
             }
         ],
         "source_file": "iX1-L-20251110-01_TH.pdf.asset.1763618806206.pdf",
-        "pdf_source": "iX1-L-20251110-01_TH.pdf.asset.1763618806206.pdf"
+        "pdf_source": "iX1-L-20251110-01_TH.pdf.asset.1763618806206.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "iX1 eDrive20L M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "มอเตอร์ไฟฟ้า",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'มอเตอร์ไฟฟ้า' / 'Electric motor': Thai has 'เทคโนโลยี BMW eDrive', English has 'BMW eDrive Technology'"
+            },
+            {
+                "model_name": "iX1 eDrive20L M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้ว แบบ Double-spoke แบบสลับสี', English has '19\" M light-alloy wheels Double-spoke style Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW iX2",
@@ -16632,7 +17197,30 @@
             }
         ],
         "source_file": "iX2-20240710-01_TH-(1).pdf.asset.1738060128032.pdf",
-        "pdf_source": "iX2-20240710-01_TH-(1).pdf.asset.1738060128032.pdf"
+        "pdf_source": "iX2-20240710-01_TH-(1).pdf.asset.1738060128032.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "iX2 xDrive30 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "มอเตอร์ไฟฟ้า",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'มอเตอร์ไฟฟ้า' / 'Electric motor': Thai has 'เทคโนโลยี BMW eDrive', English has 'BMW eDrive technology'"
+            },
+            {
+                "model_name": "iX2 xDrive30 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดแบตเตอรี่ (แรงดันสูง)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดแบตเตอรี่ (แรงดันสูง)' / 'Battery type (High voltage)': Thai has 'ลิเทียม-ไอออน (Lithium-ion)', English has 'Lithium-ion'"
+            },
+            {
+                "model_name": "iX2 xDrive30 M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้ออัลลอย M ขนาด 20 นิ้ว ลาย V-spoke แบบสลับสี', English has '20\" M lightalloy wheels V-spoke Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW iX3",
@@ -17034,6 +17622,22 @@
             }
         ],
         "source_file": "iX3-20260213-02_TH_REV1.pdf.asset.1782450816279.pdf",
-        "pdf_source": "iX3-20260213-02_TH_REV1.pdf.asset.1782450816279.pdf"
+        "pdf_source": "iX3-20260213-02_TH_REV1.pdf.asset.1782450816279.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "iX3 50 xDrive M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "มอเตอร์ไฟฟ้า",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'มอเตอร์ไฟฟ้า' / 'Electric motor': Thai has 'BMW eDrive technology รุ่นที่ 6', English has 'Sixth-generation BMW eDrive technology'"
+            },
+            {
+                "model_name": "iX3 50 xDrive M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้อ BMW Individual Aerodynamic ขนาด 22 นิ้ว แบบสลับสี', English has '22\" BMW Individual aerodynamic wheels I Bicolour'"
+            }
+        ]
     }
 ]
