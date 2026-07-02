@@ -77,19 +77,6 @@
                         ]
                     },
                     {
-                        "category": "Fuel Consumption and CO2",
-                        "details": [
-                            {
-                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                                "value": "76.9"
-                            },
-                            {
-                                "topic": "Combined CO2 (g/km)",
-                                "value": "29"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Wheels and Tyres",
                         "details": [
                             {
@@ -469,6 +456,19 @@
                                 "value": "(ZJT, ZKO, ZLE)"
                             }
                         ]
+                    },
+                    {
+                        "category": "Fuel Consumption and CO2",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "76.9"
+                            },
+                            {
+                                "topic": "Combined CO2 (g/km)",
+                                "value": "29"
+                            }
+                        ]
                     }
                 ]
             },
@@ -541,19 +541,6 @@
                             {
                                 "topic": "Electric energy consumption, WLTP (kWh/100 km)",
                                 "value": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Fuel Consumption and CO2",
-                        "details": [
-                            {
-                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                                "value": "18.5"
-                            },
-                            {
-                                "topic": "Combined CO2 (g/km)",
-                                "value": "142"
                             }
                         ]
                     },
@@ -945,6 +932,19 @@
                                 "value": "(ZJR, ZKP)"
                             }
                         ]
+                    },
+                    {
+                        "category": "Fuel Consumption and CO2",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "18.5"
+                            },
+                            {
+                                "topic": "Combined CO2 (g/km)",
+                                "value": "142"
+                            }
+                        ]
                     }
                 ]
             },
@@ -1017,19 +1017,6 @@
                             {
                                 "topic": "Electric energy consumption, WLTP (kWh/100 km)",
                                 "value": "21.4 - 18.9"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Fuel Consumption and CO2",
-                        "details": [
-                            {
-                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                                "value": "76.9"
-                            },
-                            {
-                                "topic": "Combined CO2 (g/km)",
-                                "value": "29"
                             }
                         ]
                     },
@@ -1421,6 +1408,19 @@
                                 "value": "(ZJQ, ZLB)"
                             }
                         ]
+                    },
+                    {
+                        "category": "Fuel Consumption and CO2",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "76.9"
+                            },
+                            {
+                                "topic": "Combined CO2 (g/km)",
+                                "value": "29"
+                            }
+                        ]
                     }
                 ]
             }
@@ -1544,19 +1544,6 @@
                             {
                                 "topic": "Electric energy consumption, WLTP (kWh/100 km)",
                                 "value": "32.2"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "FUEL CONSUMPTION AND CO2",
-                        "details": [
-                            {
-                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                                "value": "52.6"
-                            },
-                            {
-                                "topic": "Combined CO2 (g/km)",
-                                "value": "44"
                             }
                         ]
                     },
@@ -1808,6 +1795,19 @@
                                 "value": "((Z3R, Z4J, Z6D, Z8R))"
                             }
                         ]
+                    },
+                    {
+                        "category": "FUEL CONSUMPTION AND CO2",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "52.6"
+                            },
+                            {
+                                "topic": "Combined CO2 (g/km)",
+                                "value": "44"
+                            }
+                        ]
                     }
                 ]
             },
@@ -1880,19 +1880,6 @@
                             {
                                 "topic": "Electric energy consumption, WLTP (kWh/100 km)",
                                 "value": "32.2"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "FUEL CONSUMPTION AND CO2",
-                        "details": [
-                            {
-                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                                "value": "52.6"
-                            },
-                            {
-                                "topic": "Combined CO2 (g/km)",
-                                "value": "44"
                             }
                         ]
                     },
@@ -2142,6 +2129,19 @@
                             {
                                 "topic": "Package Code (Local Pack)",
                                 "value": "((ZJC, Z4K, Z6C, Z8Q, Z8X, Z9Y))"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "FUEL CONSUMPTION AND CO2",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "52.6"
+                            },
+                            {
+                                "topic": "Combined CO2 (g/km)",
+                                "value": "44"
                             }
                         ]
                     }
@@ -2906,19 +2906,6 @@
                         ]
                     },
                     {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "3 July 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(Z7J, Z8G)"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Paintwork & Upholstery",
                         "details": [
                             {
@@ -2940,6 +2927,19 @@
                             {
                                 "topic": "Dravit Grey Metallic",
                                 "value": "-"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "3 July 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z7J, Z8G)"
                             }
                         ]
                     }
@@ -3326,19 +3326,6 @@
                         ]
                     },
                     {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "3 July 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(Z7G, Z7U)"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Paintwork & Upholstery",
                         "details": [
                             {
@@ -3360,6 +3347,19 @@
                             {
                                 "topic": "Dravit Grey Metallic",
                                 "value": "-"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "3 July 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z7G, Z7U)"
                             }
                         ]
                     }
@@ -3746,19 +3746,6 @@
                         ]
                     },
                     {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "3 July 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(Z7H, Z8H)"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Paintwork & Upholstery",
                         "details": [
                             {
@@ -3780,6 +3767,19 @@
                             {
                                 "topic": "Dravit Grey Metallic",
                                 "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue | Black"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "3 July 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z7H, Z8H)"
                             }
                         ]
                     }
@@ -5728,19 +5728,6 @@
                         ]
                     },
                     {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "25 September 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(Z7R, Z9L)"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Paintwork & Upholstery",
                         "details": [
                             {
@@ -5774,6 +5761,19 @@
                             {
                                 "topic": "Black Sapphire Metallic",
                                 "value": "Full leather 'Merino' - Black/Exclusive Highlight"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "25 September 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z7R, Z9L)"
                             }
                         ]
                     }
@@ -6121,19 +6121,6 @@
                         ]
                     },
                     {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "25 September 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(Z7O, Z7Q, Z9G, Z9M)"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Paintwork & Upholstery",
                         "details": [
                             {
@@ -6167,6 +6154,19 @@
                             {
                                 "topic": "Black Sapphire Metallic",
                                 "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Leather 'Vernasca' - Black/Exclusive Highlight, Leather 'Vernasca' - Black/Red highlight"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "25 September 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z7O, Z7Q, Z9G, Z9M)"
                             }
                         ]
                     }
@@ -6551,24 +6551,6 @@
                         ]
                     },
                     {
-                        "category": "Package",
-                        "details": [
-                            {
-                                "topic": "M Driver's Package",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Optional Equipment",
-                        "details": [
-                            {
-                                "topic": "M Carbon ceramic Brake, Red High-Gloss3",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Paintwork & Upholstery",
                         "details": [
                             {
@@ -6599,6 +6581,24 @@
                             {
                                 "topic": "Package Code (Local Pack)",
                                 "value": "(ZJW, ZJX, ZKJ)"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Package",
+                        "details": [
+                            {
+                                "topic": "M Driver's Package",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Optional Equipment",
+                        "details": [
+                            {
+                                "topic": "M Carbon ceramic Brake, Red High-Gloss3",
+                                "value": "■"
                             }
                         ]
                     }
@@ -7670,19 +7670,6 @@
                         ]
                     },
                     {
-                        "category": "Optional Equipment",
-                        "details": [
-                            {
-                                "topic": "M Driver's Package",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Carbon ceramic brake",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Document References",
                         "details": [
                             {
@@ -7692,6 +7679,19 @@
                             {
                                 "topic": "Package Code (Local Pack)",
                                 "value": "(Z0R, Z0S, Z6V, Z7S, Z9C, ZLG)"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Optional Equipment",
+                        "details": [
+                            {
+                                "topic": "M Driver's Package",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Carbon ceramic brake",
+                                "value": "■"
                             }
                         ]
                     }
@@ -8392,19 +8392,6 @@
                         ]
                     },
                     {
-                        "category": "Optional Equipment",
-                        "details": [
-                            {
-                                "topic": "M Driver's Package",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Carbon ceramic brake",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Document References",
                         "details": [
                             {
@@ -8414,6 +8401,19 @@
                             {
                                 "topic": "Package Code (Local Pack)",
                                 "value": "(Z0L, Z6S, Z6W, Z7P)"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Optional Equipment",
+                        "details": [
+                            {
+                                "topic": "M Driver's Package",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Carbon ceramic brake",
+                                "value": "■"
                             }
                         ]
                     }
@@ -8590,6 +8590,47 @@
                         ]
                     },
                     {
+                        "category": "Exterior Equipment",
+                        "details": [
+                            {
+                                "topic": "Adaptive LED headlights",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Iconic Glow exterior package",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Automatic operation of tailgate",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Comfort access system",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Carbon exterior package",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Compound brake",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Lights Shadow Line",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M high-gloss Shadowline",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M High-gloss Shadowline with Extended Contents",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
                         "category": "Interior Equipment",
                         "details": [
                             {
@@ -8737,43 +8778,15 @@
                         ]
                     },
                     {
-                        "category": "Exterior Equipment",
+                        "category": "Document References",
                         "details": [
                             {
-                                "topic": "Adaptive LED headlights",
-                                "value": "■"
+                                "topic": "Publication Date",
+                                "value": "30 January 2025"
                             },
                             {
-                                "topic": "BMW Iconic Glow exterior package",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Automatic operation of tailgate",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Comfort access system",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Carbon exterior package",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Compound brake",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Lights Shadow Line",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M high-gloss Shadowline",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M High-gloss Shadowline with Extended Contents",
-                                "value": "■"
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z6N, Z8P, Z9N)"
                             }
                         ]
                     },
@@ -8787,19 +8800,6 @@
                             {
                                 "topic": "M Driver's Package",
                                 "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "30 January 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(Z6N, Z8P, Z9N)"
                             }
                         ]
                     }
@@ -9168,19 +9168,6 @@
                         ]
                     },
                     {
-                        "category": "Optional Equipment",
-                        "details": [
-                            {
-                                "topic": "M Driver's Package",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Carbon ceramic brake",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Document References",
                         "details": [
                             {
@@ -9190,6 +9177,19 @@
                             {
                                 "topic": "Package Code (Local Pack)",
                                 "value": "(Z9D, Z9E, ZJZ)"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Optional Equipment",
+                        "details": [
+                            {
+                                "topic": "M Driver's Package",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Carbon ceramic brake",
+                                "value": "■"
                             }
                         ]
                     }
@@ -11210,19 +11210,6 @@
                         ]
                     },
                     {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "15 January 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(ZIL, Z3T, Z4Y, Z7Z, Z9B, Z9R)"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Paintwork & Upholstery",
                         "details": [
                             {
@@ -11240,6 +11227,19 @@
                             {
                                 "topic": "Manhattan Metallic",
                                 "value": "BMW Individual extended leather trim 'Merino' - Coffee"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "15 January 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(ZIL, Z3T, Z4Y, Z7Z, Z9B, Z9R)"
                             }
                         ]
                     }
@@ -11679,19 +11679,6 @@
                         ]
                     },
                     {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "15 January 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(ZIM, Z3U, Z5E, Z6P, Z8B, Z9S, ZKR)"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Paintwork & Upholstery",
                         "details": [
                             {
@@ -11709,6 +11696,19 @@
                             {
                                 "topic": "Manhattan Metallic",
                                 "value": "BMW Individual extended leather trim 'Merino' - Coffee"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "15 January 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(ZIM, Z3U, Z5E, Z6P, Z8B, Z9S, ZKR)"
                             }
                         ]
                     }
@@ -14399,19 +14399,6 @@
                         ]
                     },
                     {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "18 February 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(Z0X, Z0V)"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Paintwork & Upholstery",
                         "details": [
                             {
@@ -14441,6 +14428,19 @@
                             {
                                 "topic": "Cape York Green Metallic",
                                 "value": "Leather 'Vernasca' - Mocha decor stitching"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "18 February 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z0X, Z0V)"
                             }
                         ]
                     }
@@ -14808,19 +14808,6 @@
                         ]
                     },
                     {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "18 February 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(Z0Y)"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Paintwork & Upholstery",
                         "details": [
                             {
@@ -14850,6 +14837,19 @@
                             {
                                 "topic": "Cape York Green Metallic",
                                 "value": "Leather 'Vernasca' - Mocha decor stitching"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "18 February 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z0Y)"
                             }
                         ]
                     }
@@ -15217,19 +15217,6 @@
                         ]
                     },
                     {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "18 February 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(Z0Z, Z8Y)"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Paintwork & Upholstery",
                         "details": [
                             {
@@ -15247,6 +15234,19 @@
                             {
                                 "topic": "Fire Red Metallic",
                                 "value": "Leather 'Vernasca' - Black/Red highlight"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "18 February 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z0Z, Z8Y)"
                             }
                         ]
                     }
@@ -15669,19 +15669,6 @@
                         ]
                     },
                     {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "27 February 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(ZJP)"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Paintwork & Upholstery",
                         "details": [
                             {
@@ -15699,6 +15686,19 @@
                             {
                                 "topic": "Oxide Grey Metallic",
                                 "value": "BMW Individual leather 'Merino' - Black"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "27 February 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(ZJP)"
                             }
                         ]
                     }
@@ -16114,19 +16114,6 @@
                         ]
                     },
                     {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "27 February 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(Z4T, Z8L)"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Paintwork & Upholstery",
                         "details": [
                             {
@@ -16144,6 +16131,19 @@
                             {
                                 "topic": "Oxide Grey Metallic",
                                 "value": "BMW Individual leather 'Merino' - Black"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "27 February 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z4T, Z8L)"
                             }
                         ]
                     }
@@ -20916,6 +20916,62 @@
                         ]
                     },
                     {
+                        "category": "AC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power AC (kW)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "47 hours"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "12 hours 45 mins"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "8 hours 30 mins"
+                            },
+                            {
+                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
+                                "value": "4 hours 15 minutes"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "DC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power DC (kW)",
+                                "value": "205"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 hour 13 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "41 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "30 minutes"
+                            }
+                        ]
+                    },
+                    {
                         "category": "Drivetrain and Technology",
                         "details": [
                             {
@@ -21226,62 +21282,6 @@
                                 "value": "(ZKK, ZLC)"
                             }
                         ]
-                    },
-                    {
-                        "category": "AC CHARGING",
-                        "details": [
-                            {
-                                "topic": "Maximum charging power AC (kW)",
-                                "value": "22"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "CHARGING TIME 0 - 100%",
-                        "details": [
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "47 hours"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "12 hours 45 mins"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "8 hours 30 mins"
-                            },
-                            {
-                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
-                                "value": "4 hours 15 minutes"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "DC CHARGING",
-                        "details": [
-                            {
-                                "topic": "Maximum charging power DC (kW)",
-                                "value": "205"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "CHARGING TIME 10 - 80%",
-                        "details": [
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 hour 13 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "41 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "30 minutes"
-                            }
-                        ]
                     }
                 ]
             }
@@ -21371,6 +21371,62 @@
                             {
                                 "topic": "Curb weight (kg)",
                                 "value": "2,715"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "AC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power AC (kW)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "55 hours 30 minutes"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "16 hours"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "10 hours 45 minutes"
+                            },
+                            {
+                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
+                                "value": "5 hours 30 minutes"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "DC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power DC (kW)",
+                                "value": "195"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 hour 35 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "50 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "34 minutes"
                             }
                         ]
                     },
@@ -21701,62 +21757,6 @@
                                 "value": "(Z4A)"
                             }
                         ]
-                    },
-                    {
-                        "category": "AC CHARGING",
-                        "details": [
-                            {
-                                "topic": "Maximum charging power AC (kW)",
-                                "value": "22"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "CHARGING TIME 0 - 100%",
-                        "details": [
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "55 hours 30 minutes"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "16 hours"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "10 hours 45 minutes"
-                            },
-                            {
-                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
-                                "value": "5 hours 30 minutes"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "DC CHARGING",
-                        "details": [
-                            {
-                                "topic": "Maximum charging power DC (kW)",
-                                "value": "195"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "CHARGING TIME 10 - 80%",
-                        "details": [
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 hour 35 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "50 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "34 minutes"
-                            }
-                        ]
                     }
                 ]
             }
@@ -21846,6 +21846,62 @@
                             {
                                 "topic": "Curb weight (kg)",
                                 "value": "2,525"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "AC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power AC (kW)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging with 2.3kW (230V, 10A) x 1ph",
+                                "value": "54 hours"
+                            },
+                            {
+                                "topic": "AC charging with 7.4kW (230V, 32A) x 1ph",
+                                "value": "14 hours 45 minutes"
+                            },
+                            {
+                                "topic": "AC charging with 11kW (230V, 16A) x 3ph, 48A) x 1ph",
+                                "value": "9 hours 45 minutes"
+                            },
+                            {
+                                "topic": "AC charging with 22kW (230V, 32A) x 3ph",
+                                "value": "5 hours"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "DC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power DC (kW)",
+                                "value": "175"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 hour 30 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "47 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "34 minutes"
                             }
                         ]
                     },
@@ -22163,62 +22219,6 @@
                                 "value": "(ZJU)"
                             }
                         ]
-                    },
-                    {
-                        "category": "AC CHARGING",
-                        "details": [
-                            {
-                                "topic": "Maximum charging power AC (kW)",
-                                "value": "22"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "CHARGING TIME 0 - 100%",
-                        "details": [
-                            {
-                                "topic": "AC charging with 2.3kW (230V, 10A) x 1ph",
-                                "value": "54 hours"
-                            },
-                            {
-                                "topic": "AC charging with 7.4kW (230V, 32A) x 1ph",
-                                "value": "14 hours 45 minutes"
-                            },
-                            {
-                                "topic": "AC charging with 11kW (230V, 16A) x 3ph, 48A) x 1ph",
-                                "value": "9 hours 45 minutes"
-                            },
-                            {
-                                "topic": "AC charging with 22kW (230V, 32A) x 3ph",
-                                "value": "5 hours"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "DC CHARGING",
-                        "details": [
-                            {
-                                "topic": "Maximum charging power DC (kW)",
-                                "value": "175"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "CHARGING TIME 10 - 80%",
-                        "details": [
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 hour 30 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "47 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "34 minutes"
-                            }
-                        ]
                     }
                 ]
             }
@@ -22308,6 +22308,58 @@
                             {
                                 "topic": "Curb weight (kg)",
                                 "value": "2,024"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "AC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power AC (kW)",
+                                "value": "11"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "34 hours 30 minutes"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "10 hours"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "6 hours 45 minutes"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "DC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power DC (kW)",
+                                "value": "130"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 hour 14 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "40 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "32 minutes"
                             }
                         ]
                     },
@@ -22570,58 +22622,6 @@
                                 "value": "(ZK8)"
                             }
                         ]
-                    },
-                    {
-                        "category": "AC CHARGING",
-                        "details": [
-                            {
-                                "topic": "Maximum charging power AC (kW)",
-                                "value": "11"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "CHARGING TIME 0 - 100%",
-                        "details": [
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "34 hours 30 minutes"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "10 hours"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "6 hours 45 minutes"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "DC CHARGING",
-                        "details": [
-                            {
-                                "topic": "Maximum charging power DC (kW)",
-                                "value": "130"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "CHARGING TIME 10 - 80%",
-                        "details": [
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 hour 14 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "40 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "32 minutes"
-                            }
-                        ]
                     }
                 ]
             }
@@ -22715,6 +22715,62 @@
                             {
                                 "topic": "Curb weight (kg)",
                                 "value": "2,095"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "AC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power AC (kW)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "34 hours 30 minutes"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "10 hours"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "6 hours 30 minutes"
+                            },
+                            {
+                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
+                                "value": "3 hours 45 minutes"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "DC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power DC (kW)",
+                                "value": "130"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 hour 14 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "38 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "29 minutes"
                             }
                         ]
                     },
@@ -22968,62 +23024,6 @@
                                 "value": "(Z2O, Z0N, Z8C, Z8D)"
                             }
                         ]
-                    },
-                    {
-                        "category": "AC CHARGING",
-                        "details": [
-                            {
-                                "topic": "Maximum charging power AC (kW)",
-                                "value": "22"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "CHARGING TIME 0 - 100%",
-                        "details": [
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "34 hours 30 minutes"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "10 hours"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "6 hours 30 minutes"
-                            },
-                            {
-                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
-                                "value": "3 hours 45 minutes"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "DC CHARGING",
-                        "details": [
-                            {
-                                "topic": "Maximum charging power DC (kW)",
-                                "value": "130"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "CHARGING TIME 10 - 80%",
-                        "details": [
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 hour 14 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "38 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "29 minutes"
-                            }
-                        ]
                     }
                 ]
             }
@@ -23117,6 +23117,66 @@
                             {
                                 "topic": "Curb weight (kg)",
                                 "value": "2,360"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "AC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power AC (kW)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "60 hours"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "16 hours 45 minutes"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "11 hours"
+                            },
+                            {
+                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
+                                "value": "5 hours 30 minutes"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "DC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power DC (kW)",
+                                "value": "400"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "56 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "28 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "22 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 800A by EVSE",
+                                "value": "21 minutes"
                             }
                         ]
                     },
@@ -23433,66 +23493,6 @@
                             {
                                 "topic": "Package Code (Local Pack)",
                                 "value": "(ZKS)"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "AC CHARGING",
-                        "details": [
-                            {
-                                "topic": "Maximum charging power AC (kW)",
-                                "value": "22"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "CHARGING TIME 0 - 100%",
-                        "details": [
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "60 hours"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "16 hours 45 minutes"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "11 hours"
-                            },
-                            {
-                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
-                                "value": "5 hours 30 minutes"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "DC CHARGING",
-                        "details": [
-                            {
-                                "topic": "Maximum charging power DC (kW)",
-                                "value": "400"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "CHARGING TIME 10 - 80%",
-                        "details": [
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "56 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "28 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "22 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 800A by EVSE",
-                                "value": "21 minutes"
                             }
                         ]
                     }
