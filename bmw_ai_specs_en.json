@@ -1,27 +1,27 @@
 {
-    "series": "BMW X6",
+    "series": "BMW X7",
     "models": [
         {
-            "model_name": "X6 xDrive40i M Sport",
+            "model_name": "X7 xDrive40d M Sport",
             "specifications": [
                 {
                     "category": "Engine and Performance",
                     "details": [
                         {
                             "topic": "Engine type",
-                            "value": "BMW TwinPower Turbo 6-cylinder petrol engine"
+                            "value": "BMW TwinPower Turbo 6-cylinder diesel engine"
                         },
                         {
                             "topic": "Displacement (cm3)",
-                            "value": "2,998"
+                            "value": "2,993"
                         },
                         {
                             "topic": "Engine power (kW/hp/rpm)",
-                            "value": "280 / 381 / 5,200 - 6,250"
+                            "value": "250 / 340 / 4,400"
                         },
                         {
                             "topic": "Engine torque (Nm/rpm)",
-                            "value": "520 / 1,850 - 5,000"
+                            "value": "700 / 1,750 - 2,250"
                         },
                         {
                             "topic": "Electric motor power (kW/hp)",
@@ -29,19 +29,19 @@
                         },
                         {
                             "topic": "System output (kW/hp)",
-                            "value": "280 / 381"
+                            "value": "259 / 352"
                         },
                         {
                             "topic": "System torque (Nm)",
-                            "value": "540"
+                            "value": "720"
                         },
                         {
                             "topic": "Top speed (km/h)",
-                            "value": "250"
+                            "value": "245"
                         },
                         {
                             "topic": "0 - 100 km/h (s)",
-                            "value": "5.4"
+                            "value": "5.9"
                         }
                     ]
                 },
@@ -50,11 +50,11 @@
                     "details": [
                         {
                             "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                            "value": "11.5"
+                            "value": "13.2"
                         },
                         {
                             "topic": "Combined CO2 (g/km)",
-                            "value": "198"
+                            "value": "200"
                         }
                     ]
                 },
@@ -63,11 +63,11 @@
                     "details": [
                         {
                             "topic": "Light alloy wheels",
-                            "value": "22\" M light alloy wheels Double-spoke style, Bicolour"
+                            "value": "23\" BMW Individual light alloy wheels V-spoke Bicolour"
                         },
                         {
                             "topic": "Tyre size",
-                            "value": "Front: 9.5 J x 22 / tyres 275/35 R22Rear: 10.5 J x 22 / tyres 315/30 R22"
+                            "value": "Front: 9.5 J × 23 / tyres 275/35 R 23Rear: 10.5 J × 23 / tyres 315/30 R 23"
                         }
                     ]
                 },
@@ -76,15 +76,15 @@
                     "details": [
                         {
                             "topic": "Length / width / height (mm)",
-                            "value": "4,960 / 2,004 / 1,700"
+                            "value": "5,181 / 2,000 / 1,835"
                         },
                         {
                             "topic": "Luggage capacity (l)",
-                            "value": "580 - 1,530"
+                            "value": "300 - 2,120"
                         },
                         {
                             "topic": "Curb weight (kg)",
-                            "value": "2,240"
+                            "value": "2,565"
                         }
                     ]
                 },
@@ -100,7 +100,27 @@
                             "value": "■"
                         },
                         {
+                            "topic": "Servotronic",
+                            "value": "■"
+                        },
+                        {
                             "topic": "Driving Assistant Professional",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "xDrive",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Integral Active Steering",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Executive Drive Pro",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "BMW Head-up display",
                             "value": "■"
                         },
                         {
@@ -117,6 +137,10 @@
                     "category": "Exterior Equipment",
                     "details": [
                         {
+                            "topic": "BMW kidney 'Iconic Glow'",
+                            "value": "■"
+                        },
+                        {
                             "topic": "Adaptive LED headlights",
                             "value": "■"
                         },
@@ -125,11 +149,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "BMW kidney 'Iconic Glow'",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "M Sport brake, red high-gloss",
+                            "topic": "M Sport brake",
                             "value": "■"
                         },
                         {
@@ -145,10 +165,6 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Expanded exterior mirror package",
-                            "value": "■"
-                        },
-                        {
                             "topic": "M Aerodynamics package",
                             "value": "■"
                         },
@@ -157,11 +173,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "M High-gloss Shadowline with Extended Contents",
+                            "topic": "M Roof rails high-gloss Shadow Line",
                             "value": "■"
                         },
                         {
-                            "topic": "M Lights Shadow Line",
+                            "topic": "Aluminium running board",
                             "value": "■"
                         }
                     ]
@@ -169,6 +185,10 @@
                 {
                     "category": "Interior Equipment",
                     "details": [
+                        {
+                            "topic": "BMW Individual extended leather trim 'Merino'",
+                            "value": "■"
+                        },
                         {
                             "topic": "Seat heating for driver and front passenger",
                             "value": "■"
@@ -178,11 +198,15 @@
                             "value": "■"
                         },
                         {
-                            "topic": "M leather steering wheel",
+                            "topic": "Massage function front",
                             "value": "■"
                         },
                         {
-                            "topic": "M seat belts",
+                            "topic": "Active seat ventilation, front",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M leather steering wheel",
                             "value": "■"
                         },
                         {
@@ -190,7 +214,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "M headliner anthracite",
+                            "topic": "M headliner Alcantara anthracite",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Cupholder Temperate",
                             "value": "■"
                         },
                         {
@@ -198,11 +226,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Glass application 'CraftedClarity' for interior elements",
+                            "topic": "Interior trim finishers in fine-wood trim 'Fineline' Black with metal effect high-gloss",
                             "value": "■"
                         },
                         {
-                            "topic": "M Interior trim finishers Carbon Fibre",
+                            "topic": "Glass application 'CraftedClarity' for interior elements",
                             "value": "■"
                         },
                         {
@@ -210,11 +238,15 @@
                             "value": "■"
                         },
                         {
-                            "topic": "4-Zone Automatic air conditioning",
+                            "topic": "5-Zone Automatic air conditioning",
                             "value": "■"
                         },
                         {
                             "topic": "Luggage compartment package",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M seat belts",
                             "value": "■"
                         },
                         {
@@ -235,7 +267,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Bowers & Wilkins Diamond surround sound system",
+                            "topic": "Bowers & Wilkins Diamond Surround Sound System",
                             "value": "■"
                         },
                         {
@@ -256,7 +288,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Head airbags for 1stand 2ndseat row",
+                            "topic": "Head airbags for 1st and 2nd seat row",
                             "value": "■"
                         },
                         {
@@ -284,19 +316,23 @@
                             "value": "■"
                         },
                         {
+                            "topic": "Side impact protection",
+                            "value": "■"
+                        },
+                        {
                             "topic": "Active Protection",
                             "value": "■"
                         },
                         {
-                            "topic": "Tyre Repair Kit",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Emergency spare wheel",
+                            "topic": "Attentiveness assistant",
                             "value": "■"
                         },
                         {
                             "topic": "Tyre Pressure Monitoring System",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Park Distance Control (PDC)",
                             "value": "■"
                         },
                         {
@@ -358,32 +394,19 @@
                     ]
                 },
                 {
-                    "category": "Line / package",
-                    "details": [
-                        {
-                            "topic": "M Sport Package Pro",
-                            "value": "■"
-                        }
-                    ]
-                },
-                {
                     "category": "Paintwork & Upholstery",
                     "details": [
                         {
-                            "topic": "Brooklyn Grey Metallic",
-                            "value": "BMW Individual extended leather trim 'Merino' - Black"
+                            "topic": "Black Sapphire Metallic",
+                            "value": "BMW Individual extended leather trim ‘Merino’ - Tartufo, BMW Individual extended leather trim ‘Merino’ - Black"
                         },
                         {
                             "topic": "Mineral White Metallic",
-                            "value": "BMW Individual extended leather trim 'Merino' - Coffee"
+                            "value": "BMW Individual extended leather trim ‘Merino’ - Tartufo, BMW Individual extended leather trim ‘Merino’ - Black"
                         },
                         {
-                            "topic": "Black Sapphire Metallic",
-                            "value": "BMW Individual extended leather trim 'Merino' - Coffee"
-                        },
-                        {
-                            "topic": "Manhattan Metallic",
-                            "value": "BMW Individual extended leather trim 'Merino' - Coffee"
+                            "topic": "Brooklyn Grey Metallic",
+                            "value": "BMW Individual extended leather trim ‘Merino’ - Tartufo, BMW Individual extended leather trim ‘Merino’ - Black"
                         }
                     ]
                 },
@@ -392,17 +415,17 @@
                     "details": [
                         {
                             "topic": "Publication Date",
-                            "value": "1 September 2023"
+                            "value": "10 July 2024"
                         },
                         {
                             "topic": "Package Code (Local Pack)",
-                            "value": "(Z9V)"
+                            "value": "(Z9X)"
                         }
                     ]
                 }
             ]
         }
     ],
-    "source_file": "X6-20260223-01_EN.pdf.asset.1778752586141.pdf",
-    "pdf_source": "X6-20260223-01_EN.pdf.asset.1778752586141.pdf"
+    "source_file": "X7-20260529-01_EN.pdf.asset.1782449621294.pdf",
+    "pdf_source": "X7-20260529-01_EN.pdf.asset.1782449621294.pdf"
 }
