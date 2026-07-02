@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMW Smart Specsheet</title>
+    <title>BMW Smart Specsheet (Tested Models)</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap');
 
@@ -225,7 +225,7 @@
     </div>
     
     <h1 id="seriesTitle">กำลังโหลดข้อมูล...</h1>
-    <div id="seriesSubtitle" class="subtitle">ระบบข้อมูลสเปกพรีเมียม (Auto-Updated)</div>
+    <div id="seriesSubtitle" class="subtitle">ระบบข้อมูลสเปกเฉพาะรุ่นทดสอบ (3, 4, 7 Series & M2)</div>
 
     <div class="controls">
         <div class="select-container">
@@ -254,8 +254,8 @@
 <script>
     const TRANSLATIONS = {
         th: {
-            title: "BMW Smart Specsheet",
-            subtitle: "ระบบข้อมูลสเปกพรีเมียม (Auto-Updated)",
+            title: "BMW Smart Specsheet (Tested Models)",
+            subtitle: "ระบบข้อมูลสเปกเฉพาะรุ่นทดสอบ (3, 4, 7 Series & M2)",
             selectLabel: "เลือกรุ่น / ซีรีส์:",
             searchPlaceholder: "🔍 พิมพ์เพื่อค้นหาสเปก/ออปชัน... (เช่น เบาะ, ล้อ, ไฟหน้า)",
             tableHeaderTopic: "ข้อมูล / รุ่นรถ",
@@ -266,8 +266,8 @@
             seriesPrefix: "รุ่นรถยนต์ #"
         },
         en: {
-            title: "BMW Smart Specsheet",
-            subtitle: "Premium Specifications Sheet (Auto-Updated)",
+            title: "BMW Smart Specsheet (Tested Models)",
+            subtitle: "Tested Specifications Sheet (3, 4, 7 Series & M2)",
             selectLabel: "Select Series / Model:",
             searchPlaceholder: "🔍 Type to search specifications/options... (e.g. seat, wheel, headlight)",
             tableHeaderTopic: "Specifications / Model",
@@ -571,7 +571,26 @@
         
         // หากข้อมูลที่ได้ไม่ได้อยู่ในรูป Array (กรณีโหลดไฟล์เดี่ยว) ให้ครอบด้วย Array
         if (Array.isArray(data)) {
-            allSeriesData = sortSeriesData(data);
+            // กรองเฉพาะ 3 ไฟล์ล่าสุดที่ทำการรันทดสอบล่าสุดโดยตรวจเช็กจาก source_file
+            const allowedFiles = [
+                // Thai brochures
+                "3-20250625-01_TH.pdf.asset.1763550244972.pdf",
+                "4-20241113-03_TH.pdf.asset.1745407581805.pdf",
+                "5-20260417-01_TH.pdf.asset.1779074950693.pdf",
+                "7-20250130-01_TH_WLTP.pdf.asset.1740723717847.pdf",
+                "XM-20250130-01_TH_localpack-Z9Y.pdf.asset.1747825367826.pdf",
+                // English brochures
+                "3-20250625-01_EN.pdf.asset.1763550156076.pdf",
+                "4-20241113-03_EN.pdf.asset.1745391120731.pdf",
+                "5-20260417-01_EN.pdf.asset.1779077254663.pdf",
+                "7-20250130-01_EN_WLTP.pdf.asset.1740723701308.pdf",
+                "XM-20250130-01_EN_localpack-Z9Y.pdf.asset.1747825390844.pdf"
+            ];
+            allSeriesData = data.filter(item => {
+                let sf = item.source_file || item.pdf_source;
+                return allowedFiles.includes(sf);
+            });
+            allSeriesData = sortSeriesData(allSeriesData);
         } else if (data && typeof data === 'object') {
             allSeriesData = [data];
         } else {

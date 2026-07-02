@@ -1,6 +1,14 @@
 name: BMW Spec Comparison Tool
 
 on:
+  push:
+    paths:
+      - 'bmw_master_specs.json'
+      - 'bmw_master_specs_en.json'
+  pull_request:
+    paths:
+      - 'bmw_master_specs.json'
+      - 'bmw_master_specs_en.json'
   workflow_dispatch: # Allows manual runs from the GitHub Actions tab
 
 jobs:
@@ -27,4 +35,4 @@ jobs:
         GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
         GEMINI_API_KEY_3: ${{ secrets.GEMINI_API_KEY_3 }}
       run: |
-        python -u scratch/compare_th_en_db.py
+        python -u run_production_validation.py

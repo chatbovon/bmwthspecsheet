@@ -343,6 +343,9 @@ def main():
         json.dump(db_th, f, ensure_ascii=False, indent=4)
 
     print(f"\n[COMPLETE] Comparison complete. Found {discrepancies_count} cross-database discrepancies.")
+    if "--fail" in sys.argv and discrepancies_count > 0:
+        print("[FAIL] Exiting with code 1 due to detected discrepancies.")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
