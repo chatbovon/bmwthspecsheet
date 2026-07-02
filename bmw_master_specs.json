@@ -20978,42 +20978,6 @@
                         "category": "ระบบขับเคลื่อนและเทคโนโลยี",
                         "details": [
                             {
-                                "topic": "รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)",
-                                "value": "22"
-                            },
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "47 ชั่วโมง"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "12 ชั่วโมง 45 นาที"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "8 ชั่วโมง 30 นาที"
-                            },
-                            {
-                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
-                                "value": "4 ชั่วโมง 15 นาที"
-                            },
-                            {
-                                "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)",
-                                "value": "205"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 ชั่วโมง 13 นาที"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "41 นาที"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "30 นาที"
-                            },
-                            {
                                 "topic": "เกียร์อัตโนมัติ",
                                 "value": "■"
                             },
@@ -21329,6 +21293,62 @@
                                 "value": "BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
                             }
                         ]
+                    },
+                    {
+                        "category": "การชาร์จแบบกระแสสลับ (AC)",
+                        "details": [
+                            {
+                                "topic": "รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระยะเวลาในการชาร์จจาก 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "47 ชั่วโมง"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "12 ชั่วโมง 45 นาที"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "8 ชั่วโมง 30 นาที"
+                            },
+                            {
+                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
+                                "value": "4 ชั่วโมง 15 นาที"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "การชาร์จแบบกระแสตรง (DC)",
+                        "details": [
+                            {
+                                "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)",
+                                "value": "205"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระยะเวลาในการชาร์จจาก 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 ชั่วโมง 13 นาที"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "41 นาที"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "30 นาที"
+                            }
+                        ]
                     }
                 ]
             }
@@ -21424,42 +21444,6 @@
                     {
                         "category": "ระบบขับเคลื่อนและเทคโนโลยี",
                         "details": [
-                            {
-                                "topic": "รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)",
-                                "value": "22"
-                            },
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "55 ชั่วโมง 30 นาที"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "16 ชั่วโมง"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "10 ชั่วโมง 45 นาที"
-                            },
-                            {
-                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
-                                "value": "5 ชั่วโมง 30 นาที"
-                            },
-                            {
-                                "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)",
-                                "value": "195"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 ชั่วโมง 35 นาที"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "50 นาที"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "34 นาที"
-                            },
                             {
                                 "topic": "เกียร์อัตโนมัติ",
                                 "value": "■"
@@ -21784,6 +21768,62 @@
                                 "value": "BMW Individual leather 'Merino' - Black, BMW Individual leather 'Merino' - Mocha, BMW Individual leather 'Merino' - Amarone"
                             }
                         ]
+                    },
+                    {
+                        "category": "การชาร์จแบบกระแสสลับ (AC)",
+                        "details": [
+                            {
+                                "topic": "รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระยะเวลาในการชาร์จจาก 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "55 ชั่วโมง 30 นาที"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "16 ชั่วโมง"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "10 ชั่วโมง 45 นาที"
+                            },
+                            {
+                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
+                                "value": "5 ชั่วโมง 30 นาที"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "การชาร์จแบบกระแสตรง (DC)",
+                        "details": [
+                            {
+                                "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)",
+                                "value": "195"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระยะเวลาในการชาร์จจาก 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 ชั่วโมง 35 นาที"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "50 นาที"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "34 นาที"
+                            }
+                        ]
                     }
                 ]
             }
@@ -21879,42 +21919,6 @@
                     {
                         "category": "ระบบขับเคลื่อนและเทคโนโลยี",
                         "details": [
-                            {
-                                "topic": "รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)",
-                                "value": "22"
-                            },
-                            {
-                                "topic": "AC charging with 2.3kW (230V, 10A) x 1ph",
-                                "value": "54 ชั่วโมง"
-                            },
-                            {
-                                "topic": "AC charging with 7.4kW (230V, 32A) x 1ph",
-                                "value": "14 ชั่วโมง 45 นาที"
-                            },
-                            {
-                                "topic": "AC charging with 11kW (230V, 16A) x 3ph, 48A) x 1ph",
-                                "value": "9 ชั่วโมง 45 นาที"
-                            },
-                            {
-                                "topic": "AC charging with 22kW (230V, 32A) x 3ph",
-                                "value": "5 ชั่วโมง"
-                            },
-                            {
-                                "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)",
-                                "value": "175"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 ชั่วโมง 30 นาที"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "47 นาที"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "34 นาที"
-                            },
                             {
                                 "topic": "เกียร์อัตโนมัติ",
                                 "value": "■"
@@ -22226,6 +22230,62 @@
                                 "value": "(ZJU)"
                             }
                         ]
+                    },
+                    {
+                        "category": "การชาร์จแบบกระแสสลับ (AC)",
+                        "details": [
+                            {
+                                "topic": "รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระยะเวลาในการชาร์จจาก 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging with 2.3kW (230V, 10A) x 1ph",
+                                "value": "54 ชั่วโมง"
+                            },
+                            {
+                                "topic": "AC charging with 7.4kW (230V, 32A) x 1ph",
+                                "value": "14 ชั่วโมง 45 นาที"
+                            },
+                            {
+                                "topic": "AC charging with 11kW (230V, 16A) x 3ph, 48A) x 1ph",
+                                "value": "9 ชั่วโมง 45 นาที"
+                            },
+                            {
+                                "topic": "AC charging with 22kW (230V, 32A) x 3ph",
+                                "value": "5 ชั่วโมง"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "การชาร์จแบบกระแสตรง (DC)",
+                        "details": [
+                            {
+                                "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)",
+                                "value": "175"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระยะเวลาในการชาร์จจาก 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 ชั่วโมง 30 นาที"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "47 นาที"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "34 นาที"
+                            }
+                        ]
                     }
                 ]
             }
@@ -22340,38 +22400,6 @@
                             {
                                 "topic": "ระบบควบคุมการขับขี่ขณะเข้าโค้ง (Performance Control)",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)",
-                                "value": "11"
-                            },
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "34 ชั่วโมง 30 นาที"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "10 ชั่วโมง"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "6 ชั่วโมง 45 นาที"
-                            },
-                            {
-                                "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)",
-                                "value": "130"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 ชั่วโมง 14 นาที"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "40 นาที"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "32 นาที"
                             }
                         ]
                     },
@@ -22609,6 +22637,58 @@
                                 "value": "(ZK8)"
                             }
                         ]
+                    },
+                    {
+                        "category": "การชาร์จแบบกระแสสลับ (AC)",
+                        "details": [
+                            {
+                                "topic": "รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)",
+                                "value": "11"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระยะเวลาในการชาร์จจาก 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "34 ชั่วโมง 30 นาที"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "10 ชั่วโมง"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "6 ชั่วโมง 45 นาที"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "การชาร์จแบบกระแสตรง (DC)",
+                        "details": [
+                            {
+                                "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)",
+                                "value": "130"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระยะเวลาในการชาร์จจาก 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 ชั่วโมง 14 นาที"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "40 นาที"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "32 นาที"
+                            }
+                        ]
                     }
                 ]
             }
@@ -22708,42 +22788,6 @@
                     {
                         "category": "ระบบขับเคลื่อนและเทคโนโลยี",
                         "details": [
-                            {
-                                "topic": "รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)",
-                                "value": "22"
-                            },
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "34 ชั่วโมง 30 นาที"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "10 ชั่วโมง"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "6 ชั่วโมง 30 นาที"
-                            },
-                            {
-                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
-                                "value": "3 ชั่วโมง 45 นาที"
-                            },
-                            {
-                                "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)",
-                                "value": "130"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 ชั่วโมง 14 นาที"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "38 นาที"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "29 นาที"
-                            },
                             {
                                 "topic": "เกียร์อัตโนมัติ",
                                 "value": "■"
@@ -23000,6 +23044,62 @@
                                 "value": "(Z2O, Z0N, Z8C, Z8D)"
                             }
                         ]
+                    },
+                    {
+                        "category": "การชาร์จแบบกระแสสลับ (AC)",
+                        "details": [
+                            {
+                                "topic": "รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระยะเวลาในการชาร์จจาก 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "34 ชั่วโมง 30 นาที"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "10 ชั่วโมง"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "6 ชั่วโมง 30 นาที"
+                            },
+                            {
+                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
+                                "value": "3 ชั่วโมง 45 นาที"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "การชาร์จแบบกระแสตรง (DC)",
+                        "details": [
+                            {
+                                "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)",
+                                "value": "130"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระยะเวลาในการชาร์จจาก 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 ชั่วโมง 14 นาที"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "38 นาที"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "29 นาที"
+                            }
+                        ]
                     }
                 ]
             }
@@ -23099,46 +23199,6 @@
                     {
                         "category": "ระบบขับเคลื่อนและเทคโนโลยี",
                         "details": [
-                            {
-                                "topic": "รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)",
-                                "value": "22"
-                            },
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "60 ชั่วโมง"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "16 ชั่วโมง 45 นาที"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "11 ชั่วโมง"
-                            },
-                            {
-                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
-                                "value": "5 ชั่วโมง 30 นาที"
-                            },
-                            {
-                                "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)",
-                                "value": "400"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "56 นาที"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "28 นาที"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "22 นาที"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 800A by EVSE",
-                                "value": "21 นาที"
-                            },
                             {
                                 "topic": "เกียร์อัตโนมัติ",
                                 "value": "■"
@@ -23449,6 +23509,66 @@
                             {
                                 "topic": "รหัสแพ็กเกจ (Local Pack)",
                                 "value": "(ZKS)"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "การชาร์จแบบกระแสสลับ (AC)",
+                        "details": [
+                            {
+                                "topic": "รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระยะเวลาในการชาร์จจาก 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "60 ชั่วโมง"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "16 ชั่วโมง 45 นาที"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "11 ชั่วโมง"
+                            },
+                            {
+                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
+                                "value": "5 ชั่วโมง 30 นาที"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "การชาร์จแบบกระแสตรง (DC)",
+                        "details": [
+                            {
+                                "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)",
+                                "value": "400"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระยะเวลาในการชาร์จจาก 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "56 นาที"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "28 นาที"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "22 นาที"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 800A by EVSE",
+                                "value": "21 นาที"
                             }
                         ]
                     }

@@ -20933,42 +20933,6 @@
                             {
                                 "topic": "Parking Assistant Plus",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "Maximum charging power AC (kW)",
-                                "value": "22"
-                            },
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "47 hours"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "12 hours 45 mins"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "8 hours 30 mins"
-                            },
-                            {
-                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
-                                "value": "4 hours 15 minutes"
-                            },
-                            {
-                                "topic": "Maximum charging power DC (kW)",
-                                "value": "205"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 hour 13 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "41 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "30 minutes"
                             }
                         ]
                     },
@@ -21262,6 +21226,62 @@
                                 "value": "(ZKK, ZLC)"
                             }
                         ]
+                    },
+                    {
+                        "category": "AC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power AC (kW)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "47 hours"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "12 hours 45 mins"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "8 hours 30 mins"
+                            },
+                            {
+                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
+                                "value": "4 hours 15 minutes"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "DC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power DC (kW)",
+                                "value": "205"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 hour 13 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "41 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "30 minutes"
+                            }
+                        ]
                     }
                 ]
             }
@@ -21376,42 +21396,6 @@
                             {
                                 "topic": "Parking Assistant Professional",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "Maximum charging power AC (kW)",
-                                "value": "22"
-                            },
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "55 hours 30 minutes"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "16 hours"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "10 hours 45 minutes"
-                            },
-                            {
-                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
-                                "value": "5 hours 30 minutes"
-                            },
-                            {
-                                "topic": "Maximum charging power DC (kW)",
-                                "value": "195"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 hour 35 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "50 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "34 minutes"
                             }
                         ]
                     },
@@ -21717,6 +21701,62 @@
                                 "value": "(Z4A)"
                             }
                         ]
+                    },
+                    {
+                        "category": "AC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power AC (kW)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "55 hours 30 minutes"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "16 hours"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "10 hours 45 minutes"
+                            },
+                            {
+                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
+                                "value": "5 hours 30 minutes"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "DC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power DC (kW)",
+                                "value": "195"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 hour 35 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "50 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "34 minutes"
+                            }
+                        ]
                     }
                 ]
             }
@@ -21812,42 +21852,6 @@
                     {
                         "category": "Drivetrain and Technology",
                         "details": [
-                            {
-                                "topic": "Maximum charging power AC (kW)",
-                                "value": "22"
-                            },
-                            {
-                                "topic": "AC charging with 2.3kW (230V, 10A) x 1ph",
-                                "value": "54 hours"
-                            },
-                            {
-                                "topic": "AC charging with 7.4kW (230V, 32A) x 1ph",
-                                "value": "14 hours 45 minutes"
-                            },
-                            {
-                                "topic": "AC charging with 11kW (230V, 16A) x 3ph, 48A) x 1ph",
-                                "value": "9 hours 45 minutes"
-                            },
-                            {
-                                "topic": "AC charging with 22kW (230V, 32A) x 3ph",
-                                "value": "5 hours"
-                            },
-                            {
-                                "topic": "Maximum charging power DC (kW)",
-                                "value": "175"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 hour 30 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "47 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "34 minutes"
-                            },
                             {
                                 "topic": "Automatic transmission",
                                 "value": "■"
@@ -22159,6 +22163,62 @@
                                 "value": "(ZJU)"
                             }
                         ]
+                    },
+                    {
+                        "category": "AC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power AC (kW)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging with 2.3kW (230V, 10A) x 1ph",
+                                "value": "54 hours"
+                            },
+                            {
+                                "topic": "AC charging with 7.4kW (230V, 32A) x 1ph",
+                                "value": "14 hours 45 minutes"
+                            },
+                            {
+                                "topic": "AC charging with 11kW (230V, 16A) x 3ph, 48A) x 1ph",
+                                "value": "9 hours 45 minutes"
+                            },
+                            {
+                                "topic": "AC charging with 22kW (230V, 32A) x 3ph",
+                                "value": "5 hours"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "DC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power DC (kW)",
+                                "value": "175"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 hour 30 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "47 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "34 minutes"
+                            }
+                        ]
                     }
                 ]
             }
@@ -22273,38 +22333,6 @@
                             {
                                 "topic": "Performance Control",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "Maximum charging power AC (kW)",
-                                "value": "11"
-                            },
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "34 hours 30 minutes"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "10 hours"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "6 hours 45 minutes"
-                            },
-                            {
-                                "topic": "Maximum charging power DC (kW)",
-                                "value": "130"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 hour 14 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "40 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "32 minutes"
                             }
                         ]
                     },
@@ -22542,6 +22570,58 @@
                                 "value": "(ZK8)"
                             }
                         ]
+                    },
+                    {
+                        "category": "AC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power AC (kW)",
+                                "value": "11"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "34 hours 30 minutes"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "10 hours"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "6 hours 45 minutes"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "DC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power DC (kW)",
+                                "value": "130"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 hour 14 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "40 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "32 minutes"
+                            }
+                        ]
                     }
                 ]
             }
@@ -22660,42 +22740,6 @@
                             {
                                 "topic": "Parking Assistant Plus",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "Maximum charging power AC (kW)",
-                                "value": "22"
-                            },
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "34 hours 30 minutes"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "10 hours"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "6 hours 30 minutes"
-                            },
-                            {
-                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
-                                "value": "3 hours 45 minutes"
-                            },
-                            {
-                                "topic": "Maximum charging power DC (kW)",
-                                "value": "130"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 hour 14 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "38 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "29 minutes"
                             }
                         ]
                     },
@@ -22924,6 +22968,62 @@
                                 "value": "(Z2O, Z0N, Z8C, Z8D)"
                             }
                         ]
+                    },
+                    {
+                        "category": "AC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power AC (kW)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "34 hours 30 minutes"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "10 hours"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "6 hours 30 minutes"
+                            },
+                            {
+                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
+                                "value": "3 hours 45 minutes"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "DC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power DC (kW)",
+                                "value": "130"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 hour 14 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "38 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "29 minutes"
+                            }
+                        ]
                     }
                 ]
             }
@@ -23042,46 +23142,6 @@
                             {
                                 "topic": "BMW Dynamic Performance Control",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "Maximum charging power AC (kW)",
-                                "value": "22"
-                            },
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "60 hours"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "16 hours 45 minutes"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "11 hours"
-                            },
-                            {
-                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
-                                "value": "5 hours 30 minutes"
-                            },
-                            {
-                                "topic": "Maximum charging power DC (kW)",
-                                "value": "400"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "56 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "28 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "22 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 800A by EVSE",
-                                "value": "21 minutes"
                             }
                         ]
                     },
@@ -23373,6 +23433,66 @@
                             {
                                 "topic": "Package Code (Local Pack)",
                                 "value": "(ZKS)"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "AC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power AC (kW)",
+                                "value": "22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "60 hours"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "16 hours 45 minutes"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "11 hours"
+                            },
+                            {
+                                "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
+                                "value": "5 hours 30 minutes"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "DC CHARGING",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power DC (kW)",
+                                "value": "400"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "CHARGING TIME 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "56 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "28 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "22 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 800A by EVSE",
+                                "value": "21 minutes"
                             }
                         ]
                     }
