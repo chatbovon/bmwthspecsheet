@@ -1,31 +1,35 @@
 {
-    "series": "BMW iX1 L.",
+    "series": "BMW iX2",
     "models": [
         {
-            "model_name": "iX1 eDrive20L M Sport",
+            "model_name": "iX2 xDrive30 M Sport",
             "specifications": [
                 {
                     "category": "Engine and Performance",
                     "details": [
                         {
                             "topic": "Electric motor",
-                            "value": "BMW eDrive Technology"
+                            "value": "BMW eDrive technology"
                         },
                         {
                             "topic": "Maximum output (kW/hp)",
-                            "value": "150 / 204"
+                            "value": "225 / 306"
+                        },
+                        {
+                            "topic": "Maximum output incl. temp. boost (kW/hp)",
+                            "value": "230 / 313"
                         },
                         {
                             "topic": "Maximum torque (Nm)",
-                            "value": "250"
+                            "value": "494"
                         },
                         {
                             "topic": "Electric range 1 , NEDC (km)",
-                            "value": "464"
+                            "value": "395"
                         },
                         {
                             "topic": "Electric range 1 , WLTP (km)",
-                            "value": "402 - 433"
+                            "value": "417 - 449"
                         },
                         {
                             "topic": "Battery type (High voltage)",
@@ -37,19 +41,19 @@
                         },
                         {
                             "topic": "Top speed (km/h)",
-                            "value": "175"
+                            "value": "180"
                         },
                         {
                             "topic": "0 - 100 km/h (s)",
-                            "value": "8.6"
+                            "value": "5.6"
                         },
                         {
                             "topic": "Electric energy consumption, NEDC (kWh/100 km)",
-                            "value": "15.4"
+                            "value": "18.5"
                         },
                         {
                             "topic": "Electric energy consumption, WLTP (kWh/100 km)",
-                            "value": "18.0 - 16.8"
+                            "value": "17.7 - 16.3"
                         }
                     ]
                 },
@@ -58,11 +62,11 @@
                     "details": [
                         {
                             "topic": "Wheels",
-                            "value": "19\" M light-alloy wheels Double-spoke style Bicolour"
+                            "value": "20\" M lightalloy wheels V-spoke Bicolour"
                         },
                         {
                             "topic": "Tyre size",
-                            "value": "8 J × 19 / tyres 245/45 R 19"
+                            "value": "8 J × 20 / tyres 245/40 R 20"
                         }
                     ]
                 },
@@ -71,15 +75,15 @@
                     "details": [
                         {
                             "topic": "Length / width / height (mm)",
-                            "value": "4,616 / 1,845 / 1,617"
+                            "value": "4,554 / 1,845 / 1,560"
                         },
                         {
                             "topic": "Luggage capacity (l)",
-                            "value": "490 - 1,600"
+                            "value": "525 / 1,400"
                         },
                         {
                             "topic": "Curb weight (kg)",
-                            "value": "2,024"
+                            "value": "2,095"
                         }
                     ]
                 },
@@ -88,7 +92,7 @@
                     "details": [
                         {
                             "topic": "Maximum charging power AC (kW)",
-                            "value": "11"
+                            "value": "22"
                         },
                         {
                             "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
@@ -100,7 +104,11 @@
                         },
                         {
                             "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                            "value": "6 hours 45 minutes"
+                            "value": "6 hours 30 minutes"
+                        },
+                        {
+                            "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
+                            "value": "3 hours 45 minutes"
                         },
                         {
                             "topic": "Maximum charging power DC (kW)",
@@ -112,14 +120,22 @@
                         },
                         {
                             "topic": "DC charging vehicle at 250A by EVSE",
-                            "value": "40 minutes"
+                            "value": "38 minutes"
                         },
                         {
                             "topic": "DC charging vehicle at 500A by EVSE",
-                            "value": "32 minutes"
+                            "value": "29 minutes"
                         },
                         {
                             "topic": "Automatic transmission",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Adaptive M suspension",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "BMW xDrive electric all-wheel drive",
                             "value": "■"
                         },
                         {
@@ -127,15 +143,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Driving Assistant Plus",
-                            "value": "■"
-                        },
-                        {
                             "topic": "Parking Assistant Plus",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Performance Control",
                             "value": "■"
                         }
                     ]
@@ -144,7 +152,15 @@
                     "category": "Exterior Equipment",
                     "details": [
                         {
-                            "topic": "Adaptive LED headlights",
+                            "topic": "Panorama glass roof",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M Roof rails high-gloss Shadowline",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M high-gloss Shadowline",
                             "value": "■"
                         },
                         {
@@ -152,7 +168,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Panorama glass roof",
+                            "topic": "Adaptive LED headlights",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M Sport brake, dark blue metallic",
                             "value": "■"
                         },
                         {
@@ -160,19 +180,15 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Exterior Line Satin Aluminium",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Roof rails Aluminium satinated",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Automatic operation of tailgate",
+                            "topic": "BMW kidney 'Iconic Glow'",
                             "value": "■"
                         },
                         {
                             "topic": "Comfort access system",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Acoustic glazing",
                             "value": "■"
                         }
                     ]
@@ -181,15 +197,7 @@
                     "category": "Interior Equipment",
                     "details": [
                         {
-                            "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "M Leather steering wheel",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Sport seats for driver and front passenger",
+                            "topic": "M Sport seats for driver and front passenger",
                             "value": "■"
                         },
                         {
@@ -197,11 +205,15 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Aluminium Hexacube Pale M interior trim",
+                            "topic": "Interior rear-view mirror with automatic anti-dazzle function",
                             "value": "■"
                         },
                         {
-                            "topic": "Luxury instrument panel",
+                            "topic": "M Leather steering wheel",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M headliner anthracite",
                             "value": "■"
                         },
                         {
@@ -209,7 +221,23 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Automatic air conditioning",
+                            "topic": "2-Zone Automatic air conditioning",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M Sport interior parts",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Interior camera",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Luxury instrument panel",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Interior trim finishers Aluminium with graphic highlights",
                             "value": "■"
                         }
                     ]
@@ -218,7 +246,7 @@
                     "category": "Entertainment and Communication",
                     "details": [
                         {
-                            "topic": "BMW Live Cockpit Plus",
+                            "topic": "BMW Live Cockpit Professional",
                             "value": "■"
                         },
                         {
@@ -226,19 +254,19 @@
                             "value": "■"
                         },
                         {
-                            "topic": "HiFi loudspeaker system Harman Kardon",
-                            "value": "■"
-                        },
-                        {
                             "topic": "BMW ConnectedDrive",
                             "value": "■"
                         },
                         {
-                            "topic": "Smartphone Integration",
+                            "topic": "HiFi loudspeaker system Harman Kardon",
                             "value": "■"
                         },
                         {
                             "topic": "BMW Iconic sounds electric",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Personal eSIM",
                             "value": "■"
                         },
                         {
@@ -251,7 +279,7 @@
                     "category": "Safety",
                     "details": [
                         {
-                            "topic": "Front airbags for driver and front passenger",
+                            "topic": "Airbag for driver and front passenger",
                             "value": "■"
                         },
                         {
@@ -279,11 +307,15 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Anti-lock Brake System (ABS)",
+                            "topic": "Dynamic Traction Control (DTC)",
                             "value": "■"
                         },
                         {
-                            "topic": "Dynamic Brake Control (DBC)",
+                            "topic": "Anti-lock braking system (ABS)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Brake Assist (BA)",
                             "value": "■"
                         },
                         {
@@ -295,43 +327,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Tyre repair kit",
-                            "value": "■"
-                        },
-                        {
                             "topic": "Tyre Pressure Monitoring System",
                             "value": "■"
                         },
                         {
-                            "topic": "Lane Departure Warning with active return",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Front collision warning with brake intervention for pedestrians/cyclists",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Lane Change Warning with active return",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Rear crossing-traffic warning",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Rear Collision Warning",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Exit warning",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Steering and Lane Control Assistant",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Active cruise control with Stop&Go function",
+                            "topic": "Tyre repair kit",
                             "value": "■"
                         },
                         {
@@ -344,16 +344,24 @@
                     "category": "Paintwork & Upholstery",
                     "details": [
                         {
+                            "topic": "Alpine White Solid",
+                            "value": "M Alcantara/Veganza combination - Black/contrast stitching Blue"
+                        },
+                        {
+                            "topic": "Black Sapphire Metallic",
+                            "value": "M Alcantara/Veganza combination - Black/contrast stitching Blue"
+                        },
+                        {
                             "topic": "Brooklyn Grey Metallic",
-                            "value": "Veganza Perforated - Castanea"
+                            "value": "M Alcantara/Veganza combination - Black/contrast stitching Blue"
                         },
                         {
-                            "topic": "Carbon Black Metallic",
-                            "value": "Veganza Perforated - Castanea"
+                            "topic": "Cape York Green Metallic",
+                            "value": "M Alcantara/Veganza combination - Black/contrast stitching Blue"
                         },
                         {
-                            "topic": "Mineral White Metallic",
-                            "value": "Veganza Perforated - Castanea"
+                            "topic": "Fire Red Metallic",
+                            "value": "M Alcantara/Veganza combination - Black/contrast stitching Blue"
                         }
                     ]
                 },
@@ -362,17 +370,17 @@
                     "details": [
                         {
                             "topic": "Publication Date",
-                            "value": "3 July 2025"
+                            "value": "15 January 2025"
                         },
                         {
                             "topic": "Package Code (Local Pack)",
-                            "value": "(ZK8)"
+                            "value": "(Z2O, Z0N, Z8C, Z8D)"
                         }
                     ]
                 }
             ]
         }
     ],
-    "source_file": "iX1-L-20251110-01_EN.pdf.asset.1763623567388.pdf",
-    "pdf_source": "iX1-L-20251110-01_EN.pdf.asset.1763623567388.pdf"
+    "source_file": "iX2-20240710-01_EN-(1).pdf.asset.1738060174453.pdf",
+    "pdf_source": "iX2-20240710-01_EN-(1).pdf.asset.1738060174453.pdf"
 }
