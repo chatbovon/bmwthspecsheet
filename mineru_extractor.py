@@ -76,7 +76,7 @@ if not API_KEYS:
     sys.exit(1)
 
 # Target Gemini model for OCR correction
-MODEL_NAME = "gemini-3.1-flash-lite"
+MODEL_NAME = "gemini-3.5-flash"
 
 # ─── System Prompts ───────────────────────────────────────────────────────────
 PROMPT_TH = """You are an expert BMW Automotive Specification Analyst and Data Structuring Specialist.
@@ -117,13 +117,15 @@ Your task is to take a pre-extracted Markdown/HTML specification table from a BM
    - ดึงข้อมูลวันที่พิมพ์และใส่ลงในหัวข้อ `"วันที่พิมพ์เอกสาร"` (เช่น "3 กรกฎาคม 2568") ให้กับทุกรุ่นย่อย โดยใช้ค่าวันที่ที่ปรากฏใน footer ของเอกสาร (ห้ามแปลงรูปแบบหรือแปลภาษา)
    - ดึงรหัส local pack ที่อยู่ในวงเล็บมาเก็บแยกตามรุ่นย่อย โดยใช้กฎการเรียงลำดับจากซ้ายไปขวา (Sequential mapping from left to right) ให้ตรงกับคอลัมน์ของรุ่นย่อยใน specsheet เช่น วงเล็บแรกสุด `(Z7J, Z8G)` จะเป็นของรุ่นย่อยแรกสุดในตาราง, วงเล็บที่สอง `(Z7G, Z7U)` จะเป็นของรุ่นย่อยที่สอง และวงเล็บที่สาม `(Z7H, Z8H)` จะเป็นของรุ่นย่อยที่สาม ให้ใส่ลงในหัวข้อ `"รหัสแพ็กเกจ (Local Pack)"` (รวมวงเล็บ) ให้ตรงกับรุ่นย่อยนั้นๆ หากรุ่นย่อยใดไม่มีรหัส local pack ให้ใส่ "-"
 8. **(สำคัญมาก) ห้ามรวมหรือยุบหมวดหมู่:** ห้ามนำรายละเอียดออปชันของหมวดหมู่หนึ่งไปรวมเข้ากับอีกหมวดหมู่หนึ่งเด็ดขาด (เช่น ห้ามนำออปชันของ อุปกรณ์ภายนอก หรือ อุปกรณ์ภายใน ไปใส่รวมไว้ใต้หมวดหมู่ ความปลอดภัย) ต้องสร้างคีย์ category แยกสำหรับแต่ละหมวดหมู่ให้ครบถ้วนในผลลัพธ์ JSON
+9. **(สำคัญมาก) ข้อมูลการชาร์จรถยนต์ไฟฟ้า (AC / DC Charging):** หากเอกสารระบุข้อมูลการชาร์จไฟหรือระยะเวลาชาร์จแบบต่างๆ (เช่น การชาร์จแบบกระแสสลับ (AC), การชาร์จแบบกระแสตรง (DC), AC/DC charging, Wallbox, Flexible Fast Charger, EVSE) คุณต้องสกัดข้อมูลหัวข้อข้อความเหล่านั้นและค่าเวลาชาร์จทั้งหมดมาใส่ไว้ภายใต้หมวดหมู่ "ระบบขับเคลื่อนและเทคโนโลยี" เสมอ ห้ามแยกไปตั้งหมวดใหม่และห้ามตัดทิ้งเด็ดขาด
+9. **(สำคัญมาก) ข้อมูลการชาร์จรถยนต์ไฟฟ้า (AC / DC Charging):** หากเอกสารระบุข้อมูลการชาร์จไฟหรือระยะเวลาชาร์จแบบต่างๆ (เช่น การชาร์จแบบกระแสสลับ (AC), การชาร์จแบบกระแสตรง (DC), AC/DC charging, Wallbox, Flexible Fast Charger, EVSE) คุณต้องสกัดข้อมูลหัวข้อข้อความเหล่านั้นและค่าเวลาชาร์จทั้งหมดมาใส่ไว้ภายใต้หมวดหมู่ "ระบบขับเคลื่อนและเทคโนโลยี" เสมอ ห้ามแยกไปตั้งหมวดใหม่และห้ามตัดทิ้งเด็ดขาด
 
 หมวดหมู่ (Category) ที่ต้องปรากฏใน JSON (ห้ามตกหล่นหมวดหมู่เหล่านี้):
 - เครื่องยนต์และสมรรถนะ
 - อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2
 - ล้อและยาง
 - มิติรถยนต์
-- ระบบขับเคลื่อนและเทคโนโลยี
+- ระบบขับเคลื่อนและเทคโนโลยี (รวมถึงสเปกการชาร์จไฟ AC/DC และระยะเวลาการชาร์จต่างๆ ของรถยนต์ไฟฟ้า/Hybrid)
 - อุปกรณ์ภายนอก
 - อุปกรณ์ภายใน
 - ระบบความบันเทิงและการสื่อสาร (ระมัดระวังความถูกต้องของเครื่องเสียง Harman Kardon และ Bowers & Wilkins Diamond ในรุ่นย่อยต่างๆ ห้ามคัดลอกเครื่องหมายไปยังรุ่นที่ไม่มีโดยเด็ดขาด)
@@ -190,13 +192,14 @@ Strict rules to follow:
    - Extract the print date and put it under the topic `"Publication Date"` (e.g., "3 July 2026") for all models, using the date value in the document footer (do not translate or modify formatting).
    - Extract the local pack codes inside parentheses and map them sequentially from left to right to the corresponding columns (models) of the specsheet. For example, the first parentheses `(Z7J, Z8G)` goes to the first model, the second `(Z7G, Z7U)` to the second, and the third `(Z7H, Z8H)` to the third. Put this under the topic `"Package Code (Local Pack)"` (including parentheses) for each model. If a model doesn't have a package code, specify "-".
 8. **(Very Important) Do not merge categories:** Do not combine options of one category into another (e.g., do not put Exterior or Interior options under Safety). You must create a separate category key for each group of specifications in the JSON output.
+9. **(Very Important) Electric Vehicle Charging Specs (AC / DC Charging):** If the document specifies charging details or charging times (such as AC charging, DC charging, Wallbox, Flexible Fast Charger, EVSE), you must extract all of those topics and charging values and place them under the category "Drivetrain and Technology" (or "Transmission and technology"). Never create separate categories for them and never omit them.
 
 Categories expected in the JSON:
 - Engine and Performance
 - Fuel Consumption and CO2 Emission
 - Wheels and Tyres
 - Dimension
-- Drivetrain and Technology
+- Drivetrain and Technology (including AC/DC charging specs and charging times for EVs/Hybrids)
 - Exterior Equipment
 - Interior Equipment
 - Entertainment and Communication (Be extremely careful with the values of Harman Kardon and Bowers & Wilkins Diamond systems across models. Do not copy checkmarks to columns/models where they are blank.)
@@ -585,7 +588,7 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
     # Step 3: Run OCR Correction pipeline using Gemini API Key Pooling & Fallback Models
     extracted_segments = []
     key_idx = 0
-    model_pool = [MODEL_NAME, "gemini-2.5-flash", "gemini-1.5-flash"]
+    model_pool = [MODEL_NAME, "gemini-3.1-flash-lite", "gemini-2.5-flash"]
     model_idx = 0
     
     for i, seg in enumerate(segments):
@@ -625,10 +628,10 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
                 err_msg = str(e)
                 print(f"      [WARNING] Gemini Error on Key #{key_idx+1} ({current_model}): {e}")
                 
-                # Check for rate limit / quota exhaustion error and rotate model first
-                if "RESOURCE_EXHAUSTED" in err_msg or "quota" in err_msg.lower() or "limit" in err_msg.lower():
+                # Check for rate limit / quota exhaustion / demand spikes / timeouts and rotate model first
+                if any(term in err_msg.lower() for term in ["resource_exhausted", "quota", "limit", "unavailable", "demand", "deadline", "timeout"]):
                     model_idx = (model_idx + 1) % len(model_pool)
-                    print(f"      [MODEL-FALLBACK] Rotated to model: {model_pool[model_idx]} due to quota/rate-limits.")
+                    print(f"      [MODEL-FALLBACK] Rotated to model: {model_pool[model_idx]} due to errors/rate-limits.")
                     key_idx = (key_idx + 1) % len(API_KEYS)
                 # Check for invalid API key authentication error and remove it
                 elif "API key not valid" in err_msg or "API_KEY_INVALID" in err_msg or "INVALID_ARGUMENT" in err_msg:

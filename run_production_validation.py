@@ -2,8 +2,12 @@ import os
 import sys
 import json
 import time
+from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+
+# Load environment variables
+load_dotenv()
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -101,7 +105,7 @@ If there are no discrepancies, output an empty array [].
 
 # Helper function to call Gemini with key pooling and model fallbacks
 def generate_content_with_pooling(prompt_text):
-    model_pool = ["gemini-3.1-flash-lite", "gemini-2.5-flash", "gemini-1.5-flash"]
+    model_pool = ["gemini-3.5-flash", "gemini-3.1-flash-lite", "gemini-2.5-flash"]
     
     for model_name in model_pool:
         for key_idx, key in enumerate(API_KEYS):
