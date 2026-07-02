@@ -13808,5 +13808,337 @@
         ],
         "source_file": "XM-20250130-02_EN_WLTP.pdf.asset.1740723923309.pdf",
         "pdf_source": "XM-20250130-02_EN_WLTP.pdf.asset.1740723923309.pdf"
+    },
+    {
+        "series": "BMW XM",
+        "models": [
+            {
+                "model_name": "XM Label Red",
+                "specifications": [
+                    {
+                        "category": "Engine and Performance",
+                        "details": [
+                            {
+                                "topic": "Engine type",
+                                "value": "M TwinPower Turbo V8-cylinder petrol engine"
+                            },
+                            {
+                                "topic": "Displacement (cm3)",
+                                "value": "4,395"
+                            },
+                            {
+                                "topic": "Engine power (kW/hp/rpm)",
+                                "value": "430 / 585 / 5,600 - 6,500"
+                            },
+                            {
+                                "topic": "Engine torque (Nm/rpm)",
+                                "value": "750 / 1,800 - 5,400"
+                            },
+                            {
+                                "topic": "Electric motor power (kW/hp)",
+                                "value": "145 / 197"
+                            },
+                            {
+                                "topic": "Electric motor torque (Nm)",
+                                "value": "280"
+                            },
+                            {
+                                "topic": "Electrical range1, NEDC (km)",
+                                "value": "96"
+                            },
+                            {
+                                "topic": "Electric range1, WLTP (km)",
+                                "value": "76 - 82"
+                            },
+                            {
+                                "topic": "High voltage battery energy content (kWh)",
+                                "value": "29.5"
+                            },
+                            {
+                                "topic": "System output (kW/hp)",
+                                "value": "550 / 748"
+                            },
+                            {
+                                "topic": "System torque (Nm)",
+                                "value": "1,000"
+                            },
+                            {
+                                "topic": "Top speed (km/h)",
+                                "value": "290"
+                            },
+                            {
+                                "topic": "Top speed electric (km/h)",
+                                "value": "140"
+                            },
+                            {
+                                "topic": "0 - 100 km/h (s)",
+                                "value": "3.8"
+                            },
+                            {
+                                "topic": "Electric energy consumption, NEDC (kWh/100 km)",
+                                "value": "26.3"
+                            },
+                            {
+                                "topic": "Electric energy consumption, WLTP (kWh/100 km)",
+                                "value": "33.5"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Fuel Consumption and CO2 Emission",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "41.7"
+                            },
+                            {
+                                "topic": "Combined CO2 (g/km)",
+                                "value": "54"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Wheels and Tyres",
+                        "details": [
+                            {
+                                "topic": "Light alloy wheels",
+                                "value": "22\" M light-alloy wheels double spoke Bicolour Red accent"
+                            },
+                            {
+                                "topic": "Tyre size",
+                                "value": "Front: 10 J × 22 / tyres 275/40 R 22Rear: 11 J × 21 / tyres 315/35 R 22"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Dimension",
+                        "details": [
+                            {
+                                "topic": "Length / width / height (mm)",
+                                "value": "5,110 / 2,005 / 1,755"
+                            },
+                            {
+                                "topic": "Luggage capacity (l)",
+                                "value": "527 - 1,820"
+                            },
+                            {
+                                "topic": "Curb weight (kg)",
+                                "value": "2,795"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Drivetrain and Technology",
+                        "details": [
+                            {
+                                "topic": "8-speed M Steptronic transmission with Drivelogic",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M xDrive",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport differential",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Adaptive M Suspension Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Driving Assistant Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Parking Assistant Plus",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Exterior Equipment",
+                        "details": [
+                            {
+                                "topic": "BMW kidney 'Iconic Glow'",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport brake, red high-gloss",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Comfort Access System",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Soft-close function for doors",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "High-beam assistant",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Interior Equipment",
+                        "details": [
+                            {
+                                "topic": "M Multifunctional Seats for Driver and Front Passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Carbon Fibre M Signature interior trim",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Ambient light",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Cupholder, Temperate",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Seat heating front and rear",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Active seat ventilation in the front seats",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Massage function front",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M seat belts",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Travel & Comfort System",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Entertainment and Communication",
+                        "details": [
+                            {
+                                "topic": "BMW Live Cockpit Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW ConnectedDrive Services",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Bowers & Wilkins Diamond surround sound system",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW IconicSounds Electric",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Smartphone Integration",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Wireless charging tray",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Safety",
+                        "details": [
+                            {
+                                "topic": "Airbag for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Side airbags for driver and passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Head airbags for 1stand 2ndseat row",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Teleservices",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ISOFIX child seat mounting",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Stability Control (DSC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Anti-lock braking system (ABS)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Crash sensor",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Active Protection",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Acoustic protection for pedestrians",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre pressure monitoring system",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre Repair Kit",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Line / package",
+                        "details": [
+                            {
+                                "topic": "M Driver's Package",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork & Upholstery",
+                        "details": [
+                            {
+                                "topic": "Frozen Carbon Black Metallic",
+                                "value": "BMW Individual leather 'Merino' with exclusive contents - Fiona Red/Black"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "27 February 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(ZJD, Z4H)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "source_file": "XM-20250130-03_EN_WLTP.pdf.asset.1740723854397.pdf",
+        "pdf_source": "XM-20250130-03_EN_WLTP.pdf.asset.1740723854397.pdf"
     }
 ]
