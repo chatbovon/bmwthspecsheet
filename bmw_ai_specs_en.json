@@ -1,15 +1,15 @@
 {
-    "series": "BMW M3",
+    "series": "BMW M3 CS TOURING",
     "models": [
         {
-            "model_name": "M3 CS",
+            "model_name": "M3 CS Touring",
             "specifications": [
                 {
                     "category": "Engine and Performance",
                     "details": [
                         {
                             "topic": "Engine type",
-                            "value": "M TwinPower Turbo6-cylinder inline petrol engine"
+                            "value": "M TwinPower Turbo 6-cylinder inline petrol engine"
                         },
                         {
                             "topic": "Displacement (cm3)",
@@ -21,15 +21,15 @@
                         },
                         {
                             "topic": "Engine torque (Nm/rpm)",
-                            "value": "650 / 2,750-5,950"
+                            "value": "650 / 2,750 - 5,950"
                         },
                         {
                             "topic": "Top speed (km/h)",
-                            "value": "302"
+                            "value": "300"
                         },
                         {
                             "topic": "0 - 100 km/h (s)",
-                            "value": "3.4"
+                            "value": "3.5"
                         }
                     ]
                 },
@@ -38,11 +38,11 @@
                     "details": [
                         {
                             "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                            "value": "9.9"
+                            "value": "9.8"
                         },
                         {
                             "topic": "Combined CO2 (g/km)",
-                            "value": "230"
+                            "value": "234"
                         }
                     ]
                 },
@@ -51,11 +51,11 @@
                     "details": [
                         {
                             "topic": "Light alloy wheels",
-                            "value": "19\" / 20\" M light alloy wheelsStar-spoke"
+                            "value": "19\"/20\" M light alloy wheels Star-spoke style"
                         },
                         {
                             "topic": "Tyre size",
-                            "value": "front: 9.5 J × 19 / tyres 275/35 R 19rear: 10.5 J × 20 / tyres 285/35 R 20"
+                            "value": "Front: 9.5 J × 19, 275/35 R19Rear: 10.5 J × 20, 285/30 R20"
                         }
                     ]
                 },
@@ -64,15 +64,15 @@
                     "details": [
                         {
                             "topic": "Length / width / height (mm)",
-                            "value": "4,795 / 1,918 / 1,438"
+                            "value": "4,796 / 1,918 / 1,447"
                         },
                         {
                             "topic": "Luggage capacity (l)",
-                            "value": "480"
+                            "value": "500 - 1,510"
                         },
                         {
                             "topic": "Curb weight (kg)",
-                            "value": "1,840"
+                            "value": "1,925"
                         }
                     ]
                 },
@@ -96,15 +96,15 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Cruise Control with braking function",
-                            "value": "■"
-                        },
-                        {
                             "topic": "M Front End Strut brace",
                             "value": "■"
                         },
                         {
                             "topic": "Driving Assistant",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Cruise Control with braking function",
                             "value": "■"
                         },
                         {
@@ -117,19 +117,23 @@
                     "category": "Exterior Equipment",
                     "details": [
                         {
-                            "topic": "BMW Laserlight with yellow icons",
+                            "topic": "Adaptive LED headlights",
                             "value": "■"
                         },
                         {
-                            "topic": "M Compound Brake, Red High-Gloss",
+                            "topic": "M Lights, coloured",
                             "value": "■"
                         },
                         {
-                            "topic": "M Lights Shadowline",
+                            "topic": "M Carbon ceramic brake, Gold matt",
                             "value": "■"
                         },
                         {
                             "topic": "M High-gloss Shadowline",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M Roof rails high-gloss Shadowline",
                             "value": "■"
                         },
                         {
@@ -147,10 +151,6 @@
                         {
                             "topic": "Acoustic glazing",
                             "value": "■"
-                        },
-                        {
-                            "topic": "Automatic operation of tailgate",
-                            "value": "■"
                         }
                     ]
                 },
@@ -159,10 +159,6 @@
                     "details": [
                         {
                             "topic": "M Interior Trim Finishers 'Carbon Fibre'",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Interior rear-view mirror with automatic anti-dazzle function",
                             "value": "■"
                         },
                         {
@@ -194,11 +190,23 @@
                             "value": "■"
                         },
                         {
-                            "topic": "3-Zone Automatic air conditioning",
+                            "topic": "Automatic air conditioning",
                             "value": "■"
                         },
                         {
                             "topic": "M Headliner Anthracite",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Luggage compartment package",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Storage compartment package",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Rear-seat headrests, folding",
                             "value": "■"
                         }
                     ]
@@ -223,11 +231,15 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Wireless Charging",
+                            "topic": "Wireless charging tray",
                             "value": "■"
                         },
                         {
                             "topic": "Harman Kardon Surround Sound System",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Personal eSIM",
                             "value": "■"
                         }
                     ]
@@ -290,6 +302,30 @@
                         {
                             "topic": "Tyre Repair Kit",
                             "value": "■"
+                        },
+                        {
+                            "topic": "Front Collision Warning with brake intervention consists of Collision",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Pedestrian Warning with city braking function",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Lane Departure Warning with lane return",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Lane Change Warning",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Rear crossing traffic warning",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Rear Collision Prevention",
+                            "value": "■"
                         }
                     ]
                 },
@@ -303,21 +339,38 @@
                     ]
                 },
                 {
+                    "category": "Paintwork & Upholstery",
+                    "details": [
+                        {
+                            "topic": "BMW Individual British Racing Green Solid",
+                            "value": "Full leather 'Merino' - Anthracite"
+                        },
+                        {
+                            "topic": "BMW Individual Laguna Seca Blue Solid",
+                            "value": "Full leather 'Merino' - Anthracite"
+                        },
+                        {
+                            "topic": "Black Sapphire Metallic",
+                            "value": "Full leather 'Merino' - Anthracite"
+                        }
+                    ]
+                },
+                {
                     "category": "Document References",
                     "details": [
                         {
                             "topic": "Publication Date",
-                            "value": "29 May 2023"
+                            "value": "25 September 2025"
                         },
                         {
                             "topic": "Package Code (Local Pack)",
-                            "value": "(ZGQ, ZIT, ZIW, ZIX, ZIY, ZJL, ZJN, ZJ0, ZJ1)"
+                            "value": "(ZJV)"
                         }
                     ]
                 }
             ]
         }
     ],
-    "source_file": "M3-20230815-01_EN.pdf.asset.1724906649579.pdf",
-    "pdf_source": "M3-20230815-01_EN.pdf.asset.1724906649579.pdf"
+    "source_file": "M3-20250818-01_EN.pdf.asset.1758516236100.pdf",
+    "pdf_source": "M3-20250818-01_EN.pdf.asset.1758516236100.pdf"
 }
