@@ -5093,5 +5093,333 @@
         ],
         "source_file": "3-20250625-01_EN.pdf.asset.1763550156076.pdf",
         "pdf_source": "3-20250625-01_EN.pdf.asset.1763550156076.pdf"
+    },
+    {
+        "series": "BMW 3 SERIES",
+        "models": [
+            {
+                "model_name": "320Li M Sport",
+                "specifications": [
+                    {
+                        "category": "Engine and Performance",
+                        "details": [
+                            {
+                                "topic": "Engine type",
+                                "value": "BMW TwinPower Turbo 4-cylinder petrol engine"
+                            },
+                            {
+                                "topic": "Displacement (cm3)",
+                                "value": "1,998"
+                            },
+                            {
+                                "topic": "Engine power (kW/hp/rpm)",
+                                "value": "135 / 184 / 5,000 - 6,500"
+                            },
+                            {
+                                "topic": "Engine torque (Nm/rpm)",
+                                "value": "300 / 1,350 - 4,000"
+                            },
+                            {
+                                "topic": "Top speed (km/h)",
+                                "value": "233"
+                            },
+                            {
+                                "topic": "0 - 100 km/h (s)",
+                                "value": "7.9"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Fuel Consumption and CO2 Emission",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "16.7"
+                            },
+                            {
+                                "topic": "Combined CO2 (g/km)",
+                                "value": "137"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Wheels and Tyres",
+                        "details": [
+                            {
+                                "topic": "Light alloy wheels",
+                                "value": "18\" M light alloy wheels Double-spoke style Bicolour"
+                            },
+                            {
+                                "topic": "Tyre size",
+                                "value": "Front: 7.5 J × 18, 225/45 R 18Rear: 8.5 J × 18, 255/40 R 18"
+                            },
+                            {
+                                "topic": "Runflat tyres",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Dimension",
+                        "details": [
+                            {
+                                "topic": "Length / width / height (mm)",
+                                "value": "4,823 / 1,827 / 1,441"
+                            },
+                            {
+                                "topic": "Luggage capacity (l)",
+                                "value": "480"
+                            },
+                            {
+                                "topic": "Curb weight (kg)",
+                                "value": "1,680"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Drivetrain and Technology",
+                        "details": [
+                            {
+                                "topic": "8-speed Steptronic Sport transmission",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Active cruise control with Stop&Go function",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Driving Assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Parking Assistant",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Exterior Equipment",
+                        "details": [
+                            {
+                                "topic": "High-beam assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Automatic operation of tailgate",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Comfort access system",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Aerodynamics package",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M High-gloss Shadowline",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M High-gloss Shadowline with Extended Contents",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Interior Equipment",
+                        "details": [
+                            {
+                                "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Leather steering wheel",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Luxury instrument panel",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Lumbar support, driver",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Ambient light",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Ash Grey Blue, open-pored, fine-wood trim",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "3-Zone Automatic air conditioning",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Entertainment and Communication",
+                        "details": [
+                            {
+                                "topic": "BMW Live Cockpit Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW ConnectedDrive",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Connected Package Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "HiFi loudspeaker system",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Smartphone integration",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Wireless charging tray",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Personal eSIM",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Safety",
+                        "details": [
+                            {
+                                "topic": "Airbag for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Side airbags for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Head airbags for all 4 outer seats",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Teleservices",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Intelligent Emergency Call",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Stability Control (DSC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Traction Control (DTC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Brake Control (DBC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Anti-lock Brake System (ABS)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Brake Assist (BA)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Cornering Brake Control (CBC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Crash sensor",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre Pressure Monitoring System",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Front Collision Warning with brake intervention consists of Collision",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Pedestrian Warning with city braking function",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Lane Departure Warning with lane return",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Lane Change Warning",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Rear crossing traffic warning",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Rear Collision Prevention",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Active cruise control with Stop&Go function",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Line / package",
+                        "details": [
+                            {
+                                "topic": "M Sport",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork & Upholstery",
+                        "details": [
+                            {
+                                "topic": "Carbon Black Metallic",
+                                "value": "Leather 'Vernasca' - Cognac Decor Stitching"
+                            },
+                            {
+                                "topic": "Mineral White Metallic",
+                                "value": "Leather 'Vernasca' - Mocha Decor Stitching"
+                            },
+                            {
+                                "topic": "Brooklyn Grey Metallic",
+                                "value": "Leather 'Vernasca' - Mocha Decor Stitching"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "12 January 2026"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z7T, Z8V, Z9Z)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "source_file": "3-20260112-01_EN_Li.pdf.asset.1768894796753.pdf",
+        "pdf_source": "3-20260112-01_EN_Li.pdf.asset.1768894796753.pdf"
     }
 ]
