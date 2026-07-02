@@ -1,15 +1,15 @@
 {
-    "series": "BMW M2 CS",
+    "series": "BMW M3",
     "models": [
         {
-            "model_name": "M2 CS",
+            "model_name": "M3 CS",
             "specifications": [
                 {
                     "category": "เครื่องยนต์และสมรรถนะ",
                     "details": [
                         {
                             "topic": "ชนิดเครื่องยนต์",
-                            "value": "เครื่องยนต์เบนซิน 6 สูบเทคโนโลยี M TwinPower Turbo"
+                            "value": "เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี BMW M TwinPower Turbo"
                         },
                         {
                             "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)",
@@ -17,11 +17,11 @@
                         },
                         {
                             "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
-                            "value": "390 / 530 / 6,250"
+                            "value": "405 / 551 / 6,250"
                         },
                         {
                             "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)",
-                            "value": "650 / 2,750 - 5,730"
+                            "value": "650 / 2,750-5,950"
                         },
                         {
                             "topic": "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)",
@@ -29,11 +29,7 @@
                         },
                         {
                             "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)",
-                            "value": "3.8"
-                        },
-                        {
-                            "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) 2",
-                            "value": "3.5"
+                            "value": "3.4"
                         }
                     ]
                 },
@@ -41,12 +37,12 @@
                     "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
                     "details": [
                         {
-                            "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย -อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
-                            "value": "10.1"
+                            "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
+                            "value": "9.9"
                         },
                         {
-                            "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
-                            "value": "227"
+                            "topic": "ระดับการปล่อย CO2เฉลี่ย (กรัม/กิโลเมตร)",
+                            "value": "230"
                         }
                     ]
                 },
@@ -55,11 +51,11 @@
                     "details": [
                         {
                             "topic": "ล้อ",
-                            "value": "ล้ออัลลอย M ขนาด 19 และ 20 นิ้วลาย star spoke Gold Bronze"
+                            "value": "ล้ออัลลอย M ขนาด 19 และ 20 นิ้วลาย Star-spoke"
                         },
                         {
                             "topic": "ขนาดยาง",
-                            "value": "ล้อหน้า: 9.5 J × 19 / ยาง 275/35 ZR 19ล้อหลัง: 10.5 J × 20 / ยาง 285/30 ZR 20"
+                            "value": "ล้อหน้า: 9.5 J × 19 / ยาง 275/35 R19 ล้อหลัง: 10.5 J × 20 / ยาง 285/30 R20"
                         }
                     ]
                 },
@@ -68,15 +64,15 @@
                     "details": [
                         {
                             "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)",
-                            "value": "4,587 / 1,887 / 1,395"
+                            "value": "4,795 / 1,918 / 1,438"
                         },
                         {
                             "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
-                            "value": "390"
+                            "value": "480"
                         },
                         {
                             "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
-                            "value": "1,775"
+                            "value": "1,840"
                         }
                     ]
                 },
@@ -84,7 +80,7 @@
                     "category": "ระบบขับเคลื่อนและเทคโนโลยี",
                     "details": [
                         {
-                            "topic": "เกียร์อัตโนมัติ 8 จังหวะแบบ M Steptronic พร้อม Drivelogic",
+                            "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ M Steptronic พร้อม Drivelogic",
                             "value": "■"
                         },
                         {
@@ -96,11 +92,15 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ช่วงล่าง Adaptive M",
+                            "topic": "ช่วงล่าง Adaptive M Suspension",
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบควบคุมความเร็วอัตโนมัติ พร้อมฟังก์ชัน Stop&Go(Active cruise control with Stop&Go function)",
+                            "topic": "ระบบควบคุมความเร็วคงที่ พร้อมฟังก์ชันช่วยลดความเร็ว",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M Front End Strut brace",
                             "value": "■"
                         },
                         {
@@ -117,15 +117,7 @@
                     "category": "อุปกรณ์ภายนอก",
                     "details": [
                         {
-                            "topic": "ระบบไฟหน้า LED อัจฉริยะ",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "โคมไฟหน้าตกแต่งสีดำ (M Lights Shadowline)",
+                            "topic": "ระบบไฟหน้า BMW Laserlight พร้อม Daytime Running Light สีเหลือง",
                             "value": "■"
                         },
                         {
@@ -133,15 +125,31 @@
                             "value": "■"
                         },
                         {
+                            "topic": "โคมไฟหน้าตกแต่งสีดำ (M Lights Shadowline)",
+                            "value": "■"
+                        },
+                        {
                             "topic": "ภายนอกตกแต่งด้วยวัสดุสีดำเงา",
                             "value": "■"
                         },
                         {
-                            "topic": "หลังคา M Carbon",
+                            "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)",
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)",
+                            "topic": "ระบบปลดล็อกประตูอัจฉริยะ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ชุดตกแต่งภายนอก M Carbon",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "กระจกบานหน้าและคู่หน้าแบบลดเสียงรบกวน",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า",
                             "value": "■"
                         }
                     ]
@@ -154,6 +162,10 @@
                             "value": "■"
                         },
                         {
+                            "topic": "กระจกมองหลังตัดแสงอัตโนมัติ",
+                            "value": "■"
+                        },
+                        {
                             "topic": "กระจกมองข้างฝั่งคนขับและกระจกมองหลังตัดแสงอัตโนมัติ",
                             "value": "■"
                         },
@@ -162,11 +174,15 @@
                             "value": "■"
                         },
                         {
+                            "topic": "พวงมาลัยหุ้ม Alcantara ดีไซน์ M",
+                            "value": "■"
+                        },
+                        {
                             "topic": "เข็มขัดนิรภัยดีไซน์ M",
                             "value": "■"
                         },
                         {
-                            "topic": "เบาะนั่ง M Carbon ทรง Bucket Seat",
+                            "topic": "เบาะนั่ง M carbon ทรง bucket seat",
                             "value": "■"
                         },
                         {
@@ -178,23 +194,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "พวงมาลัยหุ้ม Alcantara ดีไซน์ M",
+                            "topic": "ระบบปรับอากาศอัตโนมัติแบบ 3 โซน",
                             "value": "■"
                         },
                         {
                             "topic": "หลังคาภายในดีไซน์ M สี Anthracite",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ฟังก์ชันช่วยการจัดเก็บสัมภาระ",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบปรับอากาศอัตโนมัติ",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ที่รองศีรษะเบาะตอนหลังพับได้",
                             "value": "■"
                         }
                     ]
@@ -219,15 +223,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบเครื่องเสียงรอบทิศทาง Harman Kardon",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM)",
-                            "value": "■"
-                        },
-                        {
                             "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบเครื่องเสียงรอบทิศทาง Harman Kardon",
                             "value": "■"
                         }
                     ]
@@ -284,45 +284,17 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบตรวจวัดลมยาง",
+                            "topic": "ระบบตรวจสอบวัดลมยาง",
                             "value": "■"
                         },
                         {
                             "topic": "ชุดปะยางฉุกเฉิน",
                             "value": "■"
-                        },
-                        {
-                            "topic": "ป้ายสามเหลี่ยมเตือนสะท้อนแสง",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเตือนการชนด้านหน้าพร้อมระบบช่วยเบรก",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเตือนคนเดินเท้าพร้อมระบบเบรกอัตโนมัติในเมือง",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเตือนรถออกนอกเลนพร้อมช่วยนำรถกลับเข้าเลน",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเตือนการเปลี่ยนเลน",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเตือนการจราจรด้านหลัง",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบป้องกันการชนด้านหลัง",
-                            "value": "■"
                         }
                     ]
                 },
                 {
-                    "category": "แพ็กเกจ",
+                    "category": "ชุดตกแต่งพิเศษ",
                     "details": [
                         {
                             "topic": "แพ็กเกจ M Driver's",
@@ -331,51 +303,21 @@
                     ]
                 },
                 {
-                    "category": "ตัวเลือกพิเศษเพิ่มเติม",
-                    "details": [
-                        {
-                            "topic": "ชุดเบรก M Carbon ceramic Brake สีแดงเงา 3",
-                            "value": "■"
-                        }
-                    ]
-                },
-                {
-                    "category": "Paintwork / สีตัวถังและวัสดุภายใน",
-                    "details": [
-                        {
-                            "topic": "BMW Individual Velvet Blue Metallic",
-                            "value": "Full leather 'Merino' - Black/exclusive highlight"
-                        },
-                        {
-                            "topic": "Black Sapphire Metallic",
-                            "value": "Full leather 'Merino' - Black/exclusive highlight"
-                        },
-                        {
-                            "topic": "Brooklyn Grey Metallic",
-                            "value": "Full leather 'Merino' - Black/exclusive highlight"
-                        },
-                        {
-                            "topic": "Portimao Blue Metallic",
-                            "value": "Full leather 'Merino' - Black/exclusive highlight"
-                        }
-                    ]
-                },
-                {
                     "category": "ข้อมูลเอกสารอ้างอิง",
                     "details": [
                         {
                             "topic": "วันที่พิมพ์เอกสาร",
-                            "value": "25 กันยายน 2568"
+                            "value": "29 พฤษภาคม 2566"
                         },
                         {
                             "topic": "รหัสแพ็กเกจ (Local Pack)",
-                            "value": "(ZJW, ZJX, ZKJ)"
+                            "value": "(ZGQ, ZIT, ZIW, ZIX, ZIY, ZJL, ZJN, ZJ0, ZJ1)"
                         }
                     ]
                 }
             ]
         }
     ],
-    "source_file": "M2-CS-20250910-01_TH.pdf.asset.1758261830128.pdf",
-    "pdf_source": "M2-CS-20250910-01_TH.pdf.asset.1758261830128.pdf"
+    "source_file": "M3-20230815-01_TH.pdf.asset.1724906649623.pdf",
+    "pdf_source": "M3-20230815-01_TH.pdf.asset.1724906649623.pdf"
 }
