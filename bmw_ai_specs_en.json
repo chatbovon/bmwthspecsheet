@@ -2,7 +2,7 @@
     "series": "BMW M5",
     "models": [
         {
-            "model_name": "M5",
+            "model_name": "M5 Touring",
             "specifications": [
                 {
                     "category": "Engine and Performance",
@@ -21,23 +21,23 @@
                         },
                         {
                             "topic": "Engine torque (Nm/rpm)",
-                            "value": "750 /1,800 - 5,400"
+                            "value": "750 / 1,800 - 5,400"
                         },
                         {
                             "topic": "Electric motor power (kW/hp)",
-                            "value": "145 /197"
+                            "value": "145 / 197"
                         },
                         {
                             "topic": "Electric motor torque (Nm)",
                             "value": "280"
                         },
                         {
-                            "topic": "Electrical range, NEDC (km)",
-                            "value": "76"
+                            "topic": "Electric range1, NEDC (km)",
+                            "value": "73"
                         },
                         {
-                            "topic": "Electric range, WLTP (km)",
-                            "value": "67 - 69"
+                            "topic": "Electric range1, WLTP (km)",
+                            "value": "61 - 67"
                         },
                         {
                             "topic": "High voltage battery energy content (kWh)",
@@ -45,7 +45,7 @@
                         },
                         {
                             "topic": "System output (kW/hp)",
-                            "value": "535 /727"
+                            "value": "535 / 727"
                         },
                         {
                             "topic": "System torque (Nm)",
@@ -56,16 +56,20 @@
                             "value": "305"
                         },
                         {
+                            "topic": "Top speed electric (km/h)",
+                            "value": "140"
+                        },
+                        {
                             "topic": "0 - 100 km/h (s)",
-                            "value": "3.5"
+                            "value": "3.6"
                         },
                         {
                             "topic": "Electric energy consumption, NEDC (kWh/100 km)",
-                            "value": "23.6"
+                            "value": "24.1"
                         },
                         {
                             "topic": "Electric energy consumption, WLTP (kWh/100 km)",
-                            "value": "25.5 - 25.0"
+                            "value": "30.7"
                         }
                     ]
                 },
@@ -74,11 +78,11 @@
                     "details": [
                         {
                             "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                            "value": "39"
+                            "value": "35.7"
                         },
                         {
-                            "topic": "Combined CO2(g/km)",
-                            "value": "60"
+                            "topic": "Combined CO2 (g/km)",
+                            "value": "64"
                         }
                     ]
                 },
@@ -87,7 +91,7 @@
                     "details": [
                         {
                             "topic": "Light alloy wheels",
-                            "value": "20\"/21\" M light alloy wheels double spoke style Black with mixed tyres"
+                            "value": "20\"/21\" M light alloy wheels double spoke style"
                         },
                         {
                             "topic": "Tyre size",
@@ -100,15 +104,15 @@
                     "details": [
                         {
                             "topic": "Length / width / height (mm)",
-                            "value": "5,096 /1,970 /1,510"
+                            "value": "5,096 / 1,970 / 1,516"
                         },
                         {
                             "topic": "Luggage capacity (l)",
-                            "value": "466"
+                            "value": "500 - 1,630"
                         },
                         {
                             "topic": "Curb weight (kg)",
-                            "value": "2,510"
+                            "value": "2,550"
                         }
                     ]
                 },
@@ -142,10 +146,51 @@
                     ]
                 },
                 {
+                    "category": "Exterior Equipment",
+                    "details": [
+                        {
+                            "topic": "Adaptive LED headlights",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "BMW Iconic Glow exterior package",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Automatic operation of tailgate",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Comfort access system",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M Compound brake",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M Lights Shadow Line",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M high-gloss Shadowline",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M high-gloss Shadow Line with extended contents",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M carbon mirror caps",
+                            "value": "■"
+                        }
+                    ]
+                },
+                {
                     "category": "Interior Equipment",
                     "details": [
                         {
-                            "topic": "M multifunctional seats for driver and front passanger",
+                            "topic": "M multifunctional seats for driver and front passenger",
                             "value": "■"
                         },
                         {
@@ -165,7 +210,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Roller sunblinds",
+                            "topic": "Roller sunblind, rear side windows",
                             "value": "■"
                         },
                         {
@@ -210,7 +255,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "BMW Connected Package Professional",
+                            "topic": "Connected Package Professional",
                             "value": "■"
                         },
                         {
@@ -235,7 +280,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Head airbags for 1st and 2nd seat row",
+                            "topic": "Head airbags for 1stand 2ndseat row",
                             "value": "■"
                         },
                         {
@@ -244,6 +289,10 @@
                         },
                         {
                             "topic": "Central airbag (driver's seat)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ISOFIX child seat mounting",
                             "value": "■"
                         },
                         {
@@ -267,10 +316,6 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ISOFIX child seat mounting",
-                            "value": "■"
-                        },
-                        {
                             "topic": "Acoustic protection for pedestrians",
                             "value": "■"
                         },
@@ -279,7 +324,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Tyre Repair Kit",
+                            "topic": "Tyre repair kit",
                             "value": "■"
                         },
                         {
@@ -289,55 +334,14 @@
                     ]
                 },
                 {
-                    "category": "Exterior Equipment",
-                    "details": [
-                        {
-                            "topic": "Adaptive LED headlights",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "BMW Iconic Glow exterior package",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Automatic operation of tailgate",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Comfort access system",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "M Carbon exterior package",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "M Compound brake",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "M Lights Shadow Line",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "M high-gloss Shadowline",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "M High-gloss Shadowline with Extended Contents",
-                            "value": "■"
-                        }
-                    ]
-                },
-                {
                     "category": "Optional Equipment",
                     "details": [
                         {
-                            "topic": "M Carbon ceramic brake",
+                            "topic": "M Driver's Package",
                             "value": "■"
                         },
                         {
-                            "topic": "M Driver's Package",
+                            "topic": "M Carbon ceramic brake",
                             "value": "■"
                         }
                     ]
@@ -347,17 +351,17 @@
                     "details": [
                         {
                             "topic": "Publication Date",
-                            "value": "30 January 2025"
+                            "value": "18 February 2025"
                         },
                         {
                             "topic": "Package Code (Local Pack)",
-                            "value": "(Z6N, Z8P, Z9N)"
+                            "value": "(Z9D, Z9E, ZJZ)"
                         }
                     ]
                 }
             ]
         }
     ],
-    "source_file": "M5-20250130-05_EN.pdf.asset.1745391122834.pdf",
-    "pdf_source": "M5-20250130-05_EN.pdf.asset.1745391122834.pdf"
+    "source_file": "M5-20260417-01_EN.pdf.asset.1778752587718.pdf",
+    "pdf_source": "M5-20260417-01_EN.pdf.asset.1778752587718.pdf"
 }
