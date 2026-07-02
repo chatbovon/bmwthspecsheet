@@ -16167,5 +16167,383 @@
         ],
         "source_file": "iX-20251030-01_EN_REV-Color.pdf.asset.1763711894392.pdf",
         "pdf_source": "iX-20251030-01_EN_REV-Color.pdf.asset.1763711894392.pdf"
+    },
+    {
+        "series": "BMW iX1 L.",
+        "models": [
+            {
+                "model_name": "iX1 eDrive20L M Sport",
+                "specifications": [
+                    {
+                        "category": "Engine and Performance",
+                        "details": [
+                            {
+                                "topic": "Electric motor",
+                                "value": "BMW eDrive Technology"
+                            },
+                            {
+                                "topic": "Maximum output (kW/hp)",
+                                "value": "150 / 204"
+                            },
+                            {
+                                "topic": "Maximum torque (Nm)",
+                                "value": "250"
+                            },
+                            {
+                                "topic": "Electric range 1 , NEDC (km)",
+                                "value": "464"
+                            },
+                            {
+                                "topic": "Electric range 1 , WLTP (km)",
+                                "value": "402 - 433"
+                            },
+                            {
+                                "topic": "Battery type (High voltage)",
+                                "value": "Lithium-ion"
+                            },
+                            {
+                                "topic": "High voltage battery energy content (kWh)",
+                                "value": "66.5"
+                            },
+                            {
+                                "topic": "Top speed (km/h)",
+                                "value": "175"
+                            },
+                            {
+                                "topic": "0 - 100 km/h (s)",
+                                "value": "8.6"
+                            },
+                            {
+                                "topic": "Electric energy consumption, NEDC (kWh/100 km)",
+                                "value": "15.4"
+                            },
+                            {
+                                "topic": "Electric energy consumption, WLTP (kWh/100 km)",
+                                "value": "18.0 - 16.8"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Wheels and Tyres",
+                        "details": [
+                            {
+                                "topic": "Wheels",
+                                "value": "19\" M light-alloy wheels Double-spoke style Bicolour"
+                            },
+                            {
+                                "topic": "Tyre size",
+                                "value": "8 J × 19 / tyres 245/45 R 19"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Dimension",
+                        "details": [
+                            {
+                                "topic": "Length / width / height (mm)",
+                                "value": "4,616 / 1,845 / 1,617"
+                            },
+                            {
+                                "topic": "Luggage capacity (l)",
+                                "value": "490 - 1,600"
+                            },
+                            {
+                                "topic": "Curb weight (kg)",
+                                "value": "2,024"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Drivetrain and Technology",
+                        "details": [
+                            {
+                                "topic": "Maximum charging power AC (kW)",
+                                "value": "11"
+                            },
+                            {
+                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
+                                "value": "34 hours 30 minutes"
+                            },
+                            {
+                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
+                                "value": "10 hours"
+                            },
+                            {
+                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
+                                "value": "6 hours 45 minutes"
+                            },
+                            {
+                                "topic": "Maximum charging power DC (kW)",
+                                "value": "130"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 125A by EVSE",
+                                "value": "1 hour 14 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 250A by EVSE",
+                                "value": "40 minutes"
+                            },
+                            {
+                                "topic": "DC charging vehicle at 500A by EVSE",
+                                "value": "32 minutes"
+                            },
+                            {
+                                "topic": "Automatic transmission",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Driving Assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Driving Assistant Plus",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Parking Assistant Plus",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Performance Control",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Exterior Equipment",
+                        "details": [
+                            {
+                                "topic": "Adaptive LED headlights",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "High-beam assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Panorama glass roof",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport exterior parts",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Exterior Line Satin Aluminium",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Roof rails Aluminium satinated",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Automatic operation of tailgate",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Comfort access system",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Interior Equipment",
+                        "details": [
+                            {
+                                "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Leather steering wheel",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Sport seats for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Seat adjustment, electric, with memory",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Aluminium Hexacube Pale M interior trim",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Luxury instrument panel",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Ambient light",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Automatic air conditioning",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Entertainment and Communication",
+                        "details": [
+                            {
+                                "topic": "BMW Live Cockpit Plus",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Head-up display",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "HiFi loudspeaker system Harman Kardon",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW ConnectedDrive",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Smartphone Integration",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Iconic sounds electric",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Wireless charging tray",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Safety",
+                        "details": [
+                            {
+                                "topic": "Front airbags for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Side airbags for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Head airbags for all 4 outer seats",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Teleservices",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Intelligent Emergency Call",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ISOFIX child seat mounting",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Stability Control (DSC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Anti-lock Brake System (ABS)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Brake Control (DBC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Crash sensor",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Acoustic protection for pedestrians",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre repair kit",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre Pressure Monitoring System",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Lane Departure Warning with active return",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Front collision warning with brake intervention for pedestrians/cyclists",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Lane Change Warning with active return",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Rear crossing-traffic warning",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Rear Collision Warning",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Exit warning",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Steering and Lane Control Assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Active cruise control with Stop&Go function",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport package",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork & Upholstery",
+                        "details": [
+                            {
+                                "topic": "Brooklyn Grey Metallic",
+                                "value": "Veganza Perforated - Castanea"
+                            },
+                            {
+                                "topic": "Carbon Black Metallic",
+                                "value": "Veganza Perforated - Castanea"
+                            },
+                            {
+                                "topic": "Mineral White Metallic",
+                                "value": "Veganza Perforated - Castanea"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "3 July 2025"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(ZK8)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "source_file": "iX1-L-20251110-01_EN.pdf.asset.1763623567388.pdf",
+        "pdf_source": "iX1-L-20251110-01_EN.pdf.asset.1763623567388.pdf"
     }
 ]
