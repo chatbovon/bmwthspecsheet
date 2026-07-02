@@ -123,6 +123,9 @@ Your task is to take a pre-extracted Markdown/HTML specification table from a BM
    - "การชาร์จแบบกระแสตรง (DC)" สำหรับกำลังไฟชาร์จ DC สูงสุด
    - "ระยะเวลาในการชาร์จจาก 10 - 80%" สำหรับระยะเวลาและตัวเลือกชาร์จ DC ทั้งหมด
    (ห้ามนำข้อมูลสเปกชาร์จไฟไปรวมกับหมวดหมู่อื่นและห้ามตัดทิ้งเด็ดขาด)
+10. **(สำคัญมาก) การกำหนดชื่อซีรีส์ (Series Name):**
+    - ตรวจสอบจากชื่อรุ่นย่อยในเอกสาร หากรุ่นรถในเล่มเป็นตระกูลไฟฟ้าล้วนหรือรถยนต์ไฟฟ้าที่ขึ้นต้นด้วยตัวอักษร "i" พิมพ์เล็ก (เช่น i5, i7, iX, iX1, iX2, iX3) คุณต้องใช้ชื่อซีรีส์แยกออกมาให้ตรงกับกลุ่มของมันเสมอ เช่น "BMW i5", "BMW i7", "BMW iX", "BMW iX1", "BMW iX2", "BMW iX3"
+    - ห้ามนำรถตระกูลไฟฟ้า รุ่น i ไปรวมกลุ่มภายใต้ซีรีส์ปกติของรถเครื่องยนต์สันดาป/ปลั๊กอินไฮบริดเด็ดขาด (ตัวอย่างเช่น หากในเล่มมีรุ่น i7 ให้ระบุชื่อซีรีส์ว่า "BMW i7" ห้ามนำไปเขียนรวมเป็น "BMW 7 SERIES" เด็ดขาด)
 
 
 หมวดหมู่ (Category) ที่ต้องปรากฏใน JSON (ห้ามตกหล่นหมวดหมู่เหล่านี้):
@@ -207,6 +210,9 @@ Strict rules to follow:
    - "DC CHARGING" for maximum DC charging power
    - "CHARGING TIME 10 - 80%" for DC charging times and options
    (Never merge charging specifications with other categories and never omit them.)
+10. **(Very Important) Series Name Determination:**
+    - Check the model names in the document. If the models belong to the all-electric "i" family (such as i5, i7, iX, iX1, iX2, iX3), you must specify the series name exactly as "BMW i5", "BMW i7", "BMW iX", "BMW iX1", "BMW iX2", "BMW iX3" respectively.
+    - Never merge electric "i" models under the general series names of internal combustion engine / plug-in hybrid models (for example, if the model is an i7, specify the series name as "BMW i7" and never write it as "BMW 7 SERIES").
 
 Categories expected in the JSON:
 - Engine and Performance
