@@ -247,30 +247,14 @@ def main():
                                 th_entry["low_confidence_flags"].append(flag_data)
                                 discrepancies_count += 1
                 else:
-                    # Helper dictionary for mapping
-                    th_details_map = {d.get("topic").strip(): d for d in details_th}
-                    
-                    for de in details_en:
-                        topic_en = de.get("topic", "").strip()
-                        val_en = de.get("value", "")
-                        
-                        # Find corresponding Thai topic
-                        dt = None
-                        # Try exact match or mapped match
-                        for t_th in th_details_map.keys():
-                            if TOPIC_MAP.get(t_th) == topic_en.lower() or t_th.lower() == topic_en.lower():
-                                dt = th_details_map[t_th]
-                                break
-                        if not dt:
-                            # Try fuzzy match
-                            for t_th in th_details_map.keys():
-                                if topic_en.lower() in t_th.lower() or t_th.lower() in topic_en.lower():
-                                    dt = th_details_map[t_th]
-                                    break
-                                    
-                        if dt:
+                    if len(details_en) == len(details_th):
+                        for idx, de in enumerate(details_en):
+                            dt = details_th[idx]
+                            topic_en = de.get("topic", "")
                             topic_th = dt.get("topic", "")
+                            val_en = de.get("value", "")
                             val_th = dt.get("value", "")
+
                             clean_en = clean_value(val_en)
                             clean_th = clean_value(val_th)
 
@@ -290,9 +274,7 @@ def main():
                                 discrepancies_count += 1
 
                                 # --- AUDITING LOGIC ---
-                                # Check if it is an option conflict (one has it, the other doesn't)
                                 is_option_conflict = (clean_en == "■" and clean_th == "-") or (clean_en == "-" and clean_th == "■")
-                                # Check if it is a numerical mismatch (different digits)
                                 digits_th = extract_digits(val_th)
                                 digits_en = extract_digits(val_en)
                                 is_numeric_conflict = (digits_th != digits_en) and (len(digits_th) > 0 or len(digits_en) > 0)
@@ -313,6 +295,65 @@ def main():
                                         "type": "Numerical Mismatch (ตัวเลขสเปกไม่ตรงกัน)",
                                         "detail": f"ตัวเลขสเปกทางเทคนิคขัดแย้งกัน | ไทย: '{val_th}' ↔️ อังกฤษ: '{val_en}' (หัวข้อ: {topic_th})"
                                     })
+                    else:
+                        th_details_map = {d.get("topic").strip(): d for d in details_th}
+                        for de in details_en:
+                            topic_en = de.get("topic", "").strip()
+                            val_en = de.get("value", "")
+                            
+                            dt = None
+                            for t_th in th_details_map.keys():
+                                if TOPIC_MAP.get(t_th) == topic_en.lower() or t_th.lower() == topic_en.lower():
+                                    dt = th_details_map[t_th]
+                                    break
+                            if not dt:
+                                for t_th in th_details_map.keys():
+                                    if topic_en.lower() in t_th.lower() or t_th.lower() in topic_en.lower():
+                                        dt = th_details_map[t_th]
+                                        break
+                                        
+                            if dt:
+                                topic_th = dt.get("topic", "")
+                                val_th = dt.get("value", "")
+                                clean_en = clean_value(val_en)
+                                clean_th = clean_value(val_th)
+
+                                if clean_en != clean_th:
+                                    reason = f"Value mismatch for '{topic_th}' / '{topic_en}': Thai has '{val_th}', English has '{val_en}'"
+                                    print(f"    [MISMATCH] {model_name} / {cat_en} - {reason}")
+                                    
+                                    flag_data = {
+                                        "model_name": model_name,
+                                        "category": cat_en,
+                                        "topic": f"{topic_th} / {topic_en}",
+                                        "type": "Cross-DB Discrepancy",
+                                        "reason": reason
+                                    }
+                                    en_entry["low_confidence_flags"].append(flag_data)
+                                    th_entry["low_confidence_flags"].append(flag_data)
+                                    discrepancies_count += 1
+
+                                    is_option_conflict = (clean_en == "■" and clean_th == "-") or (clean_en == "-" and clean_th == "■")
+                                    digits_th = extract_digits(val_th)
+                                    digits_en = extract_digits(val_en)
+                                    is_numeric_conflict = (digits_th != digits_en) and (len(digits_th) > 0 or len(digits_en) > 0)
+
+                                    if is_option_conflict:
+                                        audit_reports.append({
+                                            "pdf": th_entry.get("pdf_source"),
+                                            "model": model_name,
+                                            "category": cat_en,
+                                            "type": "Option Presence Conflict (มี/ไม่มี ออปชันไม่ตรงกัน)",
+                                            "detail": f"ระบบหนึ่งระบุเป็นมี (■) แต่อีกระบบระบุเป็นไม่มี (-) | ไทย: '{val_th}' ↔️ อังกฤษ: '{val_en}' (หัวข้อ: {topic_th})"
+                                        })
+                                    elif is_numeric_conflict:
+                                        audit_reports.append({
+                                            "pdf": th_entry.get("pdf_source"),
+                                            "model": model_name,
+                                            "category": cat_en,
+                                            "type": "Numerical Mismatch (ตัวเลขสเปกไม่ตรงกัน)",
+                                            "detail": f"ตัวเลขสเปกทางเทคนิคขัดแย้งกัน | ไทย: '{val_th}' ↔️ อังกฤษ: '{val_en}' (หัวข้อ: {topic_th})"
+                                        })
 
     # --- AB-NORMAL OPTION OVERLAPS AUDIT ---
     # Scan the entire TH database to find if any model has conflicting suspensions or audio systems
