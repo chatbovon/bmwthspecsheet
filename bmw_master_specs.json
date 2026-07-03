@@ -15313,7 +15313,51 @@
             }
         ],
         "source_file": "4-20241113-03_TH.pdf.asset.1745407581805.pdf",
-        "pdf_source": "4-20241113-03_TH.pdf.asset.1745407581805.pdf"
+        "pdf_source": "4-20241113-03_TH.pdf.asset.1745407581805.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "420i Coupé M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 4-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "420i Coupé M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 18 นิ้ว ลาย Double-spoke แบบสลับสี', English has '18\" M light alloy wheels Double-spoke style Bicolour'"
+            },
+            {
+                "model_name": "430i Coupé M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 4-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "430i Coupé M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้วลาย Double-spoke แบบสลับสี', English has '19\" M light alloy wheels Double-spoke style, Bicolour'"
+            },
+            {
+                "model_name": "M440i xDrive",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "M440i xDrive",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้ว ลาย Double-spoke สี Jet Black', English has '19\" M light alloy wheels Double-spoke style Jet Black'"
+            }
+        ]
     },
     {
         "series": "BMW 7 SERIES",
@@ -16210,7 +16254,37 @@
             }
         ],
         "source_file": "7-20250130-01_TH_WLTP.pdf.asset.1740723717847.pdf",
-        "pdf_source": "7-20250130-01_TH_WLTP.pdf.asset.1740723717847.pdf"
+        "pdf_source": "7-20250130-01_TH_WLTP.pdf.asset.1740723717847.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "740d M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์ดีเซล 6 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder diesel engine'"
+            },
+            {
+                "model_name": "740d M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้ออัลลอย M aerodynamicขนาด 20 นิ้ว แบบสลับสี', English has '20\" M aerodynamic wheelsBicolour'"
+            },
+            {
+                "model_name": "750e xDrive M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดเครื่องยนต์",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder petrol engine'"
+            },
+            {
+                "model_name": "750e xDrive M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้ออัลลอย M aerodynamicขนาด 20 นิ้ว แบบสลับสี', English has '20\" M aerodynamic wheelsBicolour'"
+            }
+        ]
     },
     {
         "series": "BMW i5",
@@ -16677,7 +16751,30 @@
             }
         ],
         "source_file": "i5-20260417-01_TH.pdf.asset.1778752587155.pdf",
-        "pdf_source": "i5-20260417-01_TH.pdf.asset.1778752587155.pdf"
+        "pdf_source": "i5-20260417-01_TH.pdf.asset.1778752587155.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "มอเตอร์ไฟฟ้า",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'มอเตอร์ไฟฟ้า' / 'Electric motor': Thai has 'เทคโนโลยี BMW eDrive', English has 'BMW eDrive technology'"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดแบตเตอรี่ (แรงดันสูง)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดแบตเตอรี่ (แรงดันสูง)' / 'Battery type (High voltage)': Thai has 'ลิเทียม-ไอออน (Lithium-ion)', English has 'Lithium-ion'"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้ออัลลอย M aerodynamic ขนาด 20 นิ้ว ตกแต่งสี Black Grey แบบสลับสี', English has '20\" M aerodynamic wheelsBicolour Black Grey'"
+            }
+        ]
     },
     {
         "series": "BMW i7",
@@ -17152,7 +17249,37 @@
             }
         ],
         "source_file": "i7-20240710-01_TH.pdf.asset.1758628809179.pdf",
-        "pdf_source": "i7-20240710-01_TH.pdf.asset.1758628809179.pdf"
+        "pdf_source": "i7-20240710-01_TH.pdf.asset.1758628809179.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "i7 xDrive60 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "มอเตอร์ไฟฟ้า",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'มอเตอร์ไฟฟ้า' / 'Electric motor': Thai has 'เทคโนโลยี BMW eDrive', English has 'BMW eDrive technology'"
+            },
+            {
+                "model_name": "i7 xDrive60 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน NEDC (กิโลเมตร)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน NEDC (กิโลเมตร)' / 'Electric range1, NEDC (km)': Thai has 'สูงสุดถึง 625', English has 'up to1 625'"
+            },
+            {
+                "model_name": "i7 xDrive60 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดแบตเตอรี่ (แรงดันสูง)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดแบตเตอรี่ (แรงดันสูง)' / 'Battery type (High voltage)': Thai has 'ลิเทียม-ไอออน (Lithium-ion)', English has 'Lithium-ion'"
+            },
+            {
+                "model_name": "i7 xDrive60 M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้ออัลลอย M ขนาด 21 นิ้ว แบบสลับสี', English has '21\" M light-alloy wheels, Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW iX",
@@ -17614,7 +17741,30 @@
             }
         ],
         "source_file": "iX-20251030-01_TH_REV-Color.pdf.asset.1763711932423.pdf",
-        "pdf_source": "iX-20251030-01_TH_REV-Color.pdf.asset.1763711932423.pdf"
+        "pdf_source": "iX-20251030-01_TH_REV-Color.pdf.asset.1763711932423.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "iX xDrive45 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "มอเตอร์ไฟฟ้า",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'มอเตอร์ไฟฟ้า' / 'Electric motor': Thai has 'เทคโนโลยี BMW eDrive', English has 'BMW eDrive Technology'"
+            },
+            {
+                "model_name": "iX xDrive45 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดแบตเตอรี่ (แรงดันสูง)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดแบตเตอรี่ (แรงดันสูง)' / 'Battery type (High voltage)': Thai has 'ลิเทียม-ไอออน (Lithium-ion)', English has 'Lithium-ion'"
+            },
+            {
+                "model_name": "iX xDrive45 M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้อ M aerodynamic ขนาด 21 นิ้วแบบสลับสี 3D ขัดเงา', English has '21\" M aerodynamic wheels Multicolour 3D polished buff'"
+            }
+        ]
     },
     {
         "series": "BMW iX1",
@@ -18017,7 +18167,23 @@
             }
         ],
         "source_file": "iX1-L-20251110-01_TH.pdf.asset.1763618806206.pdf",
-        "pdf_source": "iX1-L-20251110-01_TH.pdf.asset.1763618806206.pdf"
+        "pdf_source": "iX1-L-20251110-01_TH.pdf.asset.1763618806206.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "iX1 eDrive20L M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "มอเตอร์ไฟฟ้า",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'มอเตอร์ไฟฟ้า' / 'Electric motor': Thai has 'เทคโนโลยี BMW eDrive', English has 'BMW eDrive Technology'"
+            },
+            {
+                "model_name": "iX1 eDrive20L M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้ว แบบ Double-spoke แบบสลับสี', English has '19\" M light-alloy wheels Double-spoke style Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW iX2",
@@ -18428,7 +18594,30 @@
             }
         ],
         "source_file": "iX2-20240710-01_TH-(1).pdf.asset.1738060128032.pdf",
-        "pdf_source": "iX2-20240710-01_TH-(1).pdf.asset.1738060128032.pdf"
+        "pdf_source": "iX2-20240710-01_TH-(1).pdf.asset.1738060128032.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "iX2 xDrive30 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "มอเตอร์ไฟฟ้า",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'มอเตอร์ไฟฟ้า' / 'Electric motor': Thai has 'เทคโนโลยี BMW eDrive', English has 'BMW eDrive technology'"
+            },
+            {
+                "model_name": "iX2 xDrive30 M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "ชนิดแบตเตอรี่ (แรงดันสูง)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดแบตเตอรี่ (แรงดันสูง)' / 'Battery type (High voltage)': Thai has 'ลิเทียม-ไอออน (Lithium-ion)', English has 'Lithium-ion'"
+            },
+            {
+                "model_name": "iX2 xDrive30 M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้ออัลลอย M ขนาด 20 นิ้ว ลาย V-spoke แบบสลับสี', English has '20\" M lightalloy wheels V-spoke Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW iX3",
@@ -19226,7 +19415,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "2-20260218-01_TH.pdf.asset.1771910215806.pdf",
@@ -19553,7 +19743,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "2-20260417-01_TH.pdf.asset.1778752587612.pdf",
@@ -19897,7 +20088,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "M3-20250312-02_TH_Touring.pdf.asset.1745407583409.pdf",
@@ -20272,7 +20464,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "M4-20230410-01_TH.pdf.asset.1741838082338.pdf",
@@ -20720,7 +20913,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "X7-20251126-01_TH.pdf.asset.1778752587434.pdf",
@@ -21195,7 +21389,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             },
             {
                 "model_name": "i5 eDrive40 M Sport",
@@ -21663,7 +21858,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             },
             {
                 "model_name": "i5 M60 xDrive",
@@ -22139,7 +22335,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "i5-20240314-01_TH_edit.pdf",
@@ -22618,7 +22815,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             },
             {
                 "model_name": "i7 xDrive60 M Sport",
@@ -23090,7 +23288,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "i7-20240410-01_TH.pdf",
@@ -23556,10 +23755,27 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "iX3-20260213-02_TH_REV.pdf.asset.1778752586444.pdf",
-        "pdf_source": "iX3-20260213-02_TH_REV.pdf.asset.1778752586444.pdf"
+        "pdf_source": "iX3-20260213-02_TH_REV.pdf.asset.1778752586444.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "iX3 50 xDrive M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "มอเตอร์ไฟฟ้า",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'มอเตอร์ไฟฟ้า' / 'Electric motor': Thai has 'BMW eDrive technology รุ่นที่ 6', English has 'Sixth-generation BMW eDrive technology'"
+            },
+            {
+                "model_name": "iX3 50 xDrive M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้อ BMW Individual Aerodynamic ขนาด 22 นิ้ว แบบสลับสี', English has '22\" BMW Individual aerodynamic wheels I Bicolour'"
+            }
+        ]
     }
 ]
