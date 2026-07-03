@@ -79,7 +79,7 @@ if not API_KEYS:
     sys.exit(1)
 
 # Target Gemini model for OCR correction
-MODEL_NAME = "gemini-3.5-flash"
+MODEL_NAME = "gemini-3.1-flash-lite"
 
 # ─── System Prompts ───────────────────────────────────────────────────────────
 PROMPT_TH = """You are an expert BMW Automotive Specification Analyst and Data Structuring Specialist.
@@ -615,7 +615,7 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
     # Step 3: Run OCR Correction pipeline using Gemini API Key Pooling & Fallback Models
     extracted_segments = []
     key_idx = 0
-    model_pool = [MODEL_NAME, "gemini-3.1-flash-lite", "gemini-2.5-flash"]
+    model_pool = [MODEL_NAME]
     model_idx = 0
     
     for i, seg in enumerate(segments):
