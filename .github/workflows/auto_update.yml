@@ -2,7 +2,7 @@ name: BMW Auto-Update Specs
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs every day at 07:00 AM ICT (UTC+7 -> 00:00 UTC)
+    - cron: '0 19 * * *' # Runs every day at 02:00 AM ICT (UTC+7 -> 19:00 UTC)
   workflow_dispatch: # Allows manual runs from the GitHub Actions tab
 
 jobs:
@@ -30,6 +30,10 @@ jobs:
     - name: Run Scraper (Download new PDFs)
       run: |
         python pdf_scraper.py
+
+    - name: Automatically Archive Discontinued Models
+      run: |
+        python scratch/archive_discontinued.py
 
     - name: Run Extractor & Compare (Process PDFs with Gemini)
       env:

@@ -42,7 +42,10 @@ def download_pdf(page, pdf_url, download_dir, filename):
         print(f"   -> [Error] {e}")
     return False
 
+all_web_filenames = set()
+
 def scrape_target(target):
+    global all_web_filenames
     lang = target["lang"]
     url = target["url"]
     download_dir = target["download_dir"]
@@ -104,6 +107,7 @@ def scrape_target(target):
 
             # จดชื่อไฟล์นี้ไว้ในตะกร้า ว่าเว็บยังมีรถรุ่นนี้ขายอยู่
             web_filenames.add(filename)
+            all_web_filenames.add(filename)
 
             # [กฎข้อ 2]: เช็กว่าไฟล์นี้เคยโหลดมาแล้วหรือยัง
             if filename in existing_files:
@@ -156,8 +160,19 @@ def scrape_target(target):
     print(f"{'='*50}\n")
 
 def run_scraper():
+    all_web_filenames.clear()
     for target in TARGETS:
         scrape_target(target)
+    
+    # Save the consolidated list of live web PDFs
+    scratch_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scratch")
+    if not os.path.exists(scratch_dir):
+        os.makedirs(scratch_dir)
+    list_path = os.path.join(scratch_dir, "live_web_pdfs.txt")
+    with open(list_path, "w", encoding="utf-8") as f:
+        for fname in sorted(all_web_filenames):
+            f.write(fname + "\n")
+    print(f"\n[SCRAPER] Saved {len(all_web_filenames)} live web PDF filenames to {list_path}")
 
 if __name__ == "__main__":
     run_scraper()
