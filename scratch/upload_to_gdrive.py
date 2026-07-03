@@ -1,6 +1,7 @@
 import os
 import json
 from google.oauth2 import service_account
+from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 from dotenv import load_dotenv
@@ -10,13 +11,28 @@ load_dotenv()
 
 SCOPES = ['https://www.googleapis.com/auth/drive']
 
-def get_drive_service(key_json_str):
+def get_drive_service_service_account(key_json_str):
     try:
         info = json.loads(key_json_str)
         creds = service_account.Credentials.from_service_account_info(info, scopes=SCOPES)
         return build('drive', 'v3', credentials=creds)
     except Exception as e:
         print(f"[GDRIVE] [ERROR] Failed to authenticate service account: {e}")
+        return None
+
+def get_drive_service_oauth2(client_id, client_secret, refresh_token):
+    try:
+        creds = Credentials(
+            token=None,
+            refresh_token=refresh_token,
+            token_uri="https://oauth2.googleapis.com/token",
+            client_id=client_id,
+            client_secret=client_secret,
+            scopes=SCOPES
+        )
+        return build('drive', 'v3', credentials=creds)
+    except Exception as e:
+        print(f"[GDRIVE] [ERROR] Failed to authenticate OAuth2 user credentials: {e}")
         return None
 
 def upload_pdf_to_folder(service, folder_id, file_path):
@@ -44,16 +60,26 @@ def upload_pdf_to_folder(service, folder_id, file_path):
 
 def main():
     key_json = os.getenv("GDRIVE_SERVICE_ACCOUNT_KEY")
+    client_id = os.getenv("GDRIVE_CLIENT_ID")
+    client_secret = os.getenv("GDRIVE_CLIENT_SECRET")
+    refresh_token = os.getenv("GDRIVE_REFRESH_TOKEN")
     folder_id = os.getenv("GDRIVE_FOLDER_ID")
     
-    if not key_json:
-        print("[GDRIVE] [WARNING] GDRIVE_SERVICE_ACCOUNT_KEY env variable is missing. Skipping upload.")
-        return
     if not folder_id:
         print("[GDRIVE] [WARNING] GDRIVE_FOLDER_ID env variable is missing. Skipping upload.")
         return
 
-    service = get_drive_service(key_json)
+    service = None
+    if client_id and client_secret and refresh_token:
+        print("[GDRIVE] Authenticating using OAuth2 User Credentials...")
+        service = get_drive_service_oauth2(client_id, client_secret, refresh_token)
+    elif key_json:
+        print("[GDRIVE] Authenticating using Service Account...")
+        service = get_drive_service_service_account(key_json)
+    else:
+        print("[GDRIVE] [WARNING] No Google Drive credentials found. Please set OAuth2 user secrets or a Service Account key.")
+        return
+
     if not service:
         return
 
