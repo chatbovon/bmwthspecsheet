@@ -134,29 +134,10 @@ def scrape_target(target):
     
     # เอาไฟล์ในเครื่อง ตั้งต้น ลบด้วย ไฟล์ที่เว็บบอกว่ามี = ไฟล์ที่ถูกถอดออก
     removed_files = existing_files - web_filenames
-    
     if removed_files:
-        import shutil
-        custom_dir = "bmw_brochures_custom_en" if lang == "en" else "bmw_brochures_custom"
-        if not os.path.exists(custom_dir):
-            os.makedirs(custom_dir)
-            
-        print(f"\n⚠️ พบรถรุ่นที่ถูกถอดออกจากเว็บ จำนวน {len(removed_files)} รุ่น (ย้ายไปเก็บที่ {custom_dir}):")
-        for f in removed_files:
-            src_path = os.path.join(download_dir, f)
-            dest_path = os.path.join(custom_dir, f)
-            try:
-                # If file already exists in custom, delete it from auto instead of overwriting
-                if os.path.exists(dest_path):
-                    os.remove(src_path)
-                    print(f"   🗑️ ลบไฟล์ซ้ำใน auto: {f} (มีอยู่แล้วใน custom)")
-                else:
-                    shutil.move(src_path, dest_path)
-                    print(f"   📦 ย้ายไฟล์สำเร็จ: {f} -> {custom_dir}")
-            except Exception as move_err:
-                print(f"   [Error] ไม่สามารถย้ายไฟล์ {f}: {move_err}")
+        print(f"\n[SCRAPER] Found {len(removed_files)} discontinued PDFs. They will be processed and archived by the next step.")
     else:
-        print("\n✅ ไม่มีรถรุ่นไหนถูกถอดออกจากเว็บ ข้อมูลในเครื่องตรงกับหน้าเว็บ 100%")
+        print("\n[SCRAPER] No discontinued PDFs detected. Active files match web 100%.")
     print(f"{'='*50}\n")
 
 def run_scraper():
