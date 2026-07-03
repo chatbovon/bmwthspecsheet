@@ -19415,7 +19415,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "2-20260218-01_TH.pdf.asset.1771910215806.pdf",
@@ -19755,7 +19756,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "2-20260417-01_TH.pdf.asset.1778752587612.pdf",
@@ -20099,7 +20101,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "M3-20250312-02_TH_Touring.pdf.asset.1745407583409.pdf",
@@ -20474,7 +20477,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "M4-20230410-01_TH.pdf.asset.1741838082338.pdf",
@@ -20962,7 +20966,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "X7-20251126-01_TH.pdf.asset.1778752587434.pdf",
@@ -21437,7 +21442,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             },
             {
                 "model_name": "i5 eDrive40 M Sport",
@@ -21905,7 +21911,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             },
             {
                 "model_name": "i5 M60 xDrive",
@@ -22381,7 +22388,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "i5-20240314-01_TH_edit.pdf",
@@ -22860,7 +22868,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             },
             {
                 "model_name": "i7 xDrive60 M Sport",
@@ -23332,7 +23341,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "i7-20240410-01_TH.pdf",
@@ -23807,10 +23817,27 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true
             }
         ],
         "source_file": "iX3-20260213-02_TH_REV.pdf.asset.1778752586444.pdf",
-        "pdf_source": "iX3-20260213-02_TH_REV.pdf.asset.1778752586444.pdf"
+        "pdf_source": "iX3-20260213-02_TH_REV.pdf.asset.1778752586444.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "iX3 50 xDrive M Sport",
+                "category": "เครื่องยนต์และสมรรถนะ",
+                "topic": "มอเตอร์ไฟฟ้า",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'มอเตอร์ไฟฟ้า' / 'Electric motor': Thai has 'BMW eDrive technology รุ่นที่ 6', English has 'Sixth-generation BMW eDrive technology'"
+            },
+            {
+                "model_name": "iX3 50 xDrive M Sport",
+                "category": "ล้อและยาง",
+                "topic": "ล้อ",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้อ BMW Individual Aerodynamic ขนาด 22 นิ้ว แบบสลับสี', English has '22\" BMW Individual aerodynamic wheels I Bicolour'"
+            }
+        ]
     }
 ]
