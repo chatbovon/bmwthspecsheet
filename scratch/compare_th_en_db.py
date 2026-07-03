@@ -7,6 +7,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 
 db_th_path = r"bmw_master_specs.json"
 db_en_path = r"bmw_master_specs_en.json"
+report_path = r"specsheet_audit_report.md"
 
 TOPIC_MAP = {
     # Engine & Performance
@@ -83,10 +84,7 @@ def clean_value(val):
     if val in ["■", "yes", "standard", "yes"]:
         return "■"
     
-    # Normalize multiplication signs
     val = val.replace("×", "x")
-    
-    # Translate Thai months to English
     th_months = {
         "มกราคม": "january", "กุมภาพันธ์": "february", "มีนาคม": "march",
         "เมษายน": "april", "พฤษภาคม": "may", "มิถุนายน": "june",
@@ -96,27 +94,28 @@ def clean_value(val):
     for th_m, en_m in th_months.items():
         val = val.replace(th_m, en_m)
         
-    # Look for 4-digit BE year (2500-2699) and convert to CE (subtract 543)
     match_be = re.search(r'(25\d{2}|26\d{2})', val)
     if match_be:
         be_yr = int(match_be.group(1))
         ce_yr = be_yr - 543
         val = val.replace(str(be_yr), str(ce_yr))
         
-    # Lowercase and remove commas, spaces, and units
     val = val.replace(",", "").replace(" ", "")
-    # Remove Thai units
     val = val.replace("ซีซี", "").replace("มม.", "").replace("กิโลวัตต์", "").replace("แรงม้า", "").replace("รอบต่อนาที", "").replace("นิวตันเมตร", "").replace("กิโลเมตร/ชั่วโมง", "").replace("วินาที", "").replace("ลิตร", "").replace("กก.", "")
-    # Remove English units
     val = val.replace("cc", "").replace("mm", "").replace("kw", "").replace("hp", "").replace("ps", "").replace("rpm", "").replace("nm", "").replace("km/h", "").replace("s", "").replace("l", "").replace("kg", "")
-    # Remove structural descriptors to align tyre and wheel sizes
     val = val.replace("tyres", "").replace("tyre", "").replace("ยาง", "")
     val = val.replace("front:", "").replace("rear:", "").replace("front", "").replace("rear", "")
     val = val.replace("ล้อหน้า:", "").replace("ล้อหลัง:", "").replace("ล้อหน้า", "").replace("ล้อหลัง", "")
     return val
 
+def extract_digits(val):
+    if not val:
+        return []
+    # Remove commas and extract all numbers (integer and decimal)
+    clean = val.replace(",", "")
+    return re.findall(r'\d+', clean)
+
 def is_paintwork_value_similar(val_th, val_en):
-    # If both are empty or hyphens, they match
     if val_th.strip() == "-" and val_en.strip() == "-":
         return True
     if val_th.strip() == "-" or val_en.strip() == "-":
@@ -160,6 +159,7 @@ def main():
             th_lookup[prefix] = entry
 
     discrepancies_count = 0
+    audit_reports = []  # List of critical technical issues for specsheet_audit_report.md
 
     for en_entry in db_en:
         pdf_en = en_entry.get("pdf_source", "")
@@ -236,103 +236,123 @@ def main():
                             if not is_paintwork_value_similar(val_th, val_en):
                                 reason = f"Paintwork color '{topic_en}' upholstery mismatch: Thai has '{val_th}', English has '{val_en}'"
                                 print(f"    [MISMATCH] {model_name} / Paintwork - {reason}")
-                                flag_data_en = {
+                                flag_data = {
                                     "model_name": model_name,
                                     "category": cat_en,
                                     "topic": topic_en,
                                     "type": "Cross-DB Discrepancy",
                                     "reason": reason
                                 }
-                                en_entry["low_confidence_flags"].append(flag_data_en)
-                                
-                                flag_data_th = {
-                                    "model_name": th_model.get("model_name", model_name),
-                                    "category": ts.get("category", cat_en),
-                                    "topic": dt.get("topic", topic_en),
-                                    "type": "Cross-DB Discrepancy",
-                                    "reason": reason
-                                }
-                                th_entry["low_confidence_flags"].append(flag_data_th)
+                                en_entry["low_confidence_flags"].append(flag_data)
+                                th_entry["low_confidence_flags"].append(flag_data)
                                 discrepancies_count += 1
                 else:
-                    if len(details_en) == len(details_th):
-                        for idx, de in enumerate(details_en):
-                            dt = details_th[idx]
-                            topic_en = de.get("topic", "")
+                    # Helper dictionary for mapping
+                    th_details_map = {d.get("topic").strip(): d for d in details_th}
+                    
+                    for de in details_en:
+                        topic_en = de.get("topic", "").strip()
+                        val_en = de.get("value", "")
+                        
+                        # Find corresponding Thai topic
+                        dt = None
+                        # Try exact match or mapped match
+                        for t_th in th_details_map.keys():
+                            if TOPIC_MAP.get(t_th) == topic_en.lower() or t_th.lower() == topic_en.lower():
+                                dt = th_details_map[t_th]
+                                break
+                        if not dt:
+                            # Try fuzzy match
+                            for t_th in th_details_map.keys():
+                                if topic_en.lower() in t_th.lower() or t_th.lower() in topic_en.lower():
+                                    dt = th_details_map[t_th]
+                                    break
+                                    
+                        if dt:
                             topic_th = dt.get("topic", "")
-                            val_en = de.get("value", "")
                             val_th = dt.get("value", "")
-
                             clean_en = clean_value(val_en)
                             clean_th = clean_value(val_th)
 
                             if clean_en != clean_th:
                                 reason = f"Value mismatch for '{topic_th}' / '{topic_en}': Thai has '{val_th}', English has '{val_en}'"
                                 print(f"    [MISMATCH] {model_name} / {cat_en} - {reason}")
-                                flag_data_en = {
+                                
+                                flag_data = {
                                     "model_name": model_name,
                                     "category": cat_en,
                                     "topic": f"{topic_th} / {topic_en}",
                                     "type": "Cross-DB Discrepancy",
                                     "reason": reason
                                 }
-                                en_entry["low_confidence_flags"].append(flag_data_en)
-                                
-                                flag_data_th = {
-                                    "model_name": th_model.get("model_name", model_name),
-                                    "category": ts.get("category", cat_en),
-                                    "topic": topic_th,
-                                    "type": "Cross-DB Discrepancy",
-                                    "reason": reason
-                                }
-                                th_entry["low_confidence_flags"].append(flag_data_th)
+                                en_entry["low_confidence_flags"].append(flag_data)
+                                th_entry["low_confidence_flags"].append(flag_data)
                                 discrepancies_count += 1
-                    else:
-                        th_details_map = {d.get("topic").strip(): d for d in details_th}
-                        th_mapped_details = {}
-                        for t_th, d in th_details_map.items():
-                            mapped_t = TOPIC_MAP.get(t_th)
-                            if mapped_t:
-                                th_mapped_details[mapped_t] = d
 
-                        for de in details_en:
-                            topic_en = de.get("topic", "").strip()
-                            val_en = de.get("value", "")
+                                # --- AUDITING LOGIC ---
+                                # Check if it is an option conflict (one has it, the other doesn't)
+                                is_option_conflict = (clean_en == "■" and clean_th == "-") or (clean_en == "-" and clean_th == "■")
+                                # Check if it is a numerical mismatch (different digits)
+                                digits_th = extract_digits(val_th)
+                                digits_en = extract_digits(val_en)
+                                is_numeric_conflict = (digits_th != digits_en) and (len(digits_th) > 0 or len(digits_en) > 0)
 
-                            dt = th_mapped_details.get(topic_en.lower())
-                            if not dt:
-                                for t_th, mapped_t in TOPIC_MAP.items():
-                                    if topic_en.lower() in mapped_t or mapped_t in topic_en.lower():
-                                        dt = th_details_map.get(t_th)
-                                        break
-
-                            if dt:
-                                topic_th = dt.get("topic", "")
-                                val_th = dt.get("value", "")
-                                clean_en = clean_value(val_en)
-                                clean_th = clean_value(val_th)
-
-                                if clean_en != clean_th:
-                                    reason = f"Value mismatch for '{topic_th}' / '{topic_en}': Thai has '{val_th}', English has '{val_en}'"
-                                    print(f"    [MISMATCH] {model_name} / {cat_en} - {reason}")
-                                    flag_data_en = {
-                                        "model_name": model_name,
+                                if is_option_conflict:
+                                    audit_reports.append({
+                                        "pdf": th_entry.get("pdf_source"),
+                                        "model": model_name,
                                         "category": cat_en,
-                                        "topic": f"{topic_th} / {topic_en}",
-                                        "type": "Cross-DB Discrepancy",
-                                        "reason": reason
-                                    }
-                                    en_entry["low_confidence_flags"].append(flag_data_en)
-                                    
-                                    flag_data_th = {
-                                        "model_name": th_model.get("model_name", model_name),
-                                        "category": ts.get("category", cat_en),
-                                        "topic": topic_th,
-                                        "type": "Cross-DB Discrepancy",
-                                        "reason": reason
-                                    }
-                                    th_entry["low_confidence_flags"].append(flag_data_th)
-                                    discrepancies_count += 1
+                                        "type": "Option Presence Conflict (มี/ไม่มี ออปชันไม่ตรงกัน)",
+                                        "detail": f"ระบบหนึ่งระบุเป็นมี (■) แต่อีกระบบระบุเป็นไม่มี (-) | ไทย: '{val_th}' ↔️ อังกฤษ: '{val_en}' (หัวข้อ: {topic_th})"
+                                    })
+                                elif is_numeric_conflict:
+                                    audit_reports.append({
+                                        "pdf": th_entry.get("pdf_source"),
+                                        "model": model_name,
+                                        "category": cat_en,
+                                        "type": "Numerical Mismatch (ตัวเลขสเปกไม่ตรงกัน)",
+                                        "detail": f"ตัวเลขสเปกทางเทคนิคขัดแย้งกัน | ไทย: '{val_th}' ↔️ อังกฤษ: '{val_en}' (หัวข้อ: {topic_th})"
+                                    })
+
+    # --- AB-NORMAL OPTION OVERLAPS AUDIT ---
+    # Scan the entire TH database to find if any model has conflicting suspensions or audio systems
+    for entry in db_th:
+        pdf = entry.get("pdf_source")
+        for m in entry.get("models", []):
+            model_name = m.get("model_name")
+            specs = m.get("specifications", [])
+            
+            details = []
+            for cat in specs:
+                details.extend(cat.get("details", []))
+                
+            # A. Check suspension overlap (Adaptive M AND M Sport both active)
+            adaptive_m = any(s.get("value") == "■" and ("ช่วงล่าง adaptive" in s.get("topic", "").lower() or "adaptive m suspension" in s.get("topic", "").lower()) for s in details)
+            m_sport = any(s.get("value") == "■" and ("ช่วงล่าง m sport" in s.get("topic", "").lower() or "m sport suspension" in s.get("topic", "").lower()) for s in details)
+            
+            if adaptive_m and m_sport:
+                audit_reports.append({
+                    "pdf": pdf,
+                    "model": model_name,
+                    "category": "ระบบขับเคลื่อนและเทคโนโลยี",
+                    "type": "Suspension Overlap (ช่วงล่างทับซ้อน)",
+                    "detail": "พบการเลือกเปิดใช้งาน (■) ทั้ง 'ช่วงล่าง Adaptive M' และ 'ช่วงล่าง M Sport' ในรุ่นเดียวกัน"
+                })
+
+            # B. Check audio system overlap
+            hifi_rows = [s for s in details if s.get("value") == "■" and "hifi" in s.get("topic", "").lower()]
+            harman_rows = [s for s in details if s.get("value") == "■" and "harman kardon" in s.get("topic", "").lower()]
+            
+            if len(hifi_rows) > 0 and len(harman_rows) > 0:
+                topics = [r.get("topic") for r in hifi_rows + harman_rows]
+                if len(set(topics)) > 1:
+                    audit_reports.append({
+                        "pdf": pdf,
+                        "model": model_name,
+                        "category": "ระบบความบันเทิงและการสื่อสาร",
+                        "type": "Audio System Overlap (เครื่องเสียงทับซ้อน)",
+                        "detail": f"พบระบบเครื่องเสียงที่ขัดแย้งกันถูกเลือกใช้งานพร้อมกัน: {', '.join(set(topics))}"
+                    })
 
     # Save English database with the new flags
     with open(db_en_path, "w", encoding="utf-8") as f:
@@ -342,7 +362,26 @@ def main():
     with open(db_th_path, "w", encoding="utf-8") as f:
         json.dump(db_th, f, ensure_ascii=False, indent=4)
 
+    # Write the Audit Report Markdown
+    with open(report_path, "w", encoding="utf-8") as f:
+        f.write("# 📝 รายงานการตรวจสอบความผิดพลาดโบรชัวร์ BMW Thailand (Specsheet Audit Report)\n\n")
+        f.write("รายงานฉบับนี้รวบรวมข้อขัดแย้งทางเทคนิค, ตัวเลขตัวคูณรอบที่ไม่ตรงกัน, หรือออปชันที่มีความทับซ้อนผิดปกติที่พบบนเอกสาร PDF โบรชัวร์ เพื่อใช้ส่งเรื่องให้ทาง BMW Thailand ทำการแก้ไขแก้ไขข้อมูลต่อไป\n\n")
+        f.write("---\n\n")
+        
+        if audit_reports:
+            f.write(f"### 🔍 ตรวจพบประเด็นที่ต้องตรวจสอบทั้งหมด {len(audit_reports)} รายการ:\n\n")
+            f.write("| โบรชัวร์ไฟล์ | รุ่นรถ | หมวดหมู่ | ประเภทประเด็น | รายละเอียดข้อขัดแย้ง |\n")
+            f.write("| :--- | :--- | :--- | :--- | :--- |\n")
+            for r in audit_reports:
+                f.write(f"| `{r['pdf']}` | **{r['model']}** | {r['category']} | `{r['type']}` | {r['detail']} |\n")
+        else:
+            f.write("### 🎉 ยินดีด้วย! ไม่พบข้อขัดแย้งสเปกที่ผิดปกติหรือตัวเลขที่ไม่ตรงกันระหว่างระบบเลยในรอบนี้\n")
+            
+        f.write("\n\n---\n*รายงานสร้างโดยระบบ Specsheet Audit Engine อัตโนมัติ*")
+
     print(f"\n[COMPLETE] Comparison complete. Found {discrepancies_count} cross-database discrepancies.")
+    print(f"[AUDITOR] Specsheet audit report generated at: {report_path} with {len(audit_reports)} issues.")
+    
     if "--fail" in sys.argv and discrepancies_count > 0:
         print("[FAIL] Exiting with code 1 due to detected discrepancies.")
         sys.exit(1)

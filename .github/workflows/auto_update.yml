@@ -76,12 +76,12 @@ jobs:
         # Ensure we are on the correct branch before pushing (prevent detached HEAD error)
         git checkout ${{ github.head_ref || github.ref_name }}
         
-        # Check if there are any database changes
-        git add bmw_master_specs.json bmw_master_specs_en.json
+        # Check if there are any database or audit changes
+        git add bmw_master_specs.json bmw_master_specs_en.json specsheet_audit_report.md
         git add -f bmw_ai_specs.json bmw_ai_specs_en.json || true
         git add -f bmw_brochures_auto/*.pdf bmw_brochures_auto_en/*.pdf || true
-        if [ -n "$(git status --porcelain bmw_master_specs.json bmw_master_specs_en.json bmw_ai_specs.json bmw_ai_specs_en.json)" ]; then
-          git commit -m "Auto-update: New brochures and specifications [skip ci]"
+        if [ -n "$(git status --porcelain bmw_master_specs.json bmw_master_specs_en.json bmw_ai_specs.json bmw_ai_specs_en.json specsheet_audit_report.md)" ]; then
+          git commit -m "Auto-update: New brochures, specifications and audit report [skip ci]"
           git push
         else
           git status
