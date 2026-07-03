@@ -24,7 +24,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install playwright google-genai pypdf python-dotenv requests
+        pip install playwright google-genai pypdf python-dotenv requests google-api-python-client google-auth
         playwright install chromium
 
     - name: Run Scraper (Download new PDFs)
@@ -34,6 +34,13 @@ jobs:
     - name: Automatically Archive Discontinued Models
       run: |
         python scratch/archive_discontinued.py
+
+    - name: Upload PDFs to Google Drive
+      env:
+        GDRIVE_SERVICE_ACCOUNT_KEY: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_KEY }}
+        GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
+      run: |
+        python scratch/upload_to_gdrive.py
 
     - name: Run Extractor & Compare (Process PDFs with Gemini)
       env:
