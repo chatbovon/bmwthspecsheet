@@ -29,6 +29,9 @@ from pypdf import PdfReader
 from google import genai
 from google.genai import types
 
+# Global registry to remember exhausted (Model:API_Key) combinations across the run
+EXHAUSTED_COMBINATIONS = set()
+
 # Load environment variables from .env file (MINERU_API_TOKEN, GEMINI_API_KEY, etc.)
 try:
     from dotenv import load_dotenv
@@ -622,9 +625,17 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
         attempts = 0
         max_attempts = len(API_KEYS) * len(model_pool) * 2  # Allow multiple retries per key/model combination
         while not success and attempts < max_attempts and len(API_KEYS) > 0:
-            attempts += 1
-            key = API_KEYS[key_idx]
             current_model = model_pool[model_idx]
+            key = API_KEYS[key_idx]
+            combo = f"{current_model}:{key}"
+            if combo in EXHAUSTED_COMBINATIONS:
+                # Rotate key and model index, increment attempts, and continue without API call
+                model_idx = (model_idx + 1) % len(model_pool)
+                key_idx = (key_idx + 1) % len(API_KEYS)
+                attempts += 1
+                continue
+            
+            attempts += 1
             client = genai.Client(api_key=key, http_options=types.HttpOptions(timeout=60000))
             prompt = f"{system_prompt}\n\nHere is the input table segment:\n\n{seg}"
             if footer_text:
@@ -654,6 +665,10 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
                 
                 # Check for rate limit / quota exhaustion / demand spikes / timeouts and rotate model first
                 if any(term in err_msg.lower() for term in ["resource_exhausted", "quota", "limit", "unavailable", "demand", "deadline", "timeout"]):
+                    # If it is a daily quota limit error, remember it to avoid retrying
+                    if "quota" in err_msg.lower() or "resource_exhausted" in err_msg.lower():
+                        EXHAUSTED_COMBINATIONS.add(combo)
+                        print(f"      [GDRIVE/QUOTA] Marked {current_model} on Key #{key_idx+1} as exhausted for this run.")
                     model_idx = (model_idx + 1) % len(model_pool)
                     print(f"      [MODEL-FALLBACK] Rotated to model: {model_pool[model_idx]} due to errors/rate-limits.")
                     key_idx = (key_idx + 1) % len(API_KEYS)
