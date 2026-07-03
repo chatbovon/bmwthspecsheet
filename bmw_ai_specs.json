@@ -88,12 +88,17 @@
                     ]
                 },
                 {
-                    "category": "ระบบขับเคลื่อนและเทคโนโลยี",
+                    "category": "การชาร์จแบบกระแสสลับ (AC)",
                     "details": [
                         {
                             "topic": "รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)",
                             "value": "22"
-                        },
+                        }
+                    ]
+                },
+                {
+                    "category": "ระยะเวลาในการชาร์จจาก 0 - 100%",
+                    "details": [
                         {
                             "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
                             "value": "60 ชั่วโมง"
@@ -109,11 +114,21 @@
                         {
                             "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
                             "value": "5 ชั่วโมง 30 นาที"
-                        },
+                        }
+                    ]
+                },
+                {
+                    "category": "การชาร์จแบบกระแสตรง (DC)",
+                    "details": [
                         {
                             "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)",
                             "value": "400"
-                        },
+                        }
+                    ]
+                },
+                {
+                    "category": "ระยะเวลาในการชาร์จจาก 10 - 80%",
+                    "details": [
                         {
                             "topic": "DC charging vehicle at 125A by EVSE",
                             "value": "56 นาที"
@@ -129,7 +144,12 @@
                         {
                             "topic": "DC charging vehicle at 800A by EVSE",
                             "value": "21 นาที"
-                        },
+                        }
+                    ]
+                },
+                {
+                    "category": "ระบบขับเคลื่อนและเทคโนโลยี",
+                    "details": [
                         {
                             "topic": "เกียร์อัตโนมัติ",
                             "value": "■"
@@ -148,6 +168,10 @@
                         },
                         {
                             "topic": "ระบบควบคุมสมรรถนะการขับขี่ (BMW Dynamic Performance Control)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบชาร์จไฟกระแสสลับความเร็วสูง พร้อมรองรับการชาร์จแบบสองทิศทาง",
                             "value": "■"
                         }
                     ]
@@ -393,15 +417,6 @@
                     ]
                 },
                 {
-                    "category": "ชุดตกแต่งพิเศษ",
-                    "details": [
-                        {
-                            "topic": "ชุดตกแต่ง M Sport",
-                            "value": "■"
-                        }
-                    ]
-                },
-                {
                     "category": "Paintwork / สีตัวถังและวัสดุภายใน",
                     "details": [
                         {
@@ -446,6 +461,6 @@
             ]
         }
     ],
-    "source_file": "iX3-20260213-02_TH_REV1.pdf.asset.1782450816279.pdf",
-    "pdf_source": "iX3-20260213-02_TH_REV1.pdf.asset.1782450816279.pdf"
+    "source_file": "iX3-20260213-02_TH_REV.pdf.asset.1778752586444.pdf",
+    "pdf_source": "iX3-20260213-02_TH_REV.pdf.asset.1778752586444.pdf"
 }
