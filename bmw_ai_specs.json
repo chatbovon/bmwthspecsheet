@@ -1,35 +1,35 @@
 {
-    "series": "BMW 2 SERIES",
+    "series": "BMW M3",
     "models": [
         {
-            "model_name": "220 Gran Coupe M Sport Pro",
+            "model_name": "M3 Competition M xDrive Touring",
             "specifications": [
                 {
                     "category": "เครื่องยนต์และสมรรถนะ",
                     "details": [
                         {
                             "topic": "ชนิดเครื่องยนต์",
-                            "value": "เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี TwinPower Turbo"
+                            "value": "เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี BMW M TwinPower Turbo"
                         },
                         {
                             "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)",
-                            "value": "1,998"
+                            "value": "2,993"
                         },
                         {
-                            "topic": "กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
-                            "value": "150 / 204 / 5,000 - 6,500"
+                            "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
+                            "value": "390 / 530 / 6,250"
                         },
                         {
                             "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)",
-                            "value": "300 / 1,450 - 4,500"
+                            "value": "650 / 2,750 - 5,730"
                         },
                         {
                             "topic": "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)",
-                            "value": "250"
+                            "value": "280"
                         },
                         {
                             "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)",
-                            "value": "7.3"
+                            "value": "3.6"
                         }
                     ]
                 },
@@ -38,11 +38,11 @@
                     "details": [
                         {
                             "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
-                            "value": "15.4"
+                            "value": "9.8"
                         },
                         {
                             "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
-                            "value": "147"
+                            "value": "231"
                         }
                     ]
                 },
@@ -51,11 +51,11 @@
                     "details": [
                         {
                             "topic": "ล้อ",
-                            "value": "ล้ออัลลอย M ขนาด 19 นิ้ว ลาย Y-spoke Bicolour"
+                            "value": "ล้อ M Forged ขนาด 19 นิ้ว / 20 นิ้ว ลาย Double-spoke"
                         },
                         {
                             "topic": "ขนาดยาง",
-                            "value": "8 J × 19 / ยาง 225/40 R19"
+                            "value": "ล้อหน้า: 9.5 J × 19 / ยาง 275/35 R 19 ล้อหลัง: 10.5 J × 20 / ยาง 285/30 R 20"
                         }
                     ]
                 },
@@ -64,15 +64,15 @@
                     "details": [
                         {
                             "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)",
-                            "value": "4,546 / 1,800 / 1,445"
+                            "value": "4,801 / 1,903 / 1,446"
                         },
                         {
                             "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
-                            "value": "430"
+                            "value": "500 - 1,510"
                         },
                         {
                             "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
-                            "value": "1,525"
+                            "value": "1,940"
                         }
                     ]
                 },
@@ -80,7 +80,15 @@
                     "category": "ระบบขับเคลื่อนและเทคโนโลยี",
                     "details": [
                         {
-                            "topic": "เกียร์อัตโนมัติ 7 จังหวะแบบ Steptronic พร้อมคลัตช์คู่และ Gearshift Paddles",
+                            "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ M Steptronic พร้อม Drivelogic",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "โหมดการขับขี่ M Drive Professional",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบเฟืองท้าย M Sport",
                             "value": "■"
                         },
                         {
@@ -88,11 +96,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบช่วยการขับขี่ (Driving Assistant)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบช่วยการขับขี่รุ่น Plus (Driving Assistant Plus)",
+                            "topic": "ระบบช่วยการขับขี่ รุ่น Professional (Driving Assistant Professional)",
                             "value": "■"
                         },
                         {
@@ -105,7 +109,11 @@
                     "category": "อุปกรณ์ภายนอก",
                     "details": [
                         {
-                            "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)",
+                            "topic": "ชุดเบรก M Compound Brake สีแดงเงา",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบไฟหน้าแบบ Adaptive LED",
                             "value": "■"
                         },
                         {
@@ -113,19 +121,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สีแดงเงา",
-                            "value": "■"
-                        },
-                        {
                             "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)",
                             "value": "■"
                         },
                         {
-                            "topic": "หลังคากระจก Panorama เปิด-ปิดด้วยระบบไฟฟ้า",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "กระจังหน้า BMW kidney 'Iconic Glow'",
+                            "topic": "ราวหลังคาสีดำเงา",
                             "value": "■"
                         },
                         {
@@ -137,11 +137,15 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา",
+                            "topic": "ภายนอกตกแต่งด้วยชุดแต่ง M สีดำเงา",
                             "value": "■"
                         },
                         {
-                            "topic": "สปอยเลอร์หลังดีไซน์ M",
+                            "topic": "ชุดตกแต่งภายนอก M Carbon",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "หลังคาและฝาครอบกระจกมองข้างสีดำ",
                             "value": "■"
                         }
                     ]
@@ -158,11 +162,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "เบาะนั่งตอนหน้าดีไซน์ Sport",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "พวงมาลัยหุ้มหนังดีไซน์ M",
+                            "topic": "เบาะนั่ง M Carbon ทรง bucket seat",
                             "value": "■"
                         },
                         {
@@ -170,19 +170,31 @@
                             "value": "■"
                         },
                         {
-                            "topic": "เพดานหลังคาภายในดีไซน์ M สี Anthracite",
+                            "topic": "เพดานหลังคาภายในสี Anthracite",
                             "value": "■"
                         },
                         {
-                            "topic": "ภายในตกแต่งด้วยอะลูมิเนียมแกรไฟต์แบบเรืองแสง",
+                            "topic": "แผงควบคุมแบบ Galvanic",
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบปรับอากาศอัตโนมัติแบบ 2 โซน",
+                            "topic": "ภายในตกแต่งดีไซน์ M ด้วยวัสดุ Carbon Fibre",
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบกล้องภายในรถ",
+                            "topic": "ระบบอุ่นเบาะสำหรับคนขับและผู้โดยสารเบาะหน้า",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบปรับอากาศอัตโนมัติ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ฟังก์ชันช่วยการจัดเก็บสัมภาระ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบจัดเก็บสัมภาระท้ายรถ",
                             "value": "■"
                         },
                         {
@@ -199,15 +211,19 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบ BMW Head-up Display",
-                            "value": "■"
-                        },
-                        {
                             "topic": "ระบบ BMW ConnectedDrive",
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบเครื่องเสียง HiFi loudspeaker Harman Kardon",
+                            "topic": "ระบบ Connected Package Professional",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบเครื่องเสียงรอบทิศทาง Harman Kardon",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM)",
                             "value": "■"
                         },
                         {
@@ -215,7 +231,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM)",
+                            "topic": "ระบบเชื่อมต่อ Smartphone",
                             "value": "■"
                         }
                     ]
@@ -272,7 +288,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบติดตั้งคาร์ซีทแบบ ISOFIX",
+                            "topic": "ระบบ Active Protection",
                             "value": "■"
                         },
                         {
@@ -282,6 +298,10 @@
                         {
                             "topic": "ชุดปะยางฉุกเฉิน",
                             "value": "■"
+                        },
+                        {
+                            "topic": "ป้ายสามเหลี่ยมเตือนสะท้อนแสง",
+                            "value": "■"
                         }
                     ]
                 },
@@ -289,33 +309,17 @@
                     "category": "แพ็กเกจ",
                     "details": [
                         {
-                            "topic": "แพ็กเกจ M Sport",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "แพ็กเกจ M Sport Pro",
+                            "topic": "แพ็กเกจ M Driver's",
                             "value": "■"
                         }
                     ]
                 },
                 {
-                    "category": "Paintwork / สีตัวถังและวัสดุภายใน",
+                    "category": "ตัวเลือกพิเศษเพิ่มเติม",
                     "details": [
                         {
-                            "topic": "Black Sapphire Metallic",
-                            "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
-                        },
-                        {
-                            "topic": "Alpine White Solid",
-                            "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
-                        },
-                        {
-                            "topic": "Brooklyn Grey Metallic",
-                            "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
-                        },
-                        {
-                            "topic": "Portimao Blue Metallic",
-                            "value": "Leather 'Veganza' - Veganza perforated | Black"
+                            "topic": "ชุดเบรก M Carbon ceramic",
+                            "value": "■"
                         }
                     ]
                 },
@@ -324,17 +328,17 @@
                     "details": [
                         {
                             "topic": "วันที่พิมพ์เอกสาร",
-                            "value": "3 กรกฎาคม 2568"
+                            "value": "24 มีนาคม 2568"
                         },
                         {
                             "topic": "รหัสแพ็กเกจ (Local Pack)",
-                            "value": "(ZAW)"
+                            "value": "(Z0R, Z0S, Z6V, Z7S, Z9C)"
                         }
                     ]
                 }
             ]
         }
     ],
-    "source_file": "2-20260417-01_TH.pdf.asset.1778752587612.pdf",
-    "pdf_source": "2-20260417-01_TH.pdf.asset.1778752587612.pdf"
+    "source_file": "M3-20250312-02_TH_Touring.pdf.asset.1745407583409.pdf",
+    "pdf_source": "M3-20250312-02_TH_Touring.pdf.asset.1745407583409.pdf"
 }
