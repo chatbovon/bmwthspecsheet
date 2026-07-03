@@ -73,6 +73,9 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         
+        # Ensure we are on the correct branch before pushing (prevent detached HEAD error)
+        git checkout ${{ github.head_ref || github.ref_name }}
+        
         # Check if there are any PDF changes or JSON changes
         git add bmw_master_specs.json bmw_master_specs_en.json
         git add -f bmw_ai_specs.json bmw_ai_specs_en.json || true
