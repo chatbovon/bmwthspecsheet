@@ -23815,6 +23815,22 @@
             }
         ],
         "source_file": "X6-20260223-01_TH.pdf.asset.1778752585977.pdf",
-        "pdf_source": "X6-20260223-01_TH.pdf.asset.1778752585977.pdf"
+        "pdf_source": "X6-20260223-01_TH.pdf.asset.1778752585977.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "X6 xDrive40i M Sport",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนชิน 6 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder petrol engine'"
+            },
+            {
+                "model_name": "X6 xDrive40i M Sport",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 22 นี้ว ลาย Double-spoke แบบสลับสี', English has '22\" M light alloy wheels Double-spoke style, Bicolour'"
+            }
+        ]
     }
 ]
