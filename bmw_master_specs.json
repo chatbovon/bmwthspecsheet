@@ -5855,7 +5855,7 @@
                             },
                             {
                                 "topic": "ขนาดยาง",
-                                "value": "ล้อหน้า: 9.5 J × 19 / ยาง 275/35 ZR 19 ล้อหลัง: 1.05 J × 20 / ยาง 285/30 ZR 20"
+                                "value": "ล้อหน้า: 9.5 J × 19 / ยาง 275/35 ZR 19 ล้อหลัง: 10.5 J × 20 / ยาง 285/30 ZR 20"
                             }
                         ]
                     },
@@ -6243,13 +6243,6 @@
                 "topic": "ล้อ / Light alloy wheels",
                 "type": "Cross-DB Discrepancy",
                 "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 และ 20 นิ้ว ลาย Double-spoke', English has '19\" / 20\" M light alloy wheels Double-spoke style'"
-            },
-            {
-                "model_name": "M2",
-                "category": "Wheels and Tyres",
-                "topic": "ขนาดยาง / Tyre size",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า: 9.5 J × 19 / ยาง 275/35 ZR 19 ล้อหลัง: 1.05 J × 20 / ยาง 285/30 ZR 20', English has 'Front: 9.5 J × 19 / tyres 275/35 ZR 19Rear: 10.5 J × 20 / tyres 285/3O ZR 20'"
             }
         ]
     },
@@ -6986,13 +6979,6 @@
                 "topic": "ล้อ / Light alloy wheels",
                 "type": "Cross-DB Discrepancy",
                 "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 และ 20 นิ้วลาย Star-spoke', English has '19\" / 20\" M light alloy wheelsStar-spoke'"
-            },
-            {
-                "model_name": "M3 CS",
-                "category": "Wheels and Tyres",
-                "topic": "ขนาดยาง / Tyre size",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า: 9.5 J × 19 / ยาง 275/35 R19 ล้อหลัง: 10.5 J × 20 / ยาง 285/30 R20', English has 'front: 9.5 J × 19 / tyres 275/35 R 19rear: 10.5 J × 20 / tyres 285/35 R 20'"
             }
         ]
     },
@@ -8943,7 +8929,7 @@
                             },
                             {
                                 "topic": "ขนาดยาง",
-                                "value": "ล้อหน้า : 10.5J × 20 / ยาง 285/40 ZR20ล้อหลัง : 11J × 21 / ยาง 295/35 ZR20"
+                                "value": "ล้อหน้า : 10.5J × 20 / ยาง 285/40 ZR20ล้อหลัง : 11J × 21 / ยาง 295/35 ZR21"
                             }
                         ]
                     },
@@ -9250,7 +9236,7 @@
                 "category": "Wheels and Tyres",
                 "topic": "ขนาดยาง / Tyre size",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า : 10.5J × 20 / ยาง 285/40 ZR20ล้อหลัง : 11J × 21 / ยาง 295/35 ZR20', English has 'Front: 10.5J × 20 / tyres: 285/40 ZR20Rear: 11J × 21 / tyres: 295/35 ZR21'"
+                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า : 10.5J × 20 / ยาง 285/40 ZR20ล้อหลัง : 11J × 21 / ยาง 295/35 ZR21', English has 'Front: 10.5J × 20 / tyres: 285/40 ZR20Rear: 11J × 21 / tyres: 295/35 ZR21'"
             }
         ]
     },
