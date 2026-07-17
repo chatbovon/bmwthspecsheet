@@ -46,6 +46,10 @@ jobs:
       run: |
         python scratch/archive_discontinued.py
 
+    - name: Run Auto-Image Scraper (Download missing vehicle previews)
+      run: |
+        python auto_image_scraper.py
+
     - name: Upload PDFs to Google Drive
       env:
         GDRIVE_SERVICE_ACCOUNT_KEY: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_KEY }}
@@ -80,8 +84,9 @@ jobs:
         git add bmw_master_specs.json bmw_master_specs_en.json specsheet_audit_report.md
         git add -f bmw_ai_specs.json bmw_ai_specs_en.json || true
         git add -f bmw_brochures_auto/*.pdf bmw_brochures_auto_en/*.pdf || true
-        if [ -n "$(git status --porcelain bmw_master_specs.json bmw_master_specs_en.json bmw_ai_specs.json bmw_ai_specs_en.json specsheet_audit_report.md)" ]; then
-          git commit -m "Auto-update: New brochures, specifications and audit report [skip ci]"
+        git add -f images/**/*.png || true
+        if [ -n "$(git status --porcelain bmw_master_specs.json bmw_master_specs_en.json bmw_ai_specs.json bmw_ai_specs_en.json specsheet_audit_report.md images/)" ]; then
+          git commit -m "Auto-update: New brochures, specifications, images and audit report [skip ci]"
           git push
         else
           git status
