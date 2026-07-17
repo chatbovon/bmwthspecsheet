@@ -291,20 +291,22 @@ async def main():
     # Find models lacking the 'images' field
     target_models = []
     for series in data:
+        pdf_source = series.get("pdf_source", "unknown")
+        clean_pdf = pdf_source.replace(".pdf", "").replace("-", "_").replace(" ", "_")
         for model in series.get("models", []):
             model_name = model.get("model_name", "")
             if "images" not in model:
                 # This model needs scraping!
                 if model_name in SCRAPE_CONFIGS:
-                    target_models.append((series.get("series"), model))
+                    target_models.append((series, model, clean_pdf))
                     
     if not target_models:
         print("\nAll models already have images. No scraping required!")
         return
         
     print(f"\nFound {len(target_models)} models requiring scraping:")
-    for series_name, model in target_models:
-        print(f" - {series_name} | {model['model_name']}")
+    for series_obj, model, clean_pdf in target_models:
+        print(f" - {series_obj.get('series')} | {model['model_name']} (Folder: images/{clean_pdf})")
         
     async with async_playwright() as p:
         print("\nLaunching browser...")
@@ -312,12 +314,17 @@ async def main():
         context = await browser.new_context(viewport={"width": 2560, "height": 1440})
         page = await context.new_page()
         
-        for series_name, model in target_models:
+        for series_obj, model, clean_pdf in target_models:
             model_name = model["model_name"]
-            config = SCRAPE_CONFIGS[model_name]
+            
+            # Dynamically override image_dir based on the source PDF name
+            config = SCRAPE_CONFIGS[model_name].copy()
+            config["image_dir"] = f"images/{clean_pdf}"
             
             print(f"\n==================================================")
             print(f"SCRAPING IMAGES FOR: {model_name}")
+            print(f"  [PDF SOURCE]: {series_obj.get('pdf_source')}")
+            print(f"  [OUTPUT DIR]: {config['image_dir']}")
             print(f"==================================================")
             
             try:
