@@ -479,7 +479,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             },
             {
                 "model_name": "520d M Sport",
@@ -960,7 +963,14 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Brooklyn Grey Metallic": "images/5series_images/BMW_520d_M_Sport_Pro_M_Brooklyn_Grey_metallic.png",
+                    "Phytonic Blue Metallic": "images/5series_images/BMW_520d_M_Sport_Pro_Phytonic_Blue_metallic.png",
+                    "Cape York Green Metallic": "images/5series_images/BMW_520d_M_Sport_Pro_Cape_York_Green_metallic.png",
+                    "Black Sapphire Metallic": "images/5series_images/BMW_520d_M_Sport_Pro_Black_Sapphire_metallic.png",
+                    "Mineral White Metallic": "images/5series_images/BMW_520d_M_Sport_Pro_Mineral_White_metallic.png"
+                }
             },
             {
                 "model_name": "530e M Sport",
@@ -1441,7 +1451,13 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Cape York Green Metallic": "images/5series_images/BMW_530e_M_Sport_Cape_York_Green_metallic.png",
+                    "Black Sapphire Metallic": "images/5series_images/BMW_530e_M_Sport_Black_Sapphire_metallic.png",
+                    "Mineral White Metallic": "images/5series_images/BMW_530e_M_Sport_Mineral_White_metallic.png",
+                    "Oxide Grey Metallic": "images/5series_images/BMW_530e_M_Sport_Oxide_Grey_metallic.png"
+                }
             }
         ],
         "low_confidence_flags": [
@@ -1828,7 +1844,15 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Black Sapphire Metallic": "images/xm_images/BMW_XM_50e_Black_Sapphire_Metallic.png",
+                    "M Isle of Man Green metallic": "images/xm_images/BMW_XM_50e_M_Isle_of_Man_Green_metallic.png",
+                    "Toronto Red Metallic": "images/xm_images/BMW_XM_50e_Toronto_Red_Metallic.png",
+                    "Mineral White Metallic": "images/xm_images/BMW_XM_50e_Mineral_White_Metallic.png",
+                    "M Marina Bay Blue metallic": "images/xm_images/BMW_XM_50e_M_Marina_Bay_Blue_metallic.png",
+                    "Sao Paulo Yellow Solid": "images/xm_images/BMW_XM_50e_Sao_Paulo_Yellow_Solid.png"
+                }
             },
             {
                 "model_name": "XM 50e (Shadow Line)",
@@ -2164,7 +2188,15 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "M Marina Bay Blue Metallic": "images/xm_images/BMW_XM_50e_Shadow_Line_M_Marina_Bay_Blue_Metallic.png",
+                    "Isle of Man Green Metallic": "images/xm_images/BMW_XM_50e_Shadow_Line_Isle_of_Man_Green_Metallic.png",
+                    "Black Sapphire Metallic": "images/xm_images/BMW_XM_50e_Shadow_Line_Black_Sapphire_Metallic.png",
+                    "Toronto Red Metallic": "images/xm_images/BMW_XM_50e_Shadow_Line_Toronto_Red_Metallic.png",
+                    "Mineral White Metallic": "images/xm_images/BMW_XM_50e_Shadow_Line_Mineral_White_Metallic.png",
+                    "Sao Paulo Yellow Solid": "images/xm_images/BMW_XM_50e_Shadow_Line_Sao_Paulo_Yellow_Solid.png"
+                }
             }
         ],
         "low_confidence_flags": [
@@ -2519,7 +2551,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "2-20260622-01_TH.pdf.asset.1782450623206.pdf",
@@ -2975,7 +3010,13 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Brooklyn Grey Metallic": "images/3series_images/BMW_320d_M_Sport_M_Brooklyn_Grey_metallic.png",
+                    "Portimao Blue Metallic": "images/3series_images/BMW_320d_M_Sport_M_Portimao_Blue_metallic.png",
+                    "Mineral White Metallic": "images/3series_images/BMW_320d_M_Sport_Mineral_White_metallic.png",
+                    "Black Sapphire Metallic": "images/3series_images/BMW_320d_M_Sport_Black_Sapphire_metallic.png"
+                }
             },
             {
                 "model_name": "330e M Sport",
@@ -3408,7 +3449,13 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Brooklyn Grey Metallic": "images/3series_images/BMW_330e_M_Sport_M_Brooklyn_Grey_metallic.png",
+                    "Portimao Blue Metallic": "images/3series_images/BMW_330e_M_Sport_M_Portimao_Blue_metallic.png",
+                    "Mineral White Metallic": "images/3series_images/BMW_330e_M_Sport_Mineral_White_metallic.png",
+                    "Black Sapphire Metallic": "images/3series_images/BMW_330e_M_Sport_Black_Sapphire_metallic.png"
+                }
             },
             {
                 "model_name": "M340i xDrive",
@@ -3841,7 +3888,14 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Brooklyn Grey Metallic": "images/3series_images/BMW_M340i_xDrive_M_Brooklyn_Grey_metallic.png",
+                    "Portimao Blue Metallic": "images/3series_images/BMW_M340i_xDrive_M_Portimao_Blue_metallic.png",
+                    "Mineral White Metallic": "images/3series_images/BMW_M340i_xDrive_Mineral_White_metallic.png",
+                    "Black Sapphire Metallic": "images/3series_images/BMW_M340i_xDrive_Black_Sapphire_metallic.png",
+                    "Dravit Grey Metallic": "images/3series_images/BMW_M340i_xDrive_BMW_Individual_Dravit_Grey_metallic.png"
+                }
             }
         ],
         "source_file": "3-20250625-01_TH.pdf.asset.1763550244972.pdf",
@@ -4215,7 +4269,12 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Carbon Black Metallic": "images/3series_images/BMW_320Li_M_Sport_M_Carbon_Black_metallic.png",
+                    "Mineral White Metallic": "images/3series_images/BMW_320Li_M_Sport_Mineral_White_metallic.png",
+                    "Brooklyn Grey Metallic": "images/3series_images/BMW_320Li_M_Sport_M_Brooklyn_Grey_metallic.png"
+                }
             }
         ],
         "source_file": "3-20260112-01_TH_Li.pdf.asset.1768894796709.pdf",
@@ -4578,7 +4637,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "4-20241113-02_TH.pdf.asset.1745407581563.pdf",
@@ -5021,7 +5083,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "7-20250130-02_TH.pdf.asset.1745407582934.pdf",
@@ -5428,7 +5493,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             },
             {
                 "model_name": "M2 (M Racetrack)",
@@ -5812,7 +5880,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             },
             {
                 "model_name": "M2",
@@ -6196,7 +6267,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "M2-20250827-01_TH_Edit.pdf.asset.1758278358157.pdf",
@@ -6621,7 +6695,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "M2-CS-20250910-01_TH.pdf.asset.1758261830128.pdf",
@@ -6960,7 +7037,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "M3-20230815-01_TH.pdf.asset.1724906649623.pdf",
@@ -7356,7 +7436,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "M3-20250818-01_TH.pdf.asset.1758516215456.pdf",
@@ -7716,7 +7799,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "M3-20260622-01_TH.pdf.asset.1782451194798.pdf",
@@ -8086,7 +8172,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "M4-20241113-01_TH.pdf.asset.1732168871735.pdf",
@@ -8429,7 +8518,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "M4-20250312-01_TH.pdf.asset.1745407583372.pdf",
@@ -8816,7 +8908,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "M5-20250130-05_TH.pdf.asset.1745407582783.pdf",
@@ -9211,7 +9306,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "M5-20260417-01_TH.pdf.asset.1778752587556.pdf",
@@ -9554,7 +9652,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "X1-20260417-01_TH.pdf.asset.1778752587262.pdf",
@@ -9996,7 +10097,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             },
             {
                 "model_name": "X3 M50 xDrive",
@@ -10401,7 +10505,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "X3-20260116-01_TH.pdf.asset.1778752585808.pdf",
@@ -10787,7 +10894,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "X4-20240418-01_TH.pdf.asset.1758627513274.pdf",
@@ -11279,7 +11389,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             },
             {
                 "model_name": "X5 xDrive50e M Sport",
@@ -11748,7 +11861,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "X5-20260417-01_TH.pdf.asset.1779075010632.pdf",
@@ -12218,7 +12334,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "X7-20260529-01_TH.pdf.asset.1782451059580.pdf",
@@ -12577,7 +12696,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "XM-20250130-02_TH_WLTP.pdf.asset.1740723963122.pdf",
@@ -12925,7 +13047,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "XM-20250130-03_TH_WLTP.pdf.asset.1740723896658.pdf",
@@ -13280,7 +13405,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             },
             {
                 "model_name": "Z4 M40i",
@@ -13612,7 +13740,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "Z4-20240610-02_TH.pdf.asset.1758628086952.pdf",
@@ -14058,7 +14189,15 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "BMW Individual Dravit Grey metallic": "images/4series_images/BMW_420i_Coupe_M_Sport_BMW_Individual_Dravit_Grey_metallic.png",
+                    "Cape York Green metallic": "images/4series_images/BMW_420i_Coupe_M_Sport_Cape_York_Green_metallic.png",
+                    "M Brooklyn Grey metallic": "images/4series_images/BMW_420i_Coupe_M_Sport_M_Brooklyn_Grey_metallic.png",
+                    "Arctic Race Blue metallic": "images/4series_images/BMW_420i_Coupe_M_Sport_Arctic_Race_Blue_metallic.png",
+                    "Black Sapphire metallic": "images/4series_images/BMW_420i_Coupe_M_Sport_Black_Sapphire_metallic.png",
+                    "Mineral White metallic": "images/4series_images/BMW_420i_Coupe_M_Sport_Mineral_White_metallic.png"
+                }
             },
             {
                 "model_name": "430i Coupé M Sport",
@@ -14467,7 +14606,15 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "M Brooklyn Grey metallic": "images/4series_images/BMW_430i_Coupe_M_Sport_M_Brooklyn_Grey_metallic.png",
+                    "Cape York Green metallic": "images/4series_images/BMW_430i_Coupe_M_Sport_Cape_York_Green_metallic.png",
+                    "Arctic Race Blue metallic": "images/4series_images/BMW_430i_Coupe_M_Sport_Arctic_Race_Blue_metallic.png",
+                    "Black Sapphire metallic": "images/4series_images/BMW_430i_Coupe_M_Sport_Black_Sapphire_metallic.png",
+                    "BMW Individual Dravit Grey metallic": "images/4series_images/BMW_430i_Coupe_M_Sport_BMW_Individual_Dravit_Grey_metallic.png",
+                    "Mineral White metallic": "images/4series_images/BMW_430i_Coupe_M_Sport_Mineral_White_metallic.png"
+                }
             },
             {
                 "model_name": "M440i xDrive",
@@ -14864,7 +15011,13 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Fire Red metallic": "images/4series_images/BMW_M440i_xDrive_Fire_Red_metallic.png",
+                    "M Brooklyn Grey metallic": "images/4series_images/BMW_M440i_xDrive_M_Brooklyn_Grey_metallic.png",
+                    "Black Sapphire metallic": "images/4series_images/BMW_M440i_xDrive_Black_Sapphire_metallic.png",
+                    "Mineral White metallic": "images/4series_images/BMW_M440i_xDrive_Mineral_White_metallic.png"
+                }
             }
         ],
         "source_file": "4-20241113-03_TH.pdf.asset.1745407581805.pdf",
@@ -15360,7 +15513,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             },
             {
                 "model_name": "750e xDrive M Sport",
@@ -15805,7 +15961,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "7-20250130-01_TH_WLTP.pdf.asset.1740723717847.pdf",
@@ -16302,7 +16461,14 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Black Sapphire Metallic": "images/5series_images/BMW_i5_eDrive40_M_Sport_Black_Sapphire_metallic.png",
+                    "Mineral White Metallic": "images/5series_images/BMW_i5_eDrive40_M_Sport_Mineral_White_metallic.png",
+                    "Brooklyn Grey Metallic": "images/5series_images/BMW_i5_eDrive40_M_Sport_M_Brooklyn_Grey_metallic.png",
+                    "Phytonic Blue Metallic": "images/5series_images/BMW_i5_eDrive40_M_Sport_Phytonic_Blue_metallic.png",
+                    "Cape York Green Metallic": "images/5series_images/BMW_i5_eDrive40_M_Sport_Cape_York_Green_metallic.png"
+                }
             }
         ],
         "source_file": "i5-20260417-01_TH.pdf.asset.1778752587155.pdf",
@@ -16800,7 +16966,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "i7-20240710-01_TH.pdf.asset.1758628809179.pdf",
@@ -17292,7 +17461,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "iX-20251030-01_TH_REV-Color.pdf.asset.1763711932423.pdf",
@@ -17718,7 +17890,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "iX1-L-20251110-01_TH.pdf.asset.1763618806206.pdf",
@@ -18145,7 +18320,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "iX2-20240710-01_TH-(1).pdf.asset.1738060128032.pdf",
@@ -18639,7 +18817,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "iX3-20260213-02_TH_REV1.pdf.asset.1782450816279.pdf",
@@ -18971,7 +19152,10 @@
                         ]
                     }
                 ],
-                "is_custom_archived": true
+                "is_custom_archived": true,
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "2-20260218-01_TH.pdf.asset.1771910215806.pdf",
@@ -19312,7 +19496,10 @@
                         ]
                     }
                 ],
-                "is_custom_archived": true
+                "is_custom_archived": true,
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "2-20260417-01_TH.pdf.asset.1778752587612.pdf",
@@ -19657,7 +19844,10 @@
                         ]
                     }
                 ],
-                "is_custom_archived": true
+                "is_custom_archived": true,
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "M3-20250312-02_TH_Touring.pdf.asset.1745407583409.pdf",
@@ -20522,7 +20712,10 @@
                         ]
                     }
                 ],
-                "is_custom_archived": true
+                "is_custom_archived": true,
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "X7-20251126-01_TH.pdf.asset.1778752587434.pdf",
@@ -20998,7 +21191,10 @@
                         ]
                     }
                 ],
-                "is_custom_archived": true
+                "is_custom_archived": true,
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             },
             {
                 "model_name": "i5 eDrive40 M Sport",
@@ -21467,7 +21663,14 @@
                         ]
                     }
                 ],
-                "is_custom_archived": true
+                "is_custom_archived": true,
+                "images": {
+                    "Black Sapphire Metallic": "images/5series_images/BMW_i5_eDrive40_M_Sport_Black_Sapphire_metallic.png",
+                    "Mineral White Metallic": "images/5series_images/BMW_i5_eDrive40_M_Sport_Mineral_White_metallic.png",
+                    "Brooklyn Grey Metallic": "images/5series_images/BMW_i5_eDrive40_M_Sport_M_Brooklyn_Grey_metallic.png",
+                    "Phytonic Blue Metallic": "images/5series_images/BMW_i5_eDrive40_M_Sport_Phytonic_Blue_metallic.png",
+                    "Cape York Green Metallic": "images/5series_images/BMW_i5_eDrive40_M_Sport_Cape_York_Green_metallic.png"
+                }
             },
             {
                 "model_name": "i5 M60 xDrive",
@@ -21944,7 +22147,10 @@
                         ]
                     }
                 ],
-                "is_custom_archived": true
+                "is_custom_archived": true,
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "i5-20240314-01_TH_edit.pdf",
@@ -22424,7 +22630,10 @@
                         ]
                     }
                 ],
-                "is_custom_archived": true
+                "is_custom_archived": true,
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             },
             {
                 "model_name": "i7 xDrive60 M Sport",
@@ -22897,7 +23106,10 @@
                         ]
                     }
                 ],
-                "is_custom_archived": true
+                "is_custom_archived": true,
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "i7-20240410-01_TH.pdf",
@@ -23373,7 +23585,10 @@
                         ]
                     }
                 ],
-                "is_custom_archived": true
+                "is_custom_archived": true,
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "iX3-20260213-02_TH_REV.pdf.asset.1778752586444.pdf",
@@ -23797,7 +24012,10 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mock Default": "mock_placeholder.png"
+                }
             }
         ],
         "source_file": "X6-20260223-01_TH.pdf.asset.1778752585977.pdf",
