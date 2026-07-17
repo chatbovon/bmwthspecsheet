@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>BMW Smart Specsheet</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap');
@@ -772,7 +775,8 @@
         document.getElementById('seriesTitle').innerText = trans.loadingText;
         document.getElementById('seriesSelect').innerHTML = `<option value="">${trans.loadingText}</option>`;
         
-        fetch(specFile)
+        const cacheBust = '?v=' + new Date().getTime();
+        fetch(specFile + cacheBust)
             .then(response => {
                 if (!response.ok) throw new Error('Master spec file not found');
                 return response.json();
@@ -782,7 +786,7 @@
             })
             .catch(err => {
                 console.warn(`Cannot load ${specFile}, falling back to ${fallbackFile}:`, err);
-                fetch(fallbackFile)
+                fetch(fallbackFile + cacheBust)
                     .then(response => response.json())
                     .then(data => {
                         initializeData(data);
