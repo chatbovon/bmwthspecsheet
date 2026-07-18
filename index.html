@@ -433,12 +433,6 @@
         cell.setAttribute('data-color', colorName);
         cell.setAttribute('data-col-index', columnIndex);
         
-        cell.addEventListener('mouseenter', function() {
-            updateVisualizer(seriesName, modelName, colorName, columnIndex);
-            document.querySelectorAll(`.paint-cell[data-col-index='${columnIndex}']`).forEach(c => c.classList.remove('active-paint'));
-            cell.classList.add('active-paint');
-        });
-        
         cell.addEventListener('click', function() {
             updateVisualizer(seriesName, modelName, colorName, columnIndex);
             selectedPaintCell = { model: modelName, color: colorName, columnIndex: columnIndex };
