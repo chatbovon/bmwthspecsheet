@@ -75,6 +75,54 @@ async def check_and_dismiss_modals(page):
             
     return False
 
+async def hide_viewport_overlays(page):
+    await page.evaluate("""() => {
+        window._hiddenViewportElements = [];
+        const tagsToHide = [
+            'con-header', 
+            'con-island-navigation', 
+            'con-sgt', 
+            'con-scroll-next', 
+            'con-visualization-button', 
+            'con-stage-control-layer',
+            'con-stage-save-cta',
+            'con-toast-bar-container',
+            'con-notification-center',
+            'header',
+            'section.modular-header-section',
+            'con-gcdm-error'
+        ];
+        function hideRecursive(root) {
+            if (!root) return;
+            tagsToHide.forEach(tag => {
+                const els = root.querySelectorAll ? root.querySelectorAll(tag) : [];
+                els.forEach(el => {
+                    if (el.style.display !== 'none') {
+                        el.style.setProperty('display', 'none', 'important');
+                        window._hiddenViewportElements.push(el);
+                    }
+                });
+            });
+            const children = root.querySelectorAll ? Array.from(root.querySelectorAll('*')) : [];
+            children.forEach(c => {
+                if (c.shadowRoot) hideRecursive(c.shadowRoot);
+            });
+        }
+        hideRecursive(document.body);
+    }""")
+    await asyncio.sleep(1)
+
+async def show_viewport_overlays(page):
+    await page.evaluate("""() => {
+        if (window._hiddenViewportElements) {
+            window._hiddenViewportElements.forEach(el => {
+                el.style.display = '';
+            });
+            window._hiddenViewportElements = [];
+        }
+    }""")
+    await asyncio.sleep(1)
+
 async def capture_360_canvas(page, filename):
     print(f"  [VISUALIZER] Opening 360 view for screenshot...")
     btn_360 = page.locator("con-360-button")
@@ -139,7 +187,14 @@ async def capture_360_canvas(page, filename):
         return True
     else:
         print("  [WARNING] Could not find 360 button. Taking viewport screenshot instead.")
+        
+        # Hide overlays recursively before taking viewport screenshot
+        await hide_viewport_overlays(page)
+        
         await page.screenshot(path=filename)
+        
+        # Show overlays back immediately
+        await show_viewport_overlays(page)
         
         # Compress and resize to 50%
         try:
@@ -423,7 +478,6 @@ async def main():
     # Find models lacking the 'images' field
     target_models = []
     for series in data:
-
         pdf_source = series.get("pdf_source", "unknown")
         clean_pdf = pdf_source.replace(".pdf", "").replace("-", "_").replace(" ", "_")
         for model in series.get("models", []):
