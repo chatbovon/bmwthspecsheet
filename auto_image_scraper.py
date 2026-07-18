@@ -347,7 +347,8 @@ async def select_engine(page, engine_keyword):
                 
         if best_el and best_score > 30:
             card_text = await best_el.inner_text()
-            print(f"  [NAV] Selecting best engine option (Score: {best_score}): {card_text.replace('\n', ' | ')}")
+            clean_card_text = card_text.replace('\n', ' | ')
+            print(f"  [NAV] Selecting best engine option (Score: {best_score}): {clean_card_text}")
             await best_el.click()
             await asyncio.sleep(3)
             await check_and_dismiss_modals(page)
