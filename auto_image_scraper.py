@@ -251,38 +251,58 @@ async def discover_series_url(page, series_name):
     
     # Process links to find the best match for series_name (e.g. "BMW X3")
     clean_series = series_name.replace("BMW ", "").strip().lower()
+    target_id = clean_series.replace("series", "").strip()
     
     best_href = None
     best_score = 0
     seen_hrefs = set()
     
+    print(f"  [DISCOVERY] Looking for exact token match for target identifier: '{target_id}'")
+    
     for link in links:
         href = link["href"]
-        text = link["text"].lower()
+        text_lower = link["text"].lower()
         if href in seen_hrefs:
             continue
         seen_hrefs.add(href)
         
+        # Split text into tokens by spaces/newlines, strip Thai unicode and non-alphanumeric characters
+        raw_tokens = text_lower.replace("\n", " ").split()
+        tokens = []
+        for t in raw_tokens:
+            # Strip Thai characters (Unicode range 0x0E00 to 0x0E7F)
+            t_no_thai = "".join(c for c in t if not (0x0E00 <= ord(c) <= 0x0E7F))
+            clean_tok = "".join(char for char in t_no_thai if char.isalnum())
+            if clean_tok:
+                tokens.append(clean_tok)
+        
         score = 0
-        if clean_series in text:
+        # Check if the target identifier is present as an exact token
+        if target_id in tokens:
             score += 100
-        words = clean_series.split()
-        for w in words:
-            if w in text:
+            
+            # Tie breaker: if link text matches clean_series name closely, add points
+            if clean_series in text_lower:
                 score += 20
                 
-        ratio = difflib.SequenceMatcher(None, clean_series, text).ratio()
-        score += int(ratio * 50)
-        
-        if score > best_score:
-            best_score = score
-            best_href = href
+            ratio = difflib.SequenceMatcher(None, clean_series, text_lower).ratio()
+            score += int(ratio * 30)
             
-    if best_href:
+            # Penalize matching '3' with 'i3' or '7' with 'i7'
+            if target_id == "3" and "i3" in tokens:
+                score -= 40
+            if target_id == "7" and "i7" in tokens:
+                score -= 40
+                
+            if score > best_score:
+                best_score = score
+                best_href = href
+            
+    if best_href and best_score >= 80:
         print(f"  [DISCOVERY] Best matched configurator URL for '{series_name}' is: {best_href} (Score: {best_score})")
         return best_href
         
-    print(f"  [DISCOVERY] [WARNING] Could not find dynamic link for series '{series_name}' in portal.")
+    print(f"  [DISCOVERY] [WARNING] Could not find confident dynamic link for series '{series_name}' in portal (Best score: {best_score}).")
     return None
 
 async def select_engine(page, engine_keyword):
