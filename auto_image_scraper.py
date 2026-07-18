@@ -8,6 +8,8 @@ from playwright.async_api import async_playwright
 # Reconfigure console encoding to UTF-8
 sys.stdout.reconfigure(encoding='utf-8')
 
+import difflib
+
 # Configurator specifications for our targeted test models
 SCRAPE_CONFIGS = {
     "420i Coupé M Sport": {
@@ -39,6 +41,14 @@ SCRAPE_CONFIGS = {
         "engine_keyword": "Shadow Line",
         "image_dir": "images/xm_images",
         "model_key_name": "BMW_XM_50e_Shadow_Line"
+    },
+    "X3 20d xDrive M Sport Pro": {
+        "engine_keyword": "20d",
+        "model_key_name": "BMW_X3_20d_xDrive_M_Sport_Pro"
+    },
+    "X3 M50 xDrive": {
+        "engine_keyword": "M50",
+        "model_key_name": "BMW_X3_M50_xDrive"
     }
 }
 
@@ -144,6 +154,82 @@ async def capture_360_canvas(page, filename):
             
         return False
 
+async def discover_series_url(page, series_name):
+    url = "https://www.bmw.co.th/th/configurator.html"
+    print(f"  [DISCOVERY] Navigating to portal {url} to find series: '{series_name}'...")
+    await page.goto(url, timeout=90000)
+    await page.wait_for_load_state("domcontentloaded")
+    await asyncio.sleep(8)
+    
+    # Dismiss cookie banner
+    try:
+        accept_btn = page.locator("epaas-consent-drawer-shell button.accept-button")
+        if await accept_btn.count() > 0:
+            await accept_btn.first.click()
+            await asyncio.sleep(2)
+    except:
+        pass
+        
+    # Get all configurator links recursively
+    links = await page.evaluate("""() => {
+        const results = [];
+        function search(root) {
+            if (!root) return;
+            const anchors = root.querySelectorAll ? root.querySelectorAll('a') : [];
+            anchors.forEach(a => {
+                const href = a.href || '';
+                const text = (a.innerText || '').trim();
+                if (href.includes('configure.bmw.co.th') || href.includes('/configure/')) {
+                    results.push({ text, href });
+                }
+            });
+            const children = root.querySelectorAll ? Array.from(root.querySelectorAll('*')) : [];
+            children.forEach(el => {
+                if (el.shadowRoot) {
+                    search(el.shadowRoot);
+                }
+            });
+        }
+        search(document.body);
+        return results;
+    }""")
+    
+    # Process links to find the best match for series_name (e.g. "BMW X3")
+    clean_series = series_name.replace("BMW ", "").strip().lower()
+    
+    best_href = None
+    best_score = 0
+    seen_hrefs = set()
+    
+    for link in links:
+        href = link["href"]
+        text = link["text"].lower()
+        if href in seen_hrefs:
+            continue
+        seen_hrefs.add(href)
+        
+        score = 0
+        if clean_series in text:
+            score += 100
+        words = clean_series.split()
+        for w in words:
+            if w in text:
+                score += 20
+                
+        ratio = difflib.SequenceMatcher(None, clean_series, text).ratio()
+        score += int(ratio * 50)
+        
+        if score > best_score:
+            best_score = score
+            best_href = href
+            
+    if best_href:
+        print(f"  [DISCOVERY] Best matched configurator URL for '{series_name}' is: {best_href} (Score: {best_score})")
+        return best_href
+        
+    print(f"  [DISCOVERY] [WARNING] Could not find dynamic link for series '{series_name}' in portal.")
+    return None
+
 async def select_engine(page, engine_keyword):
     # Try clicking Engine Tab
     engine_tab = page.locator("button:has-text('เครื่องยนต์'), button:has-text('Engine')")
@@ -152,22 +238,68 @@ async def select_engine(page, engine_keyword):
         await engine_tab.first.click()
         await asyncio.sleep(4)
         
-        # Target the specific engine card using filters or text search safely
-        card = page.locator("div.engine-card-labels").filter(has_text=engine_keyword)
-        if await card.count() == 0:
-            card = page.locator("button").filter(has_text=engine_keyword)
-        if await card.count() == 0:
-            card = page.get_by_text(engine_keyword)
+        # Extract text of all engine card elements
+        card_locators = [
+            page.locator("div.engine-card-labels"),
+            page.locator("div.engine-card"),
+            page.locator("con-engine-selection-card"),
+            page.locator("button")
+        ]
+        
+        candidates = []
+        for loc in card_locators:
+            count = await loc.count()
+            for idx in range(count):
+                el = loc.nth(idx)
+                text = await el.inner_text()
+                if text and text.strip():
+                    candidates.append((el, text.strip()))
+                    
+        if not candidates:
+            print("  [NAV] No engine card candidates found. Fallback to direct text selection.")
+            card = page.locator("div.engine-card-labels").filter(has_text=engine_keyword)
+            if await card.count() == 0:
+                card = page.locator("button").filter(has_text=engine_keyword)
+            if await card.count() == 0:
+                card = page.get_by_text(engine_keyword)
+                
+            if await card.count() > 0:
+                await card.first.click()
+                await asyncio.sleep(3)
+                await check_and_dismiss_modals(page)
+                return True
+            return False
             
-        if await card.count() > 0:
-            print(f"  [NAV] Selecting engine option matching: '{engine_keyword}'...")
-            await card.first.click()
+        # Fuzzy match on the candidate card text
+        best_el = None
+        best_score = 0
+        target = engine_keyword.lower()
+        
+        for el, text in candidates:
+            text_lower = text.lower()
+            score = 0
+            if target in text_lower:
+                score += 100
+            for word in target.split():
+                if word in text_lower:
+                    score += 20
+            ratio = difflib.SequenceMatcher(None, target, text_lower).ratio()
+            score += int(ratio * 50)
+            
+            if score > best_score:
+                best_score = score
+                best_el = el
+                
+        if best_el and best_score > 30:
+            card_text = await best_el.inner_text()
+            print(f"  [NAV] Selecting best engine option (Score: {best_score}): {card_text.replace('\n', ' | ')}")
+            await best_el.click()
             await asyncio.sleep(3)
             await check_and_dismiss_modals(page)
             await asyncio.sleep(2)
             return True
         else:
-            print(f"  [WARNING] Could not find engine card with keyword '{engine_keyword}'")
+            print(f"  [WARNING] Could not find any close match for engine keyword '{engine_keyword}'")
     else:
         print("  [NAV] Engine tab not found, using default pre-selected option.")
     return False
@@ -182,8 +314,8 @@ async def scrape_model_paintworks(page, config, model_name):
     
     print(f"\nNavigating to: {base_url} ...")
     await page.goto(base_url, timeout=90000)
-    await page.wait_for_load_state("networkidle")
-    await asyncio.sleep(6)
+    await page.wait_for_load_state("domcontentloaded")
+    await asyncio.sleep(8)
     
     # Dismiss cookie consent banner
     try:
@@ -291,17 +423,16 @@ async def main():
     # Find models lacking the 'images' field
     target_models = []
     for series in data:
+
         pdf_source = series.get("pdf_source", "unknown")
         clean_pdf = pdf_source.replace(".pdf", "").replace("-", "_").replace(" ", "_")
         for model in series.get("models", []):
             model_name = model.get("model_name", "")
             if "images" not in model:
-                # This model needs scraping!
-                if model_name in SCRAPE_CONFIGS:
-                    target_models.append((series, model, clean_pdf))
+                target_models.append((series, model, clean_pdf))
                     
     if not target_models:
-        print("\nAll models already have images. No scraping required!")
+        print("\nNo models found lacking images for the target series. No scraping required!")
         return
         
     print(f"\nFound {len(target_models)} models requiring scraping:")
@@ -316,14 +447,35 @@ async def main():
         
         for series_obj, model, clean_pdf in target_models:
             model_name = model["model_name"]
+            series_name = series_obj.get("series", "")
             
-            # Dynamically override image_dir based on the source PDF name
-            config = SCRAPE_CONFIGS[model_name].copy()
+            # Fetch config from SCRAPE_CONFIGS or build on the fly
+            if model_name in SCRAPE_CONFIGS:
+                config = SCRAPE_CONFIGS[model_name].copy()
+            else:
+                # Dynamic fallback config
+                clean_model_key = model_name.replace(" ", "_").replace("(", "").replace(")", "").replace("-", "_")
+                config = {
+                    "engine_keyword": model_name.split()[0],
+                    "model_key_name": f"BMW_{clean_model_key}"
+                }
+                
             config["image_dir"] = f"images/{clean_pdf}"
+            
+            # Resolve base_url dynamically if not present
+            if "base_url" not in config or not config["base_url"]:
+                print(f"\n  [DISCOVERY] No base_url for {model_name}. Attempting dynamic discovery...")
+                discovered_url = await discover_series_url(page, series_name)
+                if discovered_url:
+                    config["base_url"] = discovered_url
+                else:
+                    print(f"  [ERROR] Could not dynamically discover URL for '{series_name}'. Skipping.")
+                    continue
             
             print(f"\n==================================================")
             print(f"SCRAPING IMAGES FOR: {model_name}")
             print(f"  [PDF SOURCE]: {series_obj.get('pdf_source')}")
+            print(f"  [BASE URL]: {config['base_url']}")
             print(f"  [OUTPUT DIR]: {config['image_dir']}")
             print(f"==================================================")
             
