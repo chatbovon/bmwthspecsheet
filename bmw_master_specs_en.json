@@ -472,14 +472,10 @@
                     }
                 ],
                 "images": {
-                    "Paint_None": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Paint_None.png",
-                    "Skyscraper Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Skyscraper_Grey_metallic.png",
-                    "Thundernight metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Thundernight_metallic.png",
-                    "Sanremo Green metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Sanremo_Green_metallic.png",
                     "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Black_Sapphire_metallic.png",
-                    "BMW Individual Frozen Grey II metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_BMW_Individual_Frozen_Grey_II_metallic.png",
-                    "San Francisco Red metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_San_Francisco_Red_metallic.png",
-                    "Alpine White solid": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Alpine_White_solid.png"
+                    "Cape York Green metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Cape_York_Green_metallic.png",
+                    "Oxide Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Oxide_Grey_metallic.png",
+                    "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Mineral_White_metallic.png"
                 }
             },
             {
@@ -5046,10 +5042,10 @@
                     }
                 ],
                 "images": {
-                    "Black Sapphire metallic": "images/7_20250130_02_TH.asset.1745407582934/BMW_M760e_xDrive_Black_Sapphire_metallic.png",
-                    "Oxide Grey metallic": "images/7_20250130_02_TH.asset.1745407582934/BMW_M760e_xDrive_Oxide_Grey_metallic.png",
+                    "Brooklyn Grey Metallic": "images/7_20250130_02_TH.asset.1745407582934/BMW_M760e_xDrive_Brooklyn_Grey_Metallic.png",
+                    "Black Sapphire Metallic": "images/7_20250130_02_TH.asset.1745407582934/BMW_M760e_xDrive_Black_Sapphire_Metallic.png",
                     "BMW Individual Dravit Grey metallic": "images/7_20250130_02_TH.asset.1745407582934/BMW_M760e_xDrive_BMW_Individual_Dravit_Grey_metallic.png",
-                    "Mineral White metallic": "images/7_20250130_02_TH.asset.1745407582934/BMW_M760e_xDrive_Mineral_White_metallic.png"
+                    "Mineral White Metallic": "images/7_20250130_02_TH.asset.1745407582934/BMW_M760e_xDrive_Mineral_White_Metallic.png"
                 }
             }
         ],
@@ -10158,10 +10154,9 @@
                     }
                 ],
                 "images": {
-                    "DUNE GREY METALLIC": "images/X3_20260116_01_TH.asset.1778752585808/BMW_X3_20d_xDrive_M_Sport_Pro_DUNE_GREY_METALLIC.png",
+                    "BMW Individual Tanzanite Blue metallic": "images/X3_20260116_01_TH.asset.1778752585808/BMW_X3_20d_xDrive_M_Sport_Pro_BMW_Individual_Tanzanite_Blue_metallic.png",
                     "M Brooklyn Grey metallic": "images/X3_20260116_01_TH.asset.1778752585808/BMW_X3_20d_xDrive_M_Sport_Pro_M_Brooklyn_Grey_metallic.png",
                     "Black Sapphire metallic": "images/X3_20260116_01_TH.asset.1778752585808/BMW_X3_20d_xDrive_M_Sport_Pro_Black_Sapphire_metallic.png",
-                    "BMW Individual Tanzanite Blue metallic": "images/X3_20260116_01_TH.asset.1778752585808/BMW_X3_20d_xDrive_M_Sport_Pro_BMW_Individual_Tanzanite_Blue_metallic.png",
                     "Alpine White solid": "images/X3_20260116_01_TH.asset.1778752585808/BMW_X3_20d_xDrive_M_Sport_Pro_Alpine_White_solid.png"
                 }
             },
@@ -10952,14 +10947,7 @@
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "DUNE GREY METALLIC": "images/X4_20240418_01_TH.asset.1758627513274/BMW_X4_xDrive20d_M_Sport_DUNE_GREY_METALLIC.png",
-                    "M Brooklyn Grey metallic": "images/X4_20240418_01_TH.asset.1758627513274/BMW_X4_xDrive20d_M_Sport_M_Brooklyn_Grey_metallic.png",
-                    "Black Sapphire metallic": "images/X4_20240418_01_TH.asset.1758627513274/BMW_X4_xDrive20d_M_Sport_Black_Sapphire_metallic.png",
-                    "BMW Individual Tanzanite Blue metallic": "images/X4_20240418_01_TH.asset.1758627513274/BMW_X4_xDrive20d_M_Sport_BMW_Individual_Tanzanite_Blue_metallic.png",
-                    "Alpine White solid": "images/X4_20240418_01_TH.asset.1758627513274/BMW_X4_xDrive20d_M_Sport_Alpine_White_solid.png"
-                }
+                ]
             }
         ],
         "source_file": "X4-20240418-01_EN.pdf.asset.1738060241175.pdf",
@@ -16049,10 +16037,10 @@
                     }
                 ],
                 "images": {
-                    "Black Sapphire metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_750e_xDrive_M_Sport_Black_Sapphire_metallic.png",
-                    "Oxide Grey metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_750e_xDrive_M_Sport_Oxide_Grey_metallic.png",
                     "BMW Individual Dravit Grey metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_750e_xDrive_M_Sport_BMW_Individual_Dravit_Grey_metallic.png",
-                    "Mineral White metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_750e_xDrive_M_Sport_Mineral_White_metallic.png"
+                    "Oxide Grey Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_750e_xDrive_M_Sport_Oxide_Grey_Metallic.png",
+                    "Black Sapphire Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_750e_xDrive_M_Sport_Black_Sapphire_Metallic.png",
+                    "Mineral White Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_750e_xDrive_M_Sport_Mineral_White_Metallic.png"
                 }
             }
         ],

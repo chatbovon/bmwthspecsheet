@@ -315,10 +315,11 @@ async def select_engine(page, engine_keyword):
         
         # Extract text of all engine card elements
         card_locators = [
+            page.locator("con-sgt-card"),
             page.locator("div.engine-card-labels"),
             page.locator("div.engine-card"),
             page.locator("con-engine-selection-card"),
-            page.locator("button")
+            page.locator("div.engine-selection-card")
         ]
         
         candidates = []
@@ -326,13 +327,14 @@ async def select_engine(page, engine_keyword):
             count = await loc.count()
             for idx in range(count):
                 el = loc.nth(idx)
-                text = await el.inner_text()
-                if text and text.strip():
-                    candidates.append((el, text.strip()))
+                if await el.is_visible():
+                    text = await el.inner_text()
+                    if text and text.strip():
+                        candidates.append((el, text.strip()))
                     
         if not candidates:
             print("  [NAV] No engine card candidates found. Fallback to direct text selection.")
-            card = page.locator("div.engine-card-labels").filter(has_text=engine_keyword)
+            card = page.locator("con-sgt-card").filter(has_text=engine_keyword)
             if await card.count() == 0:
                 card = page.locator("button").filter(has_text=engine_keyword)
             if await card.count() == 0:
@@ -365,20 +367,21 @@ async def select_engine(page, engine_keyword):
                 best_score = score
                 best_el = el
                 
-        if best_el and best_score > 30:
+        if best_el and best_score >= 80:
             card_text = await best_el.inner_text()
             clean_card_text = card_text.replace('\n', ' | ')
             print(f"  [NAV] Selecting best engine option (Score: {best_score}): {clean_card_text}")
             await best_el.click()
-            await asyncio.sleep(3)
+            await asyncio.sleep(4)
             await check_and_dismiss_modals(page)
             await asyncio.sleep(2)
             return True
         else:
-            print(f"  [WARNING] Could not find any close match for engine keyword '{engine_keyword}'")
+            print(f"  [WARNING] Could not find any close match for engine keyword '{engine_keyword}' (Best score: {best_score})")
+            return False
     else:
         print("  [NAV] Engine tab not found, using default pre-selected option.")
-    return False
+        return True
 
 async def scrape_model_paintworks(page, config, model_name):
     base_url = config["base_url"]
@@ -406,7 +409,10 @@ async def scrape_model_paintworks(page, config, model_name):
     await asyncio.sleep(1)
     
     # Select engine option if necessary
-    await select_engine(page, engine_keyword)
+    engine_ok = await select_engine(page, engine_keyword)
+    if not engine_ok:
+        print(f"  [ERROR] Engine keyword '{engine_keyword}' could not be selected. Skipping.")
+        return {}
     
     # Click Paint tab
     print("  [NAV] Clicking 'สี' (Paint) tab...")
