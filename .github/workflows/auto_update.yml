@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: '0 19 * * *' # Runs every day at 02:00 AM ICT (UTC+7 -> 19:00 UTC)
   workflow_dispatch: # Allows manual runs from the GitHub Actions tab
+    inputs:
+      only_scrape_images:
+        description: 'Run ONLY image scraper (skips PDF download and PDF extraction)'
+        type: boolean
+        required: false
+        default: false
 
 jobs:
   update-specs:
@@ -28,10 +34,12 @@ jobs:
         playwright install chromium
 
     - name: Run Scraper (Download new PDFs)
+      if: ${{ github.event.inputs.only_scrape_images != 'true' }}
       run: |
         python pdf_scraper.py
 
     - name: Run Extractor & Compare (Process PDFs with Gemini)
+      if: ${{ github.event.inputs.only_scrape_images != 'true' }}
       env:
         GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}
         GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
@@ -43,6 +51,7 @@ jobs:
         python -u scratch/compare_th_en_db.py
 
     - name: Automatically Archive Discontinued Models
+      if: ${{ github.event.inputs.only_scrape_images != 'true' }}
       run: |
         python scratch/archive_discontinued.py
 
@@ -51,6 +60,7 @@ jobs:
         python auto_image_scraper.py
 
     - name: Upload PDFs to Google Drive
+      if: ${{ github.event.inputs.only_scrape_images != 'true' }}
       env:
         GDRIVE_SERVICE_ACCOUNT_KEY: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_KEY }}
         GDRIVE_CLIENT_ID: ${{ secrets.GDRIVE_CLIENT_ID }}
