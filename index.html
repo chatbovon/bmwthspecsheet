@@ -642,7 +642,9 @@
                     tdValue.innerHTML = formatValue(specValue);
                     
                     // Setup paint cell hover and click interactivity
-                    if (isPaintCategory && specValue !== "-") {
+                    const seriesNameUpper = (data.series || "").toUpperCase().trim();
+                    const isMCar = seriesNameUpper.startsWith("BMW M") || seriesNameUpper.startsWith("BMW XM");
+                    if (isPaintCategory && specValue !== "-" && !isMCar) {
                         setupPaintCellInteractivity(tdValue, data.series, model.model_name, topicName, index);
                     }
                     
@@ -657,27 +659,70 @@
         document.getElementById('searchInput').value = '';
 
         // Generate and append the Vehicle Preview row at the bottom
+        const seriesNameUpper2 = (data.series || "").toUpperCase().trim();
+        const isMCar2 = seriesNameUpper2.startsWith("BMW M") || seriesNameUpper2.startsWith("BMW XM");
+        
         let hasAnyPreview = false;
         
-        // Check if any model in this series has mapped preview images
-        models.forEach(m => {
-            const paintBlock = (m.specifications || []).find(s => {
-                const catName = s.category.toLowerCase();
-                return catName.includes("paintwork") || catName.includes("สีตัวถัง");
-            });
-            if (paintBlock) {
-                for (let detail of (paintBlock.details || [])) {
-                    if (detail.topic && detail.value && detail.value !== "-") {
-                        if (resolveImagePath(data.series, m.model_name, detail.topic)) {
-                            hasAnyPreview = true;
-                            break;
+        if (!isMCar2) {
+            // Check if any model in this series has mapped preview images
+            models.forEach(m => {
+                const paintBlock = (m.specifications || []).find(s => {
+                    const catName = s.category.toLowerCase();
+                    return catName.includes("paintwork") || catName.includes("สีตัวถัง");
+                });
+                if (paintBlock) {
+                    for (let detail of (paintBlock.details || [])) {
+                        if (detail.topic && detail.value && detail.value !== "-") {
+                            if (resolveImagePath(data.series, m.model_name, detail.topic)) {
+                                hasAnyPreview = true;
+                                break;
+                            }
                         }
                     }
                 }
-            }
-        });
+            });
+        }
 
-        if (hasAnyPreview) {
+        if (isMCar2) {
+            // Append preview section title row
+            let trPreviewTitle = document.createElement('tr');
+            trPreviewTitle.className = 'section-title';
+            let tdPreviewTitle = document.createElement('td');
+            tdPreviewTitle.colSpan = models.length + 1;
+            tdPreviewTitle.innerText = currentLang === 'en' ? "Vehicle Preview" : "รูปภาพตัวอย่าง";
+            trPreviewTitle.appendChild(tdPreviewTitle);
+            tbody.appendChild(trPreviewTitle);
+
+            // Append preview link row
+            let trPreviewImages = document.createElement('tr');
+            
+            // First cell
+            let tdLabel = document.createElement('td');
+            tdLabel.innerText = currentLang === 'en' ? "Exterior Preview" : "รูปตัวถังภายนอก";
+            trPreviewImages.appendChild(tdLabel);
+
+            // Link cell spanning across all columns
+            let tdLink = document.createElement('td');
+            tdLink.colSpan = models.length;
+            tdLink.style.textAlign = 'center';
+            tdLink.style.padding = '18px';
+            tdLink.style.background = 'rgba(30, 41, 59, 0.4)';
+            
+            let link = document.createElement('a');
+            link.href = 'https://www.bmw.co.th/th/configurator.html';
+            link.target = '_blank';
+            link.style.color = '#38bdf8';
+            link.style.textDecoration = 'underline';
+            link.style.fontWeight = '600';
+            link.innerText = currentLang === 'en' 
+                ? "You can view the vehicle color preview at https://www.bmw.co.th/th/configurator.html"
+                : "ท่านสามารถดูรูปตัวอย่างสีรถได้ที่ https://www.bmw.co.th/th/configurator.html";
+                
+            tdLink.appendChild(link);
+            trPreviewImages.appendChild(tdLink);
+            tbody.appendChild(trPreviewImages);
+        } else if (hasAnyPreview) {
             // Append preview section title row
             let trPreviewTitle = document.createElement('tr');
             trPreviewTitle.className = 'section-title';

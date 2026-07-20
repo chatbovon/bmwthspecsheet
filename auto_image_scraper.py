@@ -49,6 +49,10 @@ SCRAPE_CONFIGS = {
     "X3 M50 xDrive": {
         "engine_keyword": "M50",
         "model_key_name": "BMW_X3_M50_xDrive"
+    },
+    "530e M Sport": {
+        "engine_keyword": "530e M Sport",
+        "model_key_name": "BMW_530e_M_Sport"
     }
 }
 
@@ -305,6 +309,26 @@ async def discover_series_url(page, series_name):
     print(f"  [DISCOVERY] [WARNING] Could not find confident dynamic link for series '{series_name}' in portal (Best score: {best_score}).")
     return None
 
+def log_scraper_warning(model_name, best_score, best_candidate):
+    warnings_file = "scratch/scraper_warnings.json"
+    os.makedirs("scratch", exist_ok=True)
+    warnings = []
+    if os.path.exists(warnings_file):
+        try:
+            with open(warnings_file, "r", encoding="utf-8") as f:
+                warnings = json.load(f)
+        except:
+            pass
+    # Avoid duplicate warnings for the same model in a single run
+    if not any(w["model_name"] == model_name for w in warnings):
+        warnings.append({
+            "model_name": model_name,
+            "best_score": int(best_score),
+            "best_candidate": best_candidate
+        })
+        with open(warnings_file, "w", encoding="utf-8") as f:
+            json.dump(warnings, f, ensure_ascii=False, indent=4)
+
 async def select_engine(page, engine_keyword):
     # Try clicking Engine Tab
     engine_tab = page.locator("button:has-text('เครื่องยนต์'), button:has-text('Engine')")
@@ -345,6 +369,7 @@ async def select_engine(page, engine_keyword):
                 await asyncio.sleep(3)
                 await check_and_dismiss_modals(page)
                 return True
+            log_scraper_warning(engine_keyword, 0, "No candidates/tabs found")
             return False
             
         # Fuzzy match on the candidate card text
@@ -377,7 +402,12 @@ async def select_engine(page, engine_keyword):
             await asyncio.sleep(2)
             return True
         else:
-            print(f"  [WARNING] Could not find any close match for engine keyword '{engine_keyword}' (Best score: {best_score})")
+            best_candidate_text = ""
+            if best_el:
+                best_candidate_text = await best_el.inner_text()
+                best_candidate_text = best_candidate_text.replace('\n', ' | ')
+            log_scraper_warning(engine_keyword, best_score, best_candidate_text)
+            print(f"  [WARNING] Could not find confident match (Score: {best_score} < 80) for engine '{engine_keyword}'. Skipped.")
             return False
     else:
         print("  [NAV] Engine tab not found, using default pre-selected option.")
@@ -537,7 +567,7 @@ async def main():
                 # Dynamic fallback config
                 clean_model_key = model_name.replace(" ", "_").replace("(", "").replace(")", "").replace("-", "_")
                 config = {
-                    "engine_keyword": model_name.split()[0],
+                    "engine_keyword": model_name,
                     "model_key_name": f"BMW_{clean_model_key}"
                 }
                 

@@ -178,9 +178,27 @@ def main():
             report_md += f"* ✅ {item['series']} | {item['model']}\n"
         report_md += "</details>\n\n"
         
-    report_md += "---\n\n"
+    # Scraper Warnings Section
+    warnings_file = "scratch/scraper_warnings.json"
+    if os.path.exists(warnings_file):
+        try:
+            with open(warnings_file, "r", encoding="utf-8") as f:
+                warnings_data = json.load(f)
+            if warnings_data:
+                report_md += "## ⚠️ 4. รายงานระบบกวาดรูปภาพรถยนต์ล้มเหลว (Image Scraper Warnings)\n"
+                report_md += "พบการกวาดรูปภาพล้มเหลวเนื่องจากระดับคะแนนความมั่นใจต่ำ (Score < 80) หรือไม่พบตัวเลือก ดังตารางต่อไปนี้:\n\n"
+                report_md += "| รุ่นรถยนต์ | คะแนนสูงสุดที่พบ | ปุ่มตัวเลือกบนเว็บที่ใกล้เคียงที่สุด |\n"
+                report_md += "| :--- | :---: | :--- |\n"
+                for w in warnings_data:
+                    report_md += f"| **{w['model_name']}** | {w['best_score']} / 150 | {w['best_candidate'] or 'ไม่พบปุ่มตัวเลือกเลย'} |\n"
+                report_md += "\n---\n\n"
+            
+            # Clean up the warnings file after compile
+            os.remove(warnings_file)
+        except Exception as e:
+            print("Error processing scraper warnings:", e)
 
-    report_md += "## ⚠️ 4. คำแนะนำถัดไป (Next Steps)\n"
+    report_md += "## ⚠️ 5. คำแนะนำถัดไป (Next Steps)\n"
     report_md += "1. ดึงข้อมูลล่าสุดลงในเครื่องคอมพิวเตอร์ของคุณโดยใช้คำสั่ง:\n"
     report_md += "   ```bash\n"
     report_md += "   git pull\n"
