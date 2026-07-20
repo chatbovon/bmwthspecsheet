@@ -214,6 +214,69 @@
             color: #fff;
             font-weight: 600;
         }
+
+        /* Vehicle Visualizer Table-Bottom Styles */
+        .preview-cell-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            background: rgba(30, 41, 59, 0.4);
+            border-radius: 8px;
+            border: 1px solid #334155;
+            min-height: 100px;
+            min-width: 150px;
+            transition: all 0.3s ease;
+        }
+        .preview-img {
+            max-width: 100%;
+            width: 160px;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.5));
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        .preview-img.loaded {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .no-preview-placeholder {
+            font-size: 0.8em;
+            color: #64748b;
+            text-align: center;
+            padding: 10px;
+            border: 1px dashed #475569;
+            border-radius: 6px;
+            background: rgba(15, 23, 42, 0.3);
+            width: 100%;
+            max-width: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+            box-sizing: border-box;
+        }
+        
+        /* Interactive Specsheet Paint Cell Styles */
+        .paint-cell {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .paint-cell:hover {
+            background-color: #0284c7 !important;
+            color: #fff !important;
+            box-shadow: inset 0 0 0 2px #38bdf8;
+        }
+        .paint-cell.active-paint {
+            background-color: #0369a1 !important;
+            color: #fff !important;
+            font-weight: 600;
+            box-shadow: inset 0 0 0 2px #38bdf8;
+        }
     </style>
 </head>
 <body>
@@ -267,7 +330,8 @@
             errorLoading: "ไม่สามารถโหลดข้อมูลสเปกรถยนต์ได้",
             yesWords: ["มี", "yes", "■", "▪", "●", "□"],
             seriesPrefix: "รุ่นรถยนต์ #",
-            navLinkLabel: "⬅️ กลับหน้าสเปครุ่นปัจจุบัน"
+            navLinkLabel: "⬅️ กลับหน้าสเปครุ่นปัจจุบัน",
+            visualizerDefaultColor: "เลือกสีตัวถังในตารางด้านล่างเพื่อดูรูปตัวอย่าง"
         },
         en: {
             title: "BMW Custom Specsheet (Archived)",
@@ -280,11 +344,85 @@
             errorLoading: "Failed to load specification data",
             yesWords: ["มี", "yes", "■", "▪", "●", "□"],
             seriesPrefix: "Series #",
-            navLinkLabel: "⬅️ Back to Current Models"
+            navLinkLabel: "⬅️ Back to Current Models",
+            visualizerDefaultColor: "Select a paint color from the table below to preview"
         }
     };
 
     let currentLang = 'th';
+    let selectedPaintCell = null;
+
+    // Helper to resolve the correct image filename from model & color details in allSeriesData
+    function resolveImagePath(seriesName, modelName, colorName) {
+        if (!seriesName || !modelName || !colorName) return null;
+        
+        const normSeries = seriesName.toLowerCase().trim();
+        const normModel = modelName.toLowerCase().trim();
+        const normColor = colorName.toLowerCase().trim();
+        
+        // Find all matching series in allSeriesData (in case there are duplicates like "BMW 4 SERIES")
+        const matchingSeries = allSeriesData.filter(s => {
+            const sName = (s.series || "").toLowerCase().trim();
+            return normSeries.includes(sName) || sName.includes(normSeries);
+        });
+        
+        // Find matching model across all matching series
+        let modelData = null;
+        for (let s of matchingSeries) {
+            modelData = (s.models || []).find(m => {
+                const mName = (m.model_name || "").toLowerCase().trim();
+                return normModel === mName || 
+                       normModel.replace(/ /g, "_") === mName.replace(/ /g, "_") ||
+                       (normModel === "520d m sport" && mName === "520d m sport");
+            });
+            if (modelData) break;
+        }
+        
+        if (!modelData || !modelData.images) return null;
+        
+        // Find matching color
+        let matchedColorKey = Object.keys(modelData.images).find(key => {
+            const k = key.toLowerCase();
+            return normColor === k || 
+                   normColor.replace(/ /g, "") === k.replace(/ /g, "") ||
+                   normColor.includes(k) || 
+                   k.includes(normColor) ||
+                   normColor.replace("metallic", "").trim() === k.replace("metallic", "").replace(/^m\s+/, "").trim();
+        });
+        
+        if (!matchedColorKey) return null;
+        return modelData.images[matchedColorKey];
+    }
+
+    // Update Visualizer inside a specific column cell
+    function updateVisualizer(seriesName, modelName, colorName, columnIndex) {
+        const imgEl = document.getElementById('preview-img-col-' + columnIndex);
+        if (!imgEl) return;
+        
+        const imgPath = resolveImagePath(seriesName, modelName, colorName);
+        if (imgPath) {
+            imgEl.classList.remove('loaded');
+            imgEl.src = imgPath;
+            imgEl.title = colorName;
+            imgEl.alt = `${modelName} - ${colorName}`;
+        }
+    }
+
+    // Set up hover/click interactivity for specsheet cells in Paintwork category
+    function setupPaintCellInteractivity(cell, seriesName, modelName, colorName, columnIndex) {
+        cell.classList.add('paint-cell');
+        cell.setAttribute('data-model', modelName);
+        cell.setAttribute('data-color', colorName);
+        cell.setAttribute('data-col-index', columnIndex);
+        
+        cell.addEventListener('click', function() {
+            updateVisualizer(seriesName, modelName, colorName, columnIndex);
+            selectedPaintCell = { model: modelName, color: colorName, columnIndex: columnIndex };
+            document.querySelectorAll(`.paint-cell[data-col-index='${columnIndex}']`).forEach(c => c.classList.remove('active-paint'));
+            cell.classList.add('active-paint');
+        });
+    }
+
     let allSeriesData = [];
 
     // สลับภาษาและโหลดข้อมูลใหม่
@@ -450,7 +588,12 @@
                 }
             });
 
+
             if (uniqueTopics.length === 0) return;
+
+            // Check if this category is paintwork
+            const isPaintCategory = categoryName.toLowerCase().includes("paintwork") || categoryName.includes("สีตัวถัง");
+
 
             // สร้างแถวหัวข้อหมวดหมู่ (Section title)
             let trSection = document.createElement('tr');
@@ -484,6 +627,12 @@
                     }
                     
                     tdValue.innerHTML = formatValue(specValue);
+                    
+                    // Setup paint cell hover and click interactivity
+                    if (isPaintCategory && specValue !== "-") {
+                        setupPaintCellInteractivity(tdValue, data.series, model.model_name, topicName, index);
+                    }
+                    
                     tr.appendChild(tdValue);
                 });
 
@@ -491,8 +640,112 @@
             });
         });
 
+        // Generate and append the Vehicle Preview row at the bottom
+        let hasAnyPreview = false;
+        
+        // Check if any model in this series has mapped preview images
+        models.forEach(m => {
+            const paintBlock = (m.specifications || []).find(s => {
+                const catName = s.category.toLowerCase();
+                return catName.includes("paintwork") || catName.includes("สีตัวถัง");
+            });
+            if (paintBlock) {
+                for (let detail of (paintBlock.details || [])) {
+                    if (detail.topic && detail.value && detail.value !== "-") {
+                        if (resolveImagePath(data.series, m.model_name, detail.topic)) {
+                            hasAnyPreview = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        });
+
+        if (hasAnyPreview) {
+            // Append preview section title row
+            let trPreviewTitle = document.createElement('tr');
+            trPreviewTitle.className = 'section-title';
+            let tdPreviewTitle = document.createElement('td');
+            tdPreviewTitle.colSpan = models.length + 1;
+            tdPreviewTitle.innerText = currentLang === 'en' ? "Vehicle Preview" : "รูปภาพตัวอย่าง";
+            trPreviewTitle.appendChild(tdPreviewTitle);
+            tbody.appendChild(trPreviewTitle);
+
+            // Append preview images row
+            let trPreviewImages = document.createElement('tr');
+            
+            // First cell
+            let tdLabel = document.createElement('td');
+            tdLabel.innerText = currentLang === 'en' ? "Exterior Preview" : "รูปตัวถังภายนอก";
+            trPreviewImages.appendChild(tdLabel);
+
+            // Model preview cells
+            models.forEach((model, colIdx) => {
+                let tdPreview = document.createElement('td');
+                tdPreview.className = 'col-' + colIdx; // Hook class for toggling
+
+                // Find default color and path
+                let defaultPath = null;
+                let defaultColorName = null;
+                const paintBlock = (model.specifications || []).find(s => {
+                    const catName = s.category.toLowerCase();
+                    return catName.includes("paintwork") || catName.includes("สีตัวถัง");
+                });
+                if (paintBlock) {
+                    for (let detail of (paintBlock.details || [])) {
+                        if (detail.topic && detail.value && detail.value !== "-") {
+                            const path = resolveImagePath(data.series, model.model_name, detail.topic);
+                            if (path) {
+                                defaultPath = path;
+                                defaultColorName = detail.topic;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (defaultPath) {
+                    // Create image container
+                    let container = document.createElement('div');
+                    container.className = 'preview-cell-container';
+
+                    let img = document.createElement('img');
+                    img.id = `preview-img-col-${colIdx}`;
+                    img.className = 'preview-img';
+                    img.src = defaultPath;
+                    img.alt = `${model.model_name} - ${defaultColorName}`;
+                    img.title = defaultColorName;
+                    img.onload = function() { this.classList.add('loaded'); };
+
+                    container.appendChild(img);
+                    tdPreview.appendChild(container);
+
+                    // Highlight the default paint cell for this column
+                    const colDefaultColor = defaultColorName;
+                    setTimeout(() => {
+                        document.querySelectorAll(`.paint-cell[data-col-index='${colIdx}']`).forEach(c => {
+                            if (c.getAttribute('data-color') === colDefaultColor) {
+                                c.classList.add('active-paint');
+                            }
+                        });
+                    }, 50);
+                } else {
+                    // Create placeholder for models with no preview images
+                    let placeholder = document.createElement('div');
+                    placeholder.className = 'no-preview-placeholder';
+                    placeholder.innerText = currentLang === 'en' ? "No preview available" : "ไม่มีภาพตัวอย่างรถ";
+                    tdPreview.appendChild(placeholder);
+                }
+
+                trPreviewImages.appendChild(tdPreview);
+            });
+
+            tbody.appendChild(trPreviewImages);
+        }
+
         // รีเซ็ตช่องค้นหาเมื่อเปลี่ยนซีรีส์
         document.getElementById('searchInput').value = '';
+
     }
 
     // โหลดข้อมูลแบบ Pooling / Fallback
