@@ -392,22 +392,22 @@ async def select_engine(page, engine_keyword):
                 best_score = score
                 best_el = el
                 
-        if best_el and best_score >= 80:
+        if best_el:
             card_text = await best_el.inner_text()
             clean_card_text = card_text.replace('\n', ' | ')
-            print(f"  [NAV] Selecting best engine option (Score: {best_score}): {clean_card_text}")
+            if best_score < 80:
+                log_scraper_warning(engine_keyword, best_score, clean_card_text)
+                print(f"  [WARNING] Match confidence low (Score: {best_score} < 80) for engine '{engine_keyword}'. Best guess: {clean_card_text}. Logging warning and proceeding.")
+            else:
+                print(f"  [NAV] Selecting best engine option (Score: {best_score}): {clean_card_text}")
             await best_el.click()
             await asyncio.sleep(4)
             await check_and_dismiss_modals(page)
             await asyncio.sleep(2)
             return True
         else:
-            best_candidate_text = ""
-            if best_el:
-                best_candidate_text = await best_el.inner_text()
-                best_candidate_text = best_candidate_text.replace('\n', ' | ')
-            log_scraper_warning(engine_keyword, best_score, best_candidate_text)
-            print(f"  [WARNING] Could not find confident match (Score: {best_score} < 80) for engine '{engine_keyword}'. Skipped.")
+            log_scraper_warning(engine_keyword, 0, "No candidates matched")
+            print(f"  [WARNING] Could not find any engine card match for '{engine_keyword}'. Skipping.")
             return False
     else:
         print("  [NAV] Engine tab not found, using default pre-selected option.")
