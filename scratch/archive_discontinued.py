@@ -21,13 +21,19 @@ def archive_discontinued_in_db(db_path):
     with open(live_list_path, "r", encoding="utf-8") as f:
         live_pdfs = {line.strip().lower() for line in f if line.strip()}
         
+    # Circuit Breaker: If live PDFs count is dangerously low (e.g. < 5), abort immediately
+    if len(live_pdfs) < 5:
+        print(f"[ARCHIVER] [CRITICAL] Dangerously low live PDFs count ({len(live_pdfs)}). BMW site might be down. Aborting archiving to prevent database corruption.")
+        return False
+        
     print(f"\n[ARCHIVER] Scanning database: {os.path.basename(db_path)}")
     print(f"[ARCHIVER] Found {len(live_pdfs)} live PDFs on web.")
     
     modified_count = 0
     
-    # Track files moved in this run to avoid duplicate move messages
+    # Track files moved in this run to avoid duplicate move/restore messages
     moved_files = set()
+    restored_files = set()
     
     for item in db:
         pdf_source = item.get("pdf_source")
@@ -46,6 +52,12 @@ def archive_discontinued_in_db(db_path):
                 m["is_custom_archived"] = True
                 modified_count += 1
                 print(f"   [ARCHIVE] Discontinued model tagged: '{m.get('model_name')}' (Source: {pdf_source})")
+            
+            # [RESTORE] If PDF is live on web again and model was previously tagged as archived:
+            elif is_live_on_web and is_currently_archived:
+                m["is_custom_archived"] = None  # Restore to active
+                modified_count += 1
+                print(f"   [RESTORE] Active model restored: '{m.get('model_name')}' (Source: {pdf_source})")
         
         # 2. Move Physical PDF Files
         if not is_live_on_web and pdf_source_lower not in moved_files:
@@ -72,14 +84,40 @@ def archive_discontinued_in_db(db_path):
                     moved_files.add(pdf_source_lower)
                 except Exception as move_err:
                     print(f"   [ARCHIVE] [ERROR] Failed to move PDF file {pdf_source}: {move_err}")
+
+        # [RESTORE FILE-MOVE] If PDF is live on web and was in custom directory:
+        elif is_live_on_web and pdf_source_lower not in restored_files:
+            if "en.json" in db_path.lower():
+                custom_dir = os.path.join(WORKSPACE_DIR, "bmw_brochures_custom_en")
+                auto_dir = os.path.join(WORKSPACE_DIR, "bmw_brochures_auto_en")
+            else:
+                custom_dir = os.path.join(WORKSPACE_DIR, "bmw_brochures_custom")
+                auto_dir = os.path.join(WORKSPACE_DIR, "bmw_brochures_auto")
                 
+            custom_file = os.path.join(custom_dir, pdf_source)
+            if os.path.exists(custom_file):
+                if not os.path.exists(auto_dir):
+                    os.makedirs(auto_dir)
+                auto_file = os.path.join(auto_dir, pdf_source)
+                try:
+                    if os.path.exists(auto_file):
+                        # File is already in auto directory (re-downloaded by scraper), so delete custom duplicate
+                        os.remove(custom_file)
+                        print(f"   [RESTORE] [FILE-MOVE] Deleted duplicate in custom: {pdf_source}")
+                    else:
+                        shutil.move(custom_file, auto_file)
+                        print(f"   [RESTORE] [FILE-MOVE] Restored file: {pdf_source} -> {os.path.basename(auto_dir)}")
+                    restored_files.add(pdf_source_lower)
+                except Exception as restore_err:
+                    print(f"   [RESTORE] [ERROR] Failed to restore PDF file {pdf_source}: {restore_err}")
+                    
     if modified_count > 0:
         with open(db_path, "w", encoding="utf-8") as f:
             json.dump(db, f, ensure_ascii=False, indent=4)
-        print(f"[ARCHIVER] [SUCCESS] Database updated! Archived {modified_count} discontinued models.")
+        print(f"[ARCHIVER] [SUCCESS] Database updated! Processed {modified_count} model status updates.")
         return True
     else:
-        print(f"[ARCHIVER] No new discontinued models detected in this database.")
+        print(f"[ARCHIVER] No model status updates detected in this database.")
         return False
 
 def main():
