@@ -489,7 +489,7 @@ async def scrape_model_paintworks(page, config, model_name):
     
     # 1. Capture the default color rendering first
     clean_color_name = initial_color_name.replace(" ", "_").replace("/", "-").replace("\\", "-")
-    filename = f"{image_dir}/{model_key_name}_{clean_color_name}.png"
+    filename = f"{image_dir}/{(model_key_name + '_' + clean_color_name).lower()}.png"
     
     await check_and_dismiss_modals(page)
     await capture_360_canvas(page, filename)
@@ -517,7 +517,7 @@ async def scrape_model_paintworks(page, config, model_name):
         await asyncio.sleep(2)
         
         clean_color_name = color_name.replace(" ", "_").replace("/", "-").replace("\\", "-")
-        filename = f"{image_dir}/{model_key_name}_{clean_color_name}.png"
+        filename = f"{image_dir}/{(model_key_name + '_' + clean_color_name).lower()}.png"
         
         await capture_360_canvas(page, filename)
         images_dict[color_name] = filename
