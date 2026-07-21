@@ -534,13 +534,46 @@ async def main():
         
     # Find models lacking the 'images' field
     target_models = []
+    db_modified = False
+    
     for series in data:
+        series_name = series.get("series", "").upper().strip()
+        is_m_car = series_name.startswith("BMW M") or series_name.startswith("BMW XM")
         pdf_source = series.get("pdf_source", "unknown")
         clean_pdf = pdf_source.replace(".pdf", "").replace("-", "_").replace(" ", "_")
         for model in series.get("models", []):
-            model_name = model.get("model_name", "")
+            if is_m_car:
+                if "images" not in model:
+                    model["images"] = {}
+                    db_modified = True
+                    print(f" - [SKIP] Excluded M Power model from image scraper: {series.get('series')} | {model.get('model_name')}")
+                continue
+                
             if "images" not in model:
                 target_models.append((series, model, clean_pdf))
+                
+    if db_modified:
+        # Write updated mappings back to Thai file
+        with open(specs_file, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
+        
+        # Mirror to English file
+        en_file = "bmw_master_specs_en.json"
+        if os.path.exists(en_file):
+            with open(en_file, "r", encoding="utf-8") as f:
+                en_data = json.load(f)
+            for s_en in en_data:
+                s_name = s_en.get("series", "")
+                for m_en in s_en.get("models", []):
+                    m_name = m_en.get("model_name", "")
+                    for s_up in data:
+                        if s_up.get("series") == s_name:
+                            for m_up in s_up.get("models", []):
+                                if m_up.get("model_name") == m_name and "images" in m_up:
+                                    m_en["images"] = m_up["images"]
+            with open(en_file, "w", encoding="utf-8") as f:
+                json.dump(en_data, f, ensure_ascii=False, indent=4)
+        print(f"Saved initialized empty images for M models to databases.")
                     
     if not target_models:
         print("\nNo models found lacking images for the target series. No scraping required!")
