@@ -1454,7 +1454,14 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "M Brooklyn Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_m_brooklyn_grey_metallic.png",
+                    "Cape York Green metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_cape_york_green_metallic.png",
+                    "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_black_sapphire_metallic.png",
+                    "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_mineral_white_metallic.png",
+                    "Phytonic Blue metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_phytonic_blue_metallic.png"
+                }
             }
         ],
         "low_confidence_flags": [
@@ -6724,7 +6731,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M2-CS-20250910-01_TH.pdf.asset.1758261830128.pdf",
@@ -7463,7 +7471,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M3-20250818-01_TH.pdf.asset.1758516215456.pdf",
