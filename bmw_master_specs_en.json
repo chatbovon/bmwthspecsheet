@@ -11409,7 +11409,13 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Skyscraper Grey Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_skyscraper_grey_metallic.png",
+                    "Mineral White Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_mineral_white_metallic.png",
+                    "Black Sapphire Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_black_sapphire_metallic.png",
+                    "Manhattan Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_manhattan_metallic.png"
+                }
             },
             {
                 "model_name": "X5 xDrive50e M Sport",
