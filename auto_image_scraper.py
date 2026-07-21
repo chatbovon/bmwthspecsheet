@@ -57,26 +57,31 @@ SCRAPE_CONFIGS = {
 }
 
 async def check_and_dismiss_modals(page):
-    # Check and dismiss con-modal-conflict if present
-    conflict_modal = page.locator("con-modal-conflict")
+    # Check and dismiss con-modal-conflict or con-modal-logic if present
+    conflict_modal = page.locator("con-modal-conflict, con-modal-logic")
     if await conflict_modal.count() > 0:
-        confirm_btn = page.locator("con-modal-conflict button:has-text('ตกลง'), con-modal-conflict button:has-text('OK'), con-modal-conflict button:has-text('ดำเนินการต่อ')")
-        if await confirm_btn.count() > 0:
-            print("  [MODAL] con-modal-conflict detected. Dismissing it...")
-            await confirm_btn.first.click()
-            await asyncio.sleep(4)
-            return True
-            
-    # Check and dismiss standard con-modal-logic if present
-    logic_modal = page.locator("con-modal-logic")
-    if await logic_modal.count() > 0:
-        confirm_btn = page.locator("con-modal-logic button:has-text('ตกลง'), con-modal-logic button:has-text('OK'), con-modal-logic button:has-text('ดำเนินการต่อ')")
-        if await confirm_btn.count() > 0:
-            print("  [MODAL] con-modal-logic detected. Dismissing it...")
-            await confirm_btn.first.click()
-            await asyncio.sleep(4)
-            return True
-            
+        # Find any confirm button (accept/confirm/ok/proceed)
+        confirm_selectors = [
+            "button:has-text('ยอมรับ')",
+            "con-button:has-text('ยอมรับ')",
+            "button:has-text('ยืนยัน')",
+            "con-button:has-text('ยืนยัน')",
+            "button:has-text('ตกลง')",
+            "con-button:has-text('ตกลง')",
+            "button:has-text('OK')",
+            "con-button:has-text('OK')",
+            "button:has-text('ดำเนินการต่อ')",
+            "con-button:has-text('ดำเนินการต่อ')"
+        ]
+        
+        for selector in confirm_selectors:
+            btn = conflict_modal.locator(selector)
+            if await btn.count() > 0:
+                print(f"  [MODAL] Dismissing modal using selector: {selector}")
+                await btn.first.click()
+                await asyncio.sleep(5)
+                return True
+                
     return False
 
 async def hide_viewport_overlays(page):

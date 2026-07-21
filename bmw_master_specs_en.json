@@ -1435,13 +1435,7 @@
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_M_Sport_Black_Sapphire_metallic.png",
-                    "Cape York Green metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_M_Sport_Cape_York_Green_metallic.png",
-                    "Oxide Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_M_Sport_Oxide_Grey_metallic.png",
-                    "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_M_Sport_Mineral_White_metallic.png"
-                }
+                ]
             }
         ],
         "low_confidence_flags": [
@@ -11415,13 +11409,7 @@
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "Manhattan Metallic": "images/X5_20260417_01_TH.asset.1779075010632/BMW_X5_xDrive30d_M_Sport_Manhattan_Metallic.png",
-                    "Skyscraper Grey Metallic": "images/X5_20260417_01_TH.asset.1779075010632/BMW_X5_xDrive30d_M_Sport_Skyscraper_Grey_Metallic.png",
-                    "Black Sapphire Metallic": "images/X5_20260417_01_TH.asset.1779075010632/BMW_X5_xDrive30d_M_Sport_Black_Sapphire_Metallic.png",
-                    "Mineral White Metallic": "images/X5_20260417_01_TH.asset.1779075010632/BMW_X5_xDrive30d_M_Sport_Mineral_White_Metallic.png"
-                }
+                ]
             },
             {
                 "model_name": "X5 xDrive50e M Sport",
