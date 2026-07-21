@@ -238,6 +238,7 @@
             transition: opacity 0.3s ease, transform 0.3s ease;
             opacity: 0;
             transform: scale(0.95);
+            cursor: zoom-in;
         }
         .preview-img.loaded {
             opacity: 1;
@@ -276,6 +277,58 @@
             color: #fff !important;
             font-weight: 600;
             box-shadow: inset 0 0 0 2px #38bdf8;
+        }
+        
+        /* Full-screen image modal overlay */
+        .full-screen-image-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(15, 23, 42, 0.95);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .full-screen-image-modal.show-modal {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content-img {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .full-screen-image-modal.show-modal .modal-content-img {
+            transform: scale(1);
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: #94a3b8;
+            font-size: 45px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            user-select: none;
+            line-height: 1;
+        }
+        .modal-close-btn:hover,
+        .modal-close-btn:focus {
+            color: #38bdf8;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -954,6 +1007,67 @@
         
         if (currentSectionHeader) {
             currentSectionHeader.style.display = sectionHasVisibleRows ? '' : 'none';
+        }
+    });
+
+    // Event delegation for preview image click to open full-screen modal
+    document.getElementById('specTable').addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('preview-img')) {
+            openImageModal(e.target.src, e.target.alt);
+        }
+    });
+
+    function openImageModal(src, alt) {
+        let modal = document.getElementById('imageFullScreenModal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'imageFullScreenModal';
+            modal.className = 'full-screen-image-modal';
+            
+            // Close button
+            let closeBtn = document.createElement('span');
+            closeBtn.className = 'modal-close-btn';
+            closeBtn.innerHTML = '&times;'; // Cross icon
+            closeBtn.addEventListener('click', closeImageModal);
+            
+            // Image element
+            let img = document.createElement('img');
+            img.id = 'modalFullScreenImg';
+            img.className = 'modal-content-img';
+            
+            modal.appendChild(closeBtn);
+            modal.appendChild(img);
+            document.body.appendChild(modal);
+            
+            // Close when clicking outside the image
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeImageModal();
+                }
+            });
+        }
+        
+        let modalImg = document.getElementById('modalFullScreenImg');
+        modalImg.src = src;
+        modalImg.alt = alt;
+        
+        // Show modal with animation
+        modal.classList.add('show-modal');
+        document.body.style.overflow = 'hidden'; // Disable scroll on body
+    }
+    
+    function closeImageModal() {
+        let modal = document.getElementById('imageFullScreenModal');
+        if (modal) {
+            modal.classList.remove('show-modal');
+            document.body.style.overflow = ''; // Restore scroll
+        }
+    }
+
+    // Close modal with Escape key
+    window.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeImageModal();
         }
     });
 
