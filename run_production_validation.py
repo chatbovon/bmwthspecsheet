@@ -105,7 +105,7 @@ If there are no discrepancies, output an empty array [].
 
 # Helper function to call Gemini with key pooling and model fallbacks
 def generate_content_with_pooling(prompt_text):
-    model_pool = ["gemini-3.6-flash", "gemini-3.5-flash", "gemini-3.5-flash-lite"]
+    model_pool = ["gemini-3.6-flash", "gemini-3.5-flash", "gemini-3.6-flash-lite", "gemini-3.5-flash-lite"]
     
     for model_name in model_pool:
         for key_idx, key in enumerate(API_KEYS):

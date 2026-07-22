@@ -615,7 +615,7 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
     # Step 3: Run OCR Correction pipeline using Gemini API Key Pooling & Fallback Models
     extracted_segments = []
     key_idx = 0
-    model_pool = [MODEL_NAME, "gemini-3.5-flash", "gemini-3.5-flash-lite"]
+    model_pool = [MODEL_NAME, "gemini-3.5-flash", "gemini-3.6-flash-lite", "gemini-3.5-flash-lite"]
     model_idx = 0
     
     for i, seg in enumerate(segments):
@@ -624,29 +624,35 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
         success = False
         attempts = 0
         max_attempts = len(API_KEYS) * len(model_pool) * 2  # Allow multiple retries per key/model combination
+        
+        prompt = f"{system_prompt}\n\nHere is the input table segment:\n\n{seg}"
+        if footer_text:
+            prompt += f"\n\nHere is the footer metadata from the document page:\n{footer_text}"
+            
+        keys_tried_for_current_model = 0
+        
         while not success and attempts < max_attempts and len(API_KEYS) > 0:
             current_model = model_pool[model_idx]
             key = API_KEYS[key_idx]
             combo = f"{current_model}:{key}"
+            
             if combo in EXHAUSTED_COMBINATIONS:
-                # Rotate key and model index, increment attempts, and continue without API call
-                model_idx = (model_idx + 1) % len(model_pool)
-                key_idx = (key_idx + 1) % len(API_KEYS)
+                keys_tried_for_current_model += 1
+                if keys_tried_for_current_model >= len(API_KEYS):
+                    model_idx = (model_idx + 1) % len(model_pool)
+                    keys_tried_for_current_model = 0
+                    print(f"      [MODEL-FALLBACK] All keys exhausted for {current_model}. Rotated to model: {model_pool[model_idx]}")
+                else:
+                    key_idx = (key_idx + 1) % len(API_KEYS)
                 attempts += 1
                 continue
             
             attempts += 1
-            client = genai.Client(api_key=key, http_options=types.HttpOptions(timeout=60000))
-            prompt = f"{system_prompt}\n\nHere is the input table segment:\n\n{seg}"
-            if footer_text:
-                prompt += f"\n\nHere is the footer metadata from the document page:\n{footer_text}"
-            
-            # Shift temperature slightly on retries to avoid repeating JSON syntax errors
-            temp = min(0.6, (attempts - 1) * 0.2)
-            if temp > 0.0 or model_idx > 0:
-                print(f"      [RETRY] Attempt {attempts} using model={current_model}, temp={temp:.1f}...")
+            if attempts > 1:
+                print(f"      [RETRY] Attempt {attempts} using model={current_model}...")
                 
             try:
+                client = genai.Client(api_key=key, http_options=types.HttpOptions(timeout=60000))
                 response = client.models.generate_content(
                     model=current_model,
                     contents=[prompt],
@@ -655,6 +661,8 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
                     )
                 )
                 segment_json = json.loads(response.text)
+                if isinstance(segment_json, list) and len(segment_json) > 0 and isinstance(segment_json[0], dict):
+                    segment_json = segment_json[0]
                 extracted_segments.append(segment_json)
                 print(f"      -> Segment {i+1} OCR Correction OK.")
                 success = True
@@ -662,27 +670,46 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
                 err_msg = str(e)
                 print(f"      [WARNING] Gemini Error on Key #{key_idx+1} ({current_model}): {e}")
                 
-                # Check for rate limit / quota exhaustion / demand spikes / timeouts and rotate model first
-                if any(term in err_msg.lower() for term in ["resource_exhausted", "quota", "limit", "unavailable", "demand", "deadline", "timeout"]):
-                    # If it is a daily quota limit error, remember it to avoid retrying
+                is_rate_limit = any(term in err_msg.lower() for term in [
+                    "resource_exhausted", "quota", "rate limit", "rate_limit", "unavailable", "demand", "deadline", "timeout"
+                ])
+                is_invalid_key = any(term in err_msg for term in ["API key not valid", "API_KEY_INVALID", "INVALID_ARGUMENT"])
+                
+                if is_rate_limit:
                     if "quota" in err_msg.lower() or "resource_exhausted" in err_msg.lower():
                         EXHAUSTED_COMBINATIONS.add(combo)
                         print(f"      [GDRIVE/QUOTA] Marked {current_model} on Key #{key_idx+1} as exhausted for this run.")
-                    model_idx = (model_idx + 1) % len(model_pool)
-                    print(f"      [MODEL-FALLBACK] Rotated to model: {model_pool[model_idx]} due to errors/rate-limits.")
-                    key_idx = (key_idx + 1) % len(API_KEYS)
-                # Check for invalid API key authentication error and remove it
-                elif "API key not valid" in err_msg or "API_KEY_INVALID" in err_msg or "INVALID_ARGUMENT" in err_msg:
+                    
+                    keys_tried_for_current_model += 1
+                    if keys_tried_for_current_model >= len(API_KEYS):
+                        model_idx = (model_idx + 1) % len(model_pool)
+                        key_idx = (key_idx + 1) % len(API_KEYS)
+                        keys_tried_for_current_model = 0
+                        print(f"      [MODEL-FALLBACK] All keys failed for {current_model}. Rotated to model: {model_pool[model_idx]}")
+                    else:
+                        key_idx = (key_idx + 1) % len(API_KEYS)
+                        print(f"      [ROTATE] Rotated to Key #{key_idx+1} for model {current_model}.")
+                        
+                elif is_invalid_key:
                     print(f"      [REMOVE] Removing invalid API Key #{key_idx+1} from pool.")
                     API_KEYS.pop(key_idx)
                     if not API_KEYS:
                         print("[FATAL] All Gemini keys in pool have been removed as invalid.")
                         sys.exit(1)
                     key_idx = key_idx % len(API_KEYS)
+                    keys_tried_for_current_model = 0
+                    
                 else:
-                    key_idx = (key_idx + 1) % len(API_KEYS)
-                    print(f"      [ROTATE] Rotated to Key #{key_idx+1}.")
-                
+                    keys_tried_for_current_model += 1
+                    if keys_tried_for_current_model >= len(API_KEYS):
+                        model_idx = (model_idx + 1) % len(model_pool)
+                        key_idx = (key_idx + 1) % len(API_KEYS)
+                        keys_tried_for_current_model = 0
+                        print(f"      [MODEL-FALLBACK] General errors on all keys for {current_model}. Rotated to model: {model_pool[model_idx]}")
+                    else:
+                        key_idx = (key_idx + 1) % len(API_KEYS)
+                        print(f"      [ROTATE] Rotated to Key #{key_idx+1} for model {current_model}.")
+                        
         if not success:
             print(f"[FATAL] All Gemini keys/models failed to extract segment {i+1}.")
             sys.exit(1)
