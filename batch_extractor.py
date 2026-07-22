@@ -30,7 +30,7 @@ def run_batch_extraction(lang="th", target_file=None):
     pdf_entries = sorted([f for f in os.listdir(auto_folder) if f.lower().endswith(".pdf")])
 
     if target_file:
-        pdf_entries = [f for f in pdf_entries if f == target_file or os.path.basename(f) == target_file]
+        pdf_entries = [f for f in pdf_entries if target_file in f or target_file in os.path.basename(f)]
         if not pdf_entries:
             print(f"[ERROR] Target file '{target_file}' not found in '{auto_folder}'.")
             return
@@ -143,6 +143,6 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="BMW Specsheet Batch Extractor using MinerU")
     parser.add_argument("--lang", type=str, default="th", choices=["th", "en"], help="Language of brochures to extract (th or en)")
-    parser.add_argument("--file", type=str, default=None, help="Target specific PDF filename to extract")
+    parser.add_argument("--file", "--target", dest="file", type=str, default=None, help="Target specific PDF filename to extract")
     args = parser.parse_args()
     run_batch_extraction(lang=args.lang, target_file=args.file)

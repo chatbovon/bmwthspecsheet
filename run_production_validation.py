@@ -64,7 +64,7 @@ for series_item in en_data:
 matching_models = sorted(list(th_models.intersection(en_models)))
 
 # Quick check filter for development
-if os.environ.get("QUICK_CHECK") == "true":
+if os.environ.get("QUICK_CHECK") == "true" or "--quick-check" in sys.argv:
     target_models = [
         "320d M Sport", "330e M Sport", "M340i xDrive",
         "420i Coupé M Sport", "430i Coupé M Sport", "M440i xDrive",
@@ -105,7 +105,7 @@ If there are no discrepancies, output an empty array [].
 
 # Helper function to call Gemini with key pooling and model fallbacks
 def generate_content_with_pooling(prompt_text):
-    model_pool = ["gemini-3.5-flash", "gemini-3.1-flash-lite", "gemini-2.5-flash"]
+    model_pool = ["gemini-3.6-flash", "gemini-3.5-flash", "gemini-3.5-flash-lite"]
     
     for model_name in model_pool:
         for key_idx, key in enumerate(API_KEYS):
@@ -117,8 +117,7 @@ def generate_content_with_pooling(prompt_text):
                     model=model_name,
                     contents=[prompt_text],
                     config=types.GenerateContentConfig(
-                        response_mime_type="application/json",
-                        temperature=0.0
+                        response_mime_type="application/json"
                     )
                 )
                 return json.loads(response.text)
