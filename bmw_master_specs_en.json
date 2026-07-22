@@ -13785,12 +13785,14 @@
                     }
                 ],
                 "images": {
-                    "Sanremo Green metallic": "images/Z4_20240610_02_TH.asset.1758628086952/BMW_Z4_M40i_Sanremo_Green_metallic.png",
-                    "Skyscraper Grey metallic": "images/Z4_20240610_02_TH.asset.1758628086952/BMW_Z4_M40i_Skyscraper_Grey_metallic.png",
-                    "Thundernight metallic": "images/Z4_20240610_02_TH.asset.1758628086952/BMW_Z4_M40i_Thundernight_metallic.png",
-                    "Black Sapphire metallic": "images/Z4_20240610_02_TH.asset.1758628086952/BMW_Z4_M40i_Black_Sapphire_metallic.png",
-                    "San Francisco Red metallic": "images/Z4_20240610_02_TH.asset.1758628086952/BMW_Z4_M40i_San_Francisco_Red_metallic.png",
-                    "Alpine White solid": "images/Z4_20240610_02_TH.asset.1758628086952/BMW_Z4_M40i_Alpine_White_solid.png"
+                    "Paint_None": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_paint_none.png",
+                    "Skyscraper Grey metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_skyscraper_grey_metallic.png",
+                    "Thundernight metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_thundernight_metallic.png",
+                    "Sanremo Green metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_sanremo_green_metallic.png",
+                    "Black Sapphire metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_black_sapphire_metallic.png",
+                    "BMW Individual Frozen Grey II metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_bmw_individual_frozen_grey_ii_metallic.png",
+                    "San Francisco Red metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_san_francisco_red_metallic.png",
+                    "Alpine White solid": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_alpine_white_solid.png"
                 }
             }
         ],
