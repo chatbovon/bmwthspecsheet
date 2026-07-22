@@ -1856,7 +1856,8 @@
                     "Mineral White Metallic": "images/xm_images/BMW_XM_50e_Mineral_White_Metallic.png",
                     "M Marina Bay Blue metallic": "images/xm_images/BMW_XM_50e_M_Marina_Bay_Blue_metallic.png",
                     "Sao Paulo Yellow Solid": "images/xm_images/BMW_XM_50e_Sao_Paulo_Yellow_Solid.png"
-                }
+                },
+                "is_custom_archived": true
             },
             {
                 "model_name": "XM 50e (Shadow Line)",
@@ -2200,7 +2201,8 @@
                     "Toronto Red Metallic": "images/xm_images/BMW_XM_50e_Shadow_Line_Toronto_Red_Metallic.png",
                     "Mineral White Metallic": "images/xm_images/BMW_XM_50e_Shadow_Line_Mineral_White_Metallic.png",
                     "Sao Paulo Yellow Solid": "images/xm_images/BMW_XM_50e_Shadow_Line_Sao_Paulo_Yellow_Solid.png"
-                }
+                },
+                "is_custom_archived": true
             }
         ],
         "low_confidence_flags": [
@@ -5518,7 +5520,8 @@
                     "M Brooklyn Grey metallic": "images/M2_20250827_01_TH_Edit.asset.1758278358157/BMW_M2_MT_M_Brooklyn_Grey_metallic.png",
                     "Black Sapphire metallic": "images/M2_20250827_01_TH_Edit.asset.1758278358157/BMW_M2_MT_Black_Sapphire_metallic.png",
                     "M Portimao Blue metallic": "images/M2_20250827_01_TH_Edit.asset.1758278358157/BMW_M2_MT_M_Portimao_Blue_metallic.png"
-                }
+                },
+                "is_custom_archived": true
             },
             {
                 "model_name": "M2 (M Racetrack)",
@@ -5912,7 +5915,8 @@
                     "M Brooklyn Grey metallic": "images/M2_20250827_01_TH_Edit.asset.1758278358157/BMW_M2_M_Racetrack_M_Brooklyn_Grey_metallic.png",
                     "Black Sapphire metallic": "images/M2_20250827_01_TH_Edit.asset.1758278358157/BMW_M2_M_Racetrack_Black_Sapphire_metallic.png",
                     "M Portimao Blue metallic": "images/M2_20250827_01_TH_Edit.asset.1758278358157/BMW_M2_M_Racetrack_M_Portimao_Blue_metallic.png"
-                }
+                },
+                "is_custom_archived": true
             },
             {
                 "model_name": "M2",
@@ -6306,7 +6310,8 @@
                     "M Brooklyn Grey metallic": "images/M2_20250827_01_TH_Edit.asset.1758278358157/BMW_M2_M_Brooklyn_Grey_metallic.png",
                     "Black Sapphire metallic": "images/M2_20250827_01_TH_Edit.asset.1758278358157/BMW_M2_Black_Sapphire_metallic.png",
                     "M Portimao Blue metallic": "images/M2_20250827_01_TH_Edit.asset.1758278358157/BMW_M2_M_Portimao_Blue_metallic.png"
-                }
+                },
+                "is_custom_archived": true
             }
         ],
         "source_file": "M2-20250827-01_TH_Edit.pdf.asset.1758278358157.pdf",
@@ -7836,7 +7841,8 @@
                 "images": {
                     "Black Sapphire Metallic": "images/M3_20260622_01_TH.asset.1782451194798/BMW_M3_Competition_M_xDrive_Touring_Black_Sapphire_Metallic.png",
                     "M Brooklyn Grey metallic": "images/M3_20260622_01_TH.asset.1782451194798/BMW_M3_Competition_M_xDrive_Touring_M_Brooklyn_Grey_metallic.png"
-                }
+                },
+                "is_custom_archived": true
             }
         ],
         "source_file": "M3-20260622-01_TH.pdf.asset.1782451194798.pdf",
@@ -8220,7 +8226,8 @@
                     "M Sao Paulo Yellow solid": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_M_Sao_Paulo_Yellow_solid.png",
                     "BMW Individual Frozen Portimao Blue metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_BMW_Individual_Frozen_Portimao_Blue_metallic.png",
                     "BMW Individual Frozen Brilliant White metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_BMW_Individual_Frozen_Brilliant_White_metallic.png"
-                }
+                },
+                "is_custom_archived": true
             }
         ],
         "source_file": "M4-20241113-01_TH.pdf.asset.1732168871735.pdf",
@@ -8577,7 +8584,8 @@
                     "M Sao Paulo Yellow solid": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_M_Sao_Paulo_Yellow_solid.png",
                     "BMW Individual Frozen Portimao Blue metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_BMW_Individual_Frozen_Portimao_Blue_metallic.png",
                     "BMW Individual Frozen Brilliant White metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_BMW_Individual_Frozen_Brilliant_White_metallic.png"
-                }
+                },
+                "is_custom_archived": true
             }
         ],
         "source_file": "M4-20250312-01_TH.pdf.asset.1745407583372.pdf",
@@ -9381,7 +9389,8 @@
                     "M Carbon Black metallic": "images/M5_20260417_01_TH.asset.1778752587556/BMW_M5_Touring_M_Carbon_Black_metallic.png",
                     "Sophisto Grey brilliant effect metallic": "images/M5_20260417_01_TH.asset.1778752587556/BMW_M5_Touring_Sophisto_Grey_brilliant_effect_metallic.png",
                     "M Marina Bay Blue metallic": "images/M5_20260417_01_TH.asset.1778752587556/BMW_M5_Touring_M_Marina_Bay_Blue_metallic.png"
-                }
+                },
+                "is_custom_archived": true
             }
         ],
         "source_file": "M5-20260417-01_TH.pdf.asset.1778752587556.pdf",
@@ -14306,7 +14315,8 @@
                     "Arctic Race Blue metallic": "images/4series_images/BMW_420i_Coupe_M_Sport_Arctic_Race_Blue_metallic.png",
                     "Black Sapphire metallic": "images/4series_images/BMW_420i_Coupe_M_Sport_Black_Sapphire_metallic.png",
                     "Mineral White metallic": "images/4series_images/BMW_420i_Coupe_M_Sport_Mineral_White_metallic.png"
-                }
+                },
+                "is_custom_archived": true
             },
             {
                 "model_name": "430i Coupé M Sport",
@@ -14723,7 +14733,8 @@
                     "Black Sapphire metallic": "images/4series_images/BMW_430i_Coupe_M_Sport_Black_Sapphire_metallic.png",
                     "BMW Individual Dravit Grey metallic": "images/4series_images/BMW_430i_Coupe_M_Sport_BMW_Individual_Dravit_Grey_metallic.png",
                     "Mineral White metallic": "images/4series_images/BMW_430i_Coupe_M_Sport_Mineral_White_metallic.png"
-                }
+                },
+                "is_custom_archived": true
             },
             {
                 "model_name": "M440i xDrive",
@@ -15126,7 +15137,8 @@
                     "M Brooklyn Grey metallic": "images/4series_images/BMW_M440i_xDrive_M_Brooklyn_Grey_metallic.png",
                     "Black Sapphire metallic": "images/4series_images/BMW_M440i_xDrive_Black_Sapphire_metallic.png",
                     "Mineral White metallic": "images/4series_images/BMW_M440i_xDrive_Mineral_White_metallic.png"
-                }
+                },
+                "is_custom_archived": true
             }
         ],
         "source_file": "4-20241113-03_TH.pdf.asset.1745407581805.pdf",
@@ -16583,7 +16595,8 @@
                     "M Brooklyn Grey metallic": "images/i5_20260417_01_TH.asset.1778752587155/BMW_i5_eDrive40_M_Sport_M_Brooklyn_Grey_metallic.png",
                     "Black Sapphire metallic": "images/i5_20260417_01_TH.asset.1778752587155/BMW_i5_eDrive40_M_Sport_Black_Sapphire_metallic.png",
                     "Mineral White metallic": "images/i5_20260417_01_TH.asset.1778752587155/BMW_i5_eDrive40_M_Sport_Mineral_White_metallic.png"
-                }
+                },
+                "is_custom_archived": true
             }
         ],
         "source_file": "i5-20260417-01_TH.pdf.asset.1778752587155.pdf",
@@ -24178,7 +24191,8 @@
                     "Black Sapphire Metallic": "images/X6_20260223_01_TH.asset.1778752585977/BMW_X6_xDrive40i_M_Sport_Black_Sapphire_Metallic.png",
                     "Manhattan Metallic": "images/X6_20260223_01_TH.asset.1778752585977/BMW_X6_xDrive40i_M_Sport_Manhattan_Metallic.png",
                     "Mineral White Metallic": "images/X6_20260223_01_TH.asset.1778752585977/BMW_X6_xDrive40i_M_Sport_Mineral_White_Metallic.png"
-                }
+                },
+                "is_custom_archived": true
             }
         ],
         "source_file": "X6-20260223-01_TH.pdf.asset.1778752585977.pdf",
@@ -24638,7 +24652,15 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_bmw_individual_dravit_grey_metallic.png",
+                    "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_cape_york_green_metallic.png",
+                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_m_brooklyn_grey_metallic.png",
+                    "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_arctic_race_blue_metallic.png",
+                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_black_sapphire_metallic.png",
+                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_mineral_white_metallic.png"
+                }
             },
             {
                 "model_name": "430i Coupé M Sport",
@@ -25075,7 +25097,15 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_m_brooklyn_grey_metallic.png",
+                    "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_cape_york_green_metallic.png",
+                    "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_arctic_race_blue_metallic.png",
+                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_black_sapphire_metallic.png",
+                    "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_bmw_individual_dravit_grey_metallic.png",
+                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_mineral_white_metallic.png"
+                }
             },
             {
                 "model_name": "M440i xDrive",
@@ -25500,11 +25530,61 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Fire Red metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_fire_red_metallic.png",
+                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_m_brooklyn_grey_metallic.png",
+                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_black_sapphire_metallic.png",
+                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_mineral_white_metallic.png"
+                }
             }
         ],
         "source_file": "4-20260714-01_TH_.pdf.asset.1784613825348.pdf",
-        "pdf_source": "4-20260714-01_TH_.pdf.asset.1784613825348.pdf"
+        "pdf_source": "4-20260714-01_TH_.pdf.asset.1784613825348.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "420i Coupé M Sport",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 4 สูบเทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 4-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "420i Coupé M Sport",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 18 นิ้ว ลาย Double-spoke แบบสลับสี', English has '18\" M light alloy wheelsDouble-spoke style Bicolour'"
+            },
+            {
+                "model_name": "430i Coupé M Sport",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 4 สูบเทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 4-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "430i Coupé M Sport",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้ว ลาย Double-spoke แบบสลับสี', English has '19\" M light alloy wheelsDouble-spoke style,Bicolour'"
+            },
+            {
+                "model_name": "M440i xDrive",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบเทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "M440i xDrive",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้ว ลาย Double-spoke สี Jet Black', English has '19\" M light alloy wheelsDouble-spoke style JetBlack'"
+            }
+        ]
     },
     {
         "series": "BMW M2",
@@ -25992,7 +26072,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             },
             {
                 "model_name": "M2 (M Racetrack)",
@@ -26477,7 +26558,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             },
             {
                 "model_name": "M2 (MT)",
@@ -26962,11 +27044,56 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M2.-20260714-01_TH.pdf.asset.1784613855343.pdf",
-        "pdf_source": "M2.-20260714-01_TH.pdf.asset.1784613855343.pdf"
+        "pdf_source": "M2.-20260714-01_TH.pdf.asset.1784613855343.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M2",
+                "category": "Engine and Performance",
+                "topic": "- / 0 - 100 km/h (s)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for '-' / '0 - 100 km/h (s)': Thai has '-', English has '4'"
+            },
+            {
+                "model_name": "M2",
+                "category": "Safety",
+                "topic": "- / Anti-lock Brake System (ABS)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for '-' / 'Anti-lock Brake System (ABS)': Thai has '-', English has '■'"
+            },
+            {
+                "model_name": "M2 (M Racetrack)",
+                "category": "Engine and Performance",
+                "topic": "- / 0 - 100 km/h (s)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for '-' / '0 - 100 km/h (s)': Thai has '-', English has '4'"
+            },
+            {
+                "model_name": "M2 (M Racetrack)",
+                "category": "Safety",
+                "topic": "- / Anti-lock Brake System (ABS)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for '-' / 'Anti-lock Brake System (ABS)': Thai has '-', English has '■'"
+            },
+            {
+                "model_name": "M2 (MT)",
+                "category": "Engine and Performance",
+                "topic": "- / 0 - 100 km/h (s)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for '-' / '0 - 100 km/h (s)': Thai has '-', English has '4.2'"
+            },
+            {
+                "model_name": "M2 (MT)",
+                "category": "Safety",
+                "topic": "- / Anti-lock Brake System (ABS)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for '-' / 'Anti-lock Brake System (ABS)': Thai has '-', English has '■'"
+            }
+        ]
     },
     {
         "series": "BMW 3 SERIES",
@@ -27362,11 +27489,41 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "BMW Individual Dravit Grey metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_bmw_individual_dravit_grey_metallic.png",
+                    "M Brooklyn Grey metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_m_brooklyn_grey_metallic.png",
+                    "Black Sapphire metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_black_sapphire_metallic.png",
+                    "M Portimao Blue metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_m_portimao_blue_metallic.png",
+                    "Mineral White metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_mineral_white_metallic.png"
+                }
             }
         ],
         "source_file": "M3-20260714-01_TH.pdf.asset.1784613855376.pdf",
-        "pdf_source": "M3-20260714-01_TH.pdf.asset.1784613855376.pdf"
+        "pdf_source": "M3-20260714-01_TH.pdf.asset.1784613855376.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M3 Competition M xDrive Touring",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี BMW M TwinPower Turbo', English has 'M TwinPower Turbo 6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "M3 Competition M xDrive Touring",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้อ M Forged ขนาด 19 นิ้ว / 20 นิ้วลาย Double-spoke', English has '19\"/20\" M forged wheels Double-spoke style'"
+            },
+            {
+                "model_name": "M3 Competition M xDrive Touring",
+                "category": "Wheels and Tyres",
+                "topic": "ขนาดยาง / Tyre size",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า: 9.5 J × 19 / ยาง 275/35 R 19ล้อหลัง: 10.5 J × 20 / ยาง 285/30 R 20', English has 'Front: 9.5 J × 19, 275/35 R 19Rear: 10.5 J × 20, 285/30 R 20'"
+            }
+        ]
     },
     {
         "series": "BMW M4 SERIES",
@@ -27742,11 +27899,28 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M4-20251104-02_TH.pdf.asset.1784613855399.pdf",
-        "pdf_source": "M4-20251104-02_TH.pdf.asset.1784613855399.pdf"
+        "pdf_source": "M4-20251104-02_TH.pdf.asset.1784613855399.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M4 CS",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนชิน 6 สูบ เทคโนโลยี BMW M TwinPower Turbo', English has 'M TwinPower Turbo6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "M4 CS",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 และ 20 นิ้วลาย Star-spoke', English has '19\" / 20\" M light alloy wheelsStar-spoke style'"
+            }
+        ]
     },
     {
         "series": "BMW M4 SERIES",
@@ -28130,11 +28304,49 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M4-20260714-01_TH.pdf.asset.1784613855304.pdf",
-        "pdf_source": "M4-20260714-01_TH.pdf.asset.1784613855304.pdf"
+        "pdf_source": "M4-20260714-01_TH.pdf.asset.1784613855304.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "BMW M4 Competition M xDrive",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนชิน 6 สูบ เทคโนโลยี BMW M TwinPower Turbo', English has 'M TwinPower Turbo 6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "BMW M4 Competition M xDrive",
+                "category": "Fuel Consumption and CO2 Emission",
+                "topic": "อัตราสิ้นเปลืองน้ํามันเชื้อเพลิงเฉลี่ย -อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร) / Combined fuel consumption from ECO Sticker result (km/l)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'อัตราสิ้นเปลืองน้ํามันเชื้อเพลิงเฉลี่ย -อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)' / 'Combined fuel consumption from ECO Sticker result (km/l)': Thai has '10', English has '10.1'"
+            },
+            {
+                "model_name": "BMW M4 Competition M xDrive",
+                "category": "Fuel Consumption and CO2 Emission",
+                "topic": "ระดับการปล่อย CO2เฉลี่ย (กรัม/กิโลเมตร) / Combined CO2 (g/km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ระดับการปล่อย CO2เฉลี่ย (กรัม/กิโลเมตร)' / 'Combined CO2 (g/km)': Thai has '228', English has '225'"
+            },
+            {
+                "model_name": "BMW M4 Competition M xDrive",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้อ M Forged ขนาด 19 นิ้ว / 20 นิ้วลาย Double-spoke', English has '19\"/20\" M forged wheels Double-spoke style'"
+            },
+            {
+                "model_name": "BMW M4 Competition M xDrive",
+                "category": "Wheels and Tyres",
+                "topic": "ขนาดยาง / Tyre size",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า: 9.5 J × 19 / ยาง 275/35 R 19ล้อหลัง: 10.5 J × 20 / ยาง 285/30 R20', English has 'Front: 9.5 J × 19, 275/35 R 19Rear: 10.5 J × 20, 285/30 R 20'"
+            }
+        ]
     },
     {
         "series": "BMW M5",
@@ -28550,11 +28762,35 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M5-20260714-01_TH.pdf.asset.1784613855320.pdf",
-        "pdf_source": "M5-20260714-01_TH.pdf.asset.1784613855320.pdf"
+        "pdf_source": "M5-20260714-01_TH.pdf.asset.1784613855320.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M5 Touring",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนชิน 8 สูบ เทคโนโลยี M TwinPower Turbo', English has 'M TwinPower Turbo V8-cylinder petrol engine'"
+            },
+            {
+                "model_name": "M5 Touring",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 20/21 นิ้ว ลาย Double Spoke', English has '20\"/21\" M light alloy wheels double spoke style'"
+            },
+            {
+                "model_name": "M5 Touring",
+                "category": "Wheels and Tyres",
+                "topic": "ขนาดยาง / Tyre size",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า : 10.5J × 20 / ยาง 285/40 ZR20 ล้อหลัง : 11J × 21 / ยาง 295/35 ZR21', English has 'Front: 10.5J × 20 / tyres: 285/40 ZR20Rear: 11J × 21 / tyres: 295/35 ZR21'"
+            }
+        ]
     },
     {
         "series": "BMW X6 SERIES",
@@ -28949,11 +29185,33 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Brooklyn Grey Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_brooklyn_grey_metallic.png",
+                    "Black Sapphire Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_black_sapphire_metallic.png",
+                    "Manhattan Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_manhattan_metallic.png",
+                    "Mineral White Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_mineral_white_metallic.png"
+                }
             }
         ],
         "source_file": "X6-20260223-01_TH.pdf.asset.1784613825303.pdf",
-        "pdf_source": "X6-20260223-01_TH.pdf.asset.1784613825303.pdf"
+        "pdf_source": "X6-20260223-01_TH.pdf.asset.1784613825303.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "X6 xDrive40i M Sport",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนชิน 6 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder petrol engine'"
+            },
+            {
+                "model_name": "X6 xDrive40i M Sport",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 22 นี้ว ลาย Double-spoke แบบสลับสี', English has '22\" M light alloy wheels Double-spoke style, Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW XM",
@@ -29348,7 +29606,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             },
             {
                 "model_name": "XM 50e (Shadow Line)",
@@ -29740,11 +29999,42 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "XM-20251126-01_TH_.pdf.asset.1784613825367.pdf",
-        "pdf_source": "XM-20251126-01_TH_.pdf.asset.1784613825367.pdf"
+        "pdf_source": "XM-20251126-01_TH_.pdf.asset.1784613825367.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "XM 50e",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี M TwinPower Turbo', English has 'M TwinPower Turbo 6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "XM 50e",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 22 นิ้ว ลาย Double-spoke แบบสลับสี', English has '22\" M light-alloy wheels double spoke Bicolour'"
+            },
+            {
+                "model_name": "XM 50e (Shadow Line)",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี M TwinPower Turbo', English has 'M TwinPower Turbo 6-cylinder inline petrol engine'"
+            },
+            {
+                "model_name": "XM 50e (Shadow Line)",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 23 นิ้วลาย star spoke แบบสลับสี', English has '23\" M light-alloy wheels star spoke Bicolour'"
+            }
+        ]
     },
     {
         "series": "BMW i5",
@@ -30207,10 +30497,40 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Phytonic Blue metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_phytonic_blue_metallic.png",
+                    "Cape York Green metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_cape_york_green_metallic.png",
+                    "M Brooklyn Grey metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_m_brooklyn_grey_metallic.png",
+                    "Black Sapphire metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_black_sapphire_metallic.png",
+                    "Mineral White metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_mineral_white_metallic.png"
+                }
             }
         ],
         "source_file": "i5-20260714-01_TH.pdf.asset.1784613825396.pdf",
-        "pdf_source": "i5-20260714-01_TH.pdf.asset.1784613825396.pdf"
+        "pdf_source": "i5-20260714-01_TH.pdf.asset.1784613825396.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Engine and Performance",
+                "topic": "มอเตอร์ไฟฟ้า / Electric motor",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'มอเตอร์ไฟฟ้า' / 'Electric motor': Thai has 'เทคโนโลยี BMW eDrive', English has 'BMW eDrive technology'"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Engine and Performance",
+                "topic": "ชนิดแบตเตอรี่ (แรงดันสูง) / Battery type (High voltage)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดแบตเตอรี่ (แรงดันสูง)' / 'Battery type (High voltage)': Thai has 'ลิเทียม-ไอออน (Lithium-ion)', English has 'Lithium-ion'"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Wheels': Thai has 'ล้ออัลลอย M aerodynamic ขนาด 20 นิ้ว ตกแต่งสี Black Grey แบบสลับสี', English has '20\" M aerodynamic wheelsBicolour Black Grey'"
+            }
+        ]
     }
 ]
