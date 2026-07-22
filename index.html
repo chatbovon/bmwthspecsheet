@@ -234,6 +234,7 @@
 
         /* Vehicle Visualizer Table-Bottom Styles */
         .preview-cell-container {
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -245,6 +246,28 @@
             min-height: 100px;
             min-width: 150px;
             transition: all 0.3s ease;
+        }
+        .preview-warning-badge {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(220, 53, 69, 0.85);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            white-space: nowrap;
+            z-index: 5;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            animation: fadeIn 0.2s ease;
         }
         .preview-img {
             max-width: 100%;
@@ -470,12 +493,57 @@
         const imgEl = document.getElementById('preview-img-col-' + columnIndex);
         if (!imgEl) return;
         
+        // Remove existing warning badge if any
+        const container = imgEl.closest('.preview-cell-container');
+        if (container) {
+            const oldBadge = container.querySelector('.preview-warning-badge');
+            if (oldBadge) oldBadge.remove();
+        }
+        
         const imgPath = resolveImagePath(seriesName, modelName, colorName);
         if (imgPath) {
             imgEl.classList.remove('loaded');
             imgEl.src = imgPath;
             imgEl.title = colorName;
             imgEl.alt = `${modelName} - ${colorName}`;
+            imgEl.style.opacity = "1";
+        } else {
+            // Find a fallback image (first mapped image in modelData)
+            let modelData = null;
+            for (let s of specData) {
+                if (s.series === seriesName) {
+                    modelData = (s.models || []).find(m => {
+                        const mName = (m.model_name || "").toLowerCase().trim();
+                        const normModel = modelName.toLowerCase().trim();
+                        return normModel === mName || normModel.replace(/ /g, "_") === mName.replace(/ /g, "_");
+                    });
+                    if (modelData) break;
+                }
+            }
+            if (modelData && modelData.images) {
+                const availableKeys = Object.keys(modelData.images);
+                if (availableKeys.length > 0) {
+                    const firstColorKey = availableKeys[0];
+                    const fallbackPath = modelData.images[firstColorKey];
+                    if (fallbackPath) {
+                        imgEl.classList.remove('loaded');
+                        imgEl.src = fallbackPath;
+                        imgEl.title = `${colorName} (No preview)`;
+                        imgEl.alt = `${modelName} - ${colorName} (Default color preview)`;
+                        imgEl.style.opacity = "0.75"; // dim slightly
+                        
+                        if (container) {
+                            const badge = document.createElement('div');
+                            badge.className = 'preview-warning-badge';
+                            const text = currentLang === 'en' 
+                                ? `⚠️ Showing default (No image for this color)`
+                                : `⚠️ แสดงสีตั้งต้นแทน (ไม่มีรูปสำหรับสีนี้)`;
+                            badge.innerText = text;
+                            container.appendChild(badge);
+                        }
+                    }
+                }
+            }
         }
     }
 

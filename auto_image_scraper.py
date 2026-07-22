@@ -529,6 +529,81 @@ async def scrape_model_paintworks(page, config, model_name):
         
     return images_dict
 
+def resolve_unmapped_paints(model, images_dict):
+    if not images_dict:
+        return images_dict
+        
+    # Check if there is any Paint_None or Paint_ key in images_dict
+    paint_keys = [k for k in images_dict.keys() if k.lower().startswith("paint_")]
+    if not paint_keys:
+        return images_dict
+        
+    # Extract expected colors from specifications
+    paint_specs = []
+    for cat in model.get("specifications", []):
+        cat_name = cat.get("category", "")
+        if "paintwork" in cat_name.lower() or "สีตัวถัง" in cat_name.lower():
+            paint_specs = cat.get("details", [])
+            break
+            
+    expected_colors = []
+    for spec in paint_specs:
+        color_name = spec.get("topic", "")
+        val = spec.get("value", "")
+        if color_name and val and val.strip() != "-":
+            expected_colors.append(color_name)
+            
+    if not expected_colors:
+        return images_dict
+        
+    # Check which expected colors are not matched by other non-Paint keys in images_dict
+    unmatched_colors = []
+    for color in expected_colors:
+        norm_spec = color.lower().strip()
+        norm_spec_clean = norm_spec.replace("metallic", "").replace("solid", "").strip()
+        
+        found = False
+        for key in images_dict.keys():
+            if key.lower().startswith("paint_"):
+                continue
+            k = key.lower().strip()
+            k_clean = k.replace("metallic", "").replace("solid", "").replace("m ", "").replace("individual ", "").strip()
+            
+            if (norm_spec == k or 
+                norm_spec.replace(" ", "") == k.replace(" ", "") or
+                norm_spec in k or 
+                k in norm_spec or
+                norm_spec_clean == k_clean):
+                found = True
+                break
+        if not found:
+            unmatched_colors.append(color)
+            
+    # If there is exactly one Paint_ key and exactly one unmatched expected color:
+    if len(paint_keys) == 1 and len(unmatched_colors) == 1:
+        old_key = paint_keys[0]
+        new_key = unmatched_colors[0]
+        old_path = images_dict[old_key]
+        
+        # Rename file on disk to match new key
+        model_key_name = model.get("model_name", "").replace(" ", "_")
+        clean_color_name = new_key.replace(" ", "_").replace("/", "-").replace("\\", "-")
+        new_filename = f"{os.path.dirname(old_path)}/{(model_key_name + '_' + clean_color_name).lower()}.png"
+        
+        try:
+            if os.path.exists(old_path):
+                if os.path.exists(new_filename):
+                    os.remove(new_filename)
+                os.rename(old_path, new_filename)
+                print(f"  [REMAP] Renamed default paint file: {old_path} -> {new_filename}")
+            images_dict[new_key] = new_filename
+            del images_dict[old_key]
+            print(f"  [REMAP] Successfully remapped '{old_key}' to expected paint '{new_key}'")
+        except Exception as e:
+            print(f"  [REMAP] [ERROR] Failed to rename/remap default paint: {e}")
+            
+    return images_dict
+
 async def main():
     specs_file = "bmw_master_specs.json"
     
@@ -630,6 +705,9 @@ async def main():
             
             try:
                 images_dict = await scrape_model_paintworks(page, config, model_name)
+                
+                # Automatically resolve unmapped default paints to the single missing expected color
+                images_dict = resolve_unmapped_paints(model, images_dict)
                 
                 # Update images key in our model dictionary
                 if images_dict:
