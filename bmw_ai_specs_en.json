@@ -1,15 +1,15 @@
 {
-    "series": "BMW M3",
+    "series": "BMW M4",
     "models": [
         {
-            "model_name": "M3 Competition M xDrive Touring",
+            "model_name": "M4 CS",
             "specifications": [
                 {
                     "category": "Engine and Performance",
                     "details": [
                         {
                             "topic": "Engine type",
-                            "value": "M TwinPower Turbo 6-cylinder inline petrol engine"
+                            "value": "M TwinPower Turbo6-cylinder inline petrol engine"
                         },
                         {
                             "topic": "Displacement (cm3)",
@@ -17,19 +17,19 @@
                         },
                         {
                             "topic": "Engine power (kW/hp/rpm)",
-                            "value": "390 / 530 / 6,250"
+                            "value": "405 / 551 / 6,250"
                         },
                         {
                             "topic": "Engine torque (Nm/rpm)",
-                            "value": "650 / 2,750 - 5,730"
+                            "value": "650 / 2,750-5,950"
                         },
                         {
-                            "topic": "Top speed (km/h)",
-                            "value": "280"
+                            "topic": "Top speed (km/h)1",
+                            "value": "302"
                         },
                         {
                             "topic": "0 - 100 km/h (s)",
-                            "value": "3.6"
+                            "value": "3.4"
                         }
                     ]
                 },
@@ -38,11 +38,11 @@
                     "details": [
                         {
                             "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                            "value": "9.8"
+                            "value": "9.9"
                         },
                         {
-                            "topic": "Combined CO2 (g/km)",
-                            "value": "231"
+                            "topic": "Combined CO2(g/km)",
+                            "value": "230"
                         }
                     ]
                 },
@@ -51,11 +51,11 @@
                     "details": [
                         {
                             "topic": "Light alloy wheels",
-                            "value": "19\"/20\" M forged wheels Double-spoke style"
+                            "value": "19\" / 20\" M light alloy wheelsStar-spoke style"
                         },
                         {
                             "topic": "Tyre size",
-                            "value": "Front: 9.5 J × 19, 275/35 R 19Rear: 10.5 J × 20, 285/30 R 20"
+                            "value": "front: 9.5 J × 19 / tyres 275/35 R 19rear: 10.5 J × 20 / tyres 285/30 R 20"
                         }
                     ]
                 },
@@ -64,15 +64,15 @@
                     "details": [
                         {
                             "topic": "Length / width / height (mm)",
-                            "value": "4,801 / 1,903 / 1,446"
+                            "value": "4,801 / 1,918 / 1,399"
                         },
                         {
                             "topic": "Luggage capacity (l)",
-                            "value": "500 - 1,510"
+                            "value": "440"
                         },
                         {
                             "topic": "Curb weight (kg)",
-                            "value": "1,940"
+                            "value": "1,835"
                         }
                     ]
                 },
@@ -80,7 +80,7 @@
                     "category": "Drivetrain and Technology",
                     "details": [
                         {
-                            "topic": "8-speed M Steptronic transmission with Drivelogic",
+                            "topic": "8-Speed M Steptronic Transmission with Drivelogic",
                             "value": "■"
                         },
                         {
@@ -88,19 +88,27 @@
                             "value": "■"
                         },
                         {
-                            "topic": "M Sport differential",
+                            "topic": "M Sport Differential",
                             "value": "■"
                         },
                         {
-                            "topic": "Adaptive M suspension",
+                            "topic": "Adaptive M Suspension",
                             "value": "■"
                         },
                         {
-                            "topic": "Driving Assistant Professional",
+                            "topic": "Cruise Control with braking function",
                             "value": "■"
                         },
                         {
-                            "topic": "Parking Assistant Plus",
+                            "topic": "M Front End Strut brace",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Driving Assistant",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Parking Assistant",
                             "value": "■"
                         }
                     ]
@@ -109,11 +117,15 @@
                     "category": "Exterior Equipment",
                     "details": [
                         {
-                            "topic": "M Compound Brake, Red High-Gloss",
+                            "topic": "Adaptive LED headlights",
                             "value": "■"
                         },
                         {
-                            "topic": "Adaptive LED headlights",
+                            "topic": "M Lights, coloured",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M High-gloss Shadowline",
                             "value": "■"
                         },
                         {
@@ -121,31 +133,23 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Comfort access system",
+                            "topic": "Comfort Access System",
                             "value": "■"
                         },
                         {
-                            "topic": "M Roof rails high-gloss Shadow Line",
+                            "topic": "M Carbon ceramic brake",
                             "value": "■"
                         },
                         {
-                            "topic": "M Lights Shadowline",
+                            "topic": "M Carbon exterior Package",
                             "value": "■"
                         },
                         {
-                            "topic": "M high-gloss Shadowline",
+                            "topic": "CRP roof",
                             "value": "■"
                         },
                         {
-                            "topic": "M High-gloss Shadowline with Extended Contents",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "M Carbon exterior package",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Roof and Mirror caps black",
+                            "topic": "Automatic operation of tailgate",
                             "value": "■"
                         }
                     ]
@@ -154,11 +158,27 @@
                     "category": "Interior Equipment",
                     "details": [
                         {
+                            "topic": "M Interior Trim Finishers 'Carbon Fibre'",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Interior rear-view mirror with automatic anti-dazzle function",
+                            "value": "■"
+                        },
+                        {
                             "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
                             "value": "■"
                         },
                         {
-                            "topic": "Seat adjustment, electric, with memory",
+                            "topic": "Ambient Light",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M Alcantara steering wheel",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "M seat belts",
                             "value": "■"
                         },
                         {
@@ -166,19 +186,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Ambient light",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "M headliner anthracite",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Galvanic embellisher for controls",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "M Interior Trim Finishers 'Carbon Fibre'",
+                            "topic": "Seat Adjustment, Electric, with Memory",
                             "value": "■"
                         },
                         {
@@ -190,15 +198,11 @@
                             "value": "■"
                         },
                         {
+                            "topic": "M Headliner Anthracite",
+                            "value": "■"
+                        },
+                        {
                             "topic": "Storage compartment package",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Luggage-compartment package",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "M seat belts",
                             "value": "■"
                         }
                     ]
@@ -211,19 +215,15 @@
                             "value": "■"
                         },
                         {
-                            "topic": "BMW ConnectedDrive",
+                            "topic": "BMW ConnectedDrive Services",
                             "value": "■"
                         },
                         {
-                            "topic": "Connected Package Professional",
+                            "topic": "BMW Connected Package Professional",
                             "value": "■"
                         },
                         {
-                            "topic": "Harman Kardon surround sound system",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Personal eSIM",
+                            "topic": "Smartphone Integration",
                             "value": "■"
                         },
                         {
@@ -231,7 +231,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Smartphone integration",
+                            "topic": "Harman Kardon Surround Sound System",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Personal eSIM",
                             "value": "■"
                         }
                     ]
@@ -240,15 +244,15 @@
                     "category": "Safety",
                     "details": [
                         {
-                            "topic": "Airbag for driver and front passenger",
+                            "topic": "Airbag for Driver and Front Passenger",
                             "value": "■"
                         },
                         {
-                            "topic": "Side airbags for driver and front passenger",
+                            "topic": "Side Airbags for Driver and Passenger",
                             "value": "■"
                         },
                         {
-                            "topic": "Head airbags for all 4 outer seats",
+                            "topic": "Head Airbags for All 4 Outer Seats",
                             "value": "■"
                         },
                         {
@@ -264,19 +268,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Dynamic Traction Control (DTC)",
-                            "value": "■"
-                        },
-                        {
                             "topic": "Dynamic Brake Control (DBC)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Anti-lock Brake System (ABS)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Brake Assist (BA)",
                             "value": "■"
                         },
                         {
@@ -284,11 +276,19 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Crash sensor",
+                            "topic": "Anti-lock braking system (ABS)",
                             "value": "■"
                         },
                         {
-                            "topic": "Active Protection",
+                            "topic": "Brake Assist (BA)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Park Distance Control (PDC)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Crash sensor",
                             "value": "■"
                         },
                         {
@@ -328,54 +328,29 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Active cruise control with Stop&Go function",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Steering and Lane Control Assistant",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Emergency Stop Assistant",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Lane Change Assistant",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Lane Keeping Assistant with active side collision protection",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Front crossing traffic warning",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Evasion Assistant",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Crossroads Warning with city braking function",
-                            "value": "■"
-                        }
-                    ]
-                },
-                {
-                    "category": "Package",
-                    "details": [
-                        {
                             "topic": "M Driver's Package",
                             "value": "■"
                         }
                     ]
                 },
                 {
-                    "category": "Optional Equipment",
+                    "category": "Paintwork & Upholstery",
                     "details": [
                         {
-                            "topic": "M Carbon ceramic brake",
-                            "value": "■"
+                            "topic": "BMW Individual Riviera Blue Solid",
+                            "value": "Full leather 'Merino' - Anthracite"
+                        },
+                        {
+                            "topic": "BMW Individual Frozen Isle of Man Green Metallic",
+                            "value": "Full leather 'Merino' - Anthracite"
+                        },
+                        {
+                            "topic": "Black Saphire Metallic",
+                            "value": "Full leather 'Merino' - Anthracite"
+                        },
+                        {
+                            "topic": "Brooklyn Grey Metallic",
+                            "value": "Full leather 'Merino' - Anthracite"
                         }
                     ]
                 },
@@ -384,17 +359,17 @@
                     "details": [
                         {
                             "topic": "Publication Date",
-                            "value": "14 July 2026"
+                            "value": "21 November 2024"
                         },
                         {
                             "topic": "Package Code (Local Pack)",
-                            "value": "(Z0R, Z0S, Z6V, Z7S, Z9C, ZLG)"
+                            "value": "(Z0U, Z6Q, Z6R)"
                         }
                     ]
                 }
             ]
         }
     ],
-    "source_file": "M3-20260714-01_EN.pdf.asset.1784613825286.pdf",
-    "pdf_source": "M3-20260714-01_EN.pdf.asset.1784613825286.pdf"
+    "source_file": "M4-20251104-02_EN.pdf.asset.1784613825408.pdf",
+    "pdf_source": "M4-20251104-02_EN.pdf.asset.1784613825408.pdf"
 }
