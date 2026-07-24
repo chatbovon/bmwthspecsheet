@@ -1477,7 +1477,7 @@
                 "category": "Wheels and Tyres",
                 "topic": "ล้อ / Light alloy wheels",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย aerodynamic ขนาด 20 นิ้ว แบบหลากสี สี Titanium Bronze', English has '20\" aerodynamic wheels Multicolour Titanium Bronze'"
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย aerodynamic ขนาด 20 นิ้ว แบบสลับสี สี Titanium Bronze', English has '20\" aerodynamic wheels Multicolour Titanium Bronze'"
             },
             {
                 "model_name": "520d M Sport",
@@ -2581,7 +2581,7 @@
                 "category": "Wheels and Tyres",
                 "topic": "ล้อ / Light alloy wheels",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นี้ว ลาย Y-spoke Bicolour', English has '19\" M light alloy wheels Y-spoke style Bicolour'"
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้ว ลาย Y-spoke Bicolour', English has '19\" M light alloy wheels Y-spoke style Bicolour'"
             }
         ]
     },
@@ -28483,14 +28483,14 @@
                 "category": "Engine and Performance",
                 "topic": "ชนิดเครื่องยนต์ / Engine type",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนชิน 6 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder petrol engine'"
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder petrol engine'"
             },
             {
                 "model_name": "X6 xDrive40i M Sport",
                 "category": "Wheels and Tyres",
                 "topic": "ล้อ / Light alloy wheels",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 22 นี้ว ลาย Double-spoke แบบสลับสี', English has '22\" M light alloy wheels Double-spoke style, Bicolour'"
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 22 นิ้ว ลาย Double-spoke แบบสลับสี', English has '22\" M light alloy wheels Double-spoke style, Bicolour'"
             }
         ]
     },
