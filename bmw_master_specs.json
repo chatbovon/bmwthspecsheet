@@ -30156,7 +30156,15 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Sanremo Green metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_sanremo_green_metallic.png",
+                    "Skyscraper Grey metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_skyscraper_grey_metallic.png",
+                    "Thundernight metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_thundernight_metallic.png",
+                    "Black Sapphire metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_black_sapphire_metallic.png",
+                    "San Francisco Red metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_san_francisco_red_metallic.png",
+                    "Alpine White solid": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_alpine_white_solid.png"
+                }
             },
             {
                 "model_name": "Z4 M40i",
@@ -30497,10 +30505,50 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Skyscraper Grey metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_skyscraper_grey_metallic.png",
+                    "Thundernight metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_thundernight_metallic.png",
+                    "Sanremo Green metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_sanremo_green_metallic.png",
+                    "Black Sapphire metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_black_sapphire_metallic.png",
+                    "BMW Individual Frozen Grey II metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_bmw_individual_frozen_grey_ii_metallic.png",
+                    "San Francisco Red metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_san_francisco_red_metallic.png",
+                    "Alpine White solid": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_alpine_white_solid.png",
+                    "Frozen Deep Green II Metallic": "images/Z4_20240610_02_TH.asset.1758628086952/z4_m40i_frozen_deep_green_ii_metallic.png"
+                }
             }
         ],
         "source_file": "Z4-20240610-02_TH.pdf.asset.1758628086952.pdf",
-        "pdf_source": "Z4-20240610-02_TH.pdf.asset.1758628086952.pdf"
+        "pdf_source": "Z4-20240610-02_TH.pdf.asset.1758628086952.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "Z4 sDrive30i M Sport",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 4 สูบเทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo4-cylinder petrol engine'"
+            },
+            {
+                "model_name": "Z4 sDrive30i M Sport",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้วลาย Double-spoke แบบสลับสี', English has '19\" M light alloy wheelsDouble-spoke style, Bicolour'"
+            },
+            {
+                "model_name": "Z4 M40i",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนซิน 6 สูบเทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo6-cylinder petrol engine'"
+            },
+            {
+                "model_name": "Z4 M40i",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 19 นิ้วลาย Double-spoke แบบสลับสี', English has '19\" M light alloy wheelsDouble-spoke style, Bicolour'"
+            }
+        ]
     }
 ]
