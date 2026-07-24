@@ -32,3 +32,15 @@ BMW_Web_Deploy - Copy/
 __pycache__/
 *.pyc
 .DS_Store
+
+# 7. Local Testing Tools & Verification Reports
+curr_z4_models.json
+orig_z4_models.json
+custom_gemini_run.py
+custom_test_report.md
+filtered_discrepancy_report.md
+x_series_test_report.md
+i_series_test_report.md
+run_x_series_validation.py
+run_i_series_validation.py
+temp_*_raw.md

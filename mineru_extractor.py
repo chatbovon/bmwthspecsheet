@@ -61,13 +61,11 @@ MINERU_HEADERS = {
     "Content-Type": "application/json",
 }
 
-# Gemini API Key Pooling Configuration
-API_KEYS = [
-    os.environ.get("GEMINI_API_KEY_1", ""),
-    os.environ.get("GEMINI_API_KEY_2", ""),
-    os.environ.get("GEMINI_API_KEY_3", "")
-]
-API_KEYS = [k.strip() for k in API_KEYS if k.strip()]
+API_KEYS = []
+for idx in range(1, 11):
+    key = os.environ.get(f"GEMINI_API_KEY_{idx}", "")
+    if key.strip():
+        API_KEYS.append(key.strip())
 
 if not API_KEYS:
     std_key = os.environ.get("GEMINI_API_KEY")
@@ -97,14 +95,14 @@ Your task is to take a pre-extracted Markdown/HTML specification table from a BM
 3. **กฎการกู้คืนช่องว่างสำหรับอุปกรณ์มาตรฐาน (Blank Cell Recovery):** บางครั้งการสแกนหรือสกัดตารางอาจทำเครื่องหมายเช็กถูกหรือสัญลักษณ์สี่เหลี่ยมตกหล่น ส่งผลให้ช่องในตารางเป็นช่องว่างเปล่า ให้จัดการดังนี้:
    - หากช่องใดในตารางระบุเครื่องหมายขีด "-" หรือระบุว่า "ไม่มี" อย่างชัดเจน ให้ระบุเป็น "-" (ไม่มี)
    - หากช่องในตารางเป็นช่องว่างเปล่า "" แต่หัวข้อนั้นเป็นอุปกรณ์มาตรฐานความปลอดภัยหรือเทคโนโลยีพื้นฐานของรถ (เช่น ถุงลมนิรภัย/Airbags, จุดยึดเบาะนั่งสำหรับเด็ก ISOFIX, ระบบเบรก ABS, ระบบควบคุมเสถียรภาพการขับขี่ DSC, ระบบช่วยเสริมแรงเบรก Brake Assist, ระบบสัญญาณเตือนภัย Alarm System, ระบบ Teleservices, ระบบ Intelligent Emergency Call, ระบบ Comfort Access, ระบบปรับอากาศอัตโนมัติ, BMW Live Cockpit, แท่นชาร์จโทรศัพท์แบบไร้สาย เป็นต้น) คุณต้องระบุเป็น "■" (มีติดตั้ง) ให้กับทุกรุ่นย่อย เนื่องจากรถยนต์ BMW ระดับนี้จะมีอุปกรณ์เหล่านี้ติดตั้งเป็นมาตรฐานในทุกรุ่นอยู่แล้ว
-   - สำหรับรุ่นย่อย M Sport (มีคำว่า M Sport ในชื่อรุ่นย่อยหรือซีรีส์) อุปกรณ์ตกแต่งมาตรฐานที่เป็น M Sport เช่น "พวงมาลัยหุ้มหนังดีไซน์ M" (M Leather steering wheel), "ชุดตกแต่ง M Sport", "ช่วงล่าง M Sport", "เพดานหลังคาภายในสี Anthracite" จะต้องระบุเป็น "■" เสมอแม้ว่าช่องในตารางจะว่างเปล่า
    - หากช่องในตารางระบุตัวเลขเชิงอรรถ (Footnote) หรือสัญลักษณ์ตัวอักษรใดๆ (เช่น "1", "2", "•", "L", "S") ให้มองว่าเป็น "■" (มีติดตั้ง) ห้ามนำตัวเลขหรือตัวอักษรเหล่านั้นไปเป็นค่า value ใน JSON
    - สำหรับออปชันทั่วไปอื่นๆ ที่มีความแตกต่างกันตามรุ่นย่อย: หากช่องในตารางเป็นช่องว่างเปล่า ให้ระบุเป็น "-" เท่านั้น ห้ามคัดลอกเครื่องหมายมาจากแถวอื่นหรือคอลัมน์อื่นเด็ดขาด
 4. หากออปชันไหนระบุรายละเอียดที่แตกต่างกันในแต่ละรุ่นย่อย ให้ใส่รายละเอียดนั้นลงไปให้ตรงรุ่น
 5. **(สำคัญมาก) สำหรับหมวดสีตัวถังและวัสดุภายใน (Paintwork & Upholstery):** ในโบรชัวร์จะเป็นตาราง Matrix จับคู่ระหว่างสีตัวถังภายนอก (แถว/Row) และสีเบาะ/วัสดุหนังภายใน (คอลัมน์/Column) โดยมีเครื่องหมายสี่เหลี่ยม (■ หรือ □) แสดงการจับคู่ ให้คุณสกัดข้อมูลดังนี้:
    - คุณต้องระบุรุ่นย่อยของรถให้ตรงกับตาราง (เช่น 740d M Sport, 750e xDrive M Sport, 320d M Sport เป็นต้น)
-   - **การสกัดชื่อวัสดุเบาะหนังภายใน:** ในหัวคอลัมน์ของตาราง Upholstery มักจะมีแถวซ้อนกัน โดยแถวบนสุดจะระบุชนิดของหนังเบาะ (เช่น BMW Individual leather 'Merino', Vernasca leather, Sensatec perforated) และแถวถัดลงมาจะระบุสีเบาะ (เช่น Black, Mocha, Cognac)
-   - **(สำคัญที่สุด) คุณต้องระบุชนิดหนังเบาะควบคู่กับสีเบาะเสมอ** โดยเขียนให้อยู่ในรูปแบบ `"ชนิดหนัง - สีเบาะ"` เช่น `"BMW Individual leather 'Merino' - Mocha"` หรือ `"Vernasca leather - Black"` หรือ `"Sensatec perforated - Cognac"`
+   - **การสกัดชื่อวัสดุเบาะหนังภายใน:** ในหัวคอลัมน์ของตาราง Upholstery มักจะมีแถวซ้อนกัน โดยแถวบนสุดจะระบุชนิดของหนังเบาะ (เช่น BMW Individual leather 'Merino', Vernasca leather, Sensatec perforated, Leather 'Veganza') และแถวถัดลงมาจะระบุสีเบาะหรือคำขยายย่อย (เช่น Black, Mocha, Veganza perforated | Coral Red/Black)
+   - **(สำคัญที่สุด) คุณต้องระบุชนิดหนังเบาะควบคู่กับสีเบาะเสมอ** โดยเขียนให้อยู่ในรูปแบบ `"ชนิดหนัง - สีเบาะ"` เช่น `"BMW Individual leather 'Merino' - Mocha"` หรือ `"Vernasca leather - Black"`
+   - **(สำคัญมาก) หากหัวคอลัมน์ Upholstery มีแถวซ้อนกันหลายชั้น** (เช่น แถวบนเขียนว่า `Leather 'Veganza'` และแถวล่างคือ `Veganza perforated | Coral Red/Black`) **คุณต้องดึงข้อความจากหัวตารางทุกชั้นมาเชื่อมโยงกันเสมอ ห้ามตัดข้อความแถวบนสุดทิ้งเด็ดขาด** ให้ระบุในรูปแบบเชื่อมต่อ เช่น `"Leather 'Veganza' - Veganza perforated | Coral Red/Black"` หรือ `"BMW Individual leather 'Merino' - Black"`
    - สำหรับแต่ละสีตัวถังภายนอก (Paintwork) ในแถว:
      1. ไล่ดูในแนวนอนเพื่อหาเครื่องหมายจับคู่ (■ หรือ □ หรือตัวเลข/ตัวอักษรใดๆ)
      2. ตรวจสอบคอลัมน์เพื่อดูว่าตรงกับหนังเบาะและสีเบาะตัวไหน
@@ -133,6 +131,9 @@ Your task is to take a pre-extracted Markdown/HTML specification table from a BM
 10. **(สำคัญมาก) การกำหนดชื่อซีรีส์ (Series Name):**
     - ตรวจสอบจากชื่อรุ่นย่อยในเอกสาร หากรุ่นรถในเล่มเป็นตระกูลไฟฟ้าล้วนหรือรถยนต์ไฟฟ้าที่ขึ้นต้นด้วยตัวอักษร "i" พิมพ์เล็ก (เช่น i5, i7, iX, iX1, iX2, iX3) คุณต้องใช้ชื่อซีรีส์แยกออกมาให้ตรงกับกลุ่มของมันเสมอ เช่น "BMW i5", "BMW i7", "BMW iX", "BMW iX1", "BMW iX2", "BMW iX3"
     - ห้ามนำรถตระกูลไฟฟ้า รุ่น i ไปรวมกลุ่มภายใต้ซีรีส์ปกติของรถเครื่องยนต์สันดาป/ปลั๊กอินไฮบริดเด็ดขาด (ตัวอย่างเช่น หากในเล่มมีรุ่น i7 ให้ระบุชื่อซีรีส์ว่า "BMW i7" ห้ามนำไปเขียนรวมเป็น "BMW 7 SERIES" เด็ดขาด)
+11. **(สำคัญมาก) สำหรับตารางสเปกชีตที่มีเพียงรุ่นย่อยเดียว (มีคอลัมน์รุ่นรถคอลัมน์เดียว):**
+    - ให้ถือว่าทุกหัวข้อออปชันที่ปรากฏในตารางของเอกสารเล่มนั้นมีติดตั้งเป็นมาตรฐาน (ระบุค่าเป็น "■" เสมอ) ห้ามระบุค่าเป็น "-" โดยเด็ดขาด
+    - ยกเว้นกรณีที่ช่องข้อมูลระบุค่าเป็นข้อความรายละเอียดเชิงเทคนิคเฉพาะเจาะจง (เช่น ตัวเลขแรงม้า, ขนาดมิติต่างๆ, ชื่อสีเบาะ หรือคำอธิบาย) ให้ใส่ตามค่าข้อความจริงนั้น
 
 
 หมวดหมู่ (Category) ที่ต้องปรากฏใน JSON (ห้ามตกหล่นหมวดหมู่เหล่านี้):
@@ -183,7 +184,6 @@ Strict rules to follow:
 3. **Blank Cell Recovery Rule:** MinerU extraction sometimes fails to output checkmark symbols, resulting in empty/blank cells in the Markdown table. You must handle blank cells as follows:
    - If a cell contains an explicit dash "-" or "No", specify "-" (absent).
    - If a cell is blank/empty "" in the Markdown, but it represents a standard safety or universal technological feature (such as Airbags, ISOFIX child seat mounting, ABS, DSC, Dynamic Stability Control, Brake Assist, Alarm System, Teleservices, Intelligent Emergency Call, Comfort Access, Climate Control, BMW Live Cockpit, Wireless charging, etc.), you must output "■" (present) for all models. Modern BMW models always have these standard features.
-   - For M Sport models (identifiable by M Sport in the model/series name), standard M Sport items like "M Leather steering wheel", "M Sport package", "M Sport suspension", "M Aerodynamics package" must be output as "■" even if the Markdown cell is blank.
    - If a cell contains a footnote number (like "1", "2") or a single character (like "•", "L", "S") that indicates option presence or footnote references in the PDF, map it as present "■". Never output raw numbers like "1" or "2" or character placeholders as values in the JSON.
    - For other normal features that vary by model: If a cell is blank, specify "-" only. Never copy symbols (■) from adjacent rows or columns to blank cells unless it falls under the standard safety/tech/M Sport categories above.
 4. If an option specifies different details for each model, put the corresponding detail under each model.
@@ -557,6 +557,23 @@ def merge_spec_json_list(json_list: list[dict]) -> dict:
                            str(val).strip() not in ("-", "", "None"):
                             existing["value"] = val
                             
+
+    # Apply single variant auto recovery if there is only 1 model variant in the document
+    if len(merged.get("models", [])) == 1:
+        model_data = merged["models"][0]
+        for spec in model_data.get("specifications", []):
+            cat_name = spec.get("category", "")
+            # Skip non-option categories and paintwork matrices
+            if cat_name in ("ข้อมูลเอกสารอ้างอิง", "มิติรถยนต์", "เครื่องยนต์และสมรรถนะ", 
+                            "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
+                            "การชาร์จแบบกระแสสลับ (AC)", "ระยะเวลาในการชาร์จจาก 0 - 100%",
+                            "การชาร์จแบบกระแสตรง (DC)", "ระยะเวลาในการชาร์จจาก 10 - 80%") or \
+               "Paintwork" in cat_name or "สีตัวถัง" in cat_name or "Upholstery" in cat_name:
+                continue
+            for detail in spec.get("details", []):
+                if str(detail.get("value", "")).strip() in ("-", "", "None"):
+                    detail["value"] = "■"
+
     return merged
 
 # ─── Pipeline Orchestrator ────────────────────────────────────────────────────
@@ -680,11 +697,18 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
                 is_invalid_key = any(term in err_msg for term in ["API key not valid", "API_KEY_INVALID", "INVALID_ARGUMENT"])
                 
                 if is_rate_limit:
-                    if "quota" in err_msg.lower() or "resource_exhausted" in err_msg.lower():
+                    if "requestsperday" in err_msg.lower():
                         EXHAUSTED_COMBINATIONS.add(combo)
-                        print(f"      [GDRIVE/QUOTA] Marked {current_model} on Key #{key_idx+1} as exhausted for this run.")
+                        print(f"      [GDRIVE/QUOTA] Marked {current_model} on Key #{key_idx+1} as exhausted for this run (Daily Limit).")
+                        keys_tried_for_current_model += 1
+                    else:
+                        # Temporary RPM limit - sleep and rotate key but do not ban and do not increment tried keys count
+                        import re
+                        match = re.search(r"Please retry in ([\d\.]+)s", err_msg)
+                        delay = float(match.group(1)) if match else 10.0
+                        print(f"      [COOLDOWN] Temporary rate limit hit. Sleeping {delay:.1f}s...")
+                        time.sleep(delay + 1.0)
                     
-                    keys_tried_for_current_model += 1
                     if keys_tried_for_current_model >= len(API_KEYS):
                         model_idx = (model_idx + 1) % len(model_pool)
                         key_idx = (key_idx + 1) % len(API_KEYS)
@@ -725,6 +749,15 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
     merged_output["source_file"] = os.path.basename(pdf_path)
     merged_output["pdf_source"] = os.path.basename(pdf_path)
     
+    # Apply Manual Overrides
+    try:
+        from manual_override_manager import apply_overrides
+        pdf_basename = os.path.basename(pdf_path)
+        for model in merged_output.get("models", []):
+            apply_overrides(pdf_basename, model)
+    except Exception as oe:
+        print(f"[WARNING] Failed to apply manual overrides: {oe}")
+        
     # Step 5: Save final structured specsheet
     print(f"[SAVE] Saving JSON to: {output_json_path}")
     with open(output_json_path, "w", encoding="utf-8") as f:
