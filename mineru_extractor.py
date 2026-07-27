@@ -131,6 +131,7 @@ Your task is to take a pre-extracted Markdown/HTML specification table from a BM
 10. **(สำคัญมาก) การกำหนดชื่อซีรีส์ (Series Name):**
     - ตรวจสอบจากชื่อรุ่นย่อยในเอกสาร หากรุ่นรถในเล่มเป็นตระกูลไฟฟ้าล้วนหรือรถยนต์ไฟฟ้าที่ขึ้นต้นด้วยตัวอักษร "i" พิมพ์เล็ก (เช่น i5, i7, iX, iX1, iX2, iX3) คุณต้องใช้ชื่อซีรีส์แยกออกมาให้ตรงกับกลุ่มของมันเสมอ เช่น "BMW i5", "BMW i7", "BMW iX", "BMW iX1", "BMW iX2", "BMW iX3"
     - ห้ามนำรถตระกูลไฟฟ้า รุ่น i ไปรวมกลุ่มภายใต้ซีรีส์ปกติของรถเครื่องยนต์สันดาป/ปลั๊กอินไฮบริดเด็ดขาด (ตัวอย่างเช่น หากในเล่มมีรุ่น i7 ให้ระบุชื่อซีรีส์ว่า "BMW i7" ห้ามนำไปเขียนรวมเป็น "BMW 7 SERIES" เด็ดขาด)
+    - หากรุ่นรถในเล่มเป็นตระกูลสมรรถนะสูงตระกูล "M" (เช่น M2, M3, M4, M5, M8) คุณต้องใช้ชื่อซีรีส์แยกออกมาให้ตรงกับกลุ่มของมันเสมอ เช่น "BMW M2", "BMW M3", "BMW M4", "BMW M5", "BMW M8" และห้ามนำไปรวมกลุ่มภายใต้ซีรีส์ปกติเด็ดขาด (ตัวอย่างเช่น หากในเล่มมีรุ่น M3 ให้ระบุชื่อซีรีส์ว่า "BMW M3" ห้ามนำไปเขียนรวมเป็น "BMW 3 SERIES" เด็ดขาด)
 11. **(สำคัญมาก) สำหรับตารางสเปกชีตที่มีเพียงรุ่นย่อยเดียว (มีคอลัมน์รุ่นรถคอลัมน์เดียว):**
     - ให้ถือว่าทุกหัวข้อออปชันที่ปรากฏในตารางของเอกสารเล่มนั้นมีติดตั้งเป็นมาตรฐาน (ระบุค่าเป็น "■" เสมอ) ห้ามระบุค่าเป็น "-" โดยเด็ดขาด
     - ยกเว้นกรณีที่ช่องข้อมูลระบุค่าเป็นข้อความรายละเอียดเชิงเทคนิคเฉพาะเจาะจง (เช่น ตัวเลขแรงม้า, ขนาดมิติต่างๆ, ชื่อสีเบาะ หรือคำอธิบาย) ให้ใส่ตามค่าข้อความจริงนั้น
@@ -220,6 +221,7 @@ Strict rules to follow:
 10. **(Very Important) Series Name Determination:**
     - Check the model names in the document. If the models belong to the all-electric "i" family (such as i5, i7, iX, iX1, iX2, iX3), you must specify the series name exactly as "BMW i5", "BMW i7", "BMW iX", "BMW iX1", "BMW iX2", "BMW iX3" respectively.
     - Never merge electric "i" models under the general series names of internal combustion engine / plug-in hybrid models (for example, if the model is an i7, specify the series name as "BMW i7" and never write it as "BMW 7 SERIES").
+    - If the models belong to the high-performance "M" family (such as M2, M3, M4, M5, M8), you must specify the series name exactly as "BMW M2", "BMW M3", "BMW M4", "BMW M5", "BMW M8" respectively. Never merge M models under the general series names (for example, if the model is an M3, specify the series name as "BMW M3" and never write it as "BMW 3 SERIES").
 
 Categories expected in the JSON:
 - Engine and Performance
