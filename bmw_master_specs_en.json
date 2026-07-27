@@ -7502,8 +7502,11 @@
                     }
                 ],
                 "images": {
-                    "Black Sapphire Metallic": "images/M3_20250312_02_TH_Touring.asset.1745407583409/BMW_M3_Competition_M_xDrive_Touring_Black_Sapphire_Metallic.png",
-                    "M Brooklyn Grey metallic": "images/M3_20250312_02_TH_Touring.asset.1745407583409/BMW_M3_Competition_M_xDrive_Touring_M_Brooklyn_Grey_metallic.png"
+                    "BMW Individual Dravit Grey metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_bmw_individual_dravit_grey_metallic.png",
+                    "M Brooklyn Grey metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_m_brooklyn_grey_metallic.png",
+                    "Black Sapphire metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_black_sapphire_metallic.png",
+                    "M Portimao Blue metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_m_portimao_blue_metallic.png",
+                    "Mineral White metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_mineral_white_metallic.png"
                 },
                 "is_custom_archived": true
             }
@@ -7871,20 +7874,7 @@
                         ]
                     }
                 ],
-                "images": {
-                    "M Brooklyn Grey metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_M_Brooklyn_Grey_metallic.png",
-                    "Skyscraper Grey metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_Skyscraper_Grey_metallic.png",
-                    "Aventurine Red metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_Aventurine_Red_metallic.png",
-                    "M Isle of Man Green metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_M_Isle_of_Man_Green_metallic.png",
-                    "Black Sapphire metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_Black_Sapphire_metallic.png",
-                    "BMW Individual Tanzanite Blue metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_BMW_Individual_Tanzanite_Blue_metallic.png",
-                    "M Toronto Red metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_M_Toronto_Red_metallic.png",
-                    "BMW Individual Dravit Grey metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_BMW_Individual_Dravit_Grey_metallic.png",
-                    "M Portimao Blue metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_M_Portimao_Blue_metallic.png",
-                    "M Sao Paulo Yellow solid": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_M_Sao_Paulo_Yellow_solid.png",
-                    "BMW Individual Frozen Portimao Blue metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_BMW_Individual_Frozen_Portimao_Blue_metallic.png",
-                    "BMW Individual Frozen Brilliant White metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_BMW_Individual_Frozen_Brilliant_White_metallic.png"
-                },
+                "images": {},
                 "is_custom_archived": true
             }
         ],
@@ -8214,20 +8204,7 @@
                         ]
                     }
                 ],
-                "images": {
-                    "M Brooklyn Grey metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_M_Brooklyn_Grey_metallic.png",
-                    "Skyscraper Grey metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_Skyscraper_Grey_metallic.png",
-                    "Aventurine Red metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_Aventurine_Red_metallic.png",
-                    "M Isle of Man Green metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_M_Isle_of_Man_Green_metallic.png",
-                    "Black Sapphire metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_Black_Sapphire_metallic.png",
-                    "BMW Individual Tanzanite Blue metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_BMW_Individual_Tanzanite_Blue_metallic.png",
-                    "M Toronto Red metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_M_Toronto_Red_metallic.png",
-                    "BMW Individual Dravit Grey metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_BMW_Individual_Dravit_Grey_metallic.png",
-                    "M Portimao Blue metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_M_Portimao_Blue_metallic.png",
-                    "M Sao Paulo Yellow solid": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_M_Sao_Paulo_Yellow_solid.png",
-                    "BMW Individual Frozen Portimao Blue metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_BMW_Individual_Frozen_Portimao_Blue_metallic.png",
-                    "BMW Individual Frozen Brilliant White metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_BMW_Individual_Frozen_Brilliant_White_metallic.png"
-                },
+                "images": {},
                 "is_custom_archived": true
             }
         ],
@@ -18552,10 +18529,10 @@
                     }
                 ],
                 "images": {
-                    "Brooklyn Grey Metallic": "images/X6_20260223_01_TH.asset.1778752585977/BMW_X6_xDrive40i_M_Sport_Brooklyn_Grey_Metallic.png",
-                    "Black Sapphire Metallic": "images/X6_20260223_01_TH.asset.1778752585977/BMW_X6_xDrive40i_M_Sport_Black_Sapphire_Metallic.png",
-                    "Manhattan Metallic": "images/X6_20260223_01_TH.asset.1778752585977/BMW_X6_xDrive40i_M_Sport_Manhattan_Metallic.png",
-                    "Mineral White Metallic": "images/X6_20260223_01_TH.asset.1778752585977/BMW_X6_xDrive40i_M_Sport_Mineral_White_Metallic.png"
+                    "Brooklyn Grey Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_brooklyn_grey_metallic.png",
+                    "Black Sapphire Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_black_sapphire_metallic.png",
+                    "Manhattan Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_manhattan_metallic.png",
+                    "Mineral White Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_mineral_white_metallic.png"
                 },
                 "is_custom_archived": true
             }
@@ -21467,8 +21444,11 @@
                     }
                 ],
                 "images": {
-                    "Black Sapphire Metallic": "images/M3_20250312_02_TH_Touring.asset.1745407583409/BMW_M3_Competition_M_xDrive_Touring_Black_Sapphire_Metallic.png",
-                    "M Brooklyn Grey metallic": "images/M3_20250312_02_TH_Touring.asset.1745407583409/BMW_M3_Competition_M_xDrive_Touring_M_Brooklyn_Grey_metallic.png"
+                    "BMW Individual Dravit Grey metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_bmw_individual_dravit_grey_metallic.png",
+                    "M Brooklyn Grey metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_m_brooklyn_grey_metallic.png",
+                    "Black Sapphire metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_black_sapphire_metallic.png",
+                    "M Portimao Blue metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_m_portimao_blue_metallic.png",
+                    "Mineral White metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_mineral_white_metallic.png"
                 }
             }
         ],
@@ -21854,20 +21834,7 @@
                         ]
                     }
                 ],
-                "images": {
-                    "M Brooklyn Grey metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_M_Brooklyn_Grey_metallic.png",
-                    "Skyscraper Grey metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_Skyscraper_Grey_metallic.png",
-                    "Aventurine Red metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_Aventurine_Red_metallic.png",
-                    "M Isle of Man Green metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_M_Isle_of_Man_Green_metallic.png",
-                    "Black Sapphire metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_Black_Sapphire_metallic.png",
-                    "BMW Individual Tanzanite Blue metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_BMW_Individual_Tanzanite_Blue_metallic.png",
-                    "M Toronto Red metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_M_Toronto_Red_metallic.png",
-                    "BMW Individual Dravit Grey metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_BMW_Individual_Dravit_Grey_metallic.png",
-                    "M Portimao Blue metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_M_Portimao_Blue_metallic.png",
-                    "M Sao Paulo Yellow solid": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_M_Sao_Paulo_Yellow_solid.png",
-                    "BMW Individual Frozen Portimao Blue metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_BMW_Individual_Frozen_Portimao_Blue_metallic.png",
-                    "BMW Individual Frozen Brilliant White metallic": "images/M4_20241113_01_TH.asset.1732168871735/BMW_M4_CS_BMW_Individual_Frozen_Brilliant_White_metallic.png"
-                }
+                "images": {}
             }
         ],
         "source_file": "M4-20251104-02_EN.pdf.asset.1784613825408.pdf",
@@ -22257,20 +22224,7 @@
                         ]
                     }
                 ],
-                "images": {
-                    "M Brooklyn Grey metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_M_Brooklyn_Grey_metallic.png",
-                    "Skyscraper Grey metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_Skyscraper_Grey_metallic.png",
-                    "Aventurine Red metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_Aventurine_Red_metallic.png",
-                    "M Isle of Man Green metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_M_Isle_of_Man_Green_metallic.png",
-                    "Black Sapphire metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_Black_Sapphire_metallic.png",
-                    "BMW Individual Tanzanite Blue metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_BMW_Individual_Tanzanite_Blue_metallic.png",
-                    "M Toronto Red metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_M_Toronto_Red_metallic.png",
-                    "BMW Individual Dravit Grey metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_BMW_Individual_Dravit_Grey_metallic.png",
-                    "M Portimao Blue metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_M_Portimao_Blue_metallic.png",
-                    "M Sao Paulo Yellow solid": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_M_Sao_Paulo_Yellow_solid.png",
-                    "BMW Individual Frozen Portimao Blue metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_BMW_Individual_Frozen_Portimao_Blue_metallic.png",
-                    "BMW Individual Frozen Brilliant White metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_BMW_Individual_Frozen_Brilliant_White_metallic.png"
-                }
+                "images": {}
             }
         ],
         "source_file": "M4-20260714-01_EN.pdf.asset.1784613855331.pdf",
@@ -22694,7 +22648,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M5-20260714-01_EN.pdf.asset.1784613855363.pdf",
@@ -23098,7 +23053,13 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Brooklyn Grey Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_brooklyn_grey_metallic.png",
+                    "Black Sapphire Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_black_sapphire_metallic.png",
+                    "Manhattan Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_manhattan_metallic.png",
+                    "Mineral White Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_mineral_white_metallic.png"
+                }
             }
         ],
         "source_file": "X6-20260223-01_EN.pdf.asset.1784613825379.pdf",
