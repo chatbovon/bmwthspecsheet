@@ -477,7 +477,13 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_inspiring_black_sapphire_metallic.png",
+                    "Cape York Green metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_inspiring_cape_york_green_metallic.png",
+                    "Oxide Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_inspiring_oxide_grey_metallic.png",
+                    "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_inspiring_mineral_white_metallic.png"
+                }
             },
             {
                 "model_name": "520d M Sport",
@@ -958,7 +964,14 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_520d_m_sport_mineral_white_metallic.png",
+                    "Cape York Green metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_520d_m_sport_cape_york_green_metallic.png",
+                    "M Brooklyn Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_520d_m_sport_m_brooklyn_grey_metallic.png",
+                    "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_520d_m_sport_black_sapphire_metallic.png",
+                    "Phytonic Blue metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_520d_m_sport_phytonic_blue_metallic.png"
+                }
             },
             {
                 "model_name": "530e M Sport",
@@ -1439,11 +1452,19 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "M Brooklyn Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_m_brooklyn_grey_metallic.png",
+                    "Cape York Green metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_cape_york_green_metallic.png",
+                    "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_black_sapphire_metallic.png",
+                    "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_mineral_white_metallic.png",
+                    "Phytonic Blue metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_phytonic_blue_metallic.png"
+                }
             }
         ],
         "source_file": "5-20260417-01_TH.pdf.asset.1779074950693.pdf",
-        "pdf_source": "5-20260417-01_TH.pdf.asset.1779074950693.pdf"
+        "pdf_source": "5-20260417-01_TH.pdf.asset.1779074950693.pdf",
+        "low_confidence_flags": []
     },
     {
         "series": "BMW XM",
@@ -8696,11 +8717,21 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M5-20250130-05_TH.pdf.asset.1745407582783.pdf",
-        "pdf_source": "M5-20250130-05_TH.pdf.asset.1745407582783.pdf"
+        "pdf_source": "M5-20250130-05_TH.pdf.asset.1745407582783.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M5",
+                "category": "Wheels and Tyres",
+                "topic": "ขนาดยาง / Tyre size",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า : 10.5J × 20 / ยาง 285/40 ZR20 ล้อหลัง : 11J × 21 / ยาง 295/35 ZR21', English has 'Front: 10.5J × 20 / tyres: 285/40 ZR20Rear: 11J × 21 / tyres: 295/35 ZR21'"
+            }
+        ]
     },
     {
         "series": "BMW M5",
@@ -22798,7 +22829,14 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": true,
+                "images": {
+                    "Brooklyn Grey Metallic": "images/X6_20260223_01_TH.asset.1778752585977/bmw_x6_xdrive40i_m_sport_brooklyn_grey_metallic.png",
+                    "Black Sapphire Metallic": "images/X6_20260223_01_TH.asset.1778752585977/bmw_x6_xdrive40i_m_sport_black_sapphire_metallic.png",
+                    "Manhattan Metallic": "images/X6_20260223_01_TH.asset.1778752585977/bmw_x6_xdrive40i_m_sport_manhattan_metallic.png",
+                    "Mineral White Metallic": "images/X6_20260223_01_TH.asset.1778752585977/bmw_x6_xdrive40i_m_sport_mineral_white_metallic.png"
+                }
             }
         ],
         "source_file": "X6-20260223-01_TH.pdf.asset.1778752585977.pdf",
@@ -23242,7 +23280,15 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_bmw_individual_dravit_grey_metallic.png",
+                    "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_cape_york_green_metallic.png",
+                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_m_brooklyn_grey_metallic.png",
+                    "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_arctic_race_blue_metallic.png",
+                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_black_sapphire_metallic.png",
+                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_mineral_white_metallic.png"
+                }
             },
             {
                 "model_name": "430i Coupé M Sport",
@@ -23679,7 +23725,15 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_m_brooklyn_grey_metallic.png",
+                    "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_cape_york_green_metallic.png",
+                    "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_arctic_race_blue_metallic.png",
+                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_black_sapphire_metallic.png",
+                    "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_bmw_individual_dravit_grey_metallic.png",
+                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_mineral_white_metallic.png"
+                }
             },
             {
                 "model_name": "M440i xDrive",
@@ -24108,11 +24162,18 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Fire Red metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_fire_red_metallic.png",
+                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_m_brooklyn_grey_metallic.png",
+                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_black_sapphire_metallic.png",
+                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_mineral_white_metallic.png"
+                }
             }
         ],
         "source_file": "4-20260714-01_TH_.pdf.asset.1784613825348.pdf",
-        "pdf_source": "4-20260714-01_TH_.pdf.asset.1784613825348.pdf"
+        "pdf_source": "4-20260714-01_TH_.pdf.asset.1784613825348.pdf",
+        "low_confidence_flags": []
     },
     {
         "series": "BMW M2",
@@ -24508,7 +24569,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             },
             {
                 "model_name": "M2 (M Racetrack)",
@@ -24901,7 +24963,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             },
             {
                 "model_name": "M2 (MT)",
@@ -25294,11 +25357,13 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M2.-20260714-01_TH.pdf.asset.1784613855343.pdf",
-        "pdf_source": "M2.-20260714-01_TH.pdf.asset.1784613855343.pdf"
+        "pdf_source": "M2.-20260714-01_TH.pdf.asset.1784613855343.pdf",
+        "low_confidence_flags": []
     },
     {
         "series": "BMW M3",
