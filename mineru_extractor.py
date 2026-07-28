@@ -122,6 +122,9 @@ Your task is to take a pre-extracted Markdown/HTML specification table from a BM
    - ดึงข้อมูลวันที่พิมพ์และใส่ลงในหัวข้อ `"วันที่พิมพ์เอกสาร"` (เช่น "3 กรกฎาคม 2568") ให้กับทุกรุ่นย่อย โดยใช้ค่าวันที่ที่ปรากฏใน footer ของเอกสาร (ห้ามแปลงรูปแบบหรือแปลภาษา)
    - ดึงรหัส local pack ที่อยู่ในวงเล็บมาเก็บแยกตามรุ่นย่อย โดยใช้กฎการเรียงลำดับจากซ้ายไปขวา (Sequential mapping from left to right) ให้ตรงกับคอลัมน์ของรุ่นย่อยใน specsheet เช่น วงเล็บแรกสุด `(Z7J, Z8G)` จะเป็นของรุ่นย่อยแรกสุดในตาราง, วงเล็บที่สอง `(Z7G, Z7U)` จะเป็นของรุ่นย่อยที่สอง และวงเล็บที่สาม `(Z7H, Z8H)` จะเป็นของรุ่นย่อยที่สาม ให้ใส่ลงในหัวข้อ `"รหัสแพ็กเกจ (Local Pack)"` (รวมวงเล็บ) ให้ตรงกับรุ่นย่อยนั้นๆ หากรุ่นย่อยใดไม่มีรหัส local pack ให้ใส่ "-"
 8. **(สำคัญมาก) ห้ามรวมหรือยุบหมวดหมู่:** ห้ามนำรายละเอียดออปชันของหมวดหมู่หนึ่งไปรวมเข้ากับอีกหมวดหมู่หนึ่งเด็ดขาด (เช่น ห้ามนำออปชันของ อุปกรณ์ภายนอก หรือ อุปกรณ์ภายใน ไปใส่รวมไว้ใต้หมวดหมู่ ความปลอดภัย) ต้องสร้างคีย์ category แยกสำหรับแต่ละหมวดหมู่ให้ครบถ้วนในผลลัพธ์ JSON
+    - คำศัพท์เช่น "ชุดตกแต่งพิเศษ", "Line / package", "Line / Package" หรือคำอื่นๆ ที่ระบุถึงแพ็กเกจการตกแต่ง ให้ถือเป็นหัวข้อหมวดหมู่ (Category) เสมอ ห้ามยุบไปรวมกับหมวดหมู่อื่นเด็ดขาด
+    - ทุกๆ หัวข้อหมวดหมู่ที่ตรวจพบ จะต้องมีออปชันย่อย (details) บันทึกอยู่ภายใต้หมวดหมู่นั้นๆ เสมอ
+    - ทุกๆ ข้อความที่อยู่ในเอกสาร (หรือที่สแกนหลุดออกมานอกตาราง) ที่ไม่ใช่หัวกระดาษ (Header) หรือท้ายกระดาษ (Footer) ให้ถือว่าเป็นออปชันย่อย (Topic) และต้องถูกสกัดเข้ามาใน JSON ห้ามข้ามหรือละทิ้งเด็ดขาด
 9. **(สำคัญมาก) ข้อมูลการชาร์จรถยนต์ไฟฟ้า (AC / DC Charging):** หากเอกสารระบุข้อมูลการชาร์จไฟหรือระยะเวลาชาร์จแบบต่างๆ คุณต้องสกัดข้อมูลเหล่านั้นแบ่งแยกออกเป็น 4 หมวดหมู่ย่อยดังนี้เสมอ:
    - "การชาร์จแบบกระแสสลับ (AC)" สำหรับกำลังไฟชาร์จ AC สูงสุด
    - "ระยะเวลาในการชาร์จจาก 0 - 100%" สำหรับระยะเวลาและตัวเลือกชาร์จ AC ทั้งหมด
@@ -212,6 +215,9 @@ Strict rules to follow:
    - Extract the print date and put it under the topic `"Publication Date"` (e.g., "3 July 2026") for all models, using the date value in the document footer (do not translate or modify formatting).
    - Extract the local pack codes inside parentheses and map them sequentially from left to right to the corresponding columns (models) of the specsheet. For example, the first parentheses `(Z7J, Z8G)` goes to the first model, the second `(Z7G, Z7U)` to the second, and the third `(Z7H, Z8H)` to the third. Put this under the topic `"Package Code (Local Pack)"` (including parentheses) for each model. If a model doesn't have a package code, specify "-".
 8. **(Very Important) Do not merge categories:** Do not combine options of one category into another (e.g., do not put Exterior or Interior options under Safety). You must create a separate category key for each group of specifications in the JSON output.
+    - Terms like "Line / package", "Line / Package", "ชุดตกแต่งพิเศษ" or similar words representing trim packages must always be treated as Category headers. Never merge them into other categories.
+    - Every category header detected must contain its respective sub-options (details) under it.
+    - Every text in the document (including text that is parsed outside of a table layout) that is not page headers or footers must be treated as a sub-option (Topic) and must be extracted into the JSON. Never skip or omit them.
 9. **(Very Important) Electric Vehicle Charging Specs (AC / DC Charging):** If the document specifies charging details or charging times, you must always split them into the following 4 categories:
    - "AC CHARGING" for maximum AC charging power
    - "CHARGING TIME 0 - 100%" for AC charging times and options

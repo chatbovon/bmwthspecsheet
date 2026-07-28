@@ -1,8 +1,6 @@
 [
     {
         "series": "BMW 5 SERIES",
-        "source_file": "5-20260417-01_TH.pdf.asset.1779074950693.pdf",
-        "pdf_source": "5-20260417-01_TH.pdf.asset.1779074950693.pdf",
         "models": [
             {
                 "model_name": "530e Inspiring",
@@ -35,11 +33,11 @@
                                 "value": "250"
                             },
                             {
-                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน NEDC (กิโลเมตร)",
+                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน NEDC (กิโลเมตร)",
                                 "value": "108"
                             },
                             {
-                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน WLTP (กิโลเมตร)",
+                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน WLTP (กิโลเมตร)",
                                 "value": "87 - 102"
                             },
                             {
@@ -77,6 +75,19 @@
                         ]
                     },
                     {
+                        "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
+                        "details": [
+                            {
+                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
+                                "value": "76.9"
+                            },
+                            {
+                                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
+                                "value": "29"
+                            }
+                        ]
+                    },
+                    {
                         "category": "ล้อและยาง",
                         "details": [
                             {
@@ -85,7 +96,7 @@
                             },
                             {
                                 "topic": "ขนาดยาง",
-                                "value": "ล้อหน้า: 8.5 J x 20 / ยาง: 245/40 R 20, ล้อหลัง: 10J x 20 / ยาง: 275/35 R 20"
+                                "value": "ล้อหน้า: 8.5 J × 20 / ยาง: 245/40 R 20 ล้อหลัง: 10J × 20 / ยาง: 275/35 R 20"
                             }
                         ]
                     },
@@ -101,7 +112,7 @@
                                 "value": "520"
                             },
                             {
-                                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
+                                "topic": "น้ำหนักสุทธิ (กิโลกรัม)",
                                 "value": "2,080"
                             }
                         ]
@@ -179,7 +190,7 @@
                                 "value": "-"
                             },
                             {
-                                "topic": "ภายนอกตกแต่งด้วยวัสดุดีไซน์ Titanium Bronze",
+                                "topic": "ภายนอกตกแต่งด้วยวัสดุสีไทเทเนียม Titanium Bronze",
                                 "value": "■"
                             }
                         ]
@@ -208,7 +219,7 @@
                                 "value": "-"
                             },
                             {
-                                "topic": "ภายในตกแต่งด้วยสี Dark Silver M ผสมกับอลูมิเนียมลาย Rhombicle",
+                                "topic": "ภายในตกแต่งด้วยสี Dark Silver M ผสมกับอลูมิเนียม ลาย Rhombicle",
                                 "value": "-"
                             },
                             {
@@ -424,6 +435,19 @@
                         ]
                     },
                     {
+                        "category": "ข้อมูลเอกสารอ้างอิง",
+                        "details": [
+                            {
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "25 กันยายน 2568"
+                            },
+                            {
+                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "value": "(ZJT, ZKO, ZLE)"
+                            }
+                        ]
+                    },
+                    {
                         "category": "ชุดตกแต่งพิเศษ",
                         "details": [
                             {
@@ -436,56 +460,24 @@
                         "category": "Paintwork / สีตัวถังและวัสดุภายใน",
                         "details": [
                             {
-                                "topic": "Cape York Green Metallic",
-                                "value": "Veganza perforated and quilted (Black)"
-                            },
-                            {
                                 "topic": "Black Sapphire Metallic",
-                                "value": "Veganza perforated and quilted (Espresso Brown)"
+                                "value": "Veganza perforated and quilted - Espresso Brown"
                             },
                             {
                                 "topic": "Mineral White Metallic",
-                                "value": "Veganza perforated and quilted (Espresso Brown)"
+                                "value": "Veganza perforated and quilted - Espresso Brown"
+                            },
+                            {
+                                "topic": "Cape York Green Metallic",
+                                "value": "Veganza perforated and quilted - Black"
                             },
                             {
                                 "topic": "Oxide Grey Metallic",
-                                "value": "Veganza perforated and quilted (Espresso Brown)"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ข้อมูลเอกสารอ้างอิง",
-                        "details": [
-                            {
-                                "topic": "วันที่พิมพ์เอกสาร",
-                                "value": "25 กันยายน 2568"
-                            },
-                            {
-                                "topic": "รหัสแพ็กเกจ",
-                                "value": "(ZJT, ZKO, ZLE)"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
-                        "details": [
-                            {
-                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
-                                "value": "76.9"
-                            },
-                            {
-                                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
-                                "value": "29"
+                                "value": "Veganza perforated and quilted - Espresso Brown"
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Black_Sapphire_metallic.png",
-                    "Cape York Green metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Cape_York_Green_metallic.png",
-                    "Oxide Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Oxide_Grey_metallic.png",
-                    "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Mineral_White_metallic.png"
-                }
+                ]
             },
             {
                 "model_name": "520d M Sport",
@@ -518,11 +510,11 @@
                                 "value": "25"
                             },
                             {
-                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน NEDC (กิโลเมตร)",
+                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน NEDC (กิโลเมตร)",
                                 "value": "-"
                             },
                             {
-                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน WLTP (กิโลเมตร)",
+                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน WLTP (กิโลเมตร)",
                                 "value": "-"
                             },
                             {
@@ -560,6 +552,19 @@
                         ]
                     },
                     {
+                        "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
+                        "details": [
+                            {
+                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
+                                "value": "18.5"
+                            },
+                            {
+                                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
+                                "value": "142"
+                            }
+                        ]
+                    },
+                    {
                         "category": "ล้อและยาง",
                         "details": [
                             {
@@ -568,7 +573,7 @@
                             },
                             {
                                 "topic": "ขนาดยาง",
-                                "value": "ล้อหน้า: 8.5 J x 20 / ยาง: 245/40 R 20, ล้อหลัง: 10J x 20 / ยาง: 275/35 R 20"
+                                "value": "ล้อหน้า: 8.5 J × 20 / ยาง: 245/40 R 20 ล้อหลัง: 10J × 20 / ยาง: 275/35 R 20"
                             }
                         ]
                     },
@@ -584,7 +589,7 @@
                                 "value": "520"
                             },
                             {
-                                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
+                                "topic": "น้ำหนักสุทธิ (กิโลกรัม)",
                                 "value": "1,850"
                             }
                         ]
@@ -662,7 +667,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ภายนอกตกแต่งด้วยวัสดุดีไซน์ Titanium Bronze",
+                                "topic": "ภายนอกตกแต่งด้วยวัสดุสีไทเทเนียม Titanium Bronze",
                                 "value": "-"
                             }
                         ]
@@ -691,7 +696,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ภายในตกแต่งด้วยสี Dark Silver M ผสมกับอลูมิเนียมลาย Rhombicle",
+                                "topic": "ภายในตกแต่งด้วยสี Dark Silver M ผสมกับอลูมิเนียม ลาย Rhombicle",
                                 "value": "■"
                             },
                             {
@@ -907,6 +912,19 @@
                         ]
                     },
                     {
+                        "category": "ข้อมูลเอกสารอ้างอิง",
+                        "details": [
+                            {
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "25 กันยายน 2568"
+                            },
+                            {
+                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "value": "(ZJR, ZKP)"
+                            }
+                        ]
+                    },
+                    {
                         "category": "ชุดตกแต่งพิเศษ",
                         "details": [
                             {
@@ -919,61 +937,28 @@
                         "category": "Paintwork / สีตัวถังและวัสดุภายใน",
                         "details": [
                             {
-                                "topic": "Phytonic Blue Metallic",
-                                "value": "Veganza perforated and quilted (Black)"
-                            },
-                            {
-                                "topic": "Cape York Green Metallic",
-                                "value": "Veganza perforated and quilted (Black)"
-                            },
-                            {
                                 "topic": "Black Sapphire Metallic",
-                                "value": "Veganza perforated and quilted (Espresso Brown)"
+                                "value": "Veganza perforated and quilted - Espresso Brown"
                             },
                             {
                                 "topic": "Mineral White Metallic",
-                                "value": "Veganza perforated and quilted (Espresso Brown)"
+                                "value": "Veganza perforated and quilted - Espresso Brown"
                             },
                             {
                                 "topic": "Brooklyn Grey Metallic",
-                                "value": "Veganza perforated and quilted (Espresso Brown)"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ข้อมูลเอกสารอ้างอิง",
-                        "details": [
-                            {
-                                "topic": "วันที่พิมพ์เอกสาร",
-                                "value": "25 กันยายน 2568"
+                                "value": "Veganza perforated and quilted - Espresso Brown"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ",
-                                "value": "(ZJR, ZKP)"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
-                        "details": [
-                            {
-                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
-                                "value": "18.5"
+                                "topic": "Phytonic Blue Metallic",
+                                "value": "Veganza perforated and quilted - Black"
                             },
                             {
-                                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
-                                "value": "142"
+                                "topic": "Cape York Green Metallic",
+                                "value": "Veganza perforated and quilted - Black"
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_520d_M_Sport_Mineral_White_metallic.png",
-                    "Cape York Green metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_520d_M_Sport_Cape_York_Green_metallic.png",
-                    "M Brooklyn Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_520d_M_Sport_M_Brooklyn_Grey_metallic.png",
-                    "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_520d_M_Sport_Black_Sapphire_metallic.png",
-                    "Phytonic Blue metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_520d_M_Sport_Phytonic_Blue_metallic.png"
-                }
+                ]
             },
             {
                 "model_name": "530e M Sport",
@@ -1006,11 +991,11 @@
                                 "value": "250"
                             },
                             {
-                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน NEDC (กิโลเมตร)",
+                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน NEDC (กิโลเมตร)",
                                 "value": "108"
                             },
                             {
-                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน WLTP (กิโลเมตร)",
+                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน WLTP (กิโลเมตร)",
                                 "value": "87 - 102"
                             },
                             {
@@ -1048,6 +1033,19 @@
                         ]
                     },
                     {
+                        "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
+                        "details": [
+                            {
+                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
+                                "value": "76.9"
+                            },
+                            {
+                                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
+                                "value": "29"
+                            }
+                        ]
+                    },
+                    {
                         "category": "ล้อและยาง",
                         "details": [
                             {
@@ -1072,7 +1070,7 @@
                                 "value": "520"
                             },
                             {
-                                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
+                                "topic": "น้ำหนักสุทธิ (กิโลกรัม)",
                                 "value": "2,080"
                             }
                         ]
@@ -1150,7 +1148,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ภายนอกตกแต่งด้วยวัสดุดีไซน์ Titanium Bronze",
+                                "topic": "ภายนอกตกแต่งด้วยวัสดุสีไทเทเนียม Titanium Bronze",
                                 "value": "-"
                             }
                         ]
@@ -1179,7 +1177,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ภายในตกแต่งด้วยสี Dark Silver M ผสมกับอลูมิเนียมลาย Rhombicle",
+                                "topic": "ภายในตกแต่งด้วยสี Dark Silver M ผสมกับอลูมิเนียม ลาย Rhombicle",
                                 "value": "-"
                             },
                             {
@@ -1395,6 +1393,19 @@
                         ]
                     },
                     {
+                        "category": "ข้อมูลเอกสารอ้างอิง",
+                        "details": [
+                            {
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "25 กันยายน 2568"
+                            },
+                            {
+                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "value": "(ZJQ, ZLB)"
+                            }
+                        ]
+                    },
+                    {
                         "category": "ชุดตกแต่งพิเศษ",
                         "details": [
                             {
@@ -1407,64 +1418,32 @@
                         "category": "Paintwork / สีตัวถังและวัสดุภายใน",
                         "details": [
                             {
-                                "topic": "Phytonic Blue Metallic",
-                                "value": "BMW Individual leather 'Merino' (Black/Atlas Grey)"
-                            },
-                            {
-                                "topic": "Cape York Green Metallic",
-                                "value": "BMW Individual leather 'Merino' (Black/Atlas Grey)"
-                            },
-                            {
                                 "topic": "Black Sapphire Metallic",
-                                "value": "BMW Individual leather 'Merino' (Copper Brown/Atlas Grey)"
+                                "value": "BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
                             },
                             {
                                 "topic": "Mineral White Metallic",
-                                "value": "BMW Individual leather 'Merino' (Copper Brown/Atlas Grey)"
+                                "value": "BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
                             },
                             {
                                 "topic": "Brooklyn Grey Metallic",
-                                "value": "BMW Individual leather 'Merino' (Copper Brown/Atlas Grey)"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ข้อมูลเอกสารอ้างอิง",
-                        "details": [
-                            {
-                                "topic": "วันที่พิมพ์เอกสาร",
-                                "value": "25 กันยายน 2568"
+                                "value": "BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
                             },
                             {
-                                "topic": "รหัสแพ็กเกจ",
-                                "value": "(ZJQ, ZLB)"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
-                        "details": [
-                            {
-                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
-                                "value": "76.9"
+                                "topic": "Phytonic Blue Metallic",
+                                "value": "BMW Individual leather 'Merino' - Black/Atlas Grey"
                             },
                             {
-                                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
-                                "value": "29"
+                                "topic": "Cape York Green Metallic",
+                                "value": "BMW Individual leather 'Merino' - Black/Atlas Grey"
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "M Brooklyn Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_m_brooklyn_grey_metallic.png",
-                    "Cape York Green metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_cape_york_green_metallic.png",
-                    "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_black_sapphire_metallic.png",
-                    "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_mineral_white_metallic.png",
-                    "Phytonic Blue metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_phytonic_blue_metallic.png"
-                }
+                ]
             }
         ],
-        "low_confidence_flags": []
+        "source_file": "5-20260417-01_TH.pdf.asset.1779074950693.pdf",
+        "pdf_source": "5-20260417-01_TH.pdf.asset.1779074950693.pdf"
     },
     {
         "series": "BMW XM",
@@ -8328,7 +8307,7 @@
                                 "value": "4,395"
                             },
                             {
-                                "topic": "กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
+                                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
                                 "value": "430 / 585 / 5,600 - 6,500"
                             },
                             {
@@ -8336,7 +8315,7 @@
                                 "value": "750 / 1,800 - 5,400"
                             },
                             {
-                                "topic": "กําลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)",
+                                "topic": "กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)",
                                 "value": "145 / 197"
                             },
                             {
@@ -8344,11 +8323,11 @@
                                 "value": "280"
                             },
                             {
-                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน NEDC (กิโลเมตร)",
+                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า1 , มาตรฐาน NEDC (กิโลเมตร)",
                                 "value": "76"
                             },
                             {
-                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน WLTP (กิโลเมตร)",
+                                "topic": "ระยะทางขับเคลื่อนไฟฟ้า1 , มาตรฐาน WLTP (กิโลเมตร)",
                                 "value": "67 - 69"
                             },
                             {
@@ -8356,7 +8335,7 @@
                                 "value": "22.1"
                             },
                             {
-                                "topic": "กําลังรวมสูงสุด (กิโลวัตต์/แรงม้า)",
+                                "topic": "กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า)",
                                 "value": "535 / 727"
                             },
                             {
@@ -8378,6 +8357,19 @@
                             {
                                 "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)",
                                 "value": "25.5 - 25.0"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
+                        "details": [
+                            {
+                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
+                                "value": "39"
+                            },
+                            {
+                                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
+                                "value": "60"
                             }
                         ]
                     },
@@ -8431,12 +8423,48 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบช่วยการขับขี่ รุ่น Professional (Driving Assistant Professional) พร้อมระบบควบคุมความเร็วอัตโนมัติ พร้อมฟังก์ชั่น Stop&Go",
+                                "topic": "ระบบช่วยการขับขี่ รุ่น Professional (Driving Assistant Professional) พร้อมระบบควบคุมความเร็วอัตโนมัติ พร้อมฟังก์ชัน Stop&Go",
                                 "value": "■"
                             },
                             {
                                 "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Professional (Parking Assistant Professional)",
                                 "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "การชาร์จแบบกระแสสลับ (AC)",
+                        "details": [
+                            {
+                                "topic": "-",
+                                "value": "-"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระยะเวลาในการชาร์จจาก 0 - 100%",
+                        "details": [
+                            {
+                                "topic": "-",
+                                "value": "-"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "การชาร์จแบบกระแสตรง (DC)",
+                        "details": [
+                            {
+                                "topic": "-",
+                                "value": "-"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระยะเวลาในการชาร์จจาก 10 - 80%",
+                        "details": [
+                            {
+                                "topic": "-",
+                                "value": "-"
                             }
                         ]
                     },
@@ -8501,7 +8529,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ภายในตกแต่งด้วยสี Dark Silver M ผสมกับ Carbon Fibre ตัดด้วยวัสดุสีเงินแบบ M",
+                                "topic": "ภายในตกแต่งด้วยสี Dark Silver M ผสมกับ Carbon Fibre สลักด้วยวัสดุสีเงินแบบ M",
                                 "value": "■"
                             },
                             {
@@ -8579,6 +8607,10 @@
                                 "value": "■"
                             },
                             {
+                                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า",
+                                "value": "■"
+                            },
+                            {
                                 "topic": "ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ)",
                                 "value": "■"
                             },
@@ -8607,7 +8639,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบสร้างเสียงจำลองเตือนผู้ใช้ถนนรอบข้าง",
+                                "topic": "ระบบสร้างเสียงจำลอง เตือนผู้ใช้ถนนรอบข้าง",
                                 "value": "■"
                             },
                             {
@@ -8621,32 +8653,6 @@
                             {
                                 "topic": "ป้ายสามเหลี่ยมเตือนสะท้อนแสง",
                                 "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ข้อมูลเอกสารอ้างอิง",
-                        "details": [
-                            {
-                                "topic": "วันที่พิมพ์เอกสาร",
-                                "value": "30 มกราคม 2568"
-                            },
-                            {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                                "value": "(Z6N, Z8P, Z9N)"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
-                        "details": [
-                            {
-                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิง ECO Sticker (กิโลเมตร/ลิตร)",
-                                "value": "39"
-                            },
-                            {
-                                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
-                                "value": "60"
                             }
                         ]
                     },
@@ -8667,32 +8673,34 @@
                                 "value": "■"
                             }
                         ]
+                    },
+                    {
+                        "category": "Paintwork / สีตัวถังและวัสดุภายใน",
+                        "details": [
+                            {
+                                "topic": "-",
+                                "value": "-"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ข้อมูลเอกสารอ้างอิง",
+                        "details": [
+                            {
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "30 มกราคม 2568"
+                            },
+                            {
+                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "value": "(Z6N, Z8P, Z9N)"
+                            }
+                        ]
                     }
-                ],
-                "images": {
-                    "BMW Individual Frozen Deep Grey metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_BMW_Individual_Frozen_Deep_Grey_metallic.png",
-                    "Fire Red metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_Fire_Red_metallic.png",
-                    "M Brooklyn Grey metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_M_Brooklyn_Grey_metallic.png",
-                    "M Isle of Man Green metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_M_Isle_of_Man_Green_metallic.png",
-                    "Black Sapphire metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_Black_Sapphire_metallic.png",
-                    "BMW Individual Storm Bay metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_BMW_Individual_Storm_Bay_metallic.png",
-                    "M Carbon Black metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_M_Carbon_Black_metallic.png",
-                    "Sophisto Grey brilliant effect metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_Sophisto_Grey_brilliant_effect_metallic.png",
-                    "M Marina Bay Blue metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_M_Marina_Bay_Blue_metallic.png"
-                }
+                ]
             }
         ],
         "source_file": "M5-20250130-05_TH.pdf.asset.1745407582783.pdf",
-        "pdf_source": "M5-20250130-05_TH.pdf.asset.1745407582783.pdf",
-        "low_confidence_flags": [
-            {
-                "model_name": "M5",
-                "category": "Wheels and Tyres",
-                "topic": "ขนาดยาง / Tyre size",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า : 10.5J × 20 / ยาง 285/40 ZR20 ล้อหลัง : 11J × 21 / ยาง 295/35 ZR21', English has 'Front: 10.5J × 20 / tyres: 285/40 ZR20Rear: 11J × 21 / tyres: 295/35 ZR21'"
-            }
-        ]
+        "pdf_source": "M5-20250130-05_TH.pdf.asset.1745407582783.pdf"
     },
     {
         "series": "BMW M5",
@@ -22406,7 +22414,7 @@
                                 "value": "2,998"
                             },
                             {
-                                "topic": "กําลังสูงสุด (กิโลวัตต์/แรงน้า/รอบต่อนาที)",
+                                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
                                 "value": "280 / 381 / 5,200 - 6,250"
                             },
                             {
@@ -22414,23 +22422,23 @@
                                 "value": "520 / 1,850 - 5,000"
                             },
                             {
-                                "topic": "กําลังมอบเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงน้า)",
+                                "topic": "กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)",
                                 "value": "9 / 12"
                             },
                             {
-                                "topic": "กําลังรวบรวมสูงสุด (กิโลวัตต์/แรงน้า)",
+                                "topic": "กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า)",
                                 "value": "280 / 381"
                             },
                             {
-                                "topic": "แรงบิดรวบรวมสูงสุด (นิวตันเมตร)",
+                                "topic": "แรงบิดรวมสูงสุด (นิวตันเมตร)",
                                 "value": "540"
                             },
                             {
-                                "topic": "ความเร็วสูงสุด (กิโลเมตร/ช่วโมง)",
+                                "topic": "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)",
                                 "value": "250"
                             },
                             {
-                                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ช่วโมง (วินาที)",
+                                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)",
                                 "value": "5.4"
                             }
                         ]
@@ -22439,7 +22447,7 @@
                         "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
                         "details": [
                             {
-                                "topic": "อัตราสิ้นเปลืองน้ํามันเชื้อเพลงเฉลี่ย - จ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
+                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
                                 "value": "11.5"
                             },
                             {
@@ -22457,7 +22465,7 @@
                             },
                             {
                                 "topic": "ขนาดยาง",
-                                "value": "ล้อหน้า: 9.5 J × 22 / ยาง 275/35 R22ล้อหลัง: 10.5 J × 22 / ยาง 315/30 R22"
+                                "value": "ล้อหน้า: 9.5 J × 22 / ยาง 275/35 R22 ล้อหลัง: 10.5 J × 22 / ยาง 315/30 R22"
                             }
                         ]
                     },
@@ -22473,7 +22481,7 @@
                                 "value": "580 - 1,530"
                             },
                             {
-                                "topic": "น้ําหนักรถสุทธิ (กิโลกรัม)",
+                                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
                                 "value": "2,240"
                             }
                         ]
@@ -22490,15 +22498,15 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบช่วยการขับชี่ รุ่น Professional(Driving Assistant Professional)",
+                                "topic": "ระบบช่วยการขับขี่ รุ่น Professional (Driving Assistant Professional)",
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบช่วยนํารถเข้าที่จอดอัตโนมัติ รุ่น Professional (Parking Assistant Professional)",
+                                "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Professional (Parking Assistant Professional)",
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบท่อโอเลีย M Sport",
+                                "topic": "ระบบท่อไอเสีย M Sport",
                                 "value": "■"
                             }
                         ]
@@ -22507,11 +22515,11 @@
                         "category": "อุปกรณ์ภายนอก",
                         "details": [
                             {
-                                "topic": "ระบบไฟหน้า LED อัจจริยะ (Adaptive LED)",
+                                "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)",
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบปรับการทํางานไฟสูงอัตโนมัติ (High-beam Assistant)",
+                                "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)",
                                 "value": "■"
                             },
                             {
@@ -22519,15 +22527,15 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "คาลิเบอร์เบรกตีไซน์ M Sport สีแดงเขา",
+                                "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สีแดงเข้ม",
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบปลดล็อกประดูอัจจริยะ (Comfort Access System)",
+                                "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)",
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบช่วยผ่อนแรงกระแทกขณะปิดประตู(Soft-close function for doors)",
+                                "topic": "ระบบช่วยผ่อนแรงกระแทกขณะปิดประตู (Soft-close function for doors)",
                                 "value": "■"
                             },
                             {
@@ -22535,7 +22543,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "กระจกมองข้างปรับไฟฟ้าพร้อมระบบตัดแสงอัตโนมัติฝึ่งคนขับ",
+                                "topic": "กระจกมองข้างปรับไฟฟ้าพร้อมระบบตัดแสงอัตโนมัติฝั่งคนขับ",
                                 "value": "■"
                             },
                             {
@@ -22543,15 +22551,15 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ภายนอกตกแต่งด้วยชุดแต่ง M สีดําเขา",
+                                "topic": "ภายนอกตกแต่งด้วยชุดแต่ง M สีดำเข้ม",
                                 "value": "■"
                             },
                             {
-                                "topic": "ภายนอกพร้อมชุดตกแต่งด้วยวัสดุสีดําเขา",
+                                "topic": "ภายนอกพร้อมชุดตกแต่งด้วยวัสดุสีดำเข้ม",
                                 "value": "■"
                             },
                             {
-                                "topic": "โคมไฟหน้าตกแต่งดีไซน์ M สีดํา (M Lights Shadow Line)",
+                                "topic": "โคมไฟหน้าตกแต่งดีไซน์ M สีดำ (M Lights Shadow Line)",
                                 "value": "■"
                             }
                         ]
@@ -22560,11 +22568,11 @@
                         "category": "อุปกรณ์ภายใน",
                         "details": [
                             {
-                                "topic": "ระบบลุ่นเบาะสําหรับคนขับและผู้โดยสารเบาะหน้า",
+                                "topic": "ระบบอุ่นเบาะสำหรับคนขับและผู้โดยสารเบาะหน้า",
                                 "value": "■"
                             },
                             {
-                                "topic": "เบาะนั่งตอนหน้าแบบ Comfort ปรับไฟฟ้าพร้อมระบบจําตําแหน่ง",
+                                "topic": "เบาะนั่งตอนหน้าแบบ Comfort ปรับไฟฟ้าพร้อมระบบจำตำแหน่ง",
                                 "value": "■"
                             },
                             {
@@ -22572,11 +22580,11 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "เอ็มขัดนิภัยดีไซน์ M",
+                                "topic": "เข็มขัดนิรภัยดีไซน์ M",
                                 "value": "■"
                             },
                             {
-                                "topic": "ชุดไฟสองสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)",
+                                "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)",
                                 "value": "■"
                             },
                             {
@@ -22588,7 +22596,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ภายในตกแต่งด้วยผลิกแก้ว 'CraftedClarity'",
+                                "topic": "ภายในตกแต่งด้วยผลึกแก้ว 'CraftedClarity'",
                                 "value": "■"
                             },
                             {
@@ -22596,7 +22604,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ม่านบังแวดตระดูหลัง",
+                                "topic": "ม่านบังแดดประตูหลัง",
                                 "value": "■"
                             },
                             {
@@ -22604,7 +22612,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบจัดเก็บสัมภาวะท้ายรถ",
+                                "topic": "ระบบจัดเก็บสัมภาระท้ายรถ",
                                 "value": "■"
                             },
                             {
@@ -22654,15 +22662,15 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ปุ่มโทรศอกฉุกเฉิน (Intelligent Emergency Call)",
+                                "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)",
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบควบคุมเสถียรภาพการขับซี่ (DSC)",
+                                "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC)",
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบควบคุมการยืดเกาะถน (DTC)",
+                                "topic": "ระบบควบคุมการยึดเกาะถนน (DTC)",
                                 "value": "■"
                             },
                             {
@@ -22670,7 +22678,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน(Crash Sensor)",
+                                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)",
                                 "value": "■"
                             },
                             {
@@ -22698,7 +22706,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบเตือนรถออกนอกเลนพร้อมช่วยนํารถกลับเข้าเลน",
+                                "topic": "ระบบเตือนรถออกนอกเลนพร้อมช่วยนำรถกลับเข้าเลน",
                                 "value": "■"
                             },
                             {
@@ -22710,7 +22718,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบป้องกันการขนด้านหลัง",
+                                "topic": "ระบบป้องกันการชนด้านหลัง",
                                 "value": "■"
                             },
                             {
@@ -22730,7 +22738,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการซนจากด้านข้าง",
+                                "topic": "ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง",
                                 "value": "■"
                             },
                             {
@@ -22742,7 +22750,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรคฉุกเฉิน",
+                                "topic": "ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรกฉุกเฉิน",
                                 "value": "■"
                             }
                         ]
@@ -22761,19 +22769,19 @@
                         "details": [
                             {
                                 "topic": "Brooklyn Grey Metallic",
-                                "value": "BMW Individual extended leather trim 'Merino' - Black"
+                                "value": "BMW Individual extended leather trim 'Merino' - Black | Black"
                             },
                             {
                                 "topic": "Mineral White Metallic",
-                                "value": "BMW Individual extended leather trim 'Merino' - Coffee"
+                                "value": "BMW Individual extended leather trim 'Merino' - Coffee | Black"
                             },
                             {
                                 "topic": "Black Sapphire Metallic",
-                                "value": "BMW Individual extended leather trim 'Merino' - Coffee"
+                                "value": "BMW Individual extended leather trim 'Merino' - Coffee | Black"
                             },
                             {
                                 "topic": "Manhattan Metallic",
-                                "value": "BMW Individual extended leather trim 'Merino' - Coffee"
+                                "value": "BMW Individual extended leather trim 'Merino' - Coffee | Black"
                             }
                         ]
                     },
@@ -22790,34 +22798,11 @@
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "Brooklyn Grey Metallic": "images/X6_20260223_01_TH.asset.1778752585977/BMW_X6_xDrive40i_M_Sport_Brooklyn_Grey_Metallic.png",
-                    "Black Sapphire Metallic": "images/X6_20260223_01_TH.asset.1778752585977/BMW_X6_xDrive40i_M_Sport_Black_Sapphire_Metallic.png",
-                    "Manhattan Metallic": "images/X6_20260223_01_TH.asset.1778752585977/BMW_X6_xDrive40i_M_Sport_Manhattan_Metallic.png",
-                    "Mineral White Metallic": "images/X6_20260223_01_TH.asset.1778752585977/BMW_X6_xDrive40i_M_Sport_Mineral_White_Metallic.png"
-                },
-                "is_custom_archived": true
+                ]
             }
         ],
         "source_file": "X6-20260223-01_TH.pdf.asset.1778752585977.pdf",
-        "pdf_source": "X6-20260223-01_TH.pdf.asset.1778752585977.pdf",
-        "low_confidence_flags": [
-            {
-                "model_name": "X6 xDrive40i M Sport",
-                "category": "Engine and Performance",
-                "topic": "ชนิดเครื่องยนต์ / Engine type",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ชนิดเครื่องยนต์' / 'Engine type': Thai has 'เครื่องยนต์เบนชิน 6 สูบ เทคโนโลยี BMW TwinPower Turbo', English has 'BMW TwinPower Turbo 6-cylinder petrol engine'"
-            },
-            {
-                "model_name": "X6 xDrive40i M Sport",
-                "category": "Wheels and Tyres",
-                "topic": "ล้อ / Light alloy wheels",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ล้อ' / 'Light alloy wheels': Thai has 'ล้ออัลลอย M ขนาด 22 นี้ว ลาย Double-spoke แบบสลับสี', English has '22\" M light alloy wheels Double-spoke style, Bicolour'"
-            }
-        ]
+        "pdf_source": "X6-20260223-01_TH.pdf.asset.1778752585977.pdf"
     },
     {
         "series": "BMW 4 SERIES",
@@ -22830,7 +22815,7 @@
                         "details": [
                             {
                                 "topic": "ชนิดเครื่องยนต์",
-                                "value": "เครื่องยนต์เบนซิน 4 สูบเทคโนโลยี BMW TwinPower Turbo"
+                                "value": "เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี BMW TwinPower Turbo"
                             },
                             {
                                 "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)",
@@ -22858,7 +22843,7 @@
                         "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
                         "details": [
                             {
-                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย -อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
+                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
                                 "value": "15.6"
                             },
                             {
@@ -22892,7 +22877,7 @@
                                 "value": "4,768 / 1,852 / 1,383"
                             },
                             {
-                                "topic": "ปริมาตรในการบรรจุสัมภาระ (ลิตร)",
+                                "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
                                 "value": "440"
                             },
                             {
@@ -23177,7 +23162,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบเตือนรถออกนอกเลนพร้อมช่วยนำรถกลับเข้าเลน",
+                                "topic": "ระบบเตือนรถออกนอกเลนพร้อมช่วยนํารอกลับเข้าเลน",
                                 "value": "■"
                             },
                             {
@@ -23257,15 +23242,7 @@
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_bmw_individual_dravit_grey_metallic.png",
-                    "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_cape_york_green_metallic.png",
-                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_m_brooklyn_grey_metallic.png",
-                    "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_arctic_race_blue_metallic.png",
-                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_black_sapphire_metallic.png",
-                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_mineral_white_metallic.png"
-                }
+                ]
             },
             {
                 "model_name": "430i Coupé M Sport",
@@ -23275,7 +23252,7 @@
                         "details": [
                             {
                                 "topic": "ชนิดเครื่องยนต์",
-                                "value": "เครื่องยนต์เบนซิน 4 สูบเทคโนโลยี BMW TwinPower Turbo"
+                                "value": "เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี BMW TwinPower Turbo"
                             },
                             {
                                 "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)",
@@ -23303,7 +23280,7 @@
                         "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
                         "details": [
                             {
-                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย -อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
+                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
                                 "value": "15.2"
                             },
                             {
@@ -23321,7 +23298,7 @@
                             },
                             {
                                 "topic": "ขนาดยาง",
-                                "value": "ล้อหน้า: 8 J × 19 / ยาง 225/40 R19 ล้อหลัง: 8.5 J × 19 / ยาง 255/35 R19"
+                                "value": "ล้อหน้า: 8 J × 19 / ยาง 225/40 R19ล้อหลัง: 8.5 J × 19 / ยาง 255/35 R19"
                             },
                             {
                                 "topic": "ยาง Runflat",
@@ -23337,7 +23314,7 @@
                                 "value": "4,768 / 1,852 / 1,383"
                             },
                             {
-                                "topic": "ปริมาตรในการบรรจุสัมภาระ (ลิตร)",
+                                "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
                                 "value": "440"
                             },
                             {
@@ -23622,7 +23599,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบเตือนรถออกนอกเลนพร้อมช่วยนำรถกลับเข้าเลน",
+                                "topic": "ระบบเตือนรถออกนอกเลนพร้อมช่วยนํารอกลับเข้าเลน",
                                 "value": "■"
                             },
                             {
@@ -23702,15 +23679,7 @@
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_m_brooklyn_grey_metallic.png",
-                    "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_cape_york_green_metallic.png",
-                    "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_arctic_race_blue_metallic.png",
-                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_black_sapphire_metallic.png",
-                    "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_bmw_individual_dravit_grey_metallic.png",
-                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_mineral_white_metallic.png"
-                }
+                ]
             },
             {
                 "model_name": "M440i xDrive",
@@ -23720,7 +23689,7 @@
                         "details": [
                             {
                                 "topic": "ชนิดเครื่องยนต์",
-                                "value": "เครื่องยนต์เบนซิน 6 สูบเทคโนโลยี BMW TwinPower Turbo"
+                                "value": "เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี BMW TwinPower Turbo"
                             },
                             {
                                 "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)",
@@ -23748,7 +23717,7 @@
                         "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
                         "details": [
                             {
-                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย -อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
+                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
                                 "value": "12.8"
                             },
                             {
@@ -23766,7 +23735,7 @@
                             },
                             {
                                 "topic": "ขนาดยาง",
-                                "value": "ล้อหน้า: 8J × 19 / ยาง 225/40 R19 ล้อหลัง: 8.5J × 19 / ยาง 255/35 R19"
+                                "value": "ล้อหน้า: 8J × 19 / ยาง 225/40 R19ล้อหลัง: 8.5J × 19 / ยาง 255/35 R19"
                             },
                             {
                                 "topic": "ยาง Runflat",
@@ -23782,7 +23751,7 @@
                                 "value": "4,770 / 1,852 / 1,393"
                             },
                             {
-                                "topic": "ปริมาตรในการบรรจุสัมภาระ (ลิตร)",
+                                "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
                                 "value": "440"
                             },
                             {
@@ -24067,7 +24036,7 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "ระบบเตือนรถออกนอกเลนพร้อมช่วยนำรถกลับเข้าเลน",
+                                "topic": "ระบบเตือนรถออกนอกเลนพร้อมช่วยนํารอกลับเข้าเลน",
                                 "value": "■"
                             },
                             {
@@ -24085,6 +24054,10 @@
                             {
                                 "topic": "ระบบควบคุมความเร็วอัตโนมัติ พร้อมฟังก์ชัน Stop&Go(Active cruise control with Stop&Go function)",
                                 "value": "■"
+                            },
+                            {
+                                "topic": "ยางรันแฟลต",
+                                "value": "-"
                             }
                         ]
                     },
@@ -24135,18 +24108,11 @@
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "Fire Red metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_fire_red_metallic.png",
-                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_m_brooklyn_grey_metallic.png",
-                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_black_sapphire_metallic.png",
-                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_mineral_white_metallic.png"
-                }
+                ]
             }
         ],
         "source_file": "4-20260714-01_TH_.pdf.asset.1784613825348.pdf",
-        "pdf_source": "4-20260714-01_TH_.pdf.asset.1784613825348.pdf",
-        "low_confidence_flags": []
+        "pdf_source": "4-20260714-01_TH_.pdf.asset.1784613825348.pdf"
     },
     {
         "series": "BMW M2",
@@ -24180,10 +24146,6 @@
                             {
                                 "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)",
                                 "value": "4"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24197,10 +24159,6 @@
                             {
                                 "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
                                 "value": "217"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24214,10 +24172,6 @@
                             {
                                 "topic": "ขนาดยาง",
                                 "value": "ล้อหน้า: 9.5 J × 19 / ยาง 275/35ZR 19 ล้อหลัง: 10.5 J × 20 / ยาง 285/30ZR 20"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24235,10 +24189,6 @@
                             {
                                 "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
                                 "value": "1,805"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24276,62 +24226,6 @@
                             {
                                 "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ (Parking Assistant)",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "การชาร์จแบบกระแสสลับ (AC)",
-                        "details": [
-                            {
-                                "topic": "กำลังไฟชาร์จ AC สูงสุด",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ระยะเวลาในการชาร์จจาก 0 - 100%",
-                        "details": [
-                            {
-                                "topic": "ระยะเวลาชาร์จ AC",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "การชาร์จแบบกระแสตรง (DC)",
-                        "details": [
-                            {
-                                "topic": "กำลังไฟชาร์จ DC สูงสุด",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ระยะเวลาในการชาร์จจาก 10 - 80%",
-                        "details": [
-                            {
-                                "topic": "ระยะเวลาชาร์จ DC",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24365,10 +24259,6 @@
                             {
                                 "topic": "ระบบไฟหน้า LED อัจฉริยะ",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24430,10 +24320,6 @@
                             {
                                 "topic": "ที่รองศีรษะเบาะตอนหลังพับได้",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24467,10 +24353,6 @@
                             {
                                 "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24564,10 +24446,6 @@
                             {
                                 "topic": "ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24581,12 +24459,21 @@
                         ]
                     },
                     {
-                        "category": "Paintwork / สีตัวถังและวัสดุภายใน",
+                        "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "-",
-                                "value": "-"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "25 กันยายน 2568"
                             },
+                            {
+                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "value": "(Z7O, Z7Q, Z9G, Z9M, ZLT)"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork / สีตัวถังและวัสดุภายใน",
+                        "details": [
                             {
                                 "topic": "Zandvoort Blue Solid",
                                 "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Leather 'Vernasca' - Black/Exclusive Highlight, Leather 'Vernasca' - Black/Red highlight"
@@ -24620,22 +24507,8 @@
                                 "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Leather 'Vernasca' - Black/Exclusive Highlight, Leather 'Vernasca' - Black/Red highlight"
                             }
                         ]
-                    },
-                    {
-                        "category": "ข้อมูลเอกสารอ้างอิง",
-                        "details": [
-                            {
-                                "topic": "วันที่พิมพ์เอกสาร",
-                                "value": "25 กันยายน 2568"
-                            },
-                            {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                                "value": "(Z7O, Z7Q, Z9G, Z9M, ZLT)"
-                            }
-                        ]
                     }
-                ],
-                "images": {}
+                ]
             },
             {
                 "model_name": "M2 (M Racetrack)",
@@ -24666,10 +24539,6 @@
                             {
                                 "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)",
                                 "value": "4"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24683,10 +24552,6 @@
                             {
                                 "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
                                 "value": "217"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24700,10 +24565,6 @@
                             {
                                 "topic": "ขนาดยาง",
                                 "value": "ล้อหน้า: 9.5 J × 19 / ยาง 275/35ZR 19 ล้อหลัง: 10.5 J × 20 / ยาง 285/30ZR 20"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24721,10 +24582,6 @@
                             {
                                 "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
                                 "value": "1,805"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24762,62 +24619,6 @@
                             {
                                 "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ (Parking Assistant)",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "การชาร์จแบบกระแสสลับ (AC)",
-                        "details": [
-                            {
-                                "topic": "กำลังไฟชาร์จ AC สูงสุด",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ระยะเวลาในการชาร์จจาก 0 - 100%",
-                        "details": [
-                            {
-                                "topic": "ระยะเวลาชาร์จ AC",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "การชาร์จแบบกระแสตรง (DC)",
-                        "details": [
-                            {
-                                "topic": "กำลังไฟชาร์จ DC สูงสุด",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ระยะเวลาในการชาร์จจาก 10 - 80%",
-                        "details": [
-                            {
-                                "topic": "ระยะเวลาชาร์จ DC",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24851,10 +24652,6 @@
                             {
                                 "topic": "ระบบไฟหน้า LED อัจฉริยะ",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24916,10 +24713,6 @@
                             {
                                 "topic": "ที่รองศีรษะเบาะตอนหลังพับได้",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -24953,10 +24746,6 @@
                             {
                                 "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -25050,10 +24839,6 @@
                             {
                                 "topic": "ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -25067,12 +24852,21 @@
                         ]
                     },
                     {
-                        "category": "Paintwork / สีตัวถังและวัสดุภายใน",
+                        "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "-",
-                                "value": "-"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "25 กันยายน 2568"
                             },
+                            {
+                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "value": "(Z7R, Z9L)"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork / สีตัวถังและวัสดุภายใน",
+                        "details": [
                             {
                                 "topic": "Zandvoort Blue Solid",
                                 "value": "Full leather 'Merino' - Black/Exclusive Highlight"
@@ -25106,22 +24900,8 @@
                                 "value": "Full leather 'Merino' - Black/Exclusive Highlight"
                             }
                         ]
-                    },
-                    {
-                        "category": "ข้อมูลเอกสารอ้างอิง",
-                        "details": [
-                            {
-                                "topic": "วันที่พิมพ์เอกสาร",
-                                "value": "25 กันยายน 2568"
-                            },
-                            {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                                "value": "(Z7R, Z9L)"
-                            }
-                        ]
                     }
-                ],
-                "images": {}
+                ]
             },
             {
                 "model_name": "M2 (MT)",
@@ -25152,10 +24932,6 @@
                             {
                                 "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)",
                                 "value": "4.2"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -25169,10 +24945,6 @@
                             {
                                 "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
                                 "value": "233"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -25186,10 +24958,6 @@
                             {
                                 "topic": "ขนาดยาง",
                                 "value": "ล้อหน้า: 9.5 J × 19 / ยาง 275/35ZR 19 ล้อหลัง: 10.5 J × 20 / ยาง 285/30ZR 20"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -25207,10 +24975,6 @@
                             {
                                 "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
                                 "value": "1,780"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -25248,62 +25012,6 @@
                             {
                                 "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ (Parking Assistant)",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "การชาร์จแบบกระแสสลับ (AC)",
-                        "details": [
-                            {
-                                "topic": "กำลังไฟชาร์จ AC สูงสุด",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ระยะเวลาในการชาร์จจาก 0 - 100%",
-                        "details": [
-                            {
-                                "topic": "ระยะเวลาชาร์จ AC",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "การชาร์จแบบกระแสตรง (DC)",
-                        "details": [
-                            {
-                                "topic": "กำลังไฟชาร์จ DC สูงสุด",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ระยะเวลาในการชาร์จจาก 10 - 80%",
-                        "details": [
-                            {
-                                "topic": "ระยะเวลาชาร์จ DC",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -25337,10 +25045,6 @@
                             {
                                 "topic": "ระบบไฟหน้า LED อัจฉริยะ",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -25402,10 +25106,6 @@
                             {
                                 "topic": "ที่รองศีรษะเบาะตอนหลังพับได้",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -25439,10 +25139,6 @@
                             {
                                 "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -25536,10 +25232,6 @@
                             {
                                 "topic": "ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)",
                                 "value": "-"
-                            },
-                            {
-                                "topic": "-",
-                                "value": "-"
                             }
                         ]
                     },
@@ -25553,12 +25245,21 @@
                         ]
                     },
                     {
-                        "category": "Paintwork / สีตัวถังและวัสดุภายใน",
+                        "category": "ข้อมูลเอกสารอ้างอิง",
                         "details": [
                             {
-                                "topic": "-",
-                                "value": "-"
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "25 กันยายน 2568"
                             },
+                            {
+                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "value": "(Z8U)"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork / สีตัวถังและวัสดุภายใน",
+                        "details": [
                             {
                                 "topic": "Zandvoort Blue Solid",
                                 "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Leather 'Vernasca' - Black/Exclusive Highlight, Leather 'Vernasca' - Black/Red highlight"
@@ -25592,27 +25293,12 @@
                                 "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Leather 'Vernasca' - Black/Exclusive Highlight, Leather 'Vernasca' - Black/Red highlight"
                             }
                         ]
-                    },
-                    {
-                        "category": "ข้อมูลเอกสารอ้างอิง",
-                        "details": [
-                            {
-                                "topic": "วันที่พิมพ์เอกสาร",
-                                "value": "25 กันยายน 2568"
-                            },
-                            {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                                "value": "(Z8U)"
-                            }
-                        ]
                     }
-                ],
-                "images": {}
+                ]
             }
         ],
         "source_file": "M2.-20260714-01_TH.pdf.asset.1784613855343.pdf",
-        "pdf_source": "M2.-20260714-01_TH.pdf.asset.1784613855343.pdf",
-        "low_confidence_flags": []
+        "pdf_source": "M2.-20260714-01_TH.pdf.asset.1784613855343.pdf"
     },
     {
         "series": "BMW M3",

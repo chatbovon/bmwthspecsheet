@@ -1,8 +1,6 @@
 [
     {
         "series": "BMW 5 SERIES",
-        "source_file": "5-20260417-01_EN.pdf.asset.1779077254663.pdf",
-        "pdf_source": "5-20260417-01_EN.pdf.asset.1779077254663.pdf",
         "models": [
             {
                 "model_name": "530e Inspiring",
@@ -15,7 +13,7 @@
                                 "value": "BMW TwinPower Turbo 4-cylinder inline petrol engine"
                             },
                             {
-                                "topic": "Displacement (cm³)",
+                                "topic": "Displacement (cm3)",
                                 "value": "1,998"
                             },
                             {
@@ -35,11 +33,11 @@
                                 "value": "250"
                             },
                             {
-                                "topic": "Electrical range¹, NEDC (km)",
+                                "topic": "Electrical range1, NEDC (km)",
                                 "value": "108"
                             },
                             {
-                                "topic": "Electric range¹, WLTP (km)",
+                                "topic": "Electric range1, WLTP (km)",
                                 "value": "87 - 102"
                             },
                             {
@@ -77,6 +75,19 @@
                         ]
                     },
                     {
+                        "category": "Fuel Consumption and CO2 Emission",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "76.9"
+                            },
+                            {
+                                "topic": "Combined CO2(g/km)",
+                                "value": "29"
+                            }
+                        ]
+                    },
+                    {
                         "category": "Wheels and Tyres",
                         "details": [
                             {
@@ -85,7 +96,7 @@
                             },
                             {
                                 "topic": "Tyre size",
-                                "value": "Front: 8.5 J × 20 / tyres: 245/40 R 20, Rear: 10J × 20 / tyres: 275/35 R 20"
+                                "value": "Front: 8.5 J × 20 / tyres: 245/40 R 20Rear: 10J × 20 / tyres: 275/35 R 20"
                             }
                         ]
                     },
@@ -107,7 +118,7 @@
                         ]
                     },
                     {
-                        "category": "Transmission and technology",
+                        "category": "Drivetrain and Technology",
                         "details": [
                             {
                                 "topic": "Steptronic transmission with gearshift paddles",
@@ -136,7 +147,7 @@
                         ]
                     },
                     {
-                        "category": "Exterior",
+                        "category": "Exterior Equipment",
                         "details": [
                             {
                                 "topic": "Adaptive LED headlights",
@@ -185,7 +196,7 @@
                         ]
                     },
                     {
-                        "category": "Interior",
+                        "category": "Interior Equipment",
                         "details": [
                             {
                                 "topic": "M leather steering wheel",
@@ -254,7 +265,7 @@
                         ]
                     },
                     {
-                        "category": "Entertainment and communication",
+                        "category": "Entertainment and Communication",
                         "details": [
                             {
                                 "topic": "BMW Live Cockpit Professional",
@@ -424,27 +435,6 @@
                         ]
                     },
                     {
-                        "category": "Paintwork & Upholstery",
-                        "details": [
-                            {
-                                "topic": "Black Sapphire Metallic",
-                                "value": "Espresso Brown"
-                            },
-                            {
-                                "topic": "Mineral White Metallic",
-                                "value": "Espresso Brown"
-                            },
-                            {
-                                "topic": "Cape York Green Metallic",
-                                "value": "Black"
-                            },
-                            {
-                                "topic": "Oxide Grey Metallic",
-                                "value": "Espresso Brown"
-                            }
-                        ]
-                    },
-                    {
                         "category": "Document References",
                         "details": [
                             {
@@ -458,25 +448,36 @@
                         ]
                     },
                     {
-                        "category": "Fuel Consumption and CO2",
+                        "category": "Line / package",
                         "details": [
                             {
-                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                                "value": "76.9"
+                                "topic": "M Sport",
+                                "value": "-"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork & Upholstery",
+                        "details": [
+                            {
+                                "topic": "Black Sapphire Metallic",
+                                "value": "Veganza perforated and quilted - Espresso Brown"
                             },
                             {
-                                "topic": "Combined CO2 (g/km)",
-                                "value": "29"
+                                "topic": "Mineral White Metallic",
+                                "value": "Veganza perforated and quilted - Espresso Brown"
+                            },
+                            {
+                                "topic": "Cape York Green Metallic",
+                                "value": "Veganza perforated and quilted - Black"
+                            },
+                            {
+                                "topic": "Oxide Grey Metallic",
+                                "value": "Veganza perforated and quilted - Espresso Brown"
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Black_Sapphire_metallic.png",
-                    "Cape York Green metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Cape_York_Green_metallic.png",
-                    "Oxide Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Oxide_Grey_metallic.png",
-                    "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_530e_Inspiring_Mineral_White_metallic.png"
-                }
+                ]
             },
             {
                 "model_name": "520d M Sport",
@@ -489,7 +490,7 @@
                                 "value": "BMW TwinPower Turbo 4-cylinder inline diesel engine"
                             },
                             {
-                                "topic": "Displacement (cm³)",
+                                "topic": "Displacement (cm3)",
                                 "value": "1,995"
                             },
                             {
@@ -509,11 +510,11 @@
                                 "value": "25"
                             },
                             {
-                                "topic": "Electrical range¹, NEDC (km)",
+                                "topic": "Electrical range1, NEDC (km)",
                                 "value": "-"
                             },
                             {
-                                "topic": "Electric range¹, WLTP (km)",
+                                "topic": "Electric range1, WLTP (km)",
                                 "value": "-"
                             },
                             {
@@ -551,15 +552,28 @@
                         ]
                     },
                     {
+                        "category": "Fuel Consumption and CO2 Emission",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "18.5"
+                            },
+                            {
+                                "topic": "Combined CO2(g/km)",
+                                "value": "142"
+                            }
+                        ]
+                    },
+                    {
                         "category": "Wheels and Tyres",
                         "details": [
                             {
                                 "topic": "Light alloy wheels",
-                                "value": "20\" M light alloy wheels Star spoke style Bicolour Jet Black"
+                                "value": "20\" M light alloy wheels Star-spoke style Bicolour Jet Black"
                             },
                             {
                                 "topic": "Tyre size",
-                                "value": "Front: 8.5 J × 20 / tyres: 245/40 R 20, Rear: 10 J × 20 / tyres: 275/35 R 20"
+                                "value": "Front: 8.5 J × 20 / tyres: 245/40 R 20Rear: 10 J × 20 / tyres: 275/35 R 20"
                             }
                         ]
                     },
@@ -581,7 +595,7 @@
                         ]
                     },
                     {
-                        "category": "Transmission and technology",
+                        "category": "Drivetrain and Technology",
                         "details": [
                             {
                                 "topic": "Steptronic transmission with gearshift paddles",
@@ -610,7 +624,7 @@
                         ]
                     },
                     {
-                        "category": "Exterior",
+                        "category": "Exterior Equipment",
                         "details": [
                             {
                                 "topic": "Adaptive LED headlights",
@@ -659,7 +673,7 @@
                         ]
                     },
                     {
-                        "category": "Interior",
+                        "category": "Interior Equipment",
                         "details": [
                             {
                                 "topic": "M leather steering wheel",
@@ -728,7 +742,7 @@
                         ]
                     },
                     {
-                        "category": "Entertainment and communication",
+                        "category": "Entertainment and Communication",
                         "details": [
                             {
                                 "topic": "BMW Live Cockpit Professional",
@@ -894,35 +908,6 @@
                             {
                                 "topic": "Evasion Assistant",
                                 "value": "-"
-                            },
-                            {
-                                "topic": "M Sport",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Paintwork & Upholstery",
-                        "details": [
-                            {
-                                "topic": "Black Sapphire Metallic",
-                                "value": "Espresso Brown"
-                            },
-                            {
-                                "topic": "Mineral White Metallic",
-                                "value": "Espresso Brown"
-                            },
-                            {
-                                "topic": "Brooklyn Grey Metallic",
-                                "value": "Espresso Brown"
-                            },
-                            {
-                                "topic": "Phytonic Blue Metallic",
-                                "value": "Black"
-                            },
-                            {
-                                "topic": "Cape York Green Metallic",
-                                "value": "Black"
                             }
                         ]
                     },
@@ -940,26 +925,40 @@
                         ]
                     },
                     {
-                        "category": "Fuel Consumption and CO2",
+                        "category": "Line / package",
                         "details": [
                             {
-                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                                "value": "18.5"
+                                "topic": "M Sport",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork & Upholstery",
+                        "details": [
+                            {
+                                "topic": "Black Sapphire Metallic",
+                                "value": "Veganza perforated and quilted - Espresso Brown"
                             },
                             {
-                                "topic": "Combined CO2 (g/km)",
-                                "value": "142"
+                                "topic": "Mineral White Metallic",
+                                "value": "Veganza perforated and quilted - Espresso Brown"
+                            },
+                            {
+                                "topic": "Brooklyn Grey Metallic",
+                                "value": "Veganza perforated and quilted - Espresso Brown"
+                            },
+                            {
+                                "topic": "Phytonic Blue Metallic",
+                                "value": "Veganza perforated and quilted - Black"
+                            },
+                            {
+                                "topic": "Cape York Green Metallic",
+                                "value": "Veganza perforated and quilted - Black"
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_520d_M_Sport_Mineral_White_metallic.png",
-                    "Cape York Green metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_520d_M_Sport_Cape_York_Green_metallic.png",
-                    "M Brooklyn Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_520d_M_Sport_M_Brooklyn_Grey_metallic.png",
-                    "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_520d_M_Sport_Black_Sapphire_metallic.png",
-                    "Phytonic Blue metallic": "images/5_20260417_01_TH.asset.1779074950693/BMW_520d_M_Sport_Phytonic_Blue_metallic.png"
-                }
+                ]
             },
             {
                 "model_name": "530e M Sport",
@@ -972,7 +971,7 @@
                                 "value": "BMW TwinPower Turbo 4-cylinder inline petrol engine"
                             },
                             {
-                                "topic": "Displacement (cm³)",
+                                "topic": "Displacement (cm3)",
                                 "value": "1,998"
                             },
                             {
@@ -992,11 +991,11 @@
                                 "value": "250"
                             },
                             {
-                                "topic": "Electrical range¹, NEDC (km)",
+                                "topic": "Electrical range1, NEDC (km)",
                                 "value": "108"
                             },
                             {
-                                "topic": "Electric range¹, WLTP (km)",
+                                "topic": "Electric range1, WLTP (km)",
                                 "value": "87 - 102"
                             },
                             {
@@ -1034,6 +1033,19 @@
                         ]
                     },
                     {
+                        "category": "Fuel Consumption and CO2 Emission",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "76.9"
+                            },
+                            {
+                                "topic": "Combined CO2(g/km)",
+                                "value": "29"
+                            }
+                        ]
+                    },
+                    {
                         "category": "Wheels and Tyres",
                         "details": [
                             {
@@ -1042,7 +1054,7 @@
                             },
                             {
                                 "topic": "Tyre size",
-                                "value": "Front: 8.5 J × 20 / tyres: 245/40 R 20, Rear: 10 J × 20 / tyres: 275/35 R 20"
+                                "value": "Front: 8.5 J × 20 / tyres: 245/40 R 20Rear: 10 J × 20 / tyres: 275/35 R 20"
                             }
                         ]
                     },
@@ -1064,7 +1076,7 @@
                         ]
                     },
                     {
-                        "category": "Transmission and technology",
+                        "category": "Drivetrain and Technology",
                         "details": [
                             {
                                 "topic": "Steptronic transmission with gearshift paddles",
@@ -1093,7 +1105,7 @@
                         ]
                     },
                     {
-                        "category": "Exterior",
+                        "category": "Exterior Equipment",
                         "details": [
                             {
                                 "topic": "Adaptive LED headlights",
@@ -1142,7 +1154,7 @@
                         ]
                     },
                     {
-                        "category": "Interior",
+                        "category": "Interior Equipment",
                         "details": [
                             {
                                 "topic": "M leather steering wheel",
@@ -1158,7 +1170,7 @@
                             },
                             {
                                 "topic": "Seat adjustment, electric, with memory",
-                                "value": "■"
+                                "value": "-"
                             },
                             {
                                 "topic": "M Sport interior parts",
@@ -1211,7 +1223,7 @@
                         ]
                     },
                     {
-                        "category": "Entertainment and communication",
+                        "category": "Entertainment and Communication",
                         "details": [
                             {
                                 "topic": "BMW Live Cockpit Professional",
@@ -1377,35 +1389,6 @@
                             {
                                 "topic": "Evasion Assistant",
                                 "value": "■"
-                            },
-                            {
-                                "topic": "M Sport",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Paintwork & Upholstery",
-                        "details": [
-                            {
-                                "topic": "Black Sapphire Metallic",
-                                "value": "Copper Brown/Atlas Grey"
-                            },
-                            {
-                                "topic": "Mineral White Metallic",
-                                "value": "Copper Brown/Atlas Grey"
-                            },
-                            {
-                                "topic": "Brooklyn Grey Metallic",
-                                "value": "Copper Brown/Atlas Grey"
-                            },
-                            {
-                                "topic": "Phytonic Blue Metallic",
-                                "value": "Black/Atlas Grey"
-                            },
-                            {
-                                "topic": "Cape York Green Metallic",
-                                "value": "Black/Atlas Grey"
                             }
                         ]
                     },
@@ -1423,29 +1406,44 @@
                         ]
                     },
                     {
-                        "category": "Fuel Consumption and CO2",
+                        "category": "Line / package",
                         "details": [
                             {
-                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                                "value": "76.9"
+                                "topic": "M Sport",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork & Upholstery",
+                        "details": [
+                            {
+                                "topic": "Black Sapphire Metallic",
+                                "value": "BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
                             },
                             {
-                                "topic": "Combined CO2 (g/km)",
-                                "value": "29"
+                                "topic": "Mineral White Metallic",
+                                "value": "BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
+                            },
+                            {
+                                "topic": "Brooklyn Grey Metallic",
+                                "value": "BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
+                            },
+                            {
+                                "topic": "Phytonic Blue Metallic",
+                                "value": "BMW Individual leather 'Merino' - Black/Atlas Grey"
+                            },
+                            {
+                                "topic": "Cape York Green Metallic",
+                                "value": "BMW Individual leather 'Merino' - Black/Atlas Grey"
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "M Brooklyn Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_m_brooklyn_grey_metallic.png",
-                    "Cape York Green metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_cape_york_green_metallic.png",
-                    "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_black_sapphire_metallic.png",
-                    "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_mineral_white_metallic.png",
-                    "Phytonic Blue metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_phytonic_blue_metallic.png"
-                }
+                ]
             }
         ],
-        "low_confidence_flags": []
+        "source_file": "5-20260417-01_EN.pdf.asset.1779077254663.pdf",
+        "pdf_source": "5-20260417-01_EN.pdf.asset.1779077254663.pdf"
     },
     {
         "series": "BMW XM",
@@ -8254,11 +8252,11 @@
                                 "value": "280"
                             },
                             {
-                                "topic": "Electrical range, NEDC (km)",
+                                "topic": "Electrical range1, NEDC (km)",
                                 "value": "76"
                             },
                             {
-                                "topic": "Electric range, WLTP (km)",
+                                "topic": "Electric range1, WLTP (km)",
                                 "value": "67 - 69"
                             },
                             {
@@ -8274,7 +8272,7 @@
                                 "value": "1,000"
                             },
                             {
-                                "topic": "Top speed (km/h)",
+                                "topic": "Top speed (km/h)2",
                                 "value": "305"
                             },
                             {
@@ -8552,6 +8550,24 @@
                         ]
                     },
                     {
+                        "category": "Package",
+                        "details": [
+                            {
+                                "topic": "M Driver's Package",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Optional Equipment",
+                        "details": [
+                            {
+                                "topic": "M Carbon ceramic brake3",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
                         "category": "Document References",
                         "details": [
                             {
@@ -8563,45 +8579,12 @@
                                 "value": "(Z6N, Z8P, Z9N)"
                             }
                         ]
-                    },
-                    {
-                        "category": "Optional Equipment",
-                        "details": [
-                            {
-                                "topic": "M Carbon ceramic brake",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Driver's Package",
-                                "value": "■"
-                            }
-                        ]
                     }
-                ],
-                "images": {
-                    "BMW Individual Frozen Deep Grey metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_BMW_Individual_Frozen_Deep_Grey_metallic.png",
-                    "Fire Red metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_Fire_Red_metallic.png",
-                    "M Brooklyn Grey metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_M_Brooklyn_Grey_metallic.png",
-                    "M Isle of Man Green metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_M_Isle_of_Man_Green_metallic.png",
-                    "Black Sapphire metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_Black_Sapphire_metallic.png",
-                    "BMW Individual Storm Bay metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_BMW_Individual_Storm_Bay_metallic.png",
-                    "M Carbon Black metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_M_Carbon_Black_metallic.png",
-                    "Sophisto Grey brilliant effect metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_Sophisto_Grey_brilliant_effect_metallic.png",
-                    "M Marina Bay Blue metallic": "images/M5_20250130_05_TH.asset.1745407582783/BMW_M5_M_Marina_Bay_Blue_metallic.png"
-                }
+                ]
             }
         ],
         "source_file": "M5-20250130-05_EN.pdf.asset.1745391122834.pdf",
-        "pdf_source": "M5-20250130-05_EN.pdf.asset.1745391122834.pdf",
-        "low_confidence_flags": [
-            {
-                "model_name": "M5",
-                "category": "Wheels and Tyres",
-                "topic": "ขนาดยาง / Tyre size",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Value mismatch for 'ขนาดยาง' / 'Tyre size': Thai has 'ล้อหน้า : 10.5J × 20 / ยาง 285/40 ZR20 ล้อหลัง : 11J × 21 / ยาง 295/35 ZR21', English has 'Front: 10.5J × 20 / tyres: 285/40 ZR20Rear: 11J × 21 / tyres: 295/35 ZR21'"
-            }
-        ]
+        "pdf_source": "M5-20250130-05_EN.pdf.asset.1745391122834.pdf"
     },
     {
         "series": "BMW M5",
@@ -18485,7 +18468,7 @@
                         ]
                     },
                     {
-                        "category": "Line / package",
+                        "category": "Line / Package",
                         "details": [
                             {
                                 "topic": "M Sport Package Pro",
@@ -18498,19 +18481,19 @@
                         "details": [
                             {
                                 "topic": "Brooklyn Grey Metallic",
-                                "value": "BMW Individual extended leather trim 'Merino' - Black"
+                                "value": "BMW Individual extended leather trim 'Merino' - Black | Black"
                             },
                             {
                                 "topic": "Mineral White Metallic",
-                                "value": "BMW Individual extended leather trim 'Merino' - Coffee"
+                                "value": "BMW Individual extended leather trim 'Merino' - Coffee | Black"
                             },
                             {
                                 "topic": "Black Sapphire Metallic",
-                                "value": "BMW Individual extended leather trim 'Merino' - Coffee"
+                                "value": "BMW Individual extended leather trim 'Merino' - Coffee | Black"
                             },
                             {
                                 "topic": "Manhattan Metallic",
-                                "value": "BMW Individual extended leather trim 'Merino' - Coffee"
+                                "value": "BMW Individual extended leather trim 'Merino' - Coffee | Black"
                             }
                         ]
                     },
@@ -18527,19 +18510,11 @@
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "Brooklyn Grey Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_brooklyn_grey_metallic.png",
-                    "Black Sapphire Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_black_sapphire_metallic.png",
-                    "Manhattan Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_manhattan_metallic.png",
-                    "Mineral White Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_mineral_white_metallic.png"
-                },
-                "is_custom_archived": true
+                ]
             }
         ],
         "source_file": "X6-20260223-01_EN.pdf.asset.1778752586141.pdf",
-        "pdf_source": "X6-20260223-01_EN.pdf.asset.1778752586141.pdf",
-        "low_confidence_flags": []
+        "pdf_source": "X6-20260223-01_EN.pdf.asset.1778752586141.pdf"
     },
     {
         "series": "BMW 4 SERIES",
@@ -18891,7 +18866,11 @@
                                 "value": "-"
                             },
                             {
-                                "topic": "Front Collision Warning with brake intervention consists of Collision Pedestrian Warning with city braking function",
+                                "topic": "Front Collision Warning with brake intervention consists of Collision",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Pedestrian Warning with city braking function",
                                 "value": "■"
                             },
                             {
@@ -18975,15 +18954,7 @@
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_bmw_individual_dravit_grey_metallic.png",
-                    "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_cape_york_green_metallic.png",
-                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_m_brooklyn_grey_metallic.png",
-                    "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_arctic_race_blue_metallic.png",
-                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_black_sapphire_metallic.png",
-                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_mineral_white_metallic.png"
-                }
+                ]
             },
             {
                 "model_name": "430i Coupé M Sport",
@@ -19332,7 +19303,11 @@
                                 "value": "-"
                             },
                             {
-                                "topic": "Front Collision Warning with brake intervention consists of Collision Pedestrian Warning with city braking function",
+                                "topic": "Front Collision Warning with brake intervention consists of Collision",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Pedestrian Warning with city braking function",
                                 "value": "■"
                             },
                             {
@@ -19416,15 +19391,7 @@
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_m_brooklyn_grey_metallic.png",
-                    "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_cape_york_green_metallic.png",
-                    "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_arctic_race_blue_metallic.png",
-                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_black_sapphire_metallic.png",
-                    "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_bmw_individual_dravit_grey_metallic.png",
-                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_mineral_white_metallic.png"
-                }
+                ]
             },
             {
                 "model_name": "M440i xDrive",
@@ -19773,7 +19740,11 @@
                                 "value": "■"
                             },
                             {
-                                "topic": "Front Collision Warning with brake intervention consists of Collision Pedestrian Warning with city braking function",
+                                "topic": "Front Collision Warning with brake intervention consists of Collision",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Pedestrian Warning with city braking function",
                                 "value": "■"
                             },
                             {
@@ -19845,18 +19816,11 @@
                             }
                         ]
                     }
-                ],
-                "images": {
-                    "Fire Red metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_fire_red_metallic.png",
-                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_m_brooklyn_grey_metallic.png",
-                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_black_sapphire_metallic.png",
-                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_mineral_white_metallic.png"
-                }
+                ]
             }
         ],
         "source_file": "4-20260714-01_EN_.pdf.asset.1784613825320.pdf",
-        "pdf_source": "4-20260714-01_EN_.pdf.asset.1784613825320.pdf",
-        "low_confidence_flags": []
+        "pdf_source": "4-20260714-01_EN_.pdf.asset.1784613825320.pdf"
     },
     {
         "series": "BMW M2",
@@ -20252,8 +20216,7 @@
                             }
                         ]
                     }
-                ],
-                "images": {}
+                ]
             },
             {
                 "model_name": "M2 (M Racetrack)",
@@ -20601,35 +20564,35 @@
                         "details": [
                             {
                                 "topic": "Zandvoort Blue Solid",
-                                "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Leather 'Vernasca' - Black/Exclusive Highlight, Leather 'Vernasca' - Black/Red highlight"
+                                "value": "Full leather 'Merino' - Black/Exclusive Highlight"
                             },
                             {
                                 "topic": "Alpine White Solid",
-                                "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Leather 'Vernasca' - Black/Exclusive Highlight, Leather 'Vernasca' - Black/Red highlight"
+                                "value": "Full leather 'Merino' - Black/Exclusive Highlight"
                             },
                             {
                                 "topic": "Sao Paulo Yellow Solid",
-                                "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Leather 'Vernasca' - Black/Exclusive Highlight, Leather 'Vernasca' - Black/Red highlight"
+                                "value": "Full leather 'Merino' - Black/Exclusive Highlight"
                             },
                             {
                                 "topic": "Fire Red Metallic",
-                                "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Leather 'Vernasca' - Black/Exclusive Highlight, Leather 'Vernasca' - Black/Red highlight"
+                                "value": "Full leather 'Merino' - Black/Exclusive Highlight"
                             },
                             {
                                 "topic": "Skyscraper Grey Metallic",
-                                "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Leather 'Vernasca' - Black/Exclusive Highlight, Leather 'Vernasca' - Black/Red highlight"
+                                "value": "Full leather 'Merino' - Black/Exclusive Highlight"
                             },
                             {
                                 "topic": "Brooklyn Grey Metallic",
-                                "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Leather 'Vernasca' - Black/Exclusive Highlight, Leather 'Vernasca' - Black/Red highlight"
+                                "value": "Full leather 'Merino' - Black/Exclusive Highlight"
                             },
                             {
                                 "topic": "Portimao Blue Metallic",
-                                "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Leather 'Vernasca' - Black/Exclusive Highlight, Leather 'Vernasca' - Black/Red highlight"
+                                "value": "Full leather 'Merino' - Black/Exclusive Highlight"
                             },
                             {
                                 "topic": "Black Sapphire Metallic",
-                                "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Leather 'Vernasca' - Black/Exclusive Highlight, Leather 'Vernasca' - Black/Red highlight"
+                                "value": "Full leather 'Merino' - Black/Exclusive Highlight"
                             }
                         ]
                     },
@@ -20646,8 +20609,7 @@
                             }
                         ]
                     }
-                ],
-                "images": {}
+                ]
             },
             {
                 "model_name": "M2 (MT)",
@@ -21040,13 +21002,11 @@
                             }
                         ]
                     }
-                ],
-                "images": {}
+                ]
             }
         ],
         "source_file": "M2.-20260714-01_EN.pdf.asset.1784613855280.pdf",
-        "pdf_source": "M2.-20260714-01_EN.pdf.asset.1784613855280.pdf",
-        "low_confidence_flags": []
+        "pdf_source": "M2.-20260714-01_EN.pdf.asset.1784613855280.pdf"
     },
     {
         "series": "BMW M3",
