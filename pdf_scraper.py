@@ -157,3 +157,11 @@ def run_scraper():
 
 if __name__ == "__main__":
     run_scraper()
+    
+    # Automatically run database synchronization and pruning after scraper finishes
+    try:
+        print("\n[SCRAPER] Triggering database sync and pruning...")
+        import sync_database
+        sync_database.main()
+    except Exception as e:
+        print(f"[WARNING] Automatic database sync failed: {e}")

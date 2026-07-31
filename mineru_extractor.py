@@ -62,15 +62,13 @@ MINERU_HEADERS = {
 }
 
 API_KEYS = []
+std_key = os.environ.get("GEMINI_API_KEY")
+if std_key and not std_key.strip().endswith("_case"):
+    API_KEYS.append(std_key.strip())
 for idx in range(1, 11):
     key = os.environ.get(f"GEMINI_API_KEY_{idx}", "")
-    if key.strip():
+    if key.strip() and not key.strip().endswith("_case"):
         API_KEYS.append(key.strip())
-
-if not API_KEYS:
-    std_key = os.environ.get("GEMINI_API_KEY")
-    if std_key:
-        API_KEYS = [std_key.strip()]
 
 if not API_KEYS:
     print("[ERROR] No Gemini API Keys found. Please set GEMINI_API_KEY or GEMINI_API_KEY_1/2/3.")
@@ -125,12 +123,11 @@ Your task is to take a pre-extracted Markdown/HTML specification table from a BM
     - คำศัพท์เช่น "ชุดตกแต่งพิเศษ", "Line / package", "Line / Package" หรือคำอื่นๆ ที่ระบุถึงแพ็กเกจการตกแต่ง ให้ถือเป็นหัวข้อหมวดหมู่ (Category) เสมอ ห้ามยุบไปรวมกับหมวดหมู่อื่นเด็ดขาด
     - ทุกๆ หัวข้อหมวดหมู่ที่ตรวจพบ จะต้องมีออปชันย่อย (details) บันทึกอยู่ภายใต้หมวดหมู่นั้นๆ เสมอ
     - ทุกๆ ข้อความที่อยู่ในเอกสาร (หรือที่สแกนหลุดออกมานอกตาราง) ที่ไม่ใช่หัวกระดาษ (Header) หรือท้ายกระดาษ (Footer) ให้ถือว่าเป็นออปชันย่อย (Topic) และต้องถูกสกัดเข้ามาใน JSON ห้ามข้ามหรือละทิ้งเด็ดขาด
-9. **(สำคัญมาก) ข้อมูลการชาร์จรถยนต์ไฟฟ้า (AC / DC Charging):** หากเอกสารระบุข้อมูลการชาร์จไฟหรือระยะเวลาชาร์จแบบต่างๆ คุณต้องสกัดข้อมูลเหล่านั้นแบ่งแยกออกเป็น 4 หมวดหมู่ย่อยดังนี้เสมอ:
+9. **(สำคัญมาก) ข้อมูลการชาร์จรถยนต์ไฟฟ้า (AC / DC Charging):** สกัดข้อมูลการชาร์จไฟหรือระยะเวลาชาร์จแบบต่างๆ แบ่งแยกออกเป็น 4 หมวดหมู่ย่อยดังนี้เฉพาะเมื่อปรากฏตารางข้อมูลการชาร์จในโบรชัวร์เท่านั้น (ห้ามสร้างขึ้นมาหากไม่มีข้อมูล):
    - "การชาร์จแบบกระแสสลับ (AC)" สำหรับกำลังไฟชาร์จ AC สูงสุด
    - "ระยะเวลาในการชาร์จจาก 0 - 100%" สำหรับระยะเวลาและตัวเลือกชาร์จ AC ทั้งหมด
    - "การชาร์จแบบกระแสตรง (DC)" สำหรับกำลังไฟชาร์จ DC สูงสุด
    - "ระยะเวลาในการชาร์จจาก 10 - 80%" สำหรับระยะเวลาและตัวเลือกชาร์จ DC ทั้งหมด
-   (ห้ามนำข้อมูลสเปกชาร์จไฟไปรวมกับหมวดหมู่อื่นและห้ามตัดทิ้งเด็ดขาด)
 10. **(สำคัญมาก) การกำหนดชื่อซีรีส์ (Series Name):**
     - ตรวจสอบจากชื่อรุ่นย่อยในเอกสาร หากรุ่นรถในเล่มเป็นตระกูลไฟฟ้าล้วนหรือรถยนต์ไฟฟ้าที่ขึ้นต้นด้วยตัวอักษร "i" พิมพ์เล็ก (เช่น i5, i7, iX, iX1, iX2, iX3) คุณต้องใช้ชื่อซีรีส์แยกออกมาให้ตรงกับกลุ่มของมันเสมอ เช่น "BMW i5", "BMW i7", "BMW iX", "BMW iX1", "BMW iX2", "BMW iX3"
     - ห้ามนำรถตระกูลไฟฟ้า รุ่น i ไปรวมกลุ่มภายใต้ซีรีส์ปกติของรถเครื่องยนต์สันดาป/ปลั๊กอินไฮบริดเด็ดขาด (ตัวอย่างเช่น หากในเล่มมีรุ่น i7 ให้ระบุชื่อซีรีส์ว่า "BMW i7" ห้ามนำไปเขียนรวมเป็น "BMW 7 SERIES" เด็ดขาด)
@@ -138,24 +135,27 @@ Your task is to take a pre-extracted Markdown/HTML specification table from a BM
 11. **(สำคัญมาก) สำหรับตารางสเปกชีตที่มีเพียงรุ่นย่อยเดียว (มีคอลัมน์รุ่นรถคอลัมน์เดียว):**
     - ให้ถือว่าทุกหัวข้อออปชันที่ปรากฏในตารางของเอกสารเล่มนั้นมีติดตั้งเป็นมาตรฐาน (ระบุค่าเป็น "■" เสมอ) ห้ามระบุค่าเป็น "-" โดยเด็ดขาด
     - ยกเว้นกรณีที่ช่องข้อมูลระบุค่าเป็นข้อความรายละเอียดเชิงเทคนิคเฉพาะเจาะจง (เช่น ตัวเลขแรงม้า, ขนาดมิติต่างๆ, ชื่อสีเบาะ หรือคำอธิบาย) ให้ใส่ตามค่าข้อความจริงนั้น
+12. **(สำคัญมาก) ข้อมูลหมายเหตุท้ายเอกสาร (Footnotes / หมายเหตุ):** ในบางหน้าหรือท้ายตารางจะมีข้อความที่เป็นเชิงอรรถ/คำอธิบายข้อกำหนดกำกับด้วยตัวเลข (เช่น "1 ...", "2 ...", หรือ "* ...") คุณต้องดึงหมายเหตุและเชิงอรรถเหล่านี้ทั้งหมดมาจัดทำเป็นหมวดหมู่ใหม่ชื่อว่า `"หมายเหตุ"` (หรือ `"Notes"` สำหรับภาษาอังกฤษ) โดยให้ตั้งชื่อหัวข้อรายละเอียด (Topic) เป็นข้อความอธิบายนั้นทั้งบรรทัด และให้ค่าสเปก (Value) เป็น `"-"` เสมอ เพื่อให้ระบบนำไปสร้างคำอธิบายบนหน้าเว็บได้
+13. **กฎการจัดวางตำแหน่งตัวเลขเชิงอรรถ (Footnote Placement Rule):** ตัวเลขเชิงอรรถ (เช่น `¹`, `²`, `³` หรือตัวยกใดๆ) จะปรากฏต่อท้ายชื่อข้อกำหนดหรือออปชันในช่องตารางฝั่งซ้าย (Topic) เท่านั้น ห้ามนำตัวเลขเชิงอรรถเหล่านี้ไปใส่ร่วมกับข้อมูลในช่องตารางฝั่งขวาที่เป็นรายละเอียดหรือค่าสเปก (Value) โดยเด็ดขาด (ตัวอย่างเช่น ฝั่งซ้าย Topic = "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)¹", ฝั่งขวา Value = "300" เท่านั้น ห้ามเขียนฝั่งขวาเป็น "300¹")
 
 
-หมวดหมู่ (Category) ที่ต้องปรากฏใน JSON (ห้ามตกหล่นหมวดหมู่เหล่านี้):
+
+หมวดหมู่หลักที่ต้องปรากฏใน JSON เสมอ (ห้ามตกหล่น):
 - เครื่องยนต์และสมรรถนะ
 - อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2
 - ล้อและยาง
 - มิติรถยนต์
 - ระบบขับเคลื่อนและเทคโนโลยี
-- การชาร์จแบบกระแสสลับ (AC)
-- ระยะเวลาในการชาร์จจาก 0 - 100%
-- การชาร์จแบบกระแสตรง (DC)
-- ระยะเวลาในการชาร์จจาก 10 - 80%
 - อุปกรณ์ภายนอก
 - อุปกรณ์ภายใน
 - ระบบความบันเทิงและการสื่อสาร (ระมัดระวังความถูกต้องของเครื่องเสียง Harman Kardon และ Bowers & Wilkins Diamond ในรุ่นย่อยต่างๆ ห้ามคัดลอกเครื่องหมายไปยังรุ่นที่ไม่มีโดยเด็ดขาด)
 - ความปลอดภัย
-- Paintwork / สีตัวถังและวัสดุภายใน (หรือชื่อใกล้เคียงในตาราง Paintwork)
 - ข้อมูลเอกสารอ้างอิง
+
+หมวดหมู่เฉพาะกิจ (สร้างขึ้นเฉพาะเมื่อมีข้อมูลตารางระบุในโบรชัวร์เท่านั้น ห้ามสร้างเป็นค่าว่าง):
+- Paintwork / สีตัวถังและวัสดุภายใน (เฉพาะรุ่นที่มีตารางแสดงการจับคู่สีตัวถังกับเบาะภายใน)
+- การชาร์จแบบกระแสสลับ (AC) / ระยะเวลาในการชาร์จจาก 0 - 100% (เฉพาะรุ่นที่มีข้อมูลการชาร์จไฟ)
+- การชาร์จแบบกระแสตรง (DC) / ระยะเวลาในการชาร์จจาก 10 - 80% (เฉพาะรุ่นที่มีข้อมูลการชาร์จไฟ)
 
 โครงสร้าง JSON ที่ตอบกลับมา ห้ามเพิ่ม Key อื่นนอกเหนือจากรูปแบบที่กำหนดนี้:
 {
@@ -218,33 +218,35 @@ Strict rules to follow:
     - Terms like "Line / package", "Line / Package", "ชุดตกแต่งพิเศษ" or similar words representing trim packages must always be treated as Category headers. Never merge them into other categories.
     - Every category header detected must contain its respective sub-options (details) under it.
     - Every text in the document (including text that is parsed outside of a table layout) that is not page headers or footers must be treated as a sub-option (Topic) and must be extracted into the JSON. Never skip or omit them.
-9. **(Very Important) Electric Vehicle Charging Specs (AC / DC Charging):** If the document specifies charging details or charging times, you must always split them into the following 4 categories:
+9. **(Very Important) Electric Vehicle Charging Specs (AC / DC Charging):** Extract charging specifications into the following 4 categories only when a charging specification table is present in the brochure (do not create them if no charging data exists):
    - "AC CHARGING" for maximum AC charging power
    - "CHARGING TIME 0 - 100%" for AC charging times and options
    - "DC CHARGING" for maximum DC charging power
    - "CHARGING TIME 10 - 80%" for DC charging times and options
-   (Never merge charging specifications with other categories and never omit them.)
 10. **(Very Important) Series Name Determination:**
     - Check the model names in the document. If the models belong to the all-electric "i" family (such as i5, i7, iX, iX1, iX2, iX3), you must specify the series name exactly as "BMW i5", "BMW i7", "BMW iX", "BMW iX1", "BMW iX2", "BMW iX3" respectively.
     - Never merge electric "i" models under the general series names of internal combustion engine / plug-in hybrid models (for example, if the model is an i7, specify the series name as "BMW i7" and never write it as "BMW 7 SERIES").
     - If the models belong to the high-performance "M" family (such as M2, M3, M4, M5, M8), you must specify the series name exactly as "BMW M2", "BMW M3", "BMW M4", "BMW M5", "BMW M8" respectively. Never merge M models under the general series names (for example, if the model is an M3, specify the series name as "BMW M3" and never write it as "BMW 3 SERIES").
+11. **(Very Important) Footnotes and Explanatory Notes:** Some pages contain numbered or asterisked footnotes at the bottom (e.g. "1 ...", "2 ...", or "* ..."). You must extract all of these footnotes/notes into a dedicated category named `"Notes"` (or `"หมายเหตุ"` for Thai) with the full explanatory text as the topic name, and set the value to `"-"` for all models. This allows the system to generate interactive tooltips on the web page.
+12. **Footnote Placement Rule:** Footnote reference numbers (such as `¹`, `²`, `³` or any superscript numbers) must only appear at the end of the option/topic name in the left column (Topic). Never append or include these footnote reference numbers inside the right columns containing technical details or values (Value). (For example, left Column Topic = "Top speed (km/h)¹", right Column Value = "300" only, and never value = "300¹").
 
-Categories expected in the JSON:
+
+Standard Categories (Must always appear in JSON):
 - Engine and Performance
 - Fuel Consumption and CO2 Emission
 - Wheels and Tyres
 - Dimension
 - Drivetrain and Technology
-- AC CHARGING
-- CHARGING TIME 0 - 100%
-- DC CHARGING
-- CHARGING TIME 10 - 80%
 - Exterior Equipment
 - Interior Equipment
 - Entertainment and Communication (Be extremely careful with the values of Harman Kardon and Bowers & Wilkins Diamond systems across models. Do not copy checkmarks to columns/models where they are blank.)
 - Safety
-- Paintwork & Upholstery (or similar paint/upholstery category)
 - Document References
+
+Conditional Categories (Extract ONLY if data table is present in the brochure; DO NOT create empty placeholders):
+- Paintwork & Upholstery (Only if the color-upholstery combination matrix is present)
+- AC CHARGING / CHARGING TIME 0 - 100% (Only for EV/PHEV models with charging tables)
+- DC CHARGING / CHARGING TIME 10 - 80% (Only for EV/PHEV models with charging tables)
 
 JSON response structure:
 {
@@ -612,20 +614,99 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
             
     if not os.path.exists(md_debug_path):
         try:
+            if not MINERU_API_TOKEN or MINERU_API_TOKEN == "mock_token":
+                raise ValueError("No MinerU API Token provided. Forcing direct PDF extraction.")
             md_content = parse_pdf_via_api(pdf_path, lang_code)
-        except Exception as e:
-            print(f"[FATAL] MinerU extraction failed: {e}")
-            sys.exit(1)
-            
-        print("[MINERU] Successfully retrieved Markdown content.")
-        
-        # Save a temporary copy of the markdown content for inspection/debugging
-        try:
+            print("[MINERU] Successfully retrieved Markdown content.")
+            # Save a temporary copy of the markdown content for inspection/debugging
             with open(md_debug_path, "w", encoding="utf-8") as f:
                 f.write(md_content)
             print(f"[DEBUG] Saved raw Markdown to: {md_debug_path}")
         except Exception as e:
-            print(f"[WARNING] Could not save raw markdown debug file: {e}")
+            print(f"[MINERU WARNING] MinerU extraction failed or bypassed: {e}")
+            print("[FALLBACK] Using Direct PDF Extraction via Gemini Multimodal API...")
+            
+            system_prompt = PROMPT_TH if lang_code == "th" else PROMPT_EN
+            
+            # Extract PDF footer metadata directly using pypdf
+            footer_text = extract_pdf_footer_text(pdf_path)
+            
+            success_direct = False
+            key_idx = 0
+            model_pool = [MODEL_NAME, "gemini-3.5-flash", "gemini-3.6-flash-lite", "gemini-3.5-flash-lite"]
+            model_idx = 0
+            attempts = 0
+            max_attempts = len(API_KEYS) * len(model_pool) * 2
+            
+            while not success_direct and attempts < max_attempts and len(API_KEYS) > 0:
+                current_model = model_pool[model_idx]
+                key = API_KEYS[key_idx]
+                combo = f"{current_model}:{key}"
+                
+                if combo in EXHAUSTED_COMBINATIONS:
+                    key_idx = (key_idx + 1) % len(API_KEYS)
+                    if key_idx == 0:
+                        model_idx = (model_idx + 1) % len(model_pool)
+                    attempts += 1
+                    continue
+                
+                attempts += 1
+                try:
+                    client = genai.Client(api_key=key, http_options=types.HttpOptions(timeout=120000))
+                    print(f"      [DIRECT] Uploading PDF '{pdf_path}' to Gemini File API for key #{key_idx+1}...")
+                    pdf_ref = client.files.upload(file=pdf_path)
+                    
+                    prompt = f"{system_prompt}\n\nYour task is to parse the ENTIRE attached PDF brochure into the strict JSON format."
+                    if footer_text:
+                        prompt += f"\n\nHere is the footer metadata from the document page:\n{footer_text}"
+                    
+                    print(f"      [DIRECT] Calling Gemini model {current_model}...")
+                    response = client.models.generate_content(
+                        model=current_model,
+                        contents=[pdf_ref, prompt],
+                        config=types.GenerateContentConfig(
+                            response_mime_type="application/json"
+                        )
+                    )
+                    
+                    merged_output = json.loads(response.text)
+                    if isinstance(merged_output, list) and len(merged_output) > 0:
+                        merged_output = merged_output[0]
+                    
+                    # Clean up file
+                    try:
+                        client.files.delete(name=pdf_ref.name)
+                    except:
+                        pass
+                        
+                    # Save final structured specsheet
+                    merged_output["source_file"] = os.path.basename(pdf_path)
+                    merged_output["pdf_source"] = os.path.basename(pdf_path)
+                    
+                    # Apply overrides
+                    try:
+                        from manual_override_manager import apply_overrides
+                        pdf_basename = os.path.basename(pdf_path)
+                        for m in merged_output.get("models", []):
+                            apply_overrides(pdf_basename, m)
+                    except Exception as oe:
+                        print(f"[WARNING] Overrides failed: {oe}")
+                        
+                    print(f"[SAVE] Saving JSON to: {output_json_path}")
+                    with open(output_json_path, "w", encoding="utf-8") as f:
+                        json.dump(merged_output, f, ensure_ascii=False, indent=4)
+                    print("[COMPLETE] Direct PDF extraction finished successfully!")
+                    return
+                    
+                except Exception as ex:
+                    print(f"      [WARNING] Direct extraction failed on key #{key_idx+1} with model {current_model}: {ex}")
+                    EXHAUSTED_COMBINATIONS.add(combo)
+                    key_idx = (key_idx + 1) % len(API_KEYS)
+                    if key_idx == 0:
+                        model_idx = (model_idx + 1) % len(model_pool)
+            
+            print("[FATAL] All keys/models failed for Direct PDF extraction.")
+            sys.exit(1)
             
     # Extract PDF footer metadata directly using pypdf
     footer_text = extract_pdf_footer_text(pdf_path)
@@ -647,108 +728,127 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
     model_pool = [MODEL_NAME, "gemini-3.5-flash", "gemini-3.6-flash-lite", "gemini-3.5-flash-lite"]
     model_idx = 0
     
-    for i, seg in enumerate(segments):
-        print(f"   [API] Processing segment {i+1}/{len(segments)} via Gemini...")
-        
-        success = False
-        attempts = 0
-        max_attempts = len(API_KEYS) * len(model_pool) * 2  # Allow multiple retries per key/model combination
-        
-        prompt = f"{system_prompt}\n\nHere is the input table segment:\n\n{seg}"
-        if footer_text:
-            prompt += f"\n\nHere is the footer metadata from the document page:\n{footer_text}"
+    uploaded_files = {}
+    try:
+        for i, seg in enumerate(segments):
+            print(f"   [API] Processing segment {i+1}/{len(segments)} via Gemini...")
             
-        keys_tried_for_current_model = 0
-        
-        while not success and attempts < max_attempts and len(API_KEYS) > 0:
-            current_model = model_pool[model_idx]
-            key = API_KEYS[key_idx]
-            combo = f"{current_model}:{key}"
+            success = False
+            attempts = 0
+            max_attempts = len(API_KEYS) * len(model_pool) * 2  # Allow multiple retries per key/model combination
             
-            if combo in EXHAUSTED_COMBINATIONS:
-                keys_tried_for_current_model += 1
-                if keys_tried_for_current_model >= len(API_KEYS):
-                    model_idx = (model_idx + 1) % len(model_pool)
-                    keys_tried_for_current_model = 0
-                    print(f"      [MODEL-FALLBACK] All keys exhausted for {current_model}. Rotated to model: {model_pool[model_idx]}")
-                else:
-                    key_idx = (key_idx + 1) % len(API_KEYS)
-                attempts += 1
-                continue
+            prompt = f"{system_prompt}\n\nHere is the input table segment:\n\n{seg}"
+            if footer_text:
+                prompt += f"\n\nHere is the footer metadata from the document page:\n{footer_text}"
+                
+            keys_tried_for_current_model = 0
             
-            attempts += 1
-            if attempts > 1:
-                print(f"      [RETRY] Attempt {attempts} using model={current_model}...")
+            while not success and attempts < max_attempts and len(API_KEYS) > 0:
+                current_model = model_pool[model_idx]
+                key = API_KEYS[key_idx]
+                combo = f"{current_model}:{key}"
                 
-            try:
-                client = genai.Client(api_key=key, http_options=types.HttpOptions(timeout=60000))
-                response = client.models.generate_content(
-                    model=current_model,
-                    contents=[prompt],
-                    config=types.GenerateContentConfig(
-                        response_mime_type="application/json"
-                    )
-                )
-                segment_json = json.loads(response.text)
-                if isinstance(segment_json, list) and len(segment_json) > 0 and isinstance(segment_json[0], dict):
-                    segment_json = segment_json[0]
-                extracted_segments.append(segment_json)
-                print(f"      -> Segment {i+1} OCR Correction OK.")
-                success = True
-            except Exception as e:
-                err_msg = str(e)
-                print(f"      [WARNING] Gemini Error on Key #{key_idx+1} ({current_model}): {e}")
-                
-                is_rate_limit = any(term in err_msg.lower() for term in [
-                    "resource_exhausted", "quota", "rate limit", "rate_limit", "unavailable", "demand", "deadline", "timeout"
-                ])
-                is_invalid_key = any(term in err_msg for term in ["API key not valid", "API_KEY_INVALID", "INVALID_ARGUMENT"])
-                
-                if is_rate_limit:
-                    if "requestsperday" in err_msg.lower():
-                        EXHAUSTED_COMBINATIONS.add(combo)
-                        print(f"      [GDRIVE/QUOTA] Marked {current_model} on Key #{key_idx+1} as exhausted for this run (Daily Limit).")
-                        keys_tried_for_current_model += 1
-                    else:
-                        # Temporary RPM limit - sleep and rotate key but do not ban and do not increment tried keys count
-                        import re
-                        match = re.search(r"Please retry in ([\d\.]+)s", err_msg)
-                        delay = float(match.group(1)) if match else 10.0
-                        print(f"      [COOLDOWN] Temporary rate limit hit. Sleeping {delay:.1f}s...")
-                        time.sleep(delay + 1.0)
-                    
-                    if keys_tried_for_current_model >= len(API_KEYS):
-                        model_idx = (model_idx + 1) % len(model_pool)
-                        key_idx = (key_idx + 1) % len(API_KEYS)
-                        keys_tried_for_current_model = 0
-                        print(f"      [MODEL-FALLBACK] All keys failed for {current_model}. Rotated to model: {model_pool[model_idx]}")
-                    else:
-                        key_idx = (key_idx + 1) % len(API_KEYS)
-                        print(f"      [ROTATE] Rotated to Key #{key_idx+1} for model {current_model}.")
-                        
-                elif is_invalid_key:
-                    print(f"      [REMOVE] Removing invalid API Key #{key_idx+1} from pool.")
-                    API_KEYS.pop(key_idx)
-                    if not API_KEYS:
-                        print("[FATAL] All Gemini keys in pool have been removed as invalid.")
-                        sys.exit(1)
-                    key_idx = key_idx % len(API_KEYS)
-                    keys_tried_for_current_model = 0
-                    
-                else:
+                if combo in EXHAUSTED_COMBINATIONS:
                     keys_tried_for_current_model += 1
                     if keys_tried_for_current_model >= len(API_KEYS):
                         model_idx = (model_idx + 1) % len(model_pool)
-                        key_idx = (key_idx + 1) % len(API_KEYS)
                         keys_tried_for_current_model = 0
-                        print(f"      [MODEL-FALLBACK] General errors on all keys for {current_model}. Rotated to model: {model_pool[model_idx]}")
+                        print(f"      [MODEL-FALLBACK] All keys exhausted for {current_model}. Rotated to model: {model_pool[model_idx]}")
                     else:
                         key_idx = (key_idx + 1) % len(API_KEYS)
-                        print(f"      [ROTATE] Rotated to Key #{key_idx+1} for model {current_model}.")
+                    attempts += 1
+                    continue
+                
+                attempts += 1
+                if attempts > 1:
+                    print(f"      [RETRY] Attempt {attempts} using model={current_model}...")
+                    
+                try:
+                    client = genai.Client(api_key=key, http_options=types.HttpOptions(timeout=60000))
+                    
+                    # Upload PDF once per key
+                    if key not in uploaded_files:
+                        print(f"      [HYBRID] Uploading PDF to Gemini File API for Key #{key_idx+1}...")
+                        uploaded_files[key] = client.files.upload(file=pdf_path)
                         
-        if not success:
-            print(f"[FATAL] All Gemini keys/models failed to extract segment {i+1}.")
-            sys.exit(1)
+                    pdf_ref = uploaded_files[key]
+                    
+                    response = client.models.generate_content(
+                        model=current_model,
+                        contents=[pdf_ref, prompt],
+                        config=types.GenerateContentConfig(
+                            response_mime_type="application/json"
+                        )
+                    )
+                    segment_json = json.loads(response.text)
+                    if isinstance(segment_json, list) and len(segment_json) > 0 and isinstance(segment_json[0], dict):
+                        segment_json = segment_json[0]
+                    extracted_segments.append(segment_json)
+                    print(f"      -> Segment {i+1} OCR Correction OK.")
+                    success = True
+                except Exception as e:
+                    err_msg = str(e)
+                    print(f"      [WARNING] Gemini Error on Key #{key_idx+1} ({current_model}): {e}")
+                    
+                    is_rate_limit = any(term in err_msg.lower() for term in [
+                        "resource_exhausted", "quota", "rate limit", "rate_limit", "unavailable", "demand", "deadline", "timeout"
+                    ])
+                    is_invalid_key = any(term in err_msg for term in ["API key not valid", "API_KEY_INVALID", "INVALID_ARGUMENT"])
+                    
+                    if is_rate_limit:
+                        if "requestsperday" in err_msg.lower():
+                            EXHAUSTED_COMBINATIONS.add(combo)
+                            print(f"      [GDRIVE/QUOTA] Marked {current_model} on Key #{key_idx+1} as exhausted for this run (Daily Limit).")
+                            keys_tried_for_current_model += 1
+                        else:
+                            # Temporary RPM limit - sleep and rotate key but do not ban and do not increment tried keys count
+                            import re
+                            match = re.search(r"Please retry in ([\d\.]+)s", err_msg)
+                            delay = float(match.group(1)) if match else 10.0
+                            print(f"      [COOLDOWN] Temporary rate limit hit. Sleeping {delay:.1f}s...")
+                            time.sleep(delay + 1.0)
+                        
+                        if keys_tried_for_current_model >= len(API_KEYS):
+                            model_idx = (model_idx + 1) % len(model_pool)
+                            key_idx = (key_idx + 1) % len(API_KEYS)
+                            keys_tried_for_current_model = 0
+                            print(f"      [MODEL-FALLBACK] All keys failed for {current_model}. Rotated to model: {model_pool[model_idx]}")
+                        else:
+                            key_idx = (key_idx + 1) % len(API_KEYS)
+                            print(f"      [ROTATE] Rotated to Key #{key_idx+1} for model {current_model}.")
+                            
+                    elif is_invalid_key:
+                        print(f"      [REMOVE] Removing invalid API Key #{key_idx+1} from pool.")
+                        API_KEYS.pop(key_idx)
+                        if not API_KEYS:
+                            print("[FATAL] All Gemini keys in pool have been removed as invalid.")
+                            sys.exit(1)
+                        key_idx = key_idx % len(API_KEYS)
+                        keys_tried_for_current_model = 0
+                        
+                    else:
+                        keys_tried_for_current_model += 1
+                        if keys_tried_for_current_model >= len(API_KEYS):
+                            model_idx = (model_idx + 1) % len(model_pool)
+                            key_idx = (key_idx + 1) % len(API_KEYS)
+                            keys_tried_for_current_model = 0
+                            print(f"      [MODEL-FALLBACK] General errors on all keys for {current_model}. Rotated to model: {model_pool[model_idx]}")
+                        else:
+                            key_idx = (key_idx + 1) % len(API_KEYS)
+                            print(f"      [ROTATE] Rotated to Key #{key_idx+1} for model {current_model}.")
+                            
+            if not success:
+                print(f"[FATAL] All Gemini keys/models failed to extract segment {i+1}.")
+                sys.exit(1)
+    finally:
+        # Clean up all uploaded files
+        for k, f_ref in uploaded_files.items():
+            try:
+                print(f"   [HYBRID] Cleaning up uploaded file '{f_ref.name}'...")
+                cleanup_client = genai.Client(api_key=k)
+                cleanup_client.files.delete(name=f_ref.name)
+            except Exception as e:
+                print(f"   [HYBRID WARNING] Failed to clean up file '{f_ref.name}': {e}")
             
     # Step 4: Merge segments into a single unified JSON
     print("[MERGE] Merging segment JSONs...")

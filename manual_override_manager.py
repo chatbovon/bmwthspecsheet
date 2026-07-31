@@ -26,7 +26,17 @@ def apply_overrides(pdf_source, model_json):
     """
     Applies overrides from manual_overrides.json to a model specification JSON dict.
     Updates the values in place and normalizes spelling to the override keys.
+    
+    IMPORTANT: This system is designed solely to correct mistakes inherent in the
+    source PDF brochures published by BMW Thailand (e.g., typographical errors,
+    incorrect technical specifications, or missing options in the original print).
+    It is NOT for patching AI extraction failures. AI parsing issues should be
+    resolved by refining system prompts or extraction logic.
     """
+    # Skip overrides for English brochures since they are written in Thai
+    if "_en" in os.path.basename(pdf_source).lower():
+        return
+
     if not os.path.exists(OVERRIDES_FILE):
         return
 
@@ -42,6 +52,9 @@ def apply_overrides(pdf_source, model_json):
     pdf_basename = os.path.basename(pdf_source)
     
     for prefix in overrides_db:
+        # Ignore comments/metadata keys starting with "_"
+        if prefix.startswith("_"):
+            continue
         if pdf_basename.startswith(prefix):
             matching_prefix = prefix
             break
@@ -55,6 +68,9 @@ def apply_overrides(pdf_source, model_json):
     # Match model name (strict or normalized)
     override_model_key = None
     for o_mname in prefix_overrides:
+        # Ignore comments/metadata keys starting with "_"
+        if o_mname.startswith("_"):
+            continue
         if o_mname.strip().lower() == model_name.strip().lower():
             override_model_key = o_mname
             break
@@ -65,9 +81,12 @@ def apply_overrides(pdf_source, model_json):
     model_overrides = prefix_overrides[override_model_key]
     specifications = model_json.get("specifications", [])
 
-    print(f"[OVERRIDE-MANAGER] Processing overrides for model '{model_name}' under PDF prefix '{matching_prefix}'...")
+    print(f"[OVERRIDE-MANAGER] Patching source PDF/brochure errors for model '{model_name}' under PDF prefix '{matching_prefix}'...")
 
     for override_cat_name, override_topics in model_overrides.items():
+        # Ignore comments/metadata keys starting with "_"
+        if override_cat_name.startswith("_"):
+            continue
         # Find category in spec
         target_cat = None
         for cat in specifications:
@@ -84,6 +103,9 @@ def apply_overrides(pdf_source, model_json):
         
         # Loop through override topics to find match in details
         for override_topic, override_val in override_topics.items():
+            # Ignore comments/metadata keys starting with "_"
+            if override_topic.startswith("_"):
+                continue
             matched_detail = None
             match_stage = None
             

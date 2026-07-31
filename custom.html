@@ -917,8 +917,8 @@
     // โหลดข้อมูลแบบ Pooling / Fallback
     function loadSpecsData() {
         const trans = TRANSLATIONS[currentLang];
-        const specFile = currentLang === 'en' ? 'bmw_master_specs_en.json' : 'bmw_master_specs.json';
-        const fallbackFile = currentLang === 'en' ? 'bmw_ai_specs_en.json' : 'bmw_ai_specs.json';
+        const specFile = currentLang === 'en' ? 'bmw_custom_specs_en.json' : 'bmw_custom_specs.json';
+        const fallbackFile = currentLang === 'en' ? 'bmw_custom_specs_en.json' : 'bmw_custom_specs.json';
 
         document.getElementById('seriesTitle').innerText = trans.loadingText;
         document.getElementById('seriesSelect').innerHTML = `<option value="">${trans.loadingText}</option>`;
@@ -994,16 +994,8 @@
     function initializeData(data) {
         const trans = TRANSLATIONS[currentLang];
         
-        // Filter in only archived/custom models for this custom page
+        // Load all data directly from the custom spec database (all models here are custom/archived)
         let parsedData = Array.isArray(data) ? data : (data ? [data] : []);
-        parsedData = parsedData.map(series => {
-            const customModels = (series.models || []).filter(m => m.is_custom_archived);
-            return {
-                ...series,
-                models: customModels
-            };
-        }).filter(series => series.models.length > 0);
-        
         allSeriesData = sortSeriesData(parsedData);
 
         const seriesSelect = document.getElementById('seriesSelect');

@@ -370,6 +370,49 @@
             color: #38bdf8;
             text-decoration: none;
         }
+
+        /* Premium Tooltip Styling for Footnotes */
+        .footnote-trigger {
+            color: #3b82f6;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+            padding: 0 2px;
+            transition: color 0.2s ease;
+        }
+
+        .footnote-trigger:hover {
+            color: #ff6b6b;
+            text-decoration: underline;
+        }
+
+        /* Shared dynamic tooltip styling */
+        .premium-tooltip {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            color: #f1f5f9;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: normal;
+            line-height: 1.4;
+            white-space: normal;
+            width: 260px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 9999;
+            text-align: left;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        .premium-tooltip.show {
+            opacity: 1;
+            transform: scale(1);
+        }
     </style>
 </head>
 <body>
@@ -625,10 +668,84 @@
         });
     }
 
+    let currentFootnotes = {};
+
+    function parseFootnotes(data) {
+        currentFootnotes = {};
+        const superscriptMap = {
+            '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '*': '*'
+        };
+        const models = data.models || [];
+        models.forEach(model => {
+            (model.specifications || []).forEach(spec => {
+                const catName = (spec.category || "").toLowerCase().trim();
+                if (catName === "หมายเหตุ" || catName === "notes" || catName === "footnote" || catName === "footnotes") {
+                    (spec.details || []).forEach(detail => {
+                        const topic = (detail.topic || "").trim();
+                        const firstChar = topic.charAt(0);
+                        if (superscriptMap[firstChar]) {
+                            const num = superscriptMap[firstChar];
+                            const text = topic.substring(1).trim();
+                            currentFootnotes[num] = text;
+                        } else {
+                            const match = topic.match(/^(\d+|\*)\s*(.*)/);
+                            if (match) {
+                                currentFootnotes[match[1]] = match[2];
+                            } else {
+                                currentFootnotes["*"] = topic;
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    }
+
+    function addFootnoteTooltips(text, isValue = false) {
+        if (typeof text !== 'string') return text;
+        
+        const superscriptMap = {
+            '¹': '1',
+            '²': '2',
+            '³': '3',
+            '⁴': '4',
+            '⁵': '5',
+            '*': '*'
+        };
+        
+        let newText = text;
+        Object.keys(superscriptMap).forEach(sup => {
+            const num = superscriptMap[sup];
+            if (text.includes(sup) && currentFootnotes[num]) {
+                const tooltipText = currentFootnotes[num].replace(/"/g, '&quot;');
+                const regex = new RegExp(sup, 'g');
+                newText = newText.replace(regex, `<span class="footnote-trigger" data-tooltip="${tooltipText}">${sup}</span>`);
+            }
+        });
+        
+        if (!isValue) {
+            const trailingMatch = text.match(/(.*)(\d)$/);
+            if (trailingMatch) {
+                const base = trailingMatch[1];
+                const num = trailingMatch[2];
+                // Check if it is a decimal number (e.g., base ends with a digit followed by a dot, like "3.")
+                const isDecimal = base.match(/\d\.$/);
+                if (!isDecimal && currentFootnotes[num]) {
+                    const tooltipText = currentFootnotes[num].replace(/"/g, '&quot;');
+                    newText = base + `<span class="footnote-trigger" data-tooltip="${tooltipText}"><sup>${num}</sup></span>`;
+                }
+            }
+        }
+        
+        return newText;
+    }
+
     // ฟังก์ชันสำหรับเรนเดอร์ซีรีส์ที่เลือก
     function renderSeries(seriesIndex) {
         const data = allSeriesData[seriesIndex];
         if (!data) return;
+
+        parseFootnotes(data);
 
         document.getElementById('seriesTitle').innerText = data.series || 'BMW Specsheet';
         
@@ -712,6 +829,12 @@
         uniqueCategories = categoryWithIndices.map(item => item.name);
 
         uniqueCategories.forEach(categoryName => {
+            // Exclude the หมายเหตุ / Notes / Footnotes category from the main table
+            const lowerCat = categoryName.toLowerCase().trim();
+            if (lowerCat === "หมายเหตุ" || lowerCat === "notes" || lowerCat === "footnote" || lowerCat === "footnotes") {
+                return;
+            }
+
             // ดึงหัวข้อสเปกย่อยแบบไม่ซ้ำกันทั้งหมดสำหรับหมวดหมู่นี้ในทุกรุ่นย่อย
             let uniqueTopics = [];
             models.forEach(model => {
@@ -743,7 +866,7 @@
                 let tr = document.createElement('tr');
                 
                 let tdTopic = document.createElement('td');
-                tdTopic.innerText = topicName;
+                tdTopic.innerHTML = addFootnoteTooltips(topicName);
                 tr.appendChild(tdTopic);
 
                 models.forEach((model, index) => {
@@ -760,7 +883,7 @@
                         }
                     }
                     
-                    tdValue.innerHTML = formatValue(specValue);
+                    tdValue.innerHTML = addFootnoteTooltips(formatValue(specValue), true);
                     
                     // Setup paint cell hover and click interactivity
                     const seriesNameUpper = (data.series || "").toUpperCase().trim();
@@ -1007,8 +1130,9 @@
     function initializeData(data) {
         const trans = TRANSLATIONS[currentLang];
         
-        // Filter out archived/custom models for the main page
+        // Load all data directly from the active master spec database
         let parsedData = Array.isArray(data) ? data : (data ? [data] : []);
+        // Filter out archived/custom models for the main page
         parsedData = parsedData.map(series => {
             const activeModels = (series.models || []).filter(m => !m.is_custom_archived);
             return {
@@ -1151,6 +1275,51 @@
             closeImageModal();
         }
     });
+
+    // Initialize shared tooltip element dynamically
+    const tooltipEl = document.createElement('div');
+    tooltipEl.className = 'premium-tooltip';
+    document.body.appendChild(tooltipEl);
+
+    // Event Delegation for footnote hovers on the spec table
+    const specTable = document.getElementById('specTable');
+    if (specTable) {
+        specTable.addEventListener('mouseover', function(e) {
+            const trigger = e.target.closest('.footnote-trigger');
+            if (!trigger) return;
+
+            const text = trigger.getAttribute('data-tooltip');
+            if (!text) return;
+
+            tooltipEl.innerText = text;
+            tooltipEl.classList.add('show');
+
+            // Calculate bounds-safe position
+            const rect = trigger.getBoundingClientRect();
+            let top = rect.top + window.scrollY - tooltipEl.offsetHeight - 8;
+            let left = rect.left + window.scrollX + rect.width / 2 - tooltipEl.offsetWidth / 2;
+
+            // Boundary Check: prevent left edge overflow (12px margin)
+            if (left < 12) {
+                left = 12;
+            }
+            
+            // Boundary Check: prevent right edge overflow (12px margin)
+            const maxLeft = window.innerWidth - tooltipEl.offsetWidth - 12;
+            if (left > maxLeft) {
+                left = maxLeft;
+            }
+
+            tooltipEl.style.top = top + 'px';
+            tooltipEl.style.left = left + 'px';
+        });
+
+        specTable.addEventListener('mouseout', function(e) {
+            const trigger = e.target.closest('.footnote-trigger');
+            if (!trigger) return;
+            tooltipEl.classList.remove('show');
+        });
+    }
 
     // เริ่มต้นโหลดข้อมูล
     loadSpecsData();

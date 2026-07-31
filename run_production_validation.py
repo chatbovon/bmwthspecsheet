@@ -82,10 +82,11 @@ for mname in matching_models:
 COMPARISON_PROMPT = """You are a professional BMW QA Technical auditor. Your task is to compare the Thai and English specification JSONs for a specific BMW model and find all discrepancies or inconsistencies between them.
 
 A discrepancy is defined as:
-1. Option presence mismatch: An option is enabled '■' or has a value in one language but is marked as absent '-' or missing in the other language. (Exclude cases where Thai has translated values and English has equivalent English values, unless they contradict each other).
-2. Numeric value discrepancy: Different values for engine output, fuel economy (km/l), dimensions (length/width/height), cargo space, weight, battery capacity, or tyre sizes.
+1. Option presence/absence mismatch: An option is enabled '■' or has a value in one language but is marked as absent '-' or missing in the other language.
+2. Numeric value discrepancy: Any difference in engine output, fuel economy (km/l), dimensions, cargo space, weight, battery capacity, tyre sizes, or torque RPM ranges (including M340i xDrive).
 3. Paintwork / Upholstery mismatch: Different combinations of exterior paint and interior leather/color, or mismatched leather names.
-4. Logical conflict: Any other contradiction.
+4. Structural / Naming / Ordering mismatch: Any difference in category names, topic names, topic counts, category counts, or the exact order/positioning of categories or topics between the Thai and English versions.
+5. Logical conflict: Any other contradiction.
 
 Output your findings as a strict JSON array of discrepancy objects in this format (no markdown formatting, no code block backticks, just raw JSON):
 [
@@ -159,16 +160,16 @@ for mname, items in raw_results.items():
 print(f"\n[FILTER] Filtering {len(all_discrepancies)} total raw discrepancies using Gemini...")
 
 FILTER_PROMPT = """You are an expert BMW specification quality auditor. You will be given a list of cross-language discrepancies between Thai and English brochures.
-Your goal is to FILTER OUT any entries that are purely:
+Your goal is to FILTER OUT only entries that are purely:
 1. Terminology Phrasing or Translation style differences: e.g. "BMW TwinPower Turbo..." vs "TwinPower Turbo...", or different separators.
 2. Minor spelling differences in leather names or color names: e.g., omitting "Leather 'Vernasca'" in one language but keeping "Mocha" or "Black", or minor capitalization/spacing/hyphen differences.
-3. Equivalent technical specifications written differently.
-4. Category Grouping Mismatches: If an option is present in both databases but listed under different categories (e.g., 'อุปกรณ์ภายใน' / 'Interior Equipment' vs 'Interior'), this is NOT a contradiction. Filter it out.
+3. Equivalent technical specifications written differently (unless the underlying numerical value or range is different).
 
-Keep ONLY actual specification contradictions, such as:
-1. Option presence mismatch: One language says present '■' (or a specific value) and the other says absent '-' (or vice versa).
+Keep ALL other discrepancies, including:
+1. Option presence/absence mismatch: One language says present '■' (or a specific value) and the other says absent '-' (or vice versa).
 2. True numeric/spec differences: e.g. different torque RPM ranges, different dimensions, different cargo capacities.
 3. Missing configurations: Entire colors or models that are present in one brochure but completely omitted in the other.
+4. Structural / Naming / Ordering mismatch: Any differences in category names, topic names, topic counts, category counts, or the exact order/positioning of categories or topics between the Thai and English versions.
 
 Output your filtered results as a strict JSON array of discrepancy objects in this format (no markdown code blocks, no backticks, just raw JSON):
 [
@@ -227,21 +228,11 @@ print(f"\n[COMPLETE] Filtered MD report saved to: {filtered_report_path}")
 # =========================================================================
 # EXIT WITH CODE 1 IF ACTUAL DISCREPANCIES EXIST
 # =========================================================================
-# Ignore M340i xDrive Engine torque RPM discrepancy because it differs in reality
-final_actual_issues = []
-for item in filtered_results:
-    mname = item.get("model_name", "")
-    topic_en = item.get("topic_en", "").lower()
-    topic_th = item.get("topic_th", "").lower()
-    
-    if "m340i" in mname.lower() and ("torque" in topic_en or "แรงบิด" in topic_th):
-        print(f"   [IGNORE] M340i torque RPM difference is expected and ignored.")
-        continue
-    final_actual_issues.append(item)
+final_actual_issues = list(filtered_results)
 
 if len(final_actual_issues) > 0:
     print(f"\n[FAIL] Found {len(final_actual_issues)} actual technical discrepancies!")
     sys.exit(1)
 else:
-    print("\n[PASS] No technical discrepancies found (or all ignored).")
+    print("\n[PASS] No technical discrepancies found.")
     sys.exit(0)

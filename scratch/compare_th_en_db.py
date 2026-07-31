@@ -41,33 +41,61 @@ TOPIC_MAP = {
     "รหัสแพ็กเกจ": "package code"
 }
 
-def map_category(cat_th):
-    cat_th = cat_th.lower()
-    if "เครื่องยนต์" in cat_th:
+def map_category(cat):
+    if not cat:
+        return ""
+    cat = cat.lower().strip()
+    if "เครื่องยนต์" in cat or "engine" in cat:
         return "engine and performance"
-    elif "อัตราสิ้นเปลือง" in cat_th or "co2" in cat_th:
+    elif "อัตราสิ้นเปลือง" in cat or "co2" in cat or "fuel" in cat:
         return "fuel consumption and co2"
-    elif "ล้อ" in cat_th or "ยาง" in cat_th:
+    elif "ล้อ" in cat or "ยาง" in cat or "wheel" in cat or "tyre" in cat:
         return "wheels and tyres"
-    elif "มิติ" in cat_th:
+    elif "มิติ" in cat or "dimension" in cat:
         return "dimension"
-    elif "ระบบขับเคลื่อน" in cat_th:
+    elif "ระบบขับเคลื่อน" in cat or "transmission" in cat or "drivetrain" in cat:
         return "transmission and technology"
-    elif "ภายนอก" in cat_th:
-        return "exterior"
-    elif "ภายใน" in cat_th:
-        return "interior"
-    elif "บันเทิง" in cat_th or "สื่อสาร" in cat_th:
-        return "entertainment and communication"
-    elif "ปลอดภัย" in cat_th:
-        return "safety"
-    elif "ชุดตกแต่ง" in cat_th:
-        return "line / package"
-    elif "paintwork" in cat_th or "สีตัวถัง" in cat_th:
+    elif "paintwork" in cat or "สีตัวถัง" in cat:
         return "paintwork & upholstery"
-    elif "ข้อมูลเอกสารอ้างอิง" in cat_th or "เอกสารอ้างอิง" in cat_th:
+    elif "ภายนอก" in cat or "exterior" in cat:
+        return "exterior"
+    elif "ภายใน" in cat or "interior" in cat:
+        return "interior"
+    elif "บันเทิง" in cat or "สื่อสาร" in cat or "entertainment" in cat or "communication" in cat:
+        return "entertainment and communication"
+    elif "ปลอดภัย" in cat or "safety" in cat:
+        return "safety"
+    elif "ชุดตกแต่ง" in cat or "line" in cat or "package" in cat or "แพ็กเกจ" in cat:
+        return "line / package"
+    elif "เอกสารอ้างอิง" in cat or "document" in cat:
         return "document references"
-    return cat_th
+    elif "ตัวเลือกพิเศษ" in cat or "special option" in cat:
+        return "special options"
+    elif "charging" in cat or "ชาร์จ" in cat:
+        if "ac" in cat or "กระแสสลับ" in cat:
+            if "time" in cat or "ระยะเวลา" in cat:
+                return "ac charging time"
+            return "ac charging"
+        elif "dc" in cat or "กระแสตรง" in cat:
+            if "time" in cat or "ระยะเวลา" in cat:
+                return "dc charging time"
+            return "dc charging"
+        return "charging"
+    return cat
+
+def get_mapped_topic_name(topic):
+    if not topic:
+        return ""
+    topic_clean = topic.strip().lower()
+    # Check in TOPIC_MAP
+    mapped = TOPIC_MAP.get(topic.strip())
+    if mapped:
+        return mapped.lower()
+    # Direct or substring check
+    for k, v in TOPIC_MAP.items():
+        if k.lower() == topic_clean or v.lower() == topic_clean:
+            return v.lower()
+    return topic_clean
 
 def normalize_model_name(name):
     if not name:
@@ -201,137 +229,249 @@ def main():
                 print(f"  [WARNING] Model '{model_name}' not found in Thai brochure.")
                 continue
 
-            # Compare specifications category by category
+            # Compare specifications category by category strictly index-by-index
             en_specs = en_model.get("specifications", [])
             th_specs = th_model.get("specifications", [])
 
-            # Map TH specifications by mapped category name
-            th_spec_cats = {}
-            for ts in th_specs:
-                mapped_cat = map_category(ts.get("category", ""))
-                th_spec_cats[mapped_cat] = ts
+            max_cat_len = max(len(en_specs), len(th_specs))
+            if len(en_specs) != len(th_specs):
+                reason = f"Category count mismatch: English has {len(en_specs)} categories, Thai has {len(th_specs)} categories"
+                print(f"    [MISMATCH] {model_name} - {reason}")
+                flag_data = {
+                    "model_name": model_name,
+                    "category": "All",
+                    "topic": "Category Count",
+                    "type": "Cross-DB Discrepancy",
+                    "reason": reason
+                }
+                en_entry["low_confidence_flags"].append(flag_data)
+                th_entry["low_confidence_flags"].append(flag_data)
+                audit_reports.append({
+                    "pdf": th_entry.get("pdf_source"),
+                    "model": model_name,
+                    "category": "General",
+                    "type": "Category Count/Ordering Mismatch (จำนวน/ลำดับหมวดหมู่ต่างกัน)",
+                    "detail": reason
+                })
+                discrepancies_count += 1
 
-            for es in en_specs:
+            for i in range(max_cat_len):
+                if i >= len(en_specs):
+                    # Extra category in Thai specs
+                    cat_th = th_specs[i].get("category", "")
+                    reason = f"Extra category in Thai brochure: '{cat_th}' (not present in English specs)"
+                    print(f"    [MISMATCH] {model_name} - {reason}")
+                    audit_reports.append({
+                        "pdf": th_entry.get("pdf_source"),
+                        "model": model_name,
+                        "category": cat_th,
+                        "type": "Category Count/Ordering Mismatch (จำนวน/ลำดับหมวดหมู่ต่างกัน)",
+                        "detail": reason
+                    })
+                    discrepancies_count += 1
+                    continue
+                if i >= len(th_specs):
+                    # Extra category in English specs
+                    cat_en = en_specs[i].get("category", "")
+                    reason = f"Missing category in Thai brochure: '{cat_en}' (present in English specs)"
+                    print(f"    [MISMATCH] {model_name} - {reason}")
+                    audit_reports.append({
+                        "pdf": th_entry.get("pdf_source"),
+                        "model": model_name,
+                        "category": cat_en,
+                        "type": "Category Count/Ordering Mismatch (จำนวน/ลำดับหมวดหมู่ต่างกัน)",
+                        "detail": reason
+                    })
+                    discrepancies_count += 1
+                    continue
+
+                es = en_specs[i]
+                ts = th_specs[i]
+
                 cat_en = es.get("category", "")
+                cat_th = ts.get("category", "")
+
                 mapped_cat_en = map_category(cat_en)
-                
-                ts = th_spec_cats.get(mapped_cat_en)
-                if not ts:
+                mapped_cat_th = map_category(cat_th)
+
+                if mapped_cat_en != mapped_cat_th:
+                    reason = f"Category mismatch/ordering difference at position {i+1}: English has '{cat_en}', Thai has '{cat_th}'"
+                    print(f"    [MISMATCH] {model_name} - {reason}")
+                    flag_data = {
+                        "model_name": model_name,
+                        "category": f"{cat_th} / {cat_en}",
+                        "topic": "Category Position",
+                        "type": "Cross-DB Discrepancy",
+                        "reason": reason
+                    }
+                    en_entry["low_confidence_flags"].append(flag_data)
+                    th_entry["low_confidence_flags"].append(flag_data)
+                    audit_reports.append({
+                        "pdf": th_entry.get("pdf_source"),
+                        "model": model_name,
+                        "category": cat_en,
+                        "type": "Category Count/Ordering Mismatch (จำนวน/ลำดับหมวดหมู่ต่างกัน)",
+                        "detail": reason
+                    })
+                    discrepancies_count += 1
                     continue
 
                 details_en = es.get("details", [])
                 details_th = ts.get("details", [])
 
-                is_paintwork = (mapped_cat_en == "paintwork & upholstery")
+                max_detail_len = max(len(details_en), len(details_th))
+                if len(details_en) != len(details_th):
+                    reason = f"Topic count mismatch in category '{cat_en}': English has {len(details_en)} topics, Thai has {len(details_th)} topics"
+                    print(f"    [MISMATCH] {model_name} / {cat_en} - {reason}")
+                    flag_data = {
+                        "model_name": model_name,
+                        "category": cat_en,
+                        "topic": "Topic Count",
+                        "type": "Cross-DB Discrepancy",
+                        "reason": reason
+                    }
+                    en_entry["low_confidence_flags"].append(flag_data)
+                    th_entry["low_confidence_flags"].append(flag_data)
+                    audit_reports.append({
+                        "pdf": th_entry.get("pdf_source"),
+                        "model": model_name,
+                        "category": cat_en,
+                        "type": "Topic Count/Ordering Mismatch (จำนวน/ลำดับหัวข้อต่างกัน)",
+                        "detail": reason
+                    })
+                    discrepancies_count += 1
 
-                if is_paintwork:
-                    th_paint_topics = {d.get("topic").lower().strip(): d for d in details_th}
-                    for de in details_en:
-                        topic_en = de.get("topic", "")
-                        val_en = de.get("value", "")
-                        
-                        dt = th_paint_topics.get(topic_en.lower().strip())
-                        if dt:
-                            val_th = dt.get("value", "")
-                            if not is_paintwork_value_similar(val_th, val_en):
-                                reason = f"Paintwork color '{topic_en}' upholstery mismatch: Thai has '{val_th}', English has '{val_en}'"
-                                print(f"    [MISMATCH] {model_name} / Paintwork - {reason}")
-                                flag_data = {
-                                    "model_name": model_name,
+                for j in range(max_detail_len):
+                    if j >= len(details_en):
+                        topic_th = details_th[j].get("topic", "")
+                        val_th = details_th[j].get("value", "")
+                        reason = f"Extra topic in Thai category '{cat_th}' at index {j}: '{topic_th}' with value '{val_th}'"
+                        print(f"    [MISMATCH] {model_name} / {cat_en} - {reason}")
+                        audit_reports.append({
+                            "pdf": th_entry.get("pdf_source"),
+                            "model": model_name,
+                            "category": cat_en,
+                            "type": "Topic Count/Ordering Mismatch (จำนวน/ลำดับหัวข้อต่างกัน)",
+                            "detail": reason
+                        })
+                        discrepancies_count += 1
+                        continue
+                    if j >= len(details_th):
+                        topic_en = details_en[j].get("topic", "")
+                        val_en = details_en[j].get("value", "")
+                        reason = f"Missing topic in Thai category '{cat_en}' at index {j}: '{topic_en}' (present in English specs)"
+                        print(f"    [MISMATCH] {model_name} / {cat_en} - {reason}")
+                        audit_reports.append({
+                            "pdf": th_entry.get("pdf_source"),
+                            "model": model_name,
+                            "category": cat_en,
+                            "type": "Topic Count/Ordering Mismatch (จำนวน/ลำดับหัวข้อต่างกัน)",
+                            "detail": reason
+                        })
+                        discrepancies_count += 1
+                        continue
+
+                    topic_en = details_en[j].get("topic", "")
+                    topic_th = details_th[j].get("topic", "")
+                    val_en = details_en[j].get("value", "")
+                    val_th = details_th[j].get("value", "")
+
+                    t_en_mapped = get_mapped_topic_name(topic_en)
+                    t_th_mapped = get_mapped_topic_name(topic_th)
+
+                    if t_en_mapped != t_th_mapped:
+                        reason = f"Topic name mismatch/ordering difference in category '{cat_en}' at position {j+1}: English is '{topic_en}' (mapped: '{t_en_mapped}'), Thai is '{topic_th}' (mapped: '{t_th_mapped}')"
+                        print(f"    [MISMATCH] {model_name} / {cat_en} - {reason}")
+                        flag_data = {
+                            "model_name": model_name,
+                            "category": cat_en,
+                            "topic": f"{topic_th} / {topic_en}",
+                            "type": "Cross-DB Discrepancy",
+                            "reason": reason
+                        }
+                        en_entry["low_confidence_flags"].append(flag_data)
+                        th_entry["low_confidence_flags"].append(flag_data)
+                        audit_reports.append({
+                            "pdf": th_entry.get("pdf_source"),
+                            "model": model_name,
+                            "category": cat_en,
+                            "type": "Topic Count/Ordering Mismatch (จำนวน/ลำดับหัวข้อต่างกัน)",
+                            "detail": reason
+                        })
+                        discrepancies_count += 1
+                        continue
+
+                    # Compare values strictly
+                    is_paintwork = (mapped_cat_en == "paintwork & upholstery")
+                    if is_paintwork:
+                        if not is_paintwork_value_similar(val_th, val_en):
+                            reason = f"Paintwork color '{topic_en}' upholstery mismatch: Thai has '{val_th}', English has '{val_en}'"
+                            print(f"    [MISMATCH] {model_name} / Paintwork - {reason}")
+                            flag_data = {
+                                "model_name": model_name,
+                                "category": cat_en,
+                                "topic": topic_en,
+                                "type": "Cross-DB Discrepancy",
+                                "reason": reason
+                            }
+                            en_entry["low_confidence_flags"].append(flag_data)
+                            th_entry["low_confidence_flags"].append(flag_data)
+                            audit_reports.append({
+                                "pdf": th_entry.get("pdf_source"),
+                                "model": model_name,
+                                "category": cat_en,
+                                "type": "Paintwork/Upholstery Mismatch (สีตัวถัง/วัสดุเบาะหนังไม่สอดคล้องกัน)",
+                                "detail": reason
+                            })
+                            discrepancies_count += 1
+                    else:
+                        clean_en = clean_value(val_en)
+                        clean_th = clean_value(val_th)
+
+                        if clean_en != clean_th:
+                            reason = f"Value mismatch for '{topic_th}' / '{topic_en}': Thai has '{val_th}', English has '{val_en}'"
+                            print(f"    [MISMATCH] {model_name} / {cat_en} - {reason}")
+
+                            flag_data = {
+                                "model_name": model_name,
+                                "category": cat_en,
+                                "topic": f"{topic_th} / {topic_en}",
+                                "type": "Cross-DB Discrepancy",
+                                "reason": reason
+                            }
+                            en_entry["low_confidence_flags"].append(flag_data)
+                            th_entry["low_confidence_flags"].append(flag_data)
+                            discrepancies_count += 1
+
+                            is_option_conflict = (clean_en == "■" and clean_th == "-") or (clean_en == "-" and clean_th == "■")
+                            digits_th = extract_digits(val_th)
+                            digits_en = extract_digits(val_en)
+                            is_numeric_conflict = (digits_th != digits_en) and (len(digits_th) > 0 or len(digits_en) > 0)
+
+                            if is_option_conflict:
+                                audit_reports.append({
+                                    "pdf": th_entry.get("pdf_source"),
+                                    "model": model_name,
                                     "category": cat_en,
-                                    "topic": topic_en,
-                                    "type": "Cross-DB Discrepancy",
-                                    "reason": reason
-                                }
-                                en_entry["low_confidence_flags"].append(flag_data)
-                                th_entry["low_confidence_flags"].append(flag_data)
-                                discrepancies_count += 1
-                else:
-                    # Always match by keys to prevent positional alignment errors and false positives from dummy rows
-                    th_details_map = {d.get("topic").strip(): d for d in details_th if d.get("topic") and d.get("topic").strip() != "-"}
-                    for de in details_en:
-                        topic_en = de.get("topic", "").strip()
-                        if not topic_en or topic_en == "-":
-                            continue
-                        val_en = de.get("value", "")
-                        
-                        dt = None
-                        # 1. Exact Match via TOPIC_MAP or direct text match
-                        for t_th in th_details_map.keys():
-                            if TOPIC_MAP.get(t_th) == topic_en.lower() or t_th.lower() == topic_en.lower():
-                                dt = th_details_map[t_th]
-                                break
-                        # 2. Substring Match (skip if topic key is too short or is dummy/punctuation)
-                        if not dt:
-                            for t_th in th_details_map.keys():
-                                t_th_clean = t_th.strip()
-                                # Prevent matching on empty/dummy string, single chars, or punctuation hyphens
-                                if len(t_th_clean) > 2 and (topic_en.lower() in t_th.lower() or t_th.lower() in topic_en.lower()):
-                                    dt = th_details_map[t_th]
-                                    break
-                                    
-                        if dt:
-                            topic_th = dt.get("topic", "")
-                            val_th = dt.get("value", "")
-                            clean_en = clean_value(val_en)
-                            clean_th = clean_value(val_th)
-
-                            if clean_en != clean_th:
-                                # Translation equivalent checks (e.g., "รุ่นที่ 6" vs "Sixth-generation")
-                                val_th_norm = val_th.lower()
-                                val_en_norm = val_en.lower()
-                                if "รุ่นที่ 6" in val_th_norm and "sixth-generation" in val_en_norm:
-                                    continue
-                                if "รุ่นที่ 5" in val_th_norm and "fifth-generation" in val_en_norm:
-                                    continue
-
-                                # Ignore M340i torque RPM differences
-                                if "m340i" in model_name.lower() and ("torque" in topic_en.lower() or "แรงบิด" in topic_th.lower()):
-                                    print(f"    [IGNORE] M340i torque RPM difference is expected and ignored.")
-                                    continue
-
-                                digits_th = extract_digits(val_th)
-                                digits_en = extract_digits(val_en)
-                                
-                                # Footnote filtering (e.g., "up to1 625" -> extracts ['1', '625'] vs ['625'])
-                                if "1" in digits_en and "1" not in digits_th:
-                                    digits_en_clean = [d for d in digits_en if d != "1"]
-                                    if digits_th == digits_en_clean:
-                                        continue
-
-                                reason = f"Value mismatch for '{topic_th}' / '{topic_en}': Thai has '{val_th}', English has '{val_en}'"
-                                print(f"    [MISMATCH] {model_name} / {cat_en} - {reason}")
-                                
-                                flag_data = {
-                                    "model_name": model_name,
+                                    "type": "Option Presence Conflict (มี/ไม่มี ออปชันไม่ตรงกัน)",
+                                    "detail": f"ระบบหนึ่งระบุเป็นมี (■) แต่อีกระบบระบุเป็นไม่มี (-) | ไทย: '{val_th}' ↔️ อังกฤษ: '{val_en}' (หัวข้อ: {topic_th})"
+                                })
+                            elif is_numeric_conflict:
+                                audit_reports.append({
+                                    "pdf": th_entry.get("pdf_source"),
+                                    "model": model_name,
                                     "category": cat_en,
-                                    "topic": f"{topic_th} / {topic_en}",
-                                    "type": "Cross-DB Discrepancy",
-                                    "reason": reason
-                                }
-                                en_entry["low_confidence_flags"].append(flag_data)
-                                th_entry["low_confidence_flags"].append(flag_data)
-                                discrepancies_count += 1
-
-                                is_option_conflict = (clean_en == "■" and clean_th == "-") or (clean_en == "-" and clean_th == "■")
-                                is_numeric_conflict = (digits_th != digits_en) and (len(digits_th) > 0 or len(digits_en) > 0)
-
-                                if is_option_conflict:
-                                    audit_reports.append({
-                                        "pdf": th_entry.get("pdf_source"),
-                                        "model": model_name,
-                                        "category": cat_en,
-                                        "type": "Option Presence Conflict (มี/ไม่มี ออปชันไม่ตรงกัน)",
-                                        "detail": f"ระบบหนึ่งระบุเป็นมี (■) แต่อีกระบบระบุเป็นไม่มี (-) | ไทย: '{val_th}' ↔️ อังกฤษ: '{val_en}' (หัวข้อ: {topic_th})"
-                                    })
-                                elif is_numeric_conflict:
-                                    audit_reports.append({
-                                        "pdf": th_entry.get("pdf_source"),
-                                        "model": model_name,
-                                        "category": cat_en,
-                                        "type": "Numerical Mismatch (ตัวเลขสเปกไม่ตรงกัน)",
-                                        "detail": f"ตัวเลขสเปกทางเทคนิคขัดแย้งกัน | ไทย: '{val_th}' ↔️ อังกฤษ: '{val_en}' (หัวข้อ: {topic_th})"
-                                    })
+                                    "type": "Numerical Mismatch (ตัวเลขสเปกไม่ตรงกัน)",
+                                    "detail": f"ตัวเลขสเปกทางเทคนิคขัดแย้งกัน | ไทย: '{val_th}' ↔️ อังกฤษ: '{val_en}' (หัวข้อ: {topic_th})"
+                                })
+                            else:
+                                audit_reports.append({
+                                    "pdf": th_entry.get("pdf_source"),
+                                    "model": model_name,
+                                    "category": cat_en,
+                                    "type": "Specification Value Mismatch (ข้อมูลสเปกไม่ตรงกัน)",
+                                    "detail": f"ข้อมูลสเปกขัดแย้งกัน | ไทย: '{val_th}' ↔️ อังกฤษ: '{val_en}' (หัวข้อ: {topic_th})"
+                                })
 
     # --- AB-NORMAL OPTION OVERLAPS AUDIT ---
     # Scan the entire TH database to find if any model has conflicting suspensions or audio systems
