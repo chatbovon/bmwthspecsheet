@@ -131,9 +131,18 @@ def clean_value(val):
     val = val.replace(",", "").replace(" ", "")
     val = val.replace("ซีซี", "").replace("มม.", "").replace("กิโลวัตต์", "").replace("แรงม้า", "").replace("รอบต่อนาที", "").replace("นิวตันเมตร", "").replace("กิโลเมตร/ชั่วโมง", "").replace("วินาที", "").replace("ลิตร", "").replace("กก.", "")
     val = val.replace("cc", "").replace("mm", "").replace("kw", "").replace("hp", "").replace("ps", "").replace("rpm", "").replace("nm", "").replace("km/h", "").replace("s", "").replace("l", "").replace("kg", "")
-    val = val.replace("tyres", "").replace("tyre", "").replace("ยาง", "")
+    
+    # Strip time units
+    val = val.replace("ชั่วโมง", "").replace("นาที", "").replace("ช.ม.", "").replace("ชม.", "")
+    val = val.replace("hours", "").replace("hour", "").replace("minutes", "").replace("minute", "").replace("mins", "").replace("min", "")
+    
+    # Strip tyre and wheel position labels
+    val = val.replace("tyres", "").replace("tyre", "").replace("ยาง", "").replace("ล้อ", "")
     val = val.replace("front:", "").replace("rear:", "").replace("front", "").replace("rear", "")
     val = val.replace("ล้อหน้า:", "").replace("ล้อหลัง:", "").replace("ล้อหน้า", "").replace("ล้อหลัง", "")
+    
+    # Remove all remaining non-alphanumeric characters except '-' and '■'
+    val = re.sub(r'[^a-z0-9■\-]', '', val)
     return val
 
 def extract_digits(val):
@@ -142,6 +151,58 @@ def extract_digits(val):
     # Remove commas and extract all numbers (integer and decimal)
     clean = val.replace(",", "")
     return re.findall(r'\d+', clean)
+
+def is_ev_or_phev(model_name, specifications):
+    name_lower = model_name.lower().strip()
+    if name_lower.startswith("i") and (len(name_lower) > 1 and name_lower[1].isdigit() or name_lower.startswith("ix")):
+        return True
+    if "xm" in name_lower:
+        return True
+    tokens = re.split(r'\s+|-|_', name_lower)
+    for tok in tokens:
+        if re.match(r'^\d+e$', tok) or re.match(r'^[a-z]*drive\d+e$', tok):
+            return True
+            
+    for cat in specifications:
+        for detail in cat.get("details", []):
+            topic = detail.get("topic", "").lower()
+            val = detail.get("value", "").strip()
+            if val and val != "-":
+                if "battery energy content" in topic or "ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง" in topic:
+                    return True
+                if "electric range" in topic or "ระยะทางขับเคลื่อนไฟฟ้า" in topic:
+                    return True
+    return False
+
+def parse_wheel_diameters(text):
+    if not text or text.strip() == "-":
+        return set()
+    text_lower = text.lower()
+    matches_x = re.findall(r'x\s*(\d{2})', text_lower)
+    matches_units = re.findall(r'(\d{2})\s*(?:"|นิ้ว|inch|-inch)', text_lower)
+    
+    results = set()
+    for m in matches_x + matches_units:
+        val = int(m)
+        if 15 <= val <= 24:
+            results.add(val)
+            
+    if not results:
+        for m in re.findall(r'\b(1[5-9]|2[0-4])\b', text_lower):
+            results.add(int(m))
+    return results
+
+def parse_tyre_diameters(text):
+    if not text or text.strip() == "-":
+        return set()
+    text_lower = text.lower()
+    matches = re.findall(r'[z]?r\s*(\d{2})', text_lower)
+    results = set()
+    for m in matches:
+        val = int(m)
+        if 15 <= val <= 24:
+            results.add(val)
+    return results
 
 def is_paintwork_value_similar(val_th, val_en):
     if val_th.strip() == "-" and val_en.strip() == "-":
@@ -474,44 +535,118 @@ def main():
                                 })
 
     # --- AB-NORMAL OPTION OVERLAPS AUDIT ---
-    # Scan the entire TH database to find if any model has conflicting suspensions or audio systems
-    for entry in db_th:
-        pdf = entry.get("pdf_source")
-        for m in entry.get("models", []):
-            model_name = m.get("model_name")
-            specs = m.get("specifications", [])
-            
-            details = []
-            for cat in specs:
-                details.extend(cat.get("details", []))
-                
-            # A. Check suspension overlap (Adaptive M AND M Sport both active)
-            adaptive_m = any(s.get("value") == "■" and ("ช่วงล่าง adaptive" in s.get("topic", "").lower() or "adaptive m suspension" in s.get("topic", "").lower()) for s in details)
-            m_sport = any(s.get("value") == "■" and ("ช่วงล่าง m sport" in s.get("topic", "").lower() or "m sport suspension" in s.get("topic", "").lower()) for s in details)
-            
-            if adaptive_m and m_sport:
-                audit_reports.append({
-                    "pdf": pdf,
-                    "model": model_name,
-                    "category": "ระบบขับเคลื่อนและเทคโนโลยี",
-                    "type": "Suspension Overlap (ช่วงล่างทับซ้อน)",
-                    "detail": "พบการเลือกเปิดใช้งาน (■) ทั้ง 'ช่วงล่าง Adaptive M' และ 'ช่วงล่าง M Sport' ในรุ่นเดียวกัน"
-                })
+    # Scan the entire TH and EN databases to find if any model has:
+    # A. Conflicting suspensions
+    # B. Audio system overlap
+    # C. Non-PHEV/EV with charging/battery specs
+    # D. Wheel vs Tyre size mismatch
+    
+    vehicle_charging_kws = [
+        "ac charging", "dc charging", "charging time", "charging speed", 
+        "ชาร์จกระแสสลับ", "ชาร์จกระแสตรง", "ระยะเวลาการชาร์จ", "เวลาในการชาร์จ", 
+        "สายชาร์จ", "charging cable", "ชาร์จแบบ ac", "ชาร์จแบบ dc",
+        "เต้ารับชาร์จ", "charging socket", "flexible charger"
+    ]
+    
+    vehicle_elec_kws = [
+        "battery energy content", "ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง",
+        "electric range", "ระยะทางขับเคลื่อนไฟฟ้า", "electrical range",
+        "electric energy consumption", "อัตราการใช้ไฟฟ้า",
+        "top speed electric", "ความเร็วสูงสุดในการขับขี่แบบไฟฟ้า"
+    ]
 
-            # B. Check audio system overlap
-            hifi_rows = [s for s in details if s.get("value") == "■" and "hifi" in s.get("topic", "").lower()]
-            harman_rows = [s for s in details if s.get("value") == "■" and "harman kardon" in s.get("topic", "").lower()]
-            
-            if len(hifi_rows) > 0 and len(harman_rows) > 0:
-                topics = [r.get("topic") for r in hifi_rows + harman_rows]
-                if len(set(topics)) > 1:
+    for db_to_scan, lang_lbl in [(db_th, "TH"), (db_en, "EN")]:
+        for entry in db_to_scan:
+            pdf = entry.get("pdf_source")
+            for m in entry.get("models", []):
+                model_name = m.get("model_name")
+                specs = m.get("specifications", [])
+                
+                details = []
+                for cat in specs:
+                    details.extend(cat.get("details", []))
+                    
+                # A. Check suspension overlap (Adaptive M AND M Sport both active)
+                adaptive_m = any(s.get("value") == "■" and ("ช่วงล่าง adaptive" in s.get("topic", "").lower() or "adaptive m suspension" in s.get("topic", "").lower() or "adaptive suspension" in s.get("topic", "").lower()) for s in details)
+                m_sport = any(s.get("value") == "■" and ("ช่วงล่าง m sport" in s.get("topic", "").lower() or "m sport suspension" in s.get("topic", "").lower()) for s in details)
+                
+                if adaptive_m and m_sport:
                     audit_reports.append({
                         "pdf": pdf,
                         "model": model_name,
-                        "category": "ระบบความบันเทิงและการสื่อสาร",
-                        "type": "Audio System Overlap (เครื่องเสียงทับซ้อน)",
-                        "detail": f"พบระบบเครื่องเสียงที่ขัดแย้งกันถูกเลือกใช้งานพร้อมกัน: {', '.join(set(topics))}"
+                        "category": "Suspension",
+                        "type": "Suspension Overlap (ช่วงล่างทับซ้อน)",
+                        "detail": f"[{lang_lbl}] พบการเลือกเปิดใช้งาน (■) ทั้ง 'ช่วงล่าง Adaptive M/Adaptive' และ 'ช่วงล่าง M Sport' ในรุ่นเดียวกัน"
                     })
+
+                # B. Check audio system overlap
+                hifi_rows = [s for s in details if s.get("value") == "■" and "hifi" in s.get("topic", "").lower()]
+                harman_rows = [s for s in details if s.get("value") == "■" and ("harman kardon" in s.get("topic", "").lower() or "bowers & wilkins" in s.get("topic", "").lower())]
+                
+                if len(hifi_rows) > 0 and len(harman_rows) > 0:
+                    topics = [r.get("topic") for r in hifi_rows + harman_rows]
+                    if len(set(topics)) > 1:
+                        audit_reports.append({
+                            "pdf": pdf,
+                            "model": model_name,
+                            "category": "Entertainment",
+                            "type": "Audio System Overlap (เครื่องเสียงทับซ้อน)",
+                            "detail": f"[{lang_lbl}] พบระบบเครื่องเสียงที่ขัดแย้งกันถูกเลือกใช้งานพร้อมกัน: {', '.join(set(topics))}"
+                        })
+
+                # C. Check charging details on non-EVs/non-PHEVs
+                ev_status = is_ev_or_phev(model_name, specs)
+                if not ev_status:
+                    for cat in specs:
+                        cat_name = cat.get("category", "").lower()
+                        for detail in cat.get("details", []):
+                            topic = detail.get("topic", "").lower()
+                            val = detail.get("value", "").strip()
+                            if val and val != "-":
+                                is_charging_topic = any(kw in topic or kw in cat_name for kw in vehicle_charging_kws)
+                                is_elec_topic = any(kw in topic for kw in vehicle_elec_kws)
+                                
+                                # Exclude wireless mobile charging
+                                if "wireless" in topic or "ไร้สาย" in topic or "โทรศัพท์" in topic or "phone" in topic or "smartphone" in topic:
+                                    is_charging_topic = False
+                                    
+                                if is_charging_topic or is_elec_topic:
+                                    audit_reports.append({
+                                        "pdf": pdf,
+                                        "model": model_name,
+                                        "category": cat.get("category"),
+                                        "type": "Charging Info on Non-EV (พบข้อมูลการชาร์จในรถไม่ใช่ไฟฟ้า)",
+                                        "detail": f"[{lang_lbl}] พบข้อมูลระบบไฟฟ้า/ชาร์จรถยนต์ในรุ่นที่ไม่ใช่ EV/PHEV: {detail.get('topic')} = '{val}'"
+                                    })
+
+                # D. Check wheel vs tyre
+                wheel_vals = []
+                tyre_vals = []
+                for cat in specs:
+                    cat_name = cat.get("category", "").lower()
+                    for detail in cat.get("details", []):
+                        topic = detail.get("topic", "").lower()
+                        val = detail.get("value", "").strip()
+                        if val and val != "-":
+                            if any(kw in topic for kw in ["wheel size", "ขนาดล้อ", "ล้ออัลลอย", "light alloy wheels"]) or (topic == "ล้อ" and "ล้อ" in cat_name):
+                                wheel_vals.append((detail.get("topic"), val, cat.get("category")))
+                            if any(kw in topic for kw in ["tyre size", "ขนาดยาง", "ยาง"]):
+                                tyre_vals.append((detail.get("topic"), val, cat.get("category")))
+                
+                # Compare wheel and tyre diameters
+                for w_top, w_val, w_cat in wheel_vals:
+                    w_diams = parse_wheel_diameters(w_val)
+                    for t_top, t_val, t_cat in tyre_vals:
+                        t_diams = parse_tyre_diameters(t_val)
+                        if w_diams and t_diams:
+                            if not (w_diams & t_diams):
+                                audit_reports.append({
+                                    "pdf": pdf,
+                                    "model": model_name,
+                                    "category": w_cat,
+                                    "type": "Wheel/Tyre Size Mismatch (ขนาดล้อและยางไม่ตรงกัน)",
+                                    "detail": f"[{lang_lbl}] ขนาดล้อไม่ตรงกับขนาดยาง: ขนาดล้อ '{w_val}' ({list(w_diams)}) ↔️ ขนาดยาง '{t_val}' ({list(t_diams)})"
+                                })
 
     # Save English database with the new flags
     with open(db_en_path, "w", encoding="utf-8") as f:
