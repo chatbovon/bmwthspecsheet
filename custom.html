@@ -923,7 +923,8 @@
         document.getElementById('seriesTitle').innerText = trans.loadingText;
         document.getElementById('seriesSelect').innerHTML = `<option value="">${trans.loadingText}</option>`;
         
-        fetch(specFile)
+        const cacheBust = '?v=' + new Date().getTime();
+        fetch(specFile + cacheBust)
             .then(response => {
                 if (!response.ok) throw new Error('Master spec file not found');
                 return response.json();
@@ -933,7 +934,7 @@
             })
             .catch(err => {
                 console.warn(`Cannot load ${specFile}, falling back to ${fallbackFile}:`, err);
-                fetch(fallbackFile)
+                fetch(fallbackFile + cacheBust)
                     .then(response => response.json())
                     .then(data => {
                         initializeData(data);
