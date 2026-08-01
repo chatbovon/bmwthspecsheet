@@ -50,5 +50,17 @@
         "ขนาดยาง": "ล้อหน้า: 9.5 J x 19 / ยาง: 275/35 R 19 ล้อหลัง: 10.5 J x 20 / ยาง: 285/30 R 20"
       }
     }
+  },
+  "i5-20240314-01_EN": {
+    "i5 eDrive40 M Sport": {
+      "Wheels and Tyres": {
+        "Tyre size": "Front: 8.5 J × 20 / tyres: 245/40 R 20\nRear: 10 J × 20 / tyres: 275/35 R 20"
+      }
+    },
+    "i5 M60 xDrive": {
+      "Wheels and Tyres": {
+        "Tyre size": "Front: 8.5 J × 21 / tyres: 255/35 R 21\nRear: 9.5 J × 21 / tyres: 285/30 R 21"
+      }
+    }
   }
 }

@@ -33,10 +33,6 @@ def apply_overrides(pdf_source, model_json):
     It is NOT for patching AI extraction failures. AI parsing issues should be
     resolved by refining system prompts or extraction logic.
     """
-    # Skip overrides for English brochures since they are written in Thai
-    if "_en" in os.path.basename(pdf_source).lower():
-        return
-
     if not os.path.exists(OVERRIDES_FILE):
         return
 
@@ -60,6 +56,10 @@ def apply_overrides(pdf_source, model_json):
             break
 
     if not matching_prefix:
+        return
+
+    # Skip overrides for English brochures unless the matching prefix explicitly contains "_en" or "_EN"
+    if "_en" in pdf_basename.lower() and not ("_en" in matching_prefix.lower()):
         return
 
     prefix_overrides = overrides_db[matching_prefix]
