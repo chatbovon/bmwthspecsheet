@@ -7002,11 +7002,11 @@
                     }
                 ],
                 "images": {
-                    "Phytonic Blue metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_phytonic_blue_metallic.png",
-                    "Cape York Green metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_cape_york_green_metallic.png",
-                    "M Brooklyn Grey metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_m_brooklyn_grey_metallic.png",
-                    "Black Sapphire metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_black_sapphire_metallic.png",
-                    "Mineral White metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_mineral_white_metallic.png"
+                    "Black Sapphire Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_black_sapphire_metallic.png",
+                    "Mineral White Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_mineral_white_metallic.png",
+                    "Brooklyn Grey Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_m_brooklyn_grey_metallic.png",
+                    "Phytonic Blue Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_phytonic_blue_metallic.png",
+                    "Cape York Green Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_cape_york_green_metallic.png"
                 },
                 "is_custom_archived": true
             }
@@ -9024,7 +9024,14 @@
                         ]
                     }
                 ],
-                "is_custom_archived": true
+                "is_custom_archived": true,
+                "images": {
+                    "Black Sapphire Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_black_sapphire_metallic.png",
+                    "Mineral White Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_mineral_white_metallic.png",
+                    "Brooklyn Grey Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_m_brooklyn_grey_metallic.png",
+                    "Phytonic Blue Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_phytonic_blue_metallic.png",
+                    "Cape York Green Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_cape_york_green_metallic.png"
+                }
             },
             {
                 "model_name": "i5 eDrive40 M Sport",
@@ -9543,7 +9550,14 @@
                         ]
                     }
                 ],
-                "is_custom_archived": true
+                "is_custom_archived": true,
+                "images": {
+                    "Black Sapphire Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_black_sapphire_metallic.png",
+                    "Mineral White Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_mineral_white_metallic.png",
+                    "Brooklyn Grey Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_m_brooklyn_grey_metallic.png",
+                    "Phytonic Blue Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_phytonic_blue_metallic.png",
+                    "Cape York Green Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_cape_york_green_metallic.png"
+                }
             },
             {
                 "model_name": "i5 M60 xDrive",
@@ -10062,7 +10076,14 @@
                         ]
                     }
                 ],
-                "is_custom_archived": true
+                "is_custom_archived": true,
+                "images": {
+                    "Black Sapphire Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_black_sapphire_metallic.png",
+                    "Mineral White Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_mineral_white_metallic.png",
+                    "Brooklyn Grey Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_m_brooklyn_grey_metallic.png",
+                    "Phytonic Blue Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_phytonic_blue_metallic.png",
+                    "Cape York Green Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_cape_york_green_metallic.png"
+                }
             }
         ],
         "source_file": "i5-20240314-01_EN.pdf.asset.1710485085278.pdf",

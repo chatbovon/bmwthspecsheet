@@ -13203,7 +13203,19 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "BMW Individual Frozen Deep Grey metallic": "images/i7_20240710_01_TH.asset.1758628809179/BMW_i7_xDrive60_M_Sport_BMW_Individual_Frozen_Deep_Grey_metallic.png",
+                    "Fire Red metallic": "images/i7_20240710_01_TH.asset.1758628809179/BMW_i7_xDrive60_M_Sport_Fire_Red_metallic.png",
+                    "M Brooklyn Grey metallic": "images/i7_20240710_01_TH.asset.1758628809179/BMW_i7_xDrive60_M_Sport_M_Brooklyn_Grey_metallic.png",
+                    "M Isle of Man Green metallic": "images/i7_20240710_01_TH.asset.1758628809179/BMW_i7_xDrive60_M_Sport_M_Isle_of_Man_Green_metallic.png",
+                    "Black Sapphire metallic": "images/i7_20240710_01_TH.asset.1758628809179/BMW_i7_xDrive60_M_Sport_Black_Sapphire_metallic.png",
+                    "BMW Individual Storm Bay metallic": "images/i7_20240710_01_TH.asset.1758628809179/BMW_i7_xDrive60_M_Sport_BMW_Individual_Storm_Bay_metallic.png",
+                    "M Carbon Black metallic": "images/i7_20240710_01_TH.asset.1758628809179/BMW_i7_xDrive60_M_Sport_M_Carbon_Black_metallic.png",
+                    "Sophisto Grey brilliant effect metallic": "images/i7_20240710_01_TH.asset.1758628809179/BMW_i7_xDrive60_M_Sport_Sophisto_Grey_brilliant_effect_metallic.png",
+                    "M Marina Bay Blue metallic": "images/i7_20240710_01_TH.asset.1758628809179/BMW_i7_xDrive60_M_Sport_M_Marina_Bay_Blue_metallic.png",
+                    "Alpine White solid": "images/i7_20240710_01_TH.asset.1758628809179/BMW_i7_xDrive60_M_Sport_Alpine_White_solid.png"
+                }
             }
         ],
         "source_file": "i7-20240710-01_TH.pdf.asset.1758628809179.pdf",
@@ -26442,7 +26454,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M3-20250818-01_TH.pdf.asset.1758516215456.pdf",
@@ -27331,7 +27344,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M4-20251104-02_TH.pdf.asset.1784613855399.pdf",
@@ -28218,7 +28232,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M2-CS-20250910-01_TH.pdf.asset.1758261830128.pdf",
@@ -29092,7 +29107,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M5-20250130-05_TH.pdf.asset.1745407582783.pdf",
@@ -29972,7 +29988,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M5-20260714-01_TH.pdf.asset.1784613855320.pdf",
@@ -33034,7 +33051,15 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Sanremo Green metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_sanremo_green_metallic.png",
+                    "Skyscraper Grey metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_skyscraper_grey_metallic.png",
+                    "Thundernight metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_thundernight_metallic.png",
+                    "Black Sapphire metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_black_sapphire_metallic.png",
+                    "San Francisco Red metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_san_francisco_red_metallic.png",
+                    "Alpine White solid": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_alpine_white_solid.png"
+                }
             },
             {
                 "model_name": "Z4 M40i",
@@ -33388,7 +33413,17 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Skyscraper Grey metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_skyscraper_grey_metallic.png",
+                    "Thundernight metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_thundernight_metallic.png",
+                    "Sanremo Green metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_sanremo_green_metallic.png",
+                    "Black Sapphire metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_black_sapphire_metallic.png",
+                    "BMW Individual Frozen Grey II metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_bmw_individual_frozen_grey_ii_metallic.png",
+                    "San Francisco Red metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_san_francisco_red_metallic.png",
+                    "Alpine White solid": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_alpine_white_solid.png",
+                    "Frozen Deep Green II Metallic": "images/Z4_20240610_02_TH.asset.1758628086952/z4_m40i_frozen_deep_green_ii_metallic.png"
+                }
             }
         ],
         "source_file": "Z4-20240610-02_TH.pdf.asset.1758628086952.pdf",
@@ -34630,7 +34665,14 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Cape York Green metallic": "images/iX2_20240710_01_TH_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_cape_york_green_metallic.png",
+                    "Fire Red metallic": "images/iX2_20240710_01_TH_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_fire_red_metallic.png",
+                    "M Brooklyn Grey metallic": "images/iX2_20240710_01_TH_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_m_brooklyn_grey_metallic.png",
+                    "Black Sapphire metallic": "images/iX2_20240710_01_TH_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_black_sapphire_metallic.png",
+                    "Alpine White solid": "images/iX2_20240710_01_TH_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_alpine_white_solid.png"
+                }
             }
         ],
         "source_file": "iX2-20240710-01_TH-(1).pdf.asset.1738060128032.pdf",
@@ -35507,7 +35549,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {}
             }
         ],
         "source_file": "M4-20260714-01_TH.pdf.asset.1784613855304.pdf",
@@ -36532,7 +36575,14 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "images": {
+                    "Black Sapphire Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_black_sapphire_metallic.png",
+                    "Mineral White Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_mineral_white_metallic.png",
+                    "Brooklyn Grey Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_m_brooklyn_grey_metallic.png",
+                    "Phytonic Blue Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_phytonic_blue_metallic.png",
+                    "Cape York Green Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_cape_york_green_metallic.png"
+                }
             }
         ],
         "source_file": "i5-20260714-01_TH.pdf.asset.1784613825396.pdf",
