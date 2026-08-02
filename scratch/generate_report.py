@@ -140,12 +140,14 @@ def main():
     # Mismatch Table
     if flags:
         report_md += "## ⚠️ 2. รายการจุดขัดแย้งที่ต้องตรวจสอบ (Flags Detected)\n"
-        report_md += "กรุณาเปรียบเทียบและยืนยันข้อมูลออปชันที่ขัดแย้งกันดังตารางต่อไปนี้:\n\n"
+        report_md += f"พบจุดขัดแย้งข้อมูลออปชันข้ามภาษาทั้งหมด **{len(flags)} จุด** (แสดงเฉพาะ 50 รายการแรกด้านล่างนี้ ท่านสามารถตรวจสอบรายการทั้งหมดได้ในไฟล์ `specsheet_audit_report.md` บน GitHub)\n\n"
         report_md += "| ลำดับ | รุ่นรถยนต์ (ไฟล์ต้นทาง) | หมวดหมู่ / สเปก | รายละเอียดความขัดแย้ง |\n"
         report_md += "| :---: | :--- | :--- | :--- |\n"
-        for idx, f in enumerate(flags, 1):
+        for idx, f in enumerate(flags[:50], 1):
             clean_reason = f['reason'].replace('|', '\\|')
             report_md += f"| **{idx}** | **{f['model']}**<br>`({f['pdf']})` | {f['category']} / {f['topic']} | {clean_reason} |\n"
+        if len(flags) > 50:
+            report_md += f"| ... | ... | ... | ... และข้อขัดแย้งอื่นๆ อีก {len(flags) - 50} รายการ |\n"
         report_md += "\n---\n"
     else:
         report_md += "## ✅ 2. ไม่พบจุดขัดแย้งข้อมูล (No Mismatches)\nข้อมูลสเปกไทยและอังกฤษสอดคล้องกันอย่างสมบูรณ์แบบ!\n\n---\n"
