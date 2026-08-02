@@ -33,7 +33,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install playwright google-genai pypdf python-dotenv requests google-api-python-client google-auth
+        pip install playwright pillow google-genai pypdf python-dotenv requests google-api-python-client google-auth
         playwright install chromium
 
     - name: Run Scraper (Download new PDFs)
@@ -78,6 +78,7 @@ jobs:
         python scratch/generate_report.py
 
     - name: Create GitHub Issue (Email Notification)
+      continue-on-error: true
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
