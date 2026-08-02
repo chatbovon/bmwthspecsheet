@@ -219,7 +219,7 @@ async def capture_360_canvas(page, filename):
         return False
 
 async def discover_series_url(page, series_name):
-    url = "https://www.bmw.co.th/th/configurator.html"
+    url = "https://configure.bmw.co.th/"
     print(f"  [DISCOVERY] Navigating to portal {url} to find series: '{series_name}'...")
     await page.goto(url, timeout=90000)
     await page.wait_for_load_state("domcontentloaded")

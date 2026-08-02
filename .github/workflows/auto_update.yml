@@ -1,6 +1,9 @@
 name: BMW Auto-Update Specs
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '0 19 * * *' # Runs every day at 02:00 AM ICT (UTC+7 -> 19:00 UTC)
   workflow_dispatch: # Allows manual runs from the GitHub Actions tab
@@ -9,7 +12,7 @@ on:
         description: 'Run ONLY image scraper (skips PDF download and PDF extraction)'
         type: boolean
         required: false
-        default: false
+        default: true
 
 jobs:
   update-specs:
