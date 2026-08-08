@@ -643,7 +643,7 @@
         const imgPath = resolveImagePath(seriesName, modelName, colorName);
         if (imgPath) {
             imgEl.classList.remove('loaded');
-            imgEl.src = imgPath;
+            imgEl.src = imgPath + '?v=' + new Date().getTime();
             imgEl.title = colorName;
             imgEl.alt = `${modelName} - ${colorName}`;
             imgEl.style.opacity = "1";
@@ -667,7 +667,7 @@
                     const fallbackPath = modelData.images[firstColorKey];
                     if (fallbackPath) {
                         imgEl.classList.remove('loaded');
-                        imgEl.src = fallbackPath;
+                        imgEl.src = fallbackPath + '?v=' + new Date().getTime();
                         imgEl.title = `${colorName} (No preview)`;
                         imgEl.alt = `${modelName} - ${colorName} (Default color preview)`;
                         imgEl.style.opacity = "0.75"; // dim slightly
@@ -1114,7 +1114,7 @@
                     let img = document.createElement('img');
                     img.id = `preview-img-col-${colIdx}`;
                     img.className = 'preview-img';
-                    img.src = defaultPath;
+                    img.src = defaultPath + '?v=' + new Date().getTime();
                     img.alt = `${model.model_name} - ${defaultColorName}`;
                     img.title = defaultColorName;
                     img.onload = function() { this.classList.add('loaded'); };
