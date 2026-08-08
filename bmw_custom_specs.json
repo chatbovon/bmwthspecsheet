@@ -7939,10 +7939,11 @@
                 ],
                 "is_custom_archived": true,
                 "images": {
-                    "M Brooklyn Grey metallic": "images/2_20260218_01_TH.asset.1771910215806/BMW_M240i_xDrive_M_Brooklyn_Grey_metallic.png",
-                    "Black Sapphire metallic": "images/2_20260218_01_TH.asset.1771910215806/BMW_M240i_xDrive_Black_Sapphire_metallic.png",
-                    "M Portimao Blue metallic": "images/2_20260218_01_TH.asset.1771910215806/BMW_M240i_xDrive_M_Portimao_Blue_metallic.png",
-                    "Alpine White solid": "images/2_20260218_01_TH.asset.1771910215806/BMW_M240i_xDrive_Alpine_White_solid.png"
+                    "Black Sapphire Metallic": "images/2_20260218_01_TH.asset.1771910215806/BMW_M240i_xDrive_Black_Sapphire_metallic.png",
+                    "Alpine White Solid": "images/2_20260218_01_TH.asset.1771910215806/BMW_M240i_xDrive_Alpine_White_solid.png",
+                    "Thundernight Metallic": "images/2_20260218_01_TH.asset.1771910215806/BMW_M240i_xDrive_Thundernight_metallic.png",
+                    "Portimao Blue Metallic": "images/2_20260218_01_TH.asset.1771910215806/BMW_M240i_xDrive_M_Portimao_Blue_metallic.png",
+                    "Brooklyn Grey Metallic": "images/2_20260218_01_TH.asset.1771910215806/BMW_M240i_xDrive_M_Brooklyn_Grey_metallic.png"
                 }
             }
         ],
