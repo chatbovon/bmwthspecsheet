@@ -11,50 +11,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap');
 
         :root {
-            /* Dark Theme (Default) */
-            --bg-body: #0f172a;
-            --bg-wrapper: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --bg-controls: #0f172a;
-            --bg-select-container: #1e293b;
-            --border-color: #334155;
-            --border-select: #475569;
-            --bg-select: #0f172a;
-            --text-select: #ffffff;
-            --bg-tag-btn: #334155;
-            --text-tag-btn: #cbd5e1;
-            --bg-tag-btn-active: #0284c7;
-            --text-tag-btn-active: #ffffff;
-            --bg-input: #1e293b;
-            --text-input: #ffffff;
-            --bg-table-header: #0284c7;
-            --bg-table-header-first: #0369a1;
-            --bg-sticky-col: #1e293b;
-            --border-sticky-col: #38bdf8;
-            --accent-color: #38bdf8;
-            --bg-section-title: #334155;
-            --text-section-title: #38bdf8;
-            --bg-tr-hover: #24334d;
-            --bg-lang-btn: #1e293b;
-            --border-lang-btn: #475569;
-            --text-lang-btn: #94a3b8;
-            --bg-lang-btn-active: #0284c7;
-            --border-lang-btn-active: #38bdf8;
-            --text-lang-btn-active: #ffffff;
-            --bg-preview-cell: rgba(30, 41, 59, 0.4);
-            --border-preview-cell: #334155;
-            --bg-no-preview: rgba(15, 23, 42, 0.3);
-            --border-no-preview: #475569;
-            --text-no-preview: #64748b;
-            --bg-tooltip: rgba(15, 23, 42, 0.95);
-            --text-tooltip: #f1f5f9;
-            --border-tooltip: rgba(255, 255, 255, 0.1);
-            --box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
-        :root.light-theme {
-            /* Light Theme */
+            /* Light Theme (Default) */
             --bg-body: #f1f5f9;
             --bg-wrapper: #ffffff;
             --text-primary: #0f172a;
@@ -94,6 +51,49 @@
             --text-tooltip: #0f172a;
             --border-tooltip: rgba(0, 0, 0, 0.1);
             --box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+        }
+
+        :root.dark-theme {
+            /* Dark Theme */
+            --bg-body: #0f172a;
+            --bg-wrapper: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --bg-controls: #0f172a;
+            --bg-select-container: #1e293b;
+            --border-color: #334155;
+            --border-select: #475569;
+            --bg-select: #0f172a;
+            --text-select: #ffffff;
+            --bg-tag-btn: #334155;
+            --text-tag-btn: #cbd5e1;
+            --bg-tag-btn-active: #0284c7;
+            --text-tag-btn-active: #ffffff;
+            --bg-input: #1e293b;
+            --text-input: #ffffff;
+            --bg-table-header: #0284c7;
+            --bg-table-header-first: #0369a1;
+            --bg-sticky-col: #1e293b;
+            --border-sticky-col: #38bdf8;
+            --accent-color: #38bdf8;
+            --bg-section-title: #334155;
+            --text-section-title: #38bdf8;
+            --bg-tr-hover: #24334d;
+            --bg-lang-btn: #1e293b;
+            --border-lang-btn: #475569;
+            --text-lang-btn: #94a3b8;
+            --bg-lang-btn-active: #0284c7;
+            --border-lang-btn-active: #38bdf8;
+            --text-lang-btn-active: #ffffff;
+            --bg-preview-cell: rgba(30, 41, 59, 0.4);
+            --border-preview-cell: #334155;
+            --bg-no-preview: rgba(15, 23, 42, 0.3);
+            --border-no-preview: #475569;
+            --text-no-preview: #64748b;
+            --bg-tooltip: rgba(15, 23, 42, 0.95);
+            --text-tooltip: #f1f5f9;
+            --border-tooltip: rgba(255, 255, 255, 0.1);
+            --box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
         * { box-sizing: border-box; }
@@ -515,7 +515,7 @@
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
         <a href="custom.html" id="navLink" style="color: var(--accent-color); text-decoration: none; font-size: 0.9em; font-weight: 600; display: flex; align-items: center; gap: 4px;">📂 ดูสเปกโบรชัวร์รุ่นเก่า (Custom Specsheets)</a>
         <div style="display: flex; align-items: center; gap: 10px;">
-            <button id="themeToggle" class="lang-btn" style="display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; padding: 0; font-size: 1.1em; border-radius: 50%; border: 1px solid var(--border-lang-btn);" title="เปลี่ยนธีม">🌙</button>
+            <button id="themeToggle" class="lang-btn" style="display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; padding: 0; font-size: 1.1em; border-radius: 50%; border: 1px solid var(--border-lang-btn);" title="เปลี่ยนธีม">☀️</button>
             <div class="lang-selector" style="margin-bottom: 0;">
                 <button id="langTh" class="lang-btn active" onclick="setLanguage('th')">TH</button>
                 <button id="langEn" class="lang-btn" onclick="setLanguage('en')">EN</button>
@@ -1421,26 +1421,26 @@
     // Theme Switcher Logic
     const themeToggleBtn = document.getElementById('themeToggle');
     const initTheme = () => {
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        if (savedTheme === 'light') {
-            document.documentElement.classList.add('light-theme');
-            themeToggleBtn.textContent = '☀️';
-        } else {
-            document.documentElement.classList.remove('light-theme');
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark-theme');
             themeToggleBtn.textContent = '🌙';
+        } else {
+            document.documentElement.classList.remove('dark-theme');
+            themeToggleBtn.textContent = '☀️';
         }
     };
     initTheme();
 
     themeToggleBtn.addEventListener('click', () => {
-        if (document.documentElement.classList.contains('light-theme')) {
-            document.documentElement.classList.remove('light-theme');
-            themeToggleBtn.textContent = '🌙';
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.documentElement.classList.add('light-theme');
+        if (document.documentElement.classList.contains('dark-theme')) {
+            document.documentElement.classList.remove('dark-theme');
             themeToggleBtn.textContent = '☀️';
             localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.classList.add('dark-theme');
+            themeToggleBtn.textContent = '🌙';
+            localStorage.setItem('theme', 'dark');
         }
     });
 
