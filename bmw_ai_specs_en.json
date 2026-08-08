@@ -136,7 +136,7 @@
                     ]
                 },
                 {
-                    "category": "Drivetrain and Technology",
+                    "category": "Transmission and technology",
                     "details": [
                         {
                             "topic": "Automatic transmission",
@@ -161,7 +161,7 @@
                     ]
                 },
                 {
-                    "category": "Exterior Equipment",
+                    "category": "Exterior",
                     "details": [
                         {
                             "topic": "Adaptive LED headlights",
@@ -198,7 +198,7 @@
                     ]
                 },
                 {
-                    "category": "Interior Equipment",
+                    "category": "Interior",
                     "details": [
                         {
                             "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
@@ -235,7 +235,7 @@
                     ]
                 },
                 {
-                    "category": "Entertainment and Communication",
+                    "category": "Entertainment and communication",
                     "details": [
                         {
                             "topic": "BMW Live Cockpit Plus",
@@ -383,6 +383,19 @@
                     ]
                 },
                 {
+                    "category": "Document References",
+                    "details": [
+                        {
+                            "topic": "Publication Date",
+                            "value": "3 July 2025"
+                        },
+                        {
+                            "topic": "Package Code (Local Pack)",
+                            "value": "(ZK8)"
+                        }
+                    ]
+                },
+                {
                     "category": "Notes",
                     "details": [
                         {
@@ -396,19 +409,6 @@
                         {
                             "topic": "BMW reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.",
                             "value": "■"
-                        }
-                    ]
-                },
-                {
-                    "category": "Document References",
-                    "details": [
-                        {
-                            "topic": "Publication Date",
-                            "value": "3 July 2025"
-                        },
-                        {
-                            "topic": "Package Code (Local Pack)",
-                            "value": "(ZK8)"
                         }
                     ]
                 }
