@@ -90,11 +90,9 @@ Your task is to take a pre-extracted Markdown/HTML specification table from a BM
    - ห้ามเพิ่มคำหรือตัดคำออกโดยเด็ดขาด (เช่น ห้ามเปลี่ยนคำว่า "นอกห้องโดยสาร" ไปเป็น "ภายนอกห้องโดยสาร" ซึ่งถือเป็นการเพิ่มคำว่า "ภาย" เข้ามาในระบบ)
    - เมื่อพบลักษณะคำที่เกิดความผิดเพี้ยนจากการแปรผล ให้มองหาโครงสร้างคำและพยางค์ที่ใกล้เคียงเพื่อกู้คืนคำศัพท์ดั้งเดิมที่ถูกต้องของ BMW โดยคำหลักห้ามขาดหรือหายไปเด็ดขาด (เช่น หากพบคำว่า "โทรศอก" ให้แก้ไขเป็น "โทรออก" เพื่อรักษาคำศัพท์ดั้งเดิมว่า "ปุ่มโทรออกฉุกเฉิน" ห้ามตัดคำว่า "ออก" ทิ้งเหลือเพียง "ปุ่มโทรฉุกเฉิน")
 2. ในเอกสารจะมีตารางอุปกรณ์มาตรฐาน (เช่น ระบบขับเคลื่อน อุปกรณ์ภายนอก อุปกรณ์ภายใน ความปลอดภัย ความบันเทิง) บนหน้ากลางๆ (หน้า 2, 3, 4) คุณต้องดึงข้อมูลเหล่านี้มาให้ครบถ้วน ห้ามข้ามเด็ดขาด
-3. **กฎการกู้คืนช่องว่างสำหรับอุปกรณ์มาตรฐาน (Blank Cell Recovery):** บางครั้งการสแกนหรือสกัดตารางอาจทำเครื่องหมายเช็กถูกหรือสัญลักษณ์สี่เหลี่ยมตกหล่น ส่งผลให้ช่องในตารางเป็นช่องว่างเปล่า ให้จัดการดังนี้:
-   - หากช่องใดในตารางระบุเครื่องหมายขีด "-" หรือระบุว่า "ไม่มี" อย่างชัดเจน ให้ระบุเป็น "-" (ไม่มี)
-   - หากช่องในตารางเป็นช่องว่างเปล่า "" แต่หัวข้อนั้นเป็นอุปกรณ์มาตรฐานความปลอดภัยหรือเทคโนโลยีพื้นฐานของรถ (เช่น ถุงลมนิรภัย/Airbags, จุดยึดเบาะนั่งสำหรับเด็ก ISOFIX, ระบบเบรก ABS, ระบบควบคุมเสถียรภาพการขับขี่ DSC, ระบบช่วยเสริมแรงเบรก Brake Assist, ระบบสัญญาณเตือนภัย Alarm System, ระบบ Teleservices, ระบบ Intelligent Emergency Call, ระบบ Comfort Access, ระบบปรับอากาศอัตโนมัติ, BMW Live Cockpit, แท่นชาร์จโทรศัพท์แบบไร้สาย เป็นต้น) คุณต้องระบุเป็น "■" (มีติดตั้ง) ให้กับทุกรุ่นย่อย เนื่องจากรถยนต์ BMW ระดับนี้จะมีอุปกรณ์เหล่านี้ติดตั้งเป็นมาตรฐานในทุกรุ่นอยู่แล้ว
-   - หากช่องในตารางระบุตัวเลขเชิงอรรถ (Footnote) หรือสัญลักษณ์ตัวอักษรใดๆ (เช่น "1", "2", "•", "L", "S") ให้มองว่าเป็น "■" (มีติดตั้ง) ห้ามนำตัวเลขหรือตัวอักษรเหล่านั้นไปเป็นค่า value ใน JSON
-   - สำหรับออปชันทั่วไปอื่นๆ ที่มีความแตกต่างกันตามรุ่นย่อย: หากช่องในตารางเป็นช่องว่างเปล่า ให้ระบุเป็น "-" เท่านั้น ห้ามคัดลอกเครื่องหมายมาจากแถวอื่นหรือคอลัมน์อื่นเด็ดขาด
+3. **การจัดการช่องว่าง (Blank Cells):**
+   - หากช่องใดในตารางเป็นช่องว่างเปล่า หรือระบุเครื่องหมายขีด "-" ให้ระบุเป็น "-" เสมอ ห้ามคาดเดาหรือพยายามเติมสัญลักษณ์เองเด็ดขาด โค้ด Python จะจัดการกู้คืนสเปกมาตรฐานเองในภายหลัง
+   - หากช่องระบุสัญลักษณ์/ตัวอักษรใดๆ ที่แสดงถึงการมีอยู่ของออปชัน (เช่น "■", "□", "•", "L", "S", หรือตัวเลขเชิงอรรถ "1", "2") ให้ดึงเป็น "■" (มีติดตั้ง)
 4. หากออปชันไหนระบุรายละเอียดที่แตกต่างกันในแต่ละรุ่นย่อย ให้ใส่รายละเอียดนั้นลงไปให้ตรงรุ่น
 5. **(สำคัญมาก) สำหรับหมวดสีตัวถังและวัสดุภายใน (Paintwork & Upholstery):** ในโบรชัวร์จะเป็นตาราง Matrix จับคู่ระหว่างสีตัวถังภายนอก (แถว/Row) และสีเบาะ/วัสดุหนังภายใน (คอลัมน์/Column) โดยมีเครื่องหมายสี่เหลี่ยม (■ หรือ □) แสดงการจับคู่ ให้คุณสกัดข้อมูลดังนี้:
    - คุณต้องระบุรุ่นย่อยของรถให้ตรงกับตาราง (เช่น 740d M Sport, 750e xDrive M Sport, 320d M Sport เป็นต้น)
@@ -115,13 +113,12 @@ Your task is to take a pre-extracted Markdown/HTML specification table from a BM
    - **ห้ามลอกเลียนแบบหรือใส่เครื่องหมายในช่องว่าง:** หากช่องใดในตารางเป็นช่องว่างเปล่า (ไม่มีเครื่องหมาย ■) ให้ระบุเป็น "-" เท่านั้น ห้ามนำสัญลักษณ์ (■) จากแถวอื่นที่อยู่ใกล้เคียงมาใส่เด็ดขาด ตัวอย่างเช่น ในรุ่น **BMW XM (XM 50e และ XM 50e (Shadow Line))**:
      * แถว 'ระบบเครื่องเสียงรอบทิศทาง Harman Kardon' มีเครื่องหมาย (■) เฉพาะในคอลัมน์ที่ 1 (XM 50e) เท่านั้น ส่วนคอลัมน์ที่ 2 (XM 50e (Shadow Line)) เป็นช่องว่างเปล่า คุณต้องระบุรุ่นแรกเป็น "■" และรุ่นที่สองเป็น "-" เท่านั้น
      * แถว 'ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins Diamond' มีเครื่องหมาย (■) เฉพาะในคอลัมน์ที่ 2 (XM 50e (Shadow Line)) เท่านั้น ส่วนคอลัมน์ที่ 1 (XM 50e) เป็นช่องว่างเปล่า คุณต้องระบุรุ่นแรกเป็น "-" และรุ่นที่สองเป็น "■" เท่านั้น ห้ามตอบว่ารุ่นที่สองมีระบบเครื่องเสียงทั้งสองระบบเด็ดขาด
-7. **(สำคัญมาก) ข้อมูลเอกสารอ้างอิง (Footer Information):** ที่ด้านล่างสุดของหน้ากระดาษ (Footer) จะมีข้อมูลวันที่พิมพ์และรหัส local pack ตัวอย่างเช่น "พิมพ์วันที่3 กรกฎาคม 2568 | (Z7J, Z8G), (Z7G, Z7U), (Z7H, Z8H)"
-   - ให้สร้างหมวดหมู่ใหม่ชื่อว่า `"ข้อมูลเอกสารอ้างอิง"`
-   - ดึงข้อมูลวันที่พิมพ์และใส่ลงในหัวข้อ `"วันที่พิมพ์เอกสาร"` (เช่น "3 กรกฎาคม 2568") ให้กับทุกรุ่นย่อย โดยใช้ค่าวันที่ที่ปรากฏใน footer ของเอกสาร (ห้ามแปลงรูปแบบหรือแปลภาษา)
-   - ดึงรหัส local pack ที่อยู่ในวงเล็บมาเก็บแยกตามรุ่นย่อย โดยใช้กฎการเรียงลำดับจากซ้ายไปขวา (Sequential mapping from left to right) ให้ตรงกับคอลัมน์ของรุ่นย่อยใน specsheet เช่น วงเล็บแรกสุด `(Z7J, Z8G)` จะเป็นของรุ่นย่อยแรกสุดในตาราง, วงเล็บที่สอง `(Z7G, Z7U)` จะเป็นของรุ่นย่อยที่สอง และวงเล็บที่สาม `(Z7H, Z8H)` จะเป็นของรุ่นย่อยที่สาม ให้ใส่ลงในหัวข้อ `"รหัสแพ็กเกจ (Local Pack)"` (รวมวงเล็บ) ให้ตรงกับรุ่นย่อยนั้นๆ หากรุ่นย่อยใดไม่มีรหัส local pack ให้ใส่ "-"
+7. **(สำคัญมาก) ข้อมูลเอกสารอ้างอิงและเชิงอรรถ:**
+   - ห้ามดึงข้อมูลท้ายกระดาษ (Footer) เช่น วันที่พิมพ์ หรือ รหัสแพ็กเกจ (Z...) มาสร้างหมวดหมู่เองเด็ดขาด โค้ด Python จะจัดการดึงข้อมูลส่วนนี้โดยตรงจาก PDF เอง
+   - หากในตารางหรือท้ายตารางมีข้อความที่เป็นเชิงอรรถ/คำอธิบายเพิ่มเติมกำกับด้วยตัวเลข (เช่น "1 ...", "2 ...", หรือ "* ...") คุณต้องดึงหมายเหตุและเชิงอรรถเหล่านี้ทั้งหมดมาจัดทำเป็นหมวดหมู่ใหม่ชื่อว่า `"หมายเหตุ"` โดยตั้งชื่อหัวข้อรายละเอียด (Topic) เป็นข้อความอธิบายนั้นทั้งบรรทัด และให้ค่าสเปก (Value) เป็น `"-"` เสมอ
 8. **(สำคัญมาก) ห้ามรวมหรือยุบหมวดหมู่:** ห้ามนำรายละเอียดออปชันของหมวดหมู่หนึ่งไปรวมเข้ากับอีกหมวดหมู่หนึ่งเด็ดขาด (เช่น ห้ามนำออปชันของ อุปกรณ์ภายนอก หรือ อุปกรณ์ภายใน ไปใส่รวมไว้ใต้หมวดหมู่ ความปลอดภัย) ต้องสร้างคีย์ category แยกสำหรับแต่ละหมวดหมู่ให้ครบถ้วนในผลลัพธ์ JSON
     - คำศัพท์เช่น "ชุดตกแต่งพิเศษ", "Line / package", "Line / Package" หรือคำอื่นๆ ที่ระบุถึงแพ็กเกจการตกแต่ง ให้ถือเป็นหัวข้อหมวดหมู่ (Category) เสมอ ห้ามยุบไปรวมกับหมวดหมู่อื่นเด็ดขาด
-    - ทุกๆ หัวข้อหมวดหมู่ที่ตรวจพบ จะต้องมีออปชันย่อย (details) บันทึกอยู่ภายใต้หมวดหมู่นั้นๆ เสมอ
+    - ทุกๆ หัวข้อหมวดหมู่ที่ตรวจพบ จะต้องมีออปชันย่อย (details) บันทึกอยู่ภายใต้หมวดหมู้นั้นๆ เสมอ
     - ทุกๆ ข้อความที่อยู่ในเอกสาร (หรือที่สแกนหลุดออกมานอกตาราง) ที่ไม่ใช่หัวกระดาษ (Header) หรือท้ายกระดาษ (Footer) ให้ถือว่าเป็นออปชันย่อย (Topic) และต้องถูกสกัดเข้ามาใน JSON ห้ามข้ามหรือละทิ้งเด็ดขาด
 9. **(สำคัญมาก) ข้อมูลการชาร์จรถยนต์ไฟฟ้า (AC / DC Charging):** สกัดข้อมูลการชาร์จไฟหรือระยะเวลาชาร์จแบบต่างๆ แบ่งแยกออกเป็น 4 หมวดหมู่ย่อยดังนี้เฉพาะเมื่อปรากฏตารางข้อมูลการชาร์จในโบรชัวร์เท่านั้น (ห้ามสร้างขึ้นมาหากไม่มีข้อมูล):
    - "การชาร์จแบบกระแสสลับ (AC)" สำหรับกำลังไฟชาร์จ AC สูงสุด
@@ -129,16 +126,11 @@ Your task is to take a pre-extracted Markdown/HTML specification table from a BM
    - "การชาร์จแบบกระแสตรง (DC)" สำหรับกำลังไฟชาร์จ DC สูงสุด
    - "ระยะเวลาในการชาร์จจาก 10 - 80%" สำหรับระยะเวลาและตัวเลือกชาร์จ DC ทั้งหมด
 10. **(สำคัญมาก) การกำหนดชื่อซีรีส์ (Series Name):**
-    - ตรวจสอบจากชื่อรุ่นย่อยในเอกสาร หากรุ่นรถในเล่มเป็นตระกูลไฟฟ้าล้วนหรือรถยนต์ไฟฟ้าที่ขึ้นต้นด้วยตัวอักษร "i" พิมพ์เล็ก (เช่น i5, i7, iX, iX1, iX2, iX3) คุณต้องใช้ชื่อซีรีส์แยกออกมาให้ตรงกับกลุ่มของมันเสมอ เช่น "BMW i5", "BMW i7", "BMW iX", "BMW iX1", "BMW iX2", "BMW iX3"
-    - ห้ามนำรถตระกูลไฟฟ้า รุ่น i ไปรวมกลุ่มภายใต้ซีรีส์ปกติของรถเครื่องยนต์สันดาป/ปลั๊กอินไฮบริดเด็ดขาด (ตัวอย่างเช่น หากในเล่มมีรุ่น i7 ให้ระบุชื่อซีรีส์ว่า "BMW i7" ห้ามนำไปเขียนรวมเป็น "BMW 7 SERIES" เด็ดขาด)
-    - หากรุ่นรถในเล่มเป็นตระกูลสมรรถนะสูงตระกูล "M" (เช่น M2, M3, M4, M5, M8) คุณต้องใช้ชื่อซีรีส์แยกออกมาให้ตรงกับกลุ่มของมันเสมอ เช่น "BMW M2", "BMW M3", "BMW M4", "BMW M5", "BMW M8" และห้ามนำไปรวมกลุ่มภายใต้ซีรีส์ปกติเด็ดขาด (ตัวอย่างเช่น หากในเล่มมีรุ่น M3 ให้ระบุชื่อซีรีส์ว่า "BMW M3" ห้ามนำไปเขียนรวมเป็น "BMW 3 SERIES" เด็ดขาด)
+    - ดึงชื่อซีรีส์ (series) จากหัวเอกสารของโบรชัวร์ตามปกติ (เช่น "BMW 3 SERIES" หรือ "BMW 5 SERIES") Python จะเป็นผู้จัดกลุ่มซีรีส์ตระกูลไฟฟ้า "i" หรือตระกูลสมรรถนะสูง "M" โดยอัตโนมัติ
 11. **(สำคัญมาก) สำหรับตารางสเปกชีตที่มีเพียงรุ่นย่อยเดียว (มีคอลัมน์รุ่นรถคอลัมน์เดียว):**
     - ให้ถือว่าทุกหัวข้อออปชันที่ปรากฏในตารางของเอกสารเล่มนั้นมีติดตั้งเป็นมาตรฐาน (ระบุค่าเป็น "■" เสมอ) ห้ามระบุค่าเป็น "-" โดยเด็ดขาด
     - ยกเว้นกรณีที่ช่องข้อมูลระบุค่าเป็นข้อความรายละเอียดเชิงเทคนิคเฉพาะเจาะจง (เช่น ตัวเลขแรงม้า, ขนาดมิติต่างๆ, ชื่อสีเบาะ หรือคำอธิบาย) ให้ใส่ตามค่าข้อความจริงนั้น
-12. **(สำคัญมาก) ข้อมูลหมายเหตุท้ายเอกสาร (Footnotes / หมายเหตุ):** ในบางหน้าหรือท้ายตารางจะมีข้อความที่เป็นเชิงอรรถ/คำอธิบายข้อกำหนดกำกับด้วยตัวเลข (เช่น "1 ...", "2 ...", หรือ "* ...") คุณต้องดึงหมายเหตุและเชิงอรรถเหล่านี้ทั้งหมดมาจัดทำเป็นหมวดหมู่ใหม่ชื่อว่า `"หมายเหตุ"` (หรือ `"Notes"` สำหรับภาษาอังกฤษ) โดยให้ตั้งชื่อหัวข้อรายละเอียด (Topic) เป็นข้อความอธิบายนั้นทั้งบรรทัด และให้ค่าสเปก (Value) เป็น `"-"` เสมอ เพื่อให้ระบบนำไปสร้างคำอธิบายบนหน้าเว็บได้
-13. **กฎการจัดวางตำแหน่งตัวเลขเชิงอรรถ (Footnote Placement Rule):** ตัวเลขเชิงอรรถ (เช่น `¹`, `²`, `³` หรือตัวยกใดๆ) จะปรากฏต่อท้ายชื่อข้อกำหนดหรือออปชันในช่องตารางฝั่งซ้าย (Topic) เท่านั้น ห้ามนำตัวเลขเชิงอรรถเหล่านี้ไปใส่ร่วมกับข้อมูลในช่องตารางฝั่งขวาที่เป็นรายละเอียดหรือค่าสเปก (Value) โดยเด็ดขาด (ตัวอย่างเช่น ฝั่งซ้าย Topic = "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)¹", ฝั่งขวา Value = "300" เท่านั้น ห้ามเขียนฝั่งขวาเป็น "300¹")
-
-
+12. **กฎการจัดวางตำแหน่งตัวเลขเชิงอรรถ (Footnote Placement Rule):** ตัวเลขเชิงอรรถ (เช่น `¹`, `²`, `³` หรือตัวยกใดๆ) จะปรากฏต่อท้ายชื่อข้อกำหนดหรือออปชันในช่องตารางฝั่งซ้าย (Topic) เท่านั้น ห้ามนำตัวเลขเชิงอรรถเหล่านี้ไปใส่ร่วมกับข้อมูลในช่องตารางฝั่งขวาที่เป็นรายละเอียดหรือค่าสเปก (Value) โดยเด็ดขาด (ตัวอย่างเช่น ฝั่งซ้าย Topic = "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)¹", ฝั่งขวา Value = "300" เท่านั้น ห้ามเขียนฝั่งขวาเป็น "300¹")
 
 หมวดหมู่หลักที่ต้องปรากฏใน JSON เสมอ (ห้ามตกหล่น):
 - เครื่องยนต์และสมรรถนะ
@@ -150,7 +142,6 @@ Your task is to take a pre-extracted Markdown/HTML specification table from a BM
 - อุปกรณ์ภายใน
 - ระบบความบันเทิงและการสื่อสาร (ระมัดระวังความถูกต้องของเครื่องเสียง Harman Kardon และ Bowers & Wilkins Diamond ในรุ่นย่อยต่างๆ ห้ามคัดลอกเครื่องหมายไปยังรุ่นที่ไม่มีโดยเด็ดขาด)
 - ความปลอดภัย
-- ข้อมูลเอกสารอ้างอิง
 
 หมวดหมู่เฉพาะกิจ (สร้างขึ้นเฉพาะเมื่อมีข้อมูลตารางระบุในโบรชัวร์เท่านั้น ห้ามสร้างเป็นค่าว่าง):
 - Paintwork / สีตัวถังและวัสดุภายใน (เฉพาะรุ่นที่มีตารางแสดงการจับคู่สีตัวถังกับเบาะภายใน)
@@ -185,51 +176,40 @@ Your goal is to: Extract "every line" and "every character" of technical specifi
 Strict rules to follow:
 1. Do not summarize, do not shorten, do not omit sub-options. Extract everything word-for-word (verbatim) as it appears in the tables.
 2. In the document, there will be standard equipment tables (e.g., Drivetrain, Exterior, Interior, Safety, Entertainment) on the middle pages. You must extract these completely. Do not skip them.
-3. **Blank Cell Recovery Rule:** MinerU extraction sometimes fails to output checkmark symbols, resulting in empty/blank cells in the Markdown table. You must handle blank cells as follows:
+3. **Blank Cells Handling:**
    - If a cell contains an explicit dash "-" or "No", specify "-" (absent).
-   - If a cell is blank/empty "" in the Markdown, but it represents a standard safety or universal technological feature (such as Airbags, ISOFIX child seat mounting, ABS, DSC, Dynamic Stability Control, Brake Assist, Alarm System, Teleservices, Intelligent Emergency Call, Comfort Access, Climate Control, BMW Live Cockpit, Wireless charging, etc.), you must output "■" (present) for all models. Modern BMW models always have these standard features.
-   - If a cell contains a footnote number (like "1", "2") or a single character (like "•", "L", "S") that indicates option presence or footnote references in the PDF, map it as present "■". Never output raw numbers like "1" or "2" or character placeholders as values in the JSON.
-   - For other normal features that vary by model: If a cell is blank, specify "-" only. Never copy symbols (■) from adjacent rows or columns to blank cells unless it falls under the standard safety/tech/M Sport categories above.
+   - If a cell is blank/empty "" in the Markdown table, specify "-" only. Do not guess or copy checkmarks from adjacent rows or columns. Python post-processing will recover the standard safety and technological features later.
+   - If a cell contains a footnote number (like "1", "2") or symbols like "■", "□", "•", "L", "S" that indicate option presence, map it as present "■".
 4. If an option specifies different details for each model, put the corresponding detail under each model.
 5. **(Very Important) Paintwork & Upholstery Matrix:** In the brochure, there will be a matrix table indicating the combination of exterior paintwork (row) and interior upholstery/leather type (column). You must extract the data using these steps:
-   - Identify the model name for each specific table (e.g., 740d M Sport, 750e xDrive M Sport, 320d M Sport, etc.).
-   - **Extract Upholstery with Leather Type:** The column headers for Upholstery typically have nested rows where the top row indicates the leather/material type (e.g., "BMW Individual leather 'Merino'", "Vernasca leather", "Sensatec perforated") and the bottom row indicates the color (e.g., "Black", "Mocha", "Cognac").
-   - **(Critical) You MUST always prefix the leather type to the upholstery color** in the format `"Leather Type - Color Name"`. Example values: `"BMW Individual leather 'Merino' - Mocha"`, `"Vernasca leather - Black"`, or `"Sensatec perforated - Cognac"`.
+   - Identify the model name for each specific table (e.g., 740d M Sport, 320d M Sport, etc.).
+   - **Extract Upholstery with Leather Type:** The column headers for Upholstery typically have nested rows where the top row indicates the leather/material type (e.g., "BMW Individual leather 'Merino'", "Vernasca leather") and the bottom row indicates the color (e.g., "Black", "Mocha").
+   - **(Critical) You MUST always prefix the leather type to the upholstery color** in the format `"Leather Type - Color Name"`. Example values: `"BMW Individual leather 'Merino' - Mocha"`, `"Vernasca leather - Black"`.
+   - **(Critical) If the Upholstery column headers have multiple nested rows,** you must concatenate all header levels together. Never omit the top-most leather type. Example: `"Leather 'Veganza' - Veganza perforated | Coral Red/Black"`.
    - For each row (Paintwork / Paint color):
      1. Scan horizontally across the columns to locate the option indicators (such as ■, □, or any footnote numbers/marks).
      2. Trace vertically to find which upholstery column the symbol aligns with.
      3. Put the full upholstery descriptor (including leather type and color name) in the value field.
      4. If there are multiple matching combinations, join them with a comma (e.g., `"BMW Individual leather 'Merino' - Mocha, BMW Individual leather 'Merino' - Black"`).
      5. If a row has no symbol in any column, specify "-". Do not just write "Yes" or skip the row.
-   - **When Paintwork tables are split and stacked vertically per model (e.g. BMW 5 Series):**
-     * Process each table sequentially from top to bottom.
-     * For the top-most table (e.g. 530e Inspiring): Be extremely vigilant. Do not skip or overlook the first few rows (such as Black Sapphire Metallic and Mineral White Metallic). You must check the symbols in all rows and map them to their corresponding upholstery descriptors correctly.
 6. **(Very Important) Multi-line row labels in standard equipment and specification tables:**
-   - If a row topic is long and wraps onto a second line (e.g. line 1: 'Bowers & Wilkins', line 2: 'Diamond'), you must join them into a single topic in your JSON output (e.g. 'Bowers & Wilkins Diamond').
-   - **Aligning option symbols:** Pay extra attention if the black square symbol (■) is vertically placed on the second line of the wrapped text (e.g., horizontally aligned with the word 'Diamond'). You must correctly associate this symbol with the joined row topic, and NOT misalign or assign it to the row above (e.g. Harman Kardon) or the row below.
-   - **Never copy symbols to blank cells:** If a cell is blank (no symbol) for a model, specify "-". Do not copy symbols (■) from adjacent rows or columns. For example, for the **BMW XM (XM 50e and XM 50e (Shadow Line))**:
-     * The row 'Harman Kardon' has a symbol (■) only in Column 1 (XM 50e) and Column 2 (XM 50e (Shadow Line)) is blank. You must output Column 1 as "■" and Column 2 as "-".
-     * The row 'Bowers & Wilkins Diamond' has a symbol (■) only in Column 2 (XM 50e (Shadow Line)) and Column 1 (XM 50e) is blank. You must output Column 1 as "-" and Column 2 as "■". Do not extract both audio systems as present ("■") for the same model.
-7. **(Very Important) Footer Information (Document References):** At the bottom of pages (Footer), there will be metadata containing the publication date and local pack codes. For example: "Printed on 3 July 2026 | (Z7J, Z8G), (Z7G, Z7U), (Z7H, Z8H)"
-   - Create a new category named `"Document References"`.
-   - Extract the print date and put it under the topic `"Publication Date"` (e.g., "3 July 2026") for all models, using the date value in the document footer (do not translate or modify formatting).
-   - Extract the local pack codes inside parentheses and map them sequentially from left to right to the corresponding columns (models) of the specsheet. For example, the first parentheses `(Z7J, Z8G)` goes to the first model, the second `(Z7G, Z7U)` to the second, and the third `(Z7H, Z8H)` to the third. Put this under the topic `"Package Code (Local Pack)"` (including parentheses) for each model. If a model doesn't have a package code, specify "-".
-8. **(Very Important) Do not merge categories:** Do not combine options of one category into another (e.g., do not put Exterior or Interior options under Safety). You must create a separate category key for each group of specifications in the JSON output.
-    - Terms like "Line / package", "Line / Package", "ชุดตกแต่งพิเศษ" or similar words representing trim packages must always be treated as Category headers. Never merge them into other categories.
-    - Every category header detected must contain its respective sub-options (details) under it.
-    - Every text in the document (including text that is parsed outside of a table layout) that is not page headers or footers must be treated as a sub-option (Topic) and must be extracted into the JSON. Never skip or omit them.
+   - If a row topic is long and wraps onto a second line, join them into a single topic in your JSON output.
+   - **Aligning option symbols:** Pay extra attention if the black square symbol (■) is vertically placed on the second line of the wrapped text. You must correctly associate this symbol with the joined row topic.
+   - **Never copy symbols to blank cells:** If a cell is blank (no symbol) for a model, specify "-". Do not copy symbols (■) from adjacent rows or columns.
+7. **(Very Important) Footer Information and Footnotes:**
+   - Do NOT attempt to extract page footers, publication dates, print dates, or local package codes. Python post-processing will extract this metadata directly from the PDF.
+   - If pages contain numbered or asterisked footnotes at the bottom (e.g. "1 ...", "2 ...", or "* ..."), you must extract all of these footnotes/notes into a dedicated category named `"Notes"` with the full explanatory text as the topic name, and set the value to `"-"` for all models.
+8. **(Very Important) Do not merge categories:** Do not combine options of one category into another. You must create a separate category key for each group of specifications in the JSON output.
+     - Terms like "Line / package", "Line / Package", or similar words representing trim packages must always be treated as Category headers. Never merge them into other categories.
+     - Every category header detected must contain its respective sub-options (details) under it.
+     - Every text in the document that is not page headers or footers must be treated as a sub-option (Topic) and must be extracted into the JSON. Never skip or omit them.
 9. **(Very Important) Electric Vehicle Charging Specs (AC / DC Charging):** Extract charging specifications into the following 4 categories only when a charging specification table is present in the brochure (do not create them if no charging data exists):
    - "AC CHARGING" for maximum AC charging power
    - "CHARGING TIME 0 - 100%" for AC charging times and options
    - "DC CHARGING" for maximum DC charging power
    - "CHARGING TIME 10 - 80%" for DC charging times and options
-10. **(Very Important) Series Name Determination:**
-    - Check the model names in the document. If the models belong to the all-electric "i" family (such as i5, i7, iX, iX1, iX2, iX3), you must specify the series name exactly as "BMW i5", "BMW i7", "BMW iX", "BMW iX1", "BMW iX2", "BMW iX3" respectively.
-    - Never merge electric "i" models under the general series names of internal combustion engine / plug-in hybrid models (for example, if the model is an i7, specify the series name as "BMW i7" and never write it as "BMW 7 SERIES").
-    - If the models belong to the high-performance "M" family (such as M2, M3, M4, M5, M8), you must specify the series name exactly as "BMW M2", "BMW M3", "BMW M4", "BMW M5", "BMW M8" respectively. Never merge M models under the general series names (for example, if the model is an M3, specify the series name as "BMW M3" and never write it as "BMW 3 SERIES").
-11. **(Very Important) Footnotes and Explanatory Notes:** Some pages contain numbered or asterisked footnotes at the bottom (e.g. "1 ...", "2 ...", or "* ..."). You must extract all of these footnotes/notes into a dedicated category named `"Notes"` (or `"หมายเหตุ"` for Thai) with the full explanatory text as the topic name, and set the value to `"-"` for all models. This allows the system to generate interactive tooltips on the web page.
-12. **Footnote Placement Rule:** Footnote reference numbers (such as `¹`, `²`, `³` or any superscript numbers) must only appear at the end of the option/topic name in the left column (Topic). Never append or include these footnote reference numbers inside the right columns containing technical details or values (Value). (For example, left Column Topic = "Top speed (km/h)¹", right Column Value = "300" only, and never value = "300¹").
-
+10. **(Very Important) Series Name:**
+    - Extract the series name (series) from the brochure header as normal (e.g., "BMW 3 SERIES" or "BMW 5 SERIES"). Python post-processing will automatically handle the electric "i" family and performance "M" family series naming grouping.
 
 Standard Categories (Must always appear in JSON):
 - Engine and Performance
@@ -239,9 +219,8 @@ Standard Categories (Must always appear in JSON):
 - Drivetrain and Technology
 - Exterior Equipment
 - Interior Equipment
-- Entertainment and Communication (Be extremely careful with the values of Harman Kardon and Bowers & Wilkins Diamond systems across models. Do not copy checkmarks to columns/models where they are blank.)
+- Entertainment and Communication
 - Safety
-- Document References
 
 Conditional Categories (Extract ONLY if data table is present in the brochure; DO NOT create empty placeholders):
 - Paintwork & Upholstery (Only if the color-upholstery combination matrix is present)
@@ -587,6 +566,129 @@ def merge_spec_json_list(json_list: list[dict]) -> dict:
     return merged
 
 # ─── Pipeline Orchestrator ────────────────────────────────────────────────────
+def post_process_extracted_json(merged_output: dict, pdf_path: str, lang_code: str = "th") -> dict:
+    """
+    Applies the Python deconstruction post-processing rules to the extracted JSON object:
+    1. Removes footnote superscript digits from values using regex.
+    2. Groups and overrides the root-level 'series' name if any model is in 'i' or 'M' family.
+    3. Recovers blank cells for standard safety and tech features.
+    4. Extracts print date and package codes from page footers using pypdf and inserts the Document References category.
+    """
+    import re
+    
+    # --- 1. Footnote Removal from Values ---
+    # Superscript characters to remove: ¹, ², ³, ⁴, ⁵, ⁶, ⁷, ⁸, ⁹, ⁰
+    superscript_re = re.compile(r'[\u00b9\u00b2\u00b3\u2070\u2074-\u2079]')
+    
+    for model in merged_output.get("models", []):
+        for spec in model.get("specifications", []):
+            for detail in spec.get("details", []):
+                val = detail.get("value")
+                if isinstance(val, str):
+                    cleaned_val = superscript_re.sub('', val).strip()
+                    detail["value"] = cleaned_val
+
+    # --- 2. Series Grouping & Naming ---
+    model_names = [m.get("model_name", "").strip() for m in merged_output.get("models", [])]
+    orig_series = merged_output.get("series", "").strip()
+    
+    new_series = orig_series
+    for mname in model_names:
+        # i-family: check if starts with 'i' followed by letter/digit (e.g. i5, iX1)
+        if re.match(r'^i[0-9a-zA-Z]', mname):
+            first_word = mname.split()[0]
+            new_series = f"BMW {first_word}"
+            break
+        # M-family: starts with M followed by a single digit (like M2, M3, M4, M5, M8), or starts with XM
+        elif re.match(r'^M[23458](\s|$|[a-zA-Z])', mname) and not re.match(r'^M\d{3}', mname):
+            # Pure M family
+            m = re.match(r'^M\d', mname.split()[0])
+            if m:
+                new_series = f"BMW {m.group(0)}"
+                break
+        elif mname.startswith("XM"):
+            new_series = "BMW XM"
+            break
+            
+    merged_output["series"] = new_series
+
+    # --- 3. Blank Cell Recovery for Standard Safety/Tech ---
+    # Standard safety and tech keywords (lowercase)
+    safety_keywords = [
+        "airbag", "ถุงลม",
+        "abs", "anti-lock", "ป้องกันล้อล็อก",
+        "dsc", "dynamic stability control", "ควบคุมเสถียรภาพ",
+        "isofix", "child seat mounting", "ยึดเบาะนั่งสำหรับเด็ก", "จุดยึดเบาะนั่ง",
+        "brake assist", "เสริมแรงเบรก",
+        "alarm", "สัญญาณเตือนภัย",
+        "teleservices", "teleservice",
+        "emergency call", "โทรออกฉุกเฉิน",
+        "comfort access", "สะดวกสบายในการเข้า", "เข้าออกห้องโดยสาร"
+    ]
+    
+    for model in merged_output.get("models", []):
+        for spec in model.get("specifications", []):
+            for detail in spec.get("details", []):
+                val = str(detail.get("value", "")).strip()
+                topic = str(detail.get("topic", "")).lower()
+                if val in ("", "-", "None", "none"):
+                    if any(kw in topic for kw in safety_keywords):
+                        detail["value"] = "■"
+
+    # --- 4. Document References Footers Extraction (pypdf) ---
+    footer_text = extract_pdf_footer_text(pdf_path)
+    pub_date = "-"
+    pack_codes = []
+    
+    # Process lines in footer_text to find date and package codes
+    for line in footer_text.split("\n"):
+        line = line.strip()
+        if not line:
+            continue
+        
+        # Extract publication date
+        if "Effective from" in line or "Printed on" in line or "พิมพ์วันที่" in line:
+            parts = line.split("|")
+            date_part = parts[0].strip()
+            date_part = re.sub(r'^(Effective from|Printed on|พิมพ์วันที่)\s*', '', date_part)
+            pub_date = date_part.strip()
+            
+        # Find all occurrences of parentheses containing a capital Z followed by characters
+        matches = re.findall(r'\([^)]*\)', line)
+        for m in matches:
+            if "Z" in m and m not in pack_codes:
+                pack_codes.append(m.strip())
+                
+    num_models = len(merged_output.get("models", []))
+    while len(pack_codes) < num_models:
+        pack_codes.append("-")
+    pack_codes = pack_codes[:num_models]
+    
+    # Remove any existing Document References categories
+    cat_to_remove = "ข้อมูลเอกสารอ้างอิง" if lang_code == "th" else "Document References"
+    topic_date = "วันที่พิมพ์เอกสาร" if lang_code == "th" else "Publication Date"
+    topic_pack = "รหัสแพ็กเกจ (Local Pack)" if lang_code == "th" else "Package Code (Local Pack)"
+    
+    for idx, model in enumerate(merged_output.get("models", [])):
+        # Filter out existing category if any
+        model["specifications"] = [
+            spec for spec in model.get("specifications", [])
+            if spec.get("category", "").strip().lower() != cat_to_remove.lower()
+        ]
+        
+        # Create new category
+        new_cat = {
+            "category": cat_to_remove,
+            "details": [
+                {"topic": topic_date, "value": pub_date},
+                {"topic": topic_pack, "value": pack_codes[idx]}
+            ]
+        }
+        model["specifications"].append(new_cat)
+        
+    return merged_output
+
+
 def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str = "th"):
     """
     Orchestrates the entire extraction pipeline:
@@ -682,6 +784,9 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
                     # Save final structured specsheet
                     merged_output["source_file"] = os.path.basename(pdf_path)
                     merged_output["pdf_source"] = os.path.basename(pdf_path)
+                    
+                    # Run Python post-processing
+                    merged_output = post_process_extracted_json(merged_output, pdf_path, lang_code)
                     
                     # Apply overrides
                     try:
@@ -856,6 +961,9 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
     # Add source file metadata to prevent merging with different PDF files
     merged_output["source_file"] = os.path.basename(pdf_path)
     merged_output["pdf_source"] = os.path.basename(pdf_path)
+    
+    # Run Python post-processing
+    merged_output = post_process_extracted_json(merged_output, pdf_path, lang_code)
     
     # Apply Manual Overrides
     try:

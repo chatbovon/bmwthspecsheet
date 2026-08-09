@@ -84,6 +84,21 @@ def run_batch_extraction(lang="th", target_file=None):
                 # Ensure pdf_source is set
                 result["pdf_source"] = filename
 
+                # Try to preserve old images mapping if entry exists in master catalog
+                old_entry = next((item for item in master_specs if item.get("pdf_source") == filename), None)
+                if old_entry:
+                    old_images = {}
+                    for m in old_entry.get("models", []):
+                        mname = m.get("model_name")
+                        if mname and "images" in m:
+                            old_images[mname] = m["images"]
+                    for m in result.get("models", []):
+                        mname = m.get("model_name")
+                        if mname in old_images:
+                            m["images"] = old_images[mname]
+                        else:
+                            m["images"] = m.get("images", {})
+
                 # If target_file is specified, replace the existing entry
                 if target_file:
                     master_specs = [item for item in master_specs if item.get("pdf_source") != filename]
