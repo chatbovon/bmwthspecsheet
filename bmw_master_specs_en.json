@@ -483,8 +483,7 @@
                     "Cape York Green metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_inspiring_cape_york_green_metallic.png",
                     "Oxide Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_inspiring_oxide_grey_metallic.png",
                     "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_inspiring_mineral_white_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             },
             {
                 "model_name": "520d M Sport",
@@ -972,8 +971,7 @@
                     "M Brooklyn Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_520d_m_sport_m_brooklyn_grey_metallic.png",
                     "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_520d_m_sport_black_sapphire_metallic.png",
                     "Phytonic Blue metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_520d_m_sport_phytonic_blue_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             },
             {
                 "model_name": "530e M Sport",
@@ -1461,8 +1459,7 @@
                     "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_black_sapphire_metallic.png",
                     "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_mineral_white_metallic.png",
                     "Phytonic Blue metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_phytonic_blue_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "5-20260417-01_EN.pdf.asset.1779077254663.pdf",
@@ -3792,8 +3789,7 @@
                     "Black Sapphire metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_Black_Sapphire_metallic.png",
                     "M Portimao Blue metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_M_Portimao_Blue_metallic.png",
                     "Alpine White solid": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_Alpine_White_solid.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "2-20260622-01_EN.pdf.asset.1782449002094.pdf",
@@ -4386,7 +4382,6 @@
                         ]
                     }
                 ],
-                "is_custom_archived": false,
                 "images": {
                     "M Portimao Blue metallic": "images/3_20250625_01_TH.asset.1763550244972/BMW_320d_M_Sport_M_Portimao_Blue_metallic.png",
                     "M Brooklyn Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/BMW_320d_M_Sport_M_Brooklyn_Grey_metallic.png",
@@ -4864,7 +4859,6 @@
                         ]
                     }
                 ],
-                "is_custom_archived": false,
                 "images": {
                     "M Brooklyn Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/BMW_330e_M_Sport_M_Brooklyn_Grey_metallic.png",
                     "Black Sapphire metallic": "images/3_20250625_01_TH.asset.1763550244972/BMW_330e_M_Sport_Black_Sapphire_metallic.png",
@@ -5342,7 +5336,6 @@
                         ]
                     }
                 ],
-                "is_custom_archived": false,
                 "images": {
                     "BMW Individual Dravit Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/BMW_M340i_xDrive_BMW_Individual_Dravit_Grey_metallic.png",
                     "M Brooklyn Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/BMW_M340i_xDrive_M_Brooklyn_Grey_metallic.png",
@@ -5353,7 +5346,555 @@
             }
         ],
         "source_file": "3-20250625-01_EN.pdf.asset.1763550156076.pdf",
-        "pdf_source": "3-20250625-01_EN.pdf.asset.1763550156076.pdf"
+        "pdf_source": "3-20250625-01_EN.pdf.asset.1763550156076.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "320d M Sport",
+                "category": "All",
+                "topic": "Category Count",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category count mismatch: English has 14 categories, Thai has 12 categories"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 1: English is 'Engine type' (mapped: 'engine type'), Thai is 'ชนิดเครื่องยนต์' (mapped: 'ชนิดเครื่องยนต์')"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Engine and Performance",
+                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร) / Displacement (cm³)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 2: English is 'Displacement (cm³)' (mapped: 'displacement (cm³)'), Thai is 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)' (mapped: 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)')"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Engine and Performance",
+                "topic": "กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที) / Engine power (kW/hp/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 3: English is 'Engine power (kW/hp/rpm)' (mapped: 'engine power (kw/hp/rpm)'), Thai is 'กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' (mapped: 'กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)')"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที) / Engine torque (Nm/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 4: English is 'Engine torque (Nm/rpm)' (mapped: 'engine torque (nm/rpm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' (mapped: 'max. torque (nm/rpm)')"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Engine and Performance",
+                "topic": "กําลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า) / Electric motor power (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 5: English is 'Electric motor power (kW/hp)' (mapped: 'electric motor power (kw/hp)'), Thai is 'กําลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กําลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร) / Electric motor torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 6: English is 'Electric motor torque (Nm)' (mapped: 'electric motor torque (nm)'), Thai is 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Engine and Performance",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน NEDC (กิโลเมตร) / Electrical range¹, NEDC (km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 7: English is 'Electrical range¹, NEDC (km)' (mapped: 'electrical range¹, nedc (km)'), Thai is 'ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน NEDC (กิโลเมตร)' (mapped: 'ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน nedc (กิโลเมตร)')"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Engine and Performance",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน WLTP (กิโลเมตร) / Electrical range¹, WLTP (km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 8: English is 'Electrical range¹, WLTP (km)' (mapped: 'electrical range¹, wltp (km)'), Thai is 'ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน WLTP (กิโลเมตร)' (mapped: 'ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน wltp (กิโลเมตร)')"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Engine and Performance",
+                "topic": "ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง) / High voltage battery energy content (kWh)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 9: English is 'High voltage battery energy content (kWh)' (mapped: 'high voltage battery energy content (kwh)'), Thai is 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)' (mapped: 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)')"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Engine and Performance",
+                "topic": "กําลังรวมสูงสุด (กิโลวัตต์/แรงม้า) / System output (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 10: English is 'System output (kW/hp)' (mapped: 'system output (kw/hp)'), Thai is 'กําลังรวมสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กําลังรวมสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดรวมสูงสุด (นิวตันเมตร) / System torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 11: English is 'System torque (Nm)' (mapped: 'system torque (nm)'), Thai is 'แรงบิดรวมสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดรวมสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Engine and Performance",
+                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) / 0 - 100 km/h (s)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 13: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)' (mapped: 'acceleration 0 - 100 km/h (s)')"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Engine and Performance",
+                "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, NEDC (kWh/100 km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 14: English is 'Electric energy consumption, NEDC (kWh/100 km)' (mapped: 'electric energy consumption, nedc (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน nedc (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Engine and Performance",
+                "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, WLTP (kWh/100 km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 15: English is 'Electric energy consumption, WLTP (kWh/100 km)' (mapped: 'electric energy consumption, wltp (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน wltp (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "ล้อและยาง / Fuel Consumption and CO2",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 2: English has 'Fuel Consumption and CO2', Thai has 'ล้อและยาง'"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "มิติรถยนต์ / Wheels and Tyres",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 3: English has 'Wheels and Tyres', Thai has 'มิติรถยนต์'"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "ระบบขับเคลื่อนและเทคโนโลยี / Dimension",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 4: English has 'Dimension', Thai has 'ระบบขับเคลื่อนและเทคโนโลยี'"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "อุปกรณ์ภายนอก / Drivetrain and Technology",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 5: English has 'Drivetrain and Technology', Thai has 'อุปกรณ์ภายนอก'"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "อุปกรณ์ภายใน / Exterior Equipment",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 6: English has 'Exterior Equipment', Thai has 'อุปกรณ์ภายใน'"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "ระบบความบันเทิงและการสื่อสาร / Interior Equipment",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 7: English has 'Interior Equipment', Thai has 'ระบบความบันเทิงและการสื่อสาร'"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "ความปลอดภัย / Entertainment and Communication",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 8: English has 'Entertainment and Communication', Thai has 'ความปลอดภัย'"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "ชุดตกแต่งพิเศษ / Safety",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 9: English has 'Safety', Thai has 'ชุดตกแต่งพิเศษ'"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "Paintwork / สีตัวถังและวัสดุภายใน / Line / Package",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 10: English has 'Line / Package', Thai has 'Paintwork / สีตัวถังและวัสดุภายใน'"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "ข้อมูลเอกสารอ้างอิง / Paintwork & Upholstery",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 11: English has 'Paintwork & Upholstery', Thai has 'ข้อมูลเอกสารอ้างอิง'"
+            },
+            {
+                "model_name": "320d M Sport",
+                "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2 / Notes",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 12: English has 'Notes', Thai has 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2'"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "All",
+                "topic": "Category Count",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category count mismatch: English has 14 categories, Thai has 12 categories"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 1: English is 'Engine type' (mapped: 'engine type'), Thai is 'ชนิดเครื่องยนต์' (mapped: 'ชนิดเครื่องยนต์')"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Engine and Performance",
+                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร) / Displacement (cm³)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 2: English is 'Displacement (cm³)' (mapped: 'displacement (cm³)'), Thai is 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)' (mapped: 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)')"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Engine and Performance",
+                "topic": "กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที) / Engine power (kW/hp/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 3: English is 'Engine power (kW/hp/rpm)' (mapped: 'engine power (kw/hp/rpm)'), Thai is 'กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' (mapped: 'กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)')"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที) / Engine torque (Nm/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 4: English is 'Engine torque (Nm/rpm)' (mapped: 'engine torque (nm/rpm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' (mapped: 'max. torque (nm/rpm)')"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Engine and Performance",
+                "topic": "กําลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า) / Electric motor power (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 5: English is 'Electric motor power (kW/hp)' (mapped: 'electric motor power (kw/hp)'), Thai is 'กําลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กําลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร) / Electric motor torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 6: English is 'Electric motor torque (Nm)' (mapped: 'electric motor torque (nm)'), Thai is 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Engine and Performance",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน NEDC (กิโลเมตร) / Electrical range¹, NEDC (km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 7: English is 'Electrical range¹, NEDC (km)' (mapped: 'electrical range¹, nedc (km)'), Thai is 'ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน NEDC (กิโลเมตร)' (mapped: 'ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน nedc (กิโลเมตร)')"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Engine and Performance",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน WLTP (กิโลเมตร) / Electrical range¹, WLTP (km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 8: English is 'Electrical range¹, WLTP (km)' (mapped: 'electrical range¹, wltp (km)'), Thai is 'ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน WLTP (กิโลเมตร)' (mapped: 'ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน wltp (กิโลเมตร)')"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Engine and Performance",
+                "topic": "ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง) / High voltage battery energy content (kWh)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 9: English is 'High voltage battery energy content (kWh)' (mapped: 'high voltage battery energy content (kwh)'), Thai is 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)' (mapped: 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)')"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Engine and Performance",
+                "topic": "กําลังรวมสูงสุด (กิโลวัตต์/แรงม้า) / System output (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 10: English is 'System output (kW/hp)' (mapped: 'system output (kw/hp)'), Thai is 'กําลังรวมสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กําลังรวมสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดรวมสูงสุด (นิวตันเมตร) / System torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 11: English is 'System torque (Nm)' (mapped: 'system torque (nm)'), Thai is 'แรงบิดรวมสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดรวมสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Engine and Performance",
+                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) / 0 - 100 km/h (s)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 13: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)' (mapped: 'acceleration 0 - 100 km/h (s)')"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Engine and Performance",
+                "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, NEDC (kWh/100 km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 14: English is 'Electric energy consumption, NEDC (kWh/100 km)' (mapped: 'electric energy consumption, nedc (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน nedc (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Engine and Performance",
+                "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, WLTP (kWh/100 km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 15: English is 'Electric energy consumption, WLTP (kWh/100 km)' (mapped: 'electric energy consumption, wltp (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน wltp (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "ล้อและยาง / Fuel Consumption and CO2",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 2: English has 'Fuel Consumption and CO2', Thai has 'ล้อและยาง'"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "มิติรถยนต์ / Wheels and Tyres",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 3: English has 'Wheels and Tyres', Thai has 'มิติรถยนต์'"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "ระบบขับเคลื่อนและเทคโนโลยี / Dimension",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 4: English has 'Dimension', Thai has 'ระบบขับเคลื่อนและเทคโนโลยี'"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "อุปกรณ์ภายนอก / Drivetrain and Technology",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 5: English has 'Drivetrain and Technology', Thai has 'อุปกรณ์ภายนอก'"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "อุปกรณ์ภายใน / Exterior Equipment",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 6: English has 'Exterior Equipment', Thai has 'อุปกรณ์ภายใน'"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "ระบบความบันเทิงและการสื่อสาร / Interior Equipment",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 7: English has 'Interior Equipment', Thai has 'ระบบความบันเทิงและการสื่อสาร'"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "ความปลอดภัย / Entertainment and Communication",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 8: English has 'Entertainment and Communication', Thai has 'ความปลอดภัย'"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "ชุดตกแต่งพิเศษ / Safety",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 9: English has 'Safety', Thai has 'ชุดตกแต่งพิเศษ'"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "Paintwork / สีตัวถังและวัสดุภายใน / Line / Package",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 10: English has 'Line / Package', Thai has 'Paintwork / สีตัวถังและวัสดุภายใน'"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "ข้อมูลเอกสารอ้างอิง / Paintwork & Upholstery",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 11: English has 'Paintwork & Upholstery', Thai has 'ข้อมูลเอกสารอ้างอิง'"
+            },
+            {
+                "model_name": "330e M Sport",
+                "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2 / Notes",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 12: English has 'Notes', Thai has 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2'"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "All",
+                "topic": "Category Count",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category count mismatch: English has 14 categories, Thai has 12 categories"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 1: English is 'Engine type' (mapped: 'engine type'), Thai is 'ชนิดเครื่องยนต์' (mapped: 'ชนิดเครื่องยนต์')"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Engine and Performance",
+                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร) / Displacement (cm³)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 2: English is 'Displacement (cm³)' (mapped: 'displacement (cm³)'), Thai is 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)' (mapped: 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)')"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Engine and Performance",
+                "topic": "กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที) / Engine power (kW/hp/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 3: English is 'Engine power (kW/hp/rpm)' (mapped: 'engine power (kw/hp/rpm)'), Thai is 'กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' (mapped: 'กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)')"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที) / Engine torque (Nm/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 4: English is 'Engine torque (Nm/rpm)' (mapped: 'engine torque (nm/rpm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' (mapped: 'max. torque (nm/rpm)')"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Engine and Performance",
+                "topic": "กําลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า) / Electric motor power (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 5: English is 'Electric motor power (kW/hp)' (mapped: 'electric motor power (kw/hp)'), Thai is 'กําลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กําลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร) / Electric motor torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 6: English is 'Electric motor torque (Nm)' (mapped: 'electric motor torque (nm)'), Thai is 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Engine and Performance",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน NEDC (กิโลเมตร) / Electrical range¹, NEDC (km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 7: English is 'Electrical range¹, NEDC (km)' (mapped: 'electrical range¹, nedc (km)'), Thai is 'ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน NEDC (กิโลเมตร)' (mapped: 'ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน nedc (กิโลเมตร)')"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Engine and Performance",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน WLTP (กิโลเมตร) / Electrical range¹, WLTP (km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 8: English is 'Electrical range¹, WLTP (km)' (mapped: 'electrical range¹, wltp (km)'), Thai is 'ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน WLTP (กิโลเมตร)' (mapped: 'ระยะทางขับเคลื่อนไฟฟ้า, มาตรฐาน wltp (กิโลเมตร)')"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Engine and Performance",
+                "topic": "ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง) / High voltage battery energy content (kWh)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 9: English is 'High voltage battery energy content (kWh)' (mapped: 'high voltage battery energy content (kwh)'), Thai is 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)' (mapped: 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)')"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Engine and Performance",
+                "topic": "กําลังรวมสูงสุด (กิโลวัตต์/แรงม้า) / System output (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 10: English is 'System output (kW/hp)' (mapped: 'system output (kw/hp)'), Thai is 'กําลังรวมสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กําลังรวมสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดรวมสูงสุด (นิวตันเมตร) / System torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 11: English is 'System torque (Nm)' (mapped: 'system torque (nm)'), Thai is 'แรงบิดรวมสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดรวมสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Engine and Performance",
+                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) / 0 - 100 km/h (s)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 13: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)' (mapped: 'acceleration 0 - 100 km/h (s)')"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Engine and Performance",
+                "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, NEDC (kWh/100 km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 14: English is 'Electric energy consumption, NEDC (kWh/100 km)' (mapped: 'electric energy consumption, nedc (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน nedc (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Engine and Performance",
+                "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, WLTP (kWh/100 km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 15: English is 'Electric energy consumption, WLTP (kWh/100 km)' (mapped: 'electric energy consumption, wltp (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน wltp (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "ล้อและยาง / Fuel Consumption and CO2",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 2: English has 'Fuel Consumption and CO2', Thai has 'ล้อและยาง'"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "มิติรถยนต์ / Wheels and Tyres",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 3: English has 'Wheels and Tyres', Thai has 'มิติรถยนต์'"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "ระบบขับเคลื่อนและเทคโนโลยี / Dimension",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 4: English has 'Dimension', Thai has 'ระบบขับเคลื่อนและเทคโนโลยี'"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "อุปกรณ์ภายนอก / Drivetrain and Technology",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 5: English has 'Drivetrain and Technology', Thai has 'อุปกรณ์ภายนอก'"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "อุปกรณ์ภายใน / Exterior Equipment",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 6: English has 'Exterior Equipment', Thai has 'อุปกรณ์ภายใน'"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "ระบบความบันเทิงและการสื่อสาร / Interior Equipment",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 7: English has 'Interior Equipment', Thai has 'ระบบความบันเทิงและการสื่อสาร'"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "ความปลอดภัย / Entertainment and Communication",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 8: English has 'Entertainment and Communication', Thai has 'ความปลอดภัย'"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "ชุดตกแต่งพิเศษ / Safety",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 9: English has 'Safety', Thai has 'ชุดตกแต่งพิเศษ'"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "Paintwork / สีตัวถังและวัสดุภายใน / Line / Package",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 10: English has 'Line / Package', Thai has 'Paintwork / สีตัวถังและวัสดุภายใน'"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "ข้อมูลเอกสารอ้างอิง / Paintwork & Upholstery",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 11: English has 'Paintwork & Upholstery', Thai has 'ข้อมูลเอกสารอ้างอิง'"
+            },
+            {
+                "model_name": "M340i xDrive",
+                "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2 / Notes",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 12: English has 'Notes', Thai has 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2'"
+            }
+        ]
     },
     {
         "series": "BMW 3 SERIES",
@@ -5683,8 +6224,7 @@
                     "M Brooklyn Grey metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/BMW_320Li_M_Sport_M_Brooklyn_Grey_metallic.png",
                     "Black Sapphire metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/BMW_320Li_M_Sport_Black_Sapphire_metallic.png",
                     "Mineral White metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/BMW_320Li_M_Sport_Mineral_White_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "3-20260112-01_EN_Li.pdf.asset.1768894796753.pdf",
@@ -6145,8 +6685,7 @@
                     "M Brooklyn Grey metallic": "images/4_20241113_02_TH.asset.1745407581563/BMW_430i_Convertible_M_Sport_M_Brooklyn_Grey_metallic.png",
                     "Black Sapphire metallic": "images/4_20241113_02_TH.asset.1745407581563/BMW_430i_Convertible_M_Sport_Black_Sapphire_metallic.png",
                     "BMW Individual Tanzanite Blue metallic": "images/4_20241113_02_TH.asset.1745407581563/BMW_430i_Convertible_M_Sport_BMW_Individual_Tanzanite_Blue_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "4-20241113-02_EN.pdf.asset.1745391120720.pdf",
@@ -6587,8 +7126,7 @@
                 "images": {
                     "Black Sapphire Metallic": "images/M3_20230815_01_TH.asset.1724906649623/BMW_M3_CS_Black_Sapphire_Metallic.png",
                     "M Brooklyn Grey metallic": "images/M3_20230815_01_TH.asset.1724906649623/BMW_M3_CS_M_Brooklyn_Grey_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "M3-20230815-01_EN.pdf.asset.1724906649579.pdf",
@@ -7033,7 +7571,6 @@
                         ]
                     }
                 ],
-                "is_custom_archived": false,
                 "images": {
                     "Alpine White solid": "images/X1_20260417_01_TH.asset.1778752587262/BMW_X1_sDrive20i_M_Sport_Alpine_White_solid.png",
                     "Space Silver metallic": "images/X1_20260417_01_TH.asset.1778752587262/BMW_X1_sDrive20i_M_Sport_Space_Silver_metallic.png",
@@ -7043,7 +7580,142 @@
             }
         ],
         "source_file": "X1-20260417-01_EN.pdf.asset.1778752587091.pdf",
-        "pdf_source": "X1-20260417-01_EN.pdf.asset.1778752587091.pdf"
+        "pdf_source": "X1-20260417-01_EN.pdf.asset.1778752587091.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "All",
+                "topic": "Category Count",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category count mismatch: English has 13 categories, Thai has 12 categories"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 1: English is 'Engine type' (mapped: 'engine type'), Thai is 'ชนิดเครื่องยนต์' (mapped: 'ชนิดเครื่องยนต์')"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "Engine and Performance",
+                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร) / Displacement (cm³)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 2: English is 'Displacement (cm³)' (mapped: 'displacement (cm³)'), Thai is 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)' (mapped: 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)')"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "Engine and Performance",
+                "topic": "กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที) / Engine power (kW/hp/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 3: English is 'Engine power (kW/hp/rpm)' (mapped: 'engine power (kw/hp/rpm)'), Thai is 'กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' (mapped: 'กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)')"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที) / Engine torque (Nm/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 4: English is 'Engine torque (Nm/rpm)' (mapped: 'engine torque (nm/rpm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' (mapped: 'max. torque (nm/rpm)')"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "Engine and Performance",
+                "topic": "กําลังรวมสูงสุด (กิโลวัตต์/แรงม้า) / System output (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 5: English is 'System output (kW/hp)' (mapped: 'system output (kw/hp)'), Thai is 'กําลังรวมสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กําลังรวมสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดรวมสูงสุด (นิวตันเมตร) / System torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 6: English is 'System torque (Nm)' (mapped: 'system torque (nm)'), Thai is 'แรงบิดรวมสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดรวมสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "Engine and Performance",
+                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) / 0 - 100 km/h (s)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 8: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)' (mapped: 'acceleration 0 - 100 km/h (s)')"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "ล้อและยาง / Fuel Consumption and CO2",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 2: English has 'Fuel Consumption and CO2', Thai has 'ล้อและยาง'"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "มิติรถยนต์ / Wheels and Tyres",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 3: English has 'Wheels and Tyres', Thai has 'มิติรถยนต์'"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "ระบบขับเคลื่อนและเทคโนโลยี / Dimension",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 4: English has 'Dimension', Thai has 'ระบบขับเคลื่อนและเทคโนโลยี'"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "อุปกรณ์ภายนอก / Transmission and Technology",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 5: English has 'Transmission and Technology', Thai has 'อุปกรณ์ภายนอก'"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "อุปกรณ์ภายใน / Exterior",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 6: English has 'Exterior', Thai has 'อุปกรณ์ภายใน'"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "ระบบความบันเทิงและการสื่อสาร / Interior",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 7: English has 'Interior', Thai has 'ระบบความบันเทิงและการสื่อสาร'"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "ความปลอดภัย / Entertainment and Communication",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 8: English has 'Entertainment and Communication', Thai has 'ความปลอดภัย'"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "ชุดตกแต่งพิเศษ / Safety",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 9: English has 'Safety', Thai has 'ชุดตกแต่งพิเศษ'"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "Paintwork / สีตัวถังและวัสดุภายใน / Line / Package",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 10: English has 'Line / Package', Thai has 'Paintwork / สีตัวถังและวัสดุภายใน'"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "ข้อมูลเอกสารอ้างอิง / Paintwork & Upholstery",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 11: English has 'Paintwork & Upholstery', Thai has 'ข้อมูลเอกสารอ้างอิง'"
+            },
+            {
+                "model_name": "X1 sDrive20i M Sport",
+                "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2 / Notes",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 12: English has 'Notes', Thai has 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2'"
+            }
+        ]
     },
     {
         "series": "BMW X3",
@@ -7457,8 +8129,7 @@
                     "M Brooklyn Grey metallic": "images/X3_20260116_01_TH.asset.1778752585808/BMW_X3_20d_xDrive_M_Sport_Pro_M_Brooklyn_Grey_metallic.png",
                     "Black Sapphire metallic": "images/X3_20260116_01_TH.asset.1778752585808/BMW_X3_20d_xDrive_M_Sport_Pro_Black_Sapphire_metallic.png",
                     "Alpine White solid": "images/X3_20260116_01_TH.asset.1778752585808/BMW_X3_20d_xDrive_M_Sport_Pro_Alpine_White_solid.png"
-                },
-                "is_custom_archived": false
+                }
             },
             {
                 "model_name": "X3 M50 xDrive",
@@ -7870,8 +8541,7 @@
                     "Black Sapphire metallic": "images/X3_20260116_01_TH.asset.1778752585808/BMW_X3_M50_xDrive_Black_Sapphire_metallic.png",
                     "BMW Individual Tanzanite Blue metallic": "images/X3_20260116_01_TH.asset.1778752585808/BMW_X3_M50_xDrive_BMW_Individual_Tanzanite_Blue_metallic.png",
                     "Alpine White solid": "images/X3_20260116_01_TH.asset.1778752585808/BMW_X3_M50_xDrive_Alpine_White_solid.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "X3-20260116-01_EN.pdf.asset.1778752585748.pdf",
@@ -8519,12 +9189,132 @@
                         ]
                     }
                 ],
-                "is_custom_archived": false,
                 "images": {}
             }
         ],
         "source_file": "X4-20240418-01_EN.pdf.asset.1738060241175.pdf",
-        "pdf_source": "X4-20240418-01_EN.pdf.asset.1738060241175.pdf"
+        "pdf_source": "X4-20240418-01_EN.pdf.asset.1738060241175.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "All",
+                "topic": "Category Count",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category count mismatch: English has 13 categories, Thai has 12 categories"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 1: English is 'Engine type' (mapped: 'engine type'), Thai is 'ชนิดเครื่องยนต์' (mapped: 'ชนิดเครื่องยนต์')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Engine and Performance",
+                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร) / Displacement (cm³)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 2: English is 'Displacement (cm³)' (mapped: 'displacement (cm³)'), Thai is 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)' (mapped: 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Engine and Performance",
+                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที) / Engine power (kW/hp/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 3: English is 'Engine power (kW/hp/rpm)' (mapped: 'engine power (kw/hp/rpm)'), Thai is 'กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' (mapped: 'max. output (kw/hp/rpm)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที) / Engine torque (Nm/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 4: English is 'Engine torque (Nm/rpm)' (mapped: 'engine torque (nm/rpm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' (mapped: 'max. torque (nm/rpm)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Engine and Performance",
+                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) / 0 - 100 km/h (s)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 6: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)' (mapped: 'acceleration 0 - 100 km/h (s)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "ล้อและยาง / Fuel Consumption and CO2",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 2: English has 'Fuel Consumption and CO2', Thai has 'ล้อและยาง'"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "มิติรถยนต์ / Wheels and Tyres",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 3: English has 'Wheels and Tyres', Thai has 'มิติรถยนต์'"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "ระบบขับเคลื่อนและเทคโนโลยี / Dimension",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 4: English has 'Dimension', Thai has 'ระบบขับเคลื่อนและเทคโนโลยี'"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "อุปกรณ์ภายนอก / Transmission and technology",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 5: English has 'Transmission and technology', Thai has 'อุปกรณ์ภายนอก'"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "อุปกรณ์ภายใน / Exterior",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 6: English has 'Exterior', Thai has 'อุปกรณ์ภายใน'"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "ระบบความบันเทิงและการสื่อสาร / Interior",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 7: English has 'Interior', Thai has 'ระบบความบันเทิงและการสื่อสาร'"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "ความปลอดภัย / Entertainment and communication",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 8: English has 'Entertainment and communication', Thai has 'ความปลอดภัย'"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "ชุดตกแต่งพิเศษ / Safety",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 9: English has 'Safety', Thai has 'ชุดตกแต่งพิเศษ'"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Paintwork / สีตัวถังและวัสดุภายใน / Line / package",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 10: English has 'Line / package', Thai has 'Paintwork / สีตัวถังและวัสดุภายใน'"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "ข้อมูลเอกสารอ้างอิง / Paintwork & Upholstery",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 11: English has 'Paintwork & Upholstery', Thai has 'ข้อมูลเอกสารอ้างอิง'"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2 / Notes",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 12: English has 'Notes', Thai has 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2'"
+            }
+        ]
     },
     {
         "series": "BMW X5",
@@ -9002,8 +9792,7 @@
                     "Mineral White Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_mineral_white_metallic.png",
                     "Black Sapphire Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_black_sapphire_metallic.png",
                     "Manhattan Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_manhattan_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             },
             {
                 "model_name": "X5 xDrive50e M Sport",
@@ -9478,8 +10267,7 @@
                     "Skyscraper Grey Metallic": "images/X5_20260417_01_TH.asset.1779075010632/BMW_X5_xDrive50e_M_Sport_Skyscraper_Grey_Metallic.png",
                     "Black Sapphire Metallic": "images/X5_20260417_01_TH.asset.1779075010632/BMW_X5_xDrive50e_M_Sport_Black_Sapphire_Metallic.png",
                     "Mineral White Metallic": "images/X5_20260417_01_TH.asset.1779075010632/BMW_X5_xDrive50e_M_Sport_Mineral_White_Metallic.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "X5-20260417-01_EN.pdf.asset.1779077254643.pdf",
@@ -10196,8 +10984,7 @@
                     "Toronto Red Metallic": "images/XM_20250130_02_TH_WLTP.asset.1740723963122/BMW_XM_Toronto_Red_Metallic.png",
                     "Mineral White Metallic": "images/XM_20250130_02_TH_WLTP.asset.1740723963122/BMW_XM_Mineral_White_Metallic.png",
                     "Sao Paulo Yellow Solid": "images/XM_20250130_02_TH_WLTP.asset.1740723963122/BMW_XM_Sao_Paulo_Yellow_Solid.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "XM-20250130-02_EN_WLTP.pdf.asset.1740723923309.pdf",
@@ -10707,8 +11494,7 @@
                     "Toronto Red Metallic": "images/XM_20250130_03_TH_WLTP.asset.1740723896658/BMW_XM_Label_Red_Toronto_Red_Metallic.png",
                     "Mineral White Metallic": "images/XM_20250130_03_TH_WLTP.asset.1740723896658/BMW_XM_Label_Red_Mineral_White_Metallic.png",
                     "Sao Paulo Yellow Solid": "images/XM_20250130_03_TH_WLTP.asset.1740723896658/BMW_XM_Label_Red_Sao_Paulo_Yellow_Solid.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "XM-20250130-03_EN_WLTP.pdf.asset.1740723854397.pdf",
@@ -11350,8 +12136,7 @@
                     "Oxide Grey metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_740d_M_Sport_Oxide_Grey_metallic.png",
                     "BMW Individual Dravit Grey metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_740d_M_Sport_BMW_Individual_Dravit_Grey_metallic.png",
                     "Mineral White metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_740d_M_Sport_Mineral_White_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             },
             {
                 "model_name": "750e xDrive M Sport",
@@ -11802,8 +12587,7 @@
                     "Oxide Grey Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_750e_xDrive_M_Sport_Oxide_Grey_metallic.png",
                     "Black Sapphire Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_750e_xDrive_M_Sport_Black_Sapphire_metallic.png",
                     "Mineral White Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_750e_xDrive_M_Sport_Mineral_White_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "7-20250130-01_EN_WLTP.pdf.asset.1740723701308.pdf",
@@ -12642,8 +13426,7 @@
                     "Sophisto Grey brilliant effect metallic": "images/i7_20240710_01_TH.asset.1758628809179/BMW_i7_xDrive60_M_Sport_Sophisto_Grey_brilliant_effect_metallic.png",
                     "M Marina Bay Blue metallic": "images/i7_20240710_01_TH.asset.1758628809179/BMW_i7_xDrive60_M_Sport_M_Marina_Bay_Blue_metallic.png",
                     "Alpine White solid": "images/i7_20240710_01_TH.asset.1758628809179/BMW_i7_xDrive60_M_Sport_Alpine_White_solid.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "i7-20240710-01_EN-(1).pdf.asset.1738060141181.pdf",
@@ -13656,8 +14439,7 @@
                     "M Carbon Black metallic": "images/iX_20251030_01_TH_REV_Color.asset.1763711932423/BMW_iX_xDrive45_M_Sport_M_Carbon_Black_metallic.png",
                     "Mineral White metallic": "images/iX_20251030_01_TH_REV_Color.asset.1763711932423/BMW_iX_xDrive45_M_Sport_Mineral_White_metallic.png",
                     "Alpine White solid": "images/iX_20251030_01_TH_REV_Color.asset.1763711932423/BMW_iX_xDrive45_M_Sport_Alpine_White_solid.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "iX-20251030-01_EN_REV-Color.pdf.asset.1763711894392.pdf",
@@ -14670,8 +15452,7 @@
                     "Black Sapphire metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/BMW_iX3_50_xDrive_M_Sport_Black_Sapphire_metallic.png",
                     "Polarised Grey metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/BMW_iX3_50_xDrive_M_Sport_Polarised_Grey_metallic.png",
                     "Alpine White solid": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/BMW_iX3_50_xDrive_M_Sport_Alpine_White_solid.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "iX3-20260213-02_EN_REV1.pdf.asset.1782449419259.pdf",
@@ -15671,8 +16452,7 @@
                     "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_arctic_race_blue_metallic.png",
                     "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_black_sapphire_metallic.png",
                     "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_mineral_white_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             },
             {
                 "model_name": "430i Coupé M Sport",
@@ -16117,8 +16897,7 @@
                     "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_black_sapphire_metallic.png",
                     "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_bmw_individual_dravit_grey_metallic.png",
                     "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_mineral_white_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             },
             {
                 "model_name": "M440i xDrive",
@@ -16549,8 +17328,7 @@
                     "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_m_brooklyn_grey_metallic.png",
                     "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_black_sapphire_metallic.png",
                     "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_mineral_white_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "4-20260714-01_EN_.pdf.asset.1784613825320.pdf",
@@ -18633,8 +19411,7 @@
                         ]
                     }
                 ],
-                "images": {},
-                "is_custom_archived": false
+                "images": {}
             },
             {
                 "model_name": "M2 (M Racetrack)",
@@ -19028,8 +19805,7 @@
                         ]
                     }
                 ],
-                "images": {},
-                "is_custom_archived": false
+                "images": {}
             },
             {
                 "model_name": "M2 (MT)",
@@ -19423,8 +20199,7 @@
                         ]
                     }
                 ],
-                "images": {},
-                "is_custom_archived": false
+                "images": {}
             }
         ],
         "source_file": "M2.-20260714-01_EN.pdf.asset.1784613855280.pdf",
@@ -21303,8 +22078,7 @@
                     "Black Sapphire metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_black_sapphire_metallic.png",
                     "M Portimao Blue metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_m_portimao_blue_metallic.png",
                     "Mineral White metallic": "images/M3_20260714_01_TH.asset.1784613855376/bmw_m3_competition_m_xdrive_touring_mineral_white_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "M3-20260714-01_EN.pdf.asset.1784613825286.pdf",
@@ -22257,8 +23031,7 @@
                     "Black Sapphire Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_black_sapphire_metallic.png",
                     "Manhattan Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_manhattan_metallic.png",
                     "Mineral White Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_mineral_white_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "X6-20260223-01_EN.pdf.asset.1784613825379.pdf",
@@ -23192,8 +23965,7 @@
                         ]
                     }
                 ],
-                "images": {},
-                "is_custom_archived": false
+                "images": {}
             },
             {
                 "model_name": "XM 50e (Shadow Line)",
@@ -23586,8 +24358,7 @@
                         ]
                     }
                 ],
-                "images": {},
-                "is_custom_archived": false
+                "images": {}
             }
         ],
         "source_file": "XM-20251126-01_EN_.pdf.asset.1784613825337.pdf",
@@ -25023,8 +25794,7 @@
                         ]
                     }
                 ],
-                "images": {},
-                "is_custom_archived": false
+                "images": {}
             }
         ],
         "source_file": "M3-20250818-01_EN.pdf.asset.1758516236100.pdf",
@@ -25914,8 +26684,7 @@
                         ]
                     }
                 ],
-                "images": {},
-                "is_custom_archived": false
+                "images": {}
             }
         ],
         "source_file": "M4-20251104-02_EN.pdf.asset.1784613825408.pdf",
@@ -26807,8 +27576,7 @@
                         ]
                     }
                 ],
-                "images": {},
-                "is_custom_archived": false
+                "images": {}
             }
         ],
         "source_file": "M2-CS-20250910-01_EN.pdf.asset.1758261740557.pdf",
@@ -27780,12 +28548,566 @@
                     "Brooklyn Grey Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_m_brooklyn_grey_metallic.png",
                     "Phytonic Blue Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_phytonic_blue_metallic.png",
                     "Cape York Green Metallic": "images/i5_20260714_01_TH.asset.1784613825396/bmw_i5_edrive40_m_sport_cape_york_green_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "i5-20260714-01_EN.pdf.asset.1784613855387.pdf",
-        "pdf_source": "i5-20260714-01_EN.pdf.asset.1784613855387.pdf"
+        "pdf_source": "i5-20260714-01_EN.pdf.asset.1784613855387.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Engine and Performance",
+                "topic": "มอเตอร์ไฟฟ้า / Electric motor",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 1: English is 'Electric motor' (mapped: 'electric motor'), Thai is 'มอเตอร์ไฟฟ้า' (mapped: 'มอเตอร์ไฟฟ้า')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Engine and Performance",
+                "topic": "กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า) / Maximum output (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 2: English is 'Maximum output (kW/hp)' (mapped: 'maximum output (kw/hp)'), Thai is 'กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดสูงสุด (นิวตันเมตร) / Maximum torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 3: English is 'Maximum torque (Nm)' (mapped: 'maximum torque (nm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Engine and Performance",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน NEDC (กิโลเมตร) / Electric range¹, NEDC (km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 4: English is 'Electric range¹, NEDC (km)' (mapped: 'electric range¹, nedc (km)'), Thai is 'ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน NEDC (กิโลเมตร)' (mapped: 'ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน nedc (กิโลเมตร)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Engine and Performance",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน WLTP (กิโลเมตร) / Electric range¹, WLTP (km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 5: English is 'Electric range¹, WLTP (km)' (mapped: 'electric range¹, wltp (km)'), Thai is 'ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน WLTP (กิโลเมตร)' (mapped: 'ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน wltp (กิโลเมตร)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Engine and Performance",
+                "topic": "ชนิดแบตเตอรี่ (แรงดันสูง) / Battery type (High voltage)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 6: English is 'Battery type (High voltage)' (mapped: 'battery type (high voltage)'), Thai is 'ชนิดแบตเตอรี่ (แรงดันสูง)' (mapped: 'ชนิดแบตเตอรี่ (แรงดันสูง)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Engine and Performance",
+                "topic": "ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง) / High voltage battery energy content (kWh)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 7: English is 'High voltage battery energy content (kWh)' (mapped: 'high voltage battery energy content (kwh)'), Thai is 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)' (mapped: 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Engine and Performance",
+                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) / 0 - 100 km/h (s)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 9: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)' (mapped: 'acceleration 0 - 100 km/h (s)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Engine and Performance",
+                "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, NEDC (kWh/100 km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 10: English is 'Electric energy consumption, NEDC (kWh/100 km)' (mapped: 'electric energy consumption, nedc (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน nedc (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Engine and Performance",
+                "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, WLTP (kWh/100 km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 11: English is 'Electric energy consumption, WLTP (kWh/100 km)' (mapped: 'electric energy consumption, wltp (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน wltp (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Wheels and Tyres' at position 1: English is 'Wheels' (mapped: 'wheels'), Thai is 'ล้อ' (mapped: 'ล้อ')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Dimension",
+                "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร) / Length / width / height (mm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 1: English is 'Length / width / height (mm)' (mapped: 'length / width / height (mm)'), Thai is 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)' (mapped: 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Dimension",
+                "topic": "ปริมาตรในการบรรจุของ (ลิตร) / Luggage capacity (l)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 2: English is 'Luggage capacity (l)' (mapped: 'luggage capacity (l)'), Thai is 'ปริมาตรในการบรรจุของ (ลิตร)' (mapped: 'ปริมาตรในการบรรจุของ (ลิตร)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Dimension",
+                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม) / Curb weight (kg)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 3: English is 'Curb weight (kg)' (mapped: 'curb weight (kg)'), Thai is 'น้ำหนักรถสุทธิ (กิโลกรัม)' (mapped: 'น้ำหนักรถสุทธิ (กิโลกรัม)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "AC CHARGING",
+                "topic": "รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์) / Maximum charging power AC (kW)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'AC CHARGING' at position 1: English is 'Maximum charging power AC (kW)' (mapped: 'maximum charging power ac (kw)'), Thai is 'รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)' (mapped: 'รองรับการชาร์จแบบกระแสสลับ (ac) สูงสุด (กิโลวัตต์)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "DC CHARGING",
+                "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์) / Maximum charging power DC (kW)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'DC CHARGING' at position 1: English is 'Maximum charging power DC (kW)' (mapped: 'maximum charging power dc (kw)'), Thai is 'รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)' (mapped: 'รองรับการชาร์จแบบกระแสตรง (dc) สูงสุด (กิโลวัตต์)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Drivetrain and Technology",
+                "topic": "เกียร์อัตโนมัติ / Automatic transmission",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 1: English is 'Automatic transmission' (mapped: 'automatic transmission'), Thai is 'เกียร์อัตโนมัติ' (mapped: 'เกียร์อัตโนมัติ')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Drivetrain and Technology",
+                "topic": "ช่วงล่าง Adaptive Suspension Professional / Adaptive suspension Professional",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 2: English is 'Adaptive suspension Professional' (mapped: 'adaptive suspension professional'), Thai is 'ช่วงล่าง Adaptive Suspension Professional' (mapped: 'ช่วงล่าง adaptive suspension professional')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Drivetrain and Technology",
+                "topic": "ระบบช่วยการขับขี่รุ่น Professional (Driving Assistant Professional) / Driving Assistant Professional",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 3: English is 'Driving Assistant Professional' (mapped: 'driving assistant professional'), Thai is 'ระบบช่วยการขับขี่รุ่น Professional (Driving Assistant Professional)' (mapped: 'ระบบช่วยการขับขี่รุ่น professional (driving assistant professional)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Drivetrain and Technology",
+                "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติรุ่น Plus (Parking Assistant Plus) / Parking Assistant Plus",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 4: English is 'Parking Assistant Plus' (mapped: 'parking assistant plus'), Thai is 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติรุ่น Plus (Parking Assistant Plus)' (mapped: 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติรุ่น plus (parking assistant plus)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Exterior Equipment",
+                "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED) / Adaptive LED headlights",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 1: English is 'Adaptive LED headlights' (mapped: 'adaptive led headlights'), Thai is 'ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)' (mapped: 'ระบบไฟหน้า led อัจฉริยะ (adaptive led)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Exterior Equipment",
+                "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สี dark blue metallic / M Sport brake, dark blue metallic",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 2: English is 'M Sport brake, dark blue metallic' (mapped: 'm sport brake, dark blue metallic'), Thai is 'คาลิเปอร์เบรกดีไซน์ M Sport สี dark blue metallic' (mapped: 'คาลิเปอร์เบรกดีไซน์ m sport สี dark blue metallic')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Exterior Equipment",
+                "topic": "ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า / Automatic operation of tailgate",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 3: English is 'Automatic operation of tailgate' (mapped: 'automatic operation of tailgate'), Thai is 'ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า' (mapped: 'ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Exterior Equipment",
+                "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System) / Comfort access system",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 4: English is 'Comfort access system' (mapped: 'comfort access system'), Thai is 'ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)' (mapped: 'ระบบปลดล็อกประตูอัจฉริยะ (comfort access system)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Exterior Equipment",
+                "topic": "ชุดตกแต่งภายนอกแบบ Iconic Glow / BMW Iconic Glow exterior package",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 5: English is 'BMW Iconic Glow exterior package' (mapped: 'bmw iconic glow exterior package'), Thai is 'ชุดตกแต่งภายนอกแบบ Iconic Glow' (mapped: 'ชุดตกแต่งภายนอกแบบ iconic glow')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Exterior Equipment",
+                "topic": "หลังคากระจก Panorama / Panorama glass roof",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 6: English is 'Panorama glass roof' (mapped: 'panorama glass roof'), Thai is 'หลังคากระจก Panorama' (mapped: 'หลังคากระจก panorama')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Exterior Equipment",
+                "topic": "สปอยเลอร์หลังดีไซน์ M / M rear spoiler",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 7: English is 'M rear spoiler' (mapped: 'm rear spoiler'), Thai is 'สปอยเลอร์หลังดีไซน์ M' (mapped: 'สปอยเลอร์หลังดีไซน์ m')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Exterior Equipment",
+                "topic": "ชุดตกแต่งภายนอกแบบ M Sport / M Sport exterior parts",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 8: English is 'M Sport exterior parts' (mapped: 'm sport exterior parts'), Thai is 'ชุดตกแต่งภายนอกแบบ M Sport' (mapped: 'ชุดตกแต่งภายนอกแบบ m sport')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Exterior Equipment",
+                "topic": "ภายนอกตกแต่งด้วยชุดแต่ง M สีดำเงา / M High-gloss Shadowline",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 9: English is 'M High-gloss Shadowline' (mapped: 'm high-gloss shadowline'), Thai is 'ภายนอกตกแต่งด้วยชุดแต่ง M สีดำเงา' (mapped: 'ภายนอกตกแต่งด้วยชุดแต่ง m สีดำเงา')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Interior Equipment",
+                "topic": "พวงมาลัยหุ้มหนังดีไซน์ M / M Leather steering wheel",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 1: English is 'M Leather steering wheel' (mapped: 'm leather steering wheel'), Thai is 'พวงมาลัยหุ้มหนังดีไซน์ M' (mapped: 'พวงมาลัยหุ้มหนังดีไซน์ m')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Interior Equipment",
+                "topic": "เบาะนั่งตอนหน้าแบบ Comfort ปรับไฟฟ้า / Comfort seats front, electrically adjustable",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 2: English is 'Comfort seats front, electrically adjustable' (mapped: 'comfort seats front, electrically adjustable'), Thai is 'เบาะนั่งตอนหน้าแบบ Comfort ปรับไฟฟ้า' (mapped: 'เบาะนั่งตอนหน้าแบบ comfort ปรับไฟฟ้า')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Interior Equipment",
+                "topic": "ภายในตกแต่งดีไซน์ M Sport / M Sport interior parts",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 3: English is 'M Sport interior parts' (mapped: 'm sport interior parts'), Thai is 'ภายในตกแต่งดีไซน์ M Sport' (mapped: 'ภายในตกแต่งดีไซน์ m sport')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Interior Equipment",
+                "topic": "ภายในตกแต่งด้วยสี Dark Silver M ผสมกับ Carbon Fibre ถักด้วยวัสดุสีเงินแบบ M / Dark Silver M accent combined with Carbon Fibre and high-gloss silver threads",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 4: English is 'Dark Silver M accent combined with Carbon Fibre and high-gloss silver threads' (mapped: 'dark silver m accent combined with carbon fibre and high-gloss silver threads'), Thai is 'ภายในตกแต่งด้วยสี Dark Silver M ผสมกับ Carbon Fibre ถักด้วยวัสดุสีเงินแบบ M' (mapped: 'ภายในตกแต่งด้วยสี dark silver m ผสมกับ carbon fibre ถักด้วยวัสดุสีเงินแบบ m')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Interior Equipment",
+                "topic": "กระจกมองข้างพับด้วยไฟฟ้า พร้อมตัดแสงอัตโนมัติที่กระจกฝั่งคนขับ / Expanded exterior mirror package",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 5: English is 'Expanded exterior mirror package' (mapped: 'expanded exterior mirror package'), Thai is 'กระจกมองข้างพับด้วยไฟฟ้า พร้อมตัดแสงอัตโนมัติที่กระจกฝั่งคนขับ' (mapped: 'กระจกมองข้างพับด้วยไฟฟ้า พร้อมตัดแสงอัตโนมัติที่กระจกฝั่งคนขับ')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Interior Equipment",
+                "topic": "เพดานหลังคาภายในสี Anthracite / M headliner anthracite",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 6: English is 'M headliner anthracite' (mapped: 'm headliner anthracite'), Thai is 'เพดานหลังคาภายในสี Anthracite' (mapped: 'เพดานหลังคาภายในสี anthracite')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Interior Equipment",
+                "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light) / Ambient light",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 7: English is 'Ambient light' (mapped: 'ambient light'), Thai is 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)' (mapped: 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (ambient light)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Interior Equipment",
+                "topic": "ภายในตกแต่งด้วยผลึกแก้ว 'CraftedClarity' / Glass application 'CraftedClarity' for interior elements",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 8: English is 'Glass application 'CraftedClarity' for interior elements' (mapped: 'glass application 'craftedclarity' for interior elements'), Thai is 'ภายในตกแต่งด้วยผลึกแก้ว 'CraftedClarity'' (mapped: 'ภายในตกแต่งด้วยผลึกแก้ว 'craftedclarity'')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Interior Equipment",
+                "topic": "ม่านบังแดดที่ประตูหลังและกระจกหลัง / Roller sunblinds",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 9: English is 'Roller sunblinds' (mapped: 'roller sunblinds'), Thai is 'ม่านบังแดดที่ประตูหลังและกระจกหลัง' (mapped: 'ม่านบังแดดที่ประตูหลังและกระจกหลัง')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Interior Equipment",
+                "topic": "ระบบ Travel & Comfort / Travel & Comfort System",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 10: English is 'Travel & Comfort System' (mapped: 'travel & comfort system'), Thai is 'ระบบ Travel & Comfort' (mapped: 'ระบบ travel & comfort')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Interior Equipment",
+                "topic": "ระบบปรับอากาศอัตโนมัติแบบ 4 โซน / 4-Zone Automatic air conditioning",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 11: English is '4-Zone Automatic air conditioning' (mapped: '4-zone automatic air conditioning'), Thai is 'ระบบปรับอากาศอัตโนมัติแบบ 4 โซน' (mapped: 'ระบบปรับอากาศอัตโนมัติแบบ 4 โซน')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Interior Equipment",
+                "topic": "ระบบกล้องภายในรถ / Interior camera",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 12: English is 'Interior camera' (mapped: 'interior camera'), Thai is 'ระบบกล้องภายในรถ' (mapped: 'ระบบกล้องภายในรถ')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins / Bowers & Wilkins surround sound system",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 2: English is 'Bowers & Wilkins surround sound system' (mapped: 'bowers & wilkins surround sound system'), Thai is 'ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins' (mapped: 'ระบบเสียงรอบทิศทางคุณภาพสูง bowers & wilkins')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบจำลองเสียงเครื่องยนต์ IconicSounds Electric / BMW IconicSounds electric",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 3: English is 'BMW IconicSounds electric' (mapped: 'bmw iconicsounds electric'), Thai is 'ระบบจำลองเสียงเครื่องยนต์ IconicSounds Electric' (mapped: 'ระบบจำลองเสียงเครื่องยนต์ iconicsounds electric')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบ BMW ConnectedDrive / BMW ConnectedDrive",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 4: English is 'BMW ConnectedDrive' (mapped: 'bmw connecteddrive'), Thai is 'ระบบ BMW ConnectedDrive' (mapped: 'ระบบ bmw connecteddrive')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบ BMW Connected Package Professional / BMW Connected Package Professional",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 5: English is 'BMW Connected Package Professional' (mapped: 'bmw connected package professional'), Thai is 'ระบบ BMW Connected Package Professional' (mapped: 'ระบบ bmw connected package professional')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบเชื่อมต่อ Smartphone / Smartphone Integration",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 6: English is 'Smartphone Integration' (mapped: 'smartphone integration'), Thai is 'ระบบเชื่อมต่อ Smartphone' (mapped: 'ระบบเชื่อมต่อ smartphone')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM) / Personal eSIM",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 8: English is 'Personal eSIM' (mapped: 'personal esim'), Thai is 'ระบบ eSIM ส่วนบุคคล (Personal eSIM)' (mapped: 'ระบบ esim ส่วนบุคคล (personal esim)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย / Wireless charging tray",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 9: English is 'Wireless charging tray' (mapped: 'wireless charging tray'), Thai is 'ระบบชาร์จโทรศัพท์แบบไร้สาย' (mapped: 'ระบบชาร์จโทรศัพท์แบบไร้สาย')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า / Airbag for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 1: English is 'Airbag for driver and front passenger' (mapped: 'airbag for driver and front passenger'), Thai is 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า / Side airbags for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 2: English is 'Side airbags for driver and front passenger' (mapped: 'side airbags for driver and front passenger'), Thai is 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ) / Central airbag (driver's seat)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 3: English is 'Central airbag (driver's seat)' (mapped: 'central airbag (driver's seat)'), Thai is 'ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ)' (mapped: 'ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง) / Head airbags for all 4 outer seats",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 4: English is 'Head airbags for all 4 outer seats' (mapped: 'head airbags for all 4 outer seats'), Thai is 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)' (mapped: 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบ Teleservices / Teleservices",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 5: English is 'Teleservices' (mapped: 'teleservices'), Thai is 'ระบบ Teleservices' (mapped: 'ระบบ teleservices')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call) / Intelligent Emergency Call",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 6: English is 'Intelligent Emergency Call' (mapped: 'intelligent emergency call'), Thai is 'ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)' (mapped: 'ปุ่มโทรออกฉุกเฉิน (intelligent emergency call)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ตัวยึดคาร์ซีทสำหรับเด็ก ISOFIX / ISOFIX child seat mounting",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 7: English is 'ISOFIX child seat mounting' (mapped: 'isofix child seat mounting'), Thai is 'ตัวยึดคาร์ซีทสำหรับเด็ก ISOFIX' (mapped: 'ตัวยึดคาร์ซีทสำหรับเด็ก isofix')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC) / Dynamic Stability Control (DSC)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 8: English is 'Dynamic Stability Control (DSC)' (mapped: 'dynamic stability control (dsc)'), Thai is 'ระบบควบคุมเสถียรภาพการขับขี่ (DSC)' (mapped: 'ระบบควบคุมเสถียรภาพการขับขี่ (dsc)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS) / Anti-lock Brake System (ABS)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 9: English is 'Anti-lock Brake System (ABS)' (mapped: 'anti-lock brake system (abs)'), Thai is 'ระบบป้องกันล้อล็อกขณะเบรก (ABS)' (mapped: 'ระบบป้องกันล้อล็อกขณะเบรก (abs)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist) / Brake Assist (BA)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 10: English is 'Brake Assist (BA)' (mapped: 'brake assist (ba)'), Thai is 'ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist)' (mapped: 'ระบบช่วยเสริมแรงเบรกอัตโนมัติ (brake assist)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ไฟเบรกกระพริบฉุกเฉิน (Dynamic Braking Lights) / Dynamic braking lights",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 11: English is 'Dynamic braking lights' (mapped: 'dynamic braking lights'), Thai is 'ไฟเบรกกระพริบฉุกเฉิน (Dynamic Braking Lights)' (mapped: 'ไฟเบรกกระพริบฉุกเฉิน (dynamic braking lights)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบควบคุมแรงดันเบรกแบบแปรผัน (DBC) / Dynamic Brake Control (DBC)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 12: English is 'Dynamic Brake Control (DBC)' (mapped: 'dynamic brake control (dbc)'), Thai is 'ระบบควบคุมแรงดันเบรกแบบแปรผัน (DBC)' (mapped: 'ระบบควบคุมแรงดันเบรกแบบแปรผัน (dbc)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor) / Crash sensor",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 13: English is 'Crash sensor' (mapped: 'crash sensor'), Thai is 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)' (mapped: 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (crash sensor)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบสร้างเสียงจำลองเตือนผู้ใช้ถนนรอบข้าง / Acoustic protection for pedestrians",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 14: English is 'Acoustic protection for pedestrians' (mapped: 'acoustic protection for pedestrians'), Thai is 'ระบบสร้างเสียงจำลองเตือนผู้ใช้ถนนรอบข้าง' (mapped: 'ระบบสร้างเสียงจำลองเตือนผู้ใช้ถนนรอบข้าง')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ชุดปะยางฉุกเฉินรุ่น Plus / Tyre Repair Kit Plus",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 15: English is 'Tyre Repair Kit Plus' (mapped: 'tyre repair kit plus'), Thai is 'ชุดปะยางฉุกเฉินรุ่น Plus' (mapped: 'ชุดปะยางฉุกเฉินรุ่น plus')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบตรวจวัดลมยาง / Tyre Pressure Monitoring System",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 16: English is 'Tyre Pressure Monitoring System' (mapped: 'tyre pressure monitoring system'), Thai is 'ระบบตรวจวัดลมยาง' (mapped: 'ระบบตรวจวัดลมยาง')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบเตือนรถออกนอกเลนพร้อมช่วยนำรถกลับเข้าเลน / Lane Departure Warning with Active return",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 17: English is 'Lane Departure Warning with Active return' (mapped: 'lane departure warning with active return'), Thai is 'ระบบเตือนรถออกนอกเลนพร้อมช่วยนำรถกลับเข้าเลน' (mapped: 'ระบบเตือนรถออกนอกเลนพร้อมช่วยนำรถกลับเข้าเลน')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบเตือนการชนคนเดินถนนและจักรยานด้านหน้าพร้อมระบบช่วยเบรก / Front collision Warning with brake intervention for pedestrians/cyclists",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 18: English is 'Front collision Warning with brake intervention for pedestrians/cyclists' (mapped: 'front collision warning with brake intervention for pedestrians/cyclists'), Thai is 'ระบบเตือนการชนคนเดินถนนและจักรยานด้านหน้าพร้อมระบบช่วยเบรก' (mapped: 'ระบบเตือนการชนคนเดินถนนและจักรยานด้านหน้าพร้อมระบบช่วยเบรก')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบเตือนการเปลี่ยนเลนพร้อมช่วยนำรถกลับเข้าเลน / Lane Change Warning with Active return",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 19: English is 'Lane Change Warning with Active return' (mapped: 'lane change warning with active return'), Thai is 'ระบบเตือนการเปลี่ยนเลนพร้อมช่วยนำรถกลับเข้าเลน' (mapped: 'ระบบเตือนการเปลี่ยนเลนพร้อมช่วยนำรถกลับเข้าเลน')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบเตือนการจราจรด้านหลัง / Rear crossing-traffic Warning",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 20: English is 'Rear crossing-traffic Warning' (mapped: 'rear crossing-traffic warning'), Thai is 'ระบบเตือนการจราจรด้านหลัง' (mapped: 'ระบบเตือนการจราจรด้านหลัง')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบป้องกันการชนด้านหลัง / Rear collision Prevention",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 21: English is 'Rear collision Prevention' (mapped: 'rear collision prevention'), Thai is 'ระบบป้องกันการชนด้านหลัง' (mapped: 'ระบบป้องกันการชนด้านหลัง')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบช่วยเตือนก่อนออกจากรถ / Exit Warning",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 22: English is 'Exit Warning' (mapped: 'exit warning'), Thai is 'ระบบช่วยเตือนก่อนออกจากรถ' (mapped: 'ระบบช่วยเตือนก่อนออกจากรถ')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ / Steering and Lane Control Assistant",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 23: English is 'Steering and Lane Control Assistant' (mapped: 'steering and lane control assistant'), Thai is 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ' (mapped: 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function) / Active cruise control with Stop&Go function",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 24: English is 'Active cruise control with Stop&Go function' (mapped: 'active cruise control with stop&go function'), Thai is 'ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)' (mapped: 'ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน stop&go (active cruise control with stop&go function)')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบช่วยหยุดรถฉุกเฉิน / Emergency Stop Assistant",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 25: English is 'Emergency Stop Assistant' (mapped: 'emergency stop assistant'), Thai is 'ระบบช่วยหยุดรถฉุกเฉิน' (mapped: 'ระบบช่วยหยุดรถฉุกเฉิน')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบช่วยเปลี่ยนช่องทางเดินรถ / Lane Change Assistant",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 26: English is 'Lane Change Assistant' (mapped: 'lane change assistant'), Thai is 'ระบบช่วยเปลี่ยนช่องทางเดินรถ' (mapped: 'ระบบช่วยเปลี่ยนช่องทางเดินรถ')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบเตือนการจราจรด้านหน้าและหลัง / Front/Rear crossing traffic Warning",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 27: English is 'Front/Rear crossing traffic Warning' (mapped: 'front/rear crossing traffic warning'), Thai is 'ระบบเตือนการจราจรด้านหน้าและหลัง' (mapped: 'ระบบเตือนการจราจรด้านหน้าและหลัง')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Safety",
+                "topic": "ระบบช่วยหลบหลีกฉุกเฉิน / Evasion Assistant",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 28: English is 'Evasion Assistant' (mapped: 'evasion assistant'), Thai is 'ระบบช่วยหลบหลีกฉุกเฉิน' (mapped: 'ระบบช่วยหลบหลีกฉุกเฉิน')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Line / package",
+                "topic": "ชุดตกแต่งพิเศษ M Sport / M Sport package",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Line / package' at position 1: English is 'M Sport package' (mapped: 'm sport package'), Thai is 'ชุดตกแต่งพิเศษ M Sport' (mapped: 'ชุดตกแต่งพิเศษ m sport')"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "หมายเหตุ / Notes",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 15: English has 'Notes', Thai has 'หมายเหตุ'"
+            },
+            {
+                "model_name": "i5 eDrive40 M Sport",
+                "category": "Document References",
+                "topic": "รหัสแพ็กเกจ (Local Pack) / Package Code (Local Pack)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
+            }
+        ]
     },
     {
         "series": "BMW M5",
@@ -28171,12 +29493,517 @@
                         ]
                     }
                 ],
-                "images": {},
-                "is_custom_archived": false
+                "images": {}
             }
         ],
         "source_file": "M5-20250130-05_EN.pdf.asset.1745391122834.pdf",
-        "pdf_source": "M5-20250130-05_EN.pdf.asset.1745391122834.pdf"
+        "pdf_source": "M5-20250130-05_EN.pdf.asset.1745391122834.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 1: English is 'Engine type' (mapped: 'engine type'), Thai is 'ชนิดเครื่องยนต์' (mapped: 'ชนิดเครื่องยนต์')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร) / Displacement (cm³)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 2: English is 'Displacement (cm³)' (mapped: 'displacement (cm³)'), Thai is 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)' (mapped: 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที) / Engine power (kW/hp/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 3: English is 'Engine power (kW/hp/rpm)' (mapped: 'engine power (kw/hp/rpm)'), Thai is 'กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' (mapped: 'max. output (kw/hp/rpm)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที) / Engine torque (Nm/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 4: English is 'Engine torque (Nm/rpm)' (mapped: 'engine torque (nm/rpm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' (mapped: 'max. torque (nm/rpm)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า) / Electric motor power (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 5: English is 'Electric motor power (kW/hp)' (mapped: 'electric motor power (kw/hp)'), Thai is 'กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร) / Electric motor torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 6: English is 'Electric motor torque (Nm)' (mapped: 'electric motor torque (nm)'), Thai is 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน NEDC (กิโลเมตร) / Electrical range¹, NEDC (km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 7: English is 'Electrical range¹, NEDC (km)' (mapped: 'electrical range¹, nedc (km)'), Thai is 'ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน NEDC (กิโลเมตร)' (mapped: 'ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน nedc (กิโลเมตร)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน WLTP (กิโลเมตร) / Electric range¹, WLTP (km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 8: English is 'Electric range¹, WLTP (km)' (mapped: 'electric range¹, wltp (km)'), Thai is 'ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน WLTP (กิโลเมตร)' (mapped: 'ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน wltp (กิโลเมตร)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง) / High voltage battery energy content (kWh)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 9: English is 'High voltage battery energy content (kWh)' (mapped: 'high voltage battery energy content (kwh)'), Thai is 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)' (mapped: 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า) / System output (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 10: English is 'System output (kW/hp)' (mapped: 'system output (kw/hp)'), Thai is 'กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "แรงบิดรวมสูงสุด (นิวตันเมตร) / System torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 11: English is 'System torque (Nm)' (mapped: 'system torque (nm)'), Thai is 'แรงบิดรวมสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดรวมสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)² / Top speed (km/h)²",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 12: English is 'Top speed (km/h)²' (mapped: 'top speed (km/h)²'), Thai is 'ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)²' (mapped: 'ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)²')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) / 0 - 100 km/h (s)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 13: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)' (mapped: 'acceleration 0 - 100 km/h (s)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, NEDC (kWh/100 km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 14: English is 'Electric energy consumption, NEDC (kWh/100 km)' (mapped: 'electric energy consumption, nedc (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน nedc (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, WLTP (kWh/100 km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 15: English is 'Electric energy consumption, WLTP (kWh/100 km)' (mapped: 'electric energy consumption, wltp (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน wltp (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "FUEL CONSUMPTION AND CO2",
+                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร) / Combined fuel consumption from ECO Sticker result (km/l)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'FUEL CONSUMPTION AND CO2' at position 1: English is 'Combined fuel consumption from ECO Sticker result (km/l)' (mapped: 'combined fuel consumption from eco sticker result (km/l)'), Thai is 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)' (mapped: 'fuel consumption combined (km/l)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "FUEL CONSUMPTION AND CO2",
+                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร) / Combined CO2 (g/km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'FUEL CONSUMPTION AND CO2' at position 2: English is 'Combined CO2 (g/km)' (mapped: 'combined co2 (g/km)'), Thai is 'ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)' (mapped: 'co2 emission combined (g/km)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "WHEELS AND TYRES",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'WHEELS AND TYRES' at position 1: English is 'Light alloy wheels' (mapped: 'light alloy wheels'), Thai is 'ล้อ' (mapped: 'ล้อ')"
+            },
+            {
+                "model_name": "M5",
+                "category": "DIMENSION",
+                "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร) / Length / width / height (mm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'DIMENSION' at position 1: English is 'Length / width / height (mm)' (mapped: 'length / width / height (mm)'), Thai is 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)' (mapped: 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "DIMENSION",
+                "topic": "ปริมาตรในการบรรจุของ (ลิตร) / Luggage capacity (l)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'DIMENSION' at position 2: English is 'Luggage capacity (l)' (mapped: 'luggage capacity (l)'), Thai is 'ปริมาตรในการบรรจุของ (ลิตร)' (mapped: 'ปริมาตรในการบรรจุของ (ลิตร)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "DIMENSION",
+                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม) / Curb weight (kg)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'DIMENSION' at position 3: English is 'Curb weight (kg)' (mapped: 'curb weight (kg)'), Thai is 'น้ำหนักรถสุทธิ (กิโลกรัม)' (mapped: 'น้ำหนักรถสุทธิ (กิโลกรัม)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Transmission and technology",
+                "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ Sport Steptronic พร้อม Gearshift Paddles / 8-speed Steptronic Sport transmission with gearshift paddles",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 1: English is '8-speed Steptronic Sport transmission with gearshift paddles' (mapped: '8-speed steptronic sport transmission with gearshift paddles'), Thai is 'เกียร์อัตโนมัติ 8 จังหวะ แบบ Sport Steptronic พร้อม Gearshift Paddles' (mapped: 'เกียร์อัตโนมัติ 8 จังหวะ แบบ sport steptronic พร้อม gearshift paddles')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Transmission and technology",
+                "topic": "โหมดการขับขี่ M Drive Professional / M Drive Professional",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 2: English is 'M Drive Professional' (mapped: 'm drive professional'), Thai is 'โหมดการขับขี่ M Drive Professional' (mapped: 'โหมดการขับขี่ m drive professional')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Transmission and technology",
+                "topic": "ช่วงล่าง Adaptive M / Adaptive M suspension",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 3: English is 'Adaptive M suspension' (mapped: 'adaptive m suspension'), Thai is 'ช่วงล่าง Adaptive M' (mapped: 'ช่วงล่าง adaptive m')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Transmission and technology",
+                "topic": "ระบบปรับองศาของล้อหลังเพื่อการเข้าโค้งหรือเลี้ยว (Integral Active Steering) / Integral Active Steering",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 4: English is 'Integral Active Steering' (mapped: 'integral active steering'), Thai is 'ระบบปรับองศาของล้อหลังเพื่อการเข้าโค้งหรือเลี้ยว (Integral Active Steering)' (mapped: 'ระบบปรับองศาของล้อหลังเพื่อการเข้าโค้งหรือเลี้ยว (integral active steering)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Transmission and technology",
+                "topic": "ระบบช่วยการขับขี่ รุ่น Professional (Driving Assistant Professional) พร้อมระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชั่น Stop&Go / Driving Assistant Professional",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 5: English is 'Driving Assistant Professional' (mapped: 'driving assistant professional'), Thai is 'ระบบช่วยการขับขี่ รุ่น Professional (Driving Assistant Professional) พร้อมระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชั่น Stop&Go' (mapped: 'ระบบช่วยการขับขี่ รุ่น professional (driving assistant professional) พร้อมระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชั่น stop&go')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Transmission and technology",
+                "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Professional (Parking Assistant Professional) / Parking Assistant Professional",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 6: English is 'Parking Assistant Professional' (mapped: 'parking assistant professional'), Thai is 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Professional (Parking Assistant Professional)' (mapped: 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น professional (parking assistant professional)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Interior",
+                "topic": "เบาะนั่งตอนหน้าแบบ Multifunctional / M multifunctional seats for driver and front passanger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 1: English is 'M multifunctional seats for driver and front passanger' (mapped: 'm multifunctional seats for driver and front passanger'), Thai is 'เบาะนั่งตอนหน้าแบบ Multifunctional' (mapped: 'เบาะนั่งตอนหน้าแบบ multifunctional')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Interior",
+                "topic": "เข็มขัดนิรภัยดีไซน์ M / M seat belts",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 2: English is 'M seat belts' (mapped: 'm seat belts'), Thai is 'เข็มขัดนิรภัยดีไซน์ M' (mapped: 'เข็มขัดนิรภัยดีไซน์ m')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Interior",
+                "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ / Seat adjustment, electric, with memory",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 3: English is 'Seat adjustment, electric, with memory' (mapped: 'seat adjustment, electric, with memory'), Thai is 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ' (mapped: 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Interior",
+                "topic": "ระบบระบายอากาศสำหรับเบาะนั่งตอนหน้า / Active seat ventilation in the front seats",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 4: English is 'Active seat ventilation in the front seats' (mapped: 'active seat ventilation in the front seats'), Thai is 'ระบบระบายอากาศสำหรับเบาะนั่งตอนหน้า' (mapped: 'ระบบระบายอากาศสำหรับเบาะนั่งตอนหน้า')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Interior",
+                "topic": "ภายในตกแต่งด้วยสี Dark Silver M ผสมกับ Carbon Fibre ถักด้วยวัสดุสีเงินแบบ M / Dark Silver M accent combined with Carbon Fibre and high-gloss silver threads",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 5: English is 'Dark Silver M accent combined with Carbon Fibre and high-gloss silver threads' (mapped: 'dark silver m accent combined with carbon fibre and high-gloss silver threads'), Thai is 'ภายในตกแต่งด้วยสี Dark Silver M ผสมกับ Carbon Fibre ถักด้วยวัสดุสีเงินแบบ M' (mapped: 'ภายในตกแต่งด้วยสี dark silver m ผสมกับ carbon fibre ถักด้วยวัสดุสีเงินแบบ m')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Interior",
+                "topic": "ม่านบังแดดที่ประตูหลังและกระจกหลัง / Roller sunblinds",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 6: English is 'Roller sunblinds' (mapped: 'roller sunblinds'), Thai is 'ม่านบังแดดที่ประตูหลังและกระจกหลัง' (mapped: 'ม่านบังแดดที่ประตูหลังและกระจกหลัง')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Interior",
+                "topic": "ระบบปรับอากาศอัตโนมัติแบบ 4 โซน / Automatic air conditioning with 4-zone control",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 7: English is 'Automatic air conditioning with 4-zone control' (mapped: 'automatic air conditioning with 4-zone control'), Thai is 'ระบบปรับอากาศอัตโนมัติแบบ 4 โซน' (mapped: 'ระบบปรับอากาศอัตโนมัติแบบ 4 โซน')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Interior",
+                "topic": "ระบบ Travel & Comfort / Travel & Comfort System",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 8: English is 'Travel & Comfort System' (mapped: 'travel & comfort system'), Thai is 'ระบบ Travel & Comfort' (mapped: 'ระบบ travel & comfort')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Interior",
+                "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light) / Ambient light",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 9: English is 'Ambient light' (mapped: 'ambient light'), Thai is 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)' (mapped: 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (ambient light)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Interior",
+                "topic": "ระบบกล้องภายในรถ / Interior camera",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 10: English is 'Interior camera' (mapped: 'interior camera'), Thai is 'ระบบกล้องภายในรถ' (mapped: 'ระบบกล้องภายในรถ')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Interior",
+                "topic": "เพดานหลังคาภายในดีไซน์ M บุด้วยวัสดุ Alcantara สี Anthracite / M headliner Alcantara anthracite",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 11: English is 'M headliner Alcantara anthracite' (mapped: 'm headliner alcantara anthracite'), Thai is 'เพดานหลังคาภายในดีไซน์ M บุด้วยวัสดุ Alcantara สี Anthracite' (mapped: 'เพดานหลังคาภายในดีไซน์ m บุด้วยวัสดุ alcantara สี anthracite')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Entertainment and communication",
+                "topic": "ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins / Bowers & Wilkins surround sound system",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 2: English is 'Bowers & Wilkins surround sound system' (mapped: 'bowers & wilkins surround sound system'), Thai is 'ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins' (mapped: 'ระบบเสียงรอบทิศทางคุณภาพสูง bowers & wilkins')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Entertainment and communication",
+                "topic": "ระบบจำลองเสียงเครื่องยนต์ Iconic sounds electric / BMW Iconic sounds electric",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 3: English is 'BMW Iconic sounds electric' (mapped: 'bmw iconic sounds electric'), Thai is 'ระบบจำลองเสียงเครื่องยนต์ Iconic sounds electric' (mapped: 'ระบบจำลองเสียงเครื่องยนต์ iconic sounds electric')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Entertainment and communication",
+                "topic": "ระบบ BMW ConnectedDrive / BMW ConnectedDrive Services",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 4: English is 'BMW ConnectedDrive Services' (mapped: 'bmw connecteddrive services'), Thai is 'ระบบ BMW ConnectedDrive' (mapped: 'ระบบ bmw connecteddrive')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Entertainment and communication",
+                "topic": "ระบบ Connected Package Professional / BMW Connected Package Professional",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 5: English is 'BMW Connected Package Professional' (mapped: 'bmw connected package professional'), Thai is 'ระบบ Connected Package Professional' (mapped: 'ระบบ connected package professional')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Entertainment and communication",
+                "topic": "ระบบเชื่อมต่อ Smartphone / Smartphone integration",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 6: English is 'Smartphone integration' (mapped: 'smartphone integration'), Thai is 'ระบบเชื่อมต่อ Smartphone' (mapped: 'ระบบเชื่อมต่อ smartphone')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Entertainment and communication",
+                "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM) / Personal eSIM",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 7: English is 'Personal eSIM' (mapped: 'personal esim'), Thai is 'ระบบ eSIM ส่วนบุคคล (Personal eSIM)' (mapped: 'ระบบ esim ส่วนบุคคล (personal esim)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Entertainment and communication",
+                "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย / Wireless charging tray",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 8: English is 'Wireless charging tray' (mapped: 'wireless charging tray'), Thai is 'ระบบชาร์จโทรศัพท์แบบไร้สาย' (mapped: 'ระบบชาร์จโทรศัพท์แบบไร้สาย')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า / Airbag for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 1: English is 'Airbag for driver and front passenger' (mapped: 'airbag for driver and front passenger'), Thai is 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสาร / Head airbags for 1st and 2nd seat row",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 2: English is 'Head airbags for 1st and 2nd seat row' (mapped: 'head airbags for 1st and 2nd seat row'), Thai is 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสาร' (mapped: 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสาร')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า / Side airbags for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 3: English is 'Side airbags for driver and front passenger' (mapped: 'side airbags for driver and front passenger'), Thai is 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ) / Central airbag (driver's seat)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 4: English is 'Central airbag (driver's seat)' (mapped: 'central airbag (driver's seat)'), Thai is 'ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ)' (mapped: 'ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Safety",
+                "topic": "ระบบ Teleservices / Teleservices",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 5: English is 'Teleservices' (mapped: 'teleservices'), Thai is 'ระบบ Teleservices' (mapped: 'ระบบ teleservices')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Safety",
+                "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call) / Intelligent Emergency Call",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 6: English is 'Intelligent Emergency Call' (mapped: 'intelligent emergency call'), Thai is 'ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)' (mapped: 'ปุ่มโทรออกฉุกเฉิน (intelligent emergency call)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Safety",
+                "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC) / Dynamic Stability Control (DSC)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 7: English is 'Dynamic Stability Control (DSC)' (mapped: 'dynamic stability control (dsc)'), Thai is 'ระบบควบคุมเสถียรภาพการขับขี่ (DSC)' (mapped: 'ระบบควบคุมเสถียรภาพการขับขี่ (dsc)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Safety",
+                "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS) / Anti-lock Brake System (ABS)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 8: English is 'Anti-lock Brake System (ABS)' (mapped: 'anti-lock brake system (abs)'), Thai is 'ระบบป้องกันล้อล็อกขณะเบรก (ABS)' (mapped: 'ระบบป้องกันล้อล็อกขณะเบรก (abs)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Safety",
+                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor) / Crash sensor",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 9: English is 'Crash sensor' (mapped: 'crash sensor'), Thai is 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)' (mapped: 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (crash sensor)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Safety",
+                "topic": "ตัวยึดคาร์ซีทสำหรับเด็ก ISOFIX / ISOFIX child seat mounting",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 10: English is 'ISOFIX child seat mounting' (mapped: 'isofix child seat mounting'), Thai is 'ตัวยึดคาร์ซีทสำหรับเด็ก ISOFIX' (mapped: 'ตัวยึดคาร์ซีทสำหรับเด็ก isofix')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Safety",
+                "topic": "ระบบสร้างเสียงจำลองเตือนผู้ใช้ถนนรอบข้าง / Acoustic protection for pedestrians",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 11: English is 'Acoustic protection for pedestrians' (mapped: 'acoustic protection for pedestrians'), Thai is 'ระบบสร้างเสียงจำลองเตือนผู้ใช้ถนนรอบข้าง' (mapped: 'ระบบสร้างเสียงจำลองเตือนผู้ใช้ถนนรอบข้าง')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Safety",
+                "topic": "ระบบตรวจวัดลมยาง / Tyre Pressure Monitoring System",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 12: English is 'Tyre Pressure Monitoring System' (mapped: 'tyre pressure monitoring system'), Thai is 'ระบบตรวจวัดลมยาง' (mapped: 'ระบบตรวจวัดลมยาง')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Safety",
+                "topic": "ชุดปะยางฉุกเฉิน / Tyre Repair Kit",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 13: English is 'Tyre Repair Kit' (mapped: 'tyre repair kit'), Thai is 'ชุดปะยางฉุกเฉิน' (mapped: 'ชุดปะยางฉุกเฉิน')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Safety",
+                "topic": "ป้ายสามเหลี่ยมเตือนสะท้อนแสง / Warning triangle",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 14: English is 'Warning triangle' (mapped: 'warning triangle'), Thai is 'ป้ายสามเหลี่ยมเตือนสะท้อนแสง' (mapped: 'ป้ายสามเหลี่ยมเตือนสะท้อนแสง')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Package",
+                "topic": "แพ็กเกจ M Driver's / M Driver's Package",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Package' at position 1: English is 'M Driver's Package' (mapped: 'm driver's package'), Thai is 'แพ็กเกจ M Driver's' (mapped: 'แพ็กเกจ m driver's')"
+            },
+            {
+                "model_name": "M5",
+                "category": "ตัวเลือกพิเศษเพิ่มเติม / Optional Equipment",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 10: English has 'Optional Equipment', Thai has 'ตัวเลือกพิเศษเพิ่มเติม'"
+            },
+            {
+                "model_name": "M5",
+                "category": "Exterior",
+                "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED) / Adaptive LED headlights",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 1: English is 'Adaptive LED headlights' (mapped: 'adaptive led headlights'), Thai is 'ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)' (mapped: 'ระบบไฟหน้า led อัจฉริยะ (adaptive led)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Exterior",
+                "topic": "ชุดตกแต่งภายนอกแบบ Iconic Glow / BMW Iconic Glow exterior package",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 2: English is 'BMW Iconic Glow exterior package' (mapped: 'bmw iconic glow exterior package'), Thai is 'ชุดตกแต่งภายนอกแบบ Iconic Glow' (mapped: 'ชุดตกแต่งภายนอกแบบ iconic glow')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Exterior",
+                "topic": "ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า / Automatic operation of tailgate",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 3: English is 'Automatic operation of tailgate' (mapped: 'automatic operation of tailgate'), Thai is 'ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า' (mapped: 'ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Exterior",
+                "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System) / Comfort access system",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 4: English is 'Comfort access system' (mapped: 'comfort access system'), Thai is 'ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)' (mapped: 'ระบบปลดล็อกประตูอัจฉริยะ (comfort access system)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Exterior",
+                "topic": "ชุดตกแต่งภายนอก M Carbon / M Carbon exterior package",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 5: English is 'M Carbon exterior package' (mapped: 'm carbon exterior package'), Thai is 'ชุดตกแต่งภายนอก M Carbon' (mapped: 'ชุดตกแต่งภายนอก m carbon')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Exterior",
+                "topic": "ชุดเบรก M compound brake / M Compound brake",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 6: English is 'M Compound brake' (mapped: 'm compound brake'), Thai is 'ชุดเบรก M compound brake' (mapped: 'ชุดเบรก m compound brake')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Exterior",
+                "topic": "โคมไฟหน้าตกแต่งดีไซน์ M สีดำ (M Lights Shadow Line) / M Lights Shadow Line",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 7: English is 'M Lights Shadow Line' (mapped: 'm lights shadow line'), Thai is 'โคมไฟหน้าตกแต่งดีไซน์ M สีดำ (M Lights Shadow Line)' (mapped: 'โคมไฟหน้าตกแต่งดีไซน์ m สีดำ (m lights shadow line)')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Exterior",
+                "topic": "ภายนอกตกแต่งด้วยชุดแต่ง M สีดำเงา / M high-gloss Shadowline",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 8: English is 'M high-gloss Shadowline' (mapped: 'm high-gloss shadowline'), Thai is 'ภายนอกตกแต่งด้วยชุดแต่ง M สีดำเงา' (mapped: 'ภายนอกตกแต่งด้วยชุดแต่ง m สีดำเงา')"
+            },
+            {
+                "model_name": "M5",
+                "category": "Exterior",
+                "topic": "ภายนอกพร้อมชุดแต่ง M ตกแต่งด้วยวัสดุสีดำเงา / M High-gloss Shadowline with Extended Contents",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 9: English is 'M High-gloss Shadowline with Extended Contents' (mapped: 'm high-gloss shadowline with extended contents'), Thai is 'ภายนอกพร้อมชุดแต่ง M ตกแต่งด้วยวัสดุสีดำเงา' (mapped: 'ภายนอกพร้อมชุดแต่ง m ตกแต่งด้วยวัสดุสีดำเงา')"
+            },
+            {
+                "model_name": "M5",
+                "category": "หมายเหตุ / Notes",
+                "topic": "Category Position",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Category mismatch/ordering difference at position 12: English has 'Notes', Thai has 'หมายเหตุ'"
+            },
+            {
+                "model_name": "M5",
+                "category": "Document References",
+                "topic": "รหัสแพ็กเกจ (Local Pack) / Package Code (Local Pack)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
+            }
+        ]
     },
     {
         "series": "BMW M5",
@@ -28614,8 +30441,7 @@
                         ]
                     }
                 ],
-                "images": {},
-                "is_custom_archived": false
+                "images": {}
             }
         ],
         "source_file": "M5-20260714-01_EN.pdf.asset.1784613855363.pdf",
@@ -29660,8 +31486,7 @@
                     "Black Sapphire Metallic": "images/7_20250130_02_TH.asset.1745407582934/bmw_m760e_xdrive_black_sapphire_metallic.png",
                     "BMW Individual Dravit Grey metallic": "images/7_20250130_02_TH.asset.1745407582934/bmw_m760e_xdrive_bmw_individual_dravit_grey_metallic.png",
                     "Mineral White Metallic": "images/7_20250130_02_TH.asset.1745407582934/bmw_m760e_xdrive_mineral_white_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "7-20250130-02_EN.pdf.asset.1745391122471.pdf",
@@ -30713,8 +32538,7 @@
                     "Brooklyn Grey Metallic": "images/X7_20260529_01_TH.asset.1782451059580/bmw_x7_xdrive40d_m_sport_brooklyn_grey_metallic.png",
                     "Black Sapphire Metallic": "images/X7_20260529_01_TH.asset.1782451059580/bmw_x7_xdrive40d_m_sport_black_sapphire_metallic.png",
                     "Mineral White Metallic": "images/X7_20260529_01_TH.asset.1782451059580/bmw_x7_xdrive40d_m_sport_mineral_white_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "X7-20260529-01_EN.pdf.asset.1782449621294.pdf",
@@ -31694,8 +33518,7 @@
                     "Black Sapphire metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_black_sapphire_metallic.png",
                     "San Francisco Red metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_san_francisco_red_metallic.png",
                     "Alpine White solid": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_sdrive30i_m_sport_alpine_white_solid.png"
-                },
-                "is_custom_archived": false
+                }
             },
             {
                 "model_name": "Z4 M40i",
@@ -32059,8 +33882,7 @@
                     "San Francisco Red metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_san_francisco_red_metallic.png",
                     "Alpine White solid": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_alpine_white_solid.png",
                     "Frozen Deep Green II Metallic": "images/Z4_20240610_02_TH.asset.1758628086952/z4_m40i_frozen_deep_green_ii_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "Z4-20240610-02_EN.pdf.asset.1758627297080.pdf",
@@ -33309,8 +35131,7 @@
                     "M Brooklyn Grey metallic": "images/iX2_20240710_01_TH_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_m_brooklyn_grey_metallic.png",
                     "Black Sapphire metallic": "images/iX2_20240710_01_TH_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_black_sapphire_metallic.png",
                     "Alpine White solid": "images/iX2_20240710_01_TH_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_alpine_white_solid.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "iX2-20240710-01_EN-(1).pdf.asset.1738060174453.pdf",
@@ -34192,8 +36013,7 @@
                         ]
                     }
                 ],
-                "images": {},
-                "is_custom_archived": false
+                "images": {}
             }
         ],
         "source_file": "M4-20260714-01_EN.pdf.asset.1784613855331.pdf",
@@ -35159,8 +36979,7 @@
                     "M Brooklyn Grey metallic": "images/iX1_L_20260605_01_TH.asset.1785989516845/bmw_ix1_edrive20l_m_sport_m_brooklyn_grey_metallic.png",
                     "M Carbon Black metallic": "images/iX1_L_20260605_01_TH.asset.1785989516845/bmw_ix1_edrive20l_m_sport_m_carbon_black_metallic.png",
                     "Mineral White metallic": "images/iX1_L_20260605_01_TH.asset.1785989516845/bmw_ix1_edrive20l_m_sport_mineral_white_metallic.png"
-                },
-                "is_custom_archived": false
+                }
             }
         ],
         "source_file": "iX1_L-20260605-01_EN.pdf.asset.1785989516884.pdf",
@@ -35636,425 +37455,5 @@
                 "reason": "Category mismatch/ordering difference at position 16: English has 'Notes', Thai has 'หมายเหตุ'"
             }
         ]
-    },
-    {
-        "series": "BMW iX1",
-        "models": [
-            {
-                "model_name": "iX1 eDrive20L M Sport",
-                "specifications": [
-                    {
-                        "category": "Engine and Performance",
-                        "details": [
-                            {
-                                "topic": "Electric motor",
-                                "value": "BMW eDrive Technology"
-                            },
-                            {
-                                "topic": "Maximum output (kW/hp)",
-                                "value": "150 / 204"
-                            },
-                            {
-                                "topic": "Maximum torque (Nm)",
-                                "value": "250"
-                            },
-                            {
-                                "topic": "Electric range¹ , NEDC (km)",
-                                "value": "464"
-                            },
-                            {
-                                "topic": "Electric range¹ , WLTP (km)",
-                                "value": "402 - 433"
-                            },
-                            {
-                                "topic": "Battery type (High voltage)",
-                                "value": "Lithium-ion"
-                            },
-                            {
-                                "topic": "High voltage battery energy content (kWh)",
-                                "value": "66.5"
-                            },
-                            {
-                                "topic": "Top speed (km/h)",
-                                "value": "175"
-                            },
-                            {
-                                "topic": "0 - 100 km/h (s)",
-                                "value": "8.6"
-                            },
-                            {
-                                "topic": "Electric energy consumption, NEDC (kWh/100 km)",
-                                "value": "15.4"
-                            },
-                            {
-                                "topic": "Electric energy consumption, WLTP (kWh/100 km)",
-                                "value": "18.0 - 16.8"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Wheels and Tyres",
-                        "details": [
-                            {
-                                "topic": "Wheels",
-                                "value": "19\" M light-alloy wheels Double-spoke style Bicolour"
-                            },
-                            {
-                                "topic": "Tyre size",
-                                "value": "8 J × 19 / tyres 245/45 R 19"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Dimension",
-                        "details": [
-                            {
-                                "topic": "Length / width / height (mm)",
-                                "value": "4,616 / 1,845 / 1,617"
-                            },
-                            {
-                                "topic": "Luggage capacity (l)",
-                                "value": "490 - 1,600"
-                            },
-                            {
-                                "topic": "Curb weight (kg)",
-                                "value": "2,024"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "AC CHARGING",
-                        "details": [
-                            {
-                                "topic": "Maximum charging power AC (kW)",
-                                "value": "11"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "CHARGING TIME 0 - 100%",
-                        "details": [
-                            {
-                                "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                                "value": "34 hours 30 minutes"
-                            },
-                            {
-                                "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                                "value": "10 hours"
-                            },
-                            {
-                                "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                                "value": "6 hours 45 minutes"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "DC CHARGING",
-                        "details": [
-                            {
-                                "topic": "Maximum charging power DC (kW)",
-                                "value": "130"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "CHARGING TIME 10 - 80%",
-                        "details": [
-                            {
-                                "topic": "DC charging vehicle at 125A by EVSE",
-                                "value": "1 hour 14 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 250A by EVSE",
-                                "value": "40 minutes"
-                            },
-                            {
-                                "topic": "DC charging vehicle at 500A by EVSE",
-                                "value": "32 minutes"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Drivetrain and Technology",
-                        "details": [
-                            {
-                                "topic": "Automatic transmission",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Driving Assistant",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Driving Assistant Plus",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Parking Assistant Plus",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Performance Control",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Exterior Equipment",
-                        "details": [
-                            {
-                                "topic": "Adaptive LED headlights",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "High-beam assistant",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Panorama glass roof",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Sport exterior parts",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Exterior Line Satin Aluminium",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Roof rails Aluminium satinated",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Automatic operation of tailgate",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Comfort access system",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Interior Equipment",
-                        "details": [
-                            {
-                                "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Leather steering wheel",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Sport seats for driver and front passenger",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Seat adjustment, electric, with memory",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Aluminium Hexacube Pale M interior trim",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Luxury instrument panel",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Ambient light",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Automatic air conditioning",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Entertainment and Communication",
-                        "details": [
-                            {
-                                "topic": "BMW Live Cockpit Plus",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW Head-up display",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "HiFi loudspeaker system Harman Kardon",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW ConnectedDrive",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Smartphone Integration",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW Iconic sounds electric",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Wireless charging tray",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Safety",
-                        "details": [
-                            {
-                                "topic": "Front airbags for driver and front passenger",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Side airbags for driver and front passenger",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Head airbags for all 4 outer seats",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Teleservices",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Intelligent Emergency Call",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ISOFIX child seat mounting",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Dynamic Stability Control (DSC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Anti-lock Brake System (ABS)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Dynamic Brake Control (DBC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Crash sensor",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Acoustic protection for pedestrians",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Tyre repair kit",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Tyre Pressure Monitoring System",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Lane Departure Warning with active return",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Front collision warning with brake intervention for pedestrians/cyclists",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Lane Change Warning with active return",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Rear crossing-traffic warning",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Rear Collision Warning",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Exit warning",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Steering and Lane Control Assistant",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Active cruise control with Stop&Go function",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Line / Package",
-                        "details": [
-                            {
-                                "topic": "M Sport package",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Paintwork & Upholstery",
-                        "details": [
-                            {
-                                "topic": "Brooklyn Grey Metallic",
-                                "value": "Veganza Perforated - Castanea"
-                            },
-                            {
-                                "topic": "Carbon Black Metallic",
-                                "value": "Veganza Perforated - Castanea"
-                            },
-                            {
-                                "topic": "Mineral White Metallic",
-                                "value": "Veganza Perforated - Castanea"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Notes",
-                        "details": [
-                            {
-                                "topic": "¹ Range dependent on various factors. In particular: personal driving style, route characteristics, exterior temperature, heating / air conditioning, pre-conditioning.",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "* The privilege of purchasing package up to 6 years unlimited mileage warranty and 6 years unlimited mileage of maintenance and 8 years high-voltage battery and its units warranty or 160,000 km. (whichever comes first). Service Interval are due every 24 months.",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "3 July 2025"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(ZK8)"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ],
-        "source_file": "iX1-L-20251110-01_EN.pdf.asset.1763623567388.pdf",
-        "pdf_source": "iX1-L-20251110-01_EN.pdf.asset.1763623567388.pdf"
     }
 ]
