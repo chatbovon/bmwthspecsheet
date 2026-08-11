@@ -10,9 +10,9 @@ The project is an automated pipeline that crawls the official BMW Thailand websi
 ```mermaid
 graph TD
     A[Web Crawler: pdf_scraper.py] -->|Downloads PDFs & List Live Links| B[Gemini Extractor: batch_extractor.py]
-    B -->|Generates JSON Specs| C[Archiver: archive_discontinued.py]
+    B -->|Generates JSON Specs| C[Archiver: scratch/archive_discontinued.py]
     C -->|Flags Archived Models| D[Image Scraper: auto_image_scraper.py]
-    D -->|Saves Viewport Screen Grabs| E[Reporter: generate_report.py]
+    D -->|Saves Viewport Screen Grabs| E[Reporter: scratch/generate_report.py]
     E -->|report.md| F[GitHub Action: auto_update.yml]
     F -->|GitHub Issue / Email Alert| G[User]
     F -->|Commits Assets & JSON| H[GitHub Pages: index.html & custom.html]
@@ -75,18 +75,20 @@ The daily pipeline runs autonomously via GitHub Actions.
 - Compiles the list of currently active brochures into `live_web_pdfs.txt`.
 - Downloads new brochures into `bmw_brochures_auto/` (Thai) and `bmw_brochures_auto_en/` (English).
 
-### Stage 2: AI Specification Extractor (`batch_extractor.py`)
+### Stage 2: AI Specification Extractor (`batch_extractor.py` & `mineru_extractor.py`)
 - **API Key Pool:** Rotates between three Gemini API keys (`GEMINI_API_KEY_1`, `GEMINI_API_KEY_2`, `GEMINI_API_KEY_3`) loaded dynamically from `.env` to avoid rate limiting.
 - **Model Fallback Chain:** Primary model is **`gemini-3.6-flash`**, with **`gemini-3.5-flash`** and **`gemini-3.5-flash-lite`** as fallbacks.
-- ** Omit Deprecated Parameters:** Fully omits deprecated sampling parameters (like `temperature`, `top_p`, `top_k`) from the configuration block to prevent HTTP 400 Bad Request errors on Gemini 3.x endpoints.
+- **Omit Deprecated Parameters:** Fully omits deprecated sampling parameters (like `temperature`, `top_p`, `top_k`) from the configuration block to prevent HTTP 400 Bad Request errors on Gemini 3.x endpoints.
 - **Grouping Segments:** Splits PDFs into segments of at most 5 pages and combines small adjacent tables up to ~7,000 characters per segment. This drastically minimizes API consumption.
 - **Standard vs. Conditional Categories:** The extraction prompt splits categories into:
   - *Standard Categories:* Extracted for all models (Engine, Wheels, Dimensions, Drivetrain, Exterior, Interior, Safety, etc.).
   - *Conditional Categories:* Only extracted if corresponding tables actually exist in the PDF (e.g. AC/DC Charging time tables and Paintwork/color options). This prevents blank dash fields (`'-' = '-'`) or empty tables.
+- **Horizontal Grid Line Rule:** Instructs the VLM to check horizontal grid/divider lines in the PDF table. If no divider line separates text rows, they are treated as a single row and combined into a single topic. This ensures strict 1-to-1 TH/EN alignment and prevents layout-shifting row splits (e.g. Carbon Fibre & Piano Finish Black in M760e).
+- **Publication Date Footer Extraction:** Robustly extracts and sanitizes publication dates matching keywords `"พิม"` / `"พิมพ"` / `"วันที่"` to capture print dates even with PUA ligature characters.
 - **Extraction System Prompt:** Instructs Gemini to output structured JSON matching the database schema.
 
 
-### Stage 3: Discontinued Model Archiver (`archive_discontinued.py`)
+### Stage 3: Discontinued Model Archiver (`scratch/archive_discontinued.py`)
 - Compares `pdf_source` file names in the JSON database against the live list `live_web_pdfs.txt`.
 - **Circuit Breaker Safety Threshold:** If the count of live PDFs in `live_web_pdfs.txt` is `< 5`, the archiver aborts execution immediately to prevent data wipes if the BMW site is down.
 - **Discontinued Archiving:** If a source brochure is no longer live on the site, it sets `"is_custom_archived": true` for all models and moves the PDF to `bmw_brochures_custom/` or `bmw_brochures_custom_en/`.
@@ -105,7 +107,7 @@ The daily pipeline runs autonomously via GitHub Actions.
 
 ### Stage 5: Manual Overrides Manager (`manual_override_manager.py`)
 - **Correction Purpose:** Corrects typographical errors, incorrect specifications, or missing options in the source PDF brochures published by BMW Thailand. It is not for fixing AI extraction failures (AI errors must be resolved by tuning prompts/logic).
-- **English Overrides Bypass:** The overrides applicator (`apply_overrides`) systematically skips processing any PDF source containing the `_en` suffix. This prevents Thai translation corrections in `manual_overrides.json` from contaminating the English database records.
+- **English Overrides Support:** The overrides applicator (`apply_overrides`) supports English manual overrides if the override prefix in `manual_overrides.json` explicitly contains the `_en` or `_EN` suffix. Otherwise, English brochures bypass Thai translation overrides to avoid data contamination.
 
 ### Stage 6: Auditing and Reporting (`scratch/generate_report.py`)
 - Audits spec-to-image matching completeness for all models.
