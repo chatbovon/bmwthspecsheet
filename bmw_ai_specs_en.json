@@ -136,7 +136,7 @@
                     ]
                 },
                 {
-                    "category": "Drivetrain and Technology",
+                    "category": "Transmission and technology",
                     "details": [
                         {
                             "topic": "Automatic transmission",
@@ -357,7 +357,7 @@
                     ]
                 },
                 {
-                    "category": "Line / Package",
+                    "category": "Line / package",
                     "details": [
                         {
                             "topic": "M Sport package",
@@ -392,6 +392,10 @@
                         {
                             "topic": "* The privilege of purchasing package up to 6 years unlimited mileage warranty and 6 years unlimited mileage of maintenance and 8 years high-voltage battery and its units warranty or 160,000 km. (whichever comes first). Service Interval are due every 24 months.",
                             "value": "■"
+                        },
+                        {
+                            "topic": "BMW reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.",
+                            "value": "■"
                         }
                     ]
                 },
@@ -412,5 +416,8 @@
         }
     ],
     "source_file": "iX1-L-20251110-01_EN.pdf.asset.1763623567388.pdf",
-    "pdf_source": "iX1-L-20251110-01_EN.pdf.asset.1763623567388.pdf"
+    "pdf_source": "iX1-L-20251110-01_EN.pdf.asset.1763623567388.pdf",
+    "extracted_by_models": [
+        "gemini-3.6-flash"
+    ]
 }
