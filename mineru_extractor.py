@@ -484,7 +484,7 @@ def extract_pdf_footer_text(pdf_path: str) -> str:
             for line in text.split("\n"):
                 line_s = line.strip()
                 # Check if this line is a footer containing date or package codes (typically starts with Z inside parentheses)
-                if "พิมพ์วันที่" in line_s or "Printed on" in line_s or "Publication" in line_s or ("(" in line_s and ")" in line_s and "Z" in line_s):
+                if "พิม" in line_s or "Printed on" in line_s or "Effective from" in line_s or "Publication" in line_s or ("(" in line_s and ")" in line_s and "Z" in line_s):
                     if line_s not in footer_lines:
                         footer_lines.append(line_s)
     except Exception as e:
@@ -647,10 +647,10 @@ def post_process_extracted_json(merged_output: dict, pdf_path: str, lang_code: s
             continue
         
         # Extract publication date
-        if "Effective from" in line or "Printed on" in line or "พิมพ์วันที่" in line:
+        if "Effective from" in line or "Printed on" in line or "พิม" in line or "วันที่" in line:
             parts = line.split("|")
             date_part = parts[0].strip()
-            date_part = re.sub(r'^(Effective from|Printed on|พิมพ์วันที่)\s*', '', date_part)
+            date_part = re.sub(r'^(Effective from|Printed on|พิมพ์วันที่|พิมพวันที่|พิมพ์|พิมพ|วันที่)\s*', '', date_part)
             pub_date = date_part.strip()
             
         # Find all occurrences of parentheses containing a capital Z followed by characters

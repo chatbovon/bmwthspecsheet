@@ -3463,453 +3463,6 @@
         ]
     },
     {
-        "series": "BMW 2 SERIES",
-        "models": [
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "specifications": [
-                    {
-                        "category": "Engine and Performance",
-                        "details": [
-                            {
-                                "topic": "Engine type",
-                                "value": "BMW TwinPower Turbo 4-cylinder inline petrol engine"
-                            },
-                            {
-                                "topic": "Displacement (cm3)",
-                                "value": "1,998"
-                            },
-                            {
-                                "topic": "Engine power (kW/hp/rpm)",
-                                "value": "150 / 204 / 5,000 - 6,500"
-                            },
-                            {
-                                "topic": "Engine torque (Nm/rpm)",
-                                "value": "300 / 1,450 - 4,500"
-                            },
-                            {
-                                "topic": "Top speed (km/h)",
-                                "value": "250"
-                            },
-                            {
-                                "topic": "0 - 100 km/h (s)",
-                                "value": "7.3"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Fuel Consumption and CO2 Emission",
-                        "details": [
-                            {
-                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                                "value": "15.4"
-                            },
-                            {
-                                "topic": "Combined CO2 (g/km)",
-                                "value": "147"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Wheels and Tyres",
-                        "details": [
-                            {
-                                "topic": "Light alloy wheels",
-                                "value": "19\" M light alloy wheels Y-spoke style Bicolour"
-                            },
-                            {
-                                "topic": "Tyre size",
-                                "value": "8 J × 19 / tyres 225/40 R 19"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Dimension",
-                        "details": [
-                            {
-                                "topic": "Length / width / height (mm)",
-                                "value": "4,546 / 1,800 / 1,445"
-                            },
-                            {
-                                "topic": "Luggage capacity (l)",
-                                "value": "430"
-                            },
-                            {
-                                "topic": "Curb weight (kg)",
-                                "value": "1,525"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Drivetrain and Technology",
-                        "details": [
-                            {
-                                "topic": "7-Speed Steptronic Transmission with Double Clutch and Gearshift Paddles",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Adaptive M suspension",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Driving Assistant",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Driving Assistant Plus",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Parking Assistant Plus",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Exterior Equipment",
-                        "details": [
-                            {
-                                "topic": "Adaptive LED headlights",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "High-beam assistant",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Sport brake, red high-gloss",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Comfort access system",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Panorama glass roof",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW kidney 'Iconic Glow'",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Lights Shadowline",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M high-gloss Shadowline",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M high-gloss Shadowline with extended contents",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M rear spoiler",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Interior Equipment",
-                        "details": [
-                            {
-                                "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Seat adjustment, electric, with memory",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Sport seats for driver and front passenger",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Leather steering wheel",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Ambient light",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M headliner anthracite",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "'Illuminated' Aluminium graphite interior decor",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "2-Zone Automatic air conditioning",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Interior camera",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M seat belts",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Entertainment and Communication",
-                        "details": [
-                            {
-                                "topic": "BMW Live Cockpit Professional",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW Head-up display",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW ConnectedDrive",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "HiFi loudspeaker system Harman Kardon",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Wireless charging tray",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Personal eSIM",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Safety",
-                        "details": [
-                            {
-                                "topic": "Front airbags for driver and front passenger",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Side airbags for driver and front passenger",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Head airbags for all 4 outer seats",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Teleservices",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Intelligent Emergency Call",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Dynamic Stability Control (DSC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Dynamic Traction Control (DTC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Dynamic Brake Control (DBC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Anti-lock Brake System (ABS)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Brake Assist (BA)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Cornering Brake Control (CBC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Crash sensor",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Child seat ISOFIX attachment",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Tyre Pressure Monitoring System",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Tyre Repair Kit Plus",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Paintwork & Upholstery",
-                        "details": [
-                            {
-                                "topic": "Black Sapphire Metallic",
-                                "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
-                            },
-                            {
-                                "topic": "Alpine White Solid",
-                                "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
-                            },
-                            {
-                                "topic": "Brooklyn Grey Metallic",
-                                "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
-                            },
-                            {
-                                "topic": "Portimao Blue Metallic",
-                                "value": "Leather 'Veganza' - Veganza perforated | Black"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "22 June 2026"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(ZKT)"
-                            }
-                        ]
-                    }
-                ],
-                "images": {
-                    "M Brooklyn Grey metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_M_Brooklyn_Grey_metallic.png",
-                    "Black Sapphire metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_Black_Sapphire_metallic.png",
-                    "M Portimao Blue metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_M_Portimao_Blue_metallic.png",
-                    "Alpine White solid": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_Alpine_White_solid.png"
-                }
-            }
-        ],
-        "source_file": "2-20260622-01_EN.pdf.asset.1782449002094.pdf",
-        "pdf_source": "2-20260622-01_EN.pdf.asset.1782449002094.pdf",
-        "low_confidence_flags": [
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Engine and Performance",
-                "topic": "ชนิดเครื่องยนต์ / Engine type",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 1: English is 'Engine type' (mapped: 'engine type'), Thai is 'ชนิดเครื่องยนต์' (mapped: 'ชนิดเครื่องยนต์')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Engine and Performance",
-                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร) / Displacement (cm3)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 2: English is 'Displacement (cm3)' (mapped: 'displacement (cm3)'), Thai is 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)' (mapped: 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Engine and Performance",
-                "topic": "กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที) / Engine power (kW/hp/rpm)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 3: English is 'Engine power (kW/hp/rpm)' (mapped: 'engine power (kw/hp/rpm)'), Thai is 'กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' (mapped: 'กําลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Engine and Performance",
-                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที) / Engine torque (Nm/rpm)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 4: English is 'Engine torque (Nm/rpm)' (mapped: 'engine torque (nm/rpm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' (mapped: 'max. torque (nm/rpm)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Engine and Performance",
-                "topic": "ความเร็วสูงสุด (กิโลเมตร/ช่วโมง) / Top speed (km/h)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 5: English is 'Top speed (km/h)' (mapped: 'top speed (km/h)'), Thai is 'ความเร็วสูงสุด (กิโลเมตร/ช่วโมง)' (mapped: 'ความเร็วสูงสุด (กิโลเมตร/ช่วโมง)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Engine and Performance",
-                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ช่วโมง (วินาที) / 0 - 100 km/h (s)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 6: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ช่วโมง (วินาที)' (mapped: 'อัตราเร่ง 0 - 100 กิโลเมตร/ช่วโมง (วินาที)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "ล้อและยาง / Fuel Consumption and CO2 Emission",
-                "topic": "Category Position",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Category mismatch/ordering difference at position 2: English has 'Fuel Consumption and CO2 Emission', Thai has 'ล้อและยาง'"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "มิติรถยนต์ / Wheels and Tyres",
-                "topic": "Category Position",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Category mismatch/ordering difference at position 3: English has 'Wheels and Tyres', Thai has 'มิติรถยนต์'"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "ระบบขับเคลื่อนและเทคโนโลยี / Dimension",
-                "topic": "Category Position",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Category mismatch/ordering difference at position 4: English has 'Dimension', Thai has 'ระบบขับเคลื่อนและเทคโนโลยี'"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "อุปกรณ์ภายนอก / Drivetrain and Technology",
-                "topic": "Category Position",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Category mismatch/ordering difference at position 5: English has 'Drivetrain and Technology', Thai has 'อุปกรณ์ภายนอก'"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "อุปกรณ์ภายใน / Exterior Equipment",
-                "topic": "Category Position",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Category mismatch/ordering difference at position 6: English has 'Exterior Equipment', Thai has 'อุปกรณ์ภายใน'"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "ความปลอดภัย / Interior Equipment",
-                "topic": "Category Position",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Category mismatch/ordering difference at position 7: English has 'Interior Equipment', Thai has 'ความปลอดภัย'"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Paintwork / สีตัวถังและวัสดุภายใน / Entertainment and Communication",
-                "topic": "Category Position",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Category mismatch/ordering difference at position 8: English has 'Entertainment and Communication', Thai has 'Paintwork / สีตัวถังและวัสดุภายใน'"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "ข้อมูลเอกสารอ้างอิง / Safety",
-                "topic": "Category Position",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Category mismatch/ordering difference at position 9: English has 'Safety', Thai has 'ข้อมูลเอกสารอ้างอิง'"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2 / Paintwork & Upholstery",
-                "topic": "Category Position",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Category mismatch/ordering difference at position 10: English has 'Paintwork & Upholstery', Thai has 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2'"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "ระบบความบันเกิงและการสื่อสาร / Document References",
-                "topic": "Category Position",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Category mismatch/ordering difference at position 11: English has 'Document References', Thai has 'ระบบความบันเกิงและการสื่อสาร'"
-            }
-        ]
-    },
-    {
         "series": "BMW 3 SERIES",
         "models": [
             {
@@ -35602,965 +35155,6 @@
         ]
     },
     {
-        "series": "BMW M4",
-        "models": [
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "specifications": [
-                    {
-                        "category": "Engine and Performance",
-                        "details": [
-                            {
-                                "topic": "Engine type",
-                                "value": "M TwinPower Turbo 6-cylinder inline petrol engine"
-                            },
-                            {
-                                "topic": "Displacement (cm³)",
-                                "value": "2,993"
-                            },
-                            {
-                                "topic": "Engine power (kW/hp/rpm)",
-                                "value": "390 / 530 / 6,250"
-                            },
-                            {
-                                "topic": "Engine torque (Nm/rpm)",
-                                "value": "650 / 2,750 - 5,730"
-                            },
-                            {
-                                "topic": "Top speed (km/h)",
-                                "value": "290"
-                            },
-                            {
-                                "topic": "0 - 100 km/h (s)",
-                                "value": "3.5"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Fuel Consumption and CO2 Emission",
-                        "details": [
-                            {
-                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
-                                "value": "10.1"
-                            },
-                            {
-                                "topic": "Combined CO₂ (g/km)",
-                                "value": "225"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Wheels and Tyres",
-                        "details": [
-                            {
-                                "topic": "Light alloy wheels",
-                                "value": "19\"/20\" M forged wheels Double-spoke style"
-                            },
-                            {
-                                "topic": "Tyre size",
-                                "value": "Front: 9.5 J × 19, 275/35 R 19 / Rear: 10.5 J × 20, 285/30 R 20"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Dimension",
-                        "details": [
-                            {
-                                "topic": "Length / width / height (mm)",
-                                "value": "4,801 / 1,887 / 1,398"
-                            },
-                            {
-                                "topic": "Luggage capacity (l)",
-                                "value": "440"
-                            },
-                            {
-                                "topic": "Curb weight (kg)",
-                                "value": "1,850"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Drivetrain and Technology",
-                        "details": [
-                            {
-                                "topic": "8-speed M Steptronic transmission with Drivelogic",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Drive Professional",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Sport differential",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Adaptive M suspension",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Driving Assistant Professional",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Parking Assistant Plus",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Exterior Equipment",
-                        "details": [
-                            {
-                                "topic": "M Compound Brake, Red High-Gloss",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Adaptive LED headlights",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "High-beam assistant",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Automatic operation of tailgate",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Comfort access system",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Lights Shadowline",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M high-gloss Shadowline",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M High-gloss Shadowline with Extended Contents",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Carbon exterior package",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Interior Equipment",
-                        "details": [
-                            {
-                                "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Seat adjustment, electric, with memory",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M carbon bucket seats",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Ambient light",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M headliner anthracite",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Galvanic embellisher for controls",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M Interior Trim Finishers 'Carbon Fibre'",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Seat heating for driver and front passenger",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Automatic air conditioning",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Storage compartment package",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "M seat belts",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Entertainment and Communication",
-                        "details": [
-                            {
-                                "topic": "BMW Live Cockpit Professional",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "BMW ConnectedDrive",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Connected Package Professional",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Harman Kardon surround sound system",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Personal eSIM",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Wireless charging tray",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Smartphone integration",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Safety",
-                        "details": [
-                            {
-                                "topic": "Airbag for driver and front passenger",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Side airbags for driver and front passenger",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Head airbags for all 4 outer seats",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Teleservices",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Intelligent Emergency Call",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Dynamic Stability Control (DSC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Dynamic Traction Control (DTC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Dynamic Brake Control (DBC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Anti-lock Brake System (ABS)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Brake Assist (BA)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Cornering Brake Control (CBC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Crash sensor",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Active Protection",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Tyre Pressure Monitoring System",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Tyre Repair Kit",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Front Collision Warning with brake intervention consists of",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Collision",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Pedestrian Warning with city braking function",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Lane Departure Warning with lane return",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Lane Change Warning",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Rear crossing traffic warning",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Rear Collision Prevention",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Active cruise control with Stop&Go function",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Steering and Lane Control Assistant",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Emergency Stop Assistant",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Lane Change Assistant",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Lane Keeping Assistant with active side collision protection",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Front crossing traffic warning",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Evasion Assistant",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "Crossroads Warning with city braking function",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Package",
-                        "details": [
-                            {
-                                "topic": "M Driver's Package",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Optional Equipment",
-                        "details": [
-                            {
-                                "topic": "M Carbon ceramic brake³",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Document References",
-                        "details": [
-                            {
-                                "topic": "Publication Date",
-                                "value": "14 July 2026"
-                            },
-                            {
-                                "topic": "Package Code (Local Pack)",
-                                "value": "(Z0L, Z6S, Z6W, Z7P, ZLF)"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Notes",
-                        "details": [
-                            {
-                                "topic": "¹ Range dependent on various factors. In particular: personal driving style, route characteristics, exterior temperature, heating / air conditioning, pre-conditioning.",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "² The increase of Vmax will be automatically activated when surpassing the 2,000 km run-in distance and having completed the run-in inspection.",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "³ Additional inquiries about price and information for optional equipment are available at official BMW dealers.",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "* The privilege of purchasing package up to 5 years unlimited mileage warranty and 5 years of maintenance or 100,000 km. (whichever comes first).",
-                                "value": "-"
-                            },
-                            {
-                                "topic": "BMW reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.",
-                                "value": "-"
-                            }
-                        ]
-                    }
-                ],
-                "images": {}
-            }
-        ],
-        "source_file": "M4-20260714-01_EN.pdf.asset.1784613855331.pdf",
-        "pdf_source": "M4-20260714-01_EN.pdf.asset.1784613855331.pdf",
-        "low_confidence_flags": [
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Engine and Performance",
-                "topic": "ชนิดเครื่องยนต์ / Engine type",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 1: English is 'Engine type' (mapped: 'engine type'), Thai is 'ชนิดเครื่องยนต์' (mapped: 'ชนิดเครื่องยนต์')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Engine and Performance",
-                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร) / Displacement (cm³)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 2: English is 'Displacement (cm³)' (mapped: 'displacement (cm³)'), Thai is 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)' (mapped: 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Engine and Performance",
-                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที) / Engine power (kW/hp/rpm)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 3: English is 'Engine power (kW/hp/rpm)' (mapped: 'engine power (kw/hp/rpm)'), Thai is 'กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' (mapped: 'max. output (kw/hp/rpm)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Engine and Performance",
-                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที) / Engine torque (Nm/rpm)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 4: English is 'Engine torque (Nm/rpm)' (mapped: 'engine torque (nm/rpm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' (mapped: 'max. torque (nm/rpm)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Engine and Performance",
-                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) / 0 - 100 km/h (s)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 6: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)' (mapped: 'acceleration 0 - 100 km/h (s)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Fuel Consumption and CO2 Emission",
-                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร) / Combined fuel consumption from ECO Sticker result (km/l)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Fuel Consumption and CO2 Emission' at position 1: English is 'Combined fuel consumption from ECO Sticker result (km/l)' (mapped: 'combined fuel consumption from eco sticker result (km/l)'), Thai is 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)' (mapped: 'fuel consumption combined (km/l)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Fuel Consumption and CO2 Emission",
-                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร) / Combined CO₂ (g/km)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Fuel Consumption and CO2 Emission' at position 2: English is 'Combined CO₂ (g/km)' (mapped: 'combined co₂ (g/km)'), Thai is 'ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)' (mapped: 'co2 emission combined (g/km)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Wheels and Tyres",
-                "topic": "ล้อ / Light alloy wheels",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Wheels and Tyres' at position 1: English is 'Light alloy wheels' (mapped: 'light alloy wheels'), Thai is 'ล้อ' (mapped: 'ล้อ')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Dimension",
-                "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร) / Length / width / height (mm)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 1: English is 'Length / width / height (mm)' (mapped: 'length / width / height (mm)'), Thai is 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)' (mapped: 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Dimension",
-                "topic": "ปริมาตรในการบรรจุของ (ลิตร) / Luggage capacity (l)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 2: English is 'Luggage capacity (l)' (mapped: 'luggage capacity (l)'), Thai is 'ปริมาตรในการบรรจุของ (ลิตร)' (mapped: 'ปริมาตรในการบรรจุของ (ลิตร)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Dimension",
-                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม) / Curb weight (kg)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 3: English is 'Curb weight (kg)' (mapped: 'curb weight (kg)'), Thai is 'น้ำหนักรถสุทธิ (กิโลกรัม)' (mapped: 'น้ำหนักรถสุทธิ (กิโลกรัม)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Drivetrain and Technology",
-                "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ M Steptronic พร้อม Drivelogic / 8-speed M Steptronic transmission with Drivelogic",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 1: English is '8-speed M Steptronic transmission with Drivelogic' (mapped: '8-speed m steptronic transmission with drivelogic'), Thai is 'เกียร์อัตโนมัติ 8 จังหวะ แบบ M Steptronic พร้อม Drivelogic' (mapped: 'เกียร์อัตโนมัติ 8 จังหวะ แบบ m steptronic พร้อม drivelogic')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Drivetrain and Technology",
-                "topic": "โหมดการขับขี่ M Drive Professional / M Drive Professional",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 2: English is 'M Drive Professional' (mapped: 'm drive professional'), Thai is 'โหมดการขับขี่ M Drive Professional' (mapped: 'โหมดการขับขี่ m drive professional')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Drivetrain and Technology",
-                "topic": "ระบบเฟืองท้าย M Sport / M Sport differential",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 3: English is 'M Sport differential' (mapped: 'm sport differential'), Thai is 'ระบบเฟืองท้าย M Sport' (mapped: 'ระบบเฟืองท้าย m sport')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Drivetrain and Technology",
-                "topic": "ช่วงล่าง Adaptive M / Adaptive M suspension",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 4: English is 'Adaptive M suspension' (mapped: 'adaptive m suspension'), Thai is 'ช่วงล่าง Adaptive M' (mapped: 'ช่วงล่าง adaptive m')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Drivetrain and Technology",
-                "topic": "ระบบช่วยการขับขี่ รุ่น Professional (Driving Assistant Professional) / Driving Assistant Professional",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 5: English is 'Driving Assistant Professional' (mapped: 'driving assistant professional'), Thai is 'ระบบช่วยการขับขี่ รุ่น Professional (Driving Assistant Professional)' (mapped: 'ระบบช่วยการขับขี่ รุ่น professional (driving assistant professional)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Drivetrain and Technology",
-                "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus) / Parking Assistant Plus",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 6: English is 'Parking Assistant Plus' (mapped: 'parking assistant plus'), Thai is 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus)' (mapped: 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น plus (parking assistant plus)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Exterior Equipment",
-                "topic": "ชุดเบรก M Compound Brake สีแดงเงา / M Compound Brake, Red High-Gloss",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 1: English is 'M Compound Brake, Red High-Gloss' (mapped: 'm compound brake, red high-gloss'), Thai is 'ชุดเบรก M Compound Brake สีแดงเงา' (mapped: 'ชุดเบรก m compound brake สีแดงเงา')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Exterior Equipment",
-                "topic": "ระบบไฟหน้าแบบ Adaptive LED / Adaptive LED headlights",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 2: English is 'Adaptive LED headlights' (mapped: 'adaptive led headlights'), Thai is 'ระบบไฟหน้าแบบ Adaptive LED' (mapped: 'ระบบไฟหน้าแบบ adaptive led')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Exterior Equipment",
-                "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant) / High-beam assistant",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 3: English is 'High-beam assistant' (mapped: 'high-beam assistant'), Thai is 'ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)' (mapped: 'ระบบปรับการทำงานไฟสูงอัตโนมัติ (high-beam assistant)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Exterior Equipment",
-                "topic": "ระบบเปิด-ปิด บานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า / Automatic operation of tailgate",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 4: English is 'Automatic operation of tailgate' (mapped: 'automatic operation of tailgate'), Thai is 'ระบบเปิด-ปิด บานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า' (mapped: 'ระบบเปิด-ปิด บานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Exterior Equipment",
-                "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System) / Comfort access system",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 5: English is 'Comfort access system' (mapped: 'comfort access system'), Thai is 'ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)' (mapped: 'ระบบปลดล็อกประตูอัจฉริยะ (comfort access system)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Exterior Equipment",
-                "topic": "โคมไฟหน้าตกแต่งสีดำ (M Lights Shadowline) / M Lights Shadowline",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 6: English is 'M Lights Shadowline' (mapped: 'm lights shadowline'), Thai is 'โคมไฟหน้าตกแต่งสีดำ (M Lights Shadowline)' (mapped: 'โคมไฟหน้าตกแต่งสีดำ (m lights shadowline)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Exterior Equipment",
-                "topic": "ภายนอกตกแต่งด้วยวัสดุสีดำเงา / M high-gloss Shadowline",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 7: English is 'M high-gloss Shadowline' (mapped: 'm high-gloss shadowline'), Thai is 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา' (mapped: 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Exterior Equipment",
-                "topic": "ภายนอกตกแต่งด้วยชุดแต่ง M สีดำเงา / M High-gloss Shadowline with Extended Contents",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 8: English is 'M High-gloss Shadowline with Extended Contents' (mapped: 'm high-gloss shadowline with extended contents'), Thai is 'ภายนอกตกแต่งด้วยชุดแต่ง M สีดำเงา' (mapped: 'ภายนอกตกแต่งด้วยชุดแต่ง m สีดำเงา')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Exterior Equipment",
-                "topic": "ชุดตกแต่งภายนอก M Carbon / M Carbon exterior package",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 9: English is 'M Carbon exterior package' (mapped: 'm carbon exterior package'), Thai is 'ชุดตกแต่งภายนอก M Carbon' (mapped: 'ชุดตกแต่งภายนอก m carbon')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Interior Equipment",
-                "topic": "กระจกมองข้างฝั่งคนขับและกระจกมองหลังตัดแสงอัตโนมัติ / Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 1: English is 'Interior and exterior mirrors on driver's side with automatic anti-dazzle function' (mapped: 'interior and exterior mirrors on driver's side with automatic anti-dazzle function'), Thai is 'กระจกมองข้างฝั่งคนขับและกระจกมองหลังตัดแสงอัตโนมัติ' (mapped: 'กระจกมองข้างฝั่งคนขับและกระจกมองหลังตัดแสงอัตโนมัติ')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Interior Equipment",
-                "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ / Seat adjustment, electric, with memory",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 2: English is 'Seat adjustment, electric, with memory' (mapped: 'seat adjustment, electric, with memory'), Thai is 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ' (mapped: 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Interior Equipment",
-                "topic": "เบาะนั่ง M carbon ทรง bucket seat / M carbon bucket seats",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 3: English is 'M carbon bucket seats' (mapped: 'm carbon bucket seats'), Thai is 'เบาะนั่ง M carbon ทรง bucket seat' (mapped: 'เบาะนั่ง m carbon ทรง bucket seat')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Interior Equipment",
-                "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light) / Ambient light",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 4: English is 'Ambient light' (mapped: 'ambient light'), Thai is 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)' (mapped: 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (ambient light)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Interior Equipment",
-                "topic": "เพดานหลังคาภายในสี Anthracite / M headliner anthracite",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 5: English is 'M headliner anthracite' (mapped: 'm headliner anthracite'), Thai is 'เพดานหลังคาภายในสี Anthracite' (mapped: 'เพดานหลังคาภายในสี anthracite')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Interior Equipment",
-                "topic": "แผงควบคุมแบบ Galvanic / Galvanic embellisher for controls",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 6: English is 'Galvanic embellisher for controls' (mapped: 'galvanic embellisher for controls'), Thai is 'แผงควบคุมแบบ Galvanic' (mapped: 'แผงควบคุมแบบ galvanic')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Interior Equipment",
-                "topic": "ภายในตกแต่งดีไซน์ M ด้วยวัสดุ Carbon Fibre / M Interior Trim Finishers 'Carbon Fibre'",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 7: English is 'M Interior Trim Finishers 'Carbon Fibre'' (mapped: 'm interior trim finishers 'carbon fibre''), Thai is 'ภายในตกแต่งดีไซน์ M ด้วยวัสดุ Carbon Fibre' (mapped: 'ภายในตกแต่งดีไซน์ m ด้วยวัสดุ carbon fibre')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Interior Equipment",
-                "topic": "ระบบอุ่นเบาะสำหรับคนขับและผู้โดยสารเบาะหน้า / Seat heating for driver and front passenger",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 8: English is 'Seat heating for driver and front passenger' (mapped: 'seat heating for driver and front passenger'), Thai is 'ระบบอุ่นเบาะสำหรับคนขับและผู้โดยสารเบาะหน้า' (mapped: 'ระบบอุ่นเบาะสำหรับคนขับและผู้โดยสารเบาะหน้า')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Interior Equipment",
-                "topic": "ระบบปรับอากาศอัตโนมัติ / Automatic air conditioning",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 9: English is 'Automatic air conditioning' (mapped: 'automatic air conditioning'), Thai is 'ระบบปรับอากาศอัตโนมัติ' (mapped: 'ระบบปรับอากาศอัตโนมัติ')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Interior Equipment",
-                "topic": "ฟังก์ชันช่วยการจัดเก็บสัมภาระ / Storage compartment package",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 10: English is 'Storage compartment package' (mapped: 'storage compartment package'), Thai is 'ฟังก์ชันช่วยการจัดเก็บสัมภาระ' (mapped: 'ฟังก์ชันช่วยการจัดเก็บสัมภาระ')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Interior Equipment",
-                "topic": "เข็มขัดนิรภัยดีไซน์ M / M seat belts",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 11: English is 'M seat belts' (mapped: 'm seat belts'), Thai is 'เข็มขัดนิรภัยดีไซน์ M' (mapped: 'เข็มขัดนิรภัยดีไซน์ m')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Entertainment and Communication",
-                "topic": "ระบบ BMW ConnectedDrive / BMW ConnectedDrive",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 2: English is 'BMW ConnectedDrive' (mapped: 'bmw connecteddrive'), Thai is 'ระบบ BMW ConnectedDrive' (mapped: 'ระบบ bmw connecteddrive')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Entertainment and Communication",
-                "topic": "ระบบ Connected Package Professional / Connected Package Professional",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 3: English is 'Connected Package Professional' (mapped: 'connected package professional'), Thai is 'ระบบ Connected Package Professional' (mapped: 'ระบบ connected package professional')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Entertainment and Communication",
-                "topic": "ระบบเครื่องเสียงรอบทิศทาง Harman Kardon / Harman Kardon surround sound system",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 4: English is 'Harman Kardon surround sound system' (mapped: 'harman kardon surround sound system'), Thai is 'ระบบเครื่องเสียงรอบทิศทาง Harman Kardon' (mapped: 'ระบบเครื่องเสียงรอบทิศทาง harman kardon')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Entertainment and Communication",
-                "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM) / Personal eSIM",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 5: English is 'Personal eSIM' (mapped: 'personal esim'), Thai is 'ระบบ eSIM ส่วนบุคคล (Personal eSIM)' (mapped: 'ระบบ esim ส่วนบุคคล (personal esim)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Entertainment and Communication",
-                "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย / Wireless charging tray",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 6: English is 'Wireless charging tray' (mapped: 'wireless charging tray'), Thai is 'ระบบชาร์จโทรศัพท์แบบไร้สาย' (mapped: 'ระบบชาร์จโทรศัพท์แบบไร้สาย')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Entertainment and Communication",
-                "topic": "ระบบเชื่อมต่อ Smartphone / Smartphone integration",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 7: English is 'Smartphone integration' (mapped: 'smartphone integration'), Thai is 'ระบบเชื่อมต่อ Smartphone' (mapped: 'ระบบเชื่อมต่อ smartphone')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "Topic Count",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic count mismatch in category 'Safety': English has 30 topics, Thai has 29 topics"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า / Airbag for driver and front passenger",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 1: English is 'Airbag for driver and front passenger' (mapped: 'airbag for driver and front passenger'), Thai is 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า / Side airbags for driver and front passenger",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 2: English is 'Side airbags for driver and front passenger' (mapped: 'side airbags for driver and front passenger'), Thai is 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง) / Head airbags for all 4 outer seats",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 3: English is 'Head airbags for all 4 outer seats' (mapped: 'head airbags for all 4 outer seats'), Thai is 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)' (mapped: 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบ Teleservices / Teleservices",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 4: English is 'Teleservices' (mapped: 'teleservices'), Thai is 'ระบบ Teleservices' (mapped: 'ระบบ teleservices')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call) / Intelligent Emergency Call",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 5: English is 'Intelligent Emergency Call' (mapped: 'intelligent emergency call'), Thai is 'ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)' (mapped: 'ปุ่มโทรออกฉุกเฉิน (intelligent emergency call)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC) / Dynamic Stability Control (DSC)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 6: English is 'Dynamic Stability Control (DSC)' (mapped: 'dynamic stability control (dsc)'), Thai is 'ระบบควบคุมเสถียรภาพการขับขี่ (DSC)' (mapped: 'ระบบควบคุมเสถียรภาพการขับขี่ (dsc)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบควบคุมการยึดเกาะถนน (DTC) / Dynamic Traction Control (DTC)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 7: English is 'Dynamic Traction Control (DTC)' (mapped: 'dynamic traction control (dtc)'), Thai is 'ระบบควบคุมการยึดเกาะถนน (DTC)' (mapped: 'ระบบควบคุมการยึดเกาะถนน (dtc)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบควบคุมแรงดันเบรกแบบแปรผัน (DBC) / Dynamic Brake Control (DBC)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 8: English is 'Dynamic Brake Control (DBC)' (mapped: 'dynamic brake control (dbc)'), Thai is 'ระบบควบคุมแรงดันเบรกแบบแปรผัน (DBC)' (mapped: 'ระบบควบคุมแรงดันเบรกแบบแปรผัน (dbc)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS) / Anti-lock Brake System (ABS)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 9: English is 'Anti-lock Brake System (ABS)' (mapped: 'anti-lock brake system (abs)'), Thai is 'ระบบป้องกันล้อล็อกขณะเบรก (ABS)' (mapped: 'ระบบป้องกันล้อล็อกขณะเบรก (abs)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist) / Brake Assist (BA)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 10: English is 'Brake Assist (BA)' (mapped: 'brake assist (ba)'), Thai is 'ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist)' (mapped: 'ระบบช่วยเสริมแรงเบรกอัตโนมัติ (brake assist)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC) / Cornering Brake Control (CBC)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 11: English is 'Cornering Brake Control (CBC)' (mapped: 'cornering brake control (cbc)'), Thai is 'ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC)' (mapped: 'ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (cbc)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor) / Crash sensor",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 12: English is 'Crash sensor' (mapped: 'crash sensor'), Thai is 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)' (mapped: 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (crash sensor)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบ Active Protection / Active Protection",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 13: English is 'Active Protection' (mapped: 'active protection'), Thai is 'ระบบ Active Protection' (mapped: 'ระบบ active protection')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบตรวจวัดลมยาง / Tyre Pressure Monitoring System",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 14: English is 'Tyre Pressure Monitoring System' (mapped: 'tyre pressure monitoring system'), Thai is 'ระบบตรวจวัดลมยาง' (mapped: 'ระบบตรวจวัดลมยาง')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ชุดปะยางฉุกเฉิน / Tyre Repair Kit",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 15: English is 'Tyre Repair Kit' (mapped: 'tyre repair kit'), Thai is 'ชุดปะยางฉุกเฉิน' (mapped: 'ชุดปะยางฉุกเฉิน')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบเตือนการชนด้านหน้าพร้อมระบบช่วยเบรค / Front Collision Warning with brake intervention consists of",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 16: English is 'Front Collision Warning with brake intervention consists of' (mapped: 'front collision warning with brake intervention consists of'), Thai is 'ระบบเตือนการชนด้านหน้าพร้อมระบบช่วยเบรค' (mapped: 'ระบบเตือนการชนด้านหน้าพร้อมระบบช่วยเบรค')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบเตือนคนเดินเท้าพร้อมระบบเบรกอัตโนมัติในเมือง / Collision",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 17: English is 'Collision' (mapped: 'collision'), Thai is 'ระบบเตือนคนเดินเท้าพร้อมระบบเบรกอัตโนมัติในเมือง' (mapped: 'ระบบเตือนคนเดินเท้าพร้อมระบบเบรกอัตโนมัติในเมือง')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบเตือนรถออกนอกเลนพร้อมช่วยนำรถกลับเข้าเลน / Pedestrian Warning with city braking function",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 18: English is 'Pedestrian Warning with city braking function' (mapped: 'pedestrian warning with city braking function'), Thai is 'ระบบเตือนรถออกนอกเลนพร้อมช่วยนำรถกลับเข้าเลน' (mapped: 'ระบบเตือนรถออกนอกเลนพร้อมช่วยนำรถกลับเข้าเลน')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบเตือนการเปลี่ยนเลน / Lane Departure Warning with lane return",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 19: English is 'Lane Departure Warning with lane return' (mapped: 'lane departure warning with lane return'), Thai is 'ระบบเตือนการเปลี่ยนเลน' (mapped: 'ระบบเตือนการเปลี่ยนเลน')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบเตือนการจราจรด้านหลัง / Lane Change Warning",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 20: English is 'Lane Change Warning' (mapped: 'lane change warning'), Thai is 'ระบบเตือนการจราจรด้านหลัง' (mapped: 'ระบบเตือนการจราจรด้านหลัง')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบป้องกันการชนด้านหลัง / Rear crossing traffic warning",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 21: English is 'Rear crossing traffic warning' (mapped: 'rear crossing traffic warning'), Thai is 'ระบบป้องกันการชนด้านหลัง' (mapped: 'ระบบป้องกันการชนด้านหลัง')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function) / Rear Collision Prevention",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 22: English is 'Rear Collision Prevention' (mapped: 'rear collision prevention'), Thai is 'ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)' (mapped: 'ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน stop&go (active cruise control with stop&go function)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ / Active cruise control with Stop&Go function",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 23: English is 'Active cruise control with Stop&Go function' (mapped: 'active cruise control with stop&go function'), Thai is 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ' (mapped: 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบช่วยหยุดรถฉุกเฉิน / Steering and Lane Control Assistant",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 24: English is 'Steering and Lane Control Assistant' (mapped: 'steering and lane control assistant'), Thai is 'ระบบช่วยหยุดรถฉุกเฉิน' (mapped: 'ระบบช่วยหยุดรถฉุกเฉิน')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบช่วยเปลี่ยนช่องทางเดินรถ / Emergency Stop Assistant",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 25: English is 'Emergency Stop Assistant' (mapped: 'emergency stop assistant'), Thai is 'ระบบช่วยเปลี่ยนช่องทางเดินรถ' (mapped: 'ระบบช่วยเปลี่ยนช่องทางเดินรถ')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง / Lane Change Assistant",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 26: English is 'Lane Change Assistant' (mapped: 'lane change assistant'), Thai is 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง' (mapped: 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบเตือนการจราจรด้านหน้า / Lane Keeping Assistant with active side collision protection",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 27: English is 'Lane Keeping Assistant with active side collision protection' (mapped: 'lane keeping assistant with active side collision protection'), Thai is 'ระบบเตือนการจราจรด้านหน้า' (mapped: 'ระบบเตือนการจราจรด้านหน้า')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบช่วยหลบหลีกฉุกเฉิน / Front crossing traffic warning",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 28: English is 'Front crossing traffic warning' (mapped: 'front crossing traffic warning'), Thai is 'ระบบช่วยหลบหลีกฉุกเฉิน' (mapped: 'ระบบช่วยหลบหลีกฉุกเฉิน')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Safety",
-                "topic": "ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรคฉุกเฉิน / Evasion Assistant",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 29: English is 'Evasion Assistant' (mapped: 'evasion assistant'), Thai is 'ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรคฉุกเฉิน' (mapped: 'ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรคฉุกเฉิน')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Package",
-                "topic": "แพ็กเกจ M Driver's / M Driver's Package",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Package' at position 1: English is 'M Driver's Package' (mapped: 'm driver's package'), Thai is 'แพ็กเกจ M Driver's' (mapped: 'แพ็กเกจ m driver's')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "ตัวเลือกพิเศษเพิ่มเติม / Optional Equipment",
-                "topic": "Category Position",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Category mismatch/ordering difference at position 11: English has 'Optional Equipment', Thai has 'ตัวเลือกพิเศษเพิ่มเติม'"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "Document References",
-                "topic": "รหัสแพ็กเกจ (Local Pack) / Package Code (Local Pack)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
-            },
-            {
-                "model_name": "BMW M4 Competition M xDrive",
-                "category": "หมายเหตุ / Notes",
-                "topic": "Category Position",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Category mismatch/ordering difference at position 13: English has 'Notes', Thai has 'หมายเหตุ'"
-            }
-        ]
-    },
-    {
         "series": "BMW iX1",
         "models": [
             {
@@ -37455,5 +36049,782 @@
                 "reason": "Category mismatch/ordering difference at position 16: English has 'Notes', Thai has 'หมายเหตุ'"
             }
         ]
+    },
+    {
+        "series": "BMW 2 SERIES",
+        "models": [
+            {
+                "model_name": "220 Gran Coupe M Sport Pro",
+                "specifications": [
+                    {
+                        "category": "ENGINE AND PERFORMANCE",
+                        "details": [
+                            {
+                                "topic": "Engine type",
+                                "value": "BMW TwinPower Turbo 4-cylinder inline petrol engine"
+                            },
+                            {
+                                "topic": "Displacement (cm³)",
+                                "value": "1,998"
+                            },
+                            {
+                                "topic": "Engine power (kW/hp/rpm)",
+                                "value": "150 / 204 / 5,000 - 6,500"
+                            },
+                            {
+                                "topic": "Engine torque (Nm/rpm)",
+                                "value": "300 / 1,450 - 4,500"
+                            },
+                            {
+                                "topic": "Top speed (km/h)",
+                                "value": "250"
+                            },
+                            {
+                                "topic": "0 - 100 km/h (s)",
+                                "value": "7.3"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "FUEL CONSUMPTION AND CO2",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "15.4"
+                            },
+                            {
+                                "topic": "Combined CO2 (g/km)",
+                                "value": "147"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "WHEELS AND TYRES",
+                        "details": [
+                            {
+                                "topic": "Light alloy wheels",
+                                "value": "19“ M light alloy wheels Y-spoke style Bicolour"
+                            },
+                            {
+                                "topic": "Tyre size",
+                                "value": "8 J × 19 / tyres 225/40 R 19"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "DIMENSION",
+                        "details": [
+                            {
+                                "topic": "Length / width / height (mm)",
+                                "value": "4,546 / 1,800 / 1,445"
+                            },
+                            {
+                                "topic": "Luggage capacity (l)",
+                                "value": "430"
+                            },
+                            {
+                                "topic": "Curb weight (kg)",
+                                "value": "1,525"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Transmission and technology",
+                        "details": [
+                            {
+                                "topic": "7-Speed Steptronic Transmission with Double Clutch and Gearshift Paddles",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Adaptive M suspension",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Driving Assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Driving Assistant Plus",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Parking Assistant Plus",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Exterior",
+                        "details": [
+                            {
+                                "topic": "Adaptive LED headlights",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "High-beam assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport brake, red high-gloss",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Comfort access system",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Panorama glass roof",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW kidney 'Iconic Glow'",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Lights Shadowline",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M high-gloss Shadowline",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M high-gloss Shadowline with extended contents",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M rear spoiler",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Interior",
+                        "details": [
+                            {
+                                "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Seat adjustment, electric, with memory",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Sport seats for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Leather steering wheel",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Ambient light",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M headliner anthracite",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "'Illuminated' Aluminium graphite interior decor",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "2-Zone Automatic air conditioning",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Interior camera",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M seat belts",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Entertainment and communication",
+                        "details": [
+                            {
+                                "topic": "BMW Live Cockpit Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Head-up display",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW ConnectedDrive",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "HiFi loudspeaker system Harman Kardon",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Wireless charging tray",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Personal eSIM",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Safety",
+                        "details": [
+                            {
+                                "topic": "Front airbags for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Side airbags for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Head airbags for all 4 outer seats",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Teleservices",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Intelligent Emergency Call",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Stability Control (DSC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Traction Control (DTC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Brake Control (DBC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Anti-lock Brake System (ABS)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Brake Assist (BA)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Cornering Brake Control (CBC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Crash sensor",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Child seat ISOFIX attachment",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre Pressure Monitoring System",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre Repair Kit Plus",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Package",
+                        "details": [
+                            {
+                                "topic": "M Sport Package",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport Package Pro",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork & Upholstery",
+                        "details": [
+                            {
+                                "topic": "Black Sapphire Metallic",
+                                "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
+                            },
+                            {
+                                "topic": "Alpine White Solid",
+                                "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
+                            },
+                            {
+                                "topic": "Brooklyn Grey Metallic",
+                                "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
+                            },
+                            {
+                                "topic": "Portimao Blue Metallic",
+                                "value": "Leather 'Veganza' - Veganza perforated | Black"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Notes",
+                        "details": [
+                            {
+                                "topic": "1 Range dependent on various factors. In particular: personal driving style, route characteristics, exterior temperature, heating / air conditioning, pre-conditioning.",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "* The privilege of purchasing package up to 5 years unlimited mileage warranty and 5 years of maintenance or 100,000 km. (whichever comes first).",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "22 June 2026"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(ZKT)"
+                            }
+                        ]
+                    }
+                ],
+                "images": {
+                    "M Brooklyn Grey metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_M_Brooklyn_Grey_metallic.png",
+                    "Black Sapphire metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_Black_Sapphire_metallic.png",
+                    "M Portimao Blue metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_M_Portimao_Blue_metallic.png",
+                    "Alpine White solid": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_Alpine_White_solid.png"
+                }
+            }
+        ],
+        "source_file": "2-20260622-01_EN.pdf.asset.1782449002094.pdf",
+        "pdf_source": "2-20260622-01_EN.pdf.asset.1782449002094.pdf"
+    },
+    {
+        "series": "BMW M4",
+        "models": [
+            {
+                "model_name": "BMW M4 Competition M xDrive",
+                "specifications": [
+                    {
+                        "category": "Engine and Performance",
+                        "details": [
+                            {
+                                "topic": "Engine type",
+                                "value": "M TwinPower Turbo 6-cylinder inline petrol engine"
+                            },
+                            {
+                                "topic": "Displacement (cm³)",
+                                "value": "2,993"
+                            },
+                            {
+                                "topic": "Engine power (kW/hp/rpm)",
+                                "value": "390 / 530 / 6,250"
+                            },
+                            {
+                                "topic": "Engine torque (Nm/rpm)",
+                                "value": "650 / 2,750 - 5,730"
+                            },
+                            {
+                                "topic": "Top speed (km/h)",
+                                "value": "290"
+                            },
+                            {
+                                "topic": "0 - 100 km/h (s)",
+                                "value": "3.5"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Fuel Consumption and CO2",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "10.1"
+                            },
+                            {
+                                "topic": "Combined CO2 (g/km)",
+                                "value": "225"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Wheels and Tyres",
+                        "details": [
+                            {
+                                "topic": "Light alloy wheels",
+                                "value": "19\"/20\" M forged wheels Double-spoke style"
+                            },
+                            {
+                                "topic": "Tyre size",
+                                "value": "Front: 9.5 J × 19, 275/35 R 19 Rear: 10.5 J × 20, 285/30 R 20"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Dimension",
+                        "details": [
+                            {
+                                "topic": "Length / width / height (mm)",
+                                "value": "4,801 / 1,887 / 1,398"
+                            },
+                            {
+                                "topic": "Luggage capacity (l)",
+                                "value": "440"
+                            },
+                            {
+                                "topic": "Curb weight (kg)",
+                                "value": "1,850"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Drivetrain and Technology",
+                        "details": [
+                            {
+                                "topic": "8-speed M Steptronic transmission with Drivelogic",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Drive Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport differential",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Adaptive M suspension",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Driving Assistant Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Parking Assistant Plus",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Exterior Equipment",
+                        "details": [
+                            {
+                                "topic": "M Compound Brake, Red High-Gloss",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Adaptive LED headlights",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "High-beam assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Automatic operation of tailgate",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Comfort access system",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Lights Shadowline",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M high-gloss Shadowline",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M High-gloss Shadowline with Extended Contents",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Carbon exterior package",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Interior Equipment",
+                        "details": [
+                            {
+                                "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Seat adjustment, electric, with memory",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M carbon bucket seats",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Ambient light",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M headliner anthracite",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Galvanic embellisher for controls",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Interior Trim Finishers 'Carbon Fibre'",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Seat heating for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Automatic air conditioning",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Storage compartment package",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M seat belts",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Entertainment and Communication",
+                        "details": [
+                            {
+                                "topic": "BMW Live Cockpit Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW ConnectedDrive",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Connected Package Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Harman Kardon surround sound system",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Personal eSIM",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Wireless charging tray",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Smartphone integration",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Safety",
+                        "details": [
+                            {
+                                "topic": "Airbag for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Side airbags for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Head airbags for all 4 outer seats",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Teleservices",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Intelligent Emergency Call",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Stability Control (DSC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Traction Control (DTC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Brake Control (DBC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Anti-lock Brake System (ABS)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Brake Assist (BA)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Cornering Brake Control (CBC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Crash sensor",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Active Protection",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre Pressure Monitoring System",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre Repair Kit",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Front Collision Warning with brake intervention consists of Collision",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Pedestrian Warning with city braking function",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Lane Departure Warning with lane return",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Lane Change Warning",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Rear crossing traffic warning",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Rear Collision Prevention",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Active cruise control with Stop&Go function",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Steering and Lane Control Assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Emergency Stop Assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Lane Change Assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Lane Keeping Assistant with active side collision protection",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Front crossing traffic warning",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Evasion Assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Crossroads Warning with city braking function",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Package",
+                        "details": [
+                            {
+                                "topic": "M Driver's Package",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Optional Equipment",
+                        "details": [
+                            {
+                                "topic": "M Carbon ceramic brake³",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Notes",
+                        "details": [
+                            {
+                                "topic": "1 Range dependent on various factors. In particular: personal driving style, route characteristics, exterior temperature, heating / air conditioning, pre-conditioning.",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "2 The increase of Vmax will be automatically activated when surpassing the 2,000 km run-in distance and having completed the run-in inspection.",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "3 Additional inquiries about price and information for optional equipment are available at official BMW dealers.",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "* The privilege of purchasing package up to 5 years unlimited mileage warranty and 5 years of maintenance or 100,000 km. (whichever comes first).",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "14 July 2026"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z0L, Z6S, Z6W, Z7P, ZLF)"
+                            }
+                        ]
+                    }
+                ],
+                "images": {}
+            }
+        ],
+        "source_file": "M4-20260714-01_EN.pdf.asset.1784613855331.pdf",
+        "pdf_source": "M4-20260714-01_EN.pdf.asset.1784613855331.pdf"
     }
 ]
