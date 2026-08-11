@@ -34861,787 +34861,6 @@
         ]
     },
     {
-        "series": "BMW 2 SERIES",
-        "models": [
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "specifications": [
-                    {
-                        "category": "เครื่องยนต์และสมรรถนะ",
-                        "details": [
-                            {
-                                "topic": "ชนิดเครื่องยนต์",
-                                "value": "เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี TwinPower Turbo"
-                            },
-                            {
-                                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)",
-                                "value": "1,998"
-                            },
-                            {
-                                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
-                                "value": "150 / 204 / 5,000 - 6,500"
-                            },
-                            {
-                                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)",
-                                "value": "300 / 1,450 - 4,500"
-                            },
-                            {
-                                "topic": "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)",
-                                "value": "250"
-                            },
-                            {
-                                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)",
-                                "value": "7.3"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
-                        "details": [
-                            {
-                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
-                                "value": "15.4"
-                            },
-                            {
-                                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
-                                "value": "147"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ล้อและยาง",
-                        "details": [
-                            {
-                                "topic": "ล้อ",
-                                "value": "ล้ออัลลอย M ขนาด 19 นิ้ว ลาย Y-spoke Bicolour"
-                            },
-                            {
-                                "topic": "ขนาดยาง",
-                                "value": "8 J × 19 / ยาง 225/40 R19"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "มิติรถยนต์",
-                        "details": [
-                            {
-                                "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)",
-                                "value": "4,546 / 1,800 / 1,445"
-                            },
-                            {
-                                "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
-                                "value": "430"
-                            },
-                            {
-                                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
-                                "value": "1,525"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ระบบขับเคลื่อนและเทคโนโลยี",
-                        "details": [
-                            {
-                                "topic": "เกียร์อัตโนมัติ 7 จังหวะแบบ Steptronic พร้อมคลัตช์คู่และ Gearshift Paddles",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ช่วงล่าง Adaptive M",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบช่วยการขับขี่ (Driving Assistant)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบช่วยการขับขี่รุ่น Plus (Driving Assistant Plus)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus)",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "อุปกรณ์ภายนอก",
-                        "details": [
-                            {
-                                "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สีแดงเงา",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "หลังคากระจก Panorama เปิด-ปิดด้วยระบบไฟฟ้า",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "กระจังหน้า BMW kidney 'Iconic Glow'",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "โคมไฟหน้าตกแต่งสีดำ (M Lights Shadowline)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ภายนอกตกแต่งด้วยวัสดุสีดำเงา",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "สปอยเลอร์หลังดีไซน์ M",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "อุปกรณ์ภายใน",
-                        "details": [
-                            {
-                                "topic": "กระจกมองข้างฝั่งคนขับและกระจกมองหลังตัดแสงอัตโนมัติ",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "เบาะนั่งตอนหน้าดีไซน์ Sport",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "พวงมาลัยหุ้มหนังดีไซน์ M",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "เพดานหลังคาภายในดีไซน์ M สี Anthracite",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ภายในตกแต่งด้วยอะลูมิเนียมแกรไฟต์แบบเรืองแสง",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบปรับอากาศอัตโนมัติแบบ 2 โซน",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบกล้องภายในรถ",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "เข็มขัดนิรภัยดีไซน์ M",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ระบบความบันเทิงและการสื่อสาร",
-                        "details": [
-                            {
-                                "topic": "BMW Live Cockpit Professional",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบ BMW Head-up Display",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบ BMW ConnectedDrive",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบเครื่องเสียง HiFi loudspeaker Harman Kardon",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM)",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ความปลอดภัย",
-                        "details": [
-                            {
-                                "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบ Teleservices",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบควบคุมการยึดเกาะถนน (DTC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบควบคุมแรงดันเบรกแบบแปรผัน (DBC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบติดตั้งคาร์ซีทแบบ ISOFIX",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบตรวจวัดลมยาง",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ชุดปะยางฉุกเฉินรุ่น Plus",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "แพ็กเกจ",
-                        "details": [
-                            {
-                                "topic": "แพ็กเกจ M Sport",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "แพ็กเกจ M Sport Pro",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Paintwork",
-                        "details": [
-                            {
-                                "topic": "Black Sapphire Metallic",
-                                "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
-                            },
-                            {
-                                "topic": "Alpine White Solid",
-                                "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
-                            },
-                            {
-                                "topic": "Brooklyn Grey Metallic",
-                                "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
-                            },
-                            {
-                                "topic": "Portimao Blue Metallic",
-                                "value": "Leather 'Veganza' - Veganza perforated | Black"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "หมายเหตุ",
-                        "details": [
-                            {
-                                "topic": "¹ ระยะทางขึ้นอยู่กับพฤติกรรมการขับขี่ของแต่ละบุคคล ลักษณะเส้นทาง อุณหภูมิภายนอก และการควบคุมระบบปรับอากาศ",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "* รับสิทธิ์เลือกแพคเกจการรับประกันนานสูงสุด 5 ปี ไม่จำกัดระยะทาง และการบริการดูแลบำรุงรักษาสูงสุด 5 ปี หรือ 100,000 กม. (แล้วแต่ระยะใดถึงก่อน)",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ข้อมูลเอกสารอ้างอิง",
-                        "details": [
-                            {
-                                "topic": "วันที่พิมพ์เอกสาร",
-                                "value": "22 มิถุนายน 2569"
-                            },
-                            {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                                "value": "(ZKT)"
-                            }
-                        ]
-                    }
-                ],
-                "images": {
-                    "M Brooklyn Grey metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_M_Brooklyn_Grey_metallic.png",
-                    "Black Sapphire metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_Black_Sapphire_metallic.png",
-                    "M Portimao Blue metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_M_Portimao_Blue_metallic.png",
-                    "Alpine White solid": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_Alpine_White_solid.png"
-                }
-            }
-        ],
-        "source_file": "2-20260622-01_TH.pdf.asset.1782450623206.pdf",
-        "pdf_source": "2-20260622-01_TH.pdf.asset.1782450623206.pdf",
-        "low_confidence_flags": [
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "ENGINE AND PERFORMANCE",
-                "topic": "ชนิดเครื่องยนต์ / Engine type",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 1: English is 'Engine type' (mapped: 'engine type'), Thai is 'ชนิดเครื่องยนต์' (mapped: 'ชนิดเครื่องยนต์')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "ENGINE AND PERFORMANCE",
-                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร) / Displacement (cm³)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 2: English is 'Displacement (cm³)' (mapped: 'displacement (cm³)'), Thai is 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)' (mapped: 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "ENGINE AND PERFORMANCE",
-                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที) / Engine power (kW/hp/rpm)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 3: English is 'Engine power (kW/hp/rpm)' (mapped: 'engine power (kw/hp/rpm)'), Thai is 'กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' (mapped: 'max. output (kw/hp/rpm)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "ENGINE AND PERFORMANCE",
-                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที) / Engine torque (Nm/rpm)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 4: English is 'Engine torque (Nm/rpm)' (mapped: 'engine torque (nm/rpm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' (mapped: 'max. torque (nm/rpm)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "ENGINE AND PERFORMANCE",
-                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) / 0 - 100 km/h (s)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 6: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)' (mapped: 'acceleration 0 - 100 km/h (s)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "FUEL CONSUMPTION AND CO2",
-                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร) / Combined fuel consumption from ECO Sticker result (km/l)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'FUEL CONSUMPTION AND CO2' at position 1: English is 'Combined fuel consumption from ECO Sticker result (km/l)' (mapped: 'combined fuel consumption from eco sticker result (km/l)'), Thai is 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)' (mapped: 'fuel consumption combined (km/l)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "FUEL CONSUMPTION AND CO2",
-                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร) / Combined CO2 (g/km)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'FUEL CONSUMPTION AND CO2' at position 2: English is 'Combined CO2 (g/km)' (mapped: 'combined co2 (g/km)'), Thai is 'ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)' (mapped: 'co2 emission combined (g/km)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "WHEELS AND TYRES",
-                "topic": "ล้อ / Light alloy wheels",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'WHEELS AND TYRES' at position 1: English is 'Light alloy wheels' (mapped: 'light alloy wheels'), Thai is 'ล้อ' (mapped: 'ล้อ')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "DIMENSION",
-                "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร) / Length / width / height (mm)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'DIMENSION' at position 1: English is 'Length / width / height (mm)' (mapped: 'length / width / height (mm)'), Thai is 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)' (mapped: 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "DIMENSION",
-                "topic": "ปริมาตรในการบรรจุของ (ลิตร) / Luggage capacity (l)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'DIMENSION' at position 2: English is 'Luggage capacity (l)' (mapped: 'luggage capacity (l)'), Thai is 'ปริมาตรในการบรรจุของ (ลิตร)' (mapped: 'ปริมาตรในการบรรจุของ (ลิตร)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "DIMENSION",
-                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม) / Curb weight (kg)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'DIMENSION' at position 3: English is 'Curb weight (kg)' (mapped: 'curb weight (kg)'), Thai is 'น้ำหนักรถสุทธิ (กิโลกรัม)' (mapped: 'น้ำหนักรถสุทธิ (กิโลกรัม)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Transmission and technology",
-                "topic": "เกียร์อัตโนมัติ 7 จังหวะแบบ Steptronic พร้อมคลัตช์คู่และ Gearshift Paddles / 7-Speed Steptronic Transmission with Double Clutch and Gearshift Paddles",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 1: English is '7-Speed Steptronic Transmission with Double Clutch and Gearshift Paddles' (mapped: '7-speed steptronic transmission with double clutch and gearshift paddles'), Thai is 'เกียร์อัตโนมัติ 7 จังหวะแบบ Steptronic พร้อมคลัตช์คู่และ Gearshift Paddles' (mapped: 'เกียร์อัตโนมัติ 7 จังหวะแบบ steptronic พร้อมคลัตช์คู่และ gearshift paddles')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Transmission and technology",
-                "topic": "ช่วงล่าง Adaptive M / Adaptive M suspension",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 2: English is 'Adaptive M suspension' (mapped: 'adaptive m suspension'), Thai is 'ช่วงล่าง Adaptive M' (mapped: 'ช่วงล่าง adaptive m')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Transmission and technology",
-                "topic": "ระบบช่วยการขับขี่ (Driving Assistant) / Driving Assistant",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 3: English is 'Driving Assistant' (mapped: 'driving assistant'), Thai is 'ระบบช่วยการขับขี่ (Driving Assistant)' (mapped: 'ระบบช่วยการขับขี่ (driving assistant)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Transmission and technology",
-                "topic": "ระบบช่วยการขับขี่รุ่น Plus (Driving Assistant Plus) / Driving Assistant Plus",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 4: English is 'Driving Assistant Plus' (mapped: 'driving assistant plus'), Thai is 'ระบบช่วยการขับขี่รุ่น Plus (Driving Assistant Plus)' (mapped: 'ระบบช่วยการขับขี่รุ่น plus (driving assistant plus)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Transmission and technology",
-                "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus) / Parking Assistant Plus",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 5: English is 'Parking Assistant Plus' (mapped: 'parking assistant plus'), Thai is 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus)' (mapped: 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น plus (parking assistant plus)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Exterior",
-                "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED) / Adaptive LED headlights",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 1: English is 'Adaptive LED headlights' (mapped: 'adaptive led headlights'), Thai is 'ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)' (mapped: 'ระบบไฟหน้า led อัจฉริยะ (adaptive led)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Exterior",
-                "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant) / High-beam assistant",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 2: English is 'High-beam assistant' (mapped: 'high-beam assistant'), Thai is 'ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)' (mapped: 'ระบบปรับการทำงานไฟสูงอัตโนมัติ (high-beam assistant)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Exterior",
-                "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สีแดงเงา / M Sport brake, red high-gloss",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 3: English is 'M Sport brake, red high-gloss' (mapped: 'm sport brake, red high-gloss'), Thai is 'คาลิเปอร์เบรกดีไซน์ M Sport สีแดงเงา' (mapped: 'คาลิเปอร์เบรกดีไซน์ m sport สีแดงเงา')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Exterior",
-                "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System) / Comfort access system",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 4: English is 'Comfort access system' (mapped: 'comfort access system'), Thai is 'ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)' (mapped: 'ระบบปลดล็อกประตูอัจฉริยะ (comfort access system)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Exterior",
-                "topic": "หลังคากระจก Panorama เปิด-ปิดด้วยระบบไฟฟ้า / Panorama glass roof",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 5: English is 'Panorama glass roof' (mapped: 'panorama glass roof'), Thai is 'หลังคากระจก Panorama เปิด-ปิดด้วยระบบไฟฟ้า' (mapped: 'หลังคากระจก panorama เปิด-ปิดด้วยระบบไฟฟ้า')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Exterior",
-                "topic": "กระจังหน้า BMW kidney 'Iconic Glow' / BMW kidney 'Iconic Glow'",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 6: English is 'BMW kidney 'Iconic Glow'' (mapped: 'bmw kidney 'iconic glow''), Thai is 'กระจังหน้า BMW kidney 'Iconic Glow'' (mapped: 'กระจังหน้า bmw kidney 'iconic glow'')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Exterior",
-                "topic": "โคมไฟหน้าตกแต่งสีดำ (M Lights Shadowline) / M Lights Shadowline",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 7: English is 'M Lights Shadowline' (mapped: 'm lights shadowline'), Thai is 'โคมไฟหน้าตกแต่งสีดำ (M Lights Shadowline)' (mapped: 'โคมไฟหน้าตกแต่งสีดำ (m lights shadowline)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Exterior",
-                "topic": "ภายนอกตกแต่งด้วยวัสดุสีดำเงา / M high-gloss Shadowline",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 8: English is 'M high-gloss Shadowline' (mapped: 'm high-gloss shadowline'), Thai is 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา' (mapped: 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Exterior",
-                "topic": "ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา / M high-gloss Shadowline with extended contents",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 9: English is 'M high-gloss Shadowline with extended contents' (mapped: 'm high-gloss shadowline with extended contents'), Thai is 'ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา' (mapped: 'ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Exterior",
-                "topic": "สปอยเลอร์หลังดีไซน์ M / M rear spoiler",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 10: English is 'M rear spoiler' (mapped: 'm rear spoiler'), Thai is 'สปอยเลอร์หลังดีไซน์ M' (mapped: 'สปอยเลอร์หลังดีไซน์ m')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Interior",
-                "topic": "กระจกมองข้างฝั่งคนขับและกระจกมองหลังตัดแสงอัตโนมัติ / Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 1: English is 'Interior and exterior mirrors on driver's side with automatic anti-dazzle function' (mapped: 'interior and exterior mirrors on driver's side with automatic anti-dazzle function'), Thai is 'กระจกมองข้างฝั่งคนขับและกระจกมองหลังตัดแสงอัตโนมัติ' (mapped: 'กระจกมองข้างฝั่งคนขับและกระจกมองหลังตัดแสงอัตโนมัติ')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Interior",
-                "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ / Seat adjustment, electric, with memory",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 2: English is 'Seat adjustment, electric, with memory' (mapped: 'seat adjustment, electric, with memory'), Thai is 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ' (mapped: 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Interior",
-                "topic": "เบาะนั่งตอนหน้าดีไซน์ Sport / Sport seats for driver and front passenger",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 3: English is 'Sport seats for driver and front passenger' (mapped: 'sport seats for driver and front passenger'), Thai is 'เบาะนั่งตอนหน้าดีไซน์ Sport' (mapped: 'เบาะนั่งตอนหน้าดีไซน์ sport')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Interior",
-                "topic": "พวงมาลัยหุ้มหนังดีไซน์ M / M Leather steering wheel",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 4: English is 'M Leather steering wheel' (mapped: 'm leather steering wheel'), Thai is 'พวงมาลัยหุ้มหนังดีไซน์ M' (mapped: 'พวงมาลัยหุ้มหนังดีไซน์ m')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Interior",
-                "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light) / Ambient light",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 5: English is 'Ambient light' (mapped: 'ambient light'), Thai is 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)' (mapped: 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (ambient light)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Interior",
-                "topic": "เพดานหลังคาภายในดีไซน์ M สี Anthracite / M headliner anthracite",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 6: English is 'M headliner anthracite' (mapped: 'm headliner anthracite'), Thai is 'เพดานหลังคาภายในดีไซน์ M สี Anthracite' (mapped: 'เพดานหลังคาภายในดีไซน์ m สี anthracite')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Interior",
-                "topic": "ภายในตกแต่งด้วยอะลูมิเนียมแกรไฟต์แบบเรืองแสง / 'Illuminated' Aluminium graphite interior decor",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 7: English is ''Illuminated' Aluminium graphite interior decor' (mapped: ''illuminated' aluminium graphite interior decor'), Thai is 'ภายในตกแต่งด้วยอะลูมิเนียมแกรไฟต์แบบเรืองแสง' (mapped: 'ภายในตกแต่งด้วยอะลูมิเนียมแกรไฟต์แบบเรืองแสง')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Interior",
-                "topic": "ระบบปรับอากาศอัตโนมัติแบบ 2 โซน / 2-Zone Automatic air conditioning",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 8: English is '2-Zone Automatic air conditioning' (mapped: '2-zone automatic air conditioning'), Thai is 'ระบบปรับอากาศอัตโนมัติแบบ 2 โซน' (mapped: 'ระบบปรับอากาศอัตโนมัติแบบ 2 โซน')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Interior",
-                "topic": "ระบบกล้องภายในรถ / Interior camera",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 9: English is 'Interior camera' (mapped: 'interior camera'), Thai is 'ระบบกล้องภายในรถ' (mapped: 'ระบบกล้องภายในรถ')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Interior",
-                "topic": "เข็มขัดนิรภัยดีไซน์ M / M seat belts",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 10: English is 'M seat belts' (mapped: 'm seat belts'), Thai is 'เข็มขัดนิรภัยดีไซน์ M' (mapped: 'เข็มขัดนิรภัยดีไซน์ m')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Entertainment and communication",
-                "topic": "ระบบ BMW Head-up Display / BMW Head-up display",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 2: English is 'BMW Head-up display' (mapped: 'bmw head-up display'), Thai is 'ระบบ BMW Head-up Display' (mapped: 'ระบบ bmw head-up display')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Entertainment and communication",
-                "topic": "ระบบ BMW ConnectedDrive / BMW ConnectedDrive",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 3: English is 'BMW ConnectedDrive' (mapped: 'bmw connecteddrive'), Thai is 'ระบบ BMW ConnectedDrive' (mapped: 'ระบบ bmw connecteddrive')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Entertainment and communication",
-                "topic": "ระบบเครื่องเสียง HiFi loudspeaker Harman Kardon / HiFi loudspeaker system Harman Kardon",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 4: English is 'HiFi loudspeaker system Harman Kardon' (mapped: 'hifi loudspeaker system harman kardon'), Thai is 'ระบบเครื่องเสียง HiFi loudspeaker Harman Kardon' (mapped: 'ระบบเครื่องเสียง hifi loudspeaker harman kardon')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Entertainment and communication",
-                "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย / Wireless charging tray",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 5: English is 'Wireless charging tray' (mapped: 'wireless charging tray'), Thai is 'ระบบชาร์จโทรศัพท์แบบไร้สาย' (mapped: 'ระบบชาร์จโทรศัพท์แบบไร้สาย')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Entertainment and communication",
-                "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM) / Personal eSIM",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 6: English is 'Personal eSIM' (mapped: 'personal esim'), Thai is 'ระบบ eSIM ส่วนบุคคล (Personal eSIM)' (mapped: 'ระบบ esim ส่วนบุคคล (personal esim)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า / Front airbags for driver and front passenger",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 1: English is 'Front airbags for driver and front passenger' (mapped: 'front airbags for driver and front passenger'), Thai is 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า / Side airbags for driver and front passenger",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 2: English is 'Side airbags for driver and front passenger' (mapped: 'side airbags for driver and front passenger'), Thai is 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง) / Head airbags for all 4 outer seats",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 3: English is 'Head airbags for all 4 outer seats' (mapped: 'head airbags for all 4 outer seats'), Thai is 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)' (mapped: 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "ระบบ Teleservices / Teleservices",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 4: English is 'Teleservices' (mapped: 'teleservices'), Thai is 'ระบบ Teleservices' (mapped: 'ระบบ teleservices')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call) / Intelligent Emergency Call",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 5: English is 'Intelligent Emergency Call' (mapped: 'intelligent emergency call'), Thai is 'ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)' (mapped: 'ปุ่มโทรออกฉุกเฉิน (intelligent emergency call)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC) / Dynamic Stability Control (DSC)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 6: English is 'Dynamic Stability Control (DSC)' (mapped: 'dynamic stability control (dsc)'), Thai is 'ระบบควบคุมเสถียรภาพการขับขี่ (DSC)' (mapped: 'ระบบควบคุมเสถียรภาพการขับขี่ (dsc)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "ระบบควบคุมการยึดเกาะถนน (DTC) / Dynamic Traction Control (DTC)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 7: English is 'Dynamic Traction Control (DTC)' (mapped: 'dynamic traction control (dtc)'), Thai is 'ระบบควบคุมการยึดเกาะถนน (DTC)' (mapped: 'ระบบควบคุมการยึดเกาะถนน (dtc)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "ระบบควบคุมแรงดันเบรกแบบแปรผัน (DBC) / Dynamic Brake Control (DBC)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 8: English is 'Dynamic Brake Control (DBC)' (mapped: 'dynamic brake control (dbc)'), Thai is 'ระบบควบคุมแรงดันเบรกแบบแปรผัน (DBC)' (mapped: 'ระบบควบคุมแรงดันเบรกแบบแปรผัน (dbc)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS) / Anti-lock Brake System (ABS)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 9: English is 'Anti-lock Brake System (ABS)' (mapped: 'anti-lock brake system (abs)'), Thai is 'ระบบป้องกันล้อล็อกขณะเบรก (ABS)' (mapped: 'ระบบป้องกันล้อล็อกขณะเบรก (abs)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist) / Brake Assist (BA)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 10: English is 'Brake Assist (BA)' (mapped: 'brake assist (ba)'), Thai is 'ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist)' (mapped: 'ระบบช่วยเสริมแรงเบรกอัตโนมัติ (brake assist)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC) / Cornering Brake Control (CBC)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 11: English is 'Cornering Brake Control (CBC)' (mapped: 'cornering brake control (cbc)'), Thai is 'ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC)' (mapped: 'ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (cbc)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor) / Crash sensor",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 12: English is 'Crash sensor' (mapped: 'crash sensor'), Thai is 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)' (mapped: 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (crash sensor)')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "ระบบติดตั้งคาร์ซีทแบบ ISOFIX / Child seat ISOFIX attachment",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 13: English is 'Child seat ISOFIX attachment' (mapped: 'child seat isofix attachment'), Thai is 'ระบบติดตั้งคาร์ซีทแบบ ISOFIX' (mapped: 'ระบบติดตั้งคาร์ซีทแบบ isofix')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "ระบบตรวจวัดลมยาง / Tyre Pressure Monitoring System",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 14: English is 'Tyre Pressure Monitoring System' (mapped: 'tyre pressure monitoring system'), Thai is 'ระบบตรวจวัดลมยาง' (mapped: 'ระบบตรวจวัดลมยาง')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Safety",
-                "topic": "ชุดปะยางฉุกเฉินรุ่น Plus / Tyre Repair Kit Plus",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 15: English is 'Tyre Repair Kit Plus' (mapped: 'tyre repair kit plus'), Thai is 'ชุดปะยางฉุกเฉินรุ่น Plus' (mapped: 'ชุดปะยางฉุกเฉินรุ่น plus')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Package",
-                "topic": "แพ็กเกจ M Sport / M Sport Package",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Package' at position 1: English is 'M Sport Package' (mapped: 'm sport package'), Thai is 'แพ็กเกจ M Sport' (mapped: 'แพ็กเกจ m sport')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Package",
-                "topic": "แพ็กเกจ M Sport Pro / M Sport Package Pro",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Package' at position 2: English is 'M Sport Package Pro' (mapped: 'm sport package pro'), Thai is 'แพ็กเกจ M Sport Pro' (mapped: 'แพ็กเกจ m sport pro')"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "หมายเหตุ / Notes",
-                "topic": "Category Position",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Category mismatch/ordering difference at position 12: English has 'Notes', Thai has 'หมายเหตุ'"
-            },
-            {
-                "model_name": "220 Gran Coupe M Sport Pro",
-                "category": "Document References",
-                "topic": "รหัสแพ็กเกจ (Local Pack) / Package Code (Local Pack)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
-            }
-        ]
-    },
-    {
         "series": "BMW M4",
         "models": [
             {
@@ -37643,6 +36862,368 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
             }
+        ]
+    },
+    {
+        "series": "BMW 2 SERIES",
+        "models": [
+            {
+                "model_name": "220 Gran Coupe M Sport Pro",
+                "specifications": [
+                    {
+                        "category": "เครื่องยนต์และสมรรถนะ",
+                        "details": [
+                            {
+                                "topic": "ชนิดเครื่องยนต์",
+                                "value": "เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี TwinPower Turbo"
+                            },
+                            {
+                                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)",
+                                "value": "1,998"
+                            },
+                            {
+                                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
+                                "value": "150 / 204 / 5,000 - 6,500"
+                            },
+                            {
+                                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)",
+                                "value": "300 / 1,450 - 4,500"
+                            },
+                            {
+                                "topic": "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)",
+                                "value": "250"
+                            },
+                            {
+                                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)",
+                                "value": "7.3"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
+                        "details": [
+                            {
+                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
+                                "value": "15.4"
+                            },
+                            {
+                                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
+                                "value": "147"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ล้อและยาง",
+                        "details": [
+                            {
+                                "topic": "ล้อ",
+                                "value": "ล้ออัลลอย M ขนาด 19 นิ้ว ลาย Y-spoke Bicolour"
+                            },
+                            {
+                                "topic": "ขนาดยาง",
+                                "value": "8 J × 19 / ยาง 225/40 R19"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "มิติรถยนต์",
+                        "details": [
+                            {
+                                "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)",
+                                "value": "4,546 / 1,800 / 1,445"
+                            },
+                            {
+                                "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
+                                "value": "430"
+                            },
+                            {
+                                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
+                                "value": "1,525"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระบบขับเคลื่อนและเทคโนโลยี",
+                        "details": [
+                            {
+                                "topic": "เกียร์อัตโนมัติ 7 จังหวะแบบ Steptronic พร้อมคลัตช์คู่และ Gearshift Paddles",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ช่วงล่าง Adaptive M",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบช่วยการขับขี่ (Driving Assistant)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบช่วยการขับขี่รุ่น Plus (Driving Assistant Plus)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus)",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "อุปกรณ์ภายนอก",
+                        "details": [
+                            {
+                                "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สีแดงเงา",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "หลังคากระจก Panorama เปิด-ปิดด้วยระบบไฟฟ้า",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "กระจังหน้า BMW kidney 'Iconic Glow'",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "โคมไฟหน้าตกแต่งสีดำ (M Lights Shadowline)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ภายนอกตกแต่งด้วยวัสดุสีดำเงา",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "สปอยเลอร์หลังดีไซน์ M",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "อุปกรณ์ภายใน",
+                        "details": [
+                            {
+                                "topic": "กระจกมองข้างฝั่งคนขับและกระจกมองหลังตัดแสงอัตโนมัติ",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "เบาะนั่งตอนหน้าดีไซน์ Sport",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "พวงมาลัยหุ้มหนังดีไซน์ M",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "เพดานหลังคาภายในดีไซน์ M สี Anthracite",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ภายในตกแต่งด้วยอะลูมิเนียมแกรไฟต์แบบเรืองแสง",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบปรับอากาศอัตโนมัติแบบ 2 โซน",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบกล้องภายในรถ",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "เข็มขัดนิรภัยดีไซน์ M",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระบบความบันเทิงและการสื่อสาร",
+                        "details": [
+                            {
+                                "topic": "BMW Live Cockpit Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบ BMW Head-up Display",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบ BMW ConnectedDrive",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบเครื่องเสียง HiFi loudspeaker Harman Kardon",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM)",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ความปลอดภัย",
+                        "details": [
+                            {
+                                "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบ Teleservices",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบควบคุมการยึดเกาะถนน (DTC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบควบคุมแรงดันเบรกแบบแปรผัน (DBC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบติดตั้งคาร์ซีทแบบ ISOFIX",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบตรวจสอบวัดลมยาง",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ชุดปะยางฉุกเฉินรุ่น Plus",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "แพ็กเกจ",
+                        "details": [
+                            {
+                                "topic": "แพ็กเกจ M Sport",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "แพ็กเกจ M Sport Pro",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork",
+                        "details": [
+                            {
+                                "topic": "Black Sapphire Metallic",
+                                "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
+                            },
+                            {
+                                "topic": "Alpine White Solid",
+                                "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
+                            },
+                            {
+                                "topic": "Brooklyn Grey Metallic",
+                                "value": "Leather 'Veganza' - Veganza perforated | Coral Red/Black"
+                            },
+                            {
+                                "topic": "Portimao Blue Metallic",
+                                "value": "Leather 'Veganza' - Veganza perforated | Black"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "หมายเหตุ",
+                        "details": [
+                            {
+                                "topic": "¹ ระยะทางขึ้นอยู่กับพฤติกรรมการขับขี่ของแต่ละบุคคล ลักษณะเส้นทาง อุณหภูมิภายนอก และการควบคุมระบบปรับอากาศ",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "* รับสิทธิ์เลือกแพคเกจการรับประกันนานสูงสุด 5 ปี ไม่จำกัดระยะทาง และการบริการดูแลบำรุงรักษาสูงสุด 5 ปี หรือ 100,000 กม. (แล้วแต่ระยะใดถึงก่อน)",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ข้อมูลเอกสารอ้างอิง",
+                        "details": [
+                            {
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "22 มิถุนายน 2569"
+                            },
+                            {
+                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "value": "(ZKT)"
+                            }
+                        ]
+                    }
+                ],
+                "images": {
+                    "M Brooklyn Grey metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_M_Brooklyn_Grey_metallic.png",
+                    "Black Sapphire metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_Black_Sapphire_metallic.png",
+                    "M Portimao Blue metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_M_Portimao_Blue_metallic.png",
+                    "Alpine White solid": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_Alpine_White_solid.png"
+                }
+            }
+        ],
+        "source_file": "2-20260622-01_TH.pdf.asset.1782450623206.pdf",
+        "pdf_source": "2-20260622-01_TH.pdf.asset.1782450623206.pdf",
+        "extracted_by_models": [
+            "gemini-3.6-flash"
         ]
     }
 ]

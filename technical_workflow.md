@@ -32,6 +32,9 @@ The specsheet utilizes two main JSON files as its databases:
     "series": "BMW 7 SERIES",
     "source_file": "7-20250130-01_TH_WLTP.pdf.asset.1740723717847.pdf",
     "pdf_source": "7-20250130-01_TH_WLTP.pdf.asset.1740723717847.pdf",
+    "extracted_by_models": [
+      "gemini-3.6-flash"
+    ],
     "models": [
       {
         "model_name": "750e xDrive M Sport",
@@ -78,6 +81,7 @@ The daily pipeline runs autonomously via GitHub Actions.
 ### Stage 2: AI Specification Extractor (`batch_extractor.py` & `mineru_extractor.py`)
 - **API Key Pool:** Rotates between three Gemini API keys (`GEMINI_API_KEY_1`, `GEMINI_API_KEY_2`, `GEMINI_API_KEY_3`) loaded dynamically from `.env` to avoid rate limiting.
 - **Model Fallback Chain:** Primary model is **`gemini-3.6-flash`**, with **`gemini-3.5-flash`** and **`gemini-3.5-flash-lite`** as fallbacks.
+- **Model Logging:** The pipeline dynamically tracks which models were successfully utilized for each PDF segment in `models_used` and saves this information to the `"extracted_by_models"` array at the root of each brochure JSON structure. If multiple models are rotated due to rate limits during a single brochure extraction, all of them are recorded.
 - **Omit Deprecated Parameters:** Fully omits deprecated sampling parameters (like `temperature`, `top_p`, `top_k`) from the configuration block to prevent HTTP 400 Bad Request errors on Gemini 3.x endpoints.
 - **Grouping Segments:** Splits PDFs into segments of at most 5 pages and combines small adjacent tables up to ~7,000 characters per segment. This drastically minimizes API consumption.
 - **Standard vs. Conditional Categories:** The extraction prompt splits categories into:

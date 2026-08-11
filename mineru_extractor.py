@@ -786,6 +786,7 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
                     # Save final structured specsheet
                     merged_output["source_file"] = os.path.basename(pdf_path)
                     merged_output["pdf_source"] = os.path.basename(pdf_path)
+                    merged_output["extracted_by_models"] = [current_model]
                     
                     # Run Python post-processing
                     merged_output = post_process_extracted_json(merged_output, pdf_path, lang_code)
@@ -831,6 +832,7 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
     
     # Step 3: Run OCR Correction pipeline using Gemini API Key Pooling & Fallback Models
     extracted_segments = []
+    models_used = []
     key_idx = 0
     model_pool = [MODEL_NAME, "gemini-3.5-flash", "gemini-3.6-flash-lite", "gemini-3.5-flash-lite"]
     model_idx = 0
@@ -891,6 +893,8 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
                     if isinstance(segment_json, list) and len(segment_json) > 0 and isinstance(segment_json[0], dict):
                         segment_json = segment_json[0]
                     extracted_segments.append(segment_json)
+                    if current_model not in models_used:
+                        models_used.append(current_model)
                     print(f"      -> Segment {i+1} OCR Correction OK.")
                     success = True
                 except Exception as e:
@@ -963,6 +967,7 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
     # Add source file metadata to prevent merging with different PDF files
     merged_output["source_file"] = os.path.basename(pdf_path)
     merged_output["pdf_source"] = os.path.basename(pdf_path)
+    merged_output["extracted_by_models"] = models_used
     
     # Run Python post-processing
     merged_output = post_process_extracted_json(merged_output, pdf_path, lang_code)
