@@ -109,6 +109,7 @@ Your task is to take a pre-extracted Markdown/HTML specification table from a BM
      * สำหรับตารางแรกสุดด้านบน (เช่น 530e Inspiring): ห้ามมองข้ามหรือข้ามบรรทัดแรกๆ เด็ดขาด (เช่น แถว Black Sapphire Metallic และ Mineral White Metallic จะต้องถูกเช็คสัญลักษณ์สี่เหลี่ยมและดึงสเปกสีเบาะออกมาด้วย ห้ามใส่เป็น "-" หากมีสัญลักษณ์ปรากฏ)
 6. **(สำคัญมาก) สำหรับตารางอุปกรณ์มาตรฐานและตารางสเปกหลัก (ชื่อหัวข้อที่ยาวจนขึ้นบรรทัดใหม่):**
    - หากหัวข้อของตารางมีความยาวจนขึ้นบรรทัดใหม่ (เช่น บรรทัดแรกเขียนว่า 'ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins' และบรรทัดสองเขียนว่า 'Diamond') คุณต้องรวมข้อความเข้าด้วยกันเป็นหัวข้อเดียวใน JSON (เช่น 'ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins Diamond')
+   - **การตรวจสอบเส้นตารางแบ่งแถว (Horizontal Grid Lines):** ให้สังเกตเส้นตารางแนวนอนที่เป็นตัวแบ่งแถวเป็นหลัก หากไม่มีเส้นตารางคั่นระหว่างบรรทัดข้อความเหล่านั้น ให้ถือว่าเป็นช่องตารางแถวเดียวกันและต้องนำข้อความทั้งหมดมารวมกันเป็นหัวข้อเดียวใน JSON เสมอ ห้ามแยกเป็นคนละแถวโดยเด็ดขาด (ตัวอย่างเช่น ข้อความ Carbon Fibre, ถักด้วยวัสดุสีเงินแบบ M, และ คอนโซลกลางสีดำเงาแบบ Piano Finish Black ที่เรียงต่อกันโดยไม่มีเส้นคั่น ต้องรวมเป็นแถวเดียว)
    - **การตรวจสอบเครื่องหมายคู่ตาราง:** ให้ระมัดระวังเป็นพิเศษหากสัญลักษณ์สี่เหลี่ยมดำ (■) ถูกพิมพ์อยู่เยื้องลงมาในระดับบรรทัดที่สอง (เช่น ตรงกับคำว่า 'Diamond') คุณต้องจับคู่สัญลักษณ์นี้เข้ากับหัวข้อหลักนั้น ห้ามนำไปสับสนหรือคิดว่าเป็นสัญลักษณ์ของแถวบน (เช่น Harman Kardon) หรือแถวล่างเด็ดขาด
    - **ห้ามลอกเลียนแบบหรือใส่เครื่องหมายในช่องว่าง:** หากช่องใดในตารางเป็นช่องว่างเปล่า (ไม่มีเครื่องหมาย ■) ให้ระบุเป็น "-" เท่านั้น ห้ามนำสัญลักษณ์ (■) จากแถวอื่นที่อยู่ใกล้เคียงมาใส่เด็ดขาด ตัวอย่างเช่น ในรุ่น **BMW XM (XM 50e และ XM 50e (Shadow Line))**:
      * แถว 'ระบบเครื่องเสียงรอบทิศทาง Harman Kardon' มีเครื่องหมาย (■) เฉพาะในคอลัมน์ที่ 1 (XM 50e) เท่านั้น ส่วนคอลัมน์ที่ 2 (XM 50e (Shadow Line)) เป็นช่องว่างเปล่า คุณต้องระบุรุ่นแรกเป็น "■" และรุ่นที่สองเป็น "-" เท่านั้น
@@ -194,6 +195,7 @@ Strict rules to follow:
      5. If a row has no symbol in any column, specify "-". Do not just write "Yes" or skip the row.
 6. **(Very Important) Multi-line row labels in standard equipment and specification tables:**
    - If a row topic is long and wraps onto a second line, join them into a single topic in your JSON output.
+   - **Checking row grid lines:** Look at the horizontal grid lines (divider lines) in the table. If there are no horizontal divider lines separating lines of text, they belong to the SAME cell/row and must be joined into a single topic. Do not split them. (e.g. if 'Carbon Fibre...', 'with silver stitching...', and 'Piano Finish Black' are listed together without horizontal divider lines between them, they must be combined into one single topic).
    - **Aligning option symbols:** Pay extra attention if the black square symbol (■) is vertically placed on the second line of the wrapped text. You must correctly associate this symbol with the joined row topic.
    - **Never copy symbols to blank cells:** If a cell is blank (no symbol) for a model, specify "-". Do not copy symbols (■) from adjacent rows or columns.
 7. **(Very Important) Footer Information and Footnotes:**
