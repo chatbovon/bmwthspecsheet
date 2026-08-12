@@ -119,6 +119,16 @@ The daily pipeline runs autonomously via GitHub Actions.
 - Parses `scratch/scraper_warnings.json` to extract any scraper cards matched with `Score < 80`.
 - Compiles a complete markdown status report into `report.md`.
 
+### Stage 7: Daily Email Notification Report (`send_daily_report.py`)
+- Compiles and sends a daily HTML monitoring report to a Google Apps Script (GAS) Web App via HTTP POST.
+- The report includes:
+  - **Brochure PDF Updates:** Newly added or discontinued brochures detected in the workspace.
+  - **Missing Option Color Images:** List of normal series models (excluding M High-Performance/M Performance models) that have missing color images on disk.
+  - **Cross-DB Alignment Discrepancies:** Details on category count, topic count, and checkmark option value conflicts between TH and EN master specsheets.
+  - **API Key & System Status:** Health check reports for all 3 Gemini keys and MinerU token configuration.
+  - **Manual Overrides Statistics:** Number of active override rules in [`manual_overrides.json`](file:///c:/Ddrive/BMW/Web%20interaction/BMW_Dynamic_Specsheet/manual_overrides.json) and source brochures corrected.
+  - **Alignment Health Score:** Overall percentage representing structural TH/EN specsheet parity.
+
 ---
 
 ## 🖥️ 3. Frontend Web Architecture

@@ -77,14 +77,17 @@ jobs:
       run: |
         python scratch/generate_report.py
 
-    - name: Create GitHub Issue (Email Notification)
+    - name: Send Daily Email Report (via GAS Web App)
       continue-on-error: true
       env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}
+        GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
+        GEMINI_API_KEY_3: ${{ secrets.GEMINI_API_KEY_3 }}
+        MINERU_API_TOKEN: ${{ secrets.MINERU_API_TOKEN }}
+        GAS_WEBAPP_URL: ${{ secrets.GAS_WEBAPP_URL }}
+        GAS_SECRET_TOKEN: ${{ secrets.GAS_SECRET_TOKEN }}
       run: |
-        if [ -f report.md ]; then
-          gh issue create --title "BMW Auto-Update Report - $(date +'%Y-%m-%d')" --body-file report.md
-        fi
+        python send_daily_report.py
 
     - name: Commit and Push changes
       run: |
