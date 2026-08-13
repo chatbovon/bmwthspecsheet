@@ -20,11 +20,11 @@
                             "value": "250"
                         },
                         {
-                            "topic": "Electric range¹ , NEDC (km)",
+                            "topic": "Electric range¹, NEDC (km)",
                             "value": "464"
                         },
                         {
-                            "topic": "Electric range¹ , WLTP (km)",
+                            "topic": "Electric range¹, WLTP (km)",
                             "value": "402 - 433"
                         },
                         {
@@ -136,7 +136,7 @@
                     ]
                 },
                 {
-                    "category": "Transmission and technology",
+                    "category": "Drivetrain and Technology",
                     "details": [
                         {
                             "topic": "Automatic transmission",
@@ -161,7 +161,7 @@
                     ]
                 },
                 {
-                    "category": "Exterior",
+                    "category": "Exterior Equipment",
                     "details": [
                         {
                             "topic": "Adaptive LED headlights",
@@ -198,7 +198,7 @@
                     ]
                 },
                 {
-                    "category": "Interior",
+                    "category": "Interior Equipment",
                     "details": [
                         {
                             "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
@@ -235,7 +235,7 @@
                     ]
                 },
                 {
-                    "category": "Entertainment and communication",
+                    "category": "Entertainment and Communication",
                     "details": [
                         {
                             "topic": "BMW Live Cockpit Plus",
