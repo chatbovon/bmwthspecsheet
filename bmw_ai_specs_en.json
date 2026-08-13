@@ -20,11 +20,11 @@
                             "value": "250"
                         },
                         {
-                            "topic": "Electric range¹, NEDC (km)",
+                            "topic": "Electric range¹ , NEDC (km)",
                             "value": "464"
                         },
                         {
-                            "topic": "Electric range¹, WLTP (km)",
+                            "topic": "Electric range¹ , WLTP (km)",
                             "value": "402 - 433"
                         },
                         {
@@ -136,7 +136,7 @@
                     ]
                 },
                 {
-                    "category": "Drivetrain and Technology",
+                    "category": "Transmission and technology",
                     "details": [
                         {
                             "topic": "Automatic transmission",
@@ -161,7 +161,7 @@
                     ]
                 },
                 {
-                    "category": "Exterior Equipment",
+                    "category": "Exterior",
                     "details": [
                         {
                             "topic": "Adaptive LED headlights",
@@ -198,7 +198,7 @@
                     ]
                 },
                 {
-                    "category": "Interior Equipment",
+                    "category": "Interior",
                     "details": [
                         {
                             "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
@@ -235,7 +235,7 @@
                     ]
                 },
                 {
-                    "category": "Entertainment and Communication",
+                    "category": "Entertainment and communication",
                     "details": [
                         {
                             "topic": "BMW Live Cockpit Plus",
@@ -357,7 +357,7 @@
                     ]
                 },
                 {
-                    "category": "Line / Package",
+                    "category": "Line / package",
                     "details": [
                         {
                             "topic": "M Sport package",
@@ -386,11 +386,11 @@
                     "category": "Notes",
                     "details": [
                         {
-                            "topic": "Range dependent on various factors. In particular: personal driving style, route characteristics, exterior temperature, heating / air conditioning, pre-conditioning.",
+                            "topic": "1 Range dependent on various factors. In particular: personal driving style, route characteristics, exterior temperature, heating / air conditioning, pre-conditioning.",
                             "value": "■"
                         },
                         {
-                            "topic": "The privilege of purchasing package up to 6 years unlimited mileage warranty and 6 years unlimited mileage of maintenance and 8 years high-voltage battery and its units warranty or 160,000 km. (whichever comes first). Service Interval are due every 24 months.",
+                            "topic": "* The privilege of purchasing package up to 6 years unlimited mileage warranty and 6 years unlimited mileage of maintenance and 8 years high-voltage battery and its units warranty or 160,000 km. (whichever comes first). Service Interval are due every 24 months.",
                             "value": "■"
                         }
                     ]
