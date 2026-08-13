@@ -5773,10 +5773,9 @@
                     }
                 ],
                 "images": {
-                    "M Portimao Blue metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/BMW_320Li_M_Sport_M_Portimao_Blue_metallic.png",
-                    "M Brooklyn Grey metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/BMW_320Li_M_Sport_M_Brooklyn_Grey_metallic.png",
-                    "Black Sapphire metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/BMW_320Li_M_Sport_Black_Sapphire_metallic.png",
-                    "Mineral White metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/BMW_320Li_M_Sport_Mineral_White_metallic.png"
+                    "M Brooklyn Grey metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/bmw_320li_m_sport_m_brooklyn_grey_metallic.png",
+                    "M Carbon Black metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/bmw_320li_m_sport_m_carbon_black_metallic.png",
+                    "Mineral White metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/bmw_320li_m_sport_mineral_white_metallic.png"
                 }
             }
         ],

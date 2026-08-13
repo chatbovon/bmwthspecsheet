@@ -53,6 +53,11 @@ SCRAPE_CONFIGS = {
     "530e M Sport": {
         "engine_keyword": "530e M Sport",
         "model_key_name": "BMW_530e_M_Sport"
+    },
+    "320Li M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G28/38FHZ7T",
+        "engine_keyword": "320Li",
+        "model_key_name": "BMW_320Li_M_Sport"
     }
 }
 
