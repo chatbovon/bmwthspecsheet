@@ -64,6 +64,25 @@ def audit_pdf_changes():
         
     return added_pdfs, removed_pdfs
 
+# Helper to normalize color names for comparison (matching index.html resolveImagePath)
+def normalize_color(name):
+    if not name:
+        return ""
+    n = name.lower().strip()
+    n = n.replace("metallic", "").strip()
+    # Strip leading "m " (case insensitive)
+    n = re.sub(r"^m\s+", "", n)
+    # Strip all whitespace
+    n = re.sub(r"\s+", "", n)
+    return n
+
+def find_matching_image(opt_name, images_dict):
+    target = normalize_color(opt_name)
+    for key, path in images_dict.items():
+        if normalize_color(key) == target:
+            return path
+    return None
+
 # 2. Audit Missing Images (Non-M)
 def audit_missing_images(th_data):
     missing_images_report = {}
@@ -86,7 +105,8 @@ def audit_missing_images(th_data):
                 if "Paintwork" in cat_name or "สีตัวถัง" in cat_name:
                     for detail in cat.get("details", []):
                         opt_name = detail.get("topic")
-                        if opt_name:
+                        opt_val = (detail.get("value") or "").strip()
+                        if opt_name and opt_val != "-":
                             paint_options.append(opt_name)
                             
             missing_for_model = []
@@ -94,7 +114,7 @@ def audit_missing_images(th_data):
                 missing_for_model.append("Missing entirely (no image dictionary)")
             else:
                 for opt in paint_options:
-                    img_path = images_dict.get(opt)
+                    img_path = find_matching_image(opt, images_dict)
                     if not img_path:
                         missing_for_model.append(f"No image path mapped for color: '{opt}'")
                     else:
