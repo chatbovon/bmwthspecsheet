@@ -79,7 +79,8 @@ def normalize_color(name):
 def find_matching_image(opt_name, images_dict):
     target = normalize_color(opt_name)
     for key, path in images_dict.items():
-        if normalize_color(key) == target:
+        k = normalize_color(key)
+        if target == k or target in k or k in target:
             return path
     return None
 
