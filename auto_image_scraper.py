@@ -453,6 +453,23 @@ async def scrape_model_paintworks(page, config, model_name):
     if not engine_ok:
         print(f"  [ERROR] Engine keyword '{engine_keyword}' could not be selected. Skipping.")
         return {}
+        
+    # Validate model name on the top-left of the screen (e.g. h4.model-name)
+    try:
+        model_name_locator = page.locator("h4.model-name")
+        if await model_name_locator.count() > 0:
+            header_text = await model_name_locator.first.inner_text()
+            header_text_clean = header_text.strip().lower()
+            target_lower = engine_keyword.lower()
+            if target_lower not in header_text_clean and header_text_clean not in target_lower:
+                print(f"  [ERROR] Model validation failed! Configurator header shows '{header_text}', but expected '{engine_keyword}'. Aborting.")
+                return {}
+            else:
+                print(f"  [VALIDATION] Confirmed model header matches: '{header_text}' (Target: '{engine_keyword}')")
+        else:
+            print("  [VALIDATION] [WARNING] Could not locate 'h4.model-name' header on screen. Proceeding with caution.")
+    except Exception as e:
+        print(f"  [VALIDATION] [WARNING] Error checking model header element: {e}. Proceeding.")
     
     # Click Paint tab
     print("  [NAV] Clicking 'สี' (Paint) tab...")
