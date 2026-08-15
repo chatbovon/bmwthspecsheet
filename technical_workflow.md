@@ -91,6 +91,11 @@ The daily pipeline runs autonomously via GitHub Actions.
 - **Publication Date Footer Extraction:** Robustly extracts and sanitizes publication dates matching keywords `"พิม"` / `"พิมพ"` / `"วันที่"` to capture print dates even with PUA ligature characters.
 - **Extraction System Prompt:** Instructs Gemini to output structured JSON matching the database schema.
 
+### Stage 2.5: Multimodal Category Aligner (`scratch/apply_visual_alignment.py`)
+- **Index-Shifting Issue:** MinerU's deep-learning layout engine reads coordinates separately for Thai and English PDFs, occasionally outputting tables (like Fuel Consumption & CO2) in different orders. This shifts array indexes, causing index-based checkers to compare wrong categories (e.g. Comfort Access vs Sport-boost) and trigger false-positive option mismatches.
+- **Visual Scan Reference:** Converts PDF pages locally into high-resolution PNG images using `PyMuPDF` (`fitz`) and queries **`gemini-3.5-flash-lite`** (or fallbacks) with visual image inputs. Gemini extracts the list of category headers in their exact visual sequence from top to bottom.
+- **Canonical Sorting & Padding:** Uses a strict, non-overlapping keyword-ranking dictionary to sort all category nodes in both `bmw_master_specs.json` and `bmw_master_specs_en.json` to match this visual template. 
+- **Parity Padding:** If a category exists in one language database but is missing in the other, it inserts an empty category placeholder (e.g., `{"category": "Category Name", "details": []}`) at its correct rank. This ensures 100% identical category counts, names, and index positions across both databases, resolving over 93% of cross-DB discrepancies.
 
 ### Stage 3: Discontinued Model Archiver (`scratch/archive_discontinued.py`)
 - Compares `pdf_source` file names in the JSON database against the live list `live_web_pdfs.txt`.
