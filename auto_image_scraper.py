@@ -13,31 +13,26 @@ import difflib
 # Configurator specifications for our targeted test models
 SCRAPE_CONFIGS = {
     "420i Coupé M Sport": {
-        "base_url": "https://configure.bmw.co.th/th_TH/configure/G22/12HBZ0Y",
         "engine_keyword": "420i",
         "image_dir": "images/4series_images",
         "model_key_name": "BMW_420i_Coupe_M_Sport"
     },
     "430i Coupé M Sport": {
-        "base_url": "https://configure.bmw.co.th/th_TH/configure/G22/12HBZ0Y",
         "engine_keyword": "430i",
         "image_dir": "images/4series_images",
         "model_key_name": "BMW_430i_Coupe_M_Sport"
     },
     "M440i xDrive": {
-        "base_url": "https://configure.bmw.co.th/th_TH/configure/G22/72HBZ0V",
         "engine_keyword": "M440i",
         "image_dir": "images/4series_images",
         "model_key_name": "BMW_M440i_xDrive"
     },
     "XM 50e": {
-        "base_url": "https://configure.bmw.co.th/th_TH/configure/G09/12CSZ4J",
         "engine_keyword": "XM 50e",
         "image_dir": "images/xm_images",
         "model_key_name": "BMW_XM_50e"
     },
     "XM 50e (Shadow Line)": {
-        "base_url": "https://configure.bmw.co.th/th_TH/configure/G09/12CSZ4J",
         "engine_keyword": "Shadow Line",
         "image_dir": "images/xm_images",
         "model_key_name": "BMW_XM_50e_Shadow_Line"
