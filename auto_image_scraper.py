@@ -27,16 +27,6 @@ SCRAPE_CONFIGS = {
         "image_dir": "images/4series_images",
         "model_key_name": "BMW_M440i_xDrive"
     },
-    "XM 50e": {
-        "engine_keyword": "XM 50e",
-        "image_dir": "images/xm_images",
-        "model_key_name": "BMW_XM_50e"
-    },
-    "XM 50e (Shadow Line)": {
-        "engine_keyword": "Shadow Line",
-        "image_dir": "images/xm_images",
-        "model_key_name": "BMW_XM_50e_Shadow_Line"
-    },
     "X3 20d xDrive M Sport Pro": {
         "engine_keyword": "20d",
         "model_key_name": "BMW_X3_20d_xDrive_M_Sport_Pro"
