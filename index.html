@@ -1224,31 +1224,6 @@
         });
     }
 
-    function getFamilyGroup(seriesName) {
-        if (!seriesName) return "";
-        let name = seriesName.trim().toUpperCase();
-        if (name.startsWith("BMW ")) {
-            name = name.substring(4).trim();
-        }
-        
-        if (name.includes("3 SERIES") || name === "M3") return "BMW 3 Series / M3";
-        if (name.includes("5 SERIES") || name === "I5" || name === "M5") return "BMW 5 Series / i5 / M5";
-        if (name.includes("7 SERIES") || name === "I7") return "BMW 7 Series / i7";
-        if (name.includes("X1") || name === "IX1") return "BMW X1 / iX1";
-        if (name.includes("X2") || name === "IX2") return "BMW X2 / iX2";
-        if (name.includes("X3") || name === "IX3") return "BMW X3 / iX3";
-        if (name.includes("X4")) return "BMW X4";
-        if (name.includes("X5")) return "BMW X5";
-        if (name.includes("X6")) return "BMW X6";
-        if (name.includes("X7")) return "BMW X7";
-        if (name === "XM") return "BMW XM";
-        if (name.includes("Z4")) return "BMW Z4";
-        if (name.includes("2 SERIES") || name === "M2") return "BMW 2 Series / M2";
-        if (name.includes("4 SERIES") || name === "M4") return "BMW 4 Series / M4";
-        if (name === "IX") return "BMW iX";
-        return seriesName;
-    }
-
     function initializeData(data) {
         const trans = TRANSLATIONS[currentLang];
         
@@ -1263,24 +1238,7 @@
             };
         }).filter(series => series.models.length > 0);
         
-        // Group series by family platform
-        const grouped = {};
-        parsedData.forEach(series => {
-            const family = getFamilyGroup(series.series);
-            if (!grouped[family]) {
-                grouped[family] = {
-                    series: family,
-                    models: []
-                };
-            }
-            series.models.forEach(m => {
-                if (!grouped[family].models.some(existing => existing.model_name === m.model_name)) {
-                    grouped[family].models.push(m);
-                }
-            });
-        });
-        
-        allSeriesData = sortSeriesData(Object.values(grouped));
+        allSeriesData = sortSeriesData(parsedData);
 
         const seriesSelect = document.getElementById('seriesSelect');
         seriesSelect.innerHTML = '';
