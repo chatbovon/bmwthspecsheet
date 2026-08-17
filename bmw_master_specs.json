@@ -10239,817 +10239,6 @@
         ]
     },
     {
-        "series": "BMW X4",
-        "models": [
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "specifications": [
-                    {
-                        "category": "เครื่องยนต์และสมรรถนะ",
-                        "details": [
-                            {
-                                "topic": "ชนิดเครื่องยนต์",
-                                "value": "เครื่องยนต์ดีเซล 4 สูบ เทคโนโลยี BMW TwinPower Turbo"
-                            },
-                            {
-                                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)",
-                                "value": "1,995"
-                            },
-                            {
-                                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
-                                "value": "140 / 190 / 4,000"
-                            },
-                            {
-                                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)",
-                                "value": "400 / 1,750 - 2,500"
-                            },
-                            {
-                                "topic": "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)",
-                                "value": "213"
-                            },
-                            {
-                                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)",
-                                "value": "8.0"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
-                        "details": [
-                            {
-                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
-                                "value": "17.9"
-                            },
-                            {
-                                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
-                                "value": "146"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ล้อและยาง",
-                        "details": [
-                            {
-                                "topic": "ล้อ",
-                                "value": "ล้ออัลลอย M ขนาด 20 นิ้ว ลาย Double-spoke"
-                            },
-                            {
-                                "topic": "ขนาดยาง",
-                                "value": "ล้อหน้า: 8 J x 20 / ยาง 245/45 R20ล้อหลัง: 9.5 J x 20 / ยาง 275/40 R20"
-                            },
-                            {
-                                "topic": "ยาง Runflat",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "มิติรถยนต์",
-                        "details": [
-                            {
-                                "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)",
-                                "value": "4,751 / 1,918 / 1,621"
-                            },
-                            {
-                                "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
-                                "value": "525 - 1,430"
-                            },
-                            {
-                                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
-                                "value": "1,815"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ระบบขับเคลื่อนและเทคโนโลยี",
-                        "details": [
-                            {
-                                "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ Steptronic พร้อม Gearshift Paddles",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ช่วงล่าง Adaptive",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบควบคุมความเร็วคงที่ พร้อมฟังก์ชันช่วยลดความเร็ว (Cruise Control with braking function)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบช่วยการขับขี่ (Driving Assistant)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบขับเคลื่อนอัจฉริยะ 4 ล้อ xDrive",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบควบคุมการขับขี่ขณะเข้าโค้ง (Performance Control)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบ BMW Head-up Display",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus)",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "อุปกรณ์ภายนอก",
-                        "details": [
-                            {
-                                "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "โคมไฟหน้าตกแต่งสีดำ (BMW Individual Lights - Shadow Line)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "คลิปเปอร์เบรกดีไซน์ M Sport",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "หลังคากระจก Panorama เปิด-ปิดด้วยระบบไฟฟ้า",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ชุดตกแต่ง M Aerodynamics",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ภายนอกตกแต่งด้วยวัสดุสีดำเงา",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ราวหลังคาสีดำเงา",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "อุปกรณ์ภายใน",
-                        "details": [
-                            {
-                                "topic": "กระจกมองหลังตัดแสงอัตโนมัติ",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "กระจกมองข้างและกระจกมองหลังตัดแสงอัตโนมัติ",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "พนักพิงหลังปรับความกว้างได้",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "เบาะนั่งตอนหน้าดีไซน์ Sport",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "พวงมาลัยหุ้มหนังดีไซน์ M Sport",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "คอนโซลด้านบนบุด้วยหนัง Sensatec",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "เพดานหลังคาภายในสี Anthracite",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ภายในตกแต่งดีไซน์ M ด้วยวัสดุ Carbon Fibre",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบปรับอากาศอัตโนมัติแบบ 3 โซน",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ฟังก์ชันช่วยการจัดเก็บสัมภาระ",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ระบบความบันเทิงและการสื่อสาร",
-                        "details": [
-                            {
-                                "topic": "BMW Live Cockpit Professional",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบ BMW ConnectedDrive",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ฟังก์ชันสั่งงานระบบ iDrive ด้วยการเคลื่อนไหวมือ (BMW Gesture Control)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบเครื่องเสียงรอบทิศทาง Harman Kardon",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบเชื่อมต่อ Smartphone",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ความปลอดภัย",
-                        "details": [
-                            {
-                                "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบ Teleservices",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบควบคุมการยึดเกาะถนน (DTC)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบป้องกันการกระแทกจากด้านข้าง (Side Impact Protection)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบ Active Protection",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบเตือนสถานะของยาง (Runflat Indicator)",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "ระบบปกป้องคนเดินถนนเมื่อเกิดอุบัติเหตุ",
-                                "value": "■"
-                            },
-                            {
-                                "topic": "กล้องแสดงภาพรอบทิศทาง (Surround View Camera)",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ชุดตกแต่งพิเศษ",
-                        "details": [
-                            {
-                                "topic": "ชุดตกแต่ง M Sport",
-                                "value": "■"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "Paintwork / สีตัวถังและวัสดุภายใน",
-                        "details": [
-                            {
-                                "topic": "Alpine White Solid",
-                                "value": "Leather 'Vernasca' - Tacora Red decor stitching"
-                            },
-                            {
-                                "topic": "Black Sapphire Metallic",
-                                "value": "Leather 'Vernasca' - Tacora Red decor stitching"
-                            },
-                            {
-                                "topic": "Brooklyn Grey Metallic",
-                                "value": "Leather 'Vernasca' - Tacora Red decor stitching"
-                            },
-                            {
-                                "topic": "Phytonic Blue Metallic",
-                                "value": "Leather 'Vernasca' - Black decor stitching"
-                            },
-                            {
-                                "topic": "Piemont Red Metallic",
-                                "value": "Leather 'Vernasca' - Black decor stitching"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "ข้อมูลเอกสารอ้างอิง",
-                        "details": [
-                            {
-                                "topic": "วันที่พิมพ์เอกสาร",
-                                "value": "15 มกราคม 2568"
-                            },
-                            {
-                                "topic": "รหัสแพ็กเกจ (Local Pack)",
-                                "value": "(ZCT, Z2C, Z2D, ZEX, ZFS, ZIK, Z3Y, Z5D, Z8T)"
-                            }
-                        ]
-                    },
-                    {
-                        "category": "หมายเหตุ",
-                        "details": []
-                    }
-                ],
-                "is_custom_archived": false,
-                "images": {
-                    "Alpine White Solid": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_alpine_white_solid.png",
-                    "Black Sapphire Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_black_sapphire_metallic.png",
-                    "Brooklyn Grey Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_brooklyn_grey_metallic.png",
-                    "Phytonic Blue Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_phytonic_blue_metallic.png",
-                    "Piemont Red Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_piemont_red_metallic.png"
-                }
-            }
-        ],
-        "source_file": "X4-20240418-01_TH.pdf.asset.1758627513274.pdf",
-        "pdf_source": "X4-20240418-01_TH.pdf.asset.1758627513274.pdf",
-        "low_confidence_flags": [
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Engine and Performance",
-                "topic": "ชนิดเครื่องยนต์ / Engine type",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 1: English is 'Engine type' (mapped: 'engine type'), Thai is 'ชนิดเครื่องยนต์' (mapped: 'ชนิดเครื่องยนต์')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Engine and Performance",
-                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร) / Displacement (cm³)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 2: English is 'Displacement (cm³)' (mapped: 'displacement (cm³)'), Thai is 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)' (mapped: 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Engine and Performance",
-                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที) / Engine power (kW/hp/rpm)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 3: English is 'Engine power (kW/hp/rpm)' (mapped: 'engine power (kw/hp/rpm)'), Thai is 'กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' (mapped: 'max. output (kw/hp/rpm)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Engine and Performance",
-                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที) / Engine torque (Nm/rpm)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 4: English is 'Engine torque (Nm/rpm)' (mapped: 'engine torque (nm/rpm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' (mapped: 'max. torque (nm/rpm)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Engine and Performance",
-                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) / 0 - 100 km/h (s)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 6: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)' (mapped: 'acceleration 0 - 100 km/h (s)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Fuel Consumption and CO2 Emission",
-                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร) / Combined fuel consumption from ECO Sticker result (km/l)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Fuel Consumption and CO2 Emission' at position 1: English is 'Combined fuel consumption from ECO Sticker result (km/l)' (mapped: 'combined fuel consumption from eco sticker result (km/l)'), Thai is 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)' (mapped: 'fuel consumption combined (km/l)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Fuel Consumption and CO2 Emission",
-                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร) / Combined CO2 (g/km)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Fuel Consumption and CO2 Emission' at position 2: English is 'Combined CO2 (g/km)' (mapped: 'combined co2 (g/km)'), Thai is 'ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)' (mapped: 'co2 emission combined (g/km)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Wheels and Tyres",
-                "topic": "ล้อ / Light alloy wheels",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Wheels and Tyres' at position 1: English is 'Light alloy wheels' (mapped: 'light alloy wheels'), Thai is 'ล้อ' (mapped: 'ล้อ')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Wheels and Tyres",
-                "topic": "ยาง Runflat / Runflat tyres",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Wheels and Tyres' at position 3: English is 'Runflat tyres' (mapped: 'runflat tyres'), Thai is 'ยาง Runflat' (mapped: 'ยาง runflat')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Dimension",
-                "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร) / Length / width / height (mm)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 1: English is 'Length / width / height (mm)' (mapped: 'length / width / height (mm)'), Thai is 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)' (mapped: 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Dimension",
-                "topic": "ปริมาตรในการบรรจุของ (ลิตร) / Luggage capacity (l)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 2: English is 'Luggage capacity (l)' (mapped: 'luggage capacity (l)'), Thai is 'ปริมาตรในการบรรจุของ (ลิตร)' (mapped: 'ปริมาตรในการบรรจุของ (ลิตร)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Dimension",
-                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม) / Curb weight (kg)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 3: English is 'Curb weight (kg)' (mapped: 'curb weight (kg)'), Thai is 'น้ำหนักรถสุทธิ (กิโลกรัม)' (mapped: 'น้ำหนักรถสุทธิ (กิโลกรัม)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Drivetrain and Technology",
-                "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ Steptronic พร้อม Gearshift Paddles / 8-speed Steptronic transmission with gearshift paddles",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 1: English is '8-speed Steptronic transmission with gearshift paddles' (mapped: '8-speed steptronic transmission with gearshift paddles'), Thai is 'เกียร์อัตโนมัติ 8 จังหวะ แบบ Steptronic พร้อม Gearshift Paddles' (mapped: 'เกียร์อัตโนมัติ 8 จังหวะ แบบ steptronic พร้อม gearshift paddles')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Drivetrain and Technology",
-                "topic": "ช่วงล่าง Adaptive / Adaptive suspension",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 2: English is 'Adaptive suspension' (mapped: 'adaptive suspension'), Thai is 'ช่วงล่าง Adaptive' (mapped: 'ช่วงล่าง adaptive')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Drivetrain and Technology",
-                "topic": "ระบบควบคุมความเร็วคงที่ พร้อมฟังก์ชันช่วยลดความเร็ว (Cruise Control with braking function) / Cruise control with braking function",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 3: English is 'Cruise control with braking function' (mapped: 'cruise control with braking function'), Thai is 'ระบบควบคุมความเร็วคงที่ พร้อมฟังก์ชันช่วยลดความเร็ว (Cruise Control with braking function)' (mapped: 'ระบบควบคุมความเร็วคงที่ พร้อมฟังก์ชันช่วยลดความเร็ว (cruise control with braking function)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Drivetrain and Technology",
-                "topic": "ระบบช่วยการขับขี่ (Driving Assistant) / Driving Assistant",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 4: English is 'Driving Assistant' (mapped: 'driving assistant'), Thai is 'ระบบช่วยการขับขี่ (Driving Assistant)' (mapped: 'ระบบช่วยการขับขี่ (driving assistant)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Drivetrain and Technology",
-                "topic": "ระบบขับเคลื่อนอัจฉริยะ 4 ล้อ xDrive / xDrive",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 5: English is 'xDrive' (mapped: 'xdrive'), Thai is 'ระบบขับเคลื่อนอัจฉริยะ 4 ล้อ xDrive' (mapped: 'ระบบขับเคลื่อนอัจฉริยะ 4 ล้อ xdrive')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Drivetrain and Technology",
-                "topic": "ระบบควบคุมการขับขี่ขณะเข้าโค้ง (Performance Control) / Performance Control",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 6: English is 'Performance Control' (mapped: 'performance control'), Thai is 'ระบบควบคุมการขับขี่ขณะเข้าโค้ง (Performance Control)' (mapped: 'ระบบควบคุมการขับขี่ขณะเข้าโค้ง (performance control)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Drivetrain and Technology",
-                "topic": "ระบบ BMW Head-up Display / BMW Head-up display",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 7: English is 'BMW Head-up display' (mapped: 'bmw head-up display'), Thai is 'ระบบ BMW Head-up Display' (mapped: 'ระบบ bmw head-up display')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Drivetrain and Technology",
-                "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus) / Parking Assistant Plus",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Drivetrain and Technology' at position 8: English is 'Parking Assistant Plus' (mapped: 'parking assistant plus'), Thai is 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus)' (mapped: 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น plus (parking assistant plus)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Exterior Equipment",
-                "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED) / Adaptive LED headlights",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 1: English is 'Adaptive LED headlights' (mapped: 'adaptive led headlights'), Thai is 'ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)' (mapped: 'ระบบไฟหน้า led อัจฉริยะ (adaptive led)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Exterior Equipment",
-                "topic": "โคมไฟหน้าตกแต่งสีดำ (BMW Individual Lights - Shadow Line) / BMW Individual Lights Shadow Line",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 2: English is 'BMW Individual Lights Shadow Line' (mapped: 'bmw individual lights shadow line'), Thai is 'โคมไฟหน้าตกแต่งสีดำ (BMW Individual Lights - Shadow Line)' (mapped: 'โคมไฟหน้าตกแต่งสีดำ (bmw individual lights - shadow line)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Exterior Equipment",
-                "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant) / High-beam assistant",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 3: English is 'High-beam assistant' (mapped: 'high-beam assistant'), Thai is 'ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)' (mapped: 'ระบบปรับการทำงานไฟสูงอัตโนมัติ (high-beam assistant)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Exterior Equipment",
-                "topic": "คลิปเปอร์เบรกดีไซน์ M Sport / M Sport brake",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 4: English is 'M Sport brake' (mapped: 'm sport brake'), Thai is 'คลิปเปอร์เบรกดีไซน์ M Sport' (mapped: 'คลิปเปอร์เบรกดีไซน์ m sport')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Exterior Equipment",
-                "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System) / Comfort access system",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 5: English is 'Comfort access system' (mapped: 'comfort access system'), Thai is 'ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)' (mapped: 'ระบบปลดล็อกประตูอัจฉริยะ (comfort access system)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Exterior Equipment",
-                "topic": "หลังคากระจก Panorama เปิด-ปิดด้วยระบบไฟฟ้า / Panorama glass roof",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 6: English is 'Panorama glass roof' (mapped: 'panorama glass roof'), Thai is 'หลังคากระจก Panorama เปิด-ปิดด้วยระบบไฟฟ้า' (mapped: 'หลังคากระจก panorama เปิด-ปิดด้วยระบบไฟฟ้า')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Exterior Equipment",
-                "topic": "ชุดตกแต่ง M Aerodynamics / M Aerodynamics package",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 7: English is 'M Aerodynamics package' (mapped: 'm aerodynamics package'), Thai is 'ชุดตกแต่ง M Aerodynamics' (mapped: 'ชุดตกแต่ง m aerodynamics')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Exterior Equipment",
-                "topic": "ภายนอกตกแต่งด้วยวัสดุสีดำเงา / BMW Individual high-gloss Shadow Line",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 8: English is 'BMW Individual high-gloss Shadow Line' (mapped: 'bmw individual high-gloss shadow line'), Thai is 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา' (mapped: 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Exterior Equipment",
-                "topic": "ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา / BMW Individual high-gloss Shadow Line with extended contents",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 9: English is 'BMW Individual high-gloss Shadow Line with extended contents' (mapped: 'bmw individual high-gloss shadow line with extended contents'), Thai is 'ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา' (mapped: 'ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Exterior Equipment",
-                "topic": "ราวหลังคาสีดำเงา / BMW Individual roof rails high-gloss Shadow Line",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 10: English is 'BMW Individual roof rails high-gloss Shadow Line' (mapped: 'bmw individual roof rails high-gloss shadow line'), Thai is 'ราวหลังคาสีดำเงา' (mapped: 'ราวหลังคาสีดำเงา')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Interior Equipment",
-                "topic": "กระจกมองหลังตัดแสงอัตโนมัติ / Interior rear-view mirror with automatic anti-dazzle function",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 1: English is 'Interior rear-view mirror with automatic anti-dazzle function' (mapped: 'interior rear-view mirror with automatic anti-dazzle function'), Thai is 'กระจกมองหลังตัดแสงอัตโนมัติ' (mapped: 'กระจกมองหลังตัดแสงอัตโนมัติ')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Interior Equipment",
-                "topic": "กระจกมองข้างและกระจกมองหลังตัดแสงอัตโนมัติ / Interior and exterior mirrors with automatic anti-dazzle function",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 2: English is 'Interior and exterior mirrors with automatic anti-dazzle function' (mapped: 'interior and exterior mirrors with automatic anti-dazzle function'), Thai is 'กระจกมองข้างและกระจกมองหลังตัดแสงอัตโนมัติ' (mapped: 'กระจกมองข้างและกระจกมองหลังตัดแสงอัตโนมัติ')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Interior Equipment",
-                "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ / Seat adjustment, electric, with memory",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 3: English is 'Seat adjustment, electric, with memory' (mapped: 'seat adjustment, electric, with memory'), Thai is 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ' (mapped: 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Interior Equipment",
-                "topic": "พนักพิงหลังปรับความกว้างได้ / Seat backrest width adjustment",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 4: English is 'Seat backrest width adjustment' (mapped: 'seat backrest width adjustment'), Thai is 'พนักพิงหลังปรับความกว้างได้' (mapped: 'พนักพิงหลังปรับความกว้างได้')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Interior Equipment",
-                "topic": "เบาะนั่งตอนหน้าดีไซน์ Sport / Sport seats for driver and front passenger",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 5: English is 'Sport seats for driver and front passenger' (mapped: 'sport seats for driver and front passenger'), Thai is 'เบาะนั่งตอนหน้าดีไซน์ Sport' (mapped: 'เบาะนั่งตอนหน้าดีไซน์ sport')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Interior Equipment",
-                "topic": "พวงมาลัยหุ้มหนังดีไซน์ M Sport / M Sport leather steering wheel",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 6: English is 'M Sport leather steering wheel' (mapped: 'm sport leather steering wheel'), Thai is 'พวงมาลัยหุ้มหนังดีไซน์ M Sport' (mapped: 'พวงมาลัยหุ้มหนังดีไซน์ m sport')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Interior Equipment",
-                "topic": "คอนโซลด้านบนบุด้วยหนัง Sensatec / Instrument panel in Sensatec",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 7: English is 'Instrument panel in Sensatec' (mapped: 'instrument panel in sensatec'), Thai is 'คอนโซลด้านบนบุด้วยหนัง Sensatec' (mapped: 'คอนโซลด้านบนบุด้วยหนัง sensatec')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Interior Equipment",
-                "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light) / Ambient light",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 8: English is 'Ambient light' (mapped: 'ambient light'), Thai is 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)' (mapped: 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (ambient light)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Interior Equipment",
-                "topic": "เพดานหลังคาภายในสี Anthracite / BMW Individual headliner anthracite",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 9: English is 'BMW Individual headliner anthracite' (mapped: 'bmw individual headliner anthracite'), Thai is 'เพดานหลังคาภายในสี Anthracite' (mapped: 'เพดานหลังคาภายในสี anthracite')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Interior Equipment",
-                "topic": "ภายในตกแต่งดีไซน์ M ด้วยวัสดุ Carbon Fibre / M Interior trim finishers Carbon Fibre",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 10: English is 'M Interior trim finishers Carbon Fibre' (mapped: 'm interior trim finishers carbon fibre'), Thai is 'ภายในตกแต่งดีไซน์ M ด้วยวัสดุ Carbon Fibre' (mapped: 'ภายในตกแต่งดีไซน์ m ด้วยวัสดุ carbon fibre')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Interior Equipment",
-                "topic": "ระบบปรับอากาศอัตโนมัติแบบ 3 โซน / 3-Zone Automatic air conditioning",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 11: English is '3-Zone Automatic air conditioning' (mapped: '3-zone automatic air conditioning'), Thai is 'ระบบปรับอากาศอัตโนมัติแบบ 3 โซน' (mapped: 'ระบบปรับอากาศอัตโนมัติแบบ 3 โซน')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Interior Equipment",
-                "topic": "ฟังก์ชันช่วยการจัดเก็บสัมภาระ / Storage compartment package",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 12: English is 'Storage compartment package' (mapped: 'storage compartment package'), Thai is 'ฟังก์ชันช่วยการจัดเก็บสัมภาระ' (mapped: 'ฟังก์ชันช่วยการจัดเก็บสัมภาระ')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Entertainment and Communication",
-                "topic": "ระบบ BMW ConnectedDrive / BMW ConnectedDrive",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 2: English is 'BMW ConnectedDrive' (mapped: 'bmw connecteddrive'), Thai is 'ระบบ BMW ConnectedDrive' (mapped: 'ระบบ bmw connecteddrive')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Entertainment and Communication",
-                "topic": "ฟังก์ชันสั่งงานระบบ iDrive ด้วยการเคลื่อนไหวมือ (BMW Gesture Control) / BMW Gesture Control",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 3: English is 'BMW Gesture Control' (mapped: 'bmw gesture control'), Thai is 'ฟังก์ชันสั่งงานระบบ iDrive ด้วยการเคลื่อนไหวมือ (BMW Gesture Control)' (mapped: 'ฟังก์ชันสั่งงานระบบ idrive ด้วยการเคลื่อนไหวมือ (bmw gesture control)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Entertainment and Communication",
-                "topic": "ระบบเครื่องเสียงรอบทิศทาง Harman Kardon / Harman Kardon surround sound system",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 4: English is 'Harman Kardon surround sound system' (mapped: 'harman kardon surround sound system'), Thai is 'ระบบเครื่องเสียงรอบทิศทาง Harman Kardon' (mapped: 'ระบบเครื่องเสียงรอบทิศทาง harman kardon')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Entertainment and Communication",
-                "topic": "ระบบเชื่อมต่อ Smartphone / Smartphone integration",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 5: English is 'Smartphone integration' (mapped: 'smartphone integration'), Thai is 'ระบบเชื่อมต่อ Smartphone' (mapped: 'ระบบเชื่อมต่อ smartphone')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Safety",
-                "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า / Airbag for driver and front passenger",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 1: English is 'Airbag for driver and front passenger' (mapped: 'airbag for driver and front passenger'), Thai is 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Safety",
-                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า / Side airbags for driver and front passenger",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 2: English is 'Side airbags for driver and front passenger' (mapped: 'side airbags for driver and front passenger'), Thai is 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Safety",
-                "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง) / Head airbags for 1st and 2nd seat row",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 3: English is 'Head airbags for 1st and 2nd seat row' (mapped: 'head airbags for 1st and 2nd seat row'), Thai is 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)' (mapped: 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Safety",
-                "topic": "ระบบ Teleservices / Teleservices",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 4: English is 'Teleservices' (mapped: 'teleservices'), Thai is 'ระบบ Teleservices' (mapped: 'ระบบ teleservices')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Safety",
-                "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call) / Intelligent Emergency Call",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 5: English is 'Intelligent Emergency Call' (mapped: 'intelligent emergency call'), Thai is 'ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)' (mapped: 'ปุ่มโทรออกฉุกเฉิน (intelligent emergency call)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Safety",
-                "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC) / Dynamic Stability Control (DSC)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 6: English is 'Dynamic Stability Control (DSC)' (mapped: 'dynamic stability control (dsc)'), Thai is 'ระบบควบคุมเสถียรภาพการขับขี่ (DSC)' (mapped: 'ระบบควบคุมเสถียรภาพการขับขี่ (dsc)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Safety",
-                "topic": "ระบบควบคุมการยึดเกาะถนน (DTC) / Dynamic Traction Control (DTC)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 7: English is 'Dynamic Traction Control (DTC)' (mapped: 'dynamic traction control (dtc)'), Thai is 'ระบบควบคุมการยึดเกาะถนน (DTC)' (mapped: 'ระบบควบคุมการยึดเกาะถนน (dtc)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Safety",
-                "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS) / Anti-lock Brake System (ABS)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 8: English is 'Anti-lock Brake System (ABS)' (mapped: 'anti-lock brake system (abs)'), Thai is 'ระบบป้องกันล้อล็อกขณะเบรก (ABS)' (mapped: 'ระบบป้องกันล้อล็อกขณะเบรก (abs)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Safety",
-                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor) / Crash sensor",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 9: English is 'Crash sensor' (mapped: 'crash sensor'), Thai is 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)' (mapped: 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (crash sensor)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Safety",
-                "topic": "ระบบป้องกันการกระแทกจากด้านข้าง (Side Impact Protection) / Side impact protection",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 10: English is 'Side impact protection' (mapped: 'side impact protection'), Thai is 'ระบบป้องกันการกระแทกจากด้านข้าง (Side Impact Protection)' (mapped: 'ระบบป้องกันการกระแทกจากด้านข้าง (side impact protection)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Safety",
-                "topic": "ระบบ Active Protection / Active Protection",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 11: English is 'Active Protection' (mapped: 'active protection'), Thai is 'ระบบ Active Protection' (mapped: 'ระบบ active protection')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Safety",
-                "topic": "ระบบเตือนสถานะของยาง (Runflat Indicator) / Runflat indicator",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 12: English is 'Runflat indicator' (mapped: 'runflat indicator'), Thai is 'ระบบเตือนสถานะของยาง (Runflat Indicator)' (mapped: 'ระบบเตือนสถานะของยาง (runflat indicator)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Safety",
-                "topic": "ระบบปกป้องคนเดินถนนเมื่อเกิดอุบัติเหตุ / Passive protection for pedestrians",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 13: English is 'Passive protection for pedestrians' (mapped: 'passive protection for pedestrians'), Thai is 'ระบบปกป้องคนเดินถนนเมื่อเกิดอุบัติเหตุ' (mapped: 'ระบบปกป้องคนเดินถนนเมื่อเกิดอุบัติเหตุ')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Safety",
-                "topic": "กล้องแสดงภาพรอบทิศทาง (Surround View Camera) / Surround view camera",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 14: English is 'Surround view camera' (mapped: 'surround view camera'), Thai is 'กล้องแสดงภาพรอบทิศทาง (Surround View Camera)' (mapped: 'กล้องแสดงภาพรอบทิศทาง (surround view camera)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Line / package",
-                "topic": "ชุดตกแต่ง M Sport / M Sport",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Line / package' at position 1: English is 'M Sport' (mapped: 'm sport'), Thai is 'ชุดตกแต่ง M Sport' (mapped: 'ชุดตกแต่ง m sport')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Document References",
-                "topic": "รหัสแพ็กเกจ (Local Pack) / Package Code (Local Pack)",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
-            },
-            {
-                "model_name": "X4 xDrive20d M Sport",
-                "category": "Notes",
-                "topic": "Topic Count",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic count mismatch in category 'Notes': English has 1 topics, Thai has 0 topics"
-            }
-        ]
-    },
-    {
         "series": "BMW X5",
         "models": [
             {
@@ -42517,6 +41706,835 @@
                 "topic": "แพ็กเกจ M Sport Pro / M Sport Package Pro",
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Package' at position 2: English is 'M Sport Package Pro' (mapped: 'm sport package pro'), Thai is 'แพ็กเกจ M Sport Pro' (mapped: 'แพ็กเกจ m sport pro')"
+            }
+        ]
+    },
+    {
+        "series": "BMW X4",
+        "models": [
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "specifications": [
+                    {
+                        "category": "เครื่องยนต์และสมรรถนะ",
+                        "details": [
+                            {
+                                "topic": "ชนิดเครื่องยนต์",
+                                "value": "เครื่องยนต์ดีเซล 4 สูบ เทคโนโลยี BMW TwinPower Turbo"
+                            },
+                            {
+                                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)",
+                                "value": "1,995"
+                            },
+                            {
+                                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
+                                "value": "140 / 190 / 4,000"
+                            },
+                            {
+                                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)",
+                                "value": "400 / 1,750 - 2,500"
+                            },
+                            {
+                                "topic": "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)",
+                                "value": "213"
+                            },
+                            {
+                                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)",
+                                "value": "8.0"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
+                        "details": [
+                            {
+                                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
+                                "value": "17.9"
+                            },
+                            {
+                                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
+                                "value": "146"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ล้อและยาง",
+                        "details": [
+                            {
+                                "topic": "ล้อ",
+                                "value": "ล้ออัลลอย M ขนาด 20 นิ้ว ลาย Double-spoke"
+                            },
+                            {
+                                "topic": "ขนาดยาง",
+                                "value": "ล้อหน้า: 8 J x 20 / ยาง 245/45 R20 ล้อหลัง: 9.5 J x 20 / ยาง 275/40 R20"
+                            },
+                            {
+                                "topic": "ยาง Runflat",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "มิติรถยนต์",
+                        "details": [
+                            {
+                                "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)",
+                                "value": "4,751 / 1,918 / 1,621"
+                            },
+                            {
+                                "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
+                                "value": "525 - 1,430"
+                            },
+                            {
+                                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
+                                "value": "1,815"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระบบขับเคลื่อนและเทคโนโลยี",
+                        "details": [
+                            {
+                                "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ Steptronic พร้อม Gearshift Paddles",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ช่วงล่าง Adaptive",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบควบคุมความเร็วคงที่ พร้อมฟังก์ชันช่วยลดความเร็ว (Cruise Control with braking function)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบช่วยการขับขี่ (Driving Assistant)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบขับเคลื่อนอัจฉริยะ 4 ล้อ xDrive",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบควบคุมการขับขี่ขณะเข้าโค้ง (Performance Control)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบ BMW Head-up Display",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus)",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "อุปกรณ์ภายนอก",
+                        "details": [
+                            {
+                                "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "โคมไฟหน้าตกแต่งสีดำ (BMW Individual Lights - Shadow Line)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "คาลิเปอร์เบรกดีไซน์ M Sport",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "หลังคากระจก Panorama เปิด-ปิดด้วยระบบไฟฟ้า",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ชุดตกแต่ง M Aerodynamics",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ภายนอกตกแต่งด้วยวัสดุสีดำเงา",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ราวหลังคาสีดำเงา",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "อุปกรณ์ภายใน",
+                        "details": [
+                            {
+                                "topic": "กระจกมองหลังตัดแสงอัตโนมัติ",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "กระจกมองข้างและกระจกมองหลังตัดแสงอัตโนมัติ",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "พนักพิงหลังปรับความกว้างได้",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "เบาะนั่งตอนหน้าดีไซน์ Sport",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "พวงมาลัยหุ้มหนังดีไซน์ M Sport",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "คอนโซลด้านบนบุด้วยหนัง Sensatec",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "เพดานหลังคาภายในสี Anthracite",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ภายในตกแต่งดีไซน์ M ด้วยวัสดุ Carbon Fibre",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบปรับอากาศอัตโนมัติแบบ 3 โซน",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ฟังก์ชันช่วยการจัดเก็บสัมภาระ",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ระบบความบันเทิงและการสื่อสาร",
+                        "details": [
+                            {
+                                "topic": "BMW Live Cockpit Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบ BMW ConnectedDrive",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ฟังก์ชันสั่งงานระบบ iDrive ด้วยการเคลื่อนไหวมือ (BMW Gesture Control)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบเครื่องเสียงรอบทิศทาง Harman Kardon",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบเชื่อมต่อ Smartphone",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ความปลอดภัย",
+                        "details": [
+                            {
+                                "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบ Teleservices",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบควบคุมการยึดเกาะถนน (DTC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบป้องกันการกระแทกจากด้านข้าง (Side Impact Protection)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบ Active Protection",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบเตือนสถานะของยาง (Runflat Indicator)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "ระบบปกป้องคนเดินถนนเมื่อเกิดอุบัติเหตุ",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "กล้องแสดงภาพรอบทิศทาง (Surround View Camera)",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ชุดตกแต่งพิเศษ",
+                        "details": [
+                            {
+                                "topic": "ชุดตกแต่ง M Sport",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork",
+                        "details": [
+                            {
+                                "topic": "Alpine White Solid",
+                                "value": "Leather 'Vernasca' - Tacora Red decor stitching"
+                            },
+                            {
+                                "topic": "Black Sapphire Metallic",
+                                "value": "Leather 'Vernasca' - Tacora Red decor stitching"
+                            },
+                            {
+                                "topic": "Brooklyn Grey Metallic",
+                                "value": "Leather 'Vernasca' - Tacora Red decor stitching"
+                            },
+                            {
+                                "topic": "Phytonic Blue Metallic",
+                                "value": "Leather 'Vernasca' - Black decor stitching"
+                            },
+                            {
+                                "topic": "Piemont Red Metallic",
+                                "value": "Leather 'Vernasca' - Black decor stitching"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "หมายเหตุ",
+                        "details": [
+                            {
+                                "topic": "* รับสิทธิ์เลือกแพคเกจการรับประกันนานสูงสุด 5 ปี ไม่จำกัดระยะทางและการบริการดูแลบำรุงรักษาสูงสุด 5 ปี หรือ 100,000 กม. (แล้วแต่ระยะใดถึงก่อน)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "บริษัทฯ ขอสงวนสิทธิ์ในการเปลี่ยนแปลงข้อมูลไม่ว่าจะเป็นข้อกำหนดเรื่องรายละเอียด, สเปค และรุ่น ณ เวลาใดๆ โดยไม่ต้องบอกกล่าวล่วงหน้า และไม่จัดอยู่ในความรับผิดชอบในกรณีที่มีการผิดพลาดทางการพิมพ์",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "ข้อมูลเอกสารอ้างอิง",
+                        "details": [
+                            {
+                                "topic": "วันที่พิมพ์เอกสาร",
+                                "value": "15 มกราคม  2568"
+                            },
+                            {
+                                "topic": "รหัสแพ็กเกจ (Local Pack)",
+                                "value": "(ZCT, Z2C, Z2D, ZEX, ZFS, ZIK, Z3Y, Z5D, Z8T)"
+                            }
+                        ]
+                    }
+                ],
+                "images": {
+                    "Alpine White Solid": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_alpine_white_solid.png",
+                    "Black Sapphire Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_black_sapphire_metallic.png",
+                    "Brooklyn Grey Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_brooklyn_grey_metallic.png",
+                    "Phytonic Blue Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_phytonic_blue_metallic.png",
+                    "Piemont Red Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_piemont_red_metallic.png"
+                }
+            }
+        ],
+        "source_file": "X4-20240418-01_TH.pdf.asset.1758627513274.pdf",
+        "pdf_source": "X4-20240418-01_TH.pdf.asset.1758627513274.pdf",
+        "extracted_by_models": [
+            "gemini-3.7-flash"
+        ],
+        "low_confidence_flags": [
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 1: English is 'Engine type' (mapped: 'engine type'), Thai is 'ชนิดเครื่องยนต์' (mapped: 'ชนิดเครื่องยนต์')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร) / Displacement (cm³)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 2: English is 'Displacement (cm³)' (mapped: 'displacement (cm³)'), Thai is 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)' (mapped: 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที) / Engine power (kW/hp/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 3: English is 'Engine power (kW/hp/rpm)' (mapped: 'engine power (kw/hp/rpm)'), Thai is 'กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' (mapped: 'max. output (kw/hp/rpm)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที) / Engine torque (Nm/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 4: English is 'Engine torque (Nm/rpm)' (mapped: 'engine torque (nm/rpm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' (mapped: 'max. torque (nm/rpm)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) / 0 - 100 km/h (s)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 6: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)' (mapped: 'acceleration 0 - 100 km/h (s)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "FUEL CONSUMPTION AND CO2",
+                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร) / Combined fuel consumption from ECO Sticker result (km/l)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'FUEL CONSUMPTION AND CO2' at position 1: English is 'Combined fuel consumption from ECO Sticker result (km/l)' (mapped: 'combined fuel consumption from eco sticker result (km/l)'), Thai is 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)' (mapped: 'fuel consumption combined (km/l)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "FUEL CONSUMPTION AND CO2",
+                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร) / Combined CO2 (g/km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'FUEL CONSUMPTION AND CO2' at position 2: English is 'Combined CO2 (g/km)' (mapped: 'combined co2 (g/km)'), Thai is 'ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)' (mapped: 'co2 emission combined (g/km)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "WHEELS AND TYRES",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'WHEELS AND TYRES' at position 1: English is 'Light alloy wheels' (mapped: 'light alloy wheels'), Thai is 'ล้อ' (mapped: 'ล้อ')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "WHEELS AND TYRES",
+                "topic": "ยาง Runflat / Runflat tyres",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'WHEELS AND TYRES' at position 3: English is 'Runflat tyres' (mapped: 'runflat tyres'), Thai is 'ยาง Runflat' (mapped: 'ยาง runflat')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "DIMENSION",
+                "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร) / Length / width / height (mm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'DIMENSION' at position 1: English is 'Length / width / height (mm)' (mapped: 'length / width / height (mm)'), Thai is 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)' (mapped: 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "DIMENSION",
+                "topic": "ปริมาตรในการบรรจุของ (ลิตร) / Luggage capacity (l)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'DIMENSION' at position 2: English is 'Luggage capacity (l)' (mapped: 'luggage capacity (l)'), Thai is 'ปริมาตรในการบรรจุของ (ลิตร)' (mapped: 'ปริมาตรในการบรรจุของ (ลิตร)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "DIMENSION",
+                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม) / Curb weight (kg)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'DIMENSION' at position 3: English is 'Curb weight (kg)' (mapped: 'curb weight (kg)'), Thai is 'น้ำหนักรถสุทธิ (กิโลกรัม)' (mapped: 'น้ำหนักรถสุทธิ (กิโลกรัม)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Transmission and technology",
+                "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ Steptronic พร้อม Gearshift Paddles / 8-speed Steptronic transmission with gearshift paddles",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 1: English is '8-speed Steptronic transmission with gearshift paddles' (mapped: '8-speed steptronic transmission with gearshift paddles'), Thai is 'เกียร์อัตโนมัติ 8 จังหวะ แบบ Steptronic พร้อม Gearshift Paddles' (mapped: 'เกียร์อัตโนมัติ 8 จังหวะ แบบ steptronic พร้อม gearshift paddles')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Transmission and technology",
+                "topic": "ช่วงล่าง Adaptive / Adaptive suspension",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 2: English is 'Adaptive suspension' (mapped: 'adaptive suspension'), Thai is 'ช่วงล่าง Adaptive' (mapped: 'ช่วงล่าง adaptive')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Transmission and technology",
+                "topic": "ระบบควบคุมความเร็วคงที่ พร้อมฟังก์ชันช่วยลดความเร็ว (Cruise Control with braking function) / Cruise control with braking function",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 3: English is 'Cruise control with braking function' (mapped: 'cruise control with braking function'), Thai is 'ระบบควบคุมความเร็วคงที่ พร้อมฟังก์ชันช่วยลดความเร็ว (Cruise Control with braking function)' (mapped: 'ระบบควบคุมความเร็วคงที่ พร้อมฟังก์ชันช่วยลดความเร็ว (cruise control with braking function)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Transmission and technology",
+                "topic": "ระบบช่วยการขับขี่ (Driving Assistant) / Driving Assistant",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 4: English is 'Driving Assistant' (mapped: 'driving assistant'), Thai is 'ระบบช่วยการขับขี่ (Driving Assistant)' (mapped: 'ระบบช่วยการขับขี่ (driving assistant)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Transmission and technology",
+                "topic": "ระบบขับเคลื่อนอัจฉริยะ 4 ล้อ xDrive / xDrive",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 5: English is 'xDrive' (mapped: 'xdrive'), Thai is 'ระบบขับเคลื่อนอัจฉริยะ 4 ล้อ xDrive' (mapped: 'ระบบขับเคลื่อนอัจฉริยะ 4 ล้อ xdrive')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Transmission and technology",
+                "topic": "ระบบควบคุมการขับขี่ขณะเข้าโค้ง (Performance Control) / Performance Control",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 6: English is 'Performance Control' (mapped: 'performance control'), Thai is 'ระบบควบคุมการขับขี่ขณะเข้าโค้ง (Performance Control)' (mapped: 'ระบบควบคุมการขับขี่ขณะเข้าโค้ง (performance control)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Transmission and technology",
+                "topic": "ระบบ BMW Head-up Display / BMW Head-up display",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 7: English is 'BMW Head-up display' (mapped: 'bmw head-up display'), Thai is 'ระบบ BMW Head-up Display' (mapped: 'ระบบ bmw head-up display')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Transmission and technology",
+                "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus) / Parking Assistant Plus",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 8: English is 'Parking Assistant Plus' (mapped: 'parking assistant plus'), Thai is 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus)' (mapped: 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น plus (parking assistant plus)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Exterior",
+                "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED) / Adaptive LED headlights",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 1: English is 'Adaptive LED headlights' (mapped: 'adaptive led headlights'), Thai is 'ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)' (mapped: 'ระบบไฟหน้า led อัจฉริยะ (adaptive led)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Exterior",
+                "topic": "โคมไฟหน้าตกแต่งสีดำ (BMW Individual Lights - Shadow Line) / BMW Individual Lights Shadow Line",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 2: English is 'BMW Individual Lights Shadow Line' (mapped: 'bmw individual lights shadow line'), Thai is 'โคมไฟหน้าตกแต่งสีดำ (BMW Individual Lights - Shadow Line)' (mapped: 'โคมไฟหน้าตกแต่งสีดำ (bmw individual lights - shadow line)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Exterior",
+                "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant) / High-beam assistant",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 3: English is 'High-beam assistant' (mapped: 'high-beam assistant'), Thai is 'ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)' (mapped: 'ระบบปรับการทำงานไฟสูงอัตโนมัติ (high-beam assistant)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Exterior",
+                "topic": "คาลิเปอร์เบรกดีไซน์ M Sport / M Sport brake",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 4: English is 'M Sport brake' (mapped: 'm sport brake'), Thai is 'คาลิเปอร์เบรกดีไซน์ M Sport' (mapped: 'คาลิเปอร์เบรกดีไซน์ m sport')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Exterior",
+                "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System) / Comfort access system",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 5: English is 'Comfort access system' (mapped: 'comfort access system'), Thai is 'ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)' (mapped: 'ระบบปลดล็อกประตูอัจฉริยะ (comfort access system)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Exterior",
+                "topic": "หลังคากระจก Panorama เปิด-ปิดด้วยระบบไฟฟ้า / Panorama glass roof",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 6: English is 'Panorama glass roof' (mapped: 'panorama glass roof'), Thai is 'หลังคากระจก Panorama เปิด-ปิดด้วยระบบไฟฟ้า' (mapped: 'หลังคากระจก panorama เปิด-ปิดด้วยระบบไฟฟ้า')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Exterior",
+                "topic": "ชุดตกแต่ง M Aerodynamics / M Aerodynamics package",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 7: English is 'M Aerodynamics package' (mapped: 'm aerodynamics package'), Thai is 'ชุดตกแต่ง M Aerodynamics' (mapped: 'ชุดตกแต่ง m aerodynamics')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Exterior",
+                "topic": "ภายนอกตกแต่งด้วยวัสดุสีดำเงา / BMW Individual high-gloss Shadow Line",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 8: English is 'BMW Individual high-gloss Shadow Line' (mapped: 'bmw individual high-gloss shadow line'), Thai is 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา' (mapped: 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Exterior",
+                "topic": "ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา / BMW Individual high-gloss Shadow Line with extended contents",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 9: English is 'BMW Individual high-gloss Shadow Line with extended contents' (mapped: 'bmw individual high-gloss shadow line with extended contents'), Thai is 'ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา' (mapped: 'ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Exterior",
+                "topic": "ราวหลังคาสีดำเงา / BMW Individual roof rails high-gloss Shadow Line",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 10: English is 'BMW Individual roof rails high-gloss Shadow Line' (mapped: 'bmw individual roof rails high-gloss shadow line'), Thai is 'ราวหลังคาสีดำเงา' (mapped: 'ราวหลังคาสีดำเงา')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Interior",
+                "topic": "กระจกมองหลังตัดแสงอัตโนมัติ / Interior rear-view mirror with automatic anti-dazzle function",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 1: English is 'Interior rear-view mirror with automatic anti-dazzle function' (mapped: 'interior rear-view mirror with automatic anti-dazzle function'), Thai is 'กระจกมองหลังตัดแสงอัตโนมัติ' (mapped: 'กระจกมองหลังตัดแสงอัตโนมัติ')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Interior",
+                "topic": "กระจกมองข้างและกระจกมองหลังตัดแสงอัตโนมัติ / Interior and exterior mirrors with automatic anti-dazzle function",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 2: English is 'Interior and exterior mirrors with automatic anti-dazzle function' (mapped: 'interior and exterior mirrors with automatic anti-dazzle function'), Thai is 'กระจกมองข้างและกระจกมองหลังตัดแสงอัตโนมัติ' (mapped: 'กระจกมองข้างและกระจกมองหลังตัดแสงอัตโนมัติ')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Interior",
+                "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ / Seat adjustment, electric, with memory",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 3: English is 'Seat adjustment, electric, with memory' (mapped: 'seat adjustment, electric, with memory'), Thai is 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ' (mapped: 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Interior",
+                "topic": "พนักพิงหลังปรับความกว้างได้ / Seat backrest width adjustment",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 4: English is 'Seat backrest width adjustment' (mapped: 'seat backrest width adjustment'), Thai is 'พนักพิงหลังปรับความกว้างได้' (mapped: 'พนักพิงหลังปรับความกว้างได้')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Interior",
+                "topic": "เบาะนั่งตอนหน้าดีไซน์ Sport / Sport seats for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 5: English is 'Sport seats for driver and front passenger' (mapped: 'sport seats for driver and front passenger'), Thai is 'เบาะนั่งตอนหน้าดีไซน์ Sport' (mapped: 'เบาะนั่งตอนหน้าดีไซน์ sport')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Interior",
+                "topic": "พวงมาลัยหุ้มหนังดีไซน์ M Sport / M Sport leather steering wheel",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 6: English is 'M Sport leather steering wheel' (mapped: 'm sport leather steering wheel'), Thai is 'พวงมาลัยหุ้มหนังดีไซน์ M Sport' (mapped: 'พวงมาลัยหุ้มหนังดีไซน์ m sport')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Interior",
+                "topic": "คอนโซลด้านบนบุด้วยหนัง Sensatec / Instrument panel in Sensatec",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 7: English is 'Instrument panel in Sensatec' (mapped: 'instrument panel in sensatec'), Thai is 'คอนโซลด้านบนบุด้วยหนัง Sensatec' (mapped: 'คอนโซลด้านบนบุด้วยหนัง sensatec')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Interior",
+                "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light) / Ambient light",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 8: English is 'Ambient light' (mapped: 'ambient light'), Thai is 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)' (mapped: 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (ambient light)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Interior",
+                "topic": "เพดานหลังคาภายในสี Anthracite / BMW Individual headliner anthracite",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 9: English is 'BMW Individual headliner anthracite' (mapped: 'bmw individual headliner anthracite'), Thai is 'เพดานหลังคาภายในสี Anthracite' (mapped: 'เพดานหลังคาภายในสี anthracite')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Interior",
+                "topic": "ภายในตกแต่งดีไซน์ M ด้วยวัสดุ Carbon Fibre / M Interior trim finishers Carbon Fibre",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 10: English is 'M Interior trim finishers Carbon Fibre' (mapped: 'm interior trim finishers carbon fibre'), Thai is 'ภายในตกแต่งดีไซน์ M ด้วยวัสดุ Carbon Fibre' (mapped: 'ภายในตกแต่งดีไซน์ m ด้วยวัสดุ carbon fibre')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Interior",
+                "topic": "ระบบปรับอากาศอัตโนมัติแบบ 3 โซน / 3-Zone Automatic air conditioning",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 11: English is '3-Zone Automatic air conditioning' (mapped: '3-zone automatic air conditioning'), Thai is 'ระบบปรับอากาศอัตโนมัติแบบ 3 โซน' (mapped: 'ระบบปรับอากาศอัตโนมัติแบบ 3 โซน')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Interior",
+                "topic": "ฟังก์ชันช่วยการจัดเก็บสัมภาระ / Storage compartment package",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 12: English is 'Storage compartment package' (mapped: 'storage compartment package'), Thai is 'ฟังก์ชันช่วยการจัดเก็บสัมภาระ' (mapped: 'ฟังก์ชันช่วยการจัดเก็บสัมภาระ')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Entertainment and communication",
+                "topic": "ระบบ BMW ConnectedDrive / BMW ConnectedDrive",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 2: English is 'BMW ConnectedDrive' (mapped: 'bmw connecteddrive'), Thai is 'ระบบ BMW ConnectedDrive' (mapped: 'ระบบ bmw connecteddrive')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Entertainment and communication",
+                "topic": "ฟังก์ชันสั่งงานระบบ iDrive ด้วยการเคลื่อนไหวมือ (BMW Gesture Control) / BMW Gesture Control",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 3: English is 'BMW Gesture Control' (mapped: 'bmw gesture control'), Thai is 'ฟังก์ชันสั่งงานระบบ iDrive ด้วยการเคลื่อนไหวมือ (BMW Gesture Control)' (mapped: 'ฟังก์ชันสั่งงานระบบ idrive ด้วยการเคลื่อนไหวมือ (bmw gesture control)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Entertainment and communication",
+                "topic": "ระบบเครื่องเสียงรอบทิศทาง Harman Kardon / Harman Kardon surround sound system",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 4: English is 'Harman Kardon surround sound system' (mapped: 'harman kardon surround sound system'), Thai is 'ระบบเครื่องเสียงรอบทิศทาง Harman Kardon' (mapped: 'ระบบเครื่องเสียงรอบทิศทาง harman kardon')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Entertainment and communication",
+                "topic": "ระบบเชื่อมต่อ Smartphone / Smartphone integration",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 5: English is 'Smartphone integration' (mapped: 'smartphone integration'), Thai is 'ระบบเชื่อมต่อ Smartphone' (mapped: 'ระบบเชื่อมต่อ smartphone')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า / Airbag for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 1: English is 'Airbag for driver and front passenger' (mapped: 'airbag for driver and front passenger'), Thai is 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า / Side airbags for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 2: English is 'Side airbags for driver and front passenger' (mapped: 'side airbags for driver and front passenger'), Thai is 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง) / Head airbags for 1st and 2nd seat row",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 3: English is 'Head airbags for 1st and 2nd seat row' (mapped: 'head airbags for 1st and 2nd seat row'), Thai is 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)' (mapped: 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Safety",
+                "topic": "ระบบ Teleservices / Teleservices",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 4: English is 'Teleservices' (mapped: 'teleservices'), Thai is 'ระบบ Teleservices' (mapped: 'ระบบ teleservices')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Safety",
+                "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call) / Intelligent Emergency Call",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 5: English is 'Intelligent Emergency Call' (mapped: 'intelligent emergency call'), Thai is 'ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)' (mapped: 'ปุ่มโทรออกฉุกเฉิน (intelligent emergency call)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Safety",
+                "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC) / Dynamic Stability Control (DSC)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 6: English is 'Dynamic Stability Control (DSC)' (mapped: 'dynamic stability control (dsc)'), Thai is 'ระบบควบคุมเสถียรภาพการขับขี่ (DSC)' (mapped: 'ระบบควบคุมเสถียรภาพการขับขี่ (dsc)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Safety",
+                "topic": "ระบบควบคุมการยึดเกาะถนน (DTC) / Dynamic Traction Control (DTC)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 7: English is 'Dynamic Traction Control (DTC)' (mapped: 'dynamic traction control (dtc)'), Thai is 'ระบบควบคุมการยึดเกาะถนน (DTC)' (mapped: 'ระบบควบคุมการยึดเกาะถนน (dtc)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Safety",
+                "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS) / Anti-lock Brake System (ABS)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 8: English is 'Anti-lock Brake System (ABS)' (mapped: 'anti-lock brake system (abs)'), Thai is 'ระบบป้องกันล้อล็อกขณะเบรก (ABS)' (mapped: 'ระบบป้องกันล้อล็อกขณะเบรก (abs)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Safety",
+                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor) / Crash sensor",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 9: English is 'Crash sensor' (mapped: 'crash sensor'), Thai is 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)' (mapped: 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (crash sensor)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Safety",
+                "topic": "ระบบป้องกันการกระแทกจากด้านข้าง (Side Impact Protection) / Side impact protection",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 10: English is 'Side impact protection' (mapped: 'side impact protection'), Thai is 'ระบบป้องกันการกระแทกจากด้านข้าง (Side Impact Protection)' (mapped: 'ระบบป้องกันการกระแทกจากด้านข้าง (side impact protection)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Safety",
+                "topic": "ระบบ Active Protection / Active Protection",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 11: English is 'Active Protection' (mapped: 'active protection'), Thai is 'ระบบ Active Protection' (mapped: 'ระบบ active protection')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Safety",
+                "topic": "ระบบเตือนสถานะของยาง (Runflat Indicator) / Runflat indicator",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 12: English is 'Runflat indicator' (mapped: 'runflat indicator'), Thai is 'ระบบเตือนสถานะของยาง (Runflat Indicator)' (mapped: 'ระบบเตือนสถานะของยาง (runflat indicator)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Safety",
+                "topic": "ระบบปกป้องคนเดินถนนเมื่อเกิดอุบัติเหตุ / Passive protection for pedestrians",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 13: English is 'Passive protection for pedestrians' (mapped: 'passive protection for pedestrians'), Thai is 'ระบบปกป้องคนเดินถนนเมื่อเกิดอุบัติเหตุ' (mapped: 'ระบบปกป้องคนเดินถนนเมื่อเกิดอุบัติเหตุ')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Safety",
+                "topic": "กล้องแสดงภาพรอบทิศทาง (Surround View Camera) / Surround view camera",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 14: English is 'Surround view camera' (mapped: 'surround view camera'), Thai is 'กล้องแสดงภาพรอบทิศทาง (Surround View Camera)' (mapped: 'กล้องแสดงภาพรอบทิศทาง (surround view camera)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Line / package",
+                "topic": "ชุดตกแต่ง M Sport / M Sport",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Line / package' at position 1: English is 'M Sport' (mapped: 'm sport'), Thai is 'ชุดตกแต่ง M Sport' (mapped: 'ชุดตกแต่ง m sport')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Notes",
+                "topic": "* รับสิทธิ์เลือกแพคเกจการรับประกันนานสูงสุด 5 ปี ไม่จำกัดระยะทางและการบริการดูแลบำรุงรักษาสูงสุด 5 ปี หรือ 100,000 กม. (แล้วแต่ระยะใดถึงก่อน) / * The privilege of purchasing package up to 5 years unlimited mileage warranty and 5 years of maintenance or 100,000 km. (whichever comes first).",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Notes' at position 1: English is '* The privilege of purchasing package up to 5 years unlimited mileage warranty and 5 years of maintenance or 100,000 km. (whichever comes first).' (mapped: '* the privilege of purchasing package up to 5 years unlimited mileage warranty and 5 years of maintenance or 100,000 km. (whichever comes first).'), Thai is '* รับสิทธิ์เลือกแพคเกจการรับประกันนานสูงสุด 5 ปี ไม่จำกัดระยะทางและการบริการดูแลบำรุงรักษาสูงสุด 5 ปี หรือ 100,000 กม. (แล้วแต่ระยะใดถึงก่อน)' (mapped: '* รับสิทธิ์เลือกแพคเกจการรับประกันนานสูงสุด 5 ปี ไม่จำกัดระยะทางและการบริการดูแลบำรุงรักษาสูงสุด 5 ปี หรือ 100,000 กม. (แล้วแต่ระยะใดถึงก่อน)')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Notes",
+                "topic": "บริษัทฯ ขอสงวนสิทธิ์ในการเปลี่ยนแปลงข้อมูลไม่ว่าจะเป็นข้อกำหนดเรื่องรายละเอียด, สเปค และรุ่น ณ เวลาใดๆ โดยไม่ต้องบอกกล่าวล่วงหน้า และไม่จัดอยู่ในความรับผิดชอบในกรณีที่มีการผิดพลาดทางการพิมพ์ / BMW reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Notes' at position 2: English is 'BMW reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.' (mapped: 'bmw reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.'), Thai is 'บริษัทฯ ขอสงวนสิทธิ์ในการเปลี่ยนแปลงข้อมูลไม่ว่าจะเป็นข้อกำหนดเรื่องรายละเอียด, สเปค และรุ่น ณ เวลาใดๆ โดยไม่ต้องบอกกล่าวล่วงหน้า และไม่จัดอยู่ในความรับผิดชอบในกรณีที่มีการผิดพลาดทางการพิมพ์' (mapped: 'บริษัทฯ ขอสงวนสิทธิ์ในการเปลี่ยนแปลงข้อมูลไม่ว่าจะเป็นข้อกำหนดเรื่องรายละเอียด, สเปค และรุ่น ณ เวลาใดๆ โดยไม่ต้องบอกกล่าวล่วงหน้า และไม่จัดอยู่ในความรับผิดชอบในกรณีที่มีการผิดพลาดทางการพิมพ์')"
+            },
+            {
+                "model_name": "X4 xDrive20d M Sport",
+                "category": "Document References",
+                "topic": "รหัสแพ็กเกจ (Local Pack) / Package Code (Local Pack)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
             }
         ]
     }
