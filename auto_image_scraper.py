@@ -636,8 +636,15 @@ async def main():
                     print(f" - [SKIP] Excluded M Power model from image scraper: {series.get('series')} | {model.get('model_name')}")
                 continue
                 
-            if "images" not in model:
-                target_models.append((series, model, clean_pdf))
+            if "images" not in model or not model["images"]:
+                # Perform case-insensitive directory resolution to match physical folders on disk
+                disk_pdf_dir = clean_pdf
+                if os.path.exists("images"):
+                    for d in os.listdir("images"):
+                        if d.lower() == clean_pdf.lower():
+                            disk_pdf_dir = d
+                            break
+                target_models.append((series, model, disk_pdf_dir))
                 
     if db_modified:
         # Write updated mappings back to Thai file
