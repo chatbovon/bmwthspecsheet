@@ -42203,7 +42203,8 @@
                     "Brooklyn Grey Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_brooklyn_grey_metallic.png",
                     "Phytonic Blue Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_phytonic_blue_metallic.png",
                     "Piemont Red Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_piemont_red_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             }
         ],
         "source_file": "X4-20240418-01_EN.pdf.asset.1738060241175.pdf",
