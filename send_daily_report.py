@@ -22,13 +22,19 @@ GAS_SECRET_TOKEN = os.environ.get("GAS_SECRET_TOKEN")
 # Helper to check if model is a pure M (high performance) model
 def is_pure_m_car(model_name):
     name = model_name.strip()
-    # Pure M models and M Performance models (niche/custom)
-    if name.startswith("M ") or name.startswith("XM") or name == "XM":
+    
+    # 1. XM series (including XM, XM 50e, XM Label Red) are always M Power
+    if name.startswith("XM") or " XM " in f" {name} ":
         return True
-    if re.match(r"^M\d", name):
+        
+    # 2. Starts with M followed by EXACTLY one digit (e.g. M2, M3, M4, M5, M8, M3 CS)
+    if re.search(r"^M\d(?!\d)", name):
         return True
-    if any(m_perf in name for m_perf in ["M50", "M60", "M70", "M40i"]):
+        
+    # 3. M follows an X series model as a standalone letter (e.g. X3 M, X5 M Competition)
+    if re.search(r"^X\d\s+M\b", name):
         return True
+        
     return False
 
 # 1. Audit PDF brochure changes via git status

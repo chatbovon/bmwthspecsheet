@@ -55,11 +55,11 @@ def map_category(cat):
         return "dimension"
     elif "ระบบขับเคลื่อน" in cat or "transmission" in cat or "drivetrain" in cat:
         return "transmission and technology"
-    elif "paintwork" in cat or "สีตัวถัง" in cat:
+    elif "paintwork" in cat or "สีตัวถัง" in cat or "วัสดุภายใน" in cat:
         return "paintwork & upholstery"
     elif "ภายนอก" in cat or "exterior" in cat:
         return "exterior"
-    elif "ภายใน" in cat or "interior" in cat:
+    elif "อุปกรณ์ภายใน" in cat or "interior" in cat:
         return "interior"
     elif "บันเทิง" in cat or "สื่อสาร" in cat or "entertainment" in cat or "communication" in cat:
         return "entertainment and communication"
@@ -69,8 +69,10 @@ def map_category(cat):
         return "line / package"
     elif "เอกสารอ้างอิง" in cat or "document" in cat:
         return "document references"
-    elif "ตัวเลือกพิเศษ" in cat or "special option" in cat:
+    elif "ตัวเลือกพิเศษ" in cat or "special option" in cat or "optional equipment" in cat:
         return "special options"
+    elif "notes" in cat or "หมายเหตุ" in cat:
+        return "notes"
     elif "charging" in cat or "ชาร์จ" in cat:
         if "ac" in cat or "กระแสสลับ" in cat:
             if "time" in cat or "ระยะเวลา" in cat:
