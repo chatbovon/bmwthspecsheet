@@ -163,8 +163,9 @@ def audit_data_discrepancies(th_data, en_data):
                 })
                 continue
                 
-            th_specs = th_model.get("specifications", [])
-            en_specs = en_model.get("specifications", [])
+            # Filter out localized Notes/disclaimers
+            th_specs = [c for c in th_model.get("specifications", []) if (c.get("category") or "").strip() not in ("หมายเหตุ", "Notes")]
+            en_specs = [c for c in en_model.get("specifications", []) if (c.get("category") or "").strip() not in ("หมายเหตุ", "Notes")]
             
             # Check category alignment
             if len(th_specs) != len(en_specs):

@@ -528,22 +528,31 @@ def merge_spec_json_list(json_list: list[dict]) -> dict:
                 cat_name = spec.get("category")
                 if not cat_name:
                     continue
-                cat_ref = next((c for c in merged_model["specifications"] if c["category"] == cat_name), None)
+                
+                import re
+                def normalize_name(name):
+                    if not name:
+                        return ""
+                    return re.sub(r'[\s\(\)\-\_\/\\\,\.\:\;\'\"]', '', name).lower().strip()
+                    
+                norm_cat = normalize_name(cat_name)
+                cat_ref = next((c for c in merged_model["specifications"] if normalize_name(c["category"]) == norm_cat), None)
                 if not cat_ref:
                     cat_ref = {"category": cat_name, "details": []}
                     merged_model["specifications"].append(cat_ref)
                     
-                topic_map = {d["topic"]: d for d in cat_ref["details"]}
+                topic_map = {normalize_name(d["topic"]): d for d in cat_ref["details"]}
                 for detail in spec.get("details", []):
                     topic = detail.get("topic")
                     val = detail.get("value", "-")
                     if not topic:
                         continue
-                    if topic not in topic_map:
+                    norm_topic = normalize_name(topic)
+                    if norm_topic not in topic_map:
                         cat_ref["details"].append(detail)
-                        topic_map[topic] = detail
+                        topic_map[norm_topic] = detail
                     else:
-                        existing = topic_map[topic]
+                        existing = topic_map[norm_topic]
                         if str(existing.get("value", "-")).strip() in ("-", "", "None") and \
                            str(val).strip() not in ("-", "", "None"):
                             existing["value"] = val
