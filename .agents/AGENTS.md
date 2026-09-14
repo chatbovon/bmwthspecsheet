@@ -6,8 +6,8 @@
 - **MinerU API Token:** Always load `MINERU_API_TOKEN` dynamically from the `.env` file.
 
 ## 2. Models Setup
-- **QA validation script:** Use `gemini-3.5-flash` as primary, with `gemini-3.1-flash-lite` and `gemini-2.5-flash` as fallbacks.
-- **Extraction script:** Use `gemini-3.5-flash` as primary, with `gemini-3.1-flash-lite` and `gemini-2.5-flash` as fallbacks.
+- **QA validation script:** Use `gemini-3.8-flash` as primary, with `gemini-3.7-flash`, `gemini-3.6-flash`, `gemini-3.5-flash`, and `gemini-3.5-flash-lite` as fallbacks.
+- **Extraction script:** Use `gemini-3.8-flash` as primary, with `gemini-3.7-flash`, `gemini-3.6-flash`, `gemini-3.5-flash`, and `gemini-3.5-flash-lite` as fallbacks.
 
 ## 3. PDF Table Grouping Constraints
 - **At Most 5 Pages:** BMW PDF brochures are at most 5 pages.

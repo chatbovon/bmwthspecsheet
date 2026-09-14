@@ -746,7 +746,7 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
             
             success_direct = False
             key_idx = 0
-            model_pool = [MODEL_NAME, "gemini-3.5-flash", "gemini-3.1-flash-lite", "gemini-2.5-flash"]
+            model_pool = [MODEL_NAME, "gemini-3.7-flash", "gemini-3.6-flash", "gemini-3.5-flash", "gemini-3.5-flash-lite"]
             model_idx = 0
             attempts = 0
             max_attempts = len(API_KEYS) * len(model_pool) * 2
@@ -843,7 +843,7 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
     extracted_segments = []
     models_used = []
     key_idx = 0
-    model_pool = [MODEL_NAME, "gemini-3.5-flash", "gemini-3.1-flash-lite", "gemini-2.5-flash"]
+    model_pool = [MODEL_NAME, "gemini-3.7-flash", "gemini-3.6-flash", "gemini-3.5-flash", "gemini-3.5-flash-lite"]
     model_idx = 0
     
     uploaded_files = {}
