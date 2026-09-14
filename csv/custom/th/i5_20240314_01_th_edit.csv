@@ -1,0 +1,101 @@
+﻿Category,Topic,i5 eDrive40 M Sport (Inspiring),i5 eDrive40 M Sport,i5 M60 xDrive
+เครื่องยนต์และสมรรถนะ,มอเตอร์ไฟฟ้า,เทคโนโลยี BMW eDrive,เทคโนโลยี BMW eDrive,เทคโนโลยี BMW eDrive
+เครื่องยนต์และสมรรถนะ,กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า),250 / 340,250 / 340,442 / 601
+เครื่องยนต์และสมรรถนะ,แรงบิดสูงสุด (นิวตันเมตร),400,400,795
+เครื่องยนต์และสมรรถนะ,"ระยะทางขับเคลื่อนไฟฟ้า1, มาตรฐาน NEDC (กิโลเมตร)",สูงสุดถึง 501,สูงสุดถึง 501,สูงสุดถึง 466
+เครื่องยนต์และสมรรถนะ,"ระยะทางขับเคลื่อนไฟฟ้า1, มาตรฐาน WLTP (กิโลเมตร)",497 - 582,497 - 582,455 - 516
+เครื่องยนต์และสมรรถนะ,ชนิดแบตเตอรี่ (แรงดันสูง),Lithium-ion,Lithium-ion,Lithium-ion
+เครื่องยนต์และสมรรถนะ,ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง),83.9,83.9,83.9
+เครื่องยนต์และสมรรถนะ,ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง),193,193,230
+เครื่องยนต์และสมรรถนะ,อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที),6,6,3.8
+เครื่องยนต์และสมรรถนะ,"อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)",18.1,18.1,19.5
+เครื่องยนต์และสมรรถนะ,"อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)",18.9 - 15.9,18.9 - 15.9,20.6 - 18.2
+ล้อและยาง,ล้อ,ล้ออัลลอย M ขนาด 19 นิ้วแบบ Double-spoke ตกแต่งสี Bicolour Grey แบบสลับสี,ล้ออัลลอย M aerodynamic ขนาด 20 นิ้วตกแต่งสี Black Grey แบบสลับสี,ล้ออัลลอย BMW Individual aerodynamic ขนาด 21 นิ้ว ตกแต่งสี Jet Black แบบสลับสี
+ล้อและยาง,ขนาดยาง,8.5 J × 19 / ยาง: 245/45 R 19,ล้อหน้า: 8.5 J × 20 / ยาง: 245/40 R 20 ล้อหลัง: 10 J × 20 / ยาง: 275/35 R 20,ล้อหน้า: 8.5 J × 21 / ยาง: 255/35 R 21 ล้อหลัง: 9.5 J × 21 / ยาง: 285/30 R 21
+มิติรถยนต์,มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร),"5,060 / 1,900 / 1,515","5,060 / 1,900 / 1,515","5,060 / 1,900 / 1,505"
+มิติรถยนต์,ปริมาตรในการบรรจุของ (ลิตร),490,490,490
+มิติรถยนต์,น้ำหนักรถสุทธิ (กิโลกรัม),"2,205","2,205","2,380"
+การชาร์จแบบกระแสสลับ (AC),รองรับการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์),22,22,22
+ระยะเวลาในการชาร์จจาก 0 - 100%,AC charging at 2.3kW (220-230V / 10A / 1ph),43 ชั่วโมง 30 นาที,43 ชั่วโมง 30 นาที,43 ชั่วโมง 30 นาที
+ระยะเวลาในการชาร์จจาก 0 - 100%,AC charging at 7.4kW Wallbox (230V / 32A / 1ph),12 ชั่วโมง 30 นาที,12 ชั่วโมง 30 นาที,12 ชั่วโมง 30 นาที
+ระยะเวลาในการชาร์จจาก 0 - 100%,AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph),8 ชั่วโมง 30 นาที,8 ชั่วโมง 30 นาที,8 ชั่วโมง 30 นาที
+ระยะเวลาในการชาร์จจาก 0 - 100%,AC charging at 22kW Wallbox (230V / 32A / 3ph),4 ชั่วโมง 15 นาที,4 ชั่วโมง 15 นาที,4 ชั่วโมง 15 นาที
+การชาร์จแบบกระแสตรง (DC),รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์),205,205,205
+ระยะเวลาในการชาร์จจาก 10 - 80%,DC charging vehicle at 125A by EVSE,1 ชั่วโมง 13 นาที,1 ชั่วโมง 13 นาที,1 ชั่วโมง 13 นาที
+ระยะเวลาในการชาร์จจาก 10 - 80%,DC charging vehicle at 250A by EVSE,41 นาที,41 นาที,41 นาที
+ระยะเวลาในการชาร์จจาก 10 - 80%,DC charging vehicle at 500A by EVSE,30 นาที,30 นาที,30 นาที
+ระบบขับเคลื่อนและเทคโนโลยี,เกียร์อัตโนมัติ,■,■,■
+ระบบขับเคลื่อนและเทคโนโลยี,ช่วงล่าง M Sport,■,-,-
+ระบบขับเคลื่อนและเทคโนโลยี,ช่วงล่าง Adaptive Suspension Professional,-,■,■
+ระบบขับเคลื่อนและเทคโนโลยี,ระบบขับเคลื่อนสี่ล้อด้วยไฟฟ้า BMW xDrive Electric (BMW xDrive electric all-wheel drive),-,-,■
+ระบบขับเคลื่อนและเทคโนโลยี,ระบบช่วยการขับขี่ (Driving Assistant),■,-,-
+ระบบขับเคลื่อนและเทคโนโลยี,ระบบช่วยการขับขี่ Plus (Driving Assistant Plus),■,-,-
+ระบบขับเคลื่อนและเทคโนโลยี,ระบบช่วยการขับขี่ Professional (Driving Assistant Plus),-,■,■
+ระบบขับเคลื่อนและเทคโนโลยี,ระบบช่วยนำรถเข้าที่จอดอัตโนมัติรุ่น Plus (Parking Assistant Plus),■,■,■
+อุปกรณ์ภายนอก,ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED),■,■,■
+อุปกรณ์ภายนอก,ชุดตกแต่งภายนอกแบบ Iconic Glow,■,■,■
+อุปกรณ์ภายนอก,หลังคากระจก Panorama,-,■,■
+อุปกรณ์ภายนอก,ภายนอกตกแต่งด้วยชุดแต่ง M สีดำเงา,■,■,■
+อุปกรณ์ภายนอก,ภายนอกพร้อมชุดตกแต่ง M ด้วยวัสดุสีดำเงา,-,-,■
+อุปกรณ์ภายนอก,โคมไฟหน้าตกแต่งดีไซน์ M สีดำ (M Lights Shadow Line),-,-,■
+อุปกรณ์ภายนอก,สปอยเลอร์หลังดีไซน์ M,-,■,■
+อุปกรณ์ภายนอก,คาลิเปอร์เบรกดีไซน์ M Sport สีน้ำเงินเงา,■,■,-
+อุปกรณ์ภายนอก,คาลิเปอร์เบรกดีไซน์ M Sport สีแดงเงา,-,-,■
+อุปกรณ์ภายนอก,ชุดตกแต่งภายนอกแบบ M Sport,■,■,■
+อุปกรณ์ภายนอก,ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า,■,■,■
+อุปกรณ์ภายนอก,ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System),■,■,■
+อุปกรณ์ภายใน,ระบบระบายอากาศสำหรับเบาะนั่งตอนหน้า,-,■,■
+อุปกรณ์ภายใน,พวงมาลัยหุ้มหนังดีไซน์ M,■,■,■
+อุปกรณ์ภายใน,เข็มขัดนิรภัยดีไซน์ M,-,-,■
+อุปกรณ์ภายใน,เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ,■,-,-
+อุปกรณ์ภายใน,เบาะนั่งตอนหน้าแบบ Sport,■,-,-
+อุปกรณ์ภายใน,เบาะนั่งตอนหน้าแบบ Comfort ปรับไฟฟ้า,-,■,■
+อุปกรณ์ภายใน,เพดานหลังคาภายในสี Anthracite,■,■,■
+อุปกรณ์ภายใน,ภายในตกแต่งดีไซน์ M Sport,■,■,■
+อุปกรณ์ภายใน,ภายในตกแต่งด้วยสี Dark Silver M ผสมกับอะลูมิเนียมลาย Rhombicle,■,■,-
+อุปกรณ์ภายใน,ภายในตกแต่งด้วยสี Dark Silver M ผสมกับ Carbon Fibre ลายวัสดุสีเงินแบบ M,-,-,■
+อุปกรณ์ภายใน,ภายในตกแต่งด้วยผลึกแก้ว 'CraftedClarity',■,■,■
+อุปกรณ์ภายใน,ระบบ Travel & Comfort,■,■,■
+อุปกรณ์ภายใน,ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light),■,■,■
+อุปกรณ์ภายใน,ม่านบังแดดที่ประตูหลังและกระจกหลัง,■,■,■
+อุปกรณ์ภายใน,ระบบปรับอากาศอัตโนมัติแบบ 4 โซน,■,■,■
+อุปกรณ์ภายใน,ระบบกล้องภายในรถ,■,■,■
+ข้อมูลเอกสารอ้างอิง,วันที่พิมพ์เอกสาร,19 ตุลาคม 2566,19 ตุลาคม 2566,19 ตุลาคม 2566
+ข้อมูลเอกสารอ้างอิง,รหัสแพ็กเกจ (Local Pack),(Z6A),"(ZIS, Z4E)","(ZIR, Z4D)"
+ระบบความบันเทิงและการสื่อสาร,BMW Live Cockpit Professional,■,■,■
+ระบบความบันเทิงและการสื่อสาร,ระบบเครื่องเสียง HiFi loudspeaker Harmon Kardon,■,■,-
+ระบบความบันเทิงและการสื่อสาร,ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins,-,-,■
+ระบบความบันเทิงและการสื่อสาร,ระบบ BMW ConnectedDrive,■,■,■
+ระบบความบันเทิงและการสื่อสาร,ระบบ BMW Connected Package Professional,■,■,■
+ระบบความบันเทิงและการสื่อสาร,ระบบเชื่อมต่อ Smartphone,■,■,■
+ระบบความบันเทิงและการสื่อสาร,ระบบจำลองเสียงเครื่องยนต์ Iconic sounds electric,■,■,■
+ระบบความบันเทิงและการสื่อสาร,BMW Interaction Bar,■,■,■
+ระบบความบันเทิงและการสื่อสาร,ระบบสั่งงานอัจฉริยะ BMW Natural Interaction,■,■,■
+ระบบความบันเทิงและการสื่อสาร,ระบบ eSIM ส่วนบุคคล(Personal eSIM),■,■,■
+ระบบความบันเทิงและการสื่อสาร,ระบบชาร์จโทรศัพท์แบบไร้สาย,■,■,■
+ความปลอดภัย,ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า,■,■,■
+ความปลอดภัย,ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า,■,■,■
+ความปลอดภัย,ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง(ยกเว้นผู้โดยสารตอนหลังกลาง),■,■,■
+ความปลอดภัย,ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ),■,■,■
+ความปลอดภัย,ระบบ Teleservices,■,■,■
+ความปลอดภัย,ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call),■,■,■
+ความปลอดภัย,ตัวยึดคาร์ซีทสำหรับเด็ก ISOFIX,■,■,■
+ความปลอดภัย,ระบบควบคุมเสถียรภาพการขับขี่ (DSC),■,■,■
+ความปลอดภัย,ระบบป้องกันล้อล็อกขณะเบรก (ABS),■,■,■
+ความปลอดภัย,ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist),■,■,■
+ความปลอดภัย,ระบบควบคุมแรงดันเบรกแบบแปรผัน (DBC),■,■,■
+ความปลอดภัย,เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor),■,■,■
+ความปลอดภัย,ระบบสร้างเสียงจำลองเตือนผู้ใช้งานรอบข้าง,■,■,■
+ความปลอดภัย,ระบบป้องกันการกระแทกจากด้านข้าง (Side Impact Protection),■,■,■
+ความปลอดภัย,เซนเซอร์ควบคุมระยะการจอดด้านหน้าและหลัง,■,■,■
+ชุดตกแต่งพิเศษ,ชุดตกแต่งพิเศษ M Sport,■,■,-
+ชุดตกแต่งพิเศษ,ชุดตกแต่ง M Sport Pro,-,-,■
+Paintwork / สีตัวถังและวัสดุภายใน,Brooklyn Grey Metallic,"Veganza perforated and quilted - Black, Veganza perforated and quilted - Espresso Brown","Veganza perforated and quilted - Black, Veganza perforated and quilted - Espresso Brown","BMW Individual leather 'Merino' - Black/Atlas Grey, BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
+Paintwork / สีตัวถังและวัสดุภายใน,Fire Red Metallic,"Veganza perforated and quilted - Black, Veganza perforated and quilted - Espresso Brown","Veganza perforated and quilted - Black, Veganza perforated and quilted - Espresso Brown","BMW Individual leather 'Merino' - Black/Atlas Grey, BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
+Paintwork / สีตัวถังและวัสดุภายใน,Cape York Green Metallic,"Veganza perforated and quilted - Black, Veganza perforated and quilted - Espresso Brown","Veganza perforated and quilted - Black, Veganza perforated and quilted - Espresso Brown","BMW Individual leather 'Merino' - Black/Atlas Grey, BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
+Paintwork / สีตัวถังและวัสดุภายใน,Phytonic Blue Metallic,"Veganza perforated and quilted - Black, Veganza perforated and quilted - Espresso Brown","Veganza perforated and quilted - Black, Veganza perforated and quilted - Espresso Brown",-
+Paintwork / สีตัวถังและวัสดุภายใน,Black Sapphire Metallic,"Veganza perforated and quilted - Black, Veganza perforated and quilted - Espresso Brown","Veganza perforated and quilted - Black, Veganza perforated and quilted - Espresso Brown","BMW Individual leather 'Merino' - Black/Atlas Grey, BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
+Paintwork / สีตัวถังและวัสดุภายใน,Mineral White Metallic,"Veganza perforated and quilted - Black, Veganza perforated and quilted - Espresso Brown","Veganza perforated and quilted - Black, Veganza perforated and quilted - Espresso Brown","BMW Individual leather 'Merino' - Black/Atlas Grey, BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
+Paintwork / สีตัวถังและวัสดุภายใน,Frozen Deep Grey Metallic,-,-,"BMW Individual leather 'Merino' - Black/Atlas Grey, BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
+Paintwork / สีตัวถังและวัสดุภายใน,Frozen Pure Grey Metallic,-,-,"BMW Individual leather 'Merino' - Black/Atlas Grey, BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
+Paintwork / สีตัวถังและวัสดุภายใน,Tanzanite Blue Metallic,-,-,"BMW Individual leather 'Merino' - Black/Atlas Grey, BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"

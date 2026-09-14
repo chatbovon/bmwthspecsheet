@@ -124,15 +124,18 @@ The daily pipeline runs autonomously via GitHub Actions.
 - Parses `scratch/scraper_warnings.json` to extract any scraper cards matched with `Score < 80`.
 - Compiles a complete markdown status report into `report.md`.
 
-### Stage 7: Daily Email Notification Report (`send_daily_report.py`)
-- Compiles and sends a daily HTML monitoring report to a Google Apps Script (GAS) Web App via HTTP POST.
-- The report includes:
-  - **Brochure PDF Updates:** Newly added or discontinued brochures detected in the workspace.
-  - **Missing Option Color Images:** List of normal series models (excluding M High-Performance/M Performance models) that have missing color images on disk.
-  - **Cross-DB Alignment Discrepancies:** Details on category count, topic count, and checkmark option value conflicts between TH and EN master specsheets.
-  - **API Key & System Status:** Health check reports for all 3 Gemini keys and MinerU token configuration.
-  - **Manual Overrides Statistics:** Number of active override rules in [`manual_overrides.json`](file:///c:/Ddrive/BMW/Web%20interaction/BMW_Dynamic_Specsheet/manual_overrides.json) and source brochures corrected.
-  - **Alignment Health Score:** Overall percentage representing structural TH/EN specsheet parity.
+### Stage 8: Markdown & Plain Text Spec Generator (`generate_markdown_specs.py`)
+- Automatically compiles all active model specifications from `bmw_master_specs.json` and `bmw_master_specs_en.json` into unified `.md` and `.txt` reference files:
+  - `specs_all.md` / `specs_all.txt` (Thai)
+  - `specs_all_en.md` / `specs_all_en.txt` (English)
+- Formatted specifically for LLM system prompts, NotebookLM sources, and external AI agents.
+
+### Stage 9: Google Sheets Real-Time CSV Exporter (`generate_sheets_csv.py`)
+- **Conditional Change-Detection:** Checks the MD5 checksum of all 4 JSON spec files (`bmw_master_specs.json`, `bmw_master_specs_en.json`, `bmw_custom_specs.json`, `bmw_custom_specs_en.json`) against `.csv_build_hash`. If no changes occurred, regeneration is skipped to save CI/CD resources.
+- **Matrix View CSVs:** Converts every brochure entry into an independent matrix-view CSV file:
+  - `csv/master/th/*.csv` & `csv/master/en/*.csv` (Active brochures)
+  - `csv/custom/th/*.csv` & `csv/custom/en/*.csv` (Custom/Archived brochures)
+- **Live Google Sheets Formula Guide (`google_sheets_formulas.md`):** Generates ready-to-copy `=IMPORTDATA("https://chatbovon.github.io/bmwthspecsheet/csv/...")` formulas organized by tab and series.
 
 ---
 
