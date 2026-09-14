@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-14 19:23:07 ICT (UTC+7)",
+  "generated_at": "2026-09-14 20:50:39 ICT (UTC+7)",
   "base_url": "https://chatbovon.github.io/bmwthspecsheet/csv",
-  "total_brochures": 93,
+  "total_brochures": 94,
   "datasets": {
     "master_th": [
       {
@@ -837,6 +837,16 @@
         "topics_count": 84,
         "formula": "=IMPORTDATA(\"https://chatbovon.github.io/bmwthspecsheet/csv/custom/th/x6_20260223_01_th.pdf.asset.1778752585977.csv\")",
         "csv_url": "https://chatbovon.github.io/bmwthspecsheet/csv/custom/th/x6_20260223_01_th.pdf.asset.1778752585977.csv"
+      },
+      {
+        "tab_name": "[Archived TH] iX1 eDrive20L M Sport",
+        "series": "BMW iX1",
+        "pdf_source": "iX1-20250609-01_TH_color.pdf.asset.1751602413434.pdf",
+        "models": "iX1 eDrive20L M Sport",
+        "models_count": 1,
+        "topics_count": 74,
+        "formula": "=IMPORTDATA(\"https://chatbovon.github.io/bmwthspecsheet/csv/custom/th/ix1_20250609_01_th_color.pdf.asset.1751602413434.csv\")",
+        "csv_url": "https://chatbovon.github.io/bmwthspecsheet/csv/custom/th/ix1_20250609_01_th_color.pdf.asset.1751602413434.csv"
       }
     ],
     "custom_en": [

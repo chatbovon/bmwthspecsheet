@@ -1,6 +1,6 @@
 # 📊 BMW Specsheet - Google Sheets Live Sync Guide (`=IMPORTDATA`)
 
-> 🕒 **Last Generated:** `2026-09-14 19:23:07 ICT (UTC+7)`  
+> 🕒 **Last Generated:** `2026-09-14 20:50:39 ICT (UTC+7)`  
 > 💡 **วิธีใช้งาน:** ใน Google Sheets ของคุณ ให้สร้างแท็บใหม่ (Sheet Tab) แล้วคัดลอกสูตร `=IMPORTDATA(...)` ในตารางด้านล่างไปวางใน **ช่อง A1** ข้อมูลสเปกแบบ Matrix View จะถูกโหลดและอัปเดตแบบ Real-time ตามฐานข้อมูลล่าสุดโดยอัตโนมัติ!
 
 ---
@@ -85,7 +85,7 @@
 
 ---
 
-## รุ่นคัสตอม / ยกเลิกจำหน่าย (Custom & Archived) - ภาษาไทย (17 เล่ม/แท็บ)
+## รุ่นคัสตอม / ยกเลิกจำหน่าย (Custom & Archived) - ภาษาไทย (18 เล่ม/แท็บ)
 
 | ซีรีส์ / โบรชัวร์ (Series) | รุ่นรถยนต์ (Models) | จำนวนหัวข้อ | สูตรสำหรับ Google Sheets (วางช่อง A1) |
 | :--- | :--- | :---: | :--- |
@@ -106,6 +106,7 @@
 | **BMW i7**<br><sub>`i7-20240410-01_TH.pdf`</sub> | i7 eDrive50 M Sport, i7 xDrive60 M Sport | 98 | `=IMPORTDATA("https://chatbovon.github.io/bmwthspecsheet/csv/custom/th/i7_20240410_01_th.csv")` |
 | **BMW iX3**<br><sub>`iX3-20260213-02_TH_REV.pdf.asset.1778752586444.pdf`</sub> | iX3 50 xDrive M Sport | 96 | `=IMPORTDATA("https://chatbovon.github.io/bmwthspecsheet/csv/custom/th/ix3_20260213_02_th_rev.pdf.asset.1778752586444.csv")` |
 | **BMW X6**<br><sub>`X6-20260223-01_TH.pdf.asset.1778752585977.pdf`</sub> | X6 xDrive40i M Sport | 84 | `=IMPORTDATA("https://chatbovon.github.io/bmwthspecsheet/csv/custom/th/x6_20260223_01_th.pdf.asset.1778752585977.csv")` |
+| **BMW iX1**<br><sub>`iX1-20250609-01_TH_color.pdf.asset.1751602413434.pdf`</sub> | iX1 eDrive20L M Sport | 74 | `=IMPORTDATA("https://chatbovon.github.io/bmwthspecsheet/csv/custom/th/ix1_20250609_01_th_color.pdf.asset.1751602413434.csv")` |
 
 ---
 
