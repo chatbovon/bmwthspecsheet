@@ -77,6 +77,10 @@ jobs:
       run: |
         python scratch/generate_report.py
 
+    - name: Generate Markdown Specs for NotebookLM and AI
+      run: |
+        python generate_markdown_specs.py
+
     - name: Send Daily Email Report (via GAS Web App)
       continue-on-error: true
       env:
@@ -98,12 +102,12 @@ jobs:
         git checkout ${{ github.head_ref || github.ref_name }}
         
         # Check if there are any database or audit changes
-        git add bmw_master_specs.json bmw_master_specs_en.json specsheet_audit_report.md
+        git add bmw_master_specs.json bmw_master_specs_en.json specsheet_audit_report.md specs_all.md specs_all_en.md
         git add -f bmw_ai_specs.json bmw_ai_specs_en.json || true
         # git add -f bmw_brochures_auto/*.pdf bmw_brochures_auto_en/*.pdf || true
         git add -f images/**/*.png || true
-        if [ -n "$(git status --porcelain bmw_master_specs.json bmw_master_specs_en.json bmw_ai_specs.json bmw_ai_specs_en.json specsheet_audit_report.md images/)" ]; then
-          git commit -m "Auto-update: New brochures, specifications, images and audit report [skip ci]"
+        if [ -n "$(git status --porcelain bmw_master_specs.json bmw_master_specs_en.json bmw_ai_specs.json bmw_ai_specs_en.json specsheet_audit_report.md specs_all.md specs_all_en.md images/)" ]; then
+          git commit -m "Auto-update: New brochures, specifications, images, markdown docs and audit report [skip ci]"
           git push
         else
           git status
