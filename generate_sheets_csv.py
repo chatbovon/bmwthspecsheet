@@ -178,11 +178,29 @@ def build_all_sheets_csv(force: bool = False):
             dataset_csv_count += 1
             total_csv_files += 1
 
+            # Generate clean short tab name
+            if len(models) == 1:
+                tname = models[0].get("model_name", series_name)
+            else:
+                clean_m = [m.get("model_name", "").replace("BMW ", "").strip() for m in models]
+                tname = f"{series_name} ({', '.join(clean_m)})"
+
+            tname = tname.replace("BMW ", "").strip()
+            if len(tname) > 35:
+                tname = tname[:32] + "..."
+
+            if ds["type"] == "custom":
+                tab_prefix = "[Archived EN] " if ds["lang"] == "en" else "[Archived TH] "
+            else:
+                tab_prefix = "[EN] " if ds["lang"] == "en" else ""
+            full_tab_name = f"{tab_prefix}{tname}"
+
             relative_url = f"{BASE_URL}/{ds['csv_subfolder']}/{csv_filename}"
             formula = f'=IMPORTDATA("{relative_url}")'
             models_display = ", ".join(m.get("model_name", "") for m in models)
 
             section_entries.append({
+                "tab_name": full_tab_name,
                 "series": series_name,
                 "pdf_source": pdf_source,
                 "models": models_display,
@@ -193,11 +211,24 @@ def build_all_sheets_csv(force: bool = False):
             })
 
         guide_sections.append({
+            "id": ds["id"],
             "title": ds["title"],
             "entries": section_entries,
             "count": dataset_csv_count
         })
         print(f"[SUCCESS] Generated {dataset_csv_count} CSV files in '{ds['csv_subfolder']}'")
+
+    # Generate csv/manifest.json for 100% automated dynamic syncing in Google Sheets
+    manifest_path = os.path.join(CSV_BASE_DIR, "manifest.json")
+    manifest_data = {
+        "generated_at": now_ict,
+        "base_url": BASE_URL,
+        "total_brochures": total_csv_files,
+        "datasets": {sec["id"]: sec["entries"] for sec in guide_sections}
+    }
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        json.dump(manifest_data, f, ensure_ascii=False, indent=2)
+    print(f"[MANIFEST] Generated live catalog index at '{manifest_path}'")
 
     # Generate google_sheets_formulas.md
     with open(GUIDE_FILE, "w", encoding="utf-8") as f:
@@ -226,3 +257,4 @@ if __name__ == "__main__":
     parser.add_argument("--force", action="store_true", help="Force regenerate CSV files regardless of hash.")
     args = parser.parse_args()
     build_all_sheets_csv(force=args.force)
+
