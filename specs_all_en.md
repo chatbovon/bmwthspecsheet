@@ -1,5 +1,5 @@
 # BMW Thailand Official Technical Specifications & Features Catalog
-> **Last Updated:** 2026-09-14 09:47:34 ICT (UTC+7)
+> **Last Updated:** 2026-09-14 09:49:10 ICT (UTC+7)
 > **Coverage:** 33 Series, 46 Models
 > **Source:** Official BMW Thailand Brochures, parsed and structured via BMW Dynamic Specsheet
 
