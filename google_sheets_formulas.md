@@ -1,6 +1,6 @@
 # 📊 BMW Specsheet - Google Sheets Live Sync Guide (`=IMPORTDATA`)
 
-> 🕒 **Last Generated:** `2026-09-14 19:21:53 ICT (UTC+7)`  
+> 🕒 **Last Generated:** `2026-09-14 19:23:07 ICT (UTC+7)`  
 > 💡 **วิธีใช้งาน:** ใน Google Sheets ของคุณ ให้สร้างแท็บใหม่ (Sheet Tab) แล้วคัดลอกสูตร `=IMPORTDATA(...)` ในตารางด้านล่างไปวางใน **ช่อง A1** ข้อมูลสเปกแบบ Matrix View จะถูกโหลดและอัปเดตแบบ Real-time ตามฐานข้อมูลล่าสุดโดยอัตโนมัติ!
 
 ---
