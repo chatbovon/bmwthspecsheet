@@ -140,8 +140,13 @@ def generate_markdown(db_path: str, out_path: str, lang: str = "th"):
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(content)
 
+    # Also save .txt version for AI web readers that only fetch text files
+    txt_path = out_path.rsplit(".", 1)[0] + ".txt"
+    with open(txt_path, "w", encoding="utf-8") as f:
+        f.write(content)
+
     file_size_kb = os.path.getsize(out_path) / 1024
-    print(f"[COMPLETE] Generated {out_path} ({file_size_kb:.1f} KB, {total_models} models)")
+    print(f"[COMPLETE] Generated {out_path} & {txt_path} ({file_size_kb:.1f} KB, {total_models} models)")
 
 def main():
     print("=== STARTING MARKDOWN SPECIFICATION EXPORT ===")
