@@ -221,6 +221,7 @@ def build_dossiers(db_path: str, lang: str = "th"):
 
     # Group collections
     groups = {
+        "BMW_All_Models_Master_Dossier": [],
         "BMW_Sedans_Dossier": [],
         "BMW_X_Family_Dossier": [],
         "BMW_i_Electric_Dossier": [],
@@ -247,6 +248,7 @@ def build_dossiers(db_path: str, lang: str = "th"):
                 f.write(model_md)
                 
             all_model_entries.append((sname, mname, model_md))
+            groups["BMW_All_Models_Master_Dossier"].append((mname, model_md))
 
             # Classify into groups
             m_lower = mname.lower()
