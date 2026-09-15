@@ -1,5 +1,5 @@
 # BMW All Models Master Dossier - Comprehensive Technical Dossier
-> **Last Updated:** 2026-09-15 10:47:23 ICT (UTC+7) | Total Models Included: 46
+> **Last Updated:** 2026-09-15 11:04:36 ICT (UTC+7) | Total Models Included: 46
 > **Format:** Self-Contained Model Dossiers for NotebookLM & AI RAG
 
 ## Table of Contents

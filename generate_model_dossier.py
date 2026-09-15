@@ -219,13 +219,9 @@ def build_dossiers(db_path: str, lang: str = "th"):
     tz_ict = timezone(timedelta(hours=7))
     now_ict = datetime.now(tz_ict).strftime("%Y-%m-%d %H:%M:%S ICT (UTC+7)")
 
-    # Group collections
+    # Master Dossier collection (All-in-One 46 models)
     groups = {
-        "BMW_All_Models_Master_Dossier": [],
-        "BMW_Sedans_Dossier": [],
-        "BMW_X_Family_Dossier": [],
-        "BMW_i_Electric_Dossier": [],
-        "BMW_M_High_Performance_Dossier": []
+        "BMW_All_Models_Master_Dossier": []
     }
 
     all_model_entries = []
@@ -249,29 +245,6 @@ def build_dossiers(db_path: str, lang: str = "th"):
                 
             all_model_entries.append((sname, mname, model_md))
             groups["BMW_All_Models_Master_Dossier"].append((mname, model_md))
-
-            # Classify into groups
-            m_lower = mname.lower()
-            s_lower = sname.lower()
-
-            # 1. Sedans & Coupes
-            if any(k in s_lower for k in ['2 series', '3 series', '4 series', '5 series', '7 series', 'z4']):
-                groups["BMW_Sedans_Dossier"].append((mname, model_md))
-            
-            # 2. X Family (Exclude XM and iX models - kept exclusively in M High Performance and i Electric)
-            is_xm = 'xm' in s_lower or m_lower.startswith('xm')
-            is_ix = 'ix' in s_lower or m_lower.startswith('ix')
-            if not is_xm and not is_ix:
-                if any(k in s_lower for k in ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7']) or m_lower.startswith('x'):
-                    groups["BMW_X_Family_Dossier"].append((mname, model_md))
-
-            # 3. i Electric
-            if m_lower.startswith('i') or 'ix' in m_lower or 'edrive' in m_lower:
-                groups["BMW_i_Electric_Dossier"].append((mname, model_md))
-
-            # 4. M High Performance
-            if any(k in s_lower for k in ['m2', 'm3', 'm4', 'm5', 'xm']) or 'competition' in m_lower or ' cs' in m_lower or m_lower.startswith('m'):
-                groups["BMW_M_High_Performance_Dossier"].append((mname, model_md))
 
     # Write grouped dossiers
     for gname, model_list in groups.items():

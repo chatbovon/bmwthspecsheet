@@ -130,12 +130,14 @@ The daily pipeline runs autonomously via GitHub Actions.
   - `specs_all_en.md` / `specs_all_en.txt` (English)
 - Formatted specifically for LLM system prompts, NotebookLM sources, and external AI agents.
 
-### Stage 9: Google Sheets Real-Time CSV Exporter (`generate_sheets_csv.py`)
-- **Conditional Change-Detection:** Checks the MD5 checksum of all 4 JSON spec files (`bmw_master_specs.json`, `bmw_master_specs_en.json`, `bmw_custom_specs.json`, `bmw_custom_specs_en.json`) against `.csv_build_hash`. If no changes occurred, regeneration is skipped to save CI/CD resources.
-- **Matrix View CSVs:** Converts every brochure entry into an independent matrix-view CSV file:
-  - `csv/master/th/*.csv` & `csv/master/en/*.csv` (Active brochures)
-  - `csv/custom/th/*.csv` & `csv/custom/en/*.csv` (Custom/Archived brochures)
-- **Live Google Sheets Formula Guide (`google_sheets_formulas.md`):** Generates ready-to-copy `=IMPORTDATA("https://chatbovon.github.io/bmwthspecsheet/csv/...")` formulas organized by tab and series.
+### Stage 9: Automated Model Dossier Generator for NotebookLM (`generate_model_dossier.py`)
+- **Self-Contained Model Dossiers:** Converts all models across the catalog into structured, semantic Dossiers formatted for instant, accurate retrieval by NotebookLM and AI RAG pipelines.
+- **All-in-One Master HTML Pages:**
+  - `dossier/th/BMW_All_Models_Master_Dossier.html` (Thai - 46 models complete)
+  - `dossier/en/BMW_All_Models_Master_Dossier.html` (English - 46 models complete)
+- **Granular Individual Dossiers:**
+  - `dossier/th/models/*.md` & `dossier/en/models/*.md` (Individual model markdown files)
+- **Direct NotebookLM Ingestion:** Published to GitHub Pages (`text/html; charset=utf-8`), enabling single-click 1-URL synchronization in NotebookLM.
 
 ---
 
