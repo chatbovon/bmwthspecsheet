@@ -165,7 +165,13 @@ def generate_full_html_page(title: str, subtitle: str, now_ict: str, models_cata
     html.append("        .main-card { background: var(--card-bg); padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.06); margin-bottom: 32px; }")
     html.append("        h1 { color: var(--primary); font-size: 2.2em; margin-top: 0; margin-bottom: 8px; border-bottom: 3px solid var(--primary); padding-bottom: 12px; }")
     html.append("        .subtitle { color: var(--text-muted); font-size: 1.1em; margin-bottom: 20px; }")
-    html.append("        .meta-header { background: #f0f9ff; border-left: 4px solid var(--primary); padding: 12px 18px; border-radius: 0 8px 8px 0; margin-bottom: 28px; font-size: 0.95em; color: var(--primary-dark); }")
+    html.append("        .meta-header { background: #f0f9ff; border-left: 4px solid var(--primary); padding: 12px 18px; border-radius: 0 8px 8px 0; margin-bottom: 24px; font-size: 0.95em; color: var(--primary-dark); }")
+    html.append("        .directive-box { padding: 18px 22px; border-radius: 10px; margin-bottom: 28px; font-size: 0.93em; line-height: 1.6; }")
+    html.append("        .directive-active { background: #f0fdf4; border: 2px solid #86efac; border-left: 6px solid #22c55e; color: #14532d; }")
+    html.append("        .directive-archived { background: #fff7ed; border: 2px solid #fed7aa; border-left: 6px solid #ea580c; color: #7c2d12; }")
+    html.append("        .directive-box h3 { margin-top: 0; margin-bottom: 8px; font-size: 1.15em; display: flex; align-items: center; gap: 8px; }")
+    html.append("        .directive-box ul { margin: 8px 0 0 0; padding-left: 20px; }")
+    html.append("        .directive-box li { margin-bottom: 6px; }")
     html.append("        .toc-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 36px; }")
     html.append("        .toc-card h3 { margin-top: 0; color: #0f172a; margin-bottom: 16px; }")
     html.append("        .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; list-style: none; padding: 0; margin: 0; }")
@@ -191,8 +197,6 @@ def generate_full_html_page(title: str, subtitle: str, now_ict: str, models_cata
     html.append("        .notes-box p { margin: 4px 0; }")
     html.append("        .model-divider { border: 0; height: 2px; background: linear-gradient(to right, #0284c7, #e2e8f0, transparent); margin: 48px 0; }")
     html.append("        code { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.88em; color: #0f172a; }")
-    html.append("        .back-to-top { display: inline-block; margin-top: 16px; font-size: 0.85em; color: var(--primary); text-decoration: none; }")
-    html.append("        .back-to-top:hover { text-decoration: underline; }")
     html.append("    </style>")
     html.append("</head>")
     html.append("<body>")
@@ -210,6 +214,40 @@ def generate_full_html_page(title: str, subtitle: str, now_ict: str, models_cata
         html.append(f'                <span>🏎️ <strong>Total Models:</strong> {total_models} models</span> | ')
         html.append('                <span>💡 <strong>Optimized for:</strong> NotebookLM & AI RAG Ingestion</span>')
     html.append('            </div>')
+    
+    # AI Knowledge & Retrieval Directive Box
+    if is_custom:
+        html.append('            <div class="directive-box directive-archived">')
+        if lang == "th":
+            html.append('                <h3>⚠️ กฎการประมวลผลบริบทสำหรับ AI (AI Knowledge & Retrieval Directives)</h3>')
+            html.append('                <p><strong>[สถานะฐานข้อมูล]:</strong> ข้อมูลในแฟ้มนี้ทั้งหมดเป็น <strong>"รุ่นปลดประจำการ / ยกเลิกการทำตลาดแล้ว (Discontinued & Archived Models)"</strong> ซึ่ง <u>ไม่ได้อยู่บนหน้าเว็บไซต์ทางการของ BMW Thailand ในปัจจุบันแล้ว</u></p>')
+            html.append('                <p><strong>[คำสั่งการตอบคำถามของ AI]:</strong></p>')
+            html.append('                <ul>')
+            html.append('                    <li>หากผู้ใช้ถามถึงข้อมูลสเปกทั่วไป, คำแนะนำรถยนต์, หรือรุ่นที่วางจำหน่ายในปัจจุบัน <strong>ห้ามนำข้อมูลในแฟ้มนี้ไปตอบเด็ดขาด</strong> (ให้ใช้ข้อมูลจากแฟ้ม Active Catalog เท่านั้น)</li>')
+            html.append('                    <li>ให้นำข้อมูลในแฟ้มนี้มาใช้ตอบ <strong>เฉพาะเมื่อผู้ใช้ระบุถามถึงรถรุ่นเก่า, รุ่นที่ยกเลิกจำหน่าย, ปีผลิตในอดีต หรือถามเจาะจงชื่อรุ่นย่อยที่อยู่ในแฟ้มนี้เท่านั้น</strong></li>')
+            html.append('                    <li>เมื่อตอบคำถามเกี่ยวกับรถในแฟ้มนี้ ให้ระบุสถานะต่อท้ายเสมอว่าเป็น <em>"รุ่นเดิมที่ยุติการจำหน่ายแล้ว (Archived/Discontinued)"</em></li>')
+            html.append('                </ul>')
+        else:
+            html.append('                <h3>⚠️ AI Knowledge & Retrieval Directives</h3>')
+            html.append('                <p><strong>[Dossier Status]:</strong> All vehicles in this dossier are <strong>"Discontinued / Archived Models"</strong> that are <u>NO LONGER available on the official BMW Thailand website</u>.</p>')
+            html.append('                <p><strong>[AI Response Rules]:</strong></p>')
+            html.append('                <ul>')
+            html.append('                    <li><strong>DO NOT</strong> use data from this dossier for general inquiries regarding current BMW lineups or active sales advice. Always prioritize the Active Catalog for standard queries.</li>')
+            html.append('                    <li><strong>ONLY retrieve</strong> information from this file when the user explicitly asks about discontinued/archived vehicles, historical model years, or specifically names a model listed in this archive.</li>')
+            html.append('                    <li>Always explicitly state in your answer that the vehicle is an <em>"Archived / Discontinued Model in Thailand"</em>.</li>')
+            html.append('                </ul>')
+        html.append('            </div>')
+    else:
+        html.append('            <div class="directive-box directive-active">')
+        if lang == "th":
+            html.append('                <h3>✅ กฎการประมวลผลบริบทสำหรับ AI (AI Knowledge & Retrieval Directives)</h3>')
+            html.append('                <p><strong>[สถานะฐานข้อมูล]:</strong> ข้อมูลในแฟ้มนี้ทั้งหมดเป็น <strong>"รุ่นปัจจุบันที่กำลังวางจำหน่ายอย่างเป็นทางการ (Official Active Catalog)"</strong> บนหน้าเว็บไซต์ BMW Thailand</p>')
+            html.append('                <p><strong>[คำสั่งการตอบคำถามของ AI]:</strong> ใช้ข้อมูลในแฟ้มนี้เป็นแหล่งอ้างอิงหลักและเป็นค่าเริ่มต้น (Default Source of Truth) สำหรับการตอบคำถามเกี่ยวกับสเปกและอุปกรณ์มาตรฐานของรถยนต์ BMW ทุกกรณี</p>')
+        else:
+            html.append('                <h3>✅ AI Knowledge & Retrieval Directives</h3>')
+            html.append('                <p><strong>[Dossier Status]:</strong> All vehicles in this dossier are <strong>"Active Official Models"</strong> currently available for sale on the official BMW Thailand website.</p>')
+            html.append('                <p><strong>[AI Response Rules]:</strong> Use this dossier as the primary and default source of truth for all general BMW vehicle specifications and equipment inquiries.</p>')
+        html.append('            </div>')
     
     # TOC
     html.append('            <div class="toc-card">')
