@@ -81,6 +81,10 @@ jobs:
       run: |
         python generate_sheets_csv.py
 
+    - name: Generate Model Dossiers for NotebookLM
+      run: |
+        python generate_model_dossier.py
+
     - name: Send Daily Email Report (via GAS Web App)
       continue-on-error: true
       env:
@@ -102,13 +106,14 @@ jobs:
         git checkout ${{ github.head_ref || github.ref_name }}
         
         # Check if there are any database or audit changes
-        git add bmw_master_specs.json bmw_master_specs_en.json bmw_custom_specs.json bmw_custom_specs_en.json specsheet_audit_report.md .nojekyll google_sheets_formulas.md .csv_build_hash
+        git add bmw_master_specs.json bmw_master_specs_en.json bmw_custom_specs.json bmw_custom_specs_en.json specsheet_audit_report.md .nojekyll google_sheets_formulas.md .csv_build_hash generate_model_dossier.py
         git add -f csv/ || true
+        git add -f dossier/ || true
         git add -f bmw_ai_specs.json bmw_ai_specs_en.json || true
         # git add -f bmw_brochures_auto/*.pdf bmw_brochures_auto_en/*.pdf || true
         git add -f images/**/*.png || true
-        if [ -n "$(git status --porcelain bmw_master_specs.json bmw_master_specs_en.json bmw_custom_specs.json bmw_custom_specs_en.json bmw_ai_specs.json bmw_ai_specs_en.json specsheet_audit_report.md google_sheets_formulas.md csv/ images/)" ]; then
-          git commit -m "Auto-update: New brochures, specifications, images, Google Sheets CSVs and audit report [skip ci]"
+        if [ -n "$(git status --porcelain bmw_master_specs.json bmw_master_specs_en.json bmw_custom_specs.json bmw_custom_specs_en.json bmw_ai_specs.json bmw_ai_specs_en.json specsheet_audit_report.md google_sheets_formulas.md csv/ dossier/ images/)" ]; then
+          git commit -m "Auto-update: New brochures, specifications, images, dossiers, Google Sheets CSVs and audit report [skip ci]"
           git push
         else
           git status
