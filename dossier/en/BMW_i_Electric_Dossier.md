@@ -1,5 +1,5 @@
 # BMW i Electric Dossier - Comprehensive Technical Dossier
-> **Last Updated:** 2026-09-15 10:36:47 ICT (UTC+7) | Total Models Included: 6
+> **Last Updated:** 2026-09-15 10:38:07 ICT (UTC+7) | Total Models Included: 6
 > **Format:** Self-Contained Model Dossiers for NotebookLM & AI RAG
 
 ## Table of Contents

@@ -256,10 +256,11 @@ def build_dossiers(db_path: str, lang: str = "th"):
             if any(k in s_lower for k in ['2 series', '3 series', '4 series', '5 series', '7 series', 'z4']):
                 groups["BMW_Sedans_Dossier"].append((mname, model_md))
             
-            # 2. X Family (Exclude XM models - kept exclusively in M High Performance)
+            # 2. X Family (Exclude XM and iX models - kept exclusively in M High Performance and i Electric)
             is_xm = 'xm' in s_lower or m_lower.startswith('xm')
-            if not is_xm:
-                if any(k in s_lower for k in ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'ix', 'ix1', 'ix2', 'ix3']) or m_lower.startswith('x'):
+            is_ix = 'ix' in s_lower or m_lower.startswith('ix')
+            if not is_xm and not is_ix:
+                if any(k in s_lower for k in ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7']) or m_lower.startswith('x'):
                     groups["BMW_X_Family_Dossier"].append((mname, model_md))
 
             # 3. i Electric
