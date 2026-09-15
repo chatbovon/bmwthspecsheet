@@ -35,16 +35,12 @@ def format_value(val: str, lang: str = "th") -> str:
 
 def get_powertrain_type(mname: str, spec_list: list, lang: str = "th") -> str:
     mname_lower = mname.lower()
-    # Check for BEV
     if mname_lower.startswith('i') or ' edrive' in mname_lower or ' xdrive' in mname_lower and mname_lower.startswith('i'):
         return "รถยนต์ไฟฟ้า 100% (Battery Electric Vehicle - BEV)" if lang == "th" else "Pure Electric (Battery Electric Vehicle - BEV)"
-    # Check for PHEV
     if 'e ' in mname_lower or mname_lower.endswith('e') or '530e' in mname_lower or '330e' in mname_lower or '750e' in mname_lower or 'm760e' in mname_lower or '50e' in mname_lower or 'xm' in mname_lower:
         return "ปลั๊กอินไฮบริด (Plug-in Hybrid - PHEV)" if lang == "th" else "Plug-in Hybrid Electric Vehicle (PHEV)"
-    # Check Diesel
     if 'd ' in mname_lower or mname_lower.endswith('d') or '20d' in mname_lower or '30d' in mname_lower or '40d' in mname_lower:
         return "เครื่องยนต์ดีเซล (Diesel TwinPower Turbo)" if lang == "th" else "Diesel (TwinPower Turbo)"
-    # Default Petrol
     return "เครื่องยนต์เบนซิน (Petrol TwinPower Turbo)" if lang == "th" else "Petrol (TwinPower Turbo)"
 
 def generate_model_markdown(series_name: str, model_data: dict, pdf_source: str, lang: str = "th") -> str:
@@ -94,7 +90,6 @@ def generate_model_markdown(series_name: str, model_data: dict, pdf_source: str,
             val = format_value(d.get("value", ""), lang=lang)
             if not topic:
                 continue
-            # Self-contained format: [MODEL NAME] - Topic: Value
             lines.append(f"- **[{mname}]** - {topic}: {val}")
         lines.append("")
 
@@ -124,6 +119,90 @@ def generate_model_markdown(series_name: str, model_data: dict, pdf_source: str,
         lines.append("")
 
     return "\n".join(lines)
+
+def convert_markdown_to_html(md_text: str, title: str, lang: str = "th") -> str:
+    html_lines = []
+    html_lines.append("<!DOCTYPE html>")
+    html_lines.append(f'<html lang="{lang}">')
+    html_lines.append("<head>")
+    html_lines.append('    <meta charset="UTF-8">')
+    html_lines.append('    <meta name="viewport" content="width=device-width, initial-scale=1.0">')
+    html_lines.append(f'    <title>{title}</title>')
+    html_lines.append("    <style>")
+    html_lines.append("        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #1e293b; max-width: 900px; margin: 0 auto; padding: 24px; background: #f8fafc; }")
+    html_lines.append("        .card { background: #ffffff; padding: 36px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 24px; }")
+    html_lines.append("        h1 { color: #0284c7; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; margin-top: 24px; font-size: 1.8em; }")
+    html_lines.append("        h2 { color: #0f172a; margin-top: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; font-size: 1.4em; }")
+    html_lines.append("        h3 { color: #334155; margin-top: 16px; font-size: 1.15em; }")
+    html_lines.append("        blockquote { background: #f1f5f9; border-left: 4px solid #0284c7; margin: 12px 0; padding: 8px 16px; color: #475569; }")
+    html_lines.append("        ul { list-style-type: square; padding-left: 24px; margin: 8px 0; }")
+    html_lines.append("        li { margin-bottom: 6px; }")
+    html_lines.append("        strong { color: #0f172a; }")
+    html_lines.append("        hr { border: 0; height: 1px; background: #e2e8f0; margin: 28px 0; }")
+    html_lines.append("        code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }")
+    html_lines.append("        a { color: #0284c7; text-decoration: none; }")
+    html_lines.append("        a:hover { text-decoration: underline; }")
+    html_lines.append("    </style>")
+    html_lines.append("</head>")
+    html_lines.append("<body>")
+    html_lines.append('    <div class="card">')
+    
+    in_ul = False
+    for line in md_text.splitlines():
+        line_str = line.strip()
+        if not line_str:
+            if in_ul:
+                html_lines.append("        </ul>")
+                in_ul = False
+            continue
+
+        formatted_line = line_str
+        formatted_line = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', formatted_line)
+        formatted_line = re.sub(r'`(.+?)`', r'<code>\1</code>', formatted_line)
+        formatted_line = re.sub(r'\[(.+?)\]\((.+?)\)', r'<a href="\2">\1</a>', formatted_line)
+
+        if line_str.startswith("# "):
+            if in_ul:
+                html_lines.append("        </ul>")
+                in_ul = False
+            html_lines.append(f"        <h1>{formatted_line[2:].strip()}</h1>")
+        elif line_str.startswith("## "):
+            if in_ul:
+                html_lines.append("        </ul>")
+                in_ul = False
+            html_lines.append(f"        <h2>{formatted_line[3:].strip()}</h2>")
+        elif line_str.startswith("### "):
+            if in_ul:
+                html_lines.append("        </ul>")
+                in_ul = False
+            html_lines.append(f"        <h3>{formatted_line[4:].strip()}</h3>")
+        elif line_str.startswith("> "):
+            if in_ul:
+                html_lines.append("        </ul>")
+                in_ul = False
+            html_lines.append(f"        <blockquote>{formatted_line[2:].strip()}</blockquote>")
+        elif line_str.startswith("- "):
+            if not in_ul:
+                html_lines.append("        <ul>")
+                in_ul = True
+            html_lines.append(f"            <li>{formatted_line[2:].strip()}</li>")
+        elif line_str == "---" or "====" in line_str:
+            if in_ul:
+                html_lines.append("        </ul>")
+                in_ul = False
+            html_lines.append("        <hr>")
+        else:
+            if in_ul:
+                html_lines.append("        </ul>")
+                in_ul = False
+            html_lines.append(f"        <p>{formatted_line}</p>")
+
+    if in_ul:
+        html_lines.append("        </ul>")
+    html_lines.append("    </div>")
+    html_lines.append("</body>")
+    html_lines.append("</html>")
+    return "\n".join(html_lines)
 
 def build_dossiers(db_path: str, lang: str = "th"):
     if not os.path.exists(db_path):
@@ -214,11 +293,19 @@ def build_dossiers(db_path: str, lang: str = "th"):
             glines.append(model_md)
             glines.append("\n\n================================================================================\n\n")
 
+        full_md_content = "\n".join(glines)
         with open(gpath, "w", encoding="utf-8") as f:
-            f.write("\n".join(glines))
+            f.write(full_md_content)
+
+        # Generate HTML copy for NotebookLM Web URL Ingestion
+        html_path = os.path.join(lang_dir, f"{gname}.html")
+        html_content = convert_markdown_to_html(full_md_content, title=gname.replace('_', ' '), lang=lang)
+        with open(html_path, "w", encoding="utf-8") as f:
+            f.write(html_content)
 
         gsize_kb = os.path.getsize(gpath) / 1024
-        print(f"[GROUP] Generated {gpath} ({gsize_kb:.1f} KB, {len(model_list)} models)")
+        hsize_kb = os.path.getsize(html_path) / 1024
+        print(f"[GROUP] Generated MD: {gpath} ({gsize_kb:.1f} KB) & HTML: {html_path} ({hsize_kb:.1f} KB)")
 
     print(f"[COMPLETE] Built {len(all_model_entries)} individual model dossiers in {models_dir}")
 
