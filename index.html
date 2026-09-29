@@ -507,6 +507,72 @@
             opacity: 1;
             transform: scale(1);
         }
+
+        /* Source Brochure PDF Link Styling */
+        .pdf-source-row td {
+            padding: 14px 10px;
+            vertical-align: middle;
+        }
+        .pdf-link-card {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 12px;
+            background: var(--bg-preview-cell);
+            border: 1px solid var(--border-preview-cell);
+            border-radius: 8px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.25s ease;
+            max-width: 220px;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        .pdf-link-card:hover {
+            background: var(--bg-tr-hover);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+        }
+        .pdf-card-icon {
+            color: #ef4444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .pdf-card-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            width: 100%;
+        }
+        .pdf-name {
+            font-size: 0.74rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            color: var(--text-secondary);
+            word-break: break-all;
+            line-height: 1.3;
+            text-align: center;
+        }
+        .pdf-btn-badge {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #ffffff;
+            background: var(--accent-color);
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-top: 2px;
+            transition: background 0.2s ease;
+        }
+        .pdf-link-card:hover .pdf-btn-badge {
+            background: #0369a1;
+        }
     </style>
 </head>
 <body>
@@ -563,7 +629,11 @@
             yesWords: ["มี", "yes", "■", "▪", "●", "□"],
             seriesPrefix: "รุ่นรถยนต์ #",
             navLinkLabel: "📂 ดูสเปกรุ่นรถเก่า / Custom",
-            visualizerDefaultColor: "เลือกสีตัวถังในตารางด้านล่างเพื่อดูรูปตัวอย่าง"
+            visualizerDefaultColor: "เลือกสีตัวถังในตารางด้านล่างเพื่อดูรูปตัวอย่าง",
+            sourceDocSection: "📄 เอกสารโบรชัวร์ต้นฉบับ (PDF)",
+            sourceDocRowLabel: "ไฟล์โบรชัวร์ต้นฉบับ",
+            openPdfLabel: "เปิดดูไฟล์ต้นฉบับ ↗",
+            noPdfAvailable: "ไม่มีไฟล์ PDF"
         },
         en: {
             title: "BMW Smart Specsheet",
@@ -577,7 +647,11 @@
             yesWords: ["มี", "yes", "■", "▪", "●", "□"],
             seriesPrefix: "Series #",
             navLinkLabel: "📂 View Custom / Archived Specsheets",
-            visualizerDefaultColor: "Select a paint color from the table below to preview"
+            visualizerDefaultColor: "Select a paint color from the table below to preview",
+            sourceDocSection: "📄 Official Source Brochure (PDF)",
+            sourceDocRowLabel: "Source Brochure File",
+            openPdfLabel: "Open PDF ↗",
+            noPdfAvailable: "No PDF available"
         }
     };
 
@@ -1144,6 +1218,66 @@
 
             tbody.appendChild(trPreviewImages);
         }
+
+        // Append Source PDF Brochure section at the bottom of the table
+        let trPdfSection = document.createElement('tr');
+        trPdfSection.className = 'section-title';
+        let tdPdfSection = document.createElement('td');
+        tdPdfSection.colSpan = models.length + 1;
+        tdPdfSection.innerText = TRANSLATIONS[currentLang].sourceDocSection;
+        trPdfSection.appendChild(tdPdfSection);
+        tbody.appendChild(trPdfSection);
+
+        let trPdfRow = document.createElement('tr');
+        trPdfRow.className = 'pdf-source-row';
+
+        let tdPdfLabel = document.createElement('td');
+        tdPdfLabel.innerText = TRANSLATIONS[currentLang].sourceDocRowLabel;
+        trPdfRow.appendChild(tdPdfLabel);
+
+        const pdfFolder = currentLang === 'en' ? 'bmw_brochures_auto_en' : 'bmw_brochures_auto';
+
+        models.forEach((model, colIdx) => {
+            let tdPdf = document.createElement('td');
+            tdPdf.className = 'col-' + colIdx; // Hook class for toggling
+
+            const pdfFile = model.pdf_source || model.source_file || data.pdf_source || data.source_file;
+            if (pdfFile) {
+                const pdfUrl = `${pdfFolder}/${encodeURIComponent(pdfFile)}`;
+                let link = document.createElement('a');
+                link.href = pdfUrl;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.className = 'pdf-link-card';
+                link.title = pdfFile;
+
+                link.innerHTML = `
+                    <div class="pdf-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="pdf-card-info">
+                        <span class="pdf-name">${pdfFile}</span>
+                        <span class="pdf-btn-badge">${TRANSLATIONS[currentLang].openPdfLabel}</span>
+                    </div>
+                `;
+                tdPdf.appendChild(link);
+            } else {
+                let dash = document.createElement('span');
+                dash.className = 'dash-icon';
+                dash.innerText = '-';
+                tdPdf.appendChild(dash);
+            }
+
+            trPdfRow.appendChild(tdPdf);
+        });
+
+        tbody.appendChild(trPdfRow);
     }
 
     // โหลดข้อมูลแบบ Pooling / Fallback
