@@ -1508,7 +1508,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'FUEL CONSUMPTION AND CO2' at position 2: English is 'Combined CO2 (g/km)' (mapped: 'combined co2 (g/km)'), Thai is 'ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)' (mapped: 'co2 emission combined (g/km)')"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/2025/XM-20250130-01_EN_localpack-Z9Y.pdf.asset.1747825390844.pdf"
     },
     {
         "series": "BMW M2",
@@ -3038,7 +3039,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Category mismatch/ordering difference at position 11: English has 'Paintwork & Upholstery', Thai has 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2'"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/2025/M2-20250827-01_EN_Edit.pdf.asset.1758278443769.pdf"
     },
     {
         "series": "BMW M3",
@@ -3499,7 +3501,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Category mismatch/ordering difference at position 11: English has 'Optional Equipment', Thai has 'แพ็กเกจ'"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/2025/M3-20260622-01_EN.pdf.asset.1782449940980.pdf"
     },
     {
         "series": "BMW M4",
@@ -3971,7 +3974,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Category mismatch/ordering difference at position 11: English has 'Paintwork & Upholstery', Thai has 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2'"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/2024/M4-20241113-01_EN.pdf.asset.1732168871767.pdf"
     },
     {
         "series": "BMW M4",
@@ -4407,7 +4411,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Category mismatch/ordering difference at position 11: English has 'Optional Equipment', Thai has 'แพ็กเกจและตัวเลือกพิเศษ'"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/2025/M4-20250312-01_EN.pdf.asset.1745391121192.pdf"
     },
     {
         "series": "BMW M5",
@@ -4960,7 +4965,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Category mismatch/ordering difference at position 11: English has 'Optional Equipment', Thai has 'แพ็กเกจ'"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/M5-20260417-01_EN.pdf.asset.1778752587718.pdf"
     },
     {
         "series": "BMW 4 SERIES",
@@ -6545,7 +6551,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Category mismatch/ordering difference at position 12: English has 'Document References', Thai has 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2'"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/2025/4-20241113-03_EN.pdf.asset.1745391120731.pdf"
     },
     {
         "series": "BMW i5",
@@ -7553,7 +7560,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/i5-20260417-01_EN.pdf.asset.1778752587205.pdf"
     },
     {
         "series": "BMW X6",
@@ -8502,7 +8510,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/X6-20260223-01_EN.pdf.asset.1778752586141.pdf"
     },
     {
         "series": "BMW i5",
@@ -11307,6 +11316,7 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Category mismatch/ordering difference at position 15: English has 'Notes', Thai has 'Paintwork / สีตัวถังและวัสดุภายใน'"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/i5-20240314-01_EN.pdf.asset.1710485085278.pdf"
     }
 ]

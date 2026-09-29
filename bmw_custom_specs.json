@@ -1522,7 +1522,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'FUEL CONSUMPTION AND CO2' at position 2: English is 'Combined CO2 (g/km)' (mapped: 'combined co2 (g/km)'), Thai is 'ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)' (mapped: 'co2 emission combined (g/km)')"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/2025/XM-20250130-01_TH_localpack-Z9Y.pdf.asset.1747825367826.pdf"
     },
     {
         "series": "BMW M2",
@@ -3052,7 +3053,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Category mismatch/ordering difference at position 11: English has 'Paintwork & Upholstery', Thai has 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2'"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/2025/M2-20250827-01_TH_Edit.pdf.asset.1758278358157.pdf"
     },
     {
         "series": "BMW M3",
@@ -3515,7 +3517,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Category mismatch/ordering difference at position 11: English has 'Optional Equipment', Thai has 'แพ็กเกจ'"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/2025/M3-20260622-01_TH.pdf.asset.1782451194798.pdf"
     },
     {
         "series": "BMW M4",
@@ -3991,7 +3994,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Category mismatch/ordering difference at position 11: English has 'Paintwork & Upholstery', Thai has 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2'"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/2024/M4-20241113-01_TH.pdf.asset.1732168871735.pdf"
     },
     {
         "series": "BMW M4",
@@ -4440,7 +4444,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Category mismatch/ordering difference at position 11: English has 'Optional Equipment', Thai has 'แพ็กเกจและตัวเลือกพิเศษ'"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/2025/M4-20250312-01_TH.pdf.asset.1745407583372.pdf"
     },
     {
         "series": "BMW M5",
@@ -5008,7 +5013,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Category mismatch/ordering difference at position 11: English has 'Optional Equipment', Thai has 'แพ็กเกจ'"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/M5-20260417-01_TH.pdf.asset.1778752587556.pdf"
     },
     {
         "series": "BMW 4 SERIES",
@@ -6593,7 +6599,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Category mismatch/ordering difference at position 12: English has 'Document References', Thai has 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2'"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/2025/4-20241113-03_TH.pdf.asset.1745407581805.pdf"
     },
     {
         "series": "BMW i5",
@@ -7609,7 +7616,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/i5-20260417-01_TH.pdf.asset.1778752587155.pdf"
     },
     {
         "series": "BMW 2 SERIES",
@@ -7948,7 +7956,8 @@
             }
         ],
         "source_file": "2-20260218-01_TH.pdf.asset.1771910215806.pdf",
-        "pdf_source": "2-20260218-01_TH.pdf.asset.1771910215806.pdf"
+        "pdf_source": "2-20260218-01_TH.pdf.asset.1771910215806.pdf",
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/2-20260218-01_TH.pdf.asset.1771910215806.pdf"
     },
     {
         "series": "BMW 2 SERIES",
@@ -8295,7 +8304,8 @@
             }
         ],
         "source_file": "2-20260417-01_TH.pdf.asset.1778752587612.pdf",
-        "pdf_source": "2-20260417-01_TH.pdf.asset.1778752587612.pdf"
+        "pdf_source": "2-20260417-01_TH.pdf.asset.1778752587612.pdf",
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/2-20260417-01_TH.pdf.asset.1778752587612.pdf"
     },
     {
         "series": "BMW M3",
@@ -8644,7 +8654,8 @@
             }
         ],
         "source_file": "M3-20250312-02_TH_Touring.pdf.asset.1745407583409.pdf",
-        "pdf_source": "M3-20250312-02_TH_Touring.pdf.asset.1745407583409.pdf"
+        "pdf_source": "M3-20250312-02_TH_Touring.pdf.asset.1745407583409.pdf",
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/2025/M3-20250312-02_TH_Touring.pdf.asset.1745407583409.pdf"
     },
     {
         "series": "BMW M4",
@@ -9034,7 +9045,8 @@
             }
         ],
         "source_file": "M4-20230410-01_TH.pdf.asset.1741838082338.pdf",
-        "pdf_source": "M4-20230410-01_TH.pdf.asset.1741838082338.pdf"
+        "pdf_source": "M4-20230410-01_TH.pdf.asset.1741838082338.pdf",
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/M4_Competition_MxDrive_Coup%C3%A9_TH.pdf.asset.1681127840682.pdf"
     },
     {
         "series": "BMW X7",
@@ -9528,7 +9540,8 @@
             }
         ],
         "source_file": "X7-20251126-01_TH.pdf.asset.1778752587434.pdf",
-        "pdf_source": "X7-20251126-01_TH.pdf.asset.1778752587434.pdf"
+        "pdf_source": "X7-20251126-01_TH.pdf.asset.1778752587434.pdf",
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/X7-20251126-01_TH.pdf.asset.1778752587434.pdf"
     },
     {
         "series": "BMW i5",
@@ -12191,7 +12204,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Category mismatch/ordering difference at position 15: English has 'Notes', Thai has 'Paintwork / สีตัวถังและวัสดุภายใน'"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/i5-20240314-01_TH_edit.pdf"
     },
     {
         "series": "BMW i7",
@@ -13168,7 +13182,8 @@
             }
         ],
         "source_file": "i7-20240410-01_TH.pdf",
-        "pdf_source": "i7-20240410-01_TH.pdf"
+        "pdf_source": "i7-20240410-01_TH.pdf",
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/2024/i7-20240410-01_TH.pdf"
     },
     {
         "series": "BMW iX3",
@@ -13649,7 +13664,8 @@
         ],
         "source_file": "iX3-20260213-02_TH_REV.pdf.asset.1778752586444.pdf",
         "pdf_source": "iX3-20260213-02_TH_REV.pdf.asset.1778752586444.pdf",
-        "low_confidence_flags": []
+        "low_confidence_flags": [],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/iX3-20260213-02_TH_REV.pdf.asset.1778752586444.pdf"
     },
     {
         "series": "BMW X6",
@@ -14598,7 +14614,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/X6-20260223-01_TH.pdf.asset.1778752585977.pdf"
     },
     {
         "series": "BMW iX1",
@@ -14989,6 +15006,7 @@
         "pdf_source": "iX1-20250609-01_TH_color.pdf.asset.1751602413434.pdf",
         "extracted_by_models": [
             "gemini-3.5-flash"
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/2025/iX1-20250609-01_TH_color.pdf.asset.1751602413434.pdf"
     }
 ]

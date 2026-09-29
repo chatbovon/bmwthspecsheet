@@ -647,9 +647,10 @@
             seriesPrefix: "รุ่นรถยนต์ #",
             navLinkLabel: "⬅️ กลับหน้าสเปครุ่นปัจจุบัน",
             visualizerDefaultColor: "เลือกสีตัวถังในตารางด้านล่างเพื่อดูรูปตัวอย่าง",
-            sourceDocSection: "📄 เอกสารโบรชัวร์ต้นฉบับ (รุ่นเก่า/Archived)",
+            sourceDocSection: "📄 เอกสารโบรชัวร์ต้นฉบับอย่างเป็นทางการ (BMW Thailand)",
             sourceDocRowLabel: "ไฟล์โบรชัวร์ต้นฉบับ",
-            archivedStatusLabel: "📁 ถอดออกจากเว็บ BMW แล้ว<br>(เก็บสำรองใน Google Drive)",
+            openPdfLabel: "เปิดดูเอกสาร PDF ↗",
+            archivedStatusLabel: "📁 ถอดออกจากหน้าเว็บแล้ว<br>(โบรชัวร์รุ่นเดิม)",
             noPdfAvailable: "ไม่มีไฟล์ PDF"
         },
         en: {
@@ -665,9 +666,10 @@
             seriesPrefix: "Series #",
             navLinkLabel: "⬅️ Back to Current Models",
             visualizerDefaultColor: "Select a paint color from the table below to preview",
-            sourceDocSection: "📄 Official Source Brochure (Archived)",
+            sourceDocSection: "📄 Official Source Brochure (BMW Thailand)",
             sourceDocRowLabel: "Source Brochure File",
-            archivedStatusLabel: "📁 Archived from BMW TH<br>(Stored in Google Drive)",
+            openPdfLabel: "Open PDF Document ↗",
+            archivedStatusLabel: "📁 Archived from Web<br>(Original Brochure)",
             noPdfAvailable: "No PDF available"
         }
     };
@@ -1177,10 +1179,35 @@
             tdPdf.className = 'col-' + colIdx; // Hook class for toggling
 
             const pdfFile = model.pdf_source || model.source_file || data.pdf_source || data.source_file;
-            if (pdfFile) {
+            const pdfDirectUrl = model.pdf_url || data.pdf_url;
+            if (pdfDirectUrl) {
+                let link = document.createElement('a');
+                link.href = pdfDirectUrl;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.className = 'pdf-link-card';
+                link.title = `${pdfFile}\n(เปิดไฟล์ต้นฉบับบนเว็บ BMW Thailand)`;
+
+                link.innerHTML = `
+                    <div class="pdf-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="pdf-card-info">
+                        <span class="pdf-name">${pdfFile}</span>
+                        <span class="pdf-btn-badge">${TRANSLATIONS[currentLang].openPdfLabel}</span>
+                    </div>
+                `;
+                tdPdf.appendChild(link);
+            } else if (pdfFile) {
                 let card = document.createElement('div');
                 card.className = 'pdf-link-card pdf-info-card';
-                card.title = `${pdfFile}\n(เอกสารต้นฉบับถูกเก็บสำรองใน Google Drive)`;
+                card.title = `${pdfFile}\n(เอกสารต้นฉบับของ BMW Thailand)`;
 
                 card.innerHTML = `
                     <div class="pdf-card-icon" style="color: #64748b;">
