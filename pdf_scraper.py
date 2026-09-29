@@ -43,9 +43,10 @@ def download_pdf(page, pdf_url, download_dir, filename):
     return False
 
 all_web_filenames = set()
+all_web_pdf_urls = {}
 
 def scrape_target(target):
-    global all_web_filenames
+    global all_web_filenames, all_web_pdf_urls
     lang = target["lang"]
     url = target["url"]
     download_dir = target["download_dir"]
@@ -108,6 +109,7 @@ def scrape_target(target):
             # จดชื่อไฟล์นี้ไว้ในตะกร้า ว่าเว็บยังมีรถรุ่นนี้ขายอยู่
             web_filenames.add(filename)
             all_web_filenames.add(filename)
+            all_web_pdf_urls[filename] = link
 
             # [กฎข้อ 2]: เช็กว่าไฟล์นี้เคยโหลดมาแล้วหรือยัง
             if filename in existing_files:
@@ -145,7 +147,7 @@ def run_scraper():
     for target in TARGETS:
         scrape_target(target)
     
-    # Save the consolidated list of live web PDFs
+    # Save the consolidated list of live web PDFs and URL mapping
     scratch_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scratch")
     if not os.path.exists(scratch_dir):
         os.makedirs(scratch_dir)
@@ -154,6 +156,32 @@ def run_scraper():
         for fname in sorted(all_web_filenames):
             f.write(fname + "\n")
     print(f"\n[SCRAPER] Saved {len(all_web_filenames)} live web PDF filenames to {list_path}")
+
+    mapping_path = os.path.join(scratch_dir, "live_web_pdf_urls.json")
+    with open(mapping_path, "w", encoding="utf-8") as f:
+        json.dump(all_web_pdf_urls, f, indent=2, ensure_ascii=False)
+    print(f"[SCRAPER] Saved {len(all_web_pdf_urls)} live web PDF URLs to {mapping_path}")
+
+    # Synchronize pdf_url into master catalog JSONs
+    for db_file in ["bmw_master_specs.json", "bmw_master_specs_en.json"]:
+        db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), db_file)
+        if os.path.exists(db_path):
+            try:
+                with open(db_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                updated = False
+                for item in data:
+                    pdf_name = item.get("pdf_source") or item.get("source_file")
+                    if pdf_name and pdf_name in all_web_pdf_urls:
+                        if item.get("pdf_url") != all_web_pdf_urls[pdf_name]:
+                            item["pdf_url"] = all_web_pdf_urls[pdf_name]
+                            updated = True
+                if updated:
+                    with open(db_path, "w", encoding="utf-8") as f:
+                        json.dump(data, f, ensure_ascii=False, indent=4)
+                    print(f"[SCRAPER] Updated live pdf_url in {db_file}")
+            except Exception as e:
+                print(f"[SCRAPER] [WARNING] Failed to update pdf_url in {db_file}: {e}")
 
 if __name__ == "__main__":
     run_scraper()

@@ -630,9 +630,9 @@
             seriesPrefix: "รุ่นรถยนต์ #",
             navLinkLabel: "📂 ดูสเปกรุ่นรถเก่า / Custom",
             visualizerDefaultColor: "เลือกสีตัวถังในตารางด้านล่างเพื่อดูรูปตัวอย่าง",
-            sourceDocSection: "📄 เอกสารโบรชัวร์ต้นฉบับ (PDF)",
+            sourceDocSection: "📄 โบรชัวร์ต้นฉบับ (BMW Thailand)",
             sourceDocRowLabel: "ไฟล์โบรชัวร์ต้นฉบับ",
-            openPdfLabel: "เปิดดูไฟล์ต้นฉบับ ↗",
+            openPdfLabel: "เปิดดูไฟล์บนเว็บ BMW TH ↗",
             noPdfAvailable: "ไม่มีไฟล์ PDF"
         },
         en: {
@@ -648,9 +648,9 @@
             seriesPrefix: "Series #",
             navLinkLabel: "📂 View Custom / Archived Specsheets",
             visualizerDefaultColor: "Select a paint color from the table below to preview",
-            sourceDocSection: "📄 Official Source Brochure (PDF)",
+            sourceDocSection: "📄 Official Brochure (BMW Thailand)",
             sourceDocRowLabel: "Source Brochure File",
-            openPdfLabel: "Open PDF ↗",
+            openPdfLabel: "Open on BMW TH Website ↗",
             noPdfAvailable: "No PDF available"
         }
     };
@@ -1235,21 +1235,19 @@
         tdPdfLabel.innerText = TRANSLATIONS[currentLang].sourceDocRowLabel;
         trPdfRow.appendChild(tdPdfLabel);
 
-        const pdfFolder = currentLang === 'en' ? 'bmw_brochures_auto_en' : 'bmw_brochures_auto';
-
         models.forEach((model, colIdx) => {
             let tdPdf = document.createElement('td');
             tdPdf.className = 'col-' + colIdx; // Hook class for toggling
 
             const pdfFile = model.pdf_source || model.source_file || data.pdf_source || data.source_file;
-            if (pdfFile) {
-                const pdfUrl = `${pdfFolder}/${encodeURIComponent(pdfFile)}`;
+            const pdfDirectUrl = model.pdf_url || data.pdf_url;
+            if (pdfDirectUrl) {
                 let link = document.createElement('a');
-                link.href = pdfUrl;
+                link.href = pdfDirectUrl;
                 link.target = '_blank';
                 link.rel = 'noopener noreferrer';
                 link.className = 'pdf-link-card';
-                link.title = pdfFile;
+                link.title = `${pdfFile}\n(เปิดไฟล์ต้นฉบับบนเว็บ BMW Thailand)`;
 
                 link.innerHTML = `
                     <div class="pdf-card-icon">

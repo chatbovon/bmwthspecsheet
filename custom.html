@@ -573,6 +573,22 @@
         .pdf-link-card:hover .pdf-btn-badge {
             background: #0369a1;
         }
+        .pdf-info-card {
+            cursor: default;
+        }
+        .pdf-archive-badge {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: rgba(148, 163, 184, 0.15);
+            border: 1px dashed var(--border-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-top: 4px;
+            line-height: 1.35;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -631,9 +647,9 @@
             seriesPrefix: "รุ่นรถยนต์ #",
             navLinkLabel: "⬅️ กลับหน้าสเปครุ่นปัจจุบัน",
             visualizerDefaultColor: "เลือกสีตัวถังในตารางด้านล่างเพื่อดูรูปตัวอย่าง",
-            sourceDocSection: "📄 เอกสารโบรชัวร์ต้นฉบับ (PDF)",
+            sourceDocSection: "📄 เอกสารโบรชัวร์ต้นฉบับ (รุ่นเก่า/Archived)",
             sourceDocRowLabel: "ไฟล์โบรชัวร์ต้นฉบับ",
-            openPdfLabel: "เปิดดูไฟล์ต้นฉบับ ↗",
+            archivedStatusLabel: "📁 ถอดออกจากเว็บ BMW แล้ว<br>(เก็บสำรองใน Google Drive)",
             noPdfAvailable: "ไม่มีไฟล์ PDF"
         },
         en: {
@@ -649,9 +665,9 @@
             seriesPrefix: "Series #",
             navLinkLabel: "⬅️ Back to Current Models",
             visualizerDefaultColor: "Select a paint color from the table below to preview",
-            sourceDocSection: "📄 Official Source Brochure (PDF)",
+            sourceDocSection: "📄 Official Source Brochure (Archived)",
             sourceDocRowLabel: "Source Brochure File",
-            openPdfLabel: "Open PDF ↗",
+            archivedStatusLabel: "📁 Archived from BMW TH<br>(Stored in Google Drive)",
             noPdfAvailable: "No PDF available"
         }
     };
@@ -1156,24 +1172,18 @@
         tdPdfLabel.innerText = TRANSLATIONS[currentLang].sourceDocRowLabel;
         trPdfRow.appendChild(tdPdfLabel);
 
-        const pdfFolder = currentLang === 'en' ? 'bmw_brochures_custom_en' : 'bmw_brochures_custom';
-
         models.forEach((model, colIdx) => {
             let tdPdf = document.createElement('td');
             tdPdf.className = 'col-' + colIdx; // Hook class for toggling
 
             const pdfFile = model.pdf_source || model.source_file || data.pdf_source || data.source_file;
             if (pdfFile) {
-                const pdfUrl = `${pdfFolder}/${encodeURIComponent(pdfFile)}`;
-                let link = document.createElement('a');
-                link.href = pdfUrl;
-                link.target = '_blank';
-                link.rel = 'noopener noreferrer';
-                link.className = 'pdf-link-card';
-                link.title = pdfFile;
+                let card = document.createElement('div');
+                card.className = 'pdf-link-card pdf-info-card';
+                card.title = `${pdfFile}\n(เอกสารต้นฉบับถูกเก็บสำรองใน Google Drive)`;
 
-                link.innerHTML = `
-                    <div class="pdf-card-icon">
+                card.innerHTML = `
+                    <div class="pdf-card-icon" style="color: #64748b;">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                             <polyline points="14 2 14 8 20 8"></polyline>
@@ -1184,10 +1194,10 @@
                     </div>
                     <div class="pdf-card-info">
                         <span class="pdf-name">${pdfFile}</span>
-                        <span class="pdf-btn-badge">${TRANSLATIONS[currentLang].openPdfLabel}</span>
+                        <span class="pdf-archive-badge">${TRANSLATIONS[currentLang].archivedStatusLabel}</span>
                     </div>
                 `;
-                tdPdf.appendChild(link);
+                tdPdf.appendChild(card);
             } else {
                 let dash = document.createElement('span');
                 dash.className = 'dash-icon';
