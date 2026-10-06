@@ -15,8 +15,8 @@
       "ระบบขับเคลื่อนและเทคโนโลยี": {
         "ช่วงล่าง M Sport": "-"
       },
-      "ความปลอดภัย": {
-        "ยางรันแฟลต": "-"
+      "ล้อและยาง": {
+        "ยาง Runflat": "-"
       }
     }
   },
@@ -25,8 +25,8 @@
       "ระบบขับเคลื่อนและเทคโนโลยี": {
         "ช่วงล่าง M Sport": "-"
       },
-      "ความปลอดภัย": {
-        "ยางรันแฟลต": "-"
+      "ล้อและยาง": {
+        "ยาง Runflat": "-"
       }
     }
   },
@@ -60,6 +60,22 @@
     "i5 M60 xDrive": {
       "Wheels and Tyres": {
         "Tyre size": "Front: 8.5 J × 21 / tyres: 255/35 R 21\nRear: 9.5 J × 21 / tyres: 285/30 R 21"
+      }
+    }
+  },
+  "i7-20240410-01_TH": {
+    "_comment": "โบรชัวร์ BMW Thailand พิมพ์เครื่องหมาย ■ ในช่องของรุ่น i7 eDrive50 M Sport ผิดพลาด เนื่องจาก eDrive50 เป็นระบบขับเคลื่อนล้อหลัง (RWD) มอเตอร์เดี่ยว ไม่ใช่ระบบขับเคลื่อนสี่ล้อ xDrive จึงต้องปรับแก้เป็น -",
+    "i7 eDrive50 M Sport": {
+      "ระบบขับเคลื่อนและเทคโนโลยี": {
+        "ระบบขับเคลื่อนสี่ล้อด้วยไฟฟ้า BMW xDrive Electric (BMW xDrive electric all-wheeldrive)": "-"
+      }
+    }
+  },
+  "i7-20240410-01_EN": {
+    "_comment": "The BMW Thailand brochure incorrectly placed a ■ for i7 eDrive50 M Sport on the xDrive row. Since eDrive50 is single-motor rear-wheel drive (RWD), it cannot have xDrive all-wheel drive, so override to -",
+    "i7 eDrive50 M Sport": {
+      "Drivetrain and Technology": {
+        "BMW xDrive electric all-wheeldrive": "-"
       }
     }
   }

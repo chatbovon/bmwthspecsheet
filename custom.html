@@ -1338,7 +1338,7 @@
             return;
         }
 
-        // เพิ่มตัวเลือกใน Dropdown พร้อมต่อท้ายด้วยชื่อรุ่นย่อยเพื่อป้องกันชื่อซ้ำ
+        // เพิ่มตัวเลือกใน Dropdown พร้อมต่อท้ายด้วยชื่อรุ่นย่อยและวันที่พิมพ์เอกสาร
         allSeriesData.forEach((item, index) => {
             let opt = document.createElement('option');
             opt.value = index;
@@ -1352,6 +1352,55 @@
                 displayName += ` (${modelNames})`;
             }
             
+            // ดึงวันที่พิมพ์เอกสารจากหมวดข้อมูลเอกสารอ้างอิง
+            let docDate = '';
+            if (item.models && item.models.length > 0) {
+                for (let m of item.models) {
+                    if (!m.specifications) continue;
+                    for (let c of m.specifications) {
+                        let catLower = (c.category || '').toLowerCase();
+                        if (catLower.includes('อ้างอิง') || catLower.includes('reference')) {
+                            for (let d of (c.details || [])) {
+                                let topLower = (d.topic || '').toLowerCase();
+                                if (topLower.includes('วัน') || topLower.includes('date') || topLower.includes('พิมพ์')) {
+                                    let v = (d.value || '').toString().trim();
+                                    if (v && v !== '-') {
+                                        docDate = v;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        if (docDate) break;
+                    }
+                    if (docDate) break;
+                }
+                // Fallback: ค้นหาจากทุกหมวดหากยังไม่พบ
+                if (!docDate) {
+                    for (let m of item.models) {
+                        if (!m.specifications) continue;
+                        for (let c of m.specifications) {
+                            for (let d of (c.details || [])) {
+                                let topLower = (d.topic || '').toLowerCase();
+                                if (topLower.includes('วันที่พิมพ์') || topLower.includes('publication date')) {
+                                    let v = (d.value || '').toString().trim();
+                                    if (v && v !== '-') {
+                                        docDate = v;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (docDate) break;
+                        }
+                        if (docDate) break;
+                    }
+                }
+            }
+
+            if (docDate) {
+                displayName += ` - ${docDate}`;
+            }
+
             opt.innerText = displayName;
             seriesSelect.appendChild(opt);
         });

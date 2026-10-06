@@ -13,6 +13,8 @@ bmw_brochures_custom/
 bmw_brochures_custom_en/
 
 # 3. Temporary & Backup Data (ไฟล์ชั่วคราวและแบคอัพ)
+backups/
+*.bak
 bmw_master_specs_backup.json
 bmw_master_specs_en_backup.json
 bmw_ai_specs.json
