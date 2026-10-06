@@ -589,13 +589,212 @@
             line-height: 1.35;
             text-align: center;
         }
+
+        /* Multi-Model Compare Tray & Header Controls */
+        .th-model-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .th-compare-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 3px 10px;
+            font-size: 0.74rem;
+            font-weight: 600;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.18);
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(4px);
+            font-family: 'Prompt', sans-serif;
+            line-height: 1.3;
+        }
+        .th-compare-btn:hover {
+            background: rgba(255, 255, 255, 0.35);
+            border-color: #ffffff;
+            transform: translateY(-1px);
+        }
+        .th-compare-btn.active {
+            background: #8b5cf6;
+            border-color: #7c3aed;
+            color: #ffffff;
+            box-shadow: 0 2px 6px rgba(139, 92, 246, 0.4);
+        }
+
+        .floating-compare-tray {
+            position: fixed;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%) translateY(120%);
+            max-width: 920px;
+            width: calc(100% - 32px);
+            background: var(--bg-wrapper);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            z-index: 9990;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+            opacity: 0;
+            pointer-events: none;
+            backdrop-filter: blur(12px);
+        }
+        .floating-compare-tray.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .compare-tray-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+        .compare-tray-title {
+            font-size: 0.9em;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        .compare-tray-count {
+            font-size: 0.78em;
+            background: var(--bg-preview-cell);
+            color: var(--text-secondary);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+        }
+        .compare-tray-items {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-1;
+            overflow-x: auto;
+            padding: 4px 0;
+        }
+        .tray-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--bg-controls);
+            border: 1px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 500;
+            color: var(--text-primary);
+            white-space: nowrap;
+            flex-shrink: 0;
+            animation: popIn 0.2s ease;
+        }
+        .tray-chip-remove {
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 1.1em;
+            line-height: 1;
+            border-radius: 50%;
+            padding: 0 2px;
+            transition: color 0.15s ease;
+        }
+        .tray-chip-remove:hover {
+            color: #ef4444;
+        }
+        .compare-tray-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+        .btn-tray-clear {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.82em;
+            cursor: pointer;
+            font-family: 'Prompt', sans-serif;
+            padding: 6px 8px;
+            border-radius: 6px;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+        .btn-tray-clear:hover {
+            color: #ef4444;
+        }
+        .btn-tray-compare {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.88em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .btn-tray-compare:hover {
+            background: #0369a1;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        }
+        .btn-tray-compare.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+            background: var(--border-select);
+        }
+
+        .compare-toast {
+            position: fixed;
+            bottom: 84px;
+            left: 50%;
+            transform: translateX(-50%) translateY(40px);
+            background: #ef4444;
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 0.85em;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
+        }
+        .compare-toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
-        <a href="index.html" id="navLink" style="color: var(--accent-color); text-decoration: none; font-size: 0.9em; font-weight: 600; display: flex; align-items: center; gap: 4px;">⬅️ กลับหน้าสเปครุ่นปัจจุบัน</a>
+        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+            <a href="index.html" id="navLink" style="color: var(--accent-color); text-decoration: none; font-size: 0.9em; font-weight: 600; display: flex; align-items: center; gap: 4px;">⬅️ กลับหน้าสเปครุ่นปัจจุบัน</a>
+            <a href="compare.html" id="compareNavLink" style="color: var(--accent-color); text-decoration: none; font-size: 0.9em; font-weight: 600; display: flex; align-items: center; gap: 4px;">⚖️ เปรียบเทียบสเปกข้ามรุ่น (Diff Comparator)</a>
+        </div>
         <div style="display: flex; align-items: center; gap: 10px;">
             <button id="themeToggle" class="lang-btn" style="display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; padding: 0; font-size: 1.1em; border-radius: 50%; border: 1px solid var(--border-lang-btn);" title="เปลี่ยนธีม">☀️</button>
             <div class="lang-selector" style="margin-bottom: 0;">
@@ -646,6 +845,14 @@
             yesWords: ["มี", "yes", "■", "▪", "●", "□"],
             seriesPrefix: "รุ่นรถยนต์ #",
             navLinkLabel: "⬅️ กลับหน้าสเปครุ่นปัจจุบัน",
+            compareNavLink: "⚖️ เปรียบเทียบสเปกข้ามรุ่น (Diff Comparator)",
+            compareBtnAdd: "+ เทียบ",
+            compareBtnActive: "✓ กำลังเทียบ",
+            compareTrayTitle: "เปรียบเทียบสเปก",
+            compareTrayBtn: "เริ่มเปรียบเทียบ ↗",
+            compareTrayClear: "ล้างทั้งหมด",
+            compareMinShort: "เลือกอีกอย่างน้อย 1 คัน",
+            compareMaxLimit: "เลือกเปรียบเทียบได้สูงสุด 4 คันเท่านั้น",
             visualizerDefaultColor: "เลือกสีตัวถังในตารางด้านล่างเพื่อดูรูปตัวอย่าง",
             sourceDocSection: "📄 เอกสารโบรชัวร์ต้นฉบับอย่างเป็นทางการ (BMW Thailand)",
             sourceDocRowLabel: "ไฟล์โบรชัวร์ต้นฉบับ",
@@ -665,6 +872,14 @@
             yesWords: ["มี", "yes", "■", "▪", "●", "□"],
             seriesPrefix: "Series #",
             navLinkLabel: "⬅️ Back to Current Models",
+            compareNavLink: "⚖️ Multi-Model Diff Comparator",
+            compareBtnAdd: "+ Compare",
+            compareBtnActive: "✓ Comparing",
+            compareTrayTitle: "Compare Specs",
+            compareTrayBtn: "Compare Now ↗",
+            compareTrayClear: "Clear All",
+            compareMinShort: "Select at least 2",
+            compareMaxLimit: "Maximum 4 models can be compared",
             visualizerDefaultColor: "Select a paint color from the table below to preview",
             sourceDocSection: "📄 Official Source Brochure (BMW Thailand)",
             sourceDocRowLabel: "Source Brochure File",
@@ -810,6 +1025,11 @@
         document.getElementById('selectLabel').innerText = trans.selectLabel;
         document.getElementById('searchInput').placeholder = trans.searchPlaceholder;
         document.getElementById('navLink').innerText = trans.navLinkLabel;
+        const compareLink = document.getElementById('compareNavLink');
+        if (compareLink) compareLink.innerText = trans.compareNavLink;
+        
+        renderCompareTray();
+        updateCompareHeaderButtons();
         
         // โหลดข้อมูลตามภาษาใหม่
         loadSpecsData();
@@ -858,8 +1078,11 @@
         });
     }
 
+    let currentSeriesIndex = 0;
+
     // ฟังก์ชันสำหรับเรนเดอร์ซีรีส์ที่เลือก
     function renderSeries(seriesIndex) {
+        currentSeriesIndex = seriesIndex;
         const data = allSeriesData[seriesIndex];
         if (!data) return;
 
@@ -893,8 +1116,30 @@
 
             // สร้างหัวข้อคอลัมน์ในตาราง
             let th = document.createElement('th');
-            th.innerText = model.model_name;
             th.className = 'col-' + index;
+
+            let thWrapper = document.createElement('div');
+            thWrapper.className = 'th-model-wrapper';
+
+            let thTitle = document.createElement('div');
+            thTitle.innerText = model.model_name;
+            thWrapper.appendChild(thTitle);
+
+            let btnCompare = document.createElement('button');
+            btnCompare.className = 'th-compare-btn';
+            btnCompare.setAttribute('data-model-name', model.model_name);
+            btnCompare.setAttribute('data-series-name', data.series);
+            btnCompare.setAttribute('data-source', 'cust');
+            const inTray = isModelInTray(model.model_name, data.series, 'cust');
+            if (inTray) btnCompare.classList.add('active');
+            btnCompare.innerText = inTray ? TRANSLATIONS[currentLang].compareBtnActive : TRANSLATIONS[currentLang].compareBtnAdd;
+            btnCompare.onclick = function(e) {
+                e.stopPropagation();
+                toggleModelCompare(model, data.series, currentSeriesIndex, index, 'cust', this);
+            };
+            thWrapper.appendChild(btnCompare);
+
+            th.appendChild(thWrapper);
             thead.appendChild(th);
         });
 
@@ -1320,6 +1565,153 @@
         });
     }
 
+    // Multi-Model Compare Tray Management
+    function getCompareTray() {
+        try {
+            const raw = localStorage.getItem('bmw_compare_tray');
+            if (raw) {
+                const parsed = JSON.parse(raw);
+                if (Array.isArray(parsed)) return parsed;
+            }
+        } catch(e) {}
+        return [];
+    }
+
+    function saveCompareTray(items) {
+        try {
+            localStorage.setItem('bmw_compare_tray', JSON.stringify(items));
+        } catch(e) {}
+    }
+
+    function isModelInTray(modelName, seriesName, source) {
+        const tray = getCompareTray();
+        return tray.some(item => 
+            item.source === source && 
+            item.modelName.trim().toLowerCase() === modelName.trim().toLowerCase()
+        );
+    }
+
+    function toggleModelCompare(model, seriesName, seriesIndex, modelIndex, source, btn) {
+        let tray = getCompareTray();
+        const existingIndex = tray.findIndex(item => 
+            item.source === source && 
+            item.modelName.trim().toLowerCase() === model.model_name.trim().toLowerCase()
+        );
+
+        if (existingIndex >= 0) {
+            tray.splice(existingIndex, 1);
+            saveCompareTray(tray);
+            if (btn) {
+                btn.classList.remove('active');
+                btn.innerText = TRANSLATIONS[currentLang].compareBtnAdd;
+            }
+        } else {
+            if (tray.length >= 4) {
+                showCompareToast(TRANSLATIONS[currentLang].compareMaxLimit);
+                return;
+            }
+            let thumb = null;
+            if (model.images && Object.keys(model.images).length > 0) {
+                thumb = model.images[Object.keys(model.images)[0]];
+            }
+            tray.push({
+                id: `${source}:${seriesIndex}:${modelIndex}`,
+                source: source,
+                seriesIndex: seriesIndex,
+                modelIndex: modelIndex,
+                seriesName: seriesName,
+                modelName: model.model_name,
+                image: thumb
+            });
+            saveCompareTray(tray);
+            if (btn) {
+                btn.classList.add('active');
+                btn.innerText = TRANSLATIONS[currentLang].compareBtnActive;
+            }
+        }
+        renderCompareTray();
+        updateCompareHeaderButtons();
+    }
+
+    function removeModelFromTray(idx) {
+        let tray = getCompareTray();
+        tray.splice(idx, 1);
+        saveCompareTray(tray);
+        renderCompareTray();
+        updateCompareHeaderButtons();
+    }
+
+    function clearCompareTray() {
+        saveCompareTray([]);
+        renderCompareTray();
+        updateCompareHeaderButtons();
+    }
+
+    function updateCompareHeaderButtons() {
+        document.querySelectorAll('.th-compare-btn').forEach(btn => {
+            const mName = btn.getAttribute('data-model-name');
+            const sName = btn.getAttribute('data-series-name');
+            const src = btn.getAttribute('data-source');
+            if (mName) {
+                const inTray = isModelInTray(mName, sName, src);
+                btn.classList.toggle('active', inTray);
+                btn.innerText = inTray ? TRANSLATIONS[currentLang].compareBtnActive : TRANSLATIONS[currentLang].compareBtnAdd;
+            }
+        });
+    }
+
+    function renderCompareTray() {
+        const trayEl = document.getElementById('floatingCompareTray');
+        if (!trayEl) return;
+        const tray = getCompareTray();
+        const trans = TRANSLATIONS[currentLang];
+
+        if (tray.length === 0) {
+            trayEl.classList.remove('show');
+            return;
+        }
+
+        trayEl.classList.add('show');
+        document.getElementById('compareTrayTitle').innerText = trans.compareTrayTitle;
+        document.getElementById('compareTrayCount').innerText = `${tray.length}/4`;
+        document.getElementById('btnTrayClear').innerText = trans.compareTrayClear;
+
+        const itemsContainer = document.getElementById('compareTrayItems');
+        itemsContainer.innerHTML = '';
+
+        tray.forEach((item, idx) => {
+            const chip = document.createElement('div');
+            chip.className = 'tray-chip';
+            const icon = item.source === 'act' ? '⚡' : '📂';
+            chip.innerHTML = `
+                <span style="font-size:0.75em; opacity:0.8;">${icon}</span>
+                <span>${item.modelName}</span>
+                <span class="tray-chip-remove" title="ลบ" onclick="removeModelFromTray(${idx})">&times;</span>
+            `;
+            itemsContainer.appendChild(chip);
+        });
+
+        const compareBtn = document.getElementById('btnTrayCompare');
+        if (tray.length >= 2) {
+            compareBtn.classList.remove('disabled');
+            compareBtn.innerText = `${trans.compareTrayBtn} (${tray.length})`;
+            const ids = tray.map(item => item.id).join(',');
+            compareBtn.href = `compare.html?models=${ids}&lang=${currentLang}`;
+        } else {
+            compareBtn.classList.add('disabled');
+            compareBtn.innerText = trans.compareMinShort;
+            compareBtn.href = 'javascript:void(0)';
+        }
+    }
+
+    function showCompareToast(msg) {
+        const toast = document.getElementById('compareToast');
+        if (!toast) return;
+        document.getElementById('compareToastMsg').innerText = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
     function initializeData(data) {
         const trans = TRANSLATIONS[currentLang];
         
@@ -1407,6 +1799,7 @@
 
         // สั่งแสดงผลรุ่นแรกเป็นค่าเริ่มต้น
         renderSeries(0);
+        renderCompareTray();
     }
 
     // จัดการ Event การเปลี่ยนรุ่นใน Dropdown
@@ -1538,6 +1931,29 @@
     // เริ่มต้นโหลดข้อมูล
     loadSpecsData();
 </script>
+
+<!-- Floating Compare Tray -->
+<div id="floatingCompareTray" class="floating-compare-tray">
+    <div class="compare-tray-left">
+        <span class="compare-tray-title">
+            <span>⚖️</span>
+            <span id="compareTrayTitle">เปรียบเทียบสเปก</span>
+        </span>
+        <span id="compareTrayCount" class="compare-tray-count">0/4</span>
+    </div>
+    <div id="compareTrayItems" class="compare-tray-items">
+        <!-- Rendered dynamically -->
+    </div>
+    <div class="compare-tray-actions">
+        <button id="btnTrayClear" class="btn-tray-clear" onclick="clearCompareTray()">ล้างทั้งหมด</button>
+        <a id="btnTrayCompare" href="compare.html" class="btn-tray-compare disabled">เริ่มเปรียบเทียบ ↗</a>
+    </div>
+</div>
+
+<!-- Toast notification for compare limits -->
+<div id="compareToast" class="compare-toast">
+    <span id="compareToastMsg">เลือกเปรียบเทียบได้สูงสุด 4 คันเท่านั้น</span>
+</div>
 
 </body>
 </html>

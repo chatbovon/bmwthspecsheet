@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>BMW Multi-Model Diff Comparator | เปรียบเทียบสเปกข้ามรุ่น</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            /* Light Theme (Default) */
+            --bg-body: #f1f5f9;
+            --bg-wrapper: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --bg-controls: #f8fafc;
+            --bg-select-container: #f1f5f9;
+            --border-color: #cbd5e1;
+            --border-select: #94a3b8;
+            --bg-select: #ffffff;
+            --text-select: #0f172a;
+            --bg-tag-btn: #e2e8f0;
+            --text-tag-btn: #475569;
+            --bg-tag-btn-active: #0284c7;
+            --text-tag-btn-active: #ffffff;
+            --bg-input: #ffffff;
+            --text-input: #0f172a;
+            --bg-table-header: #0284c7;
+            --bg-table-header-first: #0369a1;
+            --bg-sticky-col: #f8fafc;
+            --border-sticky-col: #0284c7;
+            --accent-color: #0284c7;
+            --accent-hover: #0369a1;
+            --bg-section-title: #e2e8f0;
+            --text-section-title: #0369a1;
+            --bg-tr-hover: #e0f2fe;
+            --bg-lang-btn: #ffffff;
+            --border-lang-btn: #cbd5e1;
+            --text-lang-btn: #64748b;
+            --bg-lang-btn-active: #0284c7;
+            --border-lang-btn-active: #0284c7;
+            --text-lang-btn-active: #ffffff;
+            --bg-preview-cell: rgba(241, 245, 249, 0.6);
+            --border-preview-cell: #cbd5e1;
+            --bg-no-preview: rgba(248, 250, 252, 0.5);
+            --border-no-preview: #94a3b8;
+            --text-no-preview: #64748b;
+            --bg-tooltip: rgba(255, 255, 255, 0.98);
+            --text-tooltip: #0f172a;
+            --border-tooltip: rgba(0, 0, 0, 0.1);
+            --box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+
+            /* Diff Specific Tokens */
+            --diff-highlight-bg: rgba(254, 243, 199, 0.55);
+            --diff-badge-bg: #f59e0b;
+            --diff-badge-text: #ffffff;
+            --diff-row-accent: #f59e0b;
+            --same-row-bg: transparent;
+            --modal-overlay: rgba(15, 23, 42, 0.6);
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --active-badge-bg: #10b981;
+            --custom-badge-bg: #8b5cf6;
+        }
+
+        :root.dark-theme {
+            /* Dark Theme */
+            --bg-body: #0f172a;
+            --bg-wrapper: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --bg-controls: #0f172a;
+            --bg-select-container: #1e293b;
+            --border-color: #334155;
+            --border-select: #475569;
+            --bg-select: #0f172a;
+            --text-select: #ffffff;
+            --bg-tag-btn: #334155;
+            --text-tag-btn: #cbd5e1;
+            --bg-tag-btn-active: #0284c7;
+            --text-tag-btn-active: #ffffff;
+            --bg-input: #1e293b;
+            --text-input: #ffffff;
+            --bg-table-header: #0284c7;
+            --bg-table-header-first: #0369a1;
+            --bg-sticky-col: #1e293b;
+            --border-sticky-col: #38bdf8;
+            --accent-color: #38bdf8;
+            --accent-hover: #0284c7;
+            --bg-section-title: #334155;
+            --text-section-title: #38bdf8;
+            --bg-tr-hover: #24334d;
+            --bg-lang-btn: #1e293b;
+            --border-lang-btn: #475569;
+            --text-lang-btn: #94a3b8;
+            --bg-lang-btn-active: #0284c7;
+            --border-lang-btn-active: #38bdf8;
+            --text-lang-btn-active: #ffffff;
+            --bg-preview-cell: rgba(30, 41, 59, 0.4);
+            --border-preview-cell: #334155;
+            --bg-no-preview: rgba(15, 23, 42, 0.3);
+            --border-no-preview: #475569;
+            --text-no-preview: #64748b;
+            --bg-tooltip: rgba(15, 23, 42, 0.95);
+            --text-tooltip: #f1f5f9;
+            --border-tooltip: rgba(255, 255, 255, 0.1);
+            --box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
+            /* Diff Specific Tokens (Dark) */
+            --diff-highlight-bg: rgba(245, 158, 11, 0.12);
+            --diff-badge-bg: #d97706;
+            --diff-badge-text: #ffffff;
+            --diff-row-accent: #fbbf24;
+            --same-row-bg: transparent;
+            --modal-overlay: rgba(0, 0, 0, 0.75);
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --active-badge-bg: #059669;
+            --custom-badge-bg: #7c3aed;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .wrapper {
+            max-width: 100%;
+            margin: 0 auto;
+            background: var(--bg-wrapper);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: var(--box-shadow);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+        }
+        .nav-link:hover {
+            background-color: var(--bg-preview-cell);
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .theme-toggle-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            font-size: 1.1em;
+            border-radius: 50%;
+            border: 1px solid var(--border-lang-btn);
+            background: var(--bg-lang-btn);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .theme-toggle-btn:hover {
+            border-color: var(--accent-color);
+        }
+        .lang-selector {
+            display: flex;
+            gap: 6px;
+        }
+        .lang-btn {
+            background: var(--bg-lang-btn);
+            border: 1px solid var(--border-lang-btn);
+            color: var(--text-lang-btn);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.85em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .lang-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+        .lang-btn.active {
+            background: var(--bg-lang-btn-active);
+            border-color: var(--border-lang-btn-active);
+            color: var(--text-lang-btn-active);
+            font-weight: 600;
+        }
+
+        /* Titles */
+        h1 {
+            font-size: 1.85em;
+            margin: 0 0 6px 0;
+            text-align: center;
+            color: var(--accent-color);
+            letter-spacing: -0.02em;
+        }
+        .subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        /* Controls Section */
+        .controls-panel {
+            background: var(--bg-controls);
+            padding: 14px;
+            border-radius: 14px;
+            margin-bottom: 18px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .controls-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-input);
+            color: var(--text-input);
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.92em;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .search-box:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2);
+        }
+        .action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.88em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .btn-action:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-1px);
+        }
+        .btn-diff-toggle {
+            background: var(--bg-tag-btn);
+            color: var(--text-tag-btn);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+        .btn-diff-toggle.active {
+            background: #f59e0b;
+            color: #ffffff;
+            border-color: #d97706;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
+        }
+        .diff-counter-badge {
+            background: #ef4444;
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 2px 7px;
+            font-size: 0.76em;
+            font-weight: 700;
+            margin-left: 4px;
+        }
+        .btn-diff-toggle.active .diff-counter-badge {
+            background: #ffffff;
+            color: #d97706;
+        }
+        .btn-hide-empty {
+            background: var(--bg-tag-btn);
+            color: var(--text-tag-btn);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+        .btn-hide-empty.active {
+            background: #6366f1;
+            color: #ffffff;
+            border-color: #4f46e5;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.35);
+        }
+        .btn-hide-empty.active .diff-counter-badge {
+            background: #ffffff;
+            color: #4f46e5;
+        }
+        .hide-all-empty {
+            display: none !important;
+        }
+
+        /* Model Comparison Slots (Header Cards) */
+        .slots-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .slot-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.25s ease;
+        }
+        .slot-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.12);
+        }
+        .slot-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .slot-badge {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .badge-active { background: var(--active-badge-bg); }
+        .badge-custom { background: var(--custom-badge-bg); }
+
+        .btn-remove-slot {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.2em;
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            line-height: 1;
+            transition: all 0.2s ease;
+        }
+        .btn-remove-slot:hover {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+        .slot-img-container {
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-preview-cell);
+            border-radius: 8px;
+            border: 1px solid var(--border-preview-cell);
+            overflow: hidden;
+            position: relative;
+        }
+        .slot-img {
+            max-height: 80px;
+            max-width: 95%;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+            cursor: zoom-in;
+            transition: transform 0.2s ease;
+        }
+        .slot-img:hover {
+            transform: scale(1.05);
+        }
+        .slot-no-img {
+            font-size: 0.78em;
+            color: var(--text-no-preview);
+            text-align: center;
+            padding: 4px;
+        }
+        .slot-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            text-align: center;
+        }
+        .slot-series-name {
+            font-size: 0.76em;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .slot-model-name {
+            font-size: 0.95em;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+        .slot-actions {
+            display: flex;
+            gap: 6px;
+            margin-top: auto;
+        }
+        .btn-slot-change {
+            flex: 1;
+            padding: 6px 10px;
+            font-size: 0.8em;
+            font-weight: 600;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-controls);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Prompt', sans-serif;
+            text-align: center;
+        }
+        .btn-slot-change:hover {
+            border-color: var(--accent-color);
+            background: var(--bg-tr-hover);
+            color: var(--accent-color);
+        }
+
+        /* Empty Add Slot Card */
+        .slot-card-add {
+            border: 2px dashed var(--border-color);
+            background: rgba(241, 245, 249, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            cursor: pointer;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            transition: all 0.25s ease;
+        }
+        .slot-card-add:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            background: var(--bg-preview-cell);
+            transform: translateY(-2px);
+        }
+        .add-icon-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-tag-btn);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .slot-card-add:hover .add-icon-circle {
+            background: var(--accent-color);
+            color: #ffffff;
+        }
+        .add-slot-label {
+            font-size: 0.88em;
+            font-weight: 600;
+        }
+        .add-slot-desc {
+            font-size: 0.76em;
+            color: var(--text-secondary);
+        }
+
+        /* Comparison Table */
+        .table-container {
+            overflow: auto;
+            max-height: 75vh;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.03);
+            background: var(--bg-wrapper);
+        }
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+        }
+        th, td {
+            padding: 12px 14px;
+            font-size: 0.86em;
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+        thead th {
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-table-header);
+            color: white;
+            z-index: 10;
+            font-weight: 600;
+            text-align: center;
+            min-width: 180px;
+        }
+        thead th:first-child {
+            position: sticky;
+            left: 0;
+            top: 0;
+            z-index: 15;
+            background-color: var(--bg-table-header-first);
+            min-width: 200px;
+            max-width: 240px;
+            text-align: left;
+        }
+        td:first-child {
+            position: sticky;
+            left: 0;
+            background-color: var(--bg-sticky-col);
+            z-index: 5;
+            font-weight: 600;
+            min-width: 200px;
+            max-width: 240px;
+            border-right: 2px solid var(--border-sticky-col);
+            vertical-align: middle;
+        }
+        td:not(:first-child) {
+            text-align: center;
+            background-color: var(--bg-sticky-col);
+            vertical-align: middle;
+            min-width: 180px;
+        }
+
+        /* Category Header Row */
+        tr.section-title td {
+            background-color: var(--bg-section-title) !important;
+            color: var(--text-section-title);
+            font-weight: 700;
+            position: sticky;
+            left: 0;
+            z-index: 6;
+            text-align: left !important;
+            font-size: 0.9em;
+            padding: 10px 14px;
+            letter-spacing: 0.01em;
+        }
+        tr:hover td {
+            background-color: var(--bg-tr-hover) !important;
+        }
+
+        /* Diff Highlighting */
+        tr.row-diff td:not(:first-child) {
+            background-color: var(--diff-highlight-bg);
+        }
+        tr.row-diff td:first-child::after {
+            content: "• DIFF";
+            font-size: 0.68em;
+            font-weight: 700;
+            color: var(--diff-badge-bg);
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            padding: 1px 5px;
+            border-radius: 4px;
+            margin-left: 6px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .hide-same {
+            display: none !important;
+        }
+        .hide-search {
+            display: none !important;
+        }
+
+        /* Value Icons */
+        .check-icon {
+            color: #10b981;
+            width: 1.25em;
+            height: 1.25em;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .dash-icon {
+            color: #94a3b8;
+            font-weight: bold;
+        }
+
+        /* Tooltip */
+        .footnote-trigger {
+            color: #3b82f6;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+            padding: 0 2px;
+            transition: color 0.2s ease;
+        }
+        .footnote-trigger:hover {
+            color: #ef4444;
+            text-decoration: underline;
+        }
+        .premium-tooltip {
+            position: absolute;
+            background: var(--bg-tooltip);
+            backdrop-filter: blur(10px);
+            color: var(--text-tooltip);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: normal;
+            line-height: 1.4;
+            white-space: normal;
+            width: 260px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-tooltip);
+            transition: opacity 0.15s ease, transform 0.15s ease;
+            z-index: 9999;
+            text-align: left;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        .premium-tooltip.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Toast Notification */
+        .toast-notification {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #10b981;
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 10000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Model Selector Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--modal-overlay);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+            padding: 16px;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            max-width: 720px;
+            width: 100%;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            transform: scale(0.96);
+            transition: transform 0.25s ease;
+            overflow: hidden;
+        }
+        .modal-overlay.open .modal-container {
+            transform: scale(1);
+        }
+        .modal-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 0;
+        }
+        .modal-close-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.4em;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 4px;
+            line-height: 1;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        .modal-close-btn:hover {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+        .modal-body {
+            padding: 16px 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .modal-search {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-input);
+            color: var(--text-input);
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.9em;
+            outline: none;
+        }
+        .modal-search:focus {
+            border-color: var(--accent-color);
+        }
+        .modal-tabs {
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+        .modal-tab-btn {
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.85em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .modal-tab-btn:hover {
+            color: var(--accent-color);
+        }
+        .modal-tab-btn.active {
+            background: var(--bg-preview-cell);
+            color: var(--accent-color);
+            border-color: var(--border-color);
+        }
+        .modal-car-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 10px;
+            max-height: 50vh;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+        .modal-car-item {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background: var(--bg-controls);
+            transition: all 0.2s ease;
+        }
+        .modal-car-item:hover {
+            border-color: var(--accent-color);
+            background: var(--bg-tr-hover);
+            transform: translateY(-2px);
+        }
+        .modal-car-item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+            filter: grayscale(0.6);
+        }
+        .modal-car-item-title {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .modal-car-item-series {
+            font-size: 0.76em;
+            color: var(--text-secondary);
+        }
+
+        /* Image Fullscreen Modal */
+        .full-screen-image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.88);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+        .full-screen-image-modal.show-modal {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content-img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.5em; }
+            .slots-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .controls-top-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-box {
+                width: 100%;
+            }
+            .action-buttons {
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+        @media (max-width: 480px) {
+            .slots-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <!-- Top Nav -->
+    <div class="top-nav">
+        <div class="nav-links">
+            <a href="index.html" class="nav-link" id="linkActive">⚡ สเปกรุ่นปัจจุบัน</a>
+            <a href="custom.html" class="nav-link" id="linkCustom">📂 รุ่นเก่า / Custom</a>
+        </div>
+        <div class="nav-actions">
+            <button id="themeToggle" class="theme-toggle-btn" title="เปลี่ยนธีม">☀️</button>
+            <div class="lang-selector">
+                <button id="langTh" class="lang-btn active" onclick="setLanguage('th')">TH</button>
+                <button id="langEn" class="lang-btn" onclick="setLanguage('en')">EN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <h1 id="pageTitle">BMW Multi-Model Diff Comparator</h1>
+    <div id="pageSubtitle" class="subtitle">ระบบเปรียบเทียบสเปกข้ามรุ่นแบบกำหนดเอง (2-4 คัน) พร้อมโหมดจับจุดต่าง (Diff Engine)</div>
+
+    <!-- Controls Panel -->
+    <div class="controls-panel">
+        <div class="controls-top-row">
+            <input type="text" id="searchInput" class="search-box" placeholder="🔍 พิมพ์ค้นหาสเปก/ออปชัน... (เช่น เบาะ, แรงม้า, แบตเตอรี่, มิติ)">
+            <div class="action-buttons">
+                <button id="btnDiffToggle" class="btn-action btn-diff-toggle" onclick="toggleDiffOnly()">
+                    <span>🔍 แสดงเฉพาะจุดต่าง</span>
+                    <span id="diffCounterBadge" class="diff-counter-badge">0</span>
+                </button>
+                <button id="btnHideEmptyToggle" class="btn-action btn-hide-empty active" onclick="toggleHideAllEmpty()">
+                    <span>🚫 ซ่อนที่ไม่มีทุกรุ่น</span>
+                    <span id="allEmptyCounterBadge" class="diff-counter-badge">0</span>
+                </button>
+                <button id="btnShare" class="btn-action" onclick="copyShareLink()">
+                    <span>📋 คัดลอกลิงก์แชร์</span>
+                </button>
+                <button id="btnReset" class="btn-action" onclick="resetComparison()">
+                    <span>🔄 ล้างค่า</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Slots (Cards) -->
+    <div class="slots-container" id="slotsContainer">
+        <!-- Rendered dynamically -->
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="table-container">
+        <table id="compareTable">
+            <thead>
+                <tr id="tableHeaderRow">
+                    <th id="thTopicLabel">ข้อมูล / รุ่นรถ</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Rendered dynamically -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toastNotification" class="toast-notification">
+    <span>✅</span>
+    <span id="toastMessage">คัดลอกลิงก์แชร์แล้ว!</span>
+</div>
+
+<!-- Model Selector Modal -->
+<div id="modelModal" class="modal-overlay">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modalTitle">เลือกรุ่นรถเพื่อเปรียบเทียบ</h3>
+            <button class="modal-close-btn" onclick="closeModelModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <input type="text" id="modalSearchInput" class="modal-search" placeholder="🔍 ค้นหาชื่อรุ่น หรือ ซีรีส์...">
+            <div class="modal-tabs">
+                <button class="modal-tab-btn active" onclick="setModalTab('all')" id="tabAll">ทั้งหมด</button>
+                <button class="modal-tab-btn" onclick="setModalTab('active')" id="tabActive">⚡ รุ่นปัจจุบัน</button>
+                <button class="modal-tab-btn" onclick="setModalTab('custom')" id="tabCustom">📂 รุ่นเก่า / Custom</button>
+            </div>
+            <div class="modal-car-list" id="modalCarList">
+                <!-- Rendered dynamically -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script -->
+<script>
+    const TRANSLATIONS = {
+        th: {
+            pageTitle: "BMW Multi-Model Diff Comparator",
+            pageSubtitle: "ระบบเปรียบเทียบสเปกข้ามรุ่นแบบกำหนดเอง (2-4 คัน) พร้อมโหมดจับจุดต่าง (Diff Engine)",
+            linkActive: "⚡ สเปกรุ่นปัจจุบัน",
+            linkCustom: "📂 รุ่นเก่า / Custom",
+            searchPlaceholder: "🔍 พิมพ์ค้นหาสเปก/ออปชัน... (เช่น เบาะ, แรงม้า, แบตเตอรี่, มิติ)",
+            diffOnlyText: "🔍 แสดงเฉพาะจุดต่าง",
+            showAllText: "👁️ แสดงทั้งหมด",
+            diffPointsSuffix: "จุดต่าง",
+            copyShareLink: "📋 คัดลอกลิงก์แชร์",
+            linkCopied: "คัดลอกลิงก์เรียบร้อยแล้ว!",
+            resetBtn: "🔄 ล้างค่า",
+            thTopicLabel: "ข้อมูล / รุ่นรถ",
+            addSlotLabel: "+ เพิ่มรุ่นรถเปรียบเทียบ",
+            addSlotDesc: "เปรียบเทียบได้สูงสุด 4 คัน",
+            badgeActive: "⚡ ปัจจุบัน",
+            badgeCustom: "📂 รุ่นเก่า",
+            changeBtn: "เปลี่ยนรุ่น 🔄",
+            noPreviewText: "ไม่มีภาพตัวอย่างรถ",
+            modalTitle: "เลือกรุ่นรถเพื่อเปรียบเทียบ",
+            modalSearchPlaceholder: "🔍 ค้นหาชื่อรุ่น หรือ ซีรีส์...",
+            tabAll: "ทั้งหมด",
+            tabActive: "⚡ รุ่นปัจจุบัน",
+            tabCustom: "📂 รุ่นเก่า / Custom",
+            alreadySelected: "เลือกอยู่แล้ว",
+            yesWords: ["มี", "yes", "■", "▪", "●", "□"],
+            noWords: ["-", "null", "none", "ไม่มี", "no", ""],
+            sourceDocSection: "📄 โบรชัวร์ต้นฉบับ (BMW Thailand)",
+            openPdfLabel: "เปิดดูไฟล์ PDF ↗",
+            hideAllEmptyText: "🚫 ซ่อนที่ไม่มีทุกรุ่น",
+            showAllEmptyText: "👁️ แสดงที่ไม่มีทุกรุ่น",
+            allEmptySuffix: "ซ่อน"
+        },
+        en: {
+            pageTitle: "BMW Multi-Model Diff Comparator",
+            pageSubtitle: "Custom Multi-Model Comparison (2-4 Vehicles) with Difference Highlighting",
+            linkActive: "⚡ Active Specsheets",
+            linkCustom: "📂 Archived Specsheets",
+            searchPlaceholder: "🔍 Search specs/options... (e.g. seats, power, battery, dimensions)",
+            diffOnlyText: "🔍 Differences Only",
+            showAllText: "👁️ Show All Specs",
+            diffPointsSuffix: "Diffs",
+            copyShareLink: "📋 Copy Share Link",
+            linkCopied: "Share link copied to clipboard!",
+            resetBtn: "🔄 Reset",
+            thTopicLabel: "Specifications / Model",
+            addSlotLabel: "+ Add Vehicle to Compare",
+            addSlotDesc: "Compare up to 4 models",
+            badgeActive: "⚡ Active",
+            badgeCustom: "📂 Archived",
+            changeBtn: "Change 🔄",
+            noPreviewText: "No preview available",
+            modalTitle: "Select Vehicle to Compare",
+            modalSearchPlaceholder: "🔍 Search model name or series...",
+            tabAll: "All",
+            tabActive: "⚡ Active",
+            tabCustom: "📂 Archived",
+            alreadySelected: "Selected",
+            yesWords: ["มี", "yes", "■", "▪", "●", "□"],
+            noWords: ["-", "null", "none", "ไม่มี", "no", ""],
+            sourceDocSection: "📄 Official Brochure (BMW Thailand)",
+            openPdfLabel: "Open PDF File ↗",
+            hideAllEmptyText: "🚫 Hide Unavailable",
+            showAllEmptyText: "👁️ Show Unavailable",
+            allEmptySuffix: "hidden"
+        }
+    };
+
+    let currentLang = 'th';
+    let masterData = [];
+    let customData = [];
+    let flatCatalog = []; // Array of all models with unified metadata
+    
+    // Comparison State: array of model IDs (e.g., ['act:0:0', 'act:0:1'])
+    let selectedModelIds = [];
+    let isDiffOnly = false;
+    let isHideAllEmpty = true; // Default ON
+    let totalDiffCount = 0;
+    let totalAllEmptyCount = 0;
+    let targetSlotIndex = null; // For modal picking
+    let modalActiveTab = 'all';
+
+    // Tooltip Element
+    const tooltipEl = document.createElement('div');
+    tooltipEl.className = 'premium-tooltip';
+    document.body.appendChild(tooltipEl);
+
+    // ฟังก์ชันช่วยคำนวณคะแนนสำหรับจัดเรียงข้อมูลรถยนต์
+    function getSortScore(seriesName) {
+        let name = seriesName.trim().toUpperCase();
+        if (name.startsWith("BMW ")) {
+            name = name.substring(4).trim();
+        }
+        
+        let category = 99; // อื่นๆ
+        let secondary = name;
+        
+        if (/^\d/.test(name)) {
+            category = 1; // Series 2-7
+            let match = name.match(/^(\d+)/);
+            if (match) {
+                secondary = String(match[1]).padStart(3, '0');
+            }
+        } else if (name.startsWith("X") && /^\d/.test(name.substring(1))) {
+            category = 2; // X1-7
+            let match = name.substring(1).match(/^(\d+)/);
+            if (match) {
+                secondary = String(match[1]).padStart(3, '0');
+            }
+        } else if (name.startsWith("Z")) {
+            category = 3; // Z
+        } else if (name.startsWith("I")) {
+            category = 4; // i
+        } else if (name.startsWith("M") || name.startsWith("XM")) {
+            category = 5; // M & XM
+        }
+        
+        return { category, secondary };
+    }
+
+    function sortSeriesData(data) {
+        return data.sort((a, b) => {
+            let scoreA = getSortScore(a.series || "");
+            let scoreB = getSortScore(b.series || "");
+            
+            if (scoreA.category !== scoreB.category) {
+                return scoreA.category - scoreB.category;
+            }
+            return scoreA.secondary.localeCompare(scoreB.secondary);
+        });
+    }
+
+    // Helpers to find models
+    function getModelById(query) {
+        if (!query) return null;
+        if (typeof query === 'object') {
+            if (query.id) {
+                let found = flatCatalog.find(item => item.id === query.id);
+                if (found) return found;
+            }
+            let found = flatCatalog.find(item => 
+                (!query.source || item.source === query.source) &&
+                item.modelName.trim().toLowerCase() === (query.modelName || '').trim().toLowerCase()
+            );
+            if (found) return found;
+        }
+        if (typeof query === 'string') {
+            let found = flatCatalog.find(item => item.id === query);
+            if (found) return found;
+            found = flatCatalog.find(item => item.modelName.trim().toLowerCase() === query.trim().toLowerCase());
+            if (found) return found;
+        }
+        return null;
+    }
+
+    // Build unified catalog from loaded JSON data
+    function buildFlatCatalog() {
+        flatCatalog = [];
+        
+        // 1. Master (Active) models
+        masterData.forEach((seriesObj, sIdx) => {
+            const seriesName = seriesObj.series || `Series #${sIdx+1}`;
+            (seriesObj.models || []).forEach((modelObj, mIdx) => {
+                const id = `act:${sIdx}:${mIdx}`;
+                flatCatalog.push({
+                    id,
+                    source: 'act',
+                    seriesIndex: sIdx,
+                    modelIndex: mIdx,
+                    seriesName,
+                    modelName: modelObj.model_name,
+                    pdfSource: modelObj.pdf_source || seriesObj.pdf_source,
+                    pdfUrl: modelObj.pdf_url || seriesObj.pdf_url,
+                    images: modelObj.images || {},
+                    specifications: modelObj.specifications || []
+                });
+            });
+        });
+
+        // 2. Custom (Archived) models
+        customData.forEach((seriesObj, sIdx) => {
+            const seriesName = seriesObj.series || `Custom Series #${sIdx+1}`;
+            (seriesObj.models || []).forEach((modelObj, mIdx) => {
+                const id = `cust:${sIdx}:${mIdx}`;
+                flatCatalog.push({
+                    id,
+                    source: 'cust',
+                    seriesIndex: sIdx,
+                    modelIndex: mIdx,
+                    seriesName,
+                    modelName: modelObj.model_name,
+                    pdfSource: modelObj.pdf_source || seriesObj.pdf_source,
+                    pdfUrl: modelObj.pdf_url || seriesObj.pdf_url,
+                    images: modelObj.images || {},
+                    specifications: modelObj.specifications || []
+                });
+            });
+        });
+    }
+
+    // Helper to resolve an exterior thumbnail image
+    function getModelThumbnail(modelItem) {
+        if (!modelItem || !modelItem.images) return null;
+        const keys = Object.keys(modelItem.images);
+        if (keys.length > 0) {
+            return modelItem.images[keys[0]];
+        }
+        return null;
+    }
+
+    // Parse Footnotes across all currently selected models
+    let currentFootnotes = {};
+    function parseAllFootnotes(models) {
+        currentFootnotes = {};
+        const superscriptMap = { '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '*': '*' };
+        
+        models.forEach(model => {
+            (model.specifications || []).forEach(spec => {
+                const catName = (spec.category || "").toLowerCase().trim();
+                if (catName === "หมายเหตุ" || catName === "notes" || catName === "footnote" || catName === "footnotes") {
+                    (spec.details || []).forEach(detail => {
+                        const topic = (detail.topic || "").trim();
+                        const firstChar = topic.charAt(0);
+                        if (superscriptMap[firstChar]) {
+                            const num = superscriptMap[firstChar];
+                            const text = topic.substring(1).trim();
+                            currentFootnotes[num] = text;
+                        } else {
+                            const match = topic.match(/^(\d+|\*)\s*(.*)/);
+                            if (match) {
+                                currentFootnotes[match[1]] = match[2];
+                            } else {
+                                currentFootnotes["*"] = topic;
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    }
+
+    function addFootnoteTooltips(text, isValue = false) {
+        if (typeof text !== 'string') return text;
+        const superscriptMap = { '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '*': '*' };
+        let newText = text;
+
+        Object.keys(superscriptMap).forEach(sup => {
+            const num = superscriptMap[sup];
+            if (text.includes(sup) && currentFootnotes[num]) {
+                const tooltipText = currentFootnotes[num].replace(/"/g, '&quot;');
+                newText = newText.split(sup).join(`<span class="footnote-trigger" data-tooltip="${tooltipText}">${sup}</span>`);
+            }
+        });
+
+        if (!isValue) {
+            const trailingMatch = text.match(/(.*)(\d)$/);
+            if (trailingMatch) {
+                const base = trailingMatch[1];
+                const num = trailingMatch[2];
+                const isDecimal = base.match(/\d\.$/);
+                if (!isDecimal && currentFootnotes[num]) {
+                    const tooltipText = currentFootnotes[num].replace(/"/g, '&quot;');
+                    newText = base + `<span class="footnote-trigger" data-tooltip="${tooltipText}"><sup>${num}</sup></span>`;
+                }
+            }
+        }
+        return newText;
+    }
+
+    function formatValue(val) {
+        if (!val || val === "null" || val.trim() === "-") return '<span class="dash-icon">-</span>';
+        let textVal = val.trim();
+        if (TRANSLATIONS[currentLang].yesWords.includes(textVal.toLowerCase())) {
+            return '<svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+        }
+        return val;
+    }
+
+    // Category sorting hierarchy
+    function getCategoryScore(catName) {
+        const name = catName.toLowerCase().trim();
+        if (name.includes("อ้างอิง") || name.includes("reference")) return 99;
+        if (name.includes("paintwork") || name.includes("สีตัวถัง")) return 98;
+        if (name.includes("ชุดตกแต่งพิเศษ") || name.includes("แพ็กเกจ") || name.includes("package") || name === "ชุดตกแต่ง") return 97;
+        if (name.includes("เครื่องยนต์และสมรรถนะ") || name.includes("engine")) return 1;
+        if (name.includes("อัตราสิ้นเปลือง") || name.includes("fuel")) return 2;
+        return 50;
+    }
+
+    // Normalize value for diff comparison
+    function normalizeForDiff(val) {
+        if (!val) return "";
+        let s = String(val).trim().toLowerCase();
+        if (TRANSLATIONS[currentLang].yesWords.includes(s)) return "__YES__";
+        if (TRANSLATIONS[currentLang].noWords.includes(s)) return "__NO__";
+        // Remove subtle punctuation/spacing differences
+        return s.replace(/\s+/g, " ");
+    }
+
+    // Render the entire comparator
+    function renderComparator() {
+        const trans = TRANSLATIONS[currentLang];
+        const selectedModels = selectedModelIds.map(id => getModelById(id)).filter(Boolean);
+
+        // Parse footnotes
+        parseAllFootnotes(selectedModels);
+
+        // 1. Render Slots (Cards)
+        const slotsContainer = document.getElementById('slotsContainer');
+        slotsContainer.innerHTML = '';
+
+        selectedModels.forEach((m, idx) => {
+            const card = document.createElement('div');
+            card.className = 'slot-card';
+            
+            const thumb = getModelThumbnail(m);
+            const badgeClass = m.source === 'act' ? 'badge-active' : 'badge-custom';
+            const badgeText = m.source === 'act' ? trans.badgeActive : trans.badgeCustom;
+
+            const removeBtnHtml = selectedModels.length > 2 
+                ? `<button class="btn-remove-slot" title="ลบคันนี้" onclick="removeModelSlot(${idx})">&times;</button>`
+                : '';
+
+            card.innerHTML = `
+                <div class="slot-top-bar">
+                    <span class="slot-badge ${badgeClass}">${badgeText}</span>
+                    ${removeBtnHtml}
+                </div>
+                <div class="slot-img-container">
+                    ${thumb ? `<img src="${thumb}" class="slot-img" alt="${m.modelName}" onclick="openImageModal('${thumb}', '${m.modelName}')">` : `<div class="slot-no-img">${trans.noPreviewText}</div>`}
+                </div>
+                <div class="slot-info">
+                    <div class="slot-series-name">${m.seriesName}</div>
+                    <div class="slot-model-name">${m.modelName}</div>
+                </div>
+                <div class="slot-actions">
+                    <button class="btn-slot-change" onclick="openModelModal(${idx})">${trans.changeBtn}</button>
+                </div>
+            `;
+            slotsContainer.appendChild(card);
+        });
+
+        // Add Empty Slot Card if < 4 models
+        if (selectedModels.length < 4) {
+            const addCard = document.createElement('div');
+            addCard.className = 'slot-card-add';
+            addCard.onclick = () => openModelModal(selectedModels.length);
+            addCard.innerHTML = `
+                <div class="add-icon-circle">+</div>
+                <div class="add-slot-label">${trans.addSlotLabel}</div>
+                <div class="add-slot-desc">${trans.addSlotDesc} (${selectedModels.length}/4)</div>
+            `;
+            slotsContainer.appendChild(addCard);
+        }
+
+        // 2. Render Table Header
+        const theadRow = document.getElementById('tableHeaderRow');
+        while (theadRow.cells.length > 1) {
+            theadRow.deleteCell(1);
+        }
+        document.getElementById('thTopicLabel').innerText = trans.thTopicLabel;
+
+        selectedModels.forEach(m => {
+            const th = document.createElement('th');
+            th.innerHTML = `<div>${m.modelName}</div><div style="font-size:0.78em; opacity:0.85; font-weight:normal;">${m.seriesName}</div>`;
+            theadRow.appendChild(th);
+        });
+
+        // 3. Extract & Align Categories & Topics
+        let allCategories = [];
+        selectedModels.forEach(m => {
+            (m.specifications || []).forEach(spec => {
+                if (spec.category && !allCategories.includes(spec.category)) {
+                    allCategories.push(spec.category);
+                }
+            });
+        });
+
+        // Sort categories by score
+        const catWithScores = allCategories.map((cat, origIdx) => ({
+            name: cat,
+            origIdx,
+            score: getCategoryScore(cat)
+        }));
+        catWithScores.sort((a, b) => a.score !== b.score ? a.score - b.score : a.origIdx - b.origIdx);
+        allCategories = catWithScores.map(c => c.name);
+
+        // 4. Populate Table Body
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = '';
+        totalDiffCount = 0;
+        totalAllEmptyCount = 0;
+
+        allCategories.forEach(categoryName => {
+            const lowerCat = categoryName.toLowerCase().trim();
+            if (lowerCat === "หมายเหตุ" || lowerCat === "notes" || lowerCat === "footnote" || lowerCat === "footnotes") {
+                return;
+            }
+
+            // Union unique topics in this category
+            let uniqueTopics = [];
+            selectedModels.forEach(m => {
+                const specBlock = (m.specifications || []).find(s => s.category === categoryName);
+                if (specBlock) {
+                    (specBlock.details || []).forEach(detail => {
+                        if (detail.topic && !uniqueTopics.includes(detail.topic)) {
+                            uniqueTopics.push(detail.topic);
+                        }
+                    });
+                }
+            });
+
+            if (uniqueTopics.length === 0) return;
+
+            // Section Title Row
+            const trSection = document.createElement('tr');
+            trSection.className = 'section-title';
+            const tdSection = document.createElement('td');
+            tdSection.colSpan = selectedModels.length + 1;
+            tdSection.innerText = categoryName;
+            trSection.appendChild(tdSection);
+            tbody.appendChild(trSection);
+
+            let categoryHasVisibleRows = 0;
+
+            uniqueTopics.forEach(topicName => {
+                const tr = document.createElement('tr');
+                tr.setAttribute('data-category', categoryName);
+                tr.setAttribute('data-topic', topicName);
+
+                const tdTopic = document.createElement('td');
+                tdTopic.innerHTML = addFootnoteTooltips(topicName);
+                tr.appendChild(tdTopic);
+
+                let normalizedValues = [];
+
+                selectedModels.forEach(m => {
+                    let specVal = "-";
+                    const specBlock = (m.specifications || []).find(s => s.category === categoryName);
+                    if (specBlock) {
+                        const detail = (specBlock.details || []).find(d => d.topic === topicName);
+                        if (detail) specVal = detail.value;
+                    }
+
+                    const tdVal = document.createElement('td');
+                    tdVal.innerHTML = addFootnoteTooltips(formatValue(specVal), true);
+                    tr.appendChild(tdVal);
+
+                    normalizedValues.push(normalizeForDiff(specVal));
+                });
+
+                // Diff evaluation: check if all values are identical
+                const firstVal = normalizedValues[0];
+                const isDiff = normalizedValues.some(v => v !== firstVal);
+                const isAllEmpty = normalizedValues.every(v => v === "__NO__");
+
+                if (isAllEmpty) {
+                    tr.classList.add('row-all-empty');
+                    totalAllEmptyCount++;
+                }
+
+                if (isDiff) {
+                    tr.classList.add('row-diff');
+                    totalDiffCount++;
+                } else {
+                    tr.classList.add('row-same');
+                    if (isDiffOnly) {
+                        tr.classList.add('hide-same');
+                    }
+                }
+
+                tbody.appendChild(tr);
+            });
+        });
+
+        // 5. PDF Brochure Links Row
+        const trPdfSection = document.createElement('tr');
+        trPdfSection.className = 'section-title';
+        const tdPdfSection = document.createElement('td');
+        tdPdfSection.colSpan = selectedModels.length + 1;
+        tdPdfSection.innerText = trans.sourceDocSection;
+        trPdfSection.appendChild(tdPdfSection);
+        tbody.appendChild(trPdfSection);
+
+        const trPdfRow = document.createElement('tr');
+        const tdPdfLabel = document.createElement('td');
+        tdPdfLabel.innerText = "PDF Source";
+        trPdfRow.appendChild(tdPdfLabel);
+
+        selectedModels.forEach(m => {
+            const tdPdf = document.createElement('td');
+            if (m.pdfUrl) {
+                tdPdf.innerHTML = `
+                    <a href="${m.pdfUrl}" target="_blank" rel="noopener noreferrer" style="color:var(--accent-color); font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:4px; font-size:0.85em;">
+                        <span>📄</span> <span>${trans.openPdfLabel}</span>
+                    </a>
+                `;
+            } else {
+                tdPdf.innerHTML = `<span class="dash-icon">-</span>`;
+            }
+            trPdfRow.appendChild(tdPdf);
+        });
+        tbody.appendChild(trPdfRow);
+
+        // Update Diff Counter Badge
+        document.getElementById('diffCounterBadge').innerText = `${totalDiffCount} ${trans.diffPointsSuffix}`;
+
+        // Update All-Empty Counter Badge & Toggle button state
+        const emptyBadge = document.getElementById('allEmptyCounterBadge');
+        if (emptyBadge) {
+            emptyBadge.innerText = `${totalAllEmptyCount} ${trans.allEmptySuffix}`;
+        }
+        const btnHide = document.getElementById('btnHideEmptyToggle');
+        if (btnHide) {
+            btnHide.classList.toggle('active', isHideAllEmpty);
+            btnHide.querySelector('span:first-child').innerText = isHideAllEmpty ? trans.hideAllEmptyText : trans.showAllEmptyText;
+        }
+
+        // Reapply current search query and diff filtering to category headers
+        applyFilters();
+
+        // Update URL State
+        updateUrlState();
+    }
+
+    // Toggle Diff Only Mode
+    function toggleDiffOnly() {
+        isDiffOnly = !isDiffOnly;
+        const btn = document.getElementById('btnDiffToggle');
+        const trans = TRANSLATIONS[currentLang];
+        
+        if (isDiffOnly) {
+            btn.classList.add('active');
+            btn.querySelector('span:first-child').innerText = trans.diffOnlyText;
+        } else {
+            btn.classList.remove('active');
+            btn.querySelector('span:first-child').innerText = trans.diffOnlyText;
+        }
+
+        applyFilters();
+        updateUrlState();
+    }
+
+    // Toggle Hide All-Empty Mode
+    function toggleHideAllEmpty() {
+        isHideAllEmpty = !isHideAllEmpty;
+        const btn = document.getElementById('btnHideEmptyToggle');
+        const trans = TRANSLATIONS[currentLang];
+        
+        if (isHideAllEmpty) {
+            btn.classList.add('active');
+            btn.querySelector('span:first-child').innerText = trans.hideAllEmptyText;
+        } else {
+            btn.classList.remove('active');
+            btn.querySelector('span:first-child').innerText = trans.showAllEmptyText;
+        }
+
+        applyFilters();
+        updateUrlState();
+    }
+
+    // Apply combined Diff, Hide All-Empty & Search filtering
+    function applyFilters() {
+        const query = document.getElementById('searchInput').value.toLowerCase().trim();
+        const rows = document.querySelectorAll('#tableBody tr');
+        let currentSectionHeader = null;
+        let sectionHasVisibleRows = false;
+
+        rows.forEach(row => {
+            if (row.classList.contains('section-title')) {
+                if (currentSectionHeader) {
+                    currentSectionHeader.style.display = sectionHasVisibleRows ? '' : 'none';
+                }
+                currentSectionHeader = row;
+                sectionHasVisibleRows = false;
+            } else {
+                let matchesSearch = true;
+                if (query) {
+                    const rowText = row.innerText.toLowerCase();
+                    matchesSearch = rowText.includes(query);
+                }
+
+                if (!matchesSearch) {
+                    row.classList.add('hide-search');
+                } else {
+                    row.classList.remove('hide-search');
+                }
+
+                // Filtering conditions
+                let shouldHide = false;
+                if (isDiffOnly && row.classList.contains('row-same')) {
+                    shouldHide = true;
+                }
+                // Smart Search: If the user searches for a specific keyword, reveal it even if all models are empty!
+                // If there is no active search query, hide all-empty rows when isHideAllEmpty is enabled.
+                if (!query && isHideAllEmpty && row.classList.contains('row-all-empty')) {
+                    shouldHide = true;
+                }
+
+                if (shouldHide || !matchesSearch) {
+                    row.style.display = 'none';
+                } else {
+                    row.style.display = '';
+                    sectionHasVisibleRows = true;
+                }
+            }
+        });
+
+        if (currentSectionHeader) {
+            currentSectionHeader.style.display = sectionHasVisibleRows ? '' : 'none';
+        }
+    }
+
+    // Search input listener
+    document.getElementById('searchInput').addEventListener('input', applyFilters);
+
+    // Remove a model from comparison
+    function removeModelSlot(index) {
+        if (selectedModelIds.length <= 2) return;
+        selectedModelIds.splice(index, 1);
+        saveTrayToLocalStorage();
+        renderComparator();
+    }
+
+    // Reset comparison to default models
+    function resetComparison() {
+        if (flatCatalog.length >= 2) {
+            selectedModelIds = [flatCatalog[0].id, flatCatalog[1].id];
+            isDiffOnly = false;
+            isHideAllEmpty = true;
+            document.getElementById('searchInput').value = '';
+            document.getElementById('btnDiffToggle').classList.remove('active');
+            const btnHide = document.getElementById('btnHideEmptyToggle');
+            if (btnHide) btnHide.classList.add('active');
+            saveTrayToLocalStorage();
+            renderComparator();
+        }
+    }
+
+    // Sync with localStorage tray
+    function saveTrayToLocalStorage() {
+        try {
+            const trayItems = selectedModelIds.map(id => {
+                const m = getModelById(id);
+                if (!m) return null;
+                return {
+                    id: m.id,
+                    source: m.source,
+                    seriesIndex: m.seriesIndex,
+                    modelIndex: m.modelIndex,
+                    seriesName: m.seriesName,
+                    modelName: m.modelName,
+                    image: getModelThumbnail(m)
+                };
+            }).filter(Boolean);
+            localStorage.setItem('bmw_compare_tray', JSON.stringify(trayItems));
+        } catch(e) {}
+    }
+
+    function loadTrayFromLocalStorage() {
+        try {
+            const raw = localStorage.getItem('bmw_compare_tray');
+            if (raw) {
+                const parsed = JSON.parse(raw);
+                if (Array.isArray(parsed) && parsed.length >= 2) {
+                    const validIds = parsed.map(item => {
+                        const m = getModelById(item);
+                        return m ? m.id : null;
+                    }).filter(Boolean);
+                    if (validIds.length >= 2) {
+                        return [...new Set(validIds)].slice(0, 4);
+                    }
+                }
+            }
+        } catch(e) {}
+        return null;
+    }
+
+    // URL State Sharing
+    function updateUrlState() {
+        const params = new URLSearchParams();
+        if (selectedModelIds.length > 0) {
+            params.set('models', selectedModelIds.join(','));
+        }
+        if (isDiffOnly) {
+            params.set('diff', '1');
+        }
+        if (!isHideAllEmpty) {
+            params.set('hide_empty', '0');
+        }
+        if (currentLang !== 'th') {
+            params.set('lang', currentLang);
+        }
+        const newUrl = window.location.pathname + '?' + params.toString();
+        window.history.replaceState({}, '', newUrl);
+    }
+
+    function parseUrlState() {
+        const params = new URLSearchParams(window.location.search);
+        const modelsParam = params.get('models');
+        const diffParam = params.get('diff');
+        const hideEmptyParam = params.get('hide_empty');
+        const langParam = params.get('lang');
+
+        if (langParam === 'en' || langParam === 'th') {
+            currentLang = langParam;
+        }
+
+        if (diffParam === '1') {
+            isDiffOnly = true;
+            document.getElementById('btnDiffToggle').classList.add('active');
+        }
+
+        if (hideEmptyParam === '0') {
+            isHideAllEmpty = false;
+            const btnHide = document.getElementById('btnHideEmptyToggle');
+            if (btnHide) btnHide.classList.remove('active');
+        } else if (hideEmptyParam === '1') {
+            isHideAllEmpty = true;
+            const btnHide = document.getElementById('btnHideEmptyToggle');
+            if (btnHide) btnHide.classList.add('active');
+        }
+
+        if (modelsParam) {
+            const ids = modelsParam.split(',').filter(id => getModelById(id));
+            if (ids.length >= 2) {
+                selectedModelIds = ids.slice(0, 4);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Copy Share Link
+    function copyShareLink() {
+        updateUrlState();
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            showToast(TRANSLATIONS[currentLang].linkCopied);
+        }).catch(() => {
+            // Fallback for older browsers
+            prompt("คัดลอกลิงก์:", url);
+        });
+    }
+
+    function showToast(msg) {
+        const toast = document.getElementById('toastNotification');
+        document.getElementById('toastMessage').innerText = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // Model Selector Modal Logic
+    function openModelModal(slotIndex) {
+        targetSlotIndex = slotIndex;
+        document.getElementById('modalSearchInput').value = '';
+        modalActiveTab = 'all';
+        renderModalCarList();
+        document.getElementById('modelModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModelModal() {
+        document.getElementById('modelModal').classList.remove('open');
+        document.body.style.overflow = '';
+        targetSlotIndex = null;
+    }
+
+    function setModalTab(tab) {
+        modalActiveTab = tab;
+        document.querySelectorAll('.modal-tab-btn').forEach(btn => btn.classList.remove('active'));
+        if (tab === 'all') document.getElementById('tabAll').classList.add('active');
+        if (tab === 'active') document.getElementById('tabActive').classList.add('active');
+        if (tab === 'custom') document.getElementById('tabCustom').classList.add('active');
+        renderModalCarList();
+    }
+
+    function renderModalCarList() {
+        const container = document.getElementById('modalCarList');
+        const query = document.getElementById('modalSearchInput').value.toLowerCase().trim();
+        const trans = TRANSLATIONS[currentLang];
+        container.innerHTML = '';
+
+        let filtered = flatCatalog.filter(item => {
+            if (modalActiveTab === 'active' && item.source !== 'act') return false;
+            if (modalActiveTab === 'custom' && item.source !== 'cust') return false;
+            if (query) {
+                const combined = `${item.seriesName} ${item.modelName}`.toLowerCase();
+                return combined.includes(query);
+            }
+            return true;
+        });
+
+        filtered.forEach(item => {
+            const isAlreadySelected = selectedModelIds.includes(item.id);
+            const div = document.createElement('div');
+            div.className = 'modal-car-item' + (isAlreadySelected ? ' disabled' : '');
+            
+            const badgeText = item.source === 'act' ? trans.badgeActive : trans.badgeCustom;
+            const badgeClass = item.source === 'act' ? 'badge-active' : 'badge-custom';
+
+            div.innerHTML = `
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span class="slot-badge ${badgeClass}">${badgeText}</span>
+                    ${isAlreadySelected ? `<span style="font-size:0.7em; color:var(--text-secondary); font-weight:600;">${trans.alreadySelected}</span>` : ''}
+                </div>
+                <div class="modal-car-item-title">${item.modelName}</div>
+                <div class="modal-car-item-series">${item.seriesName}</div>
+            `;
+
+            if (!isAlreadySelected) {
+                div.onclick = () => selectModelFromModal(item.id);
+            }
+            container.appendChild(div);
+        });
+    }
+
+    document.getElementById('modalSearchInput').addEventListener('input', renderModalCarList);
+
+    function selectModelFromModal(id) {
+        if (targetSlotIndex !== null) {
+            if (targetSlotIndex < selectedModelIds.length) {
+                // Replace existing slot
+                selectedModelIds[targetSlotIndex] = id;
+            } else if (selectedModelIds.length < 4) {
+                // Add new slot
+                selectedModelIds.push(id);
+            }
+        }
+        closeModelModal();
+        saveTrayToLocalStorage();
+        renderComparator();
+    }
+
+    // Close modal on click outside
+    document.getElementById('modelModal').addEventListener('click', function(e) {
+        if (e.target === this) closeModelModal();
+    });
+
+    // Full-screen image modal
+    function openImageModal(src, alt) {
+        let modal = document.getElementById('imageFullScreenModal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'imageFullScreenModal';
+            modal.className = 'full-screen-image-modal';
+            modal.innerHTML = `
+                <button style="position:absolute; top:20px; right:25px; font-size:40px; color:white; background:none; border:none; cursor:pointer;" onclick="closeImageModal()">&times;</button>
+                <img id="modalFullScreenImg" class="modal-content-img" src="" alt="">
+            `;
+            modal.addEventListener('click', e => { if (e.target === modal) closeImageModal(); });
+            document.body.appendChild(modal);
+        }
+        document.getElementById('modalFullScreenImg').src = src;
+        document.getElementById('modalFullScreenImg').alt = alt;
+        modal.classList.add('show-modal');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+        const modal = document.getElementById('imageFullScreenModal');
+        if (modal) modal.classList.remove('show-modal');
+        document.body.style.overflow = '';
+    }
+
+    // Footnote Tooltip Hover Delegation
+    const compareTable = document.getElementById('compareTable');
+    if (compareTable) {
+        compareTable.addEventListener('mouseover', function(e) {
+            const trigger = e.target.closest('.footnote-trigger');
+            if (!trigger) return;
+
+            const text = trigger.getAttribute('data-tooltip');
+            if (!text) return;
+
+            tooltipEl.innerText = text;
+            tooltipEl.classList.add('show');
+
+            const rect = trigger.getBoundingClientRect();
+            let top = rect.top + window.scrollY - tooltipEl.offsetHeight - 8;
+            let left = rect.left + window.scrollX + rect.width / 2 - tooltipEl.offsetWidth / 2;
+
+            if (left < 12) left = 12;
+            const maxLeft = window.innerWidth - tooltipEl.offsetWidth - 12;
+            if (left > maxLeft) left = maxLeft;
+
+            tooltipEl.style.top = top + 'px';
+            tooltipEl.style.left = left + 'px';
+        });
+
+        compareTable.addEventListener('mouseout', function(e) {
+            const trigger = e.target.closest('.footnote-trigger');
+            if (!trigger) return;
+            tooltipEl.classList.remove('show');
+        });
+    }
+
+    // Language switch
+    function setLanguage(lang) {
+        if (currentLang === lang) return;
+        currentLang = lang;
+        document.getElementById('langTh').classList.toggle('active', lang === 'th');
+        document.getElementById('langEn').classList.toggle('active', lang === 'en');
+        updateStaticTexts();
+        loadComparisonData();
+    }
+
+    function updateStaticTexts() {
+        const trans = TRANSLATIONS[currentLang];
+        document.getElementById('pageTitle').innerText = trans.pageTitle;
+        document.getElementById('pageSubtitle').innerText = trans.pageSubtitle;
+        document.getElementById('linkActive').innerText = trans.linkActive;
+        document.getElementById('linkCustom').innerText = trans.linkCustom;
+        document.getElementById('searchInput').placeholder = trans.searchPlaceholder;
+        document.getElementById('btnShare').querySelector('span').innerText = trans.copyShareLink;
+        document.getElementById('btnReset').querySelector('span').innerText = trans.resetBtn;
+        document.getElementById('modalTitle').innerText = trans.modalTitle;
+        document.getElementById('modalSearchInput').placeholder = trans.modalSearchPlaceholder;
+        document.getElementById('tabAll').innerText = trans.tabAll;
+        document.getElementById('tabActive').innerText = trans.tabActive;
+        document.getElementById('tabCustom').innerText = trans.tabCustom;
+
+        const btnHide = document.getElementById('btnHideEmptyToggle');
+        if (btnHide) {
+            btnHide.querySelector('span:first-child').innerText = isHideAllEmpty ? trans.hideAllEmptyText : trans.showAllEmptyText;
+        }
+        const btnDiff = document.getElementById('btnDiffToggle');
+        if (btnDiff) {
+            btnDiff.querySelector('span:first-child').innerText = trans.diffOnlyText;
+        }
+    }
+
+    // Theme Switcher
+    const themeToggleBtn = document.getElementById('themeToggle');
+    function initTheme() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+            themeToggleBtn.textContent = '🌙';
+        } else {
+            document.documentElement.classList.remove('dark-theme');
+            themeToggleBtn.textContent = '☀️';
+        }
+    }
+    initTheme();
+
+    themeToggleBtn.addEventListener('click', () => {
+        if (document.documentElement.classList.contains('dark-theme')) {
+            document.documentElement.classList.remove('dark-theme');
+            themeToggleBtn.textContent = '☀️';
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.classList.add('dark-theme');
+            themeToggleBtn.textContent = '🌙';
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+
+    // Keyboard ESC listener
+    window.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeModelModal();
+            closeImageModal();
+        }
+    });
+
+    // Load Data
+    function loadComparisonData() {
+        const cacheBust = '?v=' + new Date().getTime();
+        const masterFile = currentLang === 'en' ? 'bmw_master_specs_en.json' : 'bmw_master_specs.json';
+        const customFile = currentLang === 'en' ? 'bmw_custom_specs_en.json' : 'bmw_custom_specs.json';
+
+        Promise.all([
+            fetch(masterFile + cacheBust).then(res => res.json()).catch(() => []),
+            fetch(customFile + cacheBust).then(res => res.json()).catch(() => [])
+        ]).then(([mJson, cJson]) => {
+            masterData = Array.isArray(mJson) ? mJson : [];
+            customData = Array.isArray(cJson) ? cJson : [];
+
+            // Filter active models for masterData
+            masterData = masterData.map(series => ({
+                ...series,
+                models: (series.models || []).filter(m => !m.is_custom_archived)
+            })).filter(series => series.models.length > 0);
+
+            masterData = sortSeriesData(masterData);
+            customData = sortSeriesData(customData);
+
+            buildFlatCatalog();
+
+            // Check URL state first
+            const hasUrlModels = parseUrlState();
+            if (!hasUrlModels) {
+                // Check localStorage tray
+                const trayIds = loadTrayFromLocalStorage();
+                if (trayIds) {
+                    selectedModelIds = trayIds;
+                } else if (flatCatalog.length >= 2) {
+                    // Default to first 2 models in catalog
+                    selectedModelIds = [flatCatalog[0].id, flatCatalog[1].id];
+                }
+            }
+
+            renderComparator();
+        }).catch(err => {
+            console.error('Failed to load comparison specifications:', err);
+        });
+    }
+
+    // Initial run
+    loadComparisonData();
+</script>
+</body>
+</html>
