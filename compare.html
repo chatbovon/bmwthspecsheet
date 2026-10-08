@@ -345,6 +345,73 @@
             display: none !important;
         }
 
+        /* View Mode Segmented Control */
+        .view-mode-selector {
+            display: inline-flex;
+            background: var(--bg-preview-cell);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 2px;
+            gap: 2px;
+        }
+        .btn-view-mode {
+            padding: 7px 13px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.85em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+        .btn-view-mode:hover {
+            color: var(--accent-color);
+        }
+        .btn-view-mode.active {
+            background: var(--card-bg);
+            color: var(--accent-color);
+            font-weight: 600;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Sales Highlight Badges */
+        .feature-badge {
+            display: inline-block;
+            font-size: 0.72em;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 5px;
+            vertical-align: middle;
+            letter-spacing: 0.02em;
+        }
+        .badge-pro {
+            background: rgba(147, 51, 234, 0.12);
+            color: #9333ea;
+            border: 1px solid rgba(147, 51, 234, 0.3);
+        }
+        .badge-plus {
+            background: rgba(16, 185, 129, 0.12);
+            color: #059669;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .badge-sport {
+            background: rgba(225, 29, 72, 0.12);
+            color: #e11d48;
+            border: 1px solid rgba(225, 29, 72, 0.3);
+        }
+        .badge-sound {
+            background: rgba(14, 165, 233, 0.12);
+            color: #0284c7;
+            border: 1px solid rgba(14, 165, 233, 0.3);
+        }
+
         /* Model Comparison Slots (Header Cards) */
         .slots-container {
             display: grid;
@@ -929,6 +996,15 @@
         <div class="controls-top-row">
             <input type="text" id="searchInput" class="search-box" placeholder="🔍 พิมพ์ค้นหาสเปก/ออปชัน... (เช่น เบาะ, แรงม้า, แบตเตอรี่, มิติ)">
             <div class="action-buttons">
+                <!-- View Mode Selector -->
+                <div class="view-mode-selector">
+                    <button id="btnViewSmart" class="btn-view-mode active" onclick="setViewMode('smart')" title="จัดกลุ่มตามหมวดหมู่สำคัญและจับคู่ขุมพลัง">
+                        <span>✨ สรุปสำหรับงานขาย</span>
+                    </button>
+                    <button id="btnViewRaw" class="btn-view-mode" onclick="setViewMode('raw')" title="เรียงตามโครงสร้างโบรชัวร์ต้นฉบับ">
+                        <span>📑 ตามโบรชัวร์</span>
+                    </button>
+                </div>
                 <button id="btnDiffToggle" class="btn-action btn-diff-toggle" onclick="toggleDiffOnly()">
                     <span>🔍 แสดงเฉพาะจุดต่าง</span>
                     <span id="diffCounterBadge" class="diff-counter-badge">0</span>
@@ -1028,7 +1104,9 @@
             openPdfLabel: "เปิดดูไฟล์ PDF ↗",
             hideAllEmptyText: "🚫 ซ่อนที่ไม่มีทุกรุ่น",
             showAllEmptyText: "👁️ แสดงที่ไม่มีทุกรุ่น",
-            allEmptySuffix: "ซ่อน"
+            allEmptySuffix: "ซ่อน",
+            viewModeSmart: "✨ สรุปสำหรับงานขาย",
+            viewModeRaw: "📑 ตามโบรชัวร์"
         },
         en: {
             pageTitle: "BMW Multi-Model Diff Comparator",
@@ -1061,11 +1139,14 @@
             openPdfLabel: "Open PDF File ↗",
             hideAllEmptyText: "🚫 Hide Unavailable",
             showAllEmptyText: "👁️ Show Unavailable",
-            allEmptySuffix: "hidden"
+            allEmptySuffix: "hidden",
+            viewModeSmart: "✨ Sales Highlights",
+            viewModeRaw: "📑 Original Brochure"
         }
     };
 
     let currentLang = 'th';
+    let currentViewMode = 'smart'; // 'smart' (Sales/Highlights) or 'raw' (Original Brochure)
     let masterData = [];
     let customData = [];
     let flatCatalog = []; // Array of all models with unified metadata
@@ -1275,7 +1356,26 @@
         return val;
     }
 
-    // Category sorting hierarchy
+    // Attach Sales Focus Badges (Professional, M Sport, Sound, etc.)
+    function getSalesBadge(name) {
+        if (!name) return '';
+        const lower = name.toLowerCase();
+        if (lower.includes('professional')) {
+            return '<span class="feature-badge badge-pro">PRO</span>';
+        }
+        if (lower.includes('plus')) {
+            return '<span class="feature-badge badge-plus">PLUS</span>';
+        }
+        if (lower.includes('bowers') || lower.includes('harman') || lower.includes('sound')) {
+            return '<span class="feature-badge badge-sound">AUDIO</span>';
+        }
+        if (lower.includes('m sport') || lower.includes('adaptive m') || lower.includes('aerodynamic')) {
+            return '<span class="feature-badge badge-sport">M SPORT</span>';
+        }
+        return '';
+    }
+
+    // Category sorting hierarchy for Raw Mode
     function getCategoryScore(catName) {
         const name = catName.toLowerCase().trim();
         if (name.includes("อ้างอิง") || name.includes("reference")) return 99;
@@ -1365,24 +1465,439 @@
             theadRow.appendChild(th);
         });
 
-        // 3. Extract & Align Categories & Topics
-        let allCategories = [];
-        selectedModels.forEach(m => {
-            (m.specifications || []).forEach(spec => {
-                if (spec.category && !allCategories.includes(spec.category)) {
-                    allCategories.push(spec.category);
-                }
-            });
-        });
+        // 3. Define Canonical Topic Definitions for Smart View (Sales Focus)
+        const SMART_GROUPS_DEF = [
+            {
+                id: 'powertrain',
+                titleTH: '⚡ ขุมพลังและสมรรถนะ (Powertrain & Performance)',
+                titleEN: '⚡ Powertrain & Performance',
+                topics: [
+                    {
+                        canonicalNameTH: 'ชนิดขุมพลัง / เครื่องยนต์',
+                        canonicalNameEN: 'Powertrain Type / Engine',
+                        aliases: ['ชนิดเครื่องยนต์', 'มอเตอร์ไฟฟ้า', 'ระบบขับเคลื่อนด้วยมอเตอร์ไฟฟ้า', 'เทคโนโลยี bmw edrive', 'ระบบส่งกำลัง', 'engine type', 'electric motor drive', 'bmw edrive technology', 'electric motor']
+                    },
+                    {
+                        canonicalNameTH: 'ความจุกระบอกสูบ (cc)',
+                        canonicalNameEN: 'Displacement (cc)',
+                        aliases: ['ปริมาตรกระบอกสูบ', 'ความจุเครื่องยนต์', 'cylinder capacity', 'capacity']
+                    },
+                    {
+                        canonicalNameTH: 'กำลังสูงสุด (hp)',
+                        canonicalNameEN: 'Max. Output (hp)',
+                        aliases: ['กำลังสูงสุด', 'กำลังรวมสูงสุด', 'กำลังมอเตอร์ไฟฟ้าสูงสุด', 'max. output', 'total system output', 'max. electric output']
+                    },
+                    {
+                        canonicalNameTH: 'แรงบิดสูงสุด (Nm)',
+                        canonicalNameEN: 'Max. Torque (Nm)',
+                        aliases: ['แรงบิดสูงสุด', 'แรงบิดรวมสูงสุด', 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด', 'max. torque', 'total system torque', 'max. electric torque']
+                    },
+                    {
+                        canonicalNameTH: 'อัตราเร่ง 0-100 กม./ชม. (วินาที)',
+                        canonicalNameEN: 'Acceleration 0-100 km/h (s)',
+                        aliases: ['อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง', 'อัตราเร่ง 0-100', 'acceleration 0 - 100 km/h']
+                    },
+                    {
+                        canonicalNameTH: 'ความเร็วสูงสุด (กม./ชม.)',
+                        canonicalNameEN: 'Top Speed (km/h)',
+                        aliases: ['ความเร็วสูงสุด', 'top speed']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบเกียร์',
+                        canonicalNameEN: 'Transmission',
+                        preferTopicAsValue: true,
+                        aliases: ['เกียร์อัตโนมัติ 8 จังหวะ', 'เกียร์อัตโนมัติ', 'ระบบเกียร์', 'transmission', 'steptronic']
+                    }
+                ]
+            },
+            {
+                id: 'efficiency',
+                titleTH: '🔋 พลังงานและความประหยัด (Efficiency, Battery & Range)',
+                titleEN: '🔋 Efficiency, Battery & Range',
+                topics: [
+                    {
+                        canonicalNameTH: 'อัตราสิ้นเปลือง / อัตราใช้ไฟฟ้า',
+                        canonicalNameEN: 'Consumption (Fuel / Electric)',
+                        aliases: ['อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย', 'อัตราการใช้พลังงานไฟฟ้าเฉลี่ย', 'อัตราการใช้ไฟฟ้า, มาตรฐาน wltp', 'อัตราการใช้ไฟฟ้า', 'fuel consumption combined', 'electric energy consumption']
+                    },
+                    {
+                        canonicalNameTH: 'ความจุพลังงาน (ถังน้ำมัน / แบตเตอรี่)',
+                        canonicalNameEN: 'Energy Capacity (Tank / Battery)',
+                        aliases: ['ความจุถังน้ำมันเชื้อเพลิง', 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง', 'ความจุแบตเตอรี่', 'fuel tank capacity', 'high-voltage battery capacity']
+                    },
+                    {
+                        canonicalNameTH: 'ระยะทางขับเคลื่อนไฟฟ้า (กม.)',
+                        canonicalNameEN: 'Electric Range (km)',
+                        aliases: ['ระยะทางขับเคลื่อนด้วยไฟฟ้า', 'ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน wltp', 'ระยะทางขับเคลื่อนไฟฟ้า', 'ระยะทางขับขี่', 'electric range', 'range']
+                    },
+                    {
+                        canonicalNameTH: 'ระดับการปล่อย CO2 (กรัม/กม.)',
+                        canonicalNameEN: 'CO2 Emissions (g/km)',
+                        aliases: ['ระดับการปล่อย co2 เฉลี่ย', 'co2 emissions']
+                    }
+                ]
+            },
+            {
+                id: 'chassis',
+                titleTH: '🏎️ แชสซีส์ ช่วงล่างและล้อ (Chassis, Brakes & Wheels)',
+                titleEN: '🏎️ Chassis, Brakes & Wheels',
+                topics: [
+                    {
+                        canonicalNameTH: 'ระบบขับเคลื่อน (Drivetrain)',
+                        canonicalNameEN: 'Drivetrain',
+                        aliases: ['ระบบขับเคลื่อน', 'รูปแบบการขับเคลื่อน', 'drivetrain', 'drive system']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบช่วงล่าง',
+                        canonicalNameEN: 'Suspension',
+                        preferTopicAsValue: true,
+                        aliases: ['ช่วงล่าง adaptive m', 'ช่วงล่าง adaptive suspension professional', 'ช่วงล่าง adaptive', 'ช่วงล่าง m sport', 'ระบบช่วงล่าง', 'suspension', 'adaptive suspension']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบเบรก / คาลิเปอร์เบรก',
+                        canonicalNameEN: 'Brakes & Calipers',
+                        preferTopicAsValue: true,
+                        aliases: ['ชุดเบรก m compound brake', 'm compound brake', 'คาลิเปอร์เบรกดีไซน์ m sport, สีแดงเงา', 'คาลิเปอร์เบรกดีไซน์ m sport', 'คาลิเปอร์เบรก', 'm sport brake', 'm carbon ceramic brake']
+                    },
+                    {
+                        canonicalNameTH: 'ล้ออัลลอย',
+                        canonicalNameEN: 'Alloy Wheels',
+                        aliases: ['ล้ออัลลอย', 'ล้อ', 'alloy wheels', 'wheels']
+                    },
+                    {
+                        canonicalNameTH: 'ขนาดยาง (หน้า / หลัง)',
+                        canonicalNameEN: 'Tyre Dimensions',
+                        aliases: ['ขนาดยาง', 'ขนาดยางและล้อ', 'tyres', 'tyre size']
+                    }
+                ]
+            },
+            {
+                id: 'exterior',
+                titleTH: '✨ การตกแต่งภายนอก & อุปกรณ์ (Exterior Styling & Equipment)',
+                titleEN: '✨ Exterior Styling & Equipment',
+                topics: [
+                    {
+                        canonicalNameTH: 'แพ็กเกจชุดแต่งภายนอก (M Sport / M Sport Pro)',
+                        canonicalNameEN: 'Exterior Package (M Sport / Pro)',
+                        preferTopicAsValue: true,
+                        aliases: ['m sport pro', 'ชุดตกแต่ง m sport pro', 'ชุดตกแต่งภายนอกแบบ m sport', 'ชุดตกแต่งพิเศษ m sport', 'ชุดตกแต่ง m sport', 'm aerodynamics', 'm sport package']
+                    },
+                    {
+                        canonicalNameTH: 'กระจังหน้าเรืองแสง Iconic Glow',
+                        canonicalNameEN: 'Iconic Glow Grille',
+                        aliases: ['ชุดตกแต่งภายนอกแบบ iconic glow', 'กระจังหน้าเรืองแสง iconic glow', 'iconic glow']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบไฟหน้า',
+                        canonicalNameEN: 'Headlights',
+                        preferTopicAsValue: true,
+                        aliases: ['crystal headlights', 'laserlight', 'adaptive led', 'ระบบไฟหน้าแบบ adaptive led', 'ระบบไฟหน้า led อัจฉริยะ', 'ระบบไฟหน้าแบบ led', 'ไฟหน้าแบบ led', 'ไฟหน้า led', 'ระบบไฟหน้า', 'adaptive led headlights']
+                    },
+                    {
+                        canonicalNameTH: 'หลังคากระจก / ซันรูฟ',
+                        canonicalNameEN: 'Glass Roof / Sunroof',
+                        preferTopicAsValue: true,
+                        aliases: ['หลังคากระจก panorama', 'หลังคากระจกเปิด-ปิดด้วยระบบไฟฟ้า', 'หลังคากระจก', 'หลังคาพาโนรามา', 'panorama glass roof']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access)',
+                        canonicalNameEN: 'Comfort Access',
+                        aliases: ['ระบบปลดล็อกประตูอัจฉริยะ', 'comfort access system', 'comfort access']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบช่วยผ่อนแรงกระแทกขณะปิดประตู (Soft-close)',
+                        canonicalNameEN: 'Soft-Close Doors',
+                        aliases: ['ระบบช่วยผ่อนแรงกระแทกขณะปิดประตู', 'soft-close function for doors', 'soft close']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบเปิด-ปิดฝาท้ายไฟฟ้า',
+                        canonicalNameEN: 'Automatic Tailgate',
+                        aliases: ['ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า', 'automatic tailgate operation', 'ฝาท้ายไฟฟ้า']
+                    },
+                    {
+                        canonicalNameTH: 'ชุดแต่งตกแต่งสีดำเงา (Shadowline)',
+                        canonicalNameEN: 'M High-gloss Shadowline',
+                        aliases: ['ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา', 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา', 'm high-gloss shadowline', 'shadowline']
+                    }
+                ]
+            },
+            {
+                id: 'interior',
+                titleTH: '🛋️ ภายใน เบาะนั่ง & เครื่องเสียง (Interior Trim, Seats & Audio)',
+                titleEN: '🛋️ Interior Trim, Seats & Audio',
+                topics: [
+                    {
+                        canonicalNameTH: 'เบาะนั่งคู่หน้า & วัสดุหุ้มเบาะ',
+                        canonicalNameEN: 'Front Seats & Upholstery',
+                        customSeatExtractor: true
+                    },
+                    {
+                        canonicalNameTH: 'ระบบระบายอากาศสำหรับเบาะนั่ง (Ventilation)',
+                        canonicalNameEN: 'Seat Ventilation',
+                        aliases: ['ระบบระบายอากาศสำหรับเบาะนั่ง', 'active seat ventilation']
+                    },
+                    {
+                        canonicalNameTH: 'พวงมาลัยดีไซน์ M / M Sport',
+                        canonicalNameEN: 'M Steering Wheel',
+                        preferTopicAsValue: true,
+                        aliases: ['พวงมาลัยหุ้ม alcantara ดีไซน์ m', 'พวงมาลัยหุ้มหนังดีไซน์ m แบบ m performance', 'พวงมาลัยหุ้มหนังดีไซน์ m sport', 'พวงมาลัยหุ้มหนังดีไซน์ m', 'พวงมาลัยดีไซน์ m', 'm alcantara steering wheel', 'm leather steering wheel', 'พวงมาลัย m sport']
+                    },
+                    {
+                        canonicalNameTH: 'คิ้วตกแต่งภายใน',
+                        canonicalNameEN: 'Interior Trim Finishers',
+                        preferTopicAsValue: true,
+                        aliases: ['ภายในตกแต่งดีไซน์ m ด้วยวัสดุ carbon fibre', 'ภายในตกแต่งด้วยสี dark silver', 'ภายในตกแต่งดีไซน์ m', 'ภายในตกแต่งด้วย', 'interior trim finishers', 'คิ้วตกแต่ง']
+                    },
+                    {
+                        canonicalNameTH: 'ผลึกแก้ว CraftedClarity',
+                        canonicalNameEN: 'CraftedClarity Glass Application',
+                        aliases: ['ภายในตกแต่งด้วยผลึกแก้ว', 'craftedclarity', 'glass application craftedclarity']
+                    },
+                    {
+                        canonicalNameTH: 'ไฟ Ambient Light / Interaction Bar',
+                        canonicalNameEN: 'Ambient Light & Interaction Bar',
+                        preferTopicAsValue: true,
+                        aliases: ['ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร', 'ambient light', 'แถบ bmw interaction bar']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบเครื่องเสียง',
+                        canonicalNameEN: 'Sound System',
+                        preferTopicAsValue: true,
+                        aliases: ['bowers & wilkins diamond', 'bowers & wilkins', 'harman kardon', 'hifi loudspeaker', 'ระบบเสียง hifi', 'ระบบเครื่องเสียง hifi', 'ระบบเครื่องเสียงรอบทิศทาง', 'ระบบเสียงรอบทิศทาง', 'stereo', 'sound system']
+                    },
+                    {
+                        canonicalNameTH: 'หน้าจอ BMW Curved Display & Cockpit',
+                        canonicalNameEN: 'BMW Live Cockpit & Display',
+                        preferTopicAsValue: true,
+                        aliases: ['bmw live cockpit professional', 'bmw live cockpit plus', 'bmw live cockpit']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบ Head-up Display',
+                        canonicalNameEN: 'Head-up Display',
+                        aliases: ['ระบบ bmw head-up display', 'bmw head-up display', 'head-up display', 'bmw live cockpit professional']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบชาร์จโทรศัพท์แบบไร้สาย',
+                        canonicalNameEN: 'Wireless Charging',
+                        aliases: ['ระบบชาร์จโทรศัพท์แบบไร้สาย', 'wireless charging tray']
+                    }
+                ]
+            },
+            {
+                id: 'safety',
+                titleTH: '🛡️ ระบบความปลอดภัย & ผู้ช่วยการขับขี่ (Safety & Driver Assistance)',
+                titleEN: '🛡️ Safety & Driver Assistance',
+                topics: [
+                    {
+                        canonicalNameTH: 'ระบบช่วยการขับขี่ (Driving Assistant)',
+                        canonicalNameEN: 'Driving Assistant',
+                        preferTopicAsValue: true,
+                        aliases: ['driving assistant professional', 'ระบบช่วยการขับขี่รุ่น professional', 'ระบบช่วยการขับขี่ รุ่น professional', 'driving assistant plus', 'ระบบช่วยการขับขี่รุ่น plus', 'ระบบช่วยการขับขี่ รุ่น plus', 'driving assistant', 'ระบบช่วยการขับขี่']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบควบคุมความเร็วอัตโนมัติ (Adaptive Cruise)',
+                        canonicalNameEN: 'Active Cruise Control',
+                        aliases: ['ระบบควบคุมความเร็วอัตโนมัติ พร้อมฟังก์ชัน stop&go', 'active cruise control with stop&go', 'cruise control']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบช่วยนำรถเข้าที่จอด (Parking Assistant)',
+                        canonicalNameEN: 'Parking Assistant',
+                        preferTopicAsValue: true,
+                        aliases: ['ระบบช่วยนำรถเข้าที่จอดอัตโนมัติรุ่น plus', 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น plus', 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ', 'parking assistant plus', 'parking assistant']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบกล้องมองภาพรอบทิศทาง 360 Surround View',
+                        canonicalNameEN: 'Surround View Camera (360°)',
+                        aliases: ['กล้องมองภาพรอบทิศทาง', 'surround view camera']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบความปลอดภัย Active Protection',
+                        canonicalNameEN: 'Active Protection',
+                        aliases: ['ระบบ active protection', 'active protection']
+                    },
+                    {
+                        canonicalNameTH: 'ถุงลมนิรภัย',
+                        canonicalNameEN: 'Airbags',
+                        aliases: ['ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า', 'ถุงลมนิรภัย', 'airbags']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบตรวจวัดลมยาง',
+                        canonicalNameEN: 'Tyre Pressure Monitoring',
+                        aliases: ['ระบบตรวจวัดลมยาง', 'tyre pressure monitoring system', 'ระบบเตือนสถานะยาง']
+                    }
+                ]
+            }
+        ];
 
-        // Sort categories by score
-        const catWithScores = allCategories.map((cat, origIdx) => ({
-            name: cat,
-            origIdx,
-            score: getCategoryScore(cat)
-        }));
-        catWithScores.sort((a, b) => a.score !== b.score ? a.score - b.score : a.origIdx - b.origIdx);
-        allCategories = catWithScores.map(c => c.name);
+        // Helper: Extract rich combined front seat design, electric/memory, and upholstery info
+        function getCombinedSeatInfo(model) {
+            let hasComfort = false;
+            let hasMCarbon = false;
+            let hasMMulti = false;
+            let hasSport = false;
+            let hasElectricMem = false;
+            let matchedSeatTopic = '';
+
+            for (const specBlock of (model.specifications || [])) {
+                const cat = (specBlock.category || '').toLowerCase();
+                if (!cat.includes('paint') && !cat.includes('สีตัวถัง')) {
+                    for (const detail of (specBlock.details || [])) {
+                        const top = (detail.topic || '').trim();
+                        const topLower = top.toLowerCase();
+                        const val = (detail.value || '').trim();
+                        const isActive = val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none';
+                        
+                        if (isActive) {
+                            if (topLower.includes('comfort ปรับไฟฟ้า') || topLower.includes('comfort seat')) {
+                                hasComfort = true;
+                                if (!matchedSeatTopic) matchedSeatTopic = top;
+                            } else if (topLower.includes('m carbon') || topLower.includes('bucket seat')) {
+                                hasMCarbon = true;
+                                if (!matchedSeatTopic) matchedSeatTopic = top;
+                            } else if (topLower.includes('m multifunctional')) {
+                                hasMMulti = true;
+                                if (!matchedSeatTopic) matchedSeatTopic = top;
+                            } else if (topLower.includes('ดีไซน์ sport') || topLower.includes('sport seat')) {
+                                hasSport = true;
+                                if (!matchedSeatTopic) matchedSeatTopic = top;
+                            }
+                            if (topLower.includes('ปรับไฟฟ้า') && (topLower.includes('จำตำแหน่ง') || topLower.includes('memory'))) {
+                                hasElectricMem = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Determine seat description
+            let seatDesc = '';
+            if (currentLang === 'en') {
+                if (hasComfort) {
+                    seatDesc = 'Front Comfort Seats, Electric with Memory';
+                } else if (hasMCarbon) {
+                    seatDesc = 'M Carbon Bucket Seats' + (hasElectricMem ? ', Electric with Memory' : '');
+                } else if (hasMMulti) {
+                    seatDesc = 'M Multifunctional Front Seats, Electric' + (hasElectricMem ? ' with Memory' : '');
+                } else if (hasSport) {
+                    seatDesc = 'Sport Front Seats' + (hasElectricMem ? ', Electric with Memory' : '');
+                } else if (hasElectricMem) {
+                    seatDesc = 'Electric Front Seats with Memory';
+                } else if (matchedSeatTopic) {
+                    seatDesc = matchedSeatTopic;
+                } else {
+                    seatDesc = 'Standard Front Seats';
+                }
+            } else {
+                if (hasComfort) {
+                    seatDesc = 'เบาะนั่งตอนหน้าแบบ Comfort ปรับไฟฟ้า (พร้อม Memory)';
+                } else if (hasMCarbon) {
+                    seatDesc = 'เบาะนั่ง M Carbon ทรง Bucket Seat' + (hasElectricMem ? ' ปรับไฟฟ้าพร้อม Memory' : '');
+                } else if (hasMMulti) {
+                    seatDesc = 'เบาะนั่งตอนหน้าแบบ M Multifunctional ปรับไฟฟ้า' + (hasElectricMem ? ' พร้อม Memory' : '');
+                } else if (hasSport) {
+                    seatDesc = 'เบาะนั่งตอนหน้าดีไซน์ Sport' + (hasElectricMem ? ' ปรับไฟฟ้าพร้อม Memory' : '');
+                } else if (hasElectricMem) {
+                    seatDesc = 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อม Memory';
+                } else if (matchedSeatTopic) {
+                    seatDesc = matchedSeatTopic;
+                } else {
+                    seatDesc = 'เบาะนั่งตอนหน้ามาตรฐาน';
+                }
+            }
+
+            // Determine Upholstery Material
+            let upholstery = '';
+            // 1. Direct interior upholstery
+            for (const specBlock of (model.specifications || [])) {
+                const cat = (specBlock.category || '').toLowerCase();
+                if (!cat.includes('paint') && !cat.includes('สีตัวถัง')) {
+                    for (const detail of (specBlock.details || [])) {
+                        const topLower = (detail.topic || '').toLowerCase();
+                        const val = (detail.value || '').trim();
+                        if ((topLower.includes('วัสดุหุ้มเบาะ') || topLower.includes('upholstery')) && val && val !== '-' && val !== '■') {
+                            upholstery = val;
+                            break;
+                        }
+                    }
+                }
+                if (upholstery) break;
+            }
+
+            // 2. Fallback to Paintwork table
+            if (!upholstery) {
+                for (const specBlock of (model.specifications || [])) {
+                    const cat = (specBlock.category || '').toLowerCase();
+                    if (cat.includes('paint') || cat.includes('สีตัวถัง')) {
+                        for (const detail of (specBlock.details || [])) {
+                            const val = (detail.value || '').trim();
+                            const valLower = val.toLowerCase();
+                            if (valLower.includes('leather') || valLower.includes('vernasca') || valLower.includes('merino') ||
+                                valLower.includes('dakota') || valLower.includes('veganza') || valLower.includes('sensatec') ||
+                                valLower.includes('alcantara') || valLower.includes('cloth') || valLower.includes('ผ้า')) {
+                                const parts = val.split(/\s*[-–—]\s*/);
+                                upholstery = parts[0].trim();
+                                break;
+                            }
+                        }
+                    }
+                    if (upholstery) break;
+                }
+            }
+
+            const materialLabel = currentLang === 'en' ? 'Material: ' : 'วัสดุ: ';
+            let html = `<div style="font-weight:600; line-height:1.35;">${seatDesc}</div>`;
+            if (upholstery && upholstery !== '-') {
+                html += `<div style="font-size:0.85em; color:var(--text-secondary); margin-top:4px; font-weight:500;">${materialLabel}<span style="color:var(--text-primary); font-weight:600;">${upholstery}</span></div>`;
+            }
+
+            return {
+                value: seatDesc + (upholstery && upholstery !== '-' ? ` (${materialLabel}${upholstery})` : ''),
+                html: html,
+                isTextOption: true,
+                isCustomHtml: true
+            };
+        }
+
+        // Helper: Find value from model's specifications matching a set of aliases (searches by alias priority)
+        function findSpecValueByAliases(model, aliases, preferTopicAsValue = false) {
+            // Priority 1: Check aliases in order of preference for active/present values
+            for (const alias of aliases) {
+                const aliasLower = alias.toLowerCase();
+                for (const specBlock of (model.specifications || [])) {
+                    for (const detail of (specBlock.details || [])) {
+                        const top = (detail.topic || '').trim();
+                        const topLower = top.toLowerCase();
+                        if (topLower.includes(aliasLower)) {
+                            const val = (detail.value || '').trim();
+                            const isCheckMark = TRANSLATIONS[currentLang].yesWords.includes(val.toLowerCase());
+                            const isActive = val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none';
+                            
+                            if (isActive) {
+                                if (preferTopicAsValue) {
+                                    const displayVal = isCheckMark ? top : val;
+                                    return { value: displayVal, topic: top, isTextOption: true };
+                                }
+                                return { value: val, topic: top, isTextOption: false };
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Priority 2: Check if any alias matched with '-' (explicitly not equipped)
+            for (const alias of aliases) {
+                const aliasLower = alias.toLowerCase();
+                for (const specBlock of (model.specifications || [])) {
+                    for (const detail of (specBlock.details || [])) {
+                        const top = (detail.topic || '').trim();
+                        if (top.toLowerCase().includes(aliasLower)) {
+                            return { value: '-', topic: top, isTextOption: false };
+                        }
+                    }
+                }
+            }
+            return { value: '-', topic: '', isTextOption: false };
+        }
 
         // 4. Populate Table Body
         const tbody = document.getElementById('tableBody');
@@ -1390,87 +1905,188 @@
         totalDiffCount = 0;
         totalAllEmptyCount = 0;
 
-        allCategories.forEach(categoryName => {
-            const lowerCat = categoryName.toLowerCase().trim();
-            if (lowerCat === "หมายเหตุ" || lowerCat === "notes" || lowerCat === "footnote" || lowerCat === "footnotes") {
-                return;
-            }
+        if (currentViewMode === 'smart') {
+            // === SMART SALES HIGHLIGHTS MODE ===
+            SMART_GROUPS_DEF.forEach(group => {
+                const groupTitle = currentLang === 'en' ? group.titleEN : group.titleTH;
+                
+                // Section Title Row
+                const trSection = document.createElement('tr');
+                trSection.className = 'section-title';
+                const tdSection = document.createElement('td');
+                tdSection.colSpan = selectedModels.length + 1;
+                tdSection.innerText = groupTitle;
+                trSection.appendChild(tdSection);
+                tbody.appendChild(trSection);
 
-            // Union unique topics in this category
-            let uniqueTopics = [];
-            selectedModels.forEach(m => {
-                const specBlock = (m.specifications || []).find(s => s.category === categoryName);
-                if (specBlock) {
-                    (specBlock.details || []).forEach(detail => {
-                        if (detail.topic && !uniqueTopics.includes(detail.topic)) {
-                            uniqueTopics.push(detail.topic);
+                group.topics.forEach(tDef => {
+                    const topicLabel = currentLang === 'en' ? tDef.canonicalNameEN : tDef.canonicalNameTH;
+                    const tr = document.createElement('tr');
+                    tr.setAttribute('data-category', groupTitle);
+                    tr.setAttribute('data-topic', topicLabel);
+
+                    const tdTopic = document.createElement('td');
+                    const salesBadge = getSalesBadge(topicLabel);
+                    tdTopic.innerHTML = `${salesBadge}${addFootnoteTooltips(topicLabel)}`;
+                    tr.appendChild(tdTopic);
+
+                    let normalizedValues = [];
+
+                    selectedModels.forEach(m => {
+                        let res;
+                        if (tDef.customSeatExtractor) {
+                            res = getCombinedSeatInfo(m);
+                        } else {
+                            res = findSpecValueByAliases(m, tDef.aliases, tDef.preferTopicAsValue);
                         }
+                        const specVal = res.value;
+
+                        const tdVal = document.createElement('td');
+                        let cellContent = '';
+
+                        if (res.isCustomHtml) {
+                            // Rich multi-line content (e.g. seat style + electric/memory + leather material)
+                            cellContent = res.html;
+                        } else if (res.isTextOption) {
+                            // Render text directly without checkmark icon
+                            const badge = getSalesBadge(specVal);
+                            cellContent = `<span style="font-weight:600;">${badge}${specVal}</span>`;
+                        } else {
+                            // Clean value rendering without redundant sub-topic labels
+                            cellContent = formatValue(specVal);
+                        }
+                        
+                        tdVal.innerHTML = addFootnoteTooltips(cellContent, true);
+                        tr.appendChild(tdVal);
+
+                        normalizedValues.push(normalizeForDiff(specVal));
                     });
-                }
+
+                    // Diff evaluation
+                    const firstVal = normalizedValues[0];
+                    const isDiff = normalizedValues.some(v => v !== firstVal);
+                    const isAllEmpty = normalizedValues.every(v => v === "__NO__");
+
+                    if (isAllEmpty) {
+                        tr.classList.add('row-all-empty');
+                        totalAllEmptyCount++;
+                    }
+
+                    if (isDiff) {
+                        tr.classList.add('row-diff');
+                        totalDiffCount++;
+                    } else {
+                        tr.classList.add('row-same');
+                        if (isDiffOnly) {
+                            tr.classList.add('hide-same');
+                        }
+                    }
+
+                    tbody.appendChild(tr);
+                });
             });
 
-            if (uniqueTopics.length === 0) return;
+        } else {
+            // === RAW ORIGINAL BROCHURE MODE ===
+            let allCategories = [];
+            selectedModels.forEach(m => {
+                (m.specifications || []).forEach(spec => {
+                    if (spec.category && !allCategories.includes(spec.category)) {
+                        allCategories.push(spec.category);
+                    }
+                });
+            });
 
-            // Section Title Row
-            const trSection = document.createElement('tr');
-            trSection.className = 'section-title';
-            const tdSection = document.createElement('td');
-            tdSection.colSpan = selectedModels.length + 1;
-            tdSection.innerText = categoryName;
-            trSection.appendChild(tdSection);
-            tbody.appendChild(trSection);
+            // Sort categories by score
+            const catWithScores = allCategories.map((cat, origIdx) => ({
+                name: cat,
+                origIdx,
+                score: getCategoryScore(cat)
+            }));
+            catWithScores.sort((a, b) => a.score !== b.score ? a.score - b.score : a.origIdx - b.origIdx);
+            allCategories = catWithScores.map(c => c.name);
 
-            let categoryHasVisibleRows = 0;
+            allCategories.forEach(categoryName => {
+                const lowerCat = categoryName.toLowerCase().trim();
+                if (lowerCat === "หมายเหตุ" || lowerCat === "notes" || lowerCat === "footnote" || lowerCat === "footnotes") {
+                    return;
+                }
 
-            uniqueTopics.forEach(topicName => {
-                const tr = document.createElement('tr');
-                tr.setAttribute('data-category', categoryName);
-                tr.setAttribute('data-topic', topicName);
-
-                const tdTopic = document.createElement('td');
-                tdTopic.innerHTML = addFootnoteTooltips(topicName);
-                tr.appendChild(tdTopic);
-
-                let normalizedValues = [];
-
+                // Union unique topics in this category
+                let uniqueTopics = [];
                 selectedModels.forEach(m => {
-                    let specVal = "-";
                     const specBlock = (m.specifications || []).find(s => s.category === categoryName);
                     if (specBlock) {
-                        const detail = (specBlock.details || []).find(d => d.topic === topicName);
-                        if (detail) specVal = detail.value;
+                        (specBlock.details || []).forEach(detail => {
+                            if (detail.topic && !uniqueTopics.includes(detail.topic)) {
+                                uniqueTopics.push(detail.topic);
+                            }
+                        });
                     }
-
-                    const tdVal = document.createElement('td');
-                    tdVal.innerHTML = addFootnoteTooltips(formatValue(specVal), true);
-                    tr.appendChild(tdVal);
-
-                    normalizedValues.push(normalizeForDiff(specVal));
                 });
 
-                // Diff evaluation: check if all values are identical
-                const firstVal = normalizedValues[0];
-                const isDiff = normalizedValues.some(v => v !== firstVal);
-                const isAllEmpty = normalizedValues.every(v => v === "__NO__");
+                if (uniqueTopics.length === 0) return;
 
-                if (isAllEmpty) {
-                    tr.classList.add('row-all-empty');
-                    totalAllEmptyCount++;
-                }
+                // Section Title Row
+                const trSection = document.createElement('tr');
+                trSection.className = 'section-title';
+                const tdSection = document.createElement('td');
+                tdSection.colSpan = selectedModels.length + 1;
+                tdSection.innerText = categoryName;
+                trSection.appendChild(tdSection);
+                tbody.appendChild(trSection);
 
-                if (isDiff) {
-                    tr.classList.add('row-diff');
-                    totalDiffCount++;
-                } else {
-                    tr.classList.add('row-same');
-                    if (isDiffOnly) {
-                        tr.classList.add('hide-same');
+                uniqueTopics.forEach(topicName => {
+                    const tr = document.createElement('tr');
+                    tr.setAttribute('data-category', categoryName);
+                    tr.setAttribute('data-topic', topicName);
+
+                    const tdTopic = document.createElement('td');
+                    const salesBadge = getSalesBadge(topicName);
+                    tdTopic.innerHTML = `${salesBadge}${addFootnoteTooltips(topicName)}`;
+                    tr.appendChild(tdTopic);
+
+                    let normalizedValues = [];
+
+                    selectedModels.forEach(m => {
+                        let specVal = "-";
+                        const specBlock = (m.specifications || []).find(s => s.category === categoryName);
+                        if (specBlock) {
+                            const detail = (specBlock.details || []).find(d => d.topic === topicName);
+                            if (detail) specVal = detail.value;
+                        }
+
+                        const tdVal = document.createElement('td');
+                        tdVal.innerHTML = addFootnoteTooltips(formatValue(specVal), true);
+                        tr.appendChild(tdVal);
+
+                        normalizedValues.push(normalizeForDiff(specVal));
+                    });
+
+                    // Diff evaluation
+                    const firstVal = normalizedValues[0];
+                    const isDiff = normalizedValues.some(v => v !== firstVal);
+                    const isAllEmpty = normalizedValues.every(v => v === "__NO__");
+
+                    if (isAllEmpty) {
+                        tr.classList.add('row-all-empty');
+                        totalAllEmptyCount++;
                     }
-                }
 
-                tbody.appendChild(tr);
+                    if (isDiff) {
+                        tr.classList.add('row-diff');
+                        totalDiffCount++;
+                    } else {
+                        tr.classList.add('row-same');
+                        if (isDiffOnly) {
+                            tr.classList.add('hide-same');
+                        }
+                    }
+
+                    tbody.appendChild(tr);
+                });
             });
-        });
+        }
 
         // 5. PDF Brochure Links Row
         const trPdfSection = document.createElement('tr');
@@ -1675,6 +2291,19 @@
         return null;
     }
 
+    // View Mode Switcher ('smart' vs 'raw')
+    function setViewMode(mode) {
+        if (currentViewMode === mode) return;
+        currentViewMode = mode;
+        const btnSmart = document.getElementById('btnViewSmart');
+        const btnRaw = document.getElementById('btnViewRaw');
+        if (btnSmart) btnSmart.classList.toggle('active', mode === 'smart');
+        if (btnRaw) btnRaw.classList.toggle('active', mode === 'raw');
+        
+        renderComparator();
+        updateUrlState();
+    }
+
     // URL State Sharing
     function updateUrlState() {
         const params = new URLSearchParams();
@@ -1686,6 +2315,9 @@
         }
         if (!isHideAllEmpty) {
             params.set('hide_empty', '0');
+        }
+        if (currentViewMode !== 'smart') {
+            params.set('view', currentViewMode);
         }
         if (currentLang !== 'th') {
             params.set('lang', currentLang);
@@ -1699,10 +2331,19 @@
         const modelsParam = params.get('models');
         const diffParam = params.get('diff');
         const hideEmptyParam = params.get('hide_empty');
+        const viewParam = params.get('view');
         const langParam = params.get('lang');
 
         if (langParam === 'en' || langParam === 'th') {
             currentLang = langParam;
+        }
+
+        if (viewParam === 'raw' || viewParam === 'smart') {
+            currentViewMode = viewParam;
+            const btnSmart = document.getElementById('btnViewSmart');
+            const btnRaw = document.getElementById('btnViewRaw');
+            if (btnSmart) btnSmart.classList.toggle('active', currentViewMode === 'smart');
+            if (btnRaw) btnRaw.classList.toggle('active', currentViewMode === 'raw');
         }
 
         if (diffParam === '1') {
@@ -1926,6 +2567,14 @@
         const btnDiff = document.getElementById('btnDiffToggle');
         if (btnDiff) {
             btnDiff.querySelector('span:first-child').innerText = trans.diffOnlyText;
+        }
+        const btnSmart = document.getElementById('btnViewSmart');
+        if (btnSmart) {
+            btnSmart.querySelector('span').innerText = trans.viewModeSmart;
+        }
+        const btnRaw = document.getElementById('btnViewRaw');
+        if (btnRaw) {
+            btnRaw.querySelector('span').innerText = trans.viewModeRaw;
         }
     }
 
