@@ -2184,6 +2184,13 @@
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
             },
             {
+                "model_name": "530e Inspiring",
+                "category": "Document References",
+                "topic": "หมายเหตุการชาร์จ AC / AC Charging Reference Note",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 3: English is 'AC Charging Reference Note' (mapped: 'ac charging reference note'), Thai is 'หมายเหตุการชาร์จ AC' (mapped: 'หมายเหตุการชาร์จ ac')"
+            },
+            {
                 "model_name": "520d M Sport",
                 "category": "Engine and Performance",
                 "topic": "ชนิดเครื่องยนต์ / Engine type",
@@ -2863,6 +2870,13 @@
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
             },
             {
+                "model_name": "520d M Sport",
+                "category": "Document References",
+                "topic": "หมายเหตุการชาร์จ AC / AC Charging Reference Note",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 3: English is 'AC Charging Reference Note' (mapped: 'ac charging reference note'), Thai is 'หมายเหตุการชาร์จ AC' (mapped: 'หมายเหตุการชาร์จ ac')"
+            },
+            {
                 "model_name": "530e M Sport",
                 "category": "Engine and Performance",
                 "topic": "ชนิดเครื่องยนต์ / Engine type",
@@ -3540,6 +3554,13 @@
                 "topic": "รหัสแพ็กเกจ (Local Pack) / Package Code (Local Pack)",
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
+            },
+            {
+                "model_name": "530e M Sport",
+                "category": "Document References",
+                "topic": "หมายเหตุการชาร์จ AC / AC Charging Reference Note",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 3: English is 'AC Charging Reference Note' (mapped: 'ac charging reference note'), Thai is 'หมายเหตุการชาร์จ AC' (mapped: 'หมายเหตุการชาร์จ ac')"
             }
         ],
         "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/5-20260417-01_EN.pdf.asset.1779077254663.pdf"
