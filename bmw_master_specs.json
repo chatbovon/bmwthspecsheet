@@ -85,7 +85,7 @@
                             },
                             {
                                 "topic": "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%",
-                                "value": "2 ชั่วโมง 15 นาที"
+                                "value": "2 ชั่วโมง 15 นาที*"
                             }
                         ]
                     },
@@ -489,6 +489,10 @@
                             {
                                 "topic": "รหัสแพ็กเกจ (Local Pack)",
                                 "value": "(ZJT, ZKO, ZLE)"
+                            },
+                            {
+                                "topic": "หมายเหตุการชาร์จ AC",
+                                "value": "อ้างอิงจาก https://www.bmw.co.th/th/all-models/5-series/sedan/bmw-5-series-sedan-phev-overview.html"
                             }
                         ]
                     }
@@ -986,6 +990,10 @@
                             {
                                 "topic": "รหัสแพ็กเกจ (Local Pack)",
                                 "value": "(ZJR, ZKP)"
+                            },
+                            {
+                                "topic": "หมายเหตุการชาร์จ AC",
+                                "value": "-"
                             }
                         ]
                     }
@@ -1075,7 +1083,7 @@
                             },
                             {
                                 "topic": "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%",
-                                "value": "2 ชั่วโมง 15 นาที"
+                                "value": "2 ชั่วโมง 15 นาที*"
                             }
                         ]
                     },
@@ -1483,6 +1491,10 @@
                             {
                                 "topic": "รหัสแพ็กเกจ (Local Pack)",
                                 "value": "(ZJQ, ZLB)"
+                            },
+                            {
+                                "topic": "หมายเหตุการชาร์จ AC",
+                                "value": "อ้างอิงจาก https://www.bmw.co.th/th/all-models/5-series/sedan/bmw-5-series-sedan-phev-overview.html"
                             }
                         ]
                     }

@@ -78,7 +78,7 @@
                             },
                             {
                                 "topic": "AC charging time 0 - 100%",
-                                "value": "2 hours 15 minutes"
+                                "value": "2 hours 15 minutes*"
                             }
                         ]
                     },
@@ -482,6 +482,10 @@
                             {
                                 "topic": "Package Code (Local Pack)",
                                 "value": "(ZJT, ZKO, ZLE)"
+                            },
+                            {
+                                "topic": "AC Charging Reference Note",
+                                "value": "Referenced from https://www.bmw.co.th/th/all-models/5-series/sedan/bmw-5-series-sedan-phev-overview.html"
                             }
                         ]
                     }
@@ -978,6 +982,10 @@
                             {
                                 "topic": "Package Code (Local Pack)",
                                 "value": "(ZJR, ZKP)"
+                            },
+                            {
+                                "topic": "AC Charging Reference Note",
+                                "value": "-"
                             }
                         ]
                     }
@@ -1067,7 +1075,7 @@
                             },
                             {
                                 "topic": "AC charging time 0 - 100%",
-                                "value": "2 hours 15 minutes"
+                                "value": "2 hours 15 minutes*"
                             }
                         ]
                     },
@@ -1475,6 +1483,10 @@
                             {
                                 "topic": "Package Code (Local Pack)",
                                 "value": "(ZJQ, ZLB)"
+                            },
+                            {
+                                "topic": "AC Charging Reference Note",
+                                "value": "Referenced from https://www.bmw.co.th/th/all-models/5-series/sedan/bmw-5-series-sedan-phev-overview.html"
                             }
                         ]
                     }
