@@ -1599,6 +1599,20 @@
             },
             {
                 "model_name": "530e Inspiring",
+                "category": "Engine and Performance",
+                "topic": "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์) / Maximum AC charging power (kW)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 17: English is 'Maximum AC charging power (kW)' (mapped: 'maximum ac charging power (kw)'), Thai is 'กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)' (mapped: 'กำลังการชาร์จแบบกระแสสลับ (ac) สูงสุด (กิโลวัตต์)')"
+            },
+            {
+                "model_name": "530e Inspiring",
+                "category": "Engine and Performance",
+                "topic": "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100% / AC charging time 0 - 100%",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 18: English is 'AC charging time 0 - 100%' (mapped: 'ac charging time 0 - 100%'), Thai is 'ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%' (mapped: 'ระยะเวลาในการชาร์จแบบกระแสสลับ (ac) จาก 0 - 100%')"
+            },
+            {
+                "model_name": "530e Inspiring",
                 "category": "Fuel Consumption and CO2 Emission",
                 "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร) / Combined fuel consumption from ECO Sticker result (km/l)",
                 "type": "Cross-DB Discrepancy",
@@ -2264,6 +2278,20 @@
             },
             {
                 "model_name": "520d M Sport",
+                "category": "Engine and Performance",
+                "topic": "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์) / Maximum AC charging power (kW)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 17: English is 'Maximum AC charging power (kW)' (mapped: 'maximum ac charging power (kw)'), Thai is 'กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)' (mapped: 'กำลังการชาร์จแบบกระแสสลับ (ac) สูงสุด (กิโลวัตต์)')"
+            },
+            {
+                "model_name": "520d M Sport",
+                "category": "Engine and Performance",
+                "topic": "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100% / AC charging time 0 - 100%",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 18: English is 'AC charging time 0 - 100%' (mapped: 'ac charging time 0 - 100%'), Thai is 'ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%' (mapped: 'ระยะเวลาในการชาร์จแบบกระแสสลับ (ac) จาก 0 - 100%')"
+            },
+            {
+                "model_name": "520d M Sport",
                 "category": "Fuel Consumption and CO2 Emission",
                 "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร) / Combined fuel consumption from ECO Sticker result (km/l)",
                 "type": "Cross-DB Discrepancy",
@@ -2926,6 +2954,20 @@
                 "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, WLTP (kWh/100 km)",
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 16: English is 'Electric energy consumption, WLTP (kWh/100 km)' (mapped: 'electric energy consumption, wltp (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน wltp (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "530e M Sport",
+                "category": "Engine and Performance",
+                "topic": "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์) / Maximum AC charging power (kW)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 17: English is 'Maximum AC charging power (kW)' (mapped: 'maximum ac charging power (kw)'), Thai is 'กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)' (mapped: 'กำลังการชาร์จแบบกระแสสลับ (ac) สูงสุด (กิโลวัตต์)')"
+            },
+            {
+                "model_name": "530e M Sport",
+                "category": "Engine and Performance",
+                "topic": "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100% / AC charging time 0 - 100%",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 18: English is 'AC charging time 0 - 100%' (mapped: 'ac charging time 0 - 100%'), Thai is 'ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%' (mapped: 'ระยะเวลาในการชาร์จแบบกระแสสลับ (ac) จาก 0 - 100%')"
             },
             {
                 "model_name": "530e M Sport",
