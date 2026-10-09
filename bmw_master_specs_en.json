@@ -71,6 +71,14 @@
                             {
                                 "topic": "Electric energy consumption, WLTP (kWh/100 km)",
                                 "value": "21.4 - 18.9"
+                            },
+                            {
+                                "topic": "Maximum AC charging power (kW)",
+                                "value": "11"
+                            },
+                            {
+                                "topic": "AC charging time 0 - 100%",
+                                "value": "2 hours 15 minutes"
                             }
                         ]
                     },
@@ -554,6 +562,14 @@
                             },
                             {
                                 "topic": "Electric energy consumption, WLTP (kWh/100 km)",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Maximum AC charging power (kW)",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "AC charging time 0 - 100%",
                                 "value": "-"
                             }
                         ]
@@ -1044,6 +1060,14 @@
                             {
                                 "topic": "Electric energy consumption, WLTP (kWh/100 km)",
                                 "value": "21.4 - 18.9"
+                            },
+                            {
+                                "topic": "Maximum AC charging power (kW)",
+                                "value": "11"
+                            },
+                            {
+                                "topic": "AC charging time 0 - 100%",
+                                "value": "2 hours 15 minutes"
                             }
                         ]
                     },

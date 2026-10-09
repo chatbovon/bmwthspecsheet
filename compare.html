@@ -2558,6 +2558,8 @@
             let dcVal = '';
             let acVal = '';
             const fastCandidates = [];
+            let acTime = '';
+            let acRefNote = '';
 
             function parseDurationMinutes(valStr) {
                 let hrs = 0;
@@ -2587,12 +2589,12 @@
 
                     // DC max charging power
                     if ((topLower.includes('dc') && (topLower.includes('สูงสุด') || topLower.includes('maximum') || topLower.includes('max'))) || topLower.includes('maximum charging power dc')) {
-                        const m = val.match(/\d+/);
+                        const m = val.match(/\d+(?:\.\d+)?/);
                         if (m && !dcVal) dcVal = m[0];
                     }
                     // AC max charging power
                     else if ((topLower.includes('ac') && (topLower.includes('สูงสุด') || topLower.includes('maximum') || topLower.includes('max'))) || topLower.includes('maximum charging power ac')) {
-                        const m = val.match(/\d+/);
+                        const m = val.match(/\d+(?:\.\d+)?/);
                         if (m && !acVal) acVal = m[0];
                     }
 
@@ -2603,6 +2605,16 @@
                         if (mA) amp = parseInt(mA[1], 10);
                         const dur = parseDurationMinutes(val);
                         fastCandidates.push({ amp, dur, val });
+                    }
+
+                    // AC charging time (0-100%)
+                    if (topLower.includes('0 - 100%') || topLower.includes('0-100%')) {
+                        if (!acTime) acTime = val;
+                    }
+
+                    // AC Charging Reference Note
+                    if (topLower.includes('หมายเหตุการชาร์จ') || topLower.includes('ac charging reference')) {
+                        acRefNote = val;
                     }
                 }
             }
@@ -2635,6 +2647,31 @@
                         html: `<div style="display:flex; flex-direction:column; align-items:center; gap:2px; line-height:1.3;">
                             <span style="font-weight:700;">${mainStr}</span>
                             <span style="font-size:0.83em; color:var(--text-secondary);">${subLabel}</span>
+                        </div>`
+                    };
+                } else if (acTime) {
+                    const cleanAcTime = acTime.replace('*', '').trim();
+                    const timeFormatted = isTh 
+                        ? cleanAcTime.replace('ชั่วโมง', 'ชม.')
+                        : cleanAcTime.replace('hours', 'hr').replace('minutes', 'min');
+                    const hasStar = acTime.includes('*') || Boolean(acRefNote);
+                    const starSuffix = hasStar ? '*' : '';
+                    const subLabel = isTh ? `ชาร์จ 0-100% ใน ${timeFormatted}${starSuffix}` : `0-100% in ${timeFormatted}${starSuffix}`;
+                    
+                    let refLinkHtml = '';
+                    if (hasStar) {
+                        const refUrl = 'https://www.bmw.co.th/th/all-models/5-series/sedan/bmw-5-series-sedan-phev-overview.html';
+                        const linkText = isTh ? 'อ้างอิงจากเว็บ BMW Thailand' : 'Referenced from BMW web';
+                        refLinkHtml = `<a href="${refUrl}" target="_blank" rel="noopener noreferrer" style="font-size:0.75em; color:var(--primary-color, #1c69d4); text-decoration:underline; margin-top:2px;">${linkText}</a>`;
+                    }
+
+                    return {
+                        value: mainStr,
+                        isCustomHtml: true,
+                        html: `<div style="display:flex; flex-direction:column; align-items:center; gap:2px; line-height:1.3;">
+                            <span style="font-weight:700;">${mainStr}</span>
+                            <span style="font-size:0.83em; color:var(--text-secondary);">${subLabel}</span>
+                            ${refLinkHtml}
                         </div>`
                     };
                 }

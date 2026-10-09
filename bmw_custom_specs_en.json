@@ -14869,6 +14869,14 @@
               {
                 "topic": "Electric energy consumption, NEDC (kWh/100 km)",
                 "value": "-"
+              },
+              {
+                "topic": "Maximum AC charging power (kW)",
+                "value": "-"
+              },
+              {
+                "topic": "AC charging time 0 - 100%",
+                "value": "-"
               }
             ]
           },
@@ -15240,6 +15248,10 @@
               {
                 "topic": "Package Code (Local Pack)",
                 "value": "(Z4V, Z7M)"
+              },
+              {
+                "topic": "AC Charging Reference Note",
+                "value": "-"
               }
             ]
           }
@@ -15306,6 +15318,14 @@
               {
                 "topic": "Electric energy consumption, NEDC (kWh/100 km)",
                 "value": "18.64"
+              },
+              {
+                "topic": "Maximum AC charging power (kW)",
+                "value": "7.4"
+              },
+              {
+                "topic": "AC charging time 0 - 100%",
+                "value": "3 hours 15 minutes*"
               }
             ]
           },
@@ -15677,6 +15697,10 @@
               {
                 "topic": "Package Code (Local Pack)",
                 "value": "(Z4U, Z7N)"
+              },
+              {
+                "topic": "AC Charging Reference Note",
+                "value": "Referenced from https://www.bmw.co.th/th/all-models/5-series/sedan/bmw-5-series-sedan-phev-overview.html"
               }
             ]
           }
