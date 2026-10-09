@@ -1571,6 +1571,11 @@
                         customDrivetrainExtractor: true
                     },
                     {
+                        canonicalNameTH: 'ระบบเลี้ยว 4 ล้อ (Integral Active Steering)',
+                        canonicalNameEN: 'Integral Active Steering (IAS)',
+                        customIASExtractor: true
+                    },
+                    {
                         canonicalNameTH: 'ระบบช่วงล่าง',
                         canonicalNameEN: 'Suspension',
                         preferTopicAsValue: true,
@@ -1611,6 +1616,11 @@
                         ]
                     },
                     {
+                        canonicalNameTH: 'ยาง Runflat',
+                        canonicalNameEN: 'Runflat Tyres',
+                        aliases: ['ยาง runflat', 'runflat tyres', 'runflat']
+                    },
+                    {
                         canonicalNameTH: 'ล้ออัลลอย',
                         canonicalNameEN: 'Alloy Wheels',
                         aliases: ['ล้ออัลลอย', 'ล้อ', 'alloy wheels', 'wheels']
@@ -1628,10 +1638,22 @@
                 titleEN: '✨ Exterior Styling & Equipment',
                 topics: [
                     {
-                        canonicalNameTH: 'แพ็กเกจชุดแต่งภายนอก (M Sport / M Sport Pro)',
-                        canonicalNameEN: 'Exterior Package (M Sport / Pro)',
+                        canonicalNameTH: 'แพ็กเกจชุดแต่งภายนอก (M Sport / M Sport Pro / M Carbon)',
+                        canonicalNameEN: 'Exterior Package (M Sport / Pro / M Carbon)',
                         preferTopicAsValue: true,
-                        aliases: ['m sport pro', 'ชุดตกแต่ง m sport pro', 'ชุดตกแต่งภายนอกแบบ m sport', 'ชุดตกแต่งพิเศษ m sport', 'ชุดตกแต่ง m sport', 'm aerodynamics', 'm sport package']
+                        aliases: [
+                            'ชุดตกแต่งภายนอก m carbon',
+                            'm carbon exterior package',
+                            'm carbon exterior',
+                            'm carbon',
+                            'm sport pro',
+                            'ชุดตกแต่ง m sport pro',
+                            'ชุดตกแต่งภายนอกแบบ m sport',
+                            'ชุดตกแต่งพิเศษ m sport',
+                            'ชุดตกแต่ง m sport',
+                            'm aerodynamics',
+                            'm sport package'
+                        ]
                     },
                     {
                         canonicalNameTH: 'กระจังหน้าเรืองแสง Iconic Glow',
@@ -1672,11 +1694,6 @@
                         aliases: ['ระบบช่วยผ่อนแรงกระแทกขณะปิดประตู', 'ระบบช่วยผ่อนแรงกระแทกปิดประตู', 'soft-close function for doors', 'soft close']
                     },
                     {
-                        canonicalNameTH: 'ระบบเปิด-ปิดฝาท้ายไฟฟ้า',
-                        canonicalNameEN: 'Automatic Tailgate',
-                        aliases: ['ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า', 'automatic tailgate operation', 'ฝาท้ายไฟฟ้า']
-                    },
-                    {
                         canonicalNameTH: 'ชุดแต่งตกแต่งสีดำเงา (Shadowline)',
                         canonicalNameEN: 'M High-gloss Shadowline',
                         aliases: ['ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา', 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา', 'm high-gloss shadowline', 'shadowline']
@@ -1697,6 +1714,21 @@
                         canonicalNameTH: 'ระบบระบายอากาศสำหรับเบาะนั่ง (Ventilation)',
                         canonicalNameEN: 'Seat Ventilation',
                         aliases: ['ระบบระบายอากาศสำหรับเบาะนั่ง', 'active seat ventilation']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบปรับอากาศอัตโนมัติ',
+                        canonicalNameEN: 'Automatic Climate Control',
+                        customACExtractor: true
+                    },
+                    {
+                        canonicalNameTH: 'ม่านบังแดด',
+                        canonicalNameEN: 'Sunblinds',
+                        customSunblindExtractor: true
+                    },
+                    {
+                        canonicalNameTH: 'ระบบกล้องภายในรถ',
+                        canonicalNameEN: 'Interior Camera',
+                        aliases: ['ระบบกล้องภายในรถ', 'กล้องภายในรถ', 'interior camera']
                     },
                     {
                         canonicalNameTH: 'พวงมาลัยดีไซน์ M / M Sport',
@@ -2133,6 +2165,177 @@
             };
         }
 
+        // Helper: Extract Integral Active Steering (IAS) info
+        // Rule: Models with Adaptive Suspension Professional / Adaptive M Suspension Professional MUST have IAS
+        function getIASInfo(model) {
+            const isTh = currentLang === 'th';
+            let hasIASDirect = false;
+            let hasAdaptivePro = false;
+
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = (detail.topic || '').toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
+
+                    if (isActive) {
+                        if (top.includes('integral active steering') || top.includes('ปรับองศาของล้อหลัง')) {
+                            hasIASDirect = true;
+                        }
+                        if (top.includes('professional') && (top.includes('adaptive suspension') || top.includes('adaptive m suspension') || top.includes('ช่วงล่าง'))) {
+                            hasAdaptivePro = true;
+                        }
+                    }
+                }
+            }
+
+            if (hasIASDirect) {
+                return {
+                    value: '■',
+                    topic: 'ระบบปรับองศาของล้อหลังเพื่อการเข้าโค้งหรือเลี้ยว (Integral Active Steering)',
+                    isTextOption: false
+                };
+            }
+
+            if (hasAdaptivePro) {
+                const badge = isTh ? 'รวมใน Adaptive Suspension Professional' : 'Included in Adaptive Suspension Pro';
+                return {
+                    value: '■',
+                    topic: 'ระบบปรับองศาของล้อหลังเพื่อการเข้าโค้งหรือเลี้ยว (Integral Active Steering)',
+                    isTextOption: false,
+                    badge: badge
+                };
+            }
+
+            return {
+                value: '-',
+                topic: '',
+                isTextOption: false
+            };
+        }
+
+        // Helper: Extract Automatic Air Conditioning / Climate Control info with zone description
+        function getAirConditioningInfo(model) {
+            const isTh = currentLang === 'th';
+            let matchedZone = '';
+            let hasAutoAc = false;
+
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = (detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
+
+                    if (isActive && (topLower.includes('ปรับอากาศ') || topLower.includes('climate control') || topLower.includes('air conditioning'))) {
+                        // Skip footnote / battery disclaimer lines
+                        if (topLower.includes('พฤติกรรม') || topLower.includes('การขับขี่')) continue;
+
+                        hasAutoAc = true;
+                        if (topLower.includes('5 โซน') || topLower.includes('5-zone')) {
+                            matchedZone = '5';
+                            break;
+                        } else if (topLower.includes('4 โซน') || topLower.includes('4-zone')) {
+                            matchedZone = '4';
+                            break;
+                        } else if (topLower.includes('3 โซน') || topLower.includes('3-zone')) {
+                            matchedZone = '3';
+                            break;
+                        } else if (topLower.includes('2 โซน') || topLower.includes('2-zone')) {
+                            matchedZone = '2';
+                            break;
+                        }
+                    }
+                }
+                if (matchedZone) break;
+            }
+
+            // Fallback for XM models (standard 4-zone climate control)
+            const mName = (model.model_name || '').toLowerCase();
+            if (!matchedZone && hasAutoAc === false && mName.includes('xm')) {
+                hasAutoAc = true;
+                matchedZone = '4';
+            }
+
+            if (matchedZone === '5') {
+                return {
+                    value: isTh ? 'อัตโนมัติแบบ 5 โซน' : '5-Zone Automatic Climate Control',
+                    isTextOption: true
+                };
+            }
+            if (matchedZone === '4') {
+                return {
+                    value: isTh ? 'อัตโนมัติแบบ 4 โซน' : '4-Zone Automatic Climate Control',
+                    isTextOption: true
+                };
+            }
+            if (matchedZone === '3') {
+                return {
+                    value: isTh ? 'อัตโนมัติแบบ 3 โซน' : '3-Zone Automatic Climate Control',
+                    isTextOption: true
+                };
+            }
+            if (matchedZone === '2') {
+                return {
+                    value: isTh ? 'อัตโนมัติแบบ 2 โซน' : '2-Zone Automatic Climate Control',
+                    isTextOption: true
+                };
+            }
+            if (hasAutoAc) {
+                return {
+                    value: isTh ? 'ระบบปรับอากาศอัตโนมัติ' : 'Automatic Climate Control',
+                    isTextOption: true
+                };
+            }
+
+            return {
+                value: '-',
+                isTextOption: false
+            };
+        }
+
+        // Helper: Extract Sunblinds info detailing rear side / rear window placement
+        function getSunblindInfo(model) {
+            const isTh = currentLang === 'th';
+            let hasRearAndBack = false;
+            let hasRearSide = false;
+
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = (detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
+
+                    if (isActive && (topLower.includes('ม่าน') || topLower.includes('sunblind') || topLower.includes('roller'))) {
+                        if (topLower.includes('กระจกหลัง') || topLower.includes('rear window')) {
+                            hasRearAndBack = true;
+                        } else if (topLower.includes('ประตูหลัง') || topLower.includes('ตระดูหลัง') || topLower.includes('ผู้โดยสารตอนหลัง') || topLower.includes('rear side')) {
+                            hasRearSide = true;
+                        }
+                    }
+                }
+            }
+
+            if (hasRearAndBack) {
+                return {
+                    value: isTh ? 'ประตูหลังและกระจกหลัง' : 'Rear Doors & Rear Window',
+                    isTextOption: true
+                };
+            }
+            if (hasRearSide) {
+                return {
+                    value: isTh ? 'ประตูข้างด้านหลัง' : 'Rear Side Doors',
+                    isTextOption: true
+                };
+            }
+
+            return {
+                value: '-',
+                isTextOption: false
+            };
+        }
+
         // Helper: Find value from model's specifications matching a set of aliases (searches by alias priority)
         function findSpecValueByAliases(model, aliases, preferTopicAsValue = false) {
             // Priority 1: Check aliases in order of preference for active/present values
@@ -2217,6 +2420,12 @@
                             res = getActiveCruiseControlInfo(m);
                         } else if (tDef.customAirbagExtractor) {
                             res = getAirbagInfo(m);
+                        } else if (tDef.customIASExtractor) {
+                            res = getIASInfo(m);
+                        } else if (tDef.customACExtractor) {
+                            res = getAirConditioningInfo(m);
+                        } else if (tDef.customSunblindExtractor) {
+                            res = getSunblindInfo(m);
                         } else {
                             res = findSpecValueByAliases(m, tDef.aliases, tDef.preferTopicAsValue);
                         }
