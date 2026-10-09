@@ -1409,10 +1409,19 @@
         return 50;
     }
 
+    // Clean Thai decomposed vowels (e.g. Sara Am decomposed into Nikhahit + Sara Aa: \u0E4D\u0E32 -> \u0E33)
+    function cleanThai(str) {
+        if (!str) return '';
+        return String(str)
+            .replace(/\u0E4D\u0E32/g, '\u0E33')
+            .replace(/[\u200B-\u200D\uFEFF]/g, '')
+            .replace(/\u00A0/g, ' ');
+    }
+
     // Normalize value for diff comparison
     function normalizeForDiff(val) {
         if (!val) return "";
-        let s = String(val).trim().toLowerCase();
+        let s = cleanThai(val).trim().toLowerCase();
         if (TRANSLATIONS[currentLang].yesWords.includes(s)) return "__YES__";
         if (TRANSLATIONS[currentLang].noWords.includes(s)) return "__NO__";
         // Remove subtle punctuation/spacing differences
@@ -1508,12 +1517,14 @@
                     {
                         canonicalNameTH: 'กำลังสูงสุด (hp)',
                         canonicalNameEN: 'Max. Output (hp)',
-                        aliases: ['กำลังสูงสุด', 'กำลังรวมสูงสุด', 'กำลังมอเตอร์ไฟฟ้าสูงสุด', 'max. output', 'total system output', 'max. electric output']
+                        customPowerExtractor: true,
+                        aliases: ['กำลังรวมสูงสุด', 'กำลังสูงสุด', 'กำลังมอเตอร์ไฟฟ้าสูงสุด', 'max. output', 'system output', 'total system output', 'max. electric output', 'engine power']
                     },
                     {
                         canonicalNameTH: 'แรงบิดสูงสุด (Nm)',
                         canonicalNameEN: 'Max. Torque (Nm)',
-                        aliases: ['แรงบิดสูงสุด', 'แรงบิดรวมสูงสุด', 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด', 'max. torque', 'total system torque', 'max. electric torque']
+                        customTorqueExtractor: true,
+                        aliases: ['แรงบิดรวมสูงสุด', 'แรงบิดสูงสุด', 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด', 'max. torque', 'system torque', 'total system torque', 'max. electric torque', 'engine torque']
                     },
                     {
                         canonicalNameTH: 'อัตราเร่ง 0-100 กม./ชม. (วินาที)',
@@ -2507,14 +2518,169 @@
             };
         }
 
+        // Helper: Extract smart power information (handling Hybrids, Pure EV, Pure ICE, and Thai decomposed vowels)
+        function getPowerInfo(model) {
+            const isTh = currentLang === 'th';
+            let totVal = '';
+            let engVal = '';
+            let elecVal = '';
+            let maxVal = '';
+
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = cleanThai(detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    if (!val || val === '-' || val.toLowerCase() === 'null' || val.toLowerCase() === 'none') {
+                        continue;
+                    }
+
+                    // Skip charging power, AC/DC topics, consumption
+                    if (topLower.includes('charging') || topLower.includes('ชาร์จ') || topLower.includes('ac ') || topLower.includes('dc ') || topLower.includes('consumption') || topLower.includes('สิ้นเปลือง')) {
+                        continue;
+                    }
+
+                    // 1. Total System Output / กำลังรวมสูงสุด
+                    if (topLower.includes('กำลังรวมสูงสุด') || topLower.includes('กำลังรวบรวมสูงสุด') || topLower.includes('system output') || topLower.includes('total system output')) {
+                        if (!totVal) totVal = val;
+                    }
+                    // 2. Electric Motor Power / กำลังมอเตอร์ไฟฟ้าสูงสุด
+                    else if (topLower.includes('กำลังมอเตอร์ไฟฟ้า') || topLower.includes('กำลังมอเตอร์ไฟฟ้ารวม') || topLower.includes('electric motor power') || topLower.includes('max. electric output')) {
+                        if (!elecVal) elecVal = val;
+                    }
+                    // 3. Engine Power / กำลังสูงสุด (เครื่องยนต์ - มักระบุรอบต่อนาที / rpm)
+                    else if (topLower.includes('รอบต่อนาที') || topLower.includes('rpm') || topLower.includes('engine power')) {
+                        if (!engVal) engVal = val;
+                    }
+                    // 4. Maximum output general (e.g. EV in English is "Maximum output (kW/hp)")
+                    else if (topLower.includes('กำลังสูงสุด') || topLower.includes('maximum output') || topLower.includes('max. output')) {
+                        if (!maxVal) maxVal = val;
+                    }
+                }
+            }
+
+            // Evaluation:
+            if (totVal) {
+                const totNums = totVal.match(/\d+/g) || [];
+                const engNums = engVal ? (engVal.match(/\d+/g) || []) : [];
+                let isHybridDiff = false;
+                if (engVal && totNums.length >= 2 && engNums.length >= 2) {
+                    if (totNums[0] !== engNums[0] || totNums[1] !== engNums[1]) {
+                        isHybridDiff = true;
+                    }
+                }
+
+                if (isHybridDiff) {
+                    const label = isTh ? 'เครื่องยนต์: ' : 'Engine: ';
+                    const html = `<div style="display:flex; flex-direction:column; align-items:center; gap:2px; line-height:1.3;">
+                        <span style="font-weight:700;">${totVal}</span>
+                        <span style="font-size:0.83em; color:var(--text-secondary);">${label}${engVal}</span>
+                    </div>`;
+                    return { value: totVal, isCustomHtml: true, html: html };
+                } else {
+                    const chosen = engVal || totVal;
+                    return { value: chosen, isCustomHtml: false, isTextOption: true };
+                }
+            }
+
+            if (engVal) {
+                return { value: engVal, isCustomHtml: false, isTextOption: true };
+            }
+            if (elecVal) {
+                return { value: elecVal, isCustomHtml: false, isTextOption: true };
+            }
+            if (maxVal) {
+                return { value: maxVal, isCustomHtml: false, isTextOption: true };
+            }
+
+            return { value: '-', isCustomHtml: false };
+        }
+
+        // Helper: Extract smart torque information
+        function getTorqueInfo(model) {
+            const isTh = currentLang === 'th';
+            let totVal = '';
+            let engVal = '';
+            let elecVal = '';
+            let maxVal = '';
+
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = cleanThai(detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    if (!val || val === '-' || val.toLowerCase() === 'null' || val.toLowerCase() === 'none') {
+                        continue;
+                    }
+
+                    // Skip entertainment, power, charging
+                    if (topLower.includes('entertainment') || topLower.includes('กำลัง') || topLower.includes('power') || topLower.includes('charging') || topLower.includes('ชาร์จ')) {
+                        continue;
+                    }
+
+                    // 1. Total System Torque / แรงบิดรวมสูงสุด
+                    if (topLower.includes('แรงบิดรวมสูงสุด') || topLower.includes('แรงบิดรวบรวมสูงสุด') || topLower.includes('system torque') || topLower.includes('total system torque')) {
+                        if (!totVal) totVal = val;
+                    }
+                    // 2. Electric Motor Torque / แรงบิดมอเตอร์ไฟฟ้าสูงสุด
+                    else if (topLower.includes('แรงบิดมอเตอร์ไฟฟ้า') || topLower.includes('electric motor torque') || topLower.includes('max. electric torque')) {
+                        if (!elecVal) elecVal = val;
+                    }
+                    // 3. Engine Torque / แรงบิดสูงสุด (เครื่องยนต์ - ระบุรอบต่อนาที / rpm หรือ engine torque)
+                    else if ((topLower.includes('แรงบิดสูงสุด') && (topLower.includes('รอบต่อนาที') || topLower.includes('rpm'))) || topLower.includes('engine torque')) {
+                        if (!engVal) engVal = val;
+                    }
+                    // 4. Maximum Torque general
+                    else if (topLower.includes('แรงบิดสูงสุด') || topLower.includes('maximum torque') || topLower.includes('max. torque')) {
+                        if (!maxVal) maxVal = val;
+                    }
+                }
+            }
+
+            if (totVal) {
+                const totNums = totVal.match(/\d+/g) || [];
+                const engNums = engVal ? (engVal.match(/\d+/g) || []) : [];
+                let isHybridDiff = false;
+                if (engVal && totNums.length >= 1 && engNums.length >= 1) {
+                    if (totNums[0] !== engNums[0]) {
+                        isHybridDiff = true;
+                    }
+                }
+
+                if (isHybridDiff) {
+                    const label = isTh ? 'เครื่องยนต์: ' : 'Engine: ';
+                    const html = `<div style="display:flex; flex-direction:column; align-items:center; gap:2px; line-height:1.3;">
+                        <span style="font-weight:700;">${totVal}</span>
+                        <span style="font-size:0.83em; color:var(--text-secondary);">${label}${engVal}</span>
+                    </div>`;
+                    return { value: totVal, isCustomHtml: true, html: html };
+                } else {
+                    const chosen = engVal || totVal;
+                    return { value: chosen, isCustomHtml: false, isTextOption: true };
+                }
+            }
+
+            if (engVal) {
+                return { value: engVal, isCustomHtml: false, isTextOption: true };
+            }
+            if (elecVal) {
+                return { value: elecVal, isCustomHtml: false, isTextOption: true };
+            }
+            if (maxVal) {
+                return { value: maxVal, isCustomHtml: false, isTextOption: true };
+            }
+
+            return { value: '-', isCustomHtml: false };
+        }
+
         // Helper: Find value from model's specifications matching a set of aliases (searches by alias priority)
         function findSpecValueByAliases(model, aliases, preferTopicAsValue = false) {
             // Priority 1: Check aliases in order of preference for active/present values
             for (const alias of aliases) {
-                const aliasLower = alias.toLowerCase();
+                const aliasLower = cleanThai(alias).toLowerCase();
                 for (const specBlock of (model.specifications || [])) {
                     for (const detail of (specBlock.details || [])) {
-                        const top = (detail.topic || '').trim();
+                        const top = cleanThai(detail.topic || '').trim();
                         const topLower = top.toLowerCase();
                         if (topLower.includes(aliasLower)) {
                             const val = (detail.value || '').trim();
@@ -2535,10 +2701,10 @@
 
             // Priority 2: Check if any alias matched with '-' (explicitly not equipped)
             for (const alias of aliases) {
-                const aliasLower = alias.toLowerCase();
+                const aliasLower = cleanThai(alias).toLowerCase();
                 for (const specBlock of (model.specifications || [])) {
                     for (const detail of (specBlock.details || [])) {
-                        const top = (detail.topic || '').trim();
+                        const top = cleanThai(detail.topic || '').trim();
                         if (top.toLowerCase().includes(aliasLower)) {
                             return { value: '-', topic: top, isTextOption: false };
                         }
@@ -2584,7 +2750,11 @@
 
                     selectedModels.forEach(m => {
                         let res;
-                        if (tDef.customSeatExtractor) {
+                        if (tDef.customPowerExtractor) {
+                            res = getPowerInfo(m);
+                        } else if (tDef.customTorqueExtractor) {
+                            res = getTorqueInfo(m);
+                        } else if (tDef.customSeatExtractor) {
                             res = getCombinedSeatInfo(m);
                         } else if (tDef.customDrivetrainExtractor) {
                             res = getDrivetrainInfo(m);
@@ -2687,8 +2857,11 @@
                     const specBlock = (m.specifications || []).find(s => s.category === categoryName);
                     if (specBlock) {
                         (specBlock.details || []).forEach(detail => {
-                            if (detail.topic && !uniqueTopics.includes(detail.topic)) {
-                                uniqueTopics.push(detail.topic);
+                            if (detail.topic) {
+                                const cleanT = cleanThai(detail.topic);
+                                if (!uniqueTopics.some(t => cleanThai(t) === cleanT)) {
+                                    uniqueTopics.push(detail.topic);
+                                }
                             }
                         });
                     }
@@ -2721,7 +2894,7 @@
                         let specVal = "-";
                         const specBlock = (m.specifications || []).find(s => s.category === categoryName);
                         if (specBlock) {
-                            const detail = (specBlock.details || []).find(d => d.topic === topicName);
+                            const detail = (specBlock.details || []).find(d => cleanThai(d.topic) === cleanThai(topicName));
                             if (detail) specVal = detail.value;
                         }
 
@@ -2845,7 +3018,7 @@
 
     // Apply combined Diff, Hide All-Empty & Search filtering
     function applyFilters() {
-        const query = document.getElementById('searchInput').value.toLowerCase().trim();
+        const query = cleanThai(document.getElementById('searchInput').value).toLowerCase().trim();
         const rows = document.querySelectorAll('#tableBody tr');
         let currentSectionHeader = null;
         let sectionHasVisibleRows = false;
@@ -2860,7 +3033,7 @@
             } else {
                 let matchesSearch = true;
                 if (query) {
-                    const rowText = row.innerText.toLowerCase();
+                    const rowText = cleanThai(row.innerText).toLowerCase();
                     matchesSearch = rowText.includes(query);
                 }
 
@@ -3086,7 +3259,7 @@
 
     function renderModalCarList() {
         const container = document.getElementById('modalCarList');
-        const query = document.getElementById('modalSearchInput').value.toLowerCase().trim();
+        const query = cleanThai(document.getElementById('modalSearchInput').value).toLowerCase().trim();
         const trans = TRANSLATIONS[currentLang];
         container.innerHTML = '';
 
@@ -3094,7 +3267,7 @@
             if (modalActiveTab === 'active' && item.source !== 'act') return false;
             if (modalActiveTab === 'custom' && item.source !== 'cust') return false;
             if (query) {
-                const combined = `${item.seriesName} ${item.modelName}`.toLowerCase();
+                const combined = cleanThai(`${item.seriesName} ${item.modelName}`).toLowerCase();
                 return combined.includes(query);
             }
             return true;
