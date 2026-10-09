@@ -2649,10 +2649,11 @@
             return { value: '-', isCustomHtml: false };
         }
 
-        // Helper: Extract electric range strictly using WLTP standard (excluding NEDC)
+        // Helper: Extract electric range strictly prioritizing WLTP standard, falling back to NEDC with label if WLTP unavailable
         function getElectricRange(model) {
             let wltpVal = '';
             let fallbackVal = '';
+            let nedcVal = '';
             for (const specBlock of (model.specifications || [])) {
                 const cat = cleanThai(specBlock.category || '').toLowerCase();
                 if (cat.includes('หมายเหตุ') || cat.includes('note')) continue;
@@ -2661,18 +2662,23 @@
                     const val = (detail.value || '').trim();
                     if (!val || val === '-' || val === '■' || val.toLowerCase() === 'null' || val.toLowerCase() === 'none') continue;
                     
-                    if (top.includes('ระยะทางขับเคลื่อน') || top.includes('electric range')) {
+                    if (top.includes('ระยะทางขับเคลื่อน') || top.includes('electric range') || top.includes('electrical range')) {
                         if (top.includes('wltp')) {
                             wltpVal = val;
                             break;
-                        } else if (!top.includes('nedc') && !fallbackVal) {
+                        } else if (top.includes('nedc')) {
+                            if (!nedcVal) nedcVal = val;
+                        } else if (!fallbackVal) {
                             fallbackVal = val;
                         }
                     }
                 }
                 if (wltpVal) break;
             }
-            const resVal = wltpVal || fallbackVal;
+            let resVal = wltpVal || fallbackVal;
+            if (!resVal && nedcVal) {
+                resVal = nedcVal.toLowerCase().includes('nedc') ? nedcVal : `${nedcVal} (NEDC)`;
+            }
             return resVal ? { value: resVal, isTextOption: true } : { value: '-', isTextOption: false };
         }
 
