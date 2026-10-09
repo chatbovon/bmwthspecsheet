@@ -1697,6 +1697,11 @@
                         canonicalNameTH: 'ชุดแต่งตกแต่งสีดำเงา (Shadowline)',
                         canonicalNameEN: 'M High-gloss Shadowline',
                         aliases: ['ภายนอกพร้อมชุดแต่งตกแต่งด้วยวัสดุสีดำเงา', 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา', 'm high-gloss shadowline', 'shadowline']
+                    },
+                    {
+                        canonicalNameTH: 'อุปกรณ์ภายนอกพิเศษ / เพิ่มเติม',
+                        canonicalNameEN: 'Special Exterior Equipment',
+                        customSpecialExteriorExtractor: true
                     }
                 ]
             },
@@ -1786,6 +1791,11 @@
                         canonicalNameTH: 'ระบบชาร์จโทรศัพท์แบบไร้สาย',
                         canonicalNameEN: 'Wireless Charging',
                         aliases: ['ระบบชาร์จโทรศัพท์แบบไร้สาย', 'wireless charging tray']
+                    },
+                    {
+                        canonicalNameTH: 'อุปกรณ์ภายในพิเศษ / เพิ่มเติม',
+                        canonicalNameEN: 'Special Interior Equipment',
+                        customSpecialInteriorExtractor: true
                     }
                 ]
             },
@@ -1979,9 +1989,19 @@
 
         // Helper: Extract accurate drivetrain platform (AWD, RWD, FWD, xDrive, M xDrive)
         function getDrivetrainInfo(model) {
-            const mName = (model.modelName || '').toLowerCase().trim();
-            const sName = (model.seriesName || '').toLowerCase().trim();
+            const mName = (model.modelName || model.model_name || '').toLowerCase().trim();
+            const sName = (model.seriesName || model.series || '').toLowerCase().trim();
             const isTh = currentLang === 'th';
+
+            // 0. Pure Electric EV with xDrive (i7, iX, iX1, iX2, iX3, etc.)
+            const isElectricEV = mName.startsWith('ix') || mName.startsWith('i4') || mName.startsWith('i5') || mName.startsWith('i7') || mName.startsWith('i3');
+            if (isElectricEV && (mName.includes('xdrive') || mName.includes('x-drive'))) {
+                return {
+                    value: isTh ? 'ระบบขับเคลื่อนสี่ล้อด้วยไฟฟ้า BMW xDrive Electric' : 'Electric All-Wheel Drive (BMW xDrive Electric)',
+                    topic: 'Drivetrain',
+                    isTextOption: true
+                };
+            }
 
             // 1. Look for explicit drivetrain topics in model specifications
             for (const specBlock of (model.specifications || [])) {
@@ -1990,6 +2010,13 @@
                     const val = (detail.value || '').trim();
                     const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
                     if (isActive) {
+                        if (isElectricEV && (top.includes('xdrive') || top.includes('ไฟฟ้า'))) {
+                            return {
+                                value: isTh ? 'ระบบขับเคลื่อนสี่ล้อด้วยไฟฟ้า BMW xDrive Electric' : 'Electric All-Wheel Drive (BMW xDrive Electric)',
+                                topic: 'Drivetrain',
+                                isTextOption: true
+                            };
+                        }
                         if (top.includes('m xdrive')) {
                             return {
                                 value: isTh ? 'ขับเคลื่อน 4 ล้อ (M xDrive)' : 'All-Wheel Drive (M xDrive)',
@@ -2166,11 +2193,12 @@
         }
 
         // Helper: Extract Integral Active Steering (IAS) info
-        // Rule: Models with Adaptive Suspension Professional / Adaptive M Suspension Professional MUST have IAS
+        // Rule: Models with Adaptive Suspension Professional / Adaptive M Suspension Professional / Adaptive 2-axle Air Suspension MUST have IAS
         function getIASInfo(model) {
             const isTh = currentLang === 'th';
             let hasIASDirect = false;
             let hasAdaptivePro = false;
+            let hasAir2Axle = false;
 
             for (const specBlock of (model.specifications || [])) {
                 for (const detail of (specBlock.details || [])) {
@@ -2184,6 +2212,9 @@
                         }
                         if (top.includes('professional') && (top.includes('adaptive suspension') || top.includes('adaptive m suspension') || top.includes('ช่วงล่าง'))) {
                             hasAdaptivePro = true;
+                        }
+                        if (top.includes('adaptive 2-axle') || top.includes('ถุงลม adaptive 2-axle') || (top.includes('ช่วงล่างถุงลม') && top.includes('2-axle'))) {
+                            hasAir2Axle = true;
                         }
                     }
                 }
@@ -2199,6 +2230,16 @@
 
             if (hasAdaptivePro) {
                 const badge = isTh ? 'รวมใน Adaptive Suspension Professional' : 'Included in Adaptive Suspension Pro';
+                return {
+                    value: '■',
+                    topic: 'ระบบปรับองศาของล้อหลังเพื่อการเข้าโค้งหรือเลี้ยว (Integral Active Steering)',
+                    isTextOption: false,
+                    badge: badge
+                };
+            }
+
+            if (hasAir2Axle) {
+                const badge = isTh ? 'รวมใน ช่วงล่างถุงลม Adaptive 2-axle' : 'Included in Adaptive 2-Axle Air Suspension';
                 return {
                     value: '■',
                     topic: 'ระบบปรับองศาของล้อหลังเพื่อการเข้าโค้งหรือเลี้ยว (Integral Active Steering)',
@@ -2336,6 +2377,136 @@
             };
         }
 
+        // Helper: Extract distinctive special exterior equipment
+        function getSpecialExteriorEquipment(model) {
+            const isTh = currentLang === 'th';
+            const items = [];
+
+            for (const specBlock of (model.specifications || [])) {
+                const cname = (specBlock.category || '').toLowerCase();
+                if (!cname.includes('ภายนอก') && !cname.includes('exterior')) continue;
+
+                for (const detail of (specBlock.details || [])) {
+                    const top = (detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
+
+                    if (isActive) {
+                        if (topLower.includes('ประตูเปิดและปิดอัตโนมัติ')) {
+                            const label = isTh ? 'ระบบประตูเปิดและปิดอัตโนมัติ (Automatic Doors)' : 'Automatic Doors';
+                            if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('titanium bronze') || topLower.includes('ไทเทเนียม')) {
+                            const label = isTh ? 'ภายนอกตกแต่งสีไทเทเนียม Titanium Bronze' : 'BMW Individual Titanium Bronze Exterior';
+                            if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('บันไดข้าง')) {
+                            const label = isTh ? 'บันไดข้างอะลูมิเนียม' : 'Aluminium Running Boards';
+                            if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('สปอยเลอร์')) {
+                            const label = isTh ? top : 'M Rear Spoiler';
+                            if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('ฝาชาร์จไฟฟ้าอัจฉริยะ')) {
+                            const label = isTh ? 'ฝาชาร์จไฟฟ้าอัจฉริยะ' : 'Smart Electric Charging Flap';
+                            if (!items.includes(label)) items.push(label);
+                        }
+                    }
+                }
+            }
+
+            if (items.length === 0) {
+                return { value: '-', isCustomHtml: false };
+            }
+
+            const html = `<div style="display:flex; flex-direction:column; gap:4px; text-align:left; font-size:0.86em; line-height:1.4;">
+                ${items.map(it => `<div>• ${it}</div>`).join('')}
+            </div>`;
+
+            return {
+                value: items.join(', '),
+                isCustomHtml: true,
+                html: html
+            };
+        }
+
+        // Helper: Extract distinctive special interior equipment
+        function getSpecialInteriorEquipment(model) {
+            const isTh = currentLang === 'th';
+            const items = [];
+
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = (detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
+
+                    if (isActive) {
+                        if (topLower.includes('theatre screen') || topLower.includes('จอภาพสำหรับผู้โดยสารตอนหลัง')) {
+                            const label = isTh ? 'จอภาพหลัง BMW Theatre Screen 31.3"' : 'BMW Theatre Screen 31.3"';
+                            if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('touch command') || topLower.includes('แผงควบคุมบริเวณแผงประตู')) {
+                            const label = isTh ? 'แผงควบคุมที่ประตู BMW Touch Command' : 'BMW Touch Command Displays';
+                            if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('executive lounge')) {
+                            const label = isTh ? 'เบาะนั่งตอนหลังแบบ Executive Lounge' : 'Executive Lounge Rear Seating';
+                            if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('นวด')) {
+                            if (topLower.includes('ตอนหลัง')) {
+                                const label = isTh ? 'ฟังก์ชันนวดผ่อนคลาย (เบาะหลัง)' : 'Rear Seat Massage Function';
+                                if (!items.includes(label)) items.push(label);
+                            } else {
+                                const label = isTh ? 'ฟังก์ชันนวดผ่อนคลาย (เบาะหน้า)' : 'Front Seat Massage Function';
+                                if (!items.includes(label)) items.push(label);
+                            }
+                        } else if (topLower.includes('interaction bar')) {
+                            const label = 'BMW Interaction Bar';
+                            if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('ที่วางแก้ว') && (topLower.includes('อุณหภูมิ') || topLower.includes('temperature'))) {
+                            const label = isTh ? 'ที่วางแก้วควบคุมอุณหภูมิ (ร้อน/เย็น)' : 'Temperature-Controlled Cup Holders';
+                            if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('heat comfort') || topLower.includes('อุ่นที่พักแขน')) {
+                            const label = isTh ? 'ระบบอุ่นที่พักแขนและพวงมาลัย (Heat Comfort)' : 'Heat Comfort Package (Armrests & Steering)';
+                            if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('heater') || topLower.includes('อุ่นเบาะ')) {
+                            if (topLower.includes('และหลัง') || topLower.includes('ตอนหลัง')) {
+                                const label = isTh ? 'ระบบอุ่นเบาะ (หน้า-หลัง)' : 'Seat Heating (Front & Rear)';
+                                if (!items.includes(label)) items.push(label);
+                            } else {
+                                const label = isTh ? 'ระบบอุ่นเบาะ (คู่หน้า)' : 'Front Seat Heating';
+                                if (!items.includes(label)) items.push(label);
+                            }
+                        } else if (topLower.includes('ระบายอากาศ') && topLower.includes('ตอนหลัง')) {
+                            const label = isTh ? 'ระบบระบายอากาศเบาะนั่งตอนหลัง' : 'Rear Seat Ventilation';
+                            if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('เข็มขัดนิรภัยดีไซน์ m') || topLower.includes('m seat belts')) {
+                            const label = isTh ? 'เข็มขัดนิรภัยดีไซน์ M' : 'M Seat Belts';
+                            if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('travel & comfort')) {
+                            const label = isTh ? 'ระบบ Travel & Comfort' : 'Travel & Comfort System';
+                            if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('alcantara') && topLower.includes('เพดาน')) {
+                            const label = isTh ? 'เพดานหลังคาบุ Alcantara Anthracite' : 'M Headliner Alcantara Anthracite';
+                            if (!items.includes(label)) items.push(label);
+                        }
+                    }
+                }
+            }
+
+            if (items.length === 0) {
+                return { value: '-', isCustomHtml: false };
+            }
+
+            const html = `<div style="display:flex; flex-direction:column; gap:4px; text-align:left; font-size:0.86em; line-height:1.4;">
+                ${items.map(it => `<div>• ${it}</div>`).join('')}
+            </div>`;
+
+            return {
+                value: items.join(', '),
+                isCustomHtml: true,
+                html: html
+            };
+        }
+
         // Helper: Find value from model's specifications matching a set of aliases (searches by alias priority)
         function findSpecValueByAliases(model, aliases, preferTopicAsValue = false) {
             // Priority 1: Check aliases in order of preference for active/present values
@@ -2403,8 +2574,9 @@
                     tr.setAttribute('data-category', groupTitle);
                     tr.setAttribute('data-topic', topicLabel);
 
+                    const isSuspensionRow = (tDef.canonicalNameTH === 'ระบบช่วงล่าง' || tDef.canonicalNameEN === 'Suspension');
                     const tdTopic = document.createElement('td');
-                    const salesBadge = getSalesBadge(topicLabel);
+                    const salesBadge = isSuspensionRow ? '' : getSalesBadge(topicLabel);
                     tdTopic.innerHTML = `${salesBadge}${addFootnoteTooltips(topicLabel)}`;
                     tr.appendChild(tdTopic);
 
@@ -2426,6 +2598,10 @@
                             res = getAirConditioningInfo(m);
                         } else if (tDef.customSunblindExtractor) {
                             res = getSunblindInfo(m);
+                        } else if (tDef.customSpecialExteriorExtractor) {
+                            res = getSpecialExteriorEquipment(m);
+                        } else if (tDef.customSpecialInteriorExtractor) {
+                            res = getSpecialInteriorEquipment(m);
                         } else {
                             res = findSpecValueByAliases(m, tDef.aliases, tDef.preferTopicAsValue);
                         }
@@ -2439,7 +2615,7 @@
                             cellContent = res.html;
                         } else if (res.isTextOption) {
                             // Render text directly without checkmark icon
-                            const badge = getSalesBadge(specVal);
+                            const badge = isSuspensionRow ? '' : getSalesBadge(specVal);
                             cellContent = `<span style="font-weight:600;">${badge}${specVal}</span>`;
                         } else {
                             // Clean value rendering without redundant sub-topic labels
