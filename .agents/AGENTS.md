@@ -28,6 +28,3 @@
 ## 7. Strict TH/EN Specsheet Alignment
 - **Identical Structure & Data:** All validation and auditing logic must strictly check that the Thai and English brochures match in all components: numerical values, option presence, category names, topic names, category counts, topic counts, and exact order/position of rows and columns.
 - **No Bypasses:** Do not build ignore rules or filters for differences in ordering or naming. Category grouping mismatches and vehicle-specific engineering differences must be flagged as active issues for remediation.
-
-## 8. WLTP Standard Priority
-- **WLTP Only for EV Range & Consumption:** All driving range and energy consumption figures displayed in comparisons or processed by scripts must strictly prioritize the WLTP standard. Do NOT display or fall back to NEDC figures when WLTP values are available.
