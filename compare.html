@@ -411,6 +411,29 @@
             color: #0284c7;
             border: 1px solid rgba(14, 165, 233, 0.3);
         }
+        .badge-center-airbag {
+            background: rgba(16, 185, 129, 0.12);
+            color: #059669;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            font-size: 0.72em;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 2px;
+            letter-spacing: 0.01em;
+        }
+        .badge-acc-included {
+            background: rgba(2, 132, 199, 0.12);
+            color: #0284c7;
+            border: 1px solid rgba(2, 132, 199, 0.3);
+            font-size: 0.72em;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 3px;
+        }
 
         /* Model Comparison Slots (Header Cards) */
         .slots-container {
@@ -1545,19 +1568,47 @@
                     {
                         canonicalNameTH: 'ระบบขับเคลื่อน (Drivetrain)',
                         canonicalNameEN: 'Drivetrain',
-                        aliases: ['ระบบขับเคลื่อน', 'รูปแบบการขับเคลื่อน', 'drivetrain', 'drive system']
+                        customDrivetrainExtractor: true
                     },
                     {
                         canonicalNameTH: 'ระบบช่วงล่าง',
                         canonicalNameEN: 'Suspension',
                         preferTopicAsValue: true,
-                        aliases: ['ช่วงล่าง adaptive m', 'ช่วงล่าง adaptive suspension professional', 'ช่วงล่าง adaptive', 'ช่วงล่าง m sport', 'ระบบช่วงล่าง', 'suspension', 'adaptive suspension']
+                        aliases: [
+                            'ช่วงล่าง adaptive m suspension professional',
+                            'ช่วงล่าง adaptive suspension professional',
+                            'ช่วงล่าง adaptive m suspension',
+                            'ช่วงล่าง adaptive m',
+                            'ช่วงล่าง adaptive suspension',
+                            'ช่วงล่าง adaptive',
+                            'ช่วงล่างถุงลม adaptive 2-axle',
+                            'ช่วงล่างถุงลม',
+                            'ระบบควบคุมช่วงล่าง (executive drive pro)',
+                            'executive drive pro',
+                            'ช่วงล่าง m sport',
+                            'ระบบช่วงล่าง',
+                            'suspension',
+                            'adaptive suspension'
+                        ]
                     },
                     {
                         canonicalNameTH: 'ระบบเบรก / คาลิเปอร์เบรก',
                         canonicalNameEN: 'Brakes & Calipers',
                         preferTopicAsValue: true,
-                        aliases: ['ชุดเบรก m compound brake', 'm compound brake', 'คาลิเปอร์เบรกดีไซน์ m sport, สีแดงเงา', 'คาลิเปอร์เบรกดีไซน์ m sport', 'คาลิเปอร์เบรก', 'm sport brake', 'm carbon ceramic brake']
+                        aliases: [
+                            'ชุดเบรก m carbon ceramic',
+                            'm carbon ceramic',
+                            'เบรกคาร์บอนเซรามิก m',
+                            'ชุดเบรก m compound brake',
+                            'm compound brake',
+                            'คาลิเปอร์เบรกดีไซน์ m sport, สีแดงเงา',
+                            'คาลิเปอร์เบรกดีไซน์ m sport',
+                            'คลิปเปอร์เบรกดีไซน์ m sport',
+                            'คลิเปอร์เบรกดีไซน์ m sport',
+                            'คาลิเบอร์เบรก',
+                            'คาลิเปอร์เบรก',
+                            'm sport brake'
+                        ]
                     },
                     {
                         canonicalNameTH: 'ล้ออัลลอย',
@@ -1585,29 +1636,40 @@
                     {
                         canonicalNameTH: 'กระจังหน้าเรืองแสง Iconic Glow',
                         canonicalNameEN: 'Iconic Glow Grille',
-                        aliases: ['ชุดตกแต่งภายนอกแบบ iconic glow', 'กระจังหน้าเรืองแสง iconic glow', 'iconic glow']
+                        aliases: ['ชุดตกแต่งภายนอกแบบ iconic glow', 'กระจังหน้าทรงไตคู่เรืองแสง iconic glow', 'กระจังหน้าเรืองแสง iconic glow', 'iconic glow']
                     },
                     {
                         canonicalNameTH: 'ระบบไฟหน้า',
                         canonicalNameEN: 'Headlights',
                         preferTopicAsValue: true,
-                        aliases: ['crystal headlights', 'laserlight', 'adaptive led', 'ระบบไฟหน้าแบบ adaptive led', 'ระบบไฟหน้า led อัจฉริยะ', 'ระบบไฟหน้าแบบ led', 'ไฟหน้าแบบ led', 'ไฟหน้า led', 'ระบบไฟหน้า', 'adaptive led headlights']
+                        aliases: ['crystal headlights', 'laserlight', 'ระบบไฟหน้า led อัจฉริยะ', 'led อัจฉริยะ', 'adaptive led', 'ระบบไฟหน้าแบบ adaptive led', 'ระบบไฟหน้าแบบ led', 'ไฟหน้าแบบ led', 'ไฟหน้า led', 'ระบบไฟหน้า', 'adaptive led headlights']
                     },
                     {
                         canonicalNameTH: 'หลังคากระจก / ซันรูฟ',
                         canonicalNameEN: 'Glass Roof / Sunroof',
                         preferTopicAsValue: true,
-                        aliases: ['หลังคากระจก panorama', 'หลังคากระจกเปิด-ปิดด้วยระบบไฟฟ้า', 'หลังคากระจก', 'หลังคาพาโนรามา', 'panorama glass roof']
+                        aliases: [
+                            'panorama sky lounge',
+                            'หลังคากระจก panorama sky lounge',
+                            'หลังคากระจกพาโนรามา เคลือบสารกันรังสียูวี',
+                            'หลังคากระจก panorama',
+                            'หลังคากระจกเปิด-ปิดด้วยระบบไฟฟ้า',
+                            'หลังคากระจก',
+                            'หลังคาพาโนรามา',
+                            'หลังคา m carbon',
+                            'หลังคา cfrp',
+                            'panorama glass roof'
+                        ]
                     },
                     {
                         canonicalNameTH: 'ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access)',
                         canonicalNameEN: 'Comfort Access',
-                        aliases: ['ระบบปลดล็อกประตูอัจฉริยะ', 'comfort access system', 'comfort access']
+                        aliases: ['ระบบปลดล็อกประตูอัจฉริยะ', 'ระบบปลดล็อกประดูอัจจริยะ', 'ระบบปลดล็อกประตู้อัจฉริยะ', 'comfort access system', 'comfort access']
                     },
                     {
                         canonicalNameTH: 'ระบบช่วยผ่อนแรงกระแทกขณะปิดประตู (Soft-close)',
                         canonicalNameEN: 'Soft-Close Doors',
-                        aliases: ['ระบบช่วยผ่อนแรงกระแทกขณะปิดประตู', 'soft-close function for doors', 'soft close']
+                        aliases: ['ระบบช่วยผ่อนแรงกระแทกขณะปิดประตู', 'ระบบช่วยผ่อนแรงกระแทกปิดประตู', 'soft-close function for doors', 'soft close']
                     },
                     {
                         canonicalNameTH: 'ระบบเปิด-ปิดฝาท้ายไฟฟ้า',
@@ -1663,7 +1725,19 @@
                         canonicalNameTH: 'ระบบเครื่องเสียง',
                         canonicalNameEN: 'Sound System',
                         preferTopicAsValue: true,
-                        aliases: ['bowers & wilkins diamond', 'bowers & wilkins', 'harman kardon', 'hifi loudspeaker', 'ระบบเสียง hifi', 'ระบบเครื่องเสียง hifi', 'ระบบเครื่องเสียงรอบทิศทาง', 'ระบบเสียงรอบทิศทาง', 'stereo', 'sound system']
+                        aliases: [
+                            'bowers & wilkins diamond',
+                            'bowers & wilkins',
+                            'harman kardon',
+                            'harmon kardon',
+                            'hifi loudspeaker',
+                            'ระบบเสียง hifi',
+                            'ระบบเครื่องเสียง hifi',
+                            'ระบบเครื่องเสียงรอบทิศทาง',
+                            'ระบบเสียงรอบทิศทาง',
+                            'stereo',
+                            'sound system'
+                        ]
                     },
                     {
                         canonicalNameTH: 'หน้าจอ BMW Curved Display & Cockpit',
@@ -1692,18 +1766,36 @@
                         canonicalNameTH: 'ระบบช่วยการขับขี่ (Driving Assistant)',
                         canonicalNameEN: 'Driving Assistant',
                         preferTopicAsValue: true,
-                        aliases: ['driving assistant professional', 'ระบบช่วยการขับขี่รุ่น professional', 'ระบบช่วยการขับขี่ รุ่น professional', 'driving assistant plus', 'ระบบช่วยการขับขี่รุ่น plus', 'ระบบช่วยการขับขี่ รุ่น plus', 'driving assistant', 'ระบบช่วยการขับขี่']
+                        aliases: [
+                            'driving assistant professional',
+                            'ระบบช่วยการขับขี่รุ่น professional',
+                            'ระบบช่วยการขับขี่ รุ่น professional',
+                            'driving assistant plus',
+                            'ระบบช่วยการขับขี่รุ่น plus',
+                            'ระบบช่วยการขับขี่ รุ่น plus',
+                            'driving assistant',
+                            'ระบบช่วยการขับขี่'
+                        ]
                     },
                     {
-                        canonicalNameTH: 'ระบบควบคุมความเร็วอัตโนมัติ (Adaptive Cruise)',
-                        canonicalNameEN: 'Active Cruise Control',
-                        aliases: ['ระบบควบคุมความเร็วอัตโนมัติ พร้อมฟังก์ชัน stop&go', 'active cruise control with stop&go', 'cruise control']
+                        canonicalNameTH: 'ระบบควบคุมความเร็วอัตโนมัติ (Active Cruise Control with Stop&Go)',
+                        canonicalNameEN: 'Active Cruise Control with Stop&Go',
+                        customActiveCruiseExtractor: true
                     },
                     {
                         canonicalNameTH: 'ระบบช่วยนำรถเข้าที่จอด (Parking Assistant)',
                         canonicalNameEN: 'Parking Assistant',
                         preferTopicAsValue: true,
-                        aliases: ['ระบบช่วยนำรถเข้าที่จอดอัตโนมัติรุ่น plus', 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น plus', 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ', 'parking assistant plus', 'parking assistant']
+                        aliases: [
+                            'parking assistant professional',
+                            'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติรุ่น professional',
+                            'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น professional',
+                            'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติรุ่น plus',
+                            'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น plus',
+                            'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ',
+                            'parking assistant plus',
+                            'parking assistant'
+                        ]
                     },
                     {
                         canonicalNameTH: 'ระบบกล้องมองภาพรอบทิศทาง 360 Surround View',
@@ -1718,12 +1810,7 @@
                     {
                         canonicalNameTH: 'ถุงลมนิรภัย',
                         canonicalNameEN: 'Airbags',
-                        aliases: ['ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า', 'ถุงลมนิรภัย', 'airbags']
-                    },
-                    {
-                        canonicalNameTH: 'ระบบตรวจวัดลมยาง',
-                        canonicalNameEN: 'Tyre Pressure Monitoring',
-                        aliases: ['ระบบตรวจวัดลมยาง', 'tyre pressure monitoring system', 'ระบบเตือนสถานะยาง']
+                        customAirbagExtractor: true
                     }
                 ]
             }
@@ -1858,6 +1945,194 @@
             };
         }
 
+        // Helper: Extract accurate drivetrain platform (AWD, RWD, FWD, xDrive, M xDrive)
+        function getDrivetrainInfo(model) {
+            const mName = (model.modelName || '').toLowerCase().trim();
+            const sName = (model.seriesName || '').toLowerCase().trim();
+            const isTh = currentLang === 'th';
+
+            // 1. Look for explicit drivetrain topics in model specifications
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = (detail.topic || '').toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
+                    if (isActive) {
+                        if (top.includes('m xdrive')) {
+                            return {
+                                value: isTh ? 'ขับเคลื่อน 4 ล้อ (M xDrive)' : 'All-Wheel Drive (M xDrive)',
+                                topic: 'Drivetrain',
+                                isTextOption: true
+                            };
+                        }
+                        if (top.includes('xdrive')) {
+                            return {
+                                value: isTh ? 'ขับเคลื่อน 4 ล้อ (xDrive)' : 'All-Wheel Drive (xDrive)',
+                                topic: 'Drivetrain',
+                                isTextOption: true
+                            };
+                        }
+                    }
+                }
+            }
+
+            // 2. Check model name keywords
+            if (mName.includes('m xdrive')) {
+                return {
+                    value: isTh ? 'ขับเคลื่อน 4 ล้อ (M xDrive)' : 'All-Wheel Drive (M xDrive)',
+                    topic: 'Drivetrain',
+                    isTextOption: true
+                };
+            }
+            if (mName.includes('xdrive')) {
+                return {
+                    value: isTh ? 'ขับเคลื่อน 4 ล้อ (xDrive)' : 'All-Wheel Drive (xDrive)',
+                    topic: 'Drivetrain',
+                    isTextOption: true
+                };
+            }
+            // High performance M models with M xDrive
+            if (mName.includes('m5') || mName.includes('m3 cs') || mName.includes('m4 cs') || mName.includes('xm')) {
+                return {
+                    value: isTh ? 'ขับเคลื่อน 4 ล้อ (M xDrive)' : 'All-Wheel Drive (M xDrive)',
+                    topic: 'Drivetrain',
+                    isTextOption: true
+                };
+            }
+
+            // Front-wheel drive models (UKL / FAAR front-drive architecture)
+            if ((mName.includes('gran coupe') && (sName.includes('2 series') || mName.includes('220'))) ||
+                mName.includes('ix1 edrive') || mName.includes('ix2 edrive') ||
+                (mName.includes('sdrive') && (sName.includes('x1') || sName.includes('x2') || mName.includes('x1') || mName.includes('x2')))) {
+                return {
+                    value: isTh ? 'ขับเคลื่อนล้อหน้า (FWD)' : 'Front-Wheel Drive (FWD)',
+                    topic: 'Drivetrain',
+                    isTextOption: true
+                };
+            }
+
+            // Rear-wheel drive eDrive models (i4, i5, i7 eDrive single rear motor)
+            if (mName.includes('edrive')) {
+                return {
+                    value: isTh ? 'ขับเคลื่อนล้อหลัง (RWD)' : 'Rear-Wheel Drive (RWD)',
+                    topic: 'Drivetrain',
+                    isTextOption: true
+                };
+            }
+
+            // Traditional Rear-wheel drive BMW models (320d, 330e, 520d, 530e, 740d, M2, Z4, 420i, 430i, etc.)
+            return {
+                value: isTh ? 'ขับเคลื่อนล้อหลัง (RWD)' : 'Rear-Wheel Drive (RWD)',
+                topic: 'Drivetrain',
+                isTextOption: true
+            };
+        }
+
+        // Helper: Extract Active Cruise Control with Stop&Go (Auto included in Driving Assistant Plus & Pro)
+        function getActiveCruiseControlInfo(model) {
+            const isTh = currentLang === 'th';
+            let hasAccDirect = false;
+            let hasDaPro = false;
+            let hasDaPlus = false;
+
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = (detail.topic || '').toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
+
+                    if (isActive) {
+                        // Direct Stop&Go ACC check
+                        if (top.includes('stop&go') || top.includes('stop & go') || (top.includes('active cruise control') && !top.includes('without'))) {
+                            hasAccDirect = true;
+                        }
+                        // Check Driving Assistant variants
+                        if (top.includes('professional') && (top.includes('driving assistant') || top.includes('ช่วยการขับขี่'))) {
+                            hasDaPro = true;
+                        }
+                        if (top.includes('plus') && (top.includes('driving assistant') || top.includes('ช่วยการขับขี่'))) {
+                            hasDaPlus = true;
+                        }
+                    }
+                }
+            }
+
+            if (hasAccDirect) {
+                return {
+                    value: '■',
+                    topic: 'ระบบควบคุมความเร็วอัตโนมัติ (Active Cruise Control with Stop&Go)',
+                    isTextOption: false
+                };
+            }
+
+            // If Driving Assistant Plus or Professional is equipped, Stop&Go ACC is standard
+            if (hasDaPro || hasDaPlus) {
+                const pkgName = hasDaPro ? (isTh ? 'รวมใน Driving Assistant Professional' : 'Included in Driving Assistant Professional') 
+                                        : (isTh ? 'รวมใน Driving Assistant Plus' : 'Included in Driving Assistant Plus');
+                return {
+                    value: '■',
+                    topic: 'ระบบควบคุมความเร็วอัตโนมัติ (Active Cruise Control with Stop&Go)',
+                    isTextOption: false,
+                    badge: pkgName
+                };
+            }
+
+            return {
+                value: '-',
+                topic: '',
+                isTextOption: false
+            };
+        }
+
+        // Helper: Extract Airbag info including Front Center Airbag
+        function getAirbagInfo(model) {
+            const isTh = currentLang === 'th';
+            let hasCenterAirbag = false;
+            let hasAirbags = false;
+
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = (detail.topic || '').toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
+
+                    if (isActive && (top.includes('ถุงลม') || top.includes('airbag'))) {
+                        hasAirbags = true;
+                        if (top.includes('กลางห้องโดยสาร') || top.includes('central airbag') || top.includes('front center') || top.includes('center airbag')) {
+                            hasCenterAirbag = true;
+                        }
+                    }
+                }
+            }
+
+            if (hasCenterAirbag) {
+                const titleBadge = isTh ? 'มีถุงลมกลางห้องโดยสาร' : 'Front Center Airbag';
+                const descText = isTh ? 'คู่หน้า / ด้านข้าง / ม่านศีรษะ + ถุงลมกลาง' : 'Front, Side, Head + Center Airbags';
+                return {
+                    value: isTh ? 'มีถุงลมกลางห้องโดยสาร (รอบคัน + ถุงลมกลาง)' : 'Front Center Airbag Included',
+                    isCustomHtml: true,
+                    html: `<div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+                             <span class="badge-center-airbag">🛡️ ${titleBadge}</span>
+                             <span style="font-size:0.83em; opacity:0.85;">${descText}</span>
+                           </div>`
+                };
+            }
+
+            if (hasAirbags) {
+                const standardDesc = isTh ? 'คู่หน้า / ด้านข้าง / ม่านศีรษะ (รอบคัน)' : 'Front, Side & Curtain Airbags';
+                return {
+                    value: isTh ? 'มาตรฐานรอบคัน (ไม่มีถุงลมกลาง)' : 'Standard Surrounding Airbags',
+                    isCustomHtml: true,
+                    html: `<span style="font-size:0.88em; color:var(--text-secondary);">${standardDesc}</span>`
+                };
+            }
+
+            return {
+                value: '-',
+                isCustomHtml: false
+            };
+        }
+
         // Helper: Find value from model's specifications matching a set of aliases (searches by alias priority)
         function findSpecValueByAliases(model, aliases, preferTopicAsValue = false) {
             // Priority 1: Check aliases in order of preference for active/present values
@@ -1936,6 +2211,12 @@
                         let res;
                         if (tDef.customSeatExtractor) {
                             res = getCombinedSeatInfo(m);
+                        } else if (tDef.customDrivetrainExtractor) {
+                            res = getDrivetrainInfo(m);
+                        } else if (tDef.customActiveCruiseExtractor) {
+                            res = getActiveCruiseControlInfo(m);
+                        } else if (tDef.customAirbagExtractor) {
+                            res = getAirbagInfo(m);
                         } else {
                             res = findSpecValueByAliases(m, tDef.aliases, tDef.preferTopicAsValue);
                         }
@@ -1954,6 +2235,9 @@
                         } else {
                             // Clean value rendering without redundant sub-topic labels
                             cellContent = formatValue(specVal);
+                            if (res.badge) {
+                                cellContent = `<div style="display:flex; flex-direction:column; align-items:center; gap:3px;">${cellContent}<span class="badge-acc-included">${res.badge}</span></div>`;
+                            }
                         }
                         
                         tdVal.innerHTML = addFootnoteTooltips(cellContent, true);
