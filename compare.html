@@ -2049,7 +2049,7 @@
                     const val = (detail.value || '').trim();
                     const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
                     if (isActive) {
-                        if (isElectricEV && (top.includes('xdrive') || top.includes('ไฟฟ้า'))) {
+                        if (isElectricEV && top.includes('xdrive') && (top.includes('ขับเคลื่อน') || top.includes('wheel drive'))) {
                             return {
                                 value: isTh ? 'ระบบขับเคลื่อนสี่ล้อด้วยไฟฟ้า BMW xDrive Electric' : 'Electric All-Wheel Drive (BMW xDrive Electric)',
                                 topic: 'Drivetrain',
@@ -2063,7 +2063,7 @@
                                 isTextOption: true
                             };
                         }
-                        if (top.includes('xdrive')) {
+                        if (top.includes('xdrive') && (top.includes('ขับเคลื่อน') || top.includes('wheel drive') || top.includes('4 ล้อ') || top.includes('4-wheel'))) {
                             return {
                                 value: isTh ? 'ขับเคลื่อน 4 ล้อ (xDrive)' : 'All-Wheel Drive (xDrive)',
                                 topic: 'Drivetrain',
