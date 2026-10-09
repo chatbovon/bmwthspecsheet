@@ -2557,9 +2557,26 @@
             const isTh = currentLang === 'th';
             let dcVal = '';
             let acVal = '';
-            let dcFastTime = '';
+            const fastCandidates = [];
+
+            function parseDurationMinutes(valStr) {
+                let hrs = 0;
+                let mins = 0;
+                const mHr = (valStr || '').match(/(\d+)\s*(?:ชั่วโมง|hour|hr)/i);
+                if (mHr) hrs = parseInt(mHr[1], 10);
+                const mMin = (valStr || '').match(/(\d+)\s*(?:นาที|minute|min)/i);
+                if (mMin) mins = parseInt(mMin[1], 10);
+                else if (!mHr) {
+                    const mNum = (valStr || '').match(/(\d+)/);
+                    if (mNum) mins = parseInt(mNum[1], 10);
+                }
+                return (hrs * 60) + mins;
+            }
 
             for (const specBlock of (model.specifications || [])) {
+                const catLower = cleanThai(specBlock.category || '').toLowerCase();
+                const is10to80Cat = catLower.includes('10 - 80%') || catLower.includes('10-80%');
+
                 for (const detail of (specBlock.details || [])) {
                     const top = cleanThai(detail.topic || '').trim();
                     const topLower = top.toLowerCase();
@@ -2578,11 +2595,26 @@
                         const m = val.match(/\d+/);
                         if (m && !acVal) acVal = m[0];
                     }
+
                     // Fast charging time (10-80% or 800A)
-                    else if (topLower.includes('10 - 80%') || topLower.includes('10-80%') || topLower.includes('800a')) {
-                        if (!dcFastTime) dcFastTime = val;
+                    if (is10to80Cat || topLower.includes('10 - 80%') || topLower.includes('10-80%')) {
+                        let amp = 0;
+                        const mA = topLower.match(/(\d+)\s*a/i);
+                        if (mA) amp = parseInt(mA[1], 10);
+                        const dur = parseDurationMinutes(val);
+                        fastCandidates.push({ amp, dur, val });
                     }
                 }
+            }
+
+            let dcFastTime = '';
+            if (fastCandidates.length > 0) {
+                // Prioritize highest amperage (e.g. 800A > 500A > 250A), or shortest duration > 0
+                fastCandidates.sort((a, b) => {
+                    if (b.amp !== a.amp) return b.amp - a.amp;
+                    return (a.dur || 9999) - (b.dur || 9999);
+                });
+                dcFastTime = fastCandidates[0].val;
             }
 
             if (dcVal || acVal) {
@@ -2592,7 +2624,11 @@
                 const mainStr = parts.join(' / ');
 
                 if (dcFastTime) {
-                    const subLabel = isTh ? `ชาร์จ 10-80% ใน ${dcFastTime}` : `10-80% in ${dcFastTime}`;
+                    let timeFormatted = dcFastTime;
+                    if (/^\d+$/.test(timeFormatted.trim())) {
+                        timeFormatted = isTh ? `${timeFormatted} นาที` : `${timeFormatted} mins`;
+                    }
+                    const subLabel = isTh ? `ชาร์จ 10-80% ใน ${timeFormatted}` : `10-80% in ${timeFormatted}`;
                     return {
                         value: mainStr,
                         isCustomHtml: true,
