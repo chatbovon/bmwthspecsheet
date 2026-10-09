@@ -7,6 +7,8 @@
 .env.*
 
 # 2. Source PDFs & Large Binary Files (ไฟล์ลิขสิทธิ์และไฟล์ขนาดใหญ่)
+*.xlsx
+*.xls
 bmw_brochures_auto/
 bmw_brochures_auto_en/
 bmw_brochures_custom/
