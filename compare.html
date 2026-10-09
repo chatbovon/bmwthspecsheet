@@ -1568,6 +1568,11 @@
                         canonicalNameTH: 'ระดับการปล่อย CO2 (กรัม/กม.)',
                         canonicalNameEN: 'CO2 Emissions (g/km)',
                         aliases: ['ระดับการปล่อย co2 เฉลี่ย', 'co2 emissions']
+                    },
+                    {
+                        canonicalNameTH: 'กำลังการชาร์จไฟฟ้าสูงสุด (DC / AC)',
+                        canonicalNameEN: 'Max. Charging Power (DC / AC)',
+                        customChargingExtractor: true
                     }
                 ]
             },
@@ -1790,12 +1795,22 @@
                     {
                         canonicalNameTH: 'หน้าจอ BMW Curved Display & Cockpit',
                         canonicalNameEN: 'BMW Live Cockpit & Display',
-                        preferTopicAsValue: true,
-                        aliases: ['bmw live cockpit professional', 'bmw live cockpit plus', 'bmw live cockpit']
+                        customCockpitExtractor: true,
+                        aliases: [
+                            'bmw panoramic vision',
+                            'panoramic vision',
+                            'bmw panoramic idrive',
+                            'panoramic idrive',
+                            'จอสะท้อนกระจก bmw panoramic vision',
+                            'bmw live cockpit professional',
+                            'bmw live cockpit plus',
+                            'bmw live cockpit'
+                        ]
                     },
                     {
                         canonicalNameTH: 'ระบบ Head-up Display',
                         canonicalNameEN: 'Head-up Display',
+                        customHUDExtractor: true,
                         aliases: ['ระบบ bmw head-up display', 'bmw head-up display', 'head-up display', 'bmw live cockpit professional']
                     },
                     {
@@ -1874,15 +1889,17 @@
             let hasComfort = false;
             let hasMCarbon = false;
             let hasMMulti = false;
+            let hasMulti = false;
             let hasSport = false;
             let hasElectricMem = false;
+            let has8Way = false;
             let matchedSeatTopic = '';
 
             for (const specBlock of (model.specifications || [])) {
                 const cat = (specBlock.category || '').toLowerCase();
                 if (!cat.includes('paint') && !cat.includes('สีตัวถัง')) {
                     for (const detail of (specBlock.details || [])) {
-                        const top = (detail.topic || '').trim();
+                        const top = cleanThai(detail.topic || '').trim();
                         const topLower = top.toLowerCase();
                         const val = (detail.value || '').trim();
                         const isActive = val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none';
@@ -1894,8 +1911,11 @@
                             } else if (topLower.includes('m carbon') || topLower.includes('bucket seat')) {
                                 hasMCarbon = true;
                                 if (!matchedSeatTopic) matchedSeatTopic = top;
-                            } else if (topLower.includes('m multifunctional')) {
+                            } else if (topLower.includes('m multifunctional') || (topLower.includes('multifunctional') && (topLower.includes('ดีไซน์ m') || topLower.includes('m ')))) {
                                 hasMMulti = true;
+                                if (!matchedSeatTopic) matchedSeatTopic = top;
+                            } else if (topLower.includes('multifunctional')) {
+                                hasMulti = true;
                                 if (!matchedSeatTopic) matchedSeatTopic = top;
                             } else if (topLower.includes('ดีไซน์ sport') || topLower.includes('sport seat')) {
                                 hasSport = true;
@@ -1903,6 +1923,9 @@
                             }
                             if (topLower.includes('ปรับไฟฟ้า') && (topLower.includes('จำตำแหน่ง') || topLower.includes('memory'))) {
                                 hasElectricMem = true;
+                            }
+                            if (topLower.includes('8 ทิศทาง') || topLower.includes('8-way')) {
+                                has8Way = true;
                             }
                         }
                     }
@@ -1918,6 +1941,8 @@
                     seatDesc = 'M Carbon Bucket Seats' + (hasElectricMem ? ', Electric with Memory' : '');
                 } else if (hasMMulti) {
                     seatDesc = 'M Multifunctional Front Seats, Electric' + (hasElectricMem ? ' with Memory' : '');
+                } else if (hasMulti) {
+                    seatDesc = 'Front Multifunctional Seats' + (has8Way ? ', 8-way Electric' : (hasElectricMem ? ', Electric' : '')) + (hasElectricMem ? ' with Memory' : '');
                 } else if (hasSport) {
                     seatDesc = 'Sport Front Seats' + (hasElectricMem ? ', Electric with Memory' : '');
                 } else if (hasElectricMem) {
@@ -1934,6 +1959,8 @@
                     seatDesc = 'เบาะนั่ง M Carbon ทรง Bucket Seat' + (hasElectricMem ? ' ปรับไฟฟ้าพร้อม Memory' : '');
                 } else if (hasMMulti) {
                     seatDesc = 'เบาะนั่งตอนหน้าแบบ M Multifunctional ปรับไฟฟ้า' + (hasElectricMem ? ' พร้อม Memory' : '');
+                } else if (hasMulti) {
+                    seatDesc = 'เบาะนั่งตอนหน้าแบบ Multifunctional' + (has8Way ? ' ปรับไฟฟ้า 8 ทิศทาง' : (hasElectricMem ? ' ปรับไฟฟ้า' : '')) + (hasElectricMem ? ' พร้อม Memory' : '');
                 } else if (hasSport) {
                     seatDesc = 'เบาะนั่งตอนหน้าดีไซน์ Sport' + (hasElectricMem ? ' ปรับไฟฟ้าพร้อม Memory' : '');
                 } else if (hasElectricMem) {
@@ -1973,7 +2000,8 @@
                             const valLower = val.toLowerCase();
                             if (valLower.includes('leather') || valLower.includes('vernasca') || valLower.includes('merino') ||
                                 valLower.includes('dakota') || valLower.includes('veganza') || valLower.includes('sensatec') ||
-                                valLower.includes('alcantara') || valLower.includes('cloth') || valLower.includes('ผ้า')) {
+                                valLower.includes('alcantara') || valLower.includes('cloth') || valLower.includes('ผ้า') ||
+                                valLower.includes('contemporary') || valLower.includes('interior design')) {
                                 const parts = val.split(/\s*[-–—]\s*/);
                                 upholstery = parts[0].trim();
                                 break;
@@ -2416,8 +2444,11 @@
                         } else if (topLower.includes('สปอยเลอร์')) {
                             const label = isTh ? top : 'M Rear Spoiler';
                             if (!items.includes(label)) items.push(label);
-                        } else if (topLower.includes('ฝาชาร์จไฟฟ้าอัจฉริยะ')) {
+                        } else if (topLower.includes('ฝาชาร์จไฟฟ้าอัจฉริยะ') || topLower.includes('charging flap')) {
                             const label = isTh ? 'ฝาชาร์จไฟฟ้าอัจฉริยะ' : 'Smart Electric Charging Flap';
+                            if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('ช่องเก็บสัมภาระด้านหน้า') || topLower.includes('storage compartment under the bonnet') || topLower.includes('frunk')) {
+                            const label = isTh ? 'ช่องเก็บสัมภาระด้านหน้า Frunk (58 ลิตร)' : 'Front Storage Compartment / Frunk (58L)';
                             if (!items.includes(label)) items.push(label);
                         }
                     }
@@ -2446,7 +2477,7 @@
 
             for (const specBlock of (model.specifications || [])) {
                 for (const detail of (specBlock.details || [])) {
-                    const top = (detail.topic || '').trim();
+                    const top = cleanThai(detail.topic || '').trim();
                     const topLower = top.toLowerCase();
                     const val = (detail.value || '').trim();
                     const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
@@ -2498,6 +2529,9 @@
                         } else if (topLower.includes('alcantara') && topLower.includes('เพดาน')) {
                             const label = isTh ? 'เพดานหลังคาบุ Alcantara Anthracite' : 'M Headliner Alcantara Anthracite';
                             if (!items.includes(label)) items.push(label);
+                        } else if (topLower.includes('ปรับเอนได้') || topLower.includes('seat backrest adjustment')) {
+                            const label = isTh ? 'พนักพิงเบาะหลังปรับเอนได้' : 'Rear Seat Backrest Adjustment';
+                            if (!items.includes(label)) items.push(label);
                         }
                     }
                 }
@@ -2516,6 +2550,164 @@
                 isCustomHtml: true,
                 html: html
             };
+        }
+
+        // Helper: Extract fast charging power and duration for EV / PHEV models
+        function getChargingInfo(model) {
+            const isTh = currentLang === 'th';
+            let dcVal = '';
+            let acVal = '';
+            let dcFastTime = '';
+
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = cleanThai(detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    if (!val || val === '-' || val.toLowerCase() === 'null' || val.toLowerCase() === 'none') {
+                        continue;
+                    }
+
+                    // DC max charging power
+                    if ((topLower.includes('dc') && (topLower.includes('สูงสุด') || topLower.includes('maximum') || topLower.includes('max'))) || topLower.includes('maximum charging power dc')) {
+                        const m = val.match(/\d+/);
+                        if (m && !dcVal) dcVal = m[0];
+                    }
+                    // AC max charging power
+                    else if ((topLower.includes('ac') && (topLower.includes('สูงสุด') || topLower.includes('maximum') || topLower.includes('max'))) || topLower.includes('maximum charging power ac')) {
+                        const m = val.match(/\d+/);
+                        if (m && !acVal) acVal = m[0];
+                    }
+                    // Fast charging time (10-80% or 800A)
+                    else if (topLower.includes('10 - 80%') || topLower.includes('10-80%') || topLower.includes('800a')) {
+                        if (!dcFastTime) dcFastTime = val;
+                    }
+                }
+            }
+
+            if (dcVal || acVal) {
+                const parts = [];
+                if (dcVal) parts.push(`DC ${dcVal} kW`);
+                if (acVal) parts.push(`AC ${acVal} kW`);
+                const mainStr = parts.join(' / ');
+
+                if (dcFastTime) {
+                    const subLabel = isTh ? `ชาร์จ 10-80% ใน ${dcFastTime}` : `10-80% in ${dcFastTime}`;
+                    return {
+                        value: mainStr,
+                        isCustomHtml: true,
+                        html: `<div style="display:flex; flex-direction:column; align-items:center; gap:2px; line-height:1.3;">
+                            <span style="font-weight:700;">${mainStr}</span>
+                            <span style="font-size:0.83em; color:var(--text-secondary);">${subLabel}</span>
+                        </div>`
+                    };
+                }
+
+                return {
+                    value: mainStr,
+                    isCustomHtml: false,
+                    isTextOption: true
+                };
+            }
+
+            return { value: '-', isCustomHtml: false };
+        }
+
+        // Helper: Extract rich Cockpit & Display info (supporting BMW Panoramic Vision, Panoramic iDrive, and Live Cockpit)
+        function getCockpitInfo(model) {
+            const isTh = currentLang === 'th';
+            let hasPanoramicVision = false;
+            let hasPanoramicIdrive = false;
+            let cockpitVal = '';
+
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = cleanThai(detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase()) || (val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none');
+
+                    if (isActive) {
+                        if (topLower.includes('panoramic vision')) {
+                            hasPanoramicVision = true;
+                        }
+                        if (topLower.includes('panoramic idrive')) {
+                            hasPanoramicIdrive = true;
+                        }
+                        if (topLower.includes('live cockpit professional')) {
+                            cockpitVal = 'BMW Live Cockpit Professional';
+                        } else if (topLower.includes('live cockpit plus')) {
+                            if (!cockpitVal) cockpitVal = 'BMW Live Cockpit Plus';
+                        } else if (topLower.includes('live cockpit') && !cockpitVal) {
+                            cockpitVal = 'BMW Live Cockpit';
+                        }
+                    }
+                }
+            }
+
+            if (hasPanoramicVision || hasPanoramicIdrive) {
+                const text = 'BMW Panoramic Vision & Panoramic iDrive';
+                return {
+                    value: text,
+                    isCustomHtml: true,
+                    html: `<div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+                        <span class="feature-badge badge-pro" style="background:#0284c7; color:#fff;">NEXT-GEN</span>
+                        <span style="font-weight:600; text-align:center;">${text}</span>
+                    </div>`
+                };
+            }
+
+            if (cockpitVal) {
+                return { value: cockpitVal, isTextOption: true };
+            }
+
+            return { value: '-', isTextOption: false };
+        }
+
+        // Helper: Extract Head-up Display info (highlighting 3D HUD)
+        function getHUDInfo(model) {
+            const isTh = currentLang === 'th';
+            let is3D = false;
+            let hasHUD = false;
+
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = cleanThai(detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase()) || (val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none');
+
+                    if (isActive) {
+                        if (topLower.includes('head-up display') || topLower.includes('head-up')) {
+                            hasHUD = true;
+                            if (topLower.includes('3d') || topLower.includes('แบบ 3d')) {
+                                is3D = true;
+                            }
+                        }
+                        if (topLower.includes('live cockpit professional')) {
+                            hasHUD = true;
+                        }
+                    }
+                }
+            }
+
+            if (is3D) {
+                const text = 'BMW 3D Head-up Display';
+                return {
+                    value: text,
+                    isCustomHtml: true,
+                    html: `<div style="display:flex; flex-direction:column; align-items:center; gap:2px;">
+                        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span style="font-size:0.8em; font-weight:600; color:var(--accent-color);">${isTh ? 'ระบบ 3D' : '3D System'}</span>
+                    </div>`
+                };
+            }
+
+            if (hasHUD) {
+                return { value: '■' };
+            }
+
+            return { value: '-' };
         }
 
         // Helper: Extract smart power information (handling Hybrids, Pure EV, Pure ICE, and Thai decomposed vowels)
@@ -2754,8 +2946,14 @@
                             res = getPowerInfo(m);
                         } else if (tDef.customTorqueExtractor) {
                             res = getTorqueInfo(m);
+                        } else if (tDef.customChargingExtractor) {
+                            res = getChargingInfo(m);
                         } else if (tDef.customSeatExtractor) {
                             res = getCombinedSeatInfo(m);
+                        } else if (tDef.customCockpitExtractor) {
+                            res = getCockpitInfo(m);
+                        } else if (tDef.customHUDExtractor) {
+                            res = getHUDInfo(m);
                         } else if (tDef.customDrivetrainExtractor) {
                             res = getDrivetrainInfo(m);
                         } else if (tDef.customActiveCruiseExtractor) {
