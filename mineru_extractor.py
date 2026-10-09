@@ -24,7 +24,7 @@ import zipfile
 import io
 import requests
 
-sys.stdout.reconfigure(encoding='utf-8')
+sys.stdout.reconfigure(encoding='utf-8', line_buffering=True)
 from pypdf import PdfReader
 from google import genai
 from google.genai import types
@@ -916,17 +916,22 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang_code: str
                     is_invalid_key = any(term in err_msg for term in ["API key not valid", "API_KEY_INVALID", "INVALID_ARGUMENT"])
                     
                     if is_rate_limit:
+                        is_high_demand = any(term in err_msg.lower() for term in ["unavailable", "demand", "503", "overloaded"])
                         if "requestsperday" in err_msg.lower():
                             EXHAUSTED_COMBINATIONS.add(combo)
                             print(f"      [GDRIVE/QUOTA] Marked {current_model} on Key #{key_idx+1} as exhausted for this run (Daily Limit).")
                             keys_tried_for_current_model += 1
+                        elif is_high_demand:
+                            print(f"      [HIGH DEMAND] Model {current_model} unavailable (503 / High Demand). Falling back to next model.")
+                            keys_tried_for_current_model = len(API_KEYS)
                         else:
-                            # Temporary RPM limit - sleep and rotate key but do not ban and do not increment tried keys count
+                            # Temporary RPM limit - sleep and rotate key
                             import re
                             match = re.search(r"Please retry in ([\d\.]+)s", err_msg)
-                            delay = float(match.group(1)) if match else 10.0
+                            delay = float(match.group(1)) if match else 5.0
                             print(f"      [COOLDOWN] Temporary rate limit hit. Sleeping {delay:.1f}s...")
                             time.sleep(delay + 1.0)
+                            keys_tried_for_current_model += 1
                         
                         if keys_tried_for_current_model >= len(API_KEYS):
                             model_idx = (model_idx + 1) % len(model_pool)
