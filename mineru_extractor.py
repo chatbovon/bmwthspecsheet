@@ -745,6 +745,92 @@ def apply_business_rules(final_output: dict, source_pdf_path: str, lang_code: st
                             if "(800 V)" not in d.get("value", ""):
                                 d["value"] = d["value"] + " (800 V)"
 
+def apply_recovery_and_healing_rules(final_output: dict, source_pdf_path: str, lang_code: str = "th"):
+    """
+    Applies deterministic Python recovery and post-processing rules:
+    1. Footnote Superscript Removal from Values
+    2. Dynamic Series Grouping & Naming (i-family / M-family / XM / Core series)
+    3. Blank Cell Recovery for Standard Safety/Tech
+    4. Single Variant Auto Recovery
+    """
+    # ─── 1. Footnote Superscript Removal from Values ──────────────────────────────
+    superscript_re = re.compile(r'[\u00b9\u00b2\u00b3\u2070\u2074-\u2079]')
+    for model in final_output.get("models", []):
+        for spec in model.get("specifications", []):
+            for detail in spec.get("details", []):
+                val = detail.get("value")
+                if isinstance(val, str):
+                    detail["value"] = superscript_re.sub('', val).strip()
+
+    # ─── 2. Dynamic Series Grouping & Naming ──────────────────────────────────────
+    model_names = [m.get("model_name", "").strip() for m in final_output.get("models", [])]
+    new_series = final_output.get("series", "BMW Specsheet")
+    for mname in model_names:
+        if re.match(r'^i[0-9a-zA-Z]', mname):
+            first_word = mname.split()[0]
+            new_series = f"BMW {first_word}"
+            break
+        elif re.match(r'^M[23458](\s|$|[a-zA-Z])', mname) and not re.match(r'^M\d{3}', mname):
+            m = re.match(r'^M\d', mname.split()[0])
+            if m:
+                new_series = f"BMW {m.group(0)}"
+                break
+        elif mname.startswith("XM"):
+            new_series = "BMW XM"
+            break
+    else:
+        pdf_base = os.path.basename(source_pdf_path)
+        series_match = re.match(r'^([0-9]|iX?[0-9]|M[0-9]|X[0-9]|Z[0-9])', pdf_base)
+        if series_match:
+            lead = series_match.group(1)
+            if lead.isdigit():
+                new_series = f"BMW {lead} Series"
+    final_output["series"] = new_series
+
+    # ─── 3. Blank Cell Recovery for Standard Safety/Tech ──────────────────────────
+    safety_keywords = [
+        "airbag", "ถุงลม",
+        "abs", "anti-lock", "ป้องกันล้อล็อก",
+        "dsc", "dynamic stability control", "ควบคุมเสถียรภาพ",
+        "isofix", "child seat mounting", "ยึดเบาะนั่งสำหรับเด็ก", "จุดยึดเบาะนั่ง",
+        "brake assist", "เสริมแรงเบรก",
+        "alarm", "สัญญาณเตือนภัย", "สัญญาณกันขโมย",
+        "teleservices", "teleservice",
+        "emergency call", "โทรออกฉุกเฉิน", "โทรฉุกเฉิน",
+        "comfort access", "สะดวกสบายในการเข้า", "เข้าออกห้องโดยสาร"
+    ]
+    for model in final_output.get("models", []):
+        for spec in model.get("specifications", []):
+            for detail in spec.get("details", []):
+                val = str(detail.get("value", "")).strip()
+                topic = str(detail.get("topic", "")).lower()
+                if val in ("", "-", "None", "none"):
+                    if any(kw in topic for kw in safety_keywords):
+                        detail["value"] = "■"
+
+    # ─── 4. Single Variant Auto Recovery ──────────────────────────────────────────
+    if len(final_output.get("models", [])) == 1:
+        model_data = final_output["models"][0]
+        for spec in model_data.get("specifications", []):
+            cat_name = spec.get("category", "")
+            if cat_name in ("ข้อมูลเอกสารอ้างอิง", "Document References",
+                            "มิติรถยนต์", "Dimension", "Dimensions",
+                            "เครื่องยนต์และสมรรถนะ", "Engine and Performance",
+                            "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2", 
+                            "Fuel consumption and CO2 emissions", "Fuel Consumption and CO2",
+                            "การชาร์จแบบกระแสสลับ (AC)", "AC charging",
+                            "ระยะเวลาในการชาร์จจาก 0 - 100%", "AC charging time 0 - 100%",
+                            "การชาร์จแบบกระแสตรง (DC)", "DC charging",
+                            "ระยะเวลาในการชาร์จจาก 10 - 80%", "DC charging time 10 - 80%") or \
+               "Paintwork" in cat_name or "สีตัวถัง" in cat_name or "Upholstery" in cat_name:
+                continue
+            for detail in spec.get("details", []):
+                d_topic = str(detail.get("topic", "")).lower()
+                if d_topic in ("ล้อ", "ขนาดยาง", "wheel", "tyre", "tyre size", "wheels and tyres"):
+                    continue
+                if str(detail.get("value", "")).strip() in ("-", "", "None"):
+                    detail["value"] = "■"
+
 
 def section_4_json_assembler(specs_json: dict, paint_json: dict, source_pdf_path: str, lang_code: str = "th") -> dict:
     print(f"\n[SECTION 4] Assembling Final JSON & Footers via Pure Python (Zero API call)...")
@@ -834,6 +920,9 @@ def section_4_json_assembler(specs_json: dict, paint_json: dict, source_pdf_path
         
     # Apply business rules (AC charging, 800V)
     apply_business_rules(final_output, source_pdf_path, lang_code=lang_code)
+    
+    # Apply recovery and healing rules (Single-variant recovery, Safety/Tech recovery, Footnotes, Dynamic series naming)
+    apply_recovery_and_healing_rules(final_output, source_pdf_path, lang_code=lang_code)
     
     print(f"[SECTION 4 SUCCESS] Assembled {len(final_output['models'])} models in {time.time() - t0:.2f}s")
     return final_output
