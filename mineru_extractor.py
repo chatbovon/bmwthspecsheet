@@ -74,7 +74,7 @@ def get_gemini_client():
 
 
 def generate_with_fallback(client, contents, config=None, is_json=False):
-    models_to_try = ["gemini-3.5-flash-lite", "gemini-3.6-flash", "gemini-3.7-flash"]
+    models_to_try = ["gemini-3.5-flash-lite", "gemini-3.6-flash", "gemini-3.7-flash", "gemini-3.8-flash"]
     for m_name in models_to_try:
         for attempt in range(4):
             try:
@@ -99,53 +99,34 @@ def generate_with_fallback(client, contents, config=None, is_json=False):
 PROMPT_MULTIMODAL_PROOFREADER_TH = """คุณคือผู้เชี่ยวชาญด้านการตรวจทานเอกสารสเปกรถยนต์ BMW (Automotive Specification Proofreader)
 คุณได้รับข้อมูล 2 ส่วนพร้อมกัน:
 1. ไฟล์ PDF โบรชัวร์ต้นฉบับของ BMW (ใช้เป็น Visual Ground Truth ความถูกต้องสูงสุด)
-2. ข้อความตาราง Raw Markdown/HTML ที่ระบบ OCR สกัดมาได้ (ใช้เป็นโครงสร้างตารางและตำแหน่งเครื่องหมาย)
+2. รายชื่อหัวข้อสเปก, ชื่อหมวดหมู่, และชื่อสี/วัสดุเบาะ ที่สกัดมาได้จากระบบ OCR
 
 เป้าหมายของคุณคือ:
-นำข้อความในตาราง Raw Markdown/HTML ไปเทียบกับ "ภาพจริงบนหน้า PDF" เพื่อตรวจทานและแก้ไขคำสะกดผิด, สระลอย, วรรณยุกต์เพี้ยน หรือพยัญชนะที่ OCR อ่านผิดพลาด ให้ตรงกับตัวอักษรที่พิมพ์อยู่จริงบนเอกสาร PDF 100%
-
-แนวทางการตรวจทานและแก้ไข (Cross-Referencing Rules):
-1. **การเทียบภาพสายตา (Visual Verification):**
-   - เมื่อตรวจพบคำใน Markdown ที่น่าสงสัย, พยัญชนะแปลก, หรือสระไม่สมบูรณ์ (เช่น "โทรศอก", "รังสี่", "ไฟล่องสว่าง", "เซ็มชัดนิภภัย", "คนชับ") ให้ก้มดูภาพบนหน้า PDF บริเวณตารางนั้นๆ ทันที
-   - กู้คืนและแก้ไขตัวสะกดให้เป็นคำที่พิมพ์อยู่จริงใน PDF (เช่น "ปุ่มโทรออกฉุกเฉิน", "เคลือบสารกันรังสียูวี", "ชุดไฟส่องสว่าง...", "เข็มขัดนิรภัย...", "คนขับ")
-2. **การคงคำศัพท์และเทคโนโลยีใหม่ (Verbatim Technology Preservation):**
-   - หากบนหน้า PDF มีชื่อเทคโนโลยีใหม่, ออปชันใหม่, หรือสเปกเฉพาะรุ่น (เช่น ระบบการชาร์จใหม่, มอเตอร์ไฟฟ้า, จอ Panoramic ฯลฯ) ให้ยึดตามตัวสะกดจริงที่ปรากฏบน PDF 100% ห้ามดัดแปลง ห้ามเดาคำ และห้ามตัดทอน
-3. **การแก้ไขชื่อหมวดหมู่:**
-   - ตรวจดูหัวข้อหมวดหมู่ในตาราง ให้ตรงกับชื่อหมวดหมู่ที่พิมพ์ตัวหนา/แถบสีในหน้า PDF เสมอ (เช่น หาก OCR อ่านเป็น "อุปกรณ์กายใน" หรือ "ความบันเกิง" ให้แก้ไขเป็น "อุปกรณ์ภายใน" และ "ระบบความบันเทิงและการสื่อสาร" ตามที่ปรากฏใน PDF)
-
-กฎเหล็กที่ห้ามละเมิดเด็ดขาด:
-1. ยึดโครงสร้างตาราง (Tags: <table>, <tr>, <td> หรือเส้นตาราง |) จาก Markdown เป็นหลัก ห้ามลบแถว, ห้ามข้ามแถว, หรือรวมแถวโดยพลการ ทุกแถวที่อยู่ในตารางต้นทางต้องถูกรักษาไว้ครบ 100%
-2. รักษาเครื่องหมายออปชันและความว่างเปล่าของเซลล์อย่างเคร่งครัด:
-   - หากช่องใดว่างเปล่า (<td></td>) หรือเป็นขีด (-) ห้ามเติมเครื่องหมาย ■ เด็ดขาด ต้องคงความว่างหรือขีดไว้ตามเดิม
-   - หากช่องใดมีเครื่องหมาย ■ ให้คงไว้เป็น ■
-   - ห้ามขยับตำแหน่งเครื่องหมายข้ามคอลัมน์หรือข้ามแถวเด็ดขาด
-3. ส่งกลับเฉพาะข้อความ Markdown/HTML ของตารางที่แก้ไขคำถูกต้องสมบูรณ์แล้วเท่านั้น ห้ามใส่คำอธิบายนำหน้าหรือลงท้าย
+นำรายชื่อข้อความไปเทียบกับ "ภาพจริงบนหน้า PDF" เพื่อตรวจทานและแก้ไขคำสะกดผิด, สระลอย, วรรณยุกต์เพี้ยน หรือพยัญชนะที่ OCR อ่านผิดพลาด ให้ตรงกับตัวอักษรที่พิมพ์อยู่จริงบนเอกสาร PDF 100%
+- หากคำใดสะกดถูกต้องอยู่แล้ว ให้คงไว้ตามเดิม
+- หากคำใดมีตัวสะกดผิดเพี้ยน ให้แก้ไขให้ตรงกับเอกสาร PDF
+- ตอบกลับในรูปแบบ STRICT JSON Object เท่านั้น โดยมีโครงสร้าง:
+{
+  "คำเดิมจาก OCR": "คำที่ถูกต้องตาม PDF"
+}
+ห้ามใส่คำอธิบายเพิ่มเติม นอกเหนือจาก JSON Object
 """
 
 PROMPT_MULTIMODAL_PROOFREADER_EN = """You are an expert Automotive Technical Specification Proofreader for official BMW brochures.
 You are provided with two inputs simultaneously:
 1. The original BMW PDF Brochure (Use as the Visual Ground Truth of ultimate correctness).
-2. The Raw Markdown/HTML tables extracted by OCR (Use as the table structure and option checkmark anchor).
+2. A list of specification topic titles, category names, and paint/upholstery names extracted by OCR.
 
 Your Sole Mission:
-Cross-reference the text in the Raw Markdown/HTML tables against the actual visual pages of the PDF. Proofread and correct any character-level OCR misreadings, garbled words, broken hyphenation, or font glitches so that the text perfectly matches what is printed in the PDF brochure (100% fidelity).
-
-Cross-Referencing Guidelines:
-1. **Visual Proofreading:**
-   - Whenever an OCR-extracted term looks garbled, typoed, or phonetically distorted in the Markdown table, inspect the corresponding visual table row in the PDF pages.
-   - Restore and correct the spelling to exactly match the official text printed on the PDF page.
-2. **Open-Domain Technology Preservation:**
-   - For newly introduced technologies, trim packages, EV charging parameters, or model-specific features, keep and preserve the exact terminology as printed on the PDF pages verbatim. Do not alter, omit, or force them into different terms.
-3. **Category Header Normalization:**
-   - Verify category header texts against the bold category banner text visually visible in the PDF tables.
-
-Strict Invariable Rules:
-1. Maintain table integrity: never alter table structure, tags (<table>, <tr>, <td>), or column borders (|). NEVER omit, skip, or combine rows. Every single row in the input Markdown MUST be present in the output.
-2. Maintain option checkmarks and empty cells with 100% exactness:
-   - If a cell is empty or "-", keep it empty or "-"! NEVER fill in an empty cell with "■" just because another column has it or you think it should be standard.
-   - If a cell has "■", keep it "■"!
-   - Never shift checkmarks between columns or rows.
-3. Return ONLY the sanitized, proofread Markdown/HTML table text without any conversation or markdown code fences.
+Cross-reference the provided text terms against the actual visual pages of the PDF.
+Proofread and correct any character-level OCR misreadings, garbled words, broken characters, or font glitches so that the text perfectly matches what is printed in the PDF brochure (100% fidelity).
+- If a term is already 100% correct, keep it as is.
+- If a term has typos or OCR glitches, correct it to the exact text printed on the PDF.
+- Return ONLY a STRICT JSON dictionary mapping each raw OCR term to its corrected term:
+{
+  "raw_ocr_term": "corrected_term"
+}
+Do NOT include any commentary, explanations, or text outside the JSON object.
 """
 
 PROMPT_SPECS_TH = """You are an expert BMW Automotive Specification Analyst.
@@ -302,88 +283,153 @@ JSON Output Structure:
 
 # ─── MINERU API CLIENT ────────────────────────────────────────────────────────
 
-def upload_pdf_bytes_to_oss(upload_url: str, pdf_bytes: bytes) -> bool:
-    resp = requests.put(upload_url, data=pdf_bytes, timeout=120)
-    return resp.status_code == 200
-
-def get_precision_upload_url(filename: str = "document.pdf") -> dict:
+def _get_presigned_upload_url(file_name: str, max_retries: int = 5) -> tuple[str, str]:
     url = f"{PRECISION_BASE_URL}/file-urls/batch"
-    payload = {"files": [{"name": filename}]}
-    resp = requests.post(url, headers=MINERU_HEADERS, json=payload, timeout=30)
-    resp.raise_ok = resp.status_code == 200
-    if not resp.raise_ok:
-        raise ValueError(f"Failed to get MinerU upload URL: {resp.text}")
-    data = resp.json()
-    if data.get("code") != 0:
-        raise ValueError(f"MinerU error: {data.get('msg')}")
-    return data["data"][0]
-
-def extract_pdf_precision_oss(oss_url: str, lang_code: str = "th") -> str:
-    url = f"{PRECISION_BASE_URL}/extract/precision/batch"
     payload = {
-        "files": [{"url": oss_url}],
-        "is_ocr": True,
-        "vlm": True,
+        "enable_formula": False,
+        "language": "ch",       # 'ch' engine: best for mixed Thai/EN + complex table grids
         "enable_table": True,
-        "layout_model": "layoutlmv3"
+        "vlm": True,            # Enable Vision Layout Model
+        "model_version": "vlm", # Support both model configurations for maximum safety
+        "table_flavor": "html", # Request HTML tables with rowspan/colspan support
+        "files": [
+            {
+                "name": file_name,
+                "is_ocr": True
+            }
+        ]
     }
-    resp = requests.post(url, headers=MINERU_HEADERS, json=payload, timeout=30)
-    if resp.status_code != 200:
-        raise ValueError(f"MinerU batch extraction failed: {resp.text}")
-    data = resp.json()
-    if data.get("code") != 0:
-        raise ValueError(f"MinerU error: {data.get('msg')}")
-    return data["data"]["batch_id"]
+    for attempt in range(max_retries):
+        if attempt > 0:
+            print(f"   [RETRY] Waiting 10s before retry {attempt+1}/{max_retries}...")
+            time.sleep(10)
+        try:
+            resp = requests.post(url, json=payload, headers=MINERU_HEADERS, timeout=30)
+            if resp.status_code == 429:
+                print("   [WARN] 429 Too Many Requests on presign URL. Retrying...")
+                time.sleep(30)
+                continue
+            resp.raise_for_status()
+            data = resp.json()
+            if data.get("code") not in (0, 200, None):
+                raise ValueError(f"API error: {data}")
+            
+            batch_id = data.get("data", {}).get("batch_id")
+            file_urls = data.get("data", {}).get("file_urls", [])
+            if not file_urls or not batch_id:
+                raise ValueError(f"Missing file_urls or batch_id in response: {data}")
+            
+            upload_url = file_urls[0]
+            if not upload_url:
+                raise ValueError(f"Missing upload url in response: {data}")
+                
+            return upload_url, str(batch_id)
+        except Exception as e:
+            print(f"   [WARN] Presign URL request failed: {e}")
+    raise ValueError(f"Failed to get presigned upload URL after {max_retries} attempts.")
 
-def poll_batch_result(batch_id: str, timeout_sec: int = 900) -> str:
-    url = f"{PRECISION_BASE_URL}/extract-results/batch/{batch_id}"
-    start = time.time()
-    print(f"   [POLL] Polling batch {batch_id} (timeout={timeout_sec}s)...")
-    while time.time() - start < timeout_sec:
-        time.sleep(15)
-        elapsed = int(time.time() - start)
-        resp = requests.get(url, headers=MINERU_HEADERS, timeout=30)
-        if resp.status_code != 200:
-            continue
-        data = resp.json()
-        if data.get("code") != 0:
-            continue
-        extracts = data.get("data", {}).get("extracts", [])
-        if not extracts:
-            continue
-        first = extracts[0]
-        state = first.get("state")
-        print(f"      [{elapsed}s] Status: {state}")
-        if state == "done":
-            return first["full_zip_url"]
-        elif state == "failed":
-            raise ValueError(f"MinerU extraction failed: {first.get('err_msg')}")
-    raise TimeoutError(f"MinerU batch timed out after {timeout_sec}s.")
 
-def download_and_extract_zip(zip_url: str) -> str:
-    resp = requests.get(zip_url, timeout=120)
-    if resp.status_code != 200:
-        raise ValueError(f"Failed to download result zip: HTTP {resp.status_code}")
-    with zipfile.ZipFile(io.BytesIO(resp.content)) as z:
-        for name in z.namelist():
-            if name.endswith("full.md") or name.endswith(".md"):
-                with z.open(name) as f:
-                    return f.read().decode("utf-8")
-    raise ValueError("No markdown file found in MinerU result zip.")
+def _upload_to_oss(upload_url: str, file_path: str, max_retries: int = 5) -> None:
+    for attempt in range(max_retries):
+        if attempt > 0:
+            print(f"   [RETRY] Waiting 10s before OSS PUT retry {attempt+1}/{max_retries}...")
+            time.sleep(10)
+        try:
+            print(f"   [UPLOAD] Uploading bytes to OSS...")
+            with open(file_path, "rb") as f:
+                resp = requests.put(upload_url, data=f, timeout=120)
+            if resp.status_code in (200, 204):
+                print("   [UPLOAD] OSS upload succeeded.")
+                return
+            print(f"   [WARN] OSS PUT returned HTTP {resp.status_code}: {resp.text[:200]}")
+        except Exception as e:
+            print(f"   [WARN] OSS PUT failed: {e}")
+    raise ValueError("Failed to upload file to OSS after all retries.")
+
+
+def _poll_precision_task(batch_id: str, timeout: int = 900) -> str:
+    poll_url = f"{PRECISION_BASE_URL}/extract-results/batch/{batch_id}"
+    start_time = time.time()
+    poll_interval = 15
+
+    print(f"   [POLL] Polling batch {batch_id} (timeout={timeout}s)...")
+    while time.time() - start_time < timeout:
+        time.sleep(poll_interval)
+        elapsed = int(time.time() - start_time)
+        try:
+            resp = requests.get(poll_url, headers=MINERU_HEADERS, timeout=20)
+            if resp.status_code == 429:
+                print(f"      [{elapsed}s] WARN: 429 rate-limit on poll. Backing off 30s...")
+                time.sleep(30)
+                continue
+            resp.raise_for_status()
+            data = resp.json()
+            if data.get("code") not in (0, 200, None):
+                print(f"      [{elapsed}s] WARN: Poll API returned code {data.get('code')}: {data.get('msg')}")
+                continue
+                
+            results = data.get("data", {}).get("extract_result", [])
+            if not results:
+                print(f"      [{elapsed}s] WARN: Empty extract_result in response.")
+                continue
+                
+            result_item = results[0]
+            state = str(result_item.get("state") or result_item.get("status") or "").lower()
+            print(f"      [{elapsed}s] Status: {state}")
+
+            if state in ("success", "done"):
+                md_url = result_item.get("md_url") or result_item.get("full_zip_url") or result_item.get("zip_url")
+                if not md_url:
+                    raise ValueError(f"Task completed successfully but no download URL found: {result_item}")
+
+                print(f"      [SUCCESS] Completed in {elapsed}s. Downloading result from: {md_url[:80]}...")
+                return _download_result(md_url)
+
+            elif state in ("failed", "error"):
+                err = result_item.get("err_msg") or result_item.get("message", "Unknown error occurred during processing.")
+                raise ValueError(f"MinerU Precision task failed: {err}")
+
+        except ValueError:
+            raise
+        except Exception as e:
+            print(f"      [{elapsed}s] WARN: Poll error - {e}")
+
+    raise TimeoutError(f"Precision batch task {batch_id} timed out after {timeout}s.")
+
+
+def _download_result(url: str, max_retries: int = 5) -> str:
+    for attempt in range(max_retries):
+        if attempt > 0:
+            print(f"   [RETRY] Waiting 10s before download retry {attempt+1}/{max_retries}...")
+            time.sleep(10)
+        try:
+            resp = requests.get(url, timeout=60)
+            if resp.status_code != 200:
+                print(f"   [WARN] Download HTTP {resp.status_code}. Retrying...")
+                continue
+
+            content_type = resp.headers.get("Content-Type", "")
+            if "zip" in content_type or url.endswith(".zip") or resp.content[:2] == b"PK":
+                with zipfile.ZipFile(io.BytesIO(resp.content)) as zf:
+                    md_files = [n for n in zf.namelist() if n.endswith(".md")]
+                    if not md_files:
+                        raise ValueError(f"No .md file found in result zip. Contents: {zf.namelist()}")
+                    md_name = max(md_files, key=lambda n: zf.getinfo(n).file_size)
+                    print(f"   [EXTRACT] Reading '{md_name}' from zip ({zf.getinfo(md_name).file_size} bytes)")
+                    return zf.read(md_name).decode("utf-8")
+            else:
+                return resp.text
+        except Exception as e:
+            print(f"   [WARN] Download attempt failed: {e}")
+    raise ValueError(f"Failed to download result from {url} after all retries.")
+
 
 def parse_pdf_via_api(pdf_path: str, lang_code: str = "th") -> str:
-    with open(pdf_path, "rb") as f:
-        pdf_bytes = f.read()
     filename = os.path.basename(pdf_path)
     print(f"   [PRECISION] Starting Precision Extract for: {filename}")
-    url_info = get_precision_upload_url(filename)
-    upload_url = url_info["upload_url"]
-    oss_url = url_info["url"]
-    if not upload_pdf_bytes_to_oss(upload_url, pdf_bytes):
-        raise ValueError("Failed to upload PDF bytes to OSS.")
-    batch_id = extract_pdf_precision_oss(oss_url, lang_code=lang_code)
-    zip_url = poll_batch_result(batch_id)
-    return download_and_extract_zip(zip_url)
+    upload_url, batch_id = _get_presigned_upload_url(filename)
+    _upload_to_oss(upload_url, pdf_path)
+    return _poll_precision_task(batch_id)
 
 # ─── 4-STAGE HYBRID MULTIMODAL PIPELINE FUNCTIONS ─────────────────────────────
 
@@ -409,32 +455,84 @@ def run_mineru_stage(pdf_path: str, lang_code: str = "th") -> str:
         sys.exit(1)
 
 
+def extract_candidate_terms(md_content: str) -> list[str]:
+    terms = []
+    for row in re.findall(r'<tr[^>]*>(.*?)</tr>', md_content, flags=re.DOTALL):
+        cells = re.findall(r'<td[^>]*>(.*?)</td>', row, flags=re.DOTALL)
+        if not cells:
+            continue
+        
+        first_cell = re.sub(r'<[^>]+>', '', cells[0]).strip()
+        first_cell = first_cell.replace('&#x27;', "'").replace('&quot;', '"').replace('&amp;', '&')
+        
+        if first_cell and first_cell not in ['■', '-'] and not first_cell.isdigit() and len(first_cell) > 1:
+            if not any(header in first_cell for header in ['คุณลักษณะเฉพาะ', 'รายละเอียดด้านเทคนิค', 'TECHNICAL DATA', 'Paintwork', 'สีตัวถังและวัสดุ']):
+                if first_cell not in terms:
+                    terms.append(first_cell)
+                    
+        if any(uph in row for uph in ['Leather', 'Sensatec', 'Vernasca', 'stitching', 'Stitching', 'หนัง']):
+            for c in cells:
+                c_clean = re.sub(r'<[^>]+>', '', c).strip().replace('&#x27;', "'").replace('&quot;', '"').replace('&amp;', '&')
+                if c_clean and c_clean not in ['■', '-'] and len(c_clean) > 2:
+                    if not any(m in c_clean for m in ['M Sport', 'xDrive', 'Paintwork']):
+                        if c_clean not in terms:
+                            terms.append(c_clean)
+    return terms
+
+
+def apply_text_corrections_to_markdown(raw_md: str, corrections: dict) -> str:
+    if not corrections:
+        return raw_md
+        
+    norm_corrections = {}
+    for k, v in corrections.items():
+        if k and v and k != v:
+            norm_corrections[k.strip()] = v.strip()
+            
+    def replace_cell(match):
+        attrs = match.group(1)
+        inner_content = match.group(2)
+        clean_inner = re.sub(r'<[^>]+>', '', inner_content).strip()
+        clean_inner = clean_inner.replace('&#x27;', "'").replace('&quot;', '"').replace('&amp;', '&')
+        
+        if clean_inner in norm_corrections:
+            new_text = norm_corrections[clean_inner]
+            return f"<td{attrs}>{new_text}</td>"
+        return match.group(0)
+
+    pattern = r'<td([^>]*)>(.*?)</td>'
+    cleaned_md = re.sub(pattern, replace_cell, raw_md, flags=re.DOTALL)
+    return cleaned_md
+
+
 def section_1_multimodal_proofreader(raw_md: str, pdf_path: str, lang_code: str = "th") -> str:
     pdf_basename = os.path.basename(pdf_path)
     cleaned_md_path = f"multimodal_cleaned_{pdf_basename}.md"
-    print(f"\n[SECTION 1] Starting Multimodal Visual Cross-Referencing (gemini-3.5-flash-lite)...")
-    print(f"   -> Uploading PDF to Gemini Files API: {pdf_basename}")
+    print(f"\n[SECTION 1] Starting Multimodal Text-Only Proofreader ({os.path.basename(pdf_path)})...")
+    
+    candidate_terms = extract_candidate_terms(raw_md)
+    print(f"   -> Extracted {len(candidate_terms)} topic/category terms for proofreading.")
     
     t0 = time.time()
     client = get_gemini_client()
     
+    print(f"   -> Uploading PDF to Gemini Files API: {pdf_basename}")
     uploaded_file = client.files.upload(file=pdf_path)
     print(f"   -> PDF Uploaded successfully: {uploaded_file.name}")
     
     prompt = PROMPT_MULTIMODAL_PROOFREADER_TH if lang_code == "th" else PROMPT_MULTIMODAL_PROOFREADER_EN
+    full_prompt = f"{prompt}\n\nHere is the list of OCR terms to verify and correct against the PDF:\n\n{json.dumps(candidate_terms, ensure_ascii=False, indent=2)}"
     
     try:
         response = None
-        models_to_try = ["gemini-3.5-flash-lite", "gemini-3.6-flash", "gemini-3.7-flash"]
+        models_to_try = ["gemini-3.5-flash-lite", "gemini-3.6-flash", "gemini-3.7-flash", "gemini-3.8-flash"]
         for m_name in models_to_try:
             for attempt in range(4):
                 try:
                     response = client.models.generate_content(
                         model=m_name,
-                        contents=[
-                            uploaded_file,
-                            f"{prompt}\n\nHere is the OCR Raw Markdown/HTML table content to cross-reference against the attached PDF:\n\n{raw_md}"
-                        ]
+                        contents=[uploaded_file, full_prompt],
+                        config=types.GenerateContentConfig(response_mime_type="application/json")
                     )
                     break
                 except Exception as e:
@@ -444,17 +542,21 @@ def section_1_multimodal_proofreader(raw_md: str, pdf_path: str, lang_code: str 
             if response:
                 break
         if not response:
-            raise RuntimeError("All models failed to generate content.")
+            raise RuntimeError("All models failed to generate content during proofreading.")
         
-        cleaned_text = response.text.strip()
-        if cleaned_text.startswith("```html") or cleaned_text.startswith("```markdown"):
-            cleaned_text = re.sub(r"^```[a-zA-Z]*\n", "", cleaned_text)
-            cleaned_text = re.sub(r"\n```$", "", cleaned_text)
+        corrections = json.loads(response.text)
+        if isinstance(corrections, list) and len(corrections) > 0:
+            corrections = corrections[0]
+            
+        actual_changes = {k: v for k, v in corrections.items() if k != v}
+        print(f"[SECTION 1 SUCCESS] Proofreading complete in {time.time() - t0:.2f}s (Corrected {len(actual_changes)} terms)")
+        
+        # Apply text corrections directly to table cells in Python
+        cleaned_text = apply_text_corrections_to_markdown(raw_md, corrections)
             
         with open(cleaned_md_path, "w", encoding="utf-8") as f:
             f.write(cleaned_text)
             
-        print(f"[SECTION 1 SUCCESS] Multimodal proofreading complete in {time.time() - t0:.2f}s")
         print(f"   -> Intermediate Artifact Saved: {cleaned_md_path}")
         return cleaned_text
     finally:
