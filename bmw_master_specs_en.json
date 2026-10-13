@@ -3572,7 +3572,7 @@
         "model_name": "320Li M Sport",
         "specifications": [
           {
-            "category": "Engine and Performance",
+            "category": "ENGINE AND PERFORMANCE",
             "details": [
               {
                 "topic": "Engine type",
@@ -3601,20 +3601,20 @@
             ]
           },
           {
-            "category": "Fuel Consumption and CO2 Emission",
+            "category": "FUEL CONSUMPTION AND CO₂",
             "details": [
               {
-                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                "topic": "Combined fuel consumption\nfrom ECO Sticker result (km/l)",
                 "value": "16.7"
               },
               {
-                "topic": "Combined CO₂ (g/km)",
+                "topic": "Combined CO₂\n(g/km)",
                 "value": "137"
               }
             ]
           },
           {
-            "category": "Wheels and Tyres",
+            "category": "WHEELS AND TYRES",
             "details": [
               {
                 "topic": "Light alloy wheels",
@@ -3622,7 +3622,7 @@
               },
               {
                 "topic": "Tyre size",
-                "value": "Front: 7.5 J × 18, 225/45 R 18\nRear: 8.5 J × 18, 255/40 R 18"
+                "value": "Front: 7.5 J × 18, 225/45 R 18Rear: 8.5 J × 18, 255/40 R 18"
               },
               {
                 "topic": "Runflat tyres",
@@ -3631,7 +3631,7 @@
             ]
           },
           {
-            "category": "Dimension",
+            "category": "DIMENSION",
             "details": [
               {
                 "topic": "Length / width / height (mm)",
@@ -3648,7 +3648,7 @@
             ]
           },
           {
-            "category": "Drivetrain and Technology",
+            "category": "Transmission and technology",
             "details": [
               {
                 "topic": "8-speed Steptronic Sport transmission",
@@ -3669,7 +3669,7 @@
             ]
           },
           {
-            "category": "Exterior Equipment",
+            "category": "Exterior",
             "details": [
               {
                 "topic": "High-beam assistant",
@@ -3698,10 +3698,10 @@
             ]
           },
           {
-            "category": "Interior Equipment",
+            "category": "Interior",
             "details": [
               {
-                "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
+                "topic": "Interior and exterior mirrors on driver's side with automatic anti-\ndazzle function",
                 "value": "■"
               },
               {
@@ -3731,7 +3731,7 @@
             ]
           },
           {
-            "category": "Entertainment and Communication",
+            "category": "Entertainment and communication",
             "details": [
               {
                 "topic": "BMW Live Cockpit Professional",
@@ -3819,7 +3819,7 @@
                 "value": "■"
               },
               {
-                "topic": "Front Collision Warning with brake intervention consists of Collision",
+                "topic": "Front Collision Warning with brake intervention consists of\nCollision",
                 "value": "■"
               },
               {
@@ -3849,7 +3849,7 @@
             ]
           },
           {
-            "category": "Line / Package",
+            "category": "Line / package",
             "details": [
               {
                 "topic": "M Sport",
@@ -40796,7 +40796,7 @@
         "model_name": "320d M Sport",
         "specifications": [
           {
-            "category": "Engine and Performance",
+            "category": "ENGINE AND PERFORMANCE",
             "details": [
               {
                 "topic": "Engine type",
@@ -40861,7 +40861,7 @@
             ]
           },
           {
-            "category": "Fuel Consumption and CO2 Emission",
+            "category": "FUEL CONSUMPTION AND CO₂",
             "details": [
               {
                 "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
@@ -40874,7 +40874,7 @@
             ]
           },
           {
-            "category": "Wheels and Tyres",
+            "category": "WHEELS AND TYRES",
             "details": [
               {
                 "topic": "Light alloy wheels",
@@ -40891,7 +40891,7 @@
             ]
           },
           {
-            "category": "Dimension",
+            "category": "DIMENSION",
             "details": [
               {
                 "topic": "Length / width / height (mm)",
@@ -40908,7 +40908,7 @@
             ]
           },
           {
-            "category": "Drivetrain and Technology",
+            "category": "Transmission and technology",
             "details": [
               {
                 "topic": "8-speed Steptronic Sport transmission",
@@ -40949,7 +40949,7 @@
             ]
           },
           {
-            "category": "Exterior Equipment",
+            "category": "Exterior",
             "details": [
               {
                 "topic": "Adaptive LED Headlights",
@@ -40998,7 +40998,7 @@
             ]
           },
           {
-            "category": "Interior Equipment",
+            "category": "Interior",
             "details": [
               {
                 "topic": "M Interior decor Fine-Brushed Aluminium",
@@ -41075,7 +41075,7 @@
             ]
           },
           {
-            "category": "Entertainment and Communication",
+            "category": "Entertainment and communication",
             "details": [
               {
                 "topic": "BMW Live Cockpit Professional",
@@ -41173,7 +41173,7 @@
             ]
           },
           {
-            "category": "Line / Package",
+            "category": "Line / package",
             "details": [
               {
                 "topic": "M Sport Package",
@@ -41236,7 +41236,7 @@
         "model_name": "330e M Sport",
         "specifications": [
           {
-            "category": "Engine and Performance",
+            "category": "ENGINE AND PERFORMANCE",
             "details": [
               {
                 "topic": "Engine type",
@@ -41301,7 +41301,7 @@
             ]
           },
           {
-            "category": "Fuel Consumption and CO2 Emission",
+            "category": "FUEL CONSUMPTION AND CO₂",
             "details": [
               {
                 "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
@@ -41314,7 +41314,7 @@
             ]
           },
           {
-            "category": "Wheels and Tyres",
+            "category": "WHEELS AND TYRES",
             "details": [
               {
                 "topic": "Light alloy wheels",
@@ -41331,7 +41331,7 @@
             ]
           },
           {
-            "category": "Dimension",
+            "category": "DIMENSION",
             "details": [
               {
                 "topic": "Length / width / height (mm)",
@@ -41348,7 +41348,7 @@
             ]
           },
           {
-            "category": "Drivetrain and Technology",
+            "category": "Transmission and technology",
             "details": [
               {
                 "topic": "8-speed Steptronic Sport transmission",
@@ -41389,7 +41389,7 @@
             ]
           },
           {
-            "category": "Exterior Equipment",
+            "category": "Exterior",
             "details": [
               {
                 "topic": "Adaptive LED Headlights",
@@ -41438,7 +41438,7 @@
             ]
           },
           {
-            "category": "Interior Equipment",
+            "category": "Interior",
             "details": [
               {
                 "topic": "M Interior decor Fine-Brushed Aluminium",
@@ -41515,7 +41515,7 @@
             ]
           },
           {
-            "category": "Entertainment and Communication",
+            "category": "Entertainment and communication",
             "details": [
               {
                 "topic": "BMW Live Cockpit Professional",
@@ -41613,7 +41613,7 @@
             ]
           },
           {
-            "category": "Line / Package",
+            "category": "Line / package",
             "details": [
               {
                 "topic": "M Sport Package",
@@ -41676,7 +41676,7 @@
         "model_name": "M340i xDrive",
         "specifications": [
           {
-            "category": "Engine and Performance",
+            "category": "ENGINE AND PERFORMANCE",
             "details": [
               {
                 "topic": "Engine type",
@@ -41741,7 +41741,7 @@
             ]
           },
           {
-            "category": "Fuel Consumption and CO2 Emission",
+            "category": "FUEL CONSUMPTION AND CO₂",
             "details": [
               {
                 "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
@@ -41754,7 +41754,7 @@
             ]
           },
           {
-            "category": "Wheels and Tyres",
+            "category": "WHEELS AND TYRES",
             "details": [
               {
                 "topic": "Light alloy wheels",
@@ -41771,7 +41771,7 @@
             ]
           },
           {
-            "category": "Dimension",
+            "category": "DIMENSION",
             "details": [
               {
                 "topic": "Length / width / height (mm)",
@@ -41788,7 +41788,7 @@
             ]
           },
           {
-            "category": "Drivetrain and Technology",
+            "category": "Transmission and technology",
             "details": [
               {
                 "topic": "8-speed Steptronic Sport transmission",
@@ -41829,7 +41829,7 @@
             ]
           },
           {
-            "category": "Exterior Equipment",
+            "category": "Exterior",
             "details": [
               {
                 "topic": "Adaptive LED Headlights",
@@ -41878,7 +41878,7 @@
             ]
           },
           {
-            "category": "Interior Equipment",
+            "category": "Interior",
             "details": [
               {
                 "topic": "M Interior decor Fine-Brushed Aluminium",
@@ -41955,7 +41955,7 @@
             ]
           },
           {
-            "category": "Entertainment and Communication",
+            "category": "Entertainment and communication",
             "details": [
               {
                 "topic": "BMW Live Cockpit Professional",
@@ -42053,7 +42053,7 @@
             ]
           },
           {
-            "category": "Line / Package",
+            "category": "Line / package",
             "details": [
               {
                 "topic": "M Sport Package",
@@ -42070,7 +42070,7 @@
             "details": [
               {
                 "topic": "Brooklyn Grey Metallic",
-                "value": "Leather 'Vernasca' - Block/Contrast Stitching Blue | Black"
+                "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue | Black"
               },
               {
                 "topic": "Portimao Blue Metallic",
@@ -42078,15 +42078,15 @@
               },
               {
                 "topic": "Mineral White Metallic",
-                "value": "Leather 'Vernasca' - Block/Contrast Stitching Blue | Black"
+                "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue | Black"
               },
               {
                 "topic": "Black Sapphire Metallic",
-                "value": "Leather 'Vernasca' - Block/Contrast Stitching Blue | Black"
+                "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue | Black"
               },
               {
                 "topic": "Dravit Grey Metallic",
-                "value": "Leather 'Vernasca' - Block/Contrast Stitching Blue | Black"
+                "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue | Black"
               }
             ]
           },

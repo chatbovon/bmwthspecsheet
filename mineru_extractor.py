@@ -593,19 +593,77 @@ def split_cleaned_markdown(cleaned_md: str) -> tuple[str, str]:
 
 
 def section_2_specs_extractor(specs_md: str, lang_code: str = "th") -> dict:
-    print(f"\n[SECTION 2] Extracting Specs & Standard Equipment (gemini-3.5-flash-lite)...")
+    print(f"\n[SECTION 2] Extracting Specs & Standard Equipment (Pure Python HTML Parser)...")
     t0 = time.time()
-    client = get_gemini_client()
-    prompt = PROMPT_SPECS_TH if lang_code == "th" else PROMPT_SPECS_EN
     
-    full_prompt = f"{prompt}\n\nHere is the CLEANED specification table content:\n\n{specs_md}"
-    response = generate_with_fallback(client, full_prompt, is_json=True)
-    
-    data = json.loads(response.text)
-    if isinstance(data, list) and len(data) > 0:
-        data = data[0]
+    rows = re.findall(r'<tr[^>]*>(.*?)</tr>', specs_md, flags=re.DOTALL)
+    if not rows:
+        raise ValueError("No table rows found in specs_md.")
         
-    print(f"[SECTION 2 SUCCESS] Specs extracted in {time.time() - t0:.2f}s (Models: {len(data.get('models', []))})")
+    first_row_cells = re.findall(r'<td[^>]*>(.*?)</td>', rows[0], flags=re.DOTALL)
+    models = [
+        re.sub(r'<[^>]+>', '', c).strip()
+        .replace('&#x27;', "'").replace('&quot;', '"').replace('&amp;', '&')
+        for c in first_row_cells[1:]
+    ]
+    if not models:
+        raise ValueError("No models found in header row.")
+        
+    model_data = {m: {} for m in models}
+    current_category = "เครื่องยนต์และสมรรถนะ" if lang_code == "th" else "Engine and Performance"
+    
+    for r in rows[1:]:
+        cells = re.findall(r'<td[^>]*>(.*?)</td>', r, flags=re.DOTALL)
+        cell_texts = [
+            re.sub(r'<[^>]+>', '', c).strip()
+            .replace('&#x27;', "'").replace('&quot;', '"').replace('&amp;', '&')
+            for c in cells
+        ]
+        if not cell_texts or not any(cell_texts):
+            continue
+            
+        if len(cell_texts) == 1:
+            cat_name = cell_texts[0]
+            cat_name = cat_name.replace("$_{2}$", "₂").replace("_{2}", "₂").strip()
+            if cat_name and not any(h in cat_name.upper() for h in ['คุณลักษณะเฉพาะ', 'รายละเอียดด้านเทคนิค', 'TECHNICAL DATA', 'SPECIFICATIONS']):
+                current_category = cat_name
+            continue
+            
+        topic = cell_texts[0]
+        if any(h in topic.upper() for h in ['คุณลักษณะเฉพาะ', 'รายละเอียดด้านเทคนิค', 'TECHNICAL DATA', 'SPECIFICATIONS']):
+            continue
+            
+        values = cell_texts[1:]
+        
+        for idx, m in enumerate(models):
+            val = values[idx] if idx < len(values) else "-"
+            if not val or val == "":
+                val = "-"
+            elif val == "■":
+                val = "■"
+                
+            if current_category not in model_data[m]:
+                model_data[m][current_category] = []
+            model_data[m][current_category].append({"topic": topic, "value": val})
+            
+    final_models = []
+    for m in models:
+        specs_list = []
+        for cat, details in model_data[m].items():
+            specs_list.append({
+                "category": cat,
+                "details": details
+            })
+        final_models.append({
+            "model_name": m,
+            "specifications": specs_list
+        })
+        
+    data = {
+        "series": "BMW Specsheet",
+        "models": final_models
+    }
+    print(f"[SECTION 2 SUCCESS] Specs extracted via Pure Python in {time.time() - t0:.4f}s (Models: {len(data.get('models', []))})")
     return data
 
 
