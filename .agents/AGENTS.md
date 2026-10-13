@@ -28,3 +28,14 @@
 ## 7. Strict TH/EN Specsheet Alignment
 - **Identical Structure & Data:** All validation and auditing logic must strictly check that the Thai and English brochures match in all components: numerical values, option presence, category names, topic names, category counts, topic counts, and exact order/position of rows and columns.
 - **No Bypasses:** Do not build ignore rules or filters for differences in ordering or naming. Category grouping mismatches and vehicle-specific engineering differences must be flagged as active issues for remediation.
+
+## 8. Strict Plan-to-Code Fidelity & No Premature Shortcut
+- **1:1 Architecture Mapping:** Whenever an architectural plan or workflow is agreed upon with the user (e.g., a multi-stage pipeline like Section 1 -> 2 -> 3 -> 4), the implementation must strictly map each stage 1:1 in the code.
+- **No Unauthorized Stage Merging:** The agent is strictly prohibited from merging stages, skipping intermediate steps, or taking shortcuts in the code (e.g., combining text cleansing and spec extraction into a single prompt/call) under the pretext of optimization or quota preservation, unless explicitly authorized by the user.
+- **Intermediate Artifacts Required:** In any multi-stage pipeline, the agent must save or log intermediate outputs (e.g., cleaned markdown from Stage 1) to verify that each stage actually executed as designed before feeding data to the next stage.
+
+## 9. Zero Unauthorized Truncation & Exhaustive Reference Feeding
+- **No Silent Sampling:** The agent is strictly forbidden from truncating, slicing (e.g., `[:150]`), or sampling any reference dataset, controlled vocabulary, or prompt context under the assumption of saving tokens or optimization, unless explicitly instructed by the user.
+- **Exhaustive Ground Truth Feeding:** All controlled vocabularies and ground truth lists must be injected 100% in full. If a reference dataset contains 470 terms, all 470 terms must be passed into the prompt.
+- **Automated Invariant Assertion:** All pipeline code must assert that the injected terminology count exactly equals the total count in the master vocabulary file. If any discrepancy or truncation occurs, execution must halt immediately with an assertion error.
+
