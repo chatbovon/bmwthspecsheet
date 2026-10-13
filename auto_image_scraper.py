@@ -13,19 +13,27 @@ import difflib
 # Configurator specifications for our targeted test models
 SCRAPE_CONFIGS = {
     "420i Coupé M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G22/12HBZ0Y",
         "engine_keyword": "420i",
         "image_dir": "images/4series_images",
         "model_key_name": "BMW_420i_Coupe_M_Sport"
     },
     "430i Coupé M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G22/42HBZ07",
         "engine_keyword": "430i",
         "image_dir": "images/4series_images",
         "model_key_name": "BMW_430i_Coupe_M_Sport"
     },
     "M440i xDrive": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G22/72HBZ0V",
         "engine_keyword": "M440i",
         "image_dir": "images/4series_images",
         "model_key_name": "BMW_M440i_xDrive"
+    },
+    "430i Convertible M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G23/32FPZ9A",
+        "engine_keyword": "430i",
+        "model_key_name": "BMW_430i_Convertible_M_Sport"
     },
     "X3 20d xDrive M Sport Pro": {
         "engine_keyword": "20d",
@@ -192,25 +200,57 @@ async def capture_360_canvas(page, filename):
         
         await page.screenshot(path=filename)
         
-        # Show overlays back immediately
-        await show_viewport_overlays(page)
-        
-        # Compress and resize to 50%
-        try:
-            from PIL import Image
-            with Image.open(filename) as img:
-                w, h = img.size
-                resized_img = img.resize((w // 2, h // 2), Image.Resampling.LANCZOS)
-                resized_img.save(filename, optimize=True, quality=85)
-            print(f"    [SUCCESS] Saved viewport screenshot & compressed (50%): {filename}")
-        except Exception as e:
-            print(f"    [WARNING] Failed to compress viewport screenshot: {e}")
-            
-        return False
+def detect_body_style(model_name: str, series_name: str = ""):
+    """Detect target body style and define required and forbidden tokens."""
+    text = f"{series_name} {model_name}".lower()
+    if "gran coupe" in text or "gran coupé" in text:
+        return {
+            "style": "gran_coupe",
+            "required": ["gran coupe", "gran coupé", "f74", "g26", "g16"],
+            "forbidden": ["convertible", "cabrio", "touring"]
+        }
+    if "coupe" in text or "coupé" in text:
+        return {
+            "style": "coupe",
+            "required": ["coupe", "coupé", "g22", "g42", "g82", "g87"],
+            "forbidden": ["convertible", "cabrio", "g23", "g83", "touring", "gran coupe", "gran coupé"]
+        }
+    if "convertible" in text or "cabrio" in text:
+        return {
+            "style": "convertible",
+            "required": ["convertible", "cabrio", "g23", "g83", "g29"],
+            "forbidden": ["coupe", "coupé", "g22", "touring", "gran coupe", "gran coupé"]
+        }
+    if "touring" in text:
+        return {
+            "style": "touring",
+            "required": ["touring", "g21", "g61", "g81", "g99"],
+            "forbidden": ["sedan", "saloon", "coupe", "convertible"]
+        }
+    if "gran sedan" in text or "li" in text.split():
+        return {
+            "style": "gran_sedan",
+            "required": ["gran sedan", "li", "g28"],
+            "forbidden": ["touring", "convertible", "coupe"]
+        }
+    return {
+        "style": "default",
+        "required": [],
+        "forbidden": []
+    }
 
-async def discover_series_url(page, series_name):
+def normalize_color_name(name: str) -> str:
+    """Extract canonical core color identity by stripping noise prefixes and finish suffixes."""
+    import re
+    s = name.lower().strip()
+    s = re.sub(r'^(bmw\s+individual|individual|m)\s+', '', s)
+    s = re.sub(r'\s+(metallic|solid|paintwork|paint)$', '', s)
+    s = re.sub(r'\s+', ' ', s).strip()
+    return s
+
+async def discover_configurator_url(page, series_name, model_name):
     url = "https://configure.bmw.co.th/"
-    print(f"  [DISCOVERY] Navigating to portal {url} to find series: '{series_name}'...")
+    print(f"  [DISCOVERY] Navigating to portal {url} to find: '{series_name}' | '{model_name}'...")
     await page.goto(url, timeout=90000)
     await page.wait_for_load_state("domcontentloaded")
     await asyncio.sleep(8)
@@ -248,19 +288,21 @@ async def discover_series_url(page, series_name):
         return results;
     }""")
     
-    # Process links to find the best match for series_name (e.g. "BMW X3")
+    # Process links with Body Style Fingerprinting
     clean_series = series_name.replace("BMW ", "").strip().lower()
     target_id = clean_series.replace("series", "").strip()
+    body_info = detect_body_style(model_name, series_name)
     
     best_href = None
     best_score = 0
     seen_hrefs = set()
     
-    print(f"  [DISCOVERY] Looking for exact token match for target identifier: '{target_id}'")
+    print(f"  [DISCOVERY] Target Identifier: '{target_id}', Body Style: '{body_info['style']}'")
     
     for link in links:
         href = link["href"]
         text_lower = link["text"].lower()
+        full_candidate = f"{text_lower} {href.lower()}"
         if href in seen_hrefs:
             continue
         seen_hrefs.add(href)
@@ -269,7 +311,6 @@ async def discover_series_url(page, series_name):
         raw_tokens = text_lower.replace("\n", " ").split()
         tokens = []
         for t in raw_tokens:
-            # Strip Thai characters (Unicode range 0x0E00 to 0x0E7F)
             t_no_thai = "".join(c for c in t if not (0x0E00 <= ord(c) <= 0x0E7F))
             clean_tok = "".join(char for char in t_no_thai if char.isalnum())
             if clean_tok:
@@ -293,15 +334,25 @@ async def discover_series_url(page, series_name):
             if target_id == "7" and "i7" in tokens:
                 score -= 40
                 
+            # Body Style Match Bonus
+            if body_info["required"]:
+                if any(req in full_candidate for req in body_info["required"]):
+                    score += 150
+                    
+            # Conflict Penalty Guard: strictly eliminate cross-body matches (e.g., Convertible when searching Coupé)
+            if body_info["forbidden"]:
+                if any(forbid in full_candidate for forbid in body_info["forbidden"]):
+                    score -= 500
+                
             if score > best_score:
                 best_score = score
                 best_href = href
             
     if best_href and best_score >= 80:
-        print(f"  [DISCOVERY] Best matched configurator URL for '{series_name}' is: {best_href} (Score: {best_score})")
+        print(f"  [DISCOVERY] Best matched configurator URL for '{model_name}' is: {best_href} (Score: {best_score})")
         return best_href
         
-    print(f"  [DISCOVERY] [WARNING] Could not find confident dynamic link for series '{series_name}' in portal (Best score: {best_score}).")
+    print(f"  [DISCOVERY] [WARNING] Could not find confident dynamic link for '{model_name}' (Best score: {best_score}).")
     return None
 
 def log_scraper_warning(model_name, best_score, best_candidate):
@@ -408,7 +459,7 @@ async def select_engine(page, engine_keyword):
         print("  [NAV] Engine tab not found, using default pre-selected option.")
         return True
 
-async def scrape_model_paintworks(page, config, model_name):
+async def scrape_model_paintworks(page, config, model_name, model_obj=None):
     base_url = config["base_url"]
     engine_keyword = config["engine_keyword"]
     image_dir = config["image_dir"]
@@ -439,7 +490,9 @@ async def scrape_model_paintworks(page, config, model_name):
         print(f"  [ERROR] Engine keyword '{engine_keyword}' could not be selected. Skipping.")
         return {}
         
-    # Validate model name on the top-left of the screen (e.g. h4.model-name)
+    # Validate model name and Body Style Conflict Guard
+    current_url = page.url.lower()
+    header_text_clean = ""
     try:
         model_name_locator = page.locator("h4.model-name")
         if await model_name_locator.count() > 0:
@@ -455,6 +508,13 @@ async def scrape_model_paintworks(page, config, model_name):
             print("  [VALIDATION] [WARNING] Could not locate 'h4.model-name' header on screen. Proceeding with caution.")
     except Exception as e:
         print(f"  [VALIDATION] [WARNING] Error checking model header element: {e}. Proceeding.")
+        
+    # Strict Body Style Conflict Guard
+    body_info = detect_body_style(model_name)
+    for forbid_kw in body_info["forbidden"]:
+        if forbid_kw in current_url or forbid_kw in header_text_clean:
+            print(f"  [BODY GUARD REJECTED] Page URL or header matches forbidden term '{forbid_kw}' for target '{model_name}' (Body Style: {body_info['style']})! Aborting.")
+            return {}
     
     # Click Paint tab
     print("  [NAV] Clicking 'สี' (Paint) tab...")
@@ -470,6 +530,31 @@ async def scrape_model_paintworks(page, config, model_name):
     paint_swatches = page.locator("con-swatch[data-node-category-alt='Paintwork']")
     count_swatches = await paint_swatches.count()
     print(f"  Found {count_swatches} paint swatches.")
+    
+    # Specsheet-Driven Color Verification Guard
+    if model_obj:
+        expected_colors = []
+        for cat in model_obj.get("specifications", []):
+            cat_name = cat.get("category", "").lower()
+            if "paintwork" in cat_name or "สีตัวถัง" in cat_name:
+                expected_colors = [d.get("topic", "") for d in cat.get("details", []) if d.get("value", "").strip() != "-"]
+                break
+        if expected_colors:
+            expected_cores = {normalize_color_name(c) for c in expected_colors if c}
+            page_swatch_names = []
+            for idx in range(count_swatches):
+                swatch = paint_swatches.nth(idx)
+                c_name = await swatch.get_attribute("data-test-swatch-name")
+                if c_name:
+                    page_swatch_names.append(c_name)
+            page_cores = {normalize_color_name(c) for c in page_swatch_names if c}
+            matched_cores = expected_cores.intersection(page_cores)
+            print(f"  [COLOR GUARD] Specsheet core colors ({len(expected_cores)}): {expected_cores}")
+            print(f"  [COLOR GUARD] Configurator swatches ({len(page_cores)}): {page_cores}")
+            print(f"  [COLOR GUARD] Matched color overlap: {len(matched_cores)}/{len(expected_cores)}")
+            if len(expected_cores) > 0 and len(matched_cores) == 0:
+                print(f"  [COLOR GUARD REJECTED] Zero overlap with specsheet colors! Possible variant mismatch. Aborting.")
+                return {}
     
     # Find default selected paint swatch first
     initial_code = None
@@ -703,11 +788,11 @@ async def main():
             # Resolve base_url dynamically if not present
             if "base_url" not in config or not config["base_url"]:
                 print(f"\n  [DISCOVERY] No base_url for {model_name}. Attempting dynamic discovery...")
-                discovered_url = await discover_series_url(page, series_name)
+                discovered_url = await discover_configurator_url(page, series_name, model_name)
                 if discovered_url:
                     config["base_url"] = discovered_url
                 else:
-                    print(f"  [ERROR] Could not dynamically discover URL for '{series_name}'. Skipping.")
+                    print(f"  [ERROR] Could not dynamically discover URL for '{model_name}'. Skipping.")
                     continue
             
             print(f"\n==================================================")
@@ -718,7 +803,7 @@ async def main():
             print(f"==================================================")
             
             try:
-                images_dict = await scrape_model_paintworks(page, config, model_name)
+                images_dict = await scrape_model_paintworks(page, config, model_name, model)
                 
                 # Automatically resolve unmapped default paints to the single missing expected color
                 images_dict = resolve_unmapped_paints(model, images_dict)
