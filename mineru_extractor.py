@@ -94,17 +94,38 @@ def generate_with_fallback(client, contents, config=None, is_json=False):
     raise RuntimeError("All models failed to generate content after retries.")
 
 
+def robust_json_loads(text: str):
+    if not text:
+        return {}
+    clean_text = text.strip()
+    if clean_text.startswith("```json"):
+        clean_text = clean_text[7:]
+    elif clean_text.startswith("```"):
+        clean_text = clean_text[3:]
+    if clean_text.endswith("```"):
+        clean_text = clean_text[:-3]
+    clean_text = clean_text.strip()
+    try:
+        return json.loads(clean_text)
+    except Exception:
+        # Sanitize invalid \uXXXX escape sequences (e.g. \u not followed by 4 hex digits)
+        sanitized = re.sub(r'\\u(?![0-9a-fA-F]{4})', r'\\\\u', clean_text)
+        return json.loads(sanitized)
+
+
 # ─── PROMPTS ──────────────────────────────────────────────────────────────────
 
 PROMPT_MULTIMODAL_PROOFREADER_TH = """คุณคือผู้เชี่ยวชาญด้านการตรวจทานเอกสารสเปกรถยนต์ BMW (Automotive Specification Proofreader)
 คุณได้รับข้อมูล 2 ส่วนพร้อมกัน:
 1. ไฟล์ PDF โบรชัวร์ต้นฉบับของ BMW (ใช้เป็น Visual Ground Truth ความถูกต้องสูงสุด)
-2. รายชื่อหัวข้อสเปก, ชื่อหมวดหมู่, และชื่อสี/วัสดุเบาะ ที่สกัดมาได้จากระบบ OCR
+2. รายชื่อหัวข้อสเปก, ชื่อหมวดหมู่, ค่าสเปกที่เป็นคำอธิบาย และชื่อสี/วัสดุเบาะ ที่สกัดมาได้จากระบบ OCR
 
 เป้าหมายของคุณคือ:
-นำรายชื่อข้อความไปเทียบกับ "ภาพจริงบนหน้า PDF" เพื่อตรวจทานและแก้ไขคำสะกดผิด, สระลอย, วรรณยุกต์เพี้ยน หรือพยัญชนะที่ OCR อ่านผิดพลาด ให้ตรงกับตัวอักษรที่พิมพ์อยู่จริงบนเอกสาร PDF 100%
-- หากคำใดสะกดถูกต้องอยู่แล้ว ให้คงไว้ตามเดิม
-- หากคำใดมีตัวสะกดผิดเพี้ยน ให้แก้ไขให้ตรงกับเอกสาร PDF
+นำรายชื่อข้อความไปเทียบกับ "ภาพจริงบนหน้า PDF" เพื่อตรวจทานและแก้ไขคำสะกดผิดให้ตรงกับตัวอักษรที่พิมพ์อยู่จริงบนเอกสาร PDF 100%:
+- แก้ไขคำสะกดผิด, สระลอย, วรรณยุกต์เพี้ยน หรือพยัญชนะไทยที่ OCR อ่านผิดพลาด (เช่น "โพเบรก" -> "ไฟเบรก", "สปอยเลอร์หลังดีไชน์" -> "สปอยเลอร์หลังดีไซน์")
+- ตรวจทานคำศัพท์ภาษาอังกฤษที่ปรากฏในวงเล็บหรือในตารางอย่างเข้มงวด และแก้ไขตัวอักษรที่ OCR อ่านผิดพลาด (เช่น "(Broke Assist)" -> "(Brake Assist)")
+- ห้ามแทรกช่องว่างส่วนเกินคั่นกลางคำหรือกลุ่มคำภาษาไทยโดยไม่จำเป็น เช่น ให้คง "ระบบจำตำแหน่ง", "ระบบเปิด-ปิดบานประตู", "ระบบปรับการทำงาน", "เมื่อเกิดการชน" ไว้อย่างถูกต้องตามต้นฉบับ
+- หากคำใดสะกดถูกต้องและตรงกับ PDF อยู่แล้ว ให้คงไว้ตามเดิม
 - ตอบกลับในรูปแบบ STRICT JSON Object เท่านั้น โดยมีโครงสร้าง:
 {
   "คำเดิมจาก OCR": "คำที่ถูกต้องตาม PDF"
@@ -470,6 +491,28 @@ def extract_candidate_terms(md_content: str) -> list[str]:
                 if first_cell not in terms:
                     terms.append(first_cell)
                     
+        # Scan value cells for descriptive text (excluding pure numbers, dashes, and checkmarks)
+        for c in cells[1:]:
+            c_clean = re.sub(r'<[^>]+>', '', c).strip().replace('&#x27;', "'").replace('&quot;', '"').replace('&amp;', '&')
+            if not c_clean or c_clean in ['■', '-'] or len(c_clean) < 4:
+                continue
+            if not re.search(r'[a-zA-Zก-๙]', c_clean):
+                continue
+            text_without_nums = re.sub(r'[\d\s\/\,\.\-\:\;\(\)\%\*\+\~\=]', '', c_clean)
+            if not text_without_nums or len(text_without_nums) < 2:
+                continue
+            pure_unit = re.sub(r'^(ซีซี|กก|กก\.|กิโลกรัม|ลิตร|วินาที|กม\.|กม\/ชม|กม\/ชม\.|มม\.|มิลลิเมตร|km\/h|rpm|cc|hp|kW|kg|l|s)$', '', text_without_nums.strip())
+            if not pure_unit:
+                continue
+            if any(h in c_clean for h in ['คุณลักษณะเฉพาะ', 'รายละเอียดด้านเทคนิค', 'TECHNICAL DATA', 'Paintwork']):
+                continue
+            # Skip pure model header rows
+            cell_texts = [re.sub(r'<[^>]+>', '', cl).strip() for cl in cells if cl.strip()]
+            if len(cell_texts) > 1 and all(any(m in x for m in ['530e', '520d', '320d', '330e', 'M340i', 'Sport', 'Inspiring', 'M Sport', 'xDrive']) for x in cell_texts[1:]):
+                continue
+            if c_clean not in terms:
+                terms.append(c_clean)
+                
         if any(uph in row for uph in ['Leather', 'Sensatec', 'Vernasca', 'stitching', 'Stitching', 'หนัง']):
             for c in cells:
                 c_clean = re.sub(r'<[^>]+>', '', c).strip().replace('&#x27;', "'").replace('&quot;', '"').replace('&amp;', '&')
@@ -524,7 +567,7 @@ def section_1_multimodal_proofreader(raw_md: str, pdf_path: str, lang_code: str 
     full_prompt = f"{prompt}\n\nHere is the list of OCR terms to verify and correct against the PDF:\n\n{json.dumps(candidate_terms, ensure_ascii=False, indent=2)}"
     
     try:
-        response = None
+        corrections = None
         models_to_try = ["gemini-3.5-flash-lite", "gemini-3.6-flash", "gemini-3.7-flash", "gemini-3.8-flash"]
         for m_name in models_to_try:
             for attempt in range(4):
@@ -534,20 +577,20 @@ def section_1_multimodal_proofreader(raw_md: str, pdf_path: str, lang_code: str 
                         contents=[uploaded_file, full_prompt],
                         config=types.GenerateContentConfig(response_mime_type="application/json")
                     )
-                    break
+                    corrections = robust_json_loads(response.text)
+                    if isinstance(corrections, list) and len(corrections) > 0:
+                        corrections = corrections[0]
+                    if isinstance(corrections, dict):
+                        break
                 except Exception as e:
                     wait_s = (attempt + 1) * 3
                     print(f"   -> Warning: {m_name} attempt {attempt+1} failed: {e}. Retrying in {wait_s}s...")
                     time.sleep(wait_s)
-            if response:
+            if corrections is not None:
                 break
-        if not response:
+        if corrections is None:
             raise RuntimeError("All models failed to generate content during proofreading.")
         
-        corrections = json.loads(response.text)
-        if isinstance(corrections, list) and len(corrections) > 0:
-            corrections = corrections[0]
-            
         actual_changes = {k: v for k, v in corrections.items() if k != v}
         print(f"[SECTION 1 SUCCESS] Proofreading complete in {time.time() - t0:.2f}s (Corrected {len(actual_changes)} terms)")
         
@@ -678,7 +721,7 @@ def section_3_paint_extractor(paint_md: str, lang_code: str = "th") -> dict:
     full_prompt = f"{prompt}\n\nHere is the CLEANED paintwork & upholstery matrix table content:\n\n{paint_md}"
     response = generate_with_fallback(client, full_prompt, is_json=True)
     
-    data = json.loads(response.text)
+    data = robust_json_loads(response.text)
     if isinstance(data, list) and len(data) > 0:
         data = data[0]
         
@@ -728,10 +771,11 @@ def apply_business_rules(final_output: dict, source_pdf_path: str, lang_code: st
             if mname in active_map:
                 pwr, tm, nt = active_map[mname]
                 for cat in m.get("specifications", []):
-                    if cat.get("category") == cat_engine:
+                    c_name = cat.get("category", "").strip().upper()
+                    if c_name == cat_engine.upper():
                         cat["details"].append({"topic": top_pwr, "value": pwr})
                         cat["details"].append({"topic": top_time, "value": tm})
-                    elif cat.get("category") == cat_ref:
+                    elif c_name == cat_ref.upper():
                         cat["details"].append({"topic": top_note, "value": nt})
 
     # Rule 2: iX3 800V append to sixth-gen eDrive
@@ -787,26 +831,11 @@ def apply_recovery_and_healing_rules(final_output: dict, source_pdf_path: str, l
                 new_series = f"BMW {lead} Series"
     final_output["series"] = new_series
 
-    # ─── 3. Blank Cell Recovery for Standard Safety/Tech ──────────────────────────
-    safety_keywords = [
-        "airbag", "ถุงลม",
-        "abs", "anti-lock", "ป้องกันล้อล็อก",
-        "dsc", "dynamic stability control", "ควบคุมเสถียรภาพ",
-        "isofix", "child seat mounting", "ยึดเบาะนั่งสำหรับเด็ก", "จุดยึดเบาะนั่ง",
-        "brake assist", "เสริมแรงเบรก",
-        "alarm", "สัญญาณเตือนภัย", "สัญญาณกันขโมย",
-        "teleservices", "teleservice",
-        "emergency call", "โทรออกฉุกเฉิน", "โทรฉุกเฉิน",
-        "comfort access", "สะดวกสบายในการเข้า", "เข้าออกห้องโดยสาร"
-    ]
-    for model in final_output.get("models", []):
-        for spec in model.get("specifications", []):
-            for detail in spec.get("details", []):
-                val = str(detail.get("value", "")).strip()
-                topic = str(detail.get("topic", "")).lower()
-                if val in ("", "-", "None", "none"):
-                    if any(kw in topic for kw in safety_keywords):
-                        detail["value"] = "■"
+    # ─── 3. Blank Cell Recovery for Standard Safety/Tech (DEPRECATED & DISABLED) ───
+    # Disabled by user request: Pure Python Stage 2 table parser already extracts ■ and -
+    # verbatim from MinerU HTML tables. This heuristic was causing false-positive ■ on
+    # non-standard equipment (e.g. 'ช่วงล่างถุงลม Adaptive 2-axle' matching 'ถุงลม').
+    pass
 
     # ─── 4. Single Variant Auto Recovery ──────────────────────────────────────────
     if len(final_output.get("models", [])) == 1:
