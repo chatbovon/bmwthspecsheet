@@ -2,12 +2,13 @@ import os
 import sys
 import json
 import time
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 from google import genai
 from google.genai import types
-
-# Load environment variables
-load_dotenv()
 
 sys.stdout.reconfigure(encoding='utf-8')
 

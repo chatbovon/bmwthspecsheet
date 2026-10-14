@@ -1,14 +1,6 @@
 name: BMW Spec Comparison Tool
 
 on:
-  push:
-    paths:
-      - 'bmw_master_specs.json'
-      - 'bmw_master_specs_en.json'
-  pull_request:
-    paths:
-      - 'bmw_master_specs.json'
-      - 'bmw_master_specs_en.json'
   workflow_dispatch: # Allows manual runs from the GitHub Actions tab
 
 jobs:
@@ -27,12 +19,8 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install google-genai
+        pip install python-dotenv google-genai
 
     - name: Run Comparison Tool
-      env:
-        GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}
-        GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
-        GEMINI_API_KEY_3: ${{ secrets.GEMINI_API_KEY_3 }}
       run: |
-        python -u run_production_validation.py
+        python -u scratch/compare_th_en_db.py
