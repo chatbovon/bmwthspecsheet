@@ -645,7 +645,7 @@ def section_2_specs_extractor(specs_md: str, lang_code: str = "th") -> dict:
         
     first_row_cells = re.findall(r'<td[^>]*>(.*?)</td>', rows[0], flags=re.DOTALL)
     models = [
-        re.sub(r'<[^>]+>', '', c).strip()
+        re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', c)).strip()
         .replace('&#x27;', "'").replace('&quot;', '"').replace('&amp;', '&')
         for c in first_row_cells[1:]
     ]
@@ -658,7 +658,7 @@ def section_2_specs_extractor(specs_md: str, lang_code: str = "th") -> dict:
     for r in rows[1:]:
         cells = re.findall(r'<td[^>]*>(.*?)</td>', r, flags=re.DOTALL)
         cell_texts = [
-            re.sub(r'<[^>]+>', '', c).strip()
+            re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', c)).strip()
             .replace('&#x27;', "'").replace('&quot;', '"').replace('&amp;', '&')
             for c in cells
         ]
@@ -859,6 +859,18 @@ def apply_recovery_and_healing_rules(final_output: dict, source_pdf_path: str, l
                     continue
                 if str(detail.get("value", "")).strip() in ("-", "", "None"):
                     detail["value"] = "■"
+
+    # ─── 5. Whitespace & Quote Normalization for Topics and Values ────────────────
+    for model in final_output.get("models", []):
+        for spec in model.get("specifications", []):
+            for detail in spec.get("details", []):
+                if isinstance(detail.get("topic"), str):
+                    detail["topic"] = re.sub(r'\s+', ' ', detail["topic"]).strip()
+                val = detail.get("value")
+                if isinstance(val, str) and val not in ("■", "-"):
+                    cleaned_val = re.sub(r'\s+', ' ', val).strip()
+                    cleaned_val = cleaned_val.replace('‘', "'").replace('’', "'").replace('“', '"').replace('”', '"')
+                    detail["value"] = cleaned_val
 
 
 def section_4_json_assembler(specs_json: dict, paint_json: dict, source_pdf_path: str, lang_code: str = "th") -> dict:
