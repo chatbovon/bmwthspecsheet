@@ -1191,7 +1191,9 @@
             .full-screen-image-modal,
             #pageTitle,
             #pageSubtitle,
-            #btnPrintModal {
+            #btnPrintModal,
+            .section-pdf-source,
+            .row-pdf-source {
                 display: none !important;
             }
 
@@ -3876,7 +3878,7 @@
 
         // 5. PDF Brochure Links Row
         const trPdfSection = document.createElement('tr');
-        trPdfSection.className = 'section-title';
+        trPdfSection.className = 'section-title section-pdf-source';
         const tdPdfSection = document.createElement('td');
         tdPdfSection.colSpan = selectedModels.length + 1;
         tdPdfSection.innerText = trans.sourceDocSection;
@@ -3884,6 +3886,7 @@
         tbody.appendChild(trPdfSection);
 
         const trPdfRow = document.createElement('tr');
+        trPdfRow.className = 'row-pdf-source';
         const tdPdfLabel = document.createElement('td');
         tdPdfLabel.innerText = "PDF Source";
         trPdfRow.appendChild(tdPdfLabel);
@@ -4712,7 +4715,7 @@
 
         // Format cloned rows and cells
         tableClone.querySelectorAll('tr').forEach(tr => {
-            if (tr.classList.contains('hide-search') || tr.classList.contains('hide-same') || tr.classList.contains('hide-all-empty')) {
+            if (tr.classList.contains('hide-search') || tr.classList.contains('hide-same') || tr.classList.contains('hide-all-empty') || tr.classList.contains('section-pdf-source') || tr.classList.contains('row-pdf-source')) {
                 tr.remove();
                 return;
             }
