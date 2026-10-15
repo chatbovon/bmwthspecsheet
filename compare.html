@@ -990,6 +990,427 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* Print & Export Button */
+        .btn-print-action {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: #ffffff !important;
+            border: 1px solid #0284c7;
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+        }
+        .btn-print-action:hover {
+            background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+            border-color: #0369a1;
+            color: #ffffff !important;
+            transform: translateY(-1px);
+        }
+
+        /* Print & Export Modal */
+        .print-modal-container {
+            max-width: 520px;
+            width: 90%;
+        }
+        .print-modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 18px 22px;
+        }
+        .print-option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .print-option-label {
+            font-size: 0.88em;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .print-radio-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .print-radio-group-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+        }
+        .print-radio-card {
+            border: 1.5px solid var(--border-color);
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            user-select: none;
+        }
+        .print-radio-card:hover {
+            border-color: var(--accent-color);
+            background: var(--bg-preview-cell);
+        }
+        .print-radio-card.active {
+            border-color: var(--accent-color);
+            background: rgba(2, 132, 199, 0.08);
+            box-shadow: 0 0 0 1px var(--accent-color);
+        }
+        .print-radio-card input[type="radio"] {
+            margin-top: 3px;
+            cursor: pointer;
+            accent-color: var(--accent-color);
+        }
+        .radio-card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .radio-card-content strong {
+            font-size: 0.86em;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .radio-card-content small {
+            font-size: 0.72em;
+            color: var(--text-secondary);
+            line-height: 1.25;
+        }
+        .print-summary-box {
+            background: var(--bg-preview-cell);
+            border: 1px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 0.82em;
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .print-modal-footer {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            padding: 14px 22px;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-controls);
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-modal-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.86em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+        .btn-print-primary {
+            background: #0284c7;
+            color: #ffffff;
+        }
+        .btn-print-primary:hover {
+            background: #0369a1;
+            transform: translateY(-1px);
+        }
+        .btn-save-image {
+            background: #10b981;
+            color: #ffffff;
+        }
+        .btn-save-image:hover {
+            background: #059669;
+            transform: translateY(-1px);
+        }
+        .btn-modal-cancel {
+            padding: 9px 14px;
+            border-radius: 8px;
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.86em;
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-modal-cancel:hover {
+            background: var(--bg-tag-btn);
+            color: var(--text-primary);
+        }
+
+        /* Print Header Banner (Hidden on screen) */
+        .print-header-banner {
+            display: none;
+        }
+
+        /* Media Print Rules */
+        @media print {
+            /* Force light background and dark text */
+            html, body {
+                background: #ffffff !important;
+                color: #0f172a !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                font-family: 'Prompt', -apple-system, sans-serif !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+                max-width: 100% !important;
+                background: #ffffff !important;
+            }
+
+            /* Hide all non-essential UI */
+            .top-nav,
+            .controls-panel,
+            .slot-card-add,
+            .slot-actions,
+            .btn-remove-slot,
+            .modal-overlay,
+            .toast-notification,
+            .premium-tooltip,
+            .full-screen-image-modal,
+            #pageTitle,
+            #pageSubtitle,
+            #btnPrintModal {
+                display: none !important;
+            }
+
+            /* Print Header Banner */
+            .print-header-banner {
+                display: flex !important;
+                justify-content: space-between;
+                align-items: flex-end;
+                border-bottom: 2px solid #0284c7;
+                padding-bottom: 6px;
+                margin-bottom: 10px;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            .print-brand-title {
+                font-size: 13pt;
+                font-weight: 700;
+                color: #0369a1 !important;
+                line-height: 1.2;
+            }
+            .print-brand-subtitle {
+                font-size: 9pt;
+                color: #475569 !important;
+                font-weight: 500;
+            }
+            .print-header-meta {
+                font-size: 8pt;
+                color: #64748b !important;
+                text-align: right;
+                line-height: 1.35;
+            }
+
+            /* Handle Car Photos Header */
+            body.print-hide-photos .slots-container {
+                display: none !important;
+            }
+
+            body.print-show-photos .slots-container {
+                display: grid !important;
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important;
+                gap: 8px !important;
+                margin-bottom: 10px !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            body.print-show-photos .slot-card {
+                border: 1px solid #cbd5e1 !important;
+                padding: 6px !important;
+                border-radius: 6px !important;
+                box-shadow: none !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                background: #ffffff !important;
+            }
+            body.print-show-photos .slot-img-container {
+                height: 48px !important;
+                margin-bottom: 4px !important;
+                background: #f8fafc !important;
+            }
+            body.print-show-photos .slot-img {
+                max-height: 44px !important;
+            }
+            body.print-show-photos .slot-model-name {
+                font-size: 8.5pt !important;
+                line-height: 1.2 !important;
+                color: #0f172a !important;
+            }
+            body.print-show-photos .slot-series-name {
+                font-size: 7.5pt !important;
+                color: #64748b !important;
+            }
+
+            /* Table Container */
+            .table-container {
+                overflow: visible !important;
+                max-height: none !important;
+                height: auto !important;
+                border: none !important;
+                box-shadow: none !important;
+                background: #ffffff !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            table {
+                width: 100% !important;
+                table-layout: fixed !important;
+                border-collapse: collapse !important;
+                border: 1px solid #94a3b8 !important;
+                background: #ffffff !important;
+            }
+
+            /* Sticky Reset */
+            thead th,
+            thead th:first-child,
+            td:first-child,
+            tr.section-title td {
+                position: static !important;
+            }
+
+            /* Table Header */
+            thead {
+                display: table-header-group !important;
+            }
+            thead th {
+                background-color: #0284c7 !important;
+                color: #ffffff !important;
+                font-size: 8.5pt !important;
+                padding: 6px 6px !important;
+                border: 1px solid #0369a1 !important;
+                text-align: center !important;
+                vertical-align: middle !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            thead th:first-child {
+                background-color: #0369a1 !important;
+                color: #ffffff !important;
+                text-align: left !important;
+            }
+
+            /* Column Sizing for Portrait (Default) */
+            body.print-portrait thead th:first-child,
+            body.print-portrait td:first-child {
+                width: 27% !important;
+            }
+
+            /* Column Sizing for Landscape */
+            body.print-landscape thead th:first-child,
+            body.print-landscape td:first-child {
+                width: 22% !important;
+            }
+
+            /* Font Size Options in Print */
+            body.print-font-compact thead th { font-size: 8.5pt !important; padding: 5px 6px !important; }
+            body.print-font-compact td { font-size: 8pt !important; padding: 4px 6px !important; line-height: 1.25 !important; }
+            body.print-font-compact tr.section-title td { font-size: 8.5pt !important; padding: 5px 8px !important; }
+
+            body.print-font-large thead th { font-size: 11pt !important; padding: 7px 7px !important; }
+            body.print-font-large td { font-size: 10.5pt !important; padding: 6px 7px !important; line-height: 1.35 !important; }
+            body.print-font-large tr.section-title td { font-size: 11pt !important; padding: 7px 9px !important; }
+
+            body.print-font-xlarge thead th { font-size: 12.5pt !important; padding: 9px 8px !important; }
+            body.print-font-xlarge td { font-size: 12pt !important; padding: 8px 8px !important; line-height: 1.4 !important; }
+            body.print-font-xlarge tr.section-title td { font-size: 12.5pt !important; padding: 9px 10px !important; }
+
+            /* Table Cells */
+            td {
+                padding: 4px 6px !important;
+                font-size: 8pt !important;
+                line-height: 1.25 !important;
+                border: 1px solid #cbd5e1 !important;
+                word-break: break-word !important;
+                vertical-align: middle !important;
+                color: #0f172a !important;
+                background-color: #ffffff !important;
+            }
+
+            td:first-child {
+                font-weight: 600 !important;
+                background-color: #f8fafc !important;
+                border-right: 2px solid #94a3b8 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* Section Header */
+            tr.section-title td {
+                background-color: #e2e8f0 !important;
+                color: #0369a1 !important;
+                font-weight: 700 !important;
+                font-size: 8.5pt !important;
+                padding: 5px 8px !important;
+                border-top: 1.5px solid #94a3b8 !important;
+                border-bottom: 1.5px solid #94a3b8 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* Diff Highlight */
+            tr.row-diff td:not(:first-child) {
+                background-color: #fef3c7 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            tr.row-diff td:first-child {
+                background-color: #fffbeb !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* Page Break Rules */
+            tr {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            tr.section-title {
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            /* Icons & Badges */
+            .check-icon {
+                color: #059669 !important;
+                width: 1.1em !important;
+                height: 1.1em !important;
+            }
+            .dash-icon {
+                color: #94a3b8 !important;
+            }
+            .feature-badge {
+                font-size: 6.5pt !important;
+                padding: 1px 4px !important;
+                border: 1px solid #94a3b8 !important;
+                border-radius: 3px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1042,6 +1463,9 @@
                 <button id="btnReset" class="btn-action" onclick="resetComparison()">
                     <span>🔄 ล้างค่า</span>
                 </button>
+                <button id="btnPrintModal" class="btn-action btn-print-action" onclick="openPrintModal()">
+                    <span>🖨️ สั่งพิมพ์ / บันทึกรูป (A4)</span>
+                </button>
             </div>
         </div>
     </div>
@@ -1049,6 +1473,18 @@
     <!-- Comparison Slots (Cards) -->
     <div class="slots-container" id="slotsContainer">
         <!-- Rendered dynamically -->
+    </div>
+
+    <!-- Print Header Banner (Shown only in print or image capture) -->
+    <div id="printHeaderBanner" class="print-header-banner">
+        <div class="print-header-brand">
+            <div class="print-brand-title" id="printBrandTitle">BMW Thailand • Dynamic Specsheet Comparator</div>
+            <div class="print-brand-subtitle" id="printDocSubtitle">รายงานเปรียบเทียบสเปกข้ามรุ่น (Multi-Model Comparison)</div>
+        </div>
+        <div class="print-header-meta">
+            <div id="printTimestamp">พิมพ์เมื่อ: -</div>
+            <div id="printFilterStatus">โหมด: -</div>
+        </div>
     </div>
 
     <!-- Comparison Table -->
@@ -1093,6 +1529,112 @@
     </div>
 </div>
 
+<!-- Print & Export Modal -->
+<div id="printModal" class="modal-overlay">
+    <div class="modal-container print-modal-container">
+        <div class="modal-header">
+            <h3 class="modal-title" id="printModalTitle">🖨️ ตั้งค่าการพิมพ์และบันทึกรูปภาพ (A4)</h3>
+            <button class="modal-close-btn" onclick="closePrintModal()">&times;</button>
+        </div>
+        <div class="modal-body print-modal-body">
+            <!-- Orientation Options -->
+            <div class="print-option-group">
+                <label class="print-option-label" id="lblOrientation">ทิศทางหน้ากระดาษ (Orientation)</label>
+                <div class="print-radio-group">
+                    <label class="print-radio-card active" id="radioPortraitLabel" onclick="selectPrintOption('orientation', 'portrait')">
+                        <input type="radio" name="printOrientation" value="portrait" checked>
+                        <div class="radio-card-content">
+                            <strong id="optPortraitTitle">📄 แนวตั้ง (Portrait)</strong>
+                            <small id="optPortraitDesc">ค่าเริ่มต้น - เหมาะสำหรับเอกสารและการส่งต่อ</small>
+                        </div>
+                    </label>
+                    <label class="print-radio-card" id="radioLandscapeLabel" onclick="selectPrintOption('orientation', 'landscape')">
+                        <input type="radio" name="printOrientation" value="landscape">
+                        <div class="radio-card-content">
+                            <strong id="optLandscapeTitle">🔄 แนวนอน (Landscape)</strong>
+                            <small id="optLandscapeDesc">ตารางกว้างขึ้น เหมาะสำหรับ 3-4 คัน</small>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Photo Options -->
+            <div class="print-option-group">
+                <label class="print-option-label" id="lblCarPhotos">รูปภาพและการ์ดสรุปรถ (Vehicle Photos)</label>
+                <div class="print-radio-group">
+                    <label class="print-radio-card active" id="radioNoPhotosLabel" onclick="selectPrintOption('photos', 'hide')">
+                        <input type="radio" name="printPhotos" value="hide" checked>
+                        <div class="radio-card-content">
+                            <strong id="optNoPhotosTitle">🚫 ไม่มีรูปรถ</strong>
+                            <small id="optNoPhotosDesc">ค่าเริ่มต้น - ประหยัดพื้นที่ ข้อมูลเริ่มตั้งแต่หัวตาราง</small>
+                        </div>
+                    </label>
+                    <label class="print-radio-card" id="radioWithPhotosLabel" onclick="selectPrintOption('photos', 'show')">
+                        <input type="radio" name="printPhotos" value="show">
+                        <div class="radio-card-content">
+                            <strong id="optWithPhotosTitle">🚗 แสดงรูปภาพรถ</strong>
+                            <small id="optWithPhotosDesc">แสดงรูปภาพขนาดย่อที่หัวตาราง</small>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Font Size Options -->
+            <div class="print-option-group">
+                <label class="print-option-label" id="lblFontSize">ขนาดตัวอักษร (Font Size)</label>
+                <div class="print-radio-group print-radio-group-3">
+                    <label class="print-radio-card active" id="radioFontLargeLabel" onclick="selectPrintOption('fontSize', 'large')">
+                        <input type="radio" name="printFontSize" value="large" checked>
+                        <div class="radio-card-content">
+                            <strong id="optFontLargeTitle">🔍 ใหญ่ (Large)</strong>
+                            <small id="optFontLargeDesc">ค่าเริ่มต้น - อ่านชัดในมือถือ/LINE</small>
+                        </div>
+                    </label>
+                    <label class="print-radio-card" id="radioFontXLargeLabel" onclick="selectPrintOption('fontSize', 'xlarge')">
+                        <input type="radio" name="printFontSize" value="xlarge">
+                        <div class="radio-card-content">
+                            <strong id="optFontXLargeTitle">🔎 ใหญ่พิเศษ</strong>
+                            <small id="optFontXLargeDesc">อ่านง่ายสูงสุด สำหรับจอเล็ก</small>
+                        </div>
+                    </label>
+                    <label class="print-radio-card" id="radioFontCompactLabel" onclick="selectPrintOption('fontSize', 'compact')">
+                        <input type="radio" name="printFontSize" value="compact">
+                        <div class="radio-card-content">
+                            <strong id="optFontCompactTitle">📄 กะทัดรัด</strong>
+                            <small id="optFontCompactDesc">สำหรับพิมพ์กระดาษ ประหยัดหน้า</small>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Live Summary Info Box -->
+            <div class="print-summary-box">
+                <div class="summary-item">
+                    <span>📋</span>
+                    <span id="printModalSummaryText">กำลังเปรียบเทียบรถ 2 คัน</span>
+                </div>
+                <div class="summary-item">
+                    <span>⚡</span>
+                    <span id="printModalFilterText">โหมด: สรุปสำหรับงานขาย</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer print-modal-footer">
+            <button class="btn-modal-action btn-print-primary" id="btnExecPrint" onclick="executePrint()">
+                <span>🖨️ สั่งพิมพ์ (Print)</span>
+            </button>
+            <button class="btn-modal-action btn-save-image" id="btnSaveImage" onclick="executeSaveImage()">
+                <span>🖼️ บันทึกเป็นรูป (Save A4 Image)</span>
+            </button>
+            <button class="btn-modal-cancel" id="btnPrintCancel" onclick="closePrintModal()">ยกเลิก</button>
+        </div>
+    </div>
+</div>
+
+<!-- html2canvas for High-Res Image Export -->
+<script src="html2canvas.min.js"></script>
+
 <!-- Script -->
 <script>
     const TRANSLATIONS = {
@@ -1129,7 +1671,37 @@
             showAllEmptyText: "👁️ แสดงที่ไม่มีทุกรุ่น",
             allEmptySuffix: "ซ่อน",
             viewModeSmart: "✨ สรุปสำหรับงานขาย",
-            viewModeRaw: "📑 ตามโบรชัวร์"
+            viewModeRaw: "📑 ตามโบรชัวร์",
+            btnPrint: "🖨️ สั่งพิมพ์ / บันทึกรูป (A4)",
+            printModalTitle: "🖨️ ตั้งค่าการพิมพ์และบันทึกรูปภาพ (A4)",
+            lblOrientation: "ทิศทางหน้ากระดาษ (Orientation)",
+            optPortraitTitle: "📄 แนวตั้ง (Portrait)",
+            optPortraitDesc: "ค่าเริ่มต้น - เหมาะสำหรับเอกสารและการส่งต่อ",
+            optLandscapeTitle: "🔄 แนวนอน (Landscape)",
+            optLandscapeDesc: "ตารางกว้างขึ้น เหมาะสำหรับ 3-4 คัน",
+            lblCarPhotos: "รูปภาพและการ์ดสรุปรถ (Vehicle Photos)",
+            optNoPhotosTitle: "🚫 ไม่มีรูปรถ",
+            optNoPhotosDesc: "ค่าเริ่มต้น - ประหยัดพื้นที่ ข้อมูลเริ่มตั้งแต่หัวตาราง",
+            optWithPhotosTitle: "🚗 แสดงรูปภาพรถ",
+            optWithPhotosDesc: "แสดงรูปภาพขนาดย่อที่หัวตาราง",
+            lblFontSize: "ขนาดตัวอักษร (Font Size)",
+            optFontLargeTitle: "🔍 ใหญ่ (Large)",
+            optFontLargeDesc: "ค่าเริ่มต้น - ชัดเจนสำหรับดูในมือถือ/LINE",
+            optFontXLargeTitle: "🔎 ใหญ่พิเศษ",
+            optFontXLargeDesc: "อ่านง่ายสูงสุด สำหรับจอเล็ก",
+            optFontCompactTitle: "📄 กะทัดรัด",
+            optFontCompactDesc: "สำหรับพิมพ์กระดาษ ประหยัดหน้า",
+            btnExecPrint: "🖨️ สั่งพิมพ์ (Print)",
+            btnSaveImage: "🖼️ บันทึกเป็นรูป (Save A4 Image)",
+            btnPrintCancel: "ยกเลิก",
+            printBrandTitle: "BMW Thailand • Dynamic Specsheet Comparator",
+            printDocSubtitle: "รายงานเปรียบเทียบสเปกข้ามรุ่น (Multi-Model Comparison)",
+            printTimestampPrefix: "พิมพ์เมื่อ: ",
+            printFilterPrefix: "โหมด: ",
+            printSummaryCount: "กำลังเปรียบเทียบรถ {count} คัน",
+            generatingImageToast: "⏳ กำลังสร้างรูปภาพ A4 ความละเอียดสูง...",
+            imageSavedToast: "✅ บันทึกรูปภาพ A4 เรียบร้อยแล้ว!",
+            imageSaveError: "⚠️ ไม่สามารถสร้างรูปภาพได้ กรุณาลองใหม่อีกครั้ง"
         },
         en: {
             pageTitle: "BMW Multi-Model Diff Comparator",
@@ -1164,7 +1736,37 @@
             showAllEmptyText: "👁️ Show Unavailable",
             allEmptySuffix: "hidden",
             viewModeSmart: "✨ Sales Highlights",
-            viewModeRaw: "📑 Original Brochure"
+            viewModeRaw: "📑 Original Brochure",
+            btnPrint: "🖨️ Print / Save Image (A4)",
+            printModalTitle: "🖨️ Print & Export Settings (A4)",
+            lblOrientation: "Page Orientation",
+            optPortraitTitle: "📄 Portrait",
+            optPortraitDesc: "Default - Standard format, best for sharing",
+            optLandscapeTitle: "🔄 Landscape",
+            optLandscapeDesc: "Wider columns, great for comparing 3-4 vehicles",
+            lblCarPhotos: "Vehicle Photos",
+            optNoPhotosTitle: "🚫 Hide Car Photos",
+            optNoPhotosDesc: "Default - Save vertical space, specs start at header",
+            optWithPhotosTitle: "🚗 Include Car Photos",
+            optWithPhotosDesc: "Show compact vehicle thumbnails at header",
+            lblFontSize: "Font Size",
+            optFontLargeTitle: "🔍 Large",
+            optFontLargeDesc: "Default - Clear & readable on Mobile/Chat",
+            optFontXLargeTitle: "🔎 Extra Large",
+            optFontXLargeDesc: "Maximum readability for smaller screens",
+            optFontCompactTitle: "📄 Compact",
+            optFontCompactDesc: "For physical paper print (saves pages)",
+            btnExecPrint: "🖨️ Print Document",
+            btnSaveImage: "🖼️ Save as A4 Image",
+            btnPrintCancel: "Cancel",
+            printBrandTitle: "BMW Thailand • Dynamic Specsheet Comparator",
+            printDocSubtitle: "Multi-Model Specification Comparison Report",
+            printTimestampPrefix: "Printed on: ",
+            printFilterPrefix: "Mode: ",
+            printSummaryCount: "Comparing {count} vehicles",
+            generatingImageToast: "⏳ Generating high-resolution A4 image...",
+            imageSavedToast: "✅ A4 Image saved successfully!",
+            imageSaveError: "⚠️ Failed to generate image. Please try again."
         }
     };
 
@@ -3567,11 +4169,15 @@
         });
     }
 
-    function showToast(msg) {
+    let toastTimeout = null;
+    function showToast(msg, bgColor = '#10b981', duration = 2500) {
         const toast = document.getElementById('toastNotification');
+        if (!toast) return;
         document.getElementById('toastMessage').innerText = msg;
+        toast.style.background = bgColor;
         toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2500);
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => toast.classList.remove('show'), duration);
     }
 
     // Model Selector Modal Logic
@@ -3760,6 +4366,429 @@
         if (btnRaw) {
             btnRaw.querySelector('span').innerText = trans.viewModeRaw;
         }
+
+        const btnPrint = document.getElementById('btnPrintModal');
+        if (btnPrint) {
+            btnPrint.querySelector('span').innerText = trans.btnPrint;
+        }
+        const printModalTitle = document.getElementById('printModalTitle');
+        if (printModalTitle) printModalTitle.innerText = trans.printModalTitle;
+        const lblOrientation = document.getElementById('lblOrientation');
+        if (lblOrientation) lblOrientation.innerText = trans.lblOrientation;
+        const optPortraitTitle = document.getElementById('optPortraitTitle');
+        if (optPortraitTitle) optPortraitTitle.innerText = trans.optPortraitTitle;
+        const optPortraitDesc = document.getElementById('optPortraitDesc');
+        if (optPortraitDesc) optPortraitDesc.innerText = trans.optPortraitDesc;
+        const optLandscapeTitle = document.getElementById('optLandscapeTitle');
+        if (optLandscapeTitle) optLandscapeTitle.innerText = trans.optLandscapeTitle;
+        const optLandscapeDesc = document.getElementById('optLandscapeDesc');
+        if (optLandscapeDesc) optLandscapeDesc.innerText = trans.optLandscapeDesc;
+        const lblCarPhotos = document.getElementById('lblCarPhotos');
+        if (lblCarPhotos) lblCarPhotos.innerText = trans.lblCarPhotos;
+        const optNoPhotosTitle = document.getElementById('optNoPhotosTitle');
+        if (optNoPhotosTitle) optNoPhotosTitle.innerText = trans.optNoPhotosTitle;
+        const optNoPhotosDesc = document.getElementById('optNoPhotosDesc');
+        if (optNoPhotosDesc) optNoPhotosDesc.innerText = trans.optNoPhotosDesc;
+        const optWithPhotosTitle = document.getElementById('optWithPhotosTitle');
+        if (optWithPhotosTitle) optWithPhotosTitle.innerText = trans.optWithPhotosTitle;
+        const optWithPhotosDesc = document.getElementById('optWithPhotosDesc');
+        if (optWithPhotosDesc) optWithPhotosDesc.innerText = trans.optWithPhotosDesc;
+        const lblFontSize = document.getElementById('lblFontSize');
+        if (lblFontSize) lblFontSize.innerText = trans.lblFontSize;
+        const optFontLargeTitle = document.getElementById('optFontLargeTitle');
+        if (optFontLargeTitle) optFontLargeTitle.innerText = trans.optFontLargeTitle;
+        const optFontLargeDesc = document.getElementById('optFontLargeDesc');
+        if (optFontLargeDesc) optFontLargeDesc.innerText = trans.optFontLargeDesc;
+        const optFontXLargeTitle = document.getElementById('optFontXLargeTitle');
+        if (optFontXLargeTitle) optFontXLargeTitle.innerText = trans.optFontXLargeTitle;
+        const optFontXLargeDesc = document.getElementById('optFontXLargeDesc');
+        if (optFontXLargeDesc) optFontXLargeDesc.innerText = trans.optFontXLargeDesc;
+        const optFontCompactTitle = document.getElementById('optFontCompactTitle');
+        if (optFontCompactTitle) optFontCompactTitle.innerText = trans.optFontCompactTitle;
+        const optFontCompactDesc = document.getElementById('optFontCompactDesc');
+        if (optFontCompactDesc) optFontCompactDesc.innerText = trans.optFontCompactDesc;
+        const btnExecPrint = document.getElementById('btnExecPrint');
+        if (btnExecPrint) btnExecPrint.querySelector('span').innerText = trans.btnExecPrint;
+        const btnSaveImage = document.getElementById('btnSaveImage');
+        if (btnSaveImage) btnSaveImage.querySelector('span').innerText = trans.btnSaveImage;
+        const btnPrintCancel = document.getElementById('btnPrintCancel');
+        if (btnPrintCancel) btnPrintCancel.innerText = trans.btnPrintCancel;
+        const printBrandTitle = document.getElementById('printBrandTitle');
+        if (printBrandTitle) printBrandTitle.innerText = trans.printBrandTitle;
+        const printDocSubtitle = document.getElementById('printDocSubtitle');
+        if (printDocSubtitle) printDocSubtitle.innerText = trans.printDocSubtitle;
+    }
+
+    // Print & Export Settings State
+    let printSettings = {
+        orientation: 'portrait', // 'portrait' (Default) or 'landscape'
+        photos: 'hide',          // 'hide' (Default - No Photos) or 'show'
+        fontSize: 'large'        // 'large' (Default - Mobile optimized), 'xlarge', or 'compact'
+    };
+
+    function selectPrintOption(group, value) {
+        if (group === 'orientation') {
+            printSettings.orientation = value;
+            const rPortrait = document.getElementById('radioPortraitLabel');
+            const rLandscape = document.getElementById('radioLandscapeLabel');
+            if (rPortrait && rLandscape) {
+                rPortrait.classList.toggle('active', value === 'portrait');
+                rLandscape.classList.toggle('active', value === 'landscape');
+                rPortrait.querySelector('input').checked = (value === 'portrait');
+                rLandscape.querySelector('input').checked = (value === 'landscape');
+            }
+        } else if (group === 'photos') {
+            printSettings.photos = value;
+            const rNo = document.getElementById('radioNoPhotosLabel');
+            const rYes = document.getElementById('radioWithPhotosLabel');
+            if (rNo && rYes) {
+                rNo.classList.toggle('active', value === 'hide');
+                rYes.classList.toggle('active', value === 'show');
+                rNo.querySelector('input').checked = (value === 'hide');
+                rYes.querySelector('input').checked = (value === 'show');
+            }
+        } else if (group === 'fontSize') {
+            printSettings.fontSize = value;
+            const rLarge = document.getElementById('radioFontLargeLabel');
+            const rXLarge = document.getElementById('radioFontXLargeLabel');
+            const rCompact = document.getElementById('radioFontCompactLabel');
+            if (rLarge && rXLarge && rCompact) {
+                rLarge.classList.toggle('active', value === 'large');
+                rXLarge.classList.toggle('active', value === 'xlarge');
+                rCompact.classList.toggle('active', value === 'compact');
+                rLarge.querySelector('input').checked = (value === 'large');
+                rXLarge.querySelector('input').checked = (value === 'xlarge');
+                rCompact.querySelector('input').checked = (value === 'compact');
+            }
+        }
+    }
+
+    function openPrintModal() {
+        const trans = TRANSLATIONS[currentLang];
+        const selectedModels = selectedModelIds.map(id => getModelById(id)).filter(Boolean);
+        
+        // Update summary text
+        const summaryText = trans.printSummaryCount.replace('{count}', selectedModels.length);
+        document.getElementById('printModalSummaryText').innerText = summaryText;
+
+        let filterText = trans.printFilterPrefix + (currentViewMode === 'smart' ? trans.viewModeSmart : trans.viewModeRaw);
+        if (isDiffOnly) {
+            filterText += ` • ${trans.diffOnlyText} (${totalDiffCount} ${trans.diffPointsSuffix})`;
+        }
+        if (isHideAllEmpty) {
+            filterText += ` • ${trans.hideAllEmptyText}`;
+        }
+        document.getElementById('printModalFilterText').innerText = filterText;
+
+        document.getElementById('printModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePrintModal() {
+        document.getElementById('printModal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    function updatePrintHeaderData() {
+        const trans = TRANSLATIONS[currentLang];
+        const selectedModels = selectedModelIds.map(id => getModelById(id)).filter(Boolean);
+        
+        // Timestamp
+        const now = new Date();
+        const dateStr = now.toLocaleDateString(currentLang === 'th' ? 'th-TH' : 'en-US', {
+            year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+        });
+        document.getElementById('printTimestamp').innerText = trans.printTimestampPrefix + dateStr;
+
+        // Filter status
+        let filterDesc = trans.printFilterPrefix + (currentViewMode === 'smart' ? trans.viewModeSmart : trans.viewModeRaw);
+        if (isDiffOnly) {
+            filterDesc += ` | ${trans.diffOnlyText} (${totalDiffCount} ${trans.diffPointsSuffix})`;
+        }
+        filterDesc += ` | ${selectedModels.length} models`;
+        document.getElementById('printFilterStatus').innerText = filterDesc;
+    }
+
+    function setPrintDynamicStyle(orientation) {
+        let styleTag = document.getElementById('dynamicPrintPageStyle');
+        if (!styleTag) {
+            styleTag = document.createElement('style');
+            styleTag.id = 'dynamicPrintPageStyle';
+            document.head.appendChild(styleTag);
+        }
+        if (orientation === 'landscape') {
+            styleTag.innerHTML = `
+                @page { size: A4 landscape; margin: 8mm 10mm; }
+                body.print-landscape thead th:first-child,
+                body.print-landscape td:first-child { width: 22% !important; }
+            `;
+        } else {
+            styleTag.innerHTML = `
+                @page { size: A4 portrait; margin: 8mm 6mm; }
+                body.print-portrait thead th:first-child,
+                body.print-portrait td:first-child { width: 27% !important; }
+            `;
+        }
+    }
+
+    function executePrint() {
+        updatePrintHeaderData();
+        setPrintDynamicStyle(printSettings.orientation);
+
+        // Apply classes to body
+        document.body.classList.remove('print-portrait', 'print-landscape', 'print-hide-photos', 'print-show-photos', 'print-font-compact', 'print-font-large', 'print-font-xlarge');
+        document.body.classList.add(printSettings.orientation === 'landscape' ? 'print-landscape' : 'print-portrait');
+        document.body.classList.add(printSettings.photos === 'show' ? 'print-show-photos' : 'print-hide-photos');
+        document.body.classList.add(printSettings.fontSize === 'xlarge' ? 'print-font-xlarge' : (printSettings.fontSize === 'compact' ? 'print-font-compact' : 'print-font-large'));
+
+        closePrintModal();
+
+        // Allow DOM to settle then trigger browser print
+        setTimeout(() => {
+            window.print();
+        }, 150);
+    }
+
+    // Handle after print cleanup
+    window.addEventListener('afterprint', () => {
+        document.body.classList.remove('print-portrait', 'print-landscape', 'print-hide-photos', 'print-show-photos', 'print-font-compact', 'print-font-large', 'print-font-xlarge');
+    });
+
+    function executeSaveImage() {
+        const trans = TRANSLATIONS[currentLang];
+        if (typeof html2canvas === 'undefined') {
+            showToast(trans.imageSaveError, '#ef4444');
+            return;
+        }
+
+        updatePrintHeaderData();
+        closePrintModal();
+        showToast(trans.generatingImageToast, '#0284c7', 8000);
+
+        const isLandscape = printSettings.orientation === 'landscape';
+        const includePhotos = printSettings.photos === 'show';
+
+        // Font size presets
+        let fontCfg = {
+            thFont: '18px',
+            thPad: '12px 10px',
+            tdFont: '16.5px',
+            tdPad: '10px 10px',
+            tdLineHeight: '1.4',
+            secFont: '18px',
+            secPad: '12px 12px',
+            brandTitle: '24px',
+            brandSub: '14px',
+            meta: '12px',
+            modelNameFont: '16px',
+            seriesNameFont: '13px'
+        };
+
+        if (printSettings.fontSize === 'xlarge') {
+            fontCfg = {
+                thFont: '22px',
+                thPad: '14px 10px',
+                tdFont: '20px',
+                tdPad: '12px 10px',
+                tdLineHeight: '1.45',
+                secFont: '22px',
+                secPad: '14px 14px',
+                brandTitle: '26px',
+                brandSub: '16px',
+                meta: '13px',
+                modelNameFont: '18px',
+                seriesNameFont: '14px'
+            };
+        } else if (printSettings.fontSize === 'compact') {
+            fontCfg = {
+                thFont: '13px',
+                thPad: '10px 8px',
+                tdFont: '12px',
+                tdPad: '7px 8px',
+                tdLineHeight: '1.3',
+                secFont: '13px',
+                secPad: '9px 12px',
+                brandTitle: '22px',
+                brandSub: '14px',
+                meta: '12px',
+                modelNameFont: '13px',
+                seriesNameFont: '11px'
+            };
+        }
+
+        // Build dedicated off-screen capture container with A4 dimensions
+        const exportContainer = document.createElement('div');
+        exportContainer.id = 'a4ImageExportContainer';
+        exportContainer.style.position = 'fixed';
+        exportContainer.style.left = '-99999px';
+        exportContainer.style.top = '0';
+        exportContainer.style.width = isLandscape ? '1754px' : '1240px';
+        exportContainer.style.backgroundColor = '#ffffff';
+        exportContainer.style.color = '#0f172a';
+        exportContainer.style.padding = '36px 40px';
+        exportContainer.style.boxSizing = 'border-box';
+        exportContainer.style.fontFamily = "'Prompt', -apple-system, BlinkMacSystemFont, sans-serif";
+        exportContainer.style.zIndex = '-9999';
+
+        // 1. Clone Header Banner
+        const bannerClone = document.getElementById('printHeaderBanner').cloneNode(true);
+        bannerClone.style.display = 'flex';
+        bannerClone.style.justifyContent = 'space-between';
+        bannerClone.style.alignItems = 'flex-end';
+        bannerClone.style.borderBottom = '3px solid #0284c7';
+        bannerClone.style.paddingBottom = '10px';
+        bannerClone.style.marginBottom = '16px';
+        const brandTitle = bannerClone.querySelector('.print-brand-title');
+        if (brandTitle) {
+            brandTitle.style.fontSize = fontCfg.brandTitle;
+            brandTitle.style.fontWeight = '700';
+            brandTitle.style.color = '#0369a1';
+        }
+        const brandSub = bannerClone.querySelector('.print-brand-subtitle');
+        if (brandSub) {
+            brandSub.style.fontSize = fontCfg.brandSub;
+            brandSub.style.color = '#475569';
+        }
+        const meta = bannerClone.querySelector('.print-header-meta');
+        if (meta) {
+            meta.style.fontSize = fontCfg.meta;
+            meta.style.color = '#64748b';
+            meta.style.lineHeight = '1.4';
+        }
+        exportContainer.appendChild(bannerClone);
+
+        // 2. Clone Car Photos if requested
+        if (includePhotos) {
+            const slotsContainer = document.getElementById('slotsContainer');
+            if (slotsContainer) {
+                const slotsClone = slotsContainer.cloneNode(true);
+                // Remove add-slot card and action buttons
+                slotsClone.querySelectorAll('.slot-card-add, .slot-actions, .btn-remove-slot').forEach(el => el.remove());
+                slotsClone.style.display = 'grid';
+                const count = selectedModelIds.length || 2;
+                slotsClone.style.gridTemplateColumns = `repeat(${count}, 1fr)`;
+                slotsClone.style.gap = '12px';
+                slotsClone.style.marginBottom = '16px';
+
+                slotsClone.querySelectorAll('.slot-card').forEach(card => {
+                    card.style.background = '#ffffff';
+                    card.style.border = '1px solid #cbd5e1';
+                    card.style.borderRadius = '8px';
+                    card.style.padding = '8px';
+                    card.style.boxShadow = 'none';
+                    const img = card.querySelector('.slot-img');
+                    if (img) img.style.maxHeight = '50px';
+                    const modelName = card.querySelector('.slot-model-name');
+                    if (modelName) modelName.style.fontSize = fontCfg.modelNameFont;
+                    const seriesName = card.querySelector('.slot-series-name');
+                    if (seriesName) seriesName.style.fontSize = fontCfg.seriesNameFont;
+                });
+                exportContainer.appendChild(slotsClone);
+            }
+        }
+
+        // 3. Clone Table
+        const table = document.getElementById('compareTable');
+        const tableClone = table.cloneNode(true);
+        tableClone.style.width = '100%';
+        tableClone.style.tableLayout = 'fixed';
+        tableClone.style.borderCollapse = 'collapse';
+        tableClone.style.border = '1.5px solid #94a3b8';
+        tableClone.style.backgroundColor = '#ffffff';
+
+        // Format cloned table headers
+        const firstColWidth = isLandscape ? '22%' : '28%';
+        tableClone.querySelectorAll('thead th').forEach((th, idx) => {
+            th.style.position = 'static';
+            th.style.backgroundColor = idx === 0 ? '#0369a1' : '#0284c7';
+            th.style.color = '#ffffff';
+            th.style.padding = fontCfg.thPad;
+            th.style.fontSize = fontCfg.thFont;
+            th.style.fontWeight = '600';
+            th.style.border = '1px solid #0369a1';
+            th.style.textAlign = idx === 0 ? 'left' : 'center';
+            if (idx === 0) th.style.width = firstColWidth;
+        });
+
+        // Format cloned rows and cells
+        tableClone.querySelectorAll('tr').forEach(tr => {
+            if (tr.classList.contains('hide-search') || tr.classList.contains('hide-same') || tr.classList.contains('hide-all-empty')) {
+                tr.remove();
+                return;
+            }
+
+            const isSection = tr.classList.contains('section-title');
+            const isDiff = tr.classList.contains('row-diff');
+
+            tr.querySelectorAll('td').forEach((td, idx) => {
+                td.style.position = 'static';
+                td.style.padding = isSection ? fontCfg.secPad : fontCfg.tdPad;
+                td.style.fontSize = isSection ? fontCfg.secFont : fontCfg.tdFont;
+                td.style.border = '1px solid #cbd5e1';
+                td.style.wordBreak = 'break-word';
+                td.style.lineHeight = fontCfg.tdLineHeight;
+                td.style.color = '#0f172a';
+
+                if (isSection) {
+                    td.style.backgroundColor = '#e2e8f0';
+                    td.style.color = '#0369a1';
+                    td.style.fontWeight = '700';
+                    td.style.borderTop = '2px solid #94a3b8';
+                    td.style.borderBottom = '2px solid #94a3b8';
+                } else if (idx === 0) {
+                    td.style.width = firstColWidth;
+                    td.style.fontWeight = '600';
+                    td.style.backgroundColor = isDiff ? '#fffbeb' : '#f8fafc';
+                    td.style.borderRight = '2px solid #94a3b8';
+                } else {
+                    td.style.textAlign = 'center';
+                    td.style.backgroundColor = isDiff ? '#fef3c7' : '#ffffff';
+                }
+            });
+        });
+
+        exportContainer.appendChild(tableClone);
+        document.body.appendChild(exportContainer);
+
+        // Run html2canvas with scale: 2 for ultra-crisp Retina text
+        html2canvas(exportContainer, {
+            scale: 2,
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: '#ffffff',
+            logging: false
+        }).then(canvas => {
+            // Clean up off-screen element
+            document.body.removeChild(exportContainer);
+
+            // Export to PNG blob
+            canvas.toBlob(blob => {
+                if (!blob) {
+                    showToast(trans.imageSaveError, '#ef4444');
+                    return;
+                }
+
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                const now = new Date();
+                const pad = n => String(n).padStart(2, '0');
+                const dateStamp = `${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}`;
+                a.download = `BMW_Comparison_Specsheet_A4_${dateStamp}.png`;
+                a.href = url;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                showToast(trans.imageSavedToast, '#10b981');
+            }, 'image/png');
+        }).catch(err => {
+            console.error('Save Image Error:', err);
+            if (document.body.contains(exportContainer)) {
+                document.body.removeChild(exportContainer);
+            }
+            showToast(trans.imageSaveError, '#ef4444');
+        });
     }
 
     // Theme Switcher
@@ -3788,11 +4817,16 @@
         }
     });
 
-    // Keyboard ESC listener
+    // Keyboard ESC & Ctrl+P listener
     window.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             closeModelModal();
             closeImageModal();
+            closePrintModal();
+        }
+        if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'p') {
+            event.preventDefault();
+            openPrintModal();
         }
     });
 
