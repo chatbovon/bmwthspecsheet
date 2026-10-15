@@ -25,6 +25,8 @@ import requests
 
 sys.stdout.reconfigure(encoding='utf-8', line_buffering=True)
 import pypdf
+import tempfile
+import pypdfium2 as pdfium
 from google import genai
 from google.genai import types
 
@@ -548,6 +550,23 @@ def apply_text_corrections_to_markdown(raw_md: str, corrections: dict) -> str:
     return cleaned_md
 
 
+def render_pdf_high_res_images(pdf_path: str, scale: float = 2.0) -> list[str]:
+    """
+    Renders each page of the PDF into a crisp, high-resolution PNG image (200% zoom, scale=2.0)
+    using pypdfium2 so that small 6-8pt Thai fonts are rendered pin-sharp for Gemini Vision.
+    """
+    pdf = pdfium.PdfDocument(pdf_path)
+    img_paths = []
+    base_name = os.path.splitext(os.path.basename(pdf_path))[0]
+    temp_dir = tempfile.gettempdir()
+    for idx, page in enumerate(pdf):
+        img = page.render(scale=scale).to_pil()
+        out_path = os.path.join(temp_dir, f"{base_name}_p{idx+1}_zoom200.png")
+        img.save(out_path, format="PNG")
+        img_paths.append(out_path)
+    return img_paths
+
+
 def section_1_multimodal_proofreader(raw_md: str, pdf_path: str, lang_code: str = "th") -> str:
     pdf_basename = os.path.basename(pdf_path)
     cleaned_md_path = f"multimodal_cleaned_{pdf_basename}.md"
@@ -559,14 +578,25 @@ def section_1_multimodal_proofreader(raw_md: str, pdf_path: str, lang_code: str 
     t0 = time.time()
     client = get_gemini_client()
     
-    print(f"   -> Uploading PDF to Gemini Files API: {pdf_basename}")
-    uploaded_file = client.files.upload(file=pdf_path)
-    print(f"   -> PDF Uploaded successfully: {uploaded_file.name}")
+    # ─── 200% Zoom High-Resolution Rendering via pypdfium2 ────────────────────
+    print(f"   -> Rendering PDF pages at 200% zoom (scale=2.0) via pypdfium2...")
+    t_render = time.time()
+    high_res_img_paths = render_pdf_high_res_images(pdf_path, scale=2.0)
+    print(f"   -> Rendered {len(high_res_img_paths)} pages at 200% zoom in {time.time() - t_render:.2f}s")
     
-    prompt = PROMPT_MULTIMODAL_PROOFREADER_TH if lang_code == "th" else PROMPT_MULTIMODAL_PROOFREADER_EN
-    full_prompt = f"{prompt}\n\nHere is the list of OCR terms to verify and correct against the PDF:\n\n{json.dumps(candidate_terms, ensure_ascii=False, indent=2)}"
-    
+    uploaded_files = []
     try:
+        for p_idx, img_path in enumerate(high_res_img_paths, 1):
+            print(f"   -> Uploading 200% Zoom Page {p_idx} to Gemini Files API...")
+            up_f = client.files.upload(file=img_path)
+            uploaded_files.append(up_f)
+            print(f"   -> Page {p_idx} Uploaded successfully: {up_f.name}")
+        
+        prompt = PROMPT_MULTIMODAL_PROOFREADER_TH if lang_code == "th" else PROMPT_MULTIMODAL_PROOFREADER_EN
+        full_prompt = f"{prompt}\n\nHere is the list of OCR terms to verify and correct against the 200% zoomed PDF pages:\n\n{json.dumps(candidate_terms, ensure_ascii=False, indent=2)}"
+        
+        contents = [*uploaded_files, full_prompt]
+        
         corrections = None
         models_to_try = ["gemini-3.5-flash-lite", "gemini-3.6-flash", "gemini-3.7-flash", "gemini-3.8-flash"]
         for m_name in models_to_try:
@@ -574,7 +604,7 @@ def section_1_multimodal_proofreader(raw_md: str, pdf_path: str, lang_code: str 
                 try:
                     response = client.models.generate_content(
                         model=m_name,
-                        contents=[uploaded_file, full_prompt],
+                        contents=contents,
                         config=types.GenerateContentConfig(response_mime_type="application/json")
                     )
                     corrections = robust_json_loads(response.text)
@@ -603,11 +633,18 @@ def section_1_multimodal_proofreader(raw_md: str, pdf_path: str, lang_code: str 
         print(f"   -> Intermediate Artifact Saved: {cleaned_md_path}")
         return cleaned_text
     finally:
-        try:
-            client.files.delete(name=uploaded_file.name)
-            print(f"   -> Cleaned up uploaded file from Gemini server: {uploaded_file.name}")
-        except Exception as e:
-            print(f"   -> Warning: could not delete temporary file: {e}")
+        for up_f in uploaded_files:
+            try:
+                client.files.delete(name=up_f.name)
+                print(f"   -> Cleaned up uploaded file from Gemini server: {up_f.name}")
+            except Exception as e:
+                print(f"   -> Warning: could not delete temporary Gemini file: {e}")
+        for img_path in high_res_img_paths:
+            try:
+                if os.path.exists(img_path):
+                    os.remove(img_path)
+            except Exception:
+                pass
 
 
 def split_cleaned_markdown(cleaned_md: str) -> tuple[str, str]:
@@ -860,15 +897,23 @@ def apply_recovery_and_healing_rules(final_output: dict, source_pdf_path: str, l
                 if str(detail.get("value", "")).strip() in ("-", "", "None"):
                     detail["value"] = "■"
 
-    # ─── 5. Whitespace & Quote Normalization for Topics and Values ────────────────
+    # ─── 5. Whitespace, LaTeX & Quote Normalization for Topics and Values ─────────
     for model in final_output.get("models", []):
         for spec in model.get("specifications", []):
+            if isinstance(spec.get("category"), str):
+                c_name = re.sub(r'\$\s*\\text\{CO\}_2\s*\$', 'CO2', spec["category"])
+                c_name = re.sub(r'\\text\{CO\}_2', 'CO2', c_name)
+                spec["category"] = re.sub(r'\s+', ' ', c_name).strip()
             for detail in spec.get("details", []):
                 if isinstance(detail.get("topic"), str):
-                    detail["topic"] = re.sub(r'\s+', ' ', detail["topic"]).strip()
+                    t_name = re.sub(r'\$\s*\\text\{CO\}_2\s*\$', 'CO2', detail["topic"])
+                    t_name = re.sub(r'\\text\{CO\}_2', 'CO2', t_name)
+                    detail["topic"] = re.sub(r'\s+', ' ', t_name).strip()
                 val = detail.get("value")
                 if isinstance(val, str) and val not in ("■", "-"):
-                    cleaned_val = re.sub(r'\s+', ' ', val).strip()
+                    cleaned_val = re.sub(r'\$\s*\\text\{CO\}_2\s*\$', 'CO2', val)
+                    cleaned_val = re.sub(r'\\text\{CO\}_2', 'CO2', cleaned_val)
+                    cleaned_val = re.sub(r'\s+', ' ', cleaned_val).strip()
                     cleaned_val = cleaned_val.replace('‘', "'").replace('’', "'").replace('“', '"').replace('”', '"')
                     detail["value"] = cleaned_val
 

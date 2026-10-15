@@ -6,8 +6,8 @@
 - **MinerU API Token:** Always load `MINERU_API_TOKEN` dynamically from the `.env` file.
 
 ## 2. Models Setup
-- **QA validation script:** Use `gemini-3.8-flash` as primary, with `gemini-3.7-flash`, `gemini-3.6-flash`, `gemini-3.5-flash`, and `gemini-3.5-flash-lite` as fallbacks.
-- **Extraction script:** Use `gemini-3.8-flash` as primary, with `gemini-3.7-flash`, `gemini-3.6-flash`, `gemini-3.5-flash`, and `gemini-3.5-flash-lite` as fallbacks.
+- **Primary Model:** Use `gemini-3.5-flash-lite` as primary for all extraction and validation tasks due to its superior speed, light resource footprint, and quota efficiency.
+- **Fallback Chain:** Fallback to `gemini-3.6-flash`, `gemini-3.7-flash`, and `gemini-3.8-flash` only when needed.
 
 ## 3. PDF Table Grouping Constraints
 - **At Most 5 Pages:** BMW PDF brochures are at most 5 pages.
@@ -34,8 +34,7 @@
 - **No Unauthorized Stage Merging:** The agent is strictly prohibited from merging stages, skipping intermediate steps, or taking shortcuts in the code (e.g., combining text cleansing and spec extraction into a single prompt/call) under the pretext of optimization or quota preservation, unless explicitly authorized by the user.
 - **Intermediate Artifacts Required:** In any multi-stage pipeline, the agent must save or log intermediate outputs (e.g., cleaned markdown from Stage 1) to verify that each stage actually executed as designed before feeding data to the next stage.
 
-## 9. Zero Unauthorized Truncation & Exhaustive Reference Feeding
-- **No Silent Sampling:** The agent is strictly forbidden from truncating, slicing (e.g., `[:150]`), or sampling any reference dataset, controlled vocabulary, or prompt context under the assumption of saving tokens or optimization, unless explicitly instructed by the user.
-- **Exhaustive Ground Truth Feeding:** All controlled vocabularies and ground truth lists must be injected 100% in full. If a reference dataset contains 470 terms, all 470 terms must be passed into the prompt.
-- **Automated Invariant Assertion:** All pipeline code must assert that the injected terminology count exactly equals the total count in the master vocabulary file. If any discrepancy or truncation occurs, execution must halt immediately with an assertion error.
+## 9. Token & Context Optimization (No Heavy Controlled Vocabulary)
+- **No Heavy Dictionaries in Prompts:** Do NOT inject heavy controlled vocabularies, master dictionaries, or lengthy term lists (e.g., 470 terms) into LLM prompts. Doing so wastes precious context space, slows down inference, and incurs unnecessary token costs.
+- **Pure Python Post-Processing:** Resolve predictable OCR errors, typographical quirks, and formatting issues through deterministic Pure Python healing rules (Stage 4) and minimal targeted prompt guidance rather than dumping large reference datasets.
 
