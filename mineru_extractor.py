@@ -551,10 +551,14 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
             text = page.extract_text()
             if not text:
                 continue
-            for l in text.split('\n'):
-                norm_l = _normalize_pua(l.strip())
-                if len(_simplify_text(norm_l)) >= 3:
-                    all_pdf_lines.append((p_idx + 1, norm_l))
+            raw_lines = [l.strip() for l in text.split('\n') if l.strip()]
+            for l in raw_lines:
+                norm_l = _normalize_pua(l)
+                if norm_l.startswith('(') and all_pdf_lines and all_pdf_lines[-1][0] == p_idx + 1:
+                    all_pdf_lines[-1] = (p_idx + 1, all_pdf_lines[-1][1] + " " + norm_l)
+                else:
+                    if len(_simplify_text(norm_l)) >= 3:
+                        all_pdf_lines.append((p_idx + 1, norm_l))
                     
         table_matches = list(re.finditer(r'<table[^>]*>(.*?)</table>', harmonized_md, flags=re.DOTALL))
         for t_match in table_matches:
@@ -634,8 +638,19 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
                                 continue
                             if len(_simplify_text(c_text)) < 4:
                                 continue
+                                
+                            simp_c = _simplify_text(c_text)
+                            prev_text = _simplify_text(row_topics[prev['match_idx']])
+                            nxt_text = _simplify_text(row_topics[nxt['match_idx']])
+                            
+                            # Skip if c_text is just a wrapped text fragment of adjacent rows
+                            if simp_c in prev_text or simp_c in nxt_text:
+                                continue
+                            if _text_similarity(c_text, row_topics[prev['match_idx']]) >= 0.55 or _text_similarity(c_text, row_topics[nxt['match_idx']]) >= 0.55:
+                                continue
+                                
                             all_cell_texts = [_simplify_text(re.sub(r'<[^>]+>', '', c)) for c in re.findall(r'<td[^>]*>(.*?)</td>', harmonized_md, flags=re.DOTALL)]
-                            if _simplify_text(c_text) in all_cell_texts:
+                            if simp_c in all_cell_texts:
                                 continue
                                 
                             missing_text = c_text
@@ -676,14 +691,19 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
                     if td_count > num_cols:
                         num_cols = td_count
                         
-                idx_start = -1
                 idx_end = -1
                 for idx, (p_num, pl) in enumerate(all_pdf_lines):
-                    if idx_start == -1 and _text_similarity(pl, last_eq_topic) >= 0.8:
-                        idx_start = idx
-                    if idx_start != -1 and (_text_similarity(pl, "Paintwork") >= 0.8 or _text_similarity(pl, "สีตัวถัง") >= 0.8):
+                    if _text_similarity(pl, "Paintwork") >= 0.8 or _text_similarity(pl, "สีตัวถัง") >= 0.8:
                         idx_end = idx
                         break
+                        
+                idx_start = -1
+                if idx_end != -1:
+                    for idx in range(idx_end - 1, -1, -1):
+                        p_num, pl = all_pdf_lines[idx]
+                        if _text_similarity(pl, last_eq_topic) >= 0.8:
+                            idx_start = idx
+                            break
                         
                 if idx_start != -1 and idx_end != -1 and idx_end - idx_start > 1:
                     between_lines = all_pdf_lines[idx_start + 1:idx_end]

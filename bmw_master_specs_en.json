@@ -39927,14 +39927,14 @@
             ]
           },
           {
-            "category": "FUEL CONSUMPTION AND CO2",
+            "category": "FUEL CONSUMPTION AND CO₂",
             "details": [
               {
                 "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
                 "value": "17.9"
               },
               {
-                "topic": "Combined CO2 (g/km)",
+                "topic": "Combined CO₂ (g/km)",
                 "value": "146"
               }
             ]
@@ -40229,19 +40229,6 @@
             ]
           },
           {
-            "category": "Notes",
-            "details": [
-              {
-                "topic": "* The privilege of purchasing package up to 5 years unlimited mileage warranty and 5 years of maintenance or 100,000 km. (whichever comes first).",
-                "value": "■"
-              },
-              {
-                "topic": "BMW reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.",
-                "value": "■"
-              }
-            ]
-          },
-          {
             "category": "Document References",
             "details": [
               {
@@ -40249,7 +40236,7 @@
                 "value": "15 January 2025"
               },
               {
-                "topic": "Package Code (Local Pack)",
+                "topic": "Local package code",
                 "value": "(ZCT, Z2C, Z2D, ZEX, ZFS, ZIK, Z3Y, Z5D, Z8T)"
               }
             ]
