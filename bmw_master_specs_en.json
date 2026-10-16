@@ -29633,7 +29633,7 @@
         "model_name": "i5 eDrive40 M Sport",
         "specifications": [
           {
-            "category": "Engine and Performance",
+            "category": "ENGINE AND PERFORMANCE",
             "details": [
               {
                 "topic": "Electric motor",
@@ -29682,7 +29682,7 @@
             ]
           },
           {
-            "category": "Wheels and Tyres",
+            "category": "WHEELS AND TYRES",
             "details": [
               {
                 "topic": "Wheels",
@@ -29695,7 +29695,7 @@
             ]
           },
           {
-            "category": "Dimension",
+            "category": "DIMENSION",
             "details": [
               {
                 "topic": "Length / width / height (mm)",
@@ -29768,7 +29768,7 @@
             ]
           },
           {
-            "category": "Drivetrain and Technology",
+            "category": "Transmission and technology",
             "details": [
               {
                 "topic": "Automatic transmission",
@@ -29789,7 +29789,7 @@
             ]
           },
           {
-            "category": "Exterior Equipment",
+            "category": "Exterior",
             "details": [
               {
                 "topic": "Adaptive LED headlights",
@@ -29830,7 +29830,7 @@
             ]
           },
           {
-            "category": "Interior Equipment",
+            "category": "Interior",
             "details": [
               {
                 "topic": "M Leather steering wheel",
@@ -29883,7 +29883,7 @@
             ]
           },
           {
-            "category": "Entertainment and Communication",
+            "category": "Entertainment and communication",
             "details": [
               {
                 "topic": "BMW Live Cockpit Professional",
@@ -30082,21 +30082,8 @@
                 "value": "26 January 2026"
               },
               {
-                "topic": "Package Code (Local Pack)",
+                "topic": "Local package code",
                 "value": "(ZKK, ZLC)"
-              }
-            ]
-          },
-          {
-            "category": "Notes",
-            "details": [
-              {
-                "topic": "Range dependent on various factors. In particular: personal driving style, route characteristics, exterior temperature, heating / air conditioning, pre-conditioning.",
-                "value": "■"
-              },
-              {
-                "topic": "The privilege of purchasing package up to 6 years unlimited mileage warranty and 6 years unlimited mileage of maintenance and 8 years high-voltage battery and its units warranty or 160,000 km. (whichever comes first). Service Interval are due every 24 months.",
-                "value": "■"
               }
             ]
           }

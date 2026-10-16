@@ -484,6 +484,7 @@ PUA_MAP = {
     0xF70A: '\u0e48', 0xF70B: '\u0e49', 0xF70C: '\u0e4a', 0xF70D: '\u0e4b', 0xF70E: '\u0e4c',
     0xF70F: '\u0e31', 0xF710: '\u0e31', 0xF711: '\u0e34', 0xF712: '\u0e35', 0xF713: '\u0e36',
     0xF714: '\u0e37', 0xF718: '\u0e3a', 0xF719: '\u0e38', 0xF71A: '\u0e39',
+    0xFB00: 'ff', 0xFB01: 'fi', 0xFB02: 'fl', 0xFB03: 'ffi', 0xFB04: 'ffl',
 }
 
 def _normalize_pua(text: str) -> str:
@@ -651,7 +652,68 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
                             if row_matches:
                                 target_pos = row_matches[0].end()
                                 harmonized_md = harmonized_md[:target_pos] + "\n" + new_row_html + harmonized_md[target_pos:]
-                                print(f"   [HARMONIZER - Gap Recovery] Inserted missing row '{missing_text}' after '{row_topics[prev_row_idx]}'")
+        # --- Pattern 2C: Inter-Table Un-tabled Section Recovery ---
+        # Checks if an entire section/page of equipment between the last equipment table and Paintwork was omitted by OCR
+        all_tables_after = list(re.finditer(r'<table[^>]*>(.*?)</table>', harmonized_md, flags=re.DOTALL))
+        last_eq_table = None
+        paint_table = None
+        for t in all_tables_after:
+            t_c = t.group(1)
+            if 'Paintwork' in t_c or 'สีตัวถัง' in t_c:
+                paint_table = t
+            elif '■' in t_c or '&#x25a0;' in t_c or '?' in t_c:
+                last_eq_table = t
+                
+        if last_eq_table and paint_table:
+            eq_rows = list(re.finditer(r'<tr[^>]*>(.*?)</tr>', last_eq_table.group(1), flags=re.DOTALL))
+            if eq_rows:
+                last_eq_cells = re.findall(r'<td[^>]*>(.*?)</td>', eq_rows[-1].group(0), flags=re.DOTALL)
+                last_eq_topic = re.sub(r'<[^>]+>', '', last_eq_cells[0]).strip().replace('&#x27;', "'").replace('&quot;', '"').replace('&amp;', '&') if last_eq_cells else ""
+                
+                num_cols = 2
+                for r in eq_rows:
+                    td_count = len(re.findall(r'<td[^>]*>', r.group(0)))
+                    if td_count > num_cols:
+                        num_cols = td_count
+                        
+                idx_start = -1
+                idx_end = -1
+                for idx, (p_num, pl) in enumerate(all_pdf_lines):
+                    if idx_start == -1 and _text_similarity(pl, last_eq_topic) >= 0.8:
+                        idx_start = idx
+                    if idx_start != -1 and (_text_similarity(pl, "Paintwork") >= 0.8 or _text_similarity(pl, "สีตัวถัง") >= 0.8):
+                        idx_end = idx
+                        break
+                        
+                if idx_start != -1 and idx_end != -1 and idx_end - idx_start > 1:
+                    between_lines = all_pdf_lines[idx_start + 1:idx_end]
+                    KNOWN_CAT_KEYWORDS = [
+                        'Safety', 'Line / package', 'Transmission and technology', 'Exterior', 'Interior',
+                        'Entertainment and communication', 'Equipment', 'ความปลอดภัย', 'ชุดตกแต่งพิเศษ',
+                        'ระบบขับเคลื่อนและเทคโนโลยี', 'อุปกรณ์ภายนอก', 'อุปกรณ์ภายใน', 'ระบบความบันเทิงและการสื่อสาร'
+                    ]
+                    IGNORE_PATTERNS = [
+                        'BMW', 'SPECIFICATIONS', 'Effective', 'Printed', 'พิมพ์วันที่', 'คู่มือ', 'Page', 'Z9',
+                        'ZKK', 'ZLC', 'SCAN QR', 'FOR FURTHER', 'Range dependent', 'The privilege', 'reserves the right'
+                    ]
+                    all_cell_texts = [_simplify_text(re.sub(r'<[^>]+>', '', c)) for c in re.findall(r'<td[^>]*>(.*?)</td>', harmonized_md, flags=re.DOTALL)]
+                    injected_rows = []
+                    for p_num, pl in between_lines:
+                        if any(ign.lower() in pl.lower() for ign in IGNORE_PATTERNS):
+                            continue
+                        is_cat = any(_text_similarity(pl, k) >= 0.85 for k in KNOWN_CAT_KEYWORDS)
+                        if is_cat:
+                            injected_rows.append(f'<tr><td colspan="{num_cols}">{pl}</td></tr>')
+                        else:
+                            if _simplify_text(pl) not in all_cell_texts:
+                                val_tds = ''.join(['<td>■</td>'] * (num_cols - 1))
+                                injected_rows.append(f'<tr><td>{pl}</td>{val_tds}</tr>')
+                                
+                    if injected_rows:
+                        # Append before </table> of last_eq_table
+                        table_close_pos = last_eq_table.end() - len('</table>')
+                        harmonized_md = harmonized_md[:table_close_pos] + '\n' + '\n'.join(injected_rows) + '\n' + harmonized_md[table_close_pos:]
+                        print(f"   [HARMONIZER - Inter-Table Recovery] Recovered {len(injected_rows)} rows between '{last_eq_topic}' and Paintwork table")
     except Exception as e:
         print(f"   [HARMONIZER WARNING] Native PDF reconciliation encountered: {e}")
         
