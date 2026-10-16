@@ -22,9 +22,12 @@ import socket
 import zipfile
 import io
 import requests
+import html
+
 
 sys.stdout.reconfigure(encoding='utf-8', line_buffering=True)
 import pypdf
+import difflib
 import tempfile
 import pypdfium2 as pdfium
 from google import genai
@@ -478,6 +481,302 @@ def run_mineru_stage(pdf_path: str, lang_code: str = "th") -> str:
         sys.exit(1)
 
 
+PUA_MAP = {
+    0xF705: '\u0e49', 0xF706: '\u0e49', 0xF707: '\u0e4a', 0xF708: '\u0e4b', 0xF709: '\u0e4c',
+    0xF70A: '\u0e48', 0xF70B: '\u0e49', 0xF70C: '\u0e4a', 0xF70D: '\u0e4b', 0xF70E: '\u0e4c',
+    0xF70F: '\u0e31', 0xF710: '\u0e31', 0xF711: '\u0e34', 0xF712: '\u0e35', 0xF713: '\u0e36',
+    0xF714: '\u0e37', 0xF718: '\u0e3a', 0xF719: '\u0e38', 0xF71A: '\u0e39',
+    0xFB00: 'ff', 0xFB01: 'fi', 0xFB02: 'fl', 0xFB03: 'ffi', 0xFB04: 'ffl',
+}
+
+def _normalize_pua(text: str) -> str:
+    return ''.join(PUA_MAP.get(ord(ch), ch) for ch in text)
+
+def _simplify_text(s: str) -> str:
+    s = _normalize_pua(s)
+    return re.sub(r'[^a-zA-Z\u0e01-\u0e2e]', '', s).lower()
+
+def _text_similarity(a: str, b: str) -> float:
+    sa, sb = _simplify_text(a), _simplify_text(b)
+    if not sa or not sb:
+        return 0.0
+    if sa == sb:
+        return 1.0
+    if len(sa) >= 6 and len(sb) >= 6 and (sa in sb or sb in sa):
+        return 0.95
+    return difflib.SequenceMatcher(None, sa, sb).ratio()
+
+def _is_fuzzy_substring(short_str: str, long_str: str, threshold: float = 0.60) -> bool:
+    s_short = _simplify_text(short_str)
+    s_long = _simplify_text(long_str)
+    if not s_short or not s_long:
+        return False
+    if s_short in s_long:
+        return True
+    len_s = len(s_short)
+    if len_s < 3:
+        return False
+    for start in range(len(s_long) - len_s + 1):
+        window = s_long[start:start + len_s]
+        if difflib.SequenceMatcher(None, s_short, window).ratio() >= threshold:
+            return True
+    return False
+
+def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "th") -> str:
+
+    """
+    [PRE-STAGE 1] Generic, model-agnostic Table Harmonizer:
+    1. Pattern 1 (Dangling Text): Ingests plain-text lines stranded outside </table> back into table.
+    2. Pattern 2 (Sequence Gap Recovery): Reconciles table rows against native PDF text stream to restore lines skipped by MinerU OCR.
+    Saves intermediate artifact: pre_stage_1_harmonized_{pdf_basename}.md
+    """
+    pdf_basename = os.path.basename(pdf_path)
+    harmonized_md_path = f"pre_stage_1_harmonized_{pdf_basename}.md"
+    print(f"\n[PRE-STAGE 1] Starting Table Harmonizer ({pdf_basename})...")
+    
+    harmonized_md = raw_md
+    
+    # ─── PATTERN 1: Dangling Text Ingestion ────────────────────────────────────
+    def ingest_dangling(match):
+        table_content = match.group(1)
+        dangling = match.group(2).strip()
+        lines = [l.strip() for l in dangling.split('\n') if l.strip() and not l.strip().startswith(('#', '|', '<'))]
+        if not lines:
+            return match.group(0)
+            
+        all_rows = re.findall(r'<tr[^>]*>.*?</tr>', table_content, flags=re.DOTALL)
+        num_cols = 2
+        for r in all_rows:
+            tds = re.findall(r'<td[^>]*>', r)
+            if len(tds) > num_cols:
+                num_cols = len(tds)
+                
+        injected_rows = []
+        for line in lines:
+            val_tds = ''.join(['<td>■</td>'] * (num_cols - 1))
+            injected_rows.append(f"<tr><td>{line}</td>{val_tds}</tr>")
+            print(f"   [HARMONIZER - Dangling Text] Ingested '{line}' into table ({num_cols} cols)")
+            
+        return f"<table>{table_content}{''.join(injected_rows)}</table>\n\n"
+
+    p1 = re.compile(r'<table>(.*?<tr[^>]*>\s*<td\s+colspan=[\'"]?\d+[\'"]?[^>]*>[^<]+</td>\s*</tr>)\s*</table>\s*\n+([^<#\n][^<#]*?)\n+(?=(?:#+|<table>|\Z))', flags=re.DOTALL | re.IGNORECASE)
+    harmonized_md = p1.sub(ingest_dangling, harmonized_md)
+    
+    # ─── PATTERN 2: Native PDF Stream Reconciliation ──────────────────────────
+    try:
+        reader = pypdf.PdfReader(pdf_path)
+        all_pdf_lines = []
+        for p_idx, page in enumerate(reader.pages):
+            text = page.extract_text()
+            if not text:
+                continue
+            raw_lines = [l.strip() for l in text.split('\n') if l.strip()]
+            for l in raw_lines:
+                norm_l = _normalize_pua(l)
+                if norm_l.startswith('(') and all_pdf_lines and all_pdf_lines[-1][0] == p_idx + 1:
+                    all_pdf_lines[-1] = (p_idx + 1, all_pdf_lines[-1][1] + " " + norm_l)
+                else:
+                    if len(_simplify_text(norm_l)) >= 3:
+                        all_pdf_lines.append((p_idx + 1, norm_l))
+                    
+        table_matches = list(re.finditer(r'<table[^>]*>(.*?)</table>', harmonized_md, flags=re.DOTALL))
+        for t_match in table_matches:
+            t_content = t_match.group(1)
+            # Gap recovery strictly applies to equipment tables with checkmarks (exclude Paintwork and Technical specs)
+            if 'Paintwork' in t_content or 'สีตัวถัง' in t_content or not ('■' in t_content or '&#x25a0;' in t_content or '?' in t_content):
+                continue
+                
+            full_rows = list(re.finditer(r'<tr[^>]*>.*?</tr>', t_content, flags=re.DOTALL))
+            if not full_rows:
+                continue
+
+            # --- Pattern 2A: Trailing Empty Category Recovery ---
+            last_row_html = full_rows[-1].group(0)
+            cat_match = re.search(r'<td\s+colspan=[\'"]?\d+[\'"]?[^>]*>(.*?)</td>', last_row_html, flags=re.IGNORECASE)
+            if cat_match:
+                cat_name = re.sub(r'<[^>]+>', '', cat_match.group(1)).strip().replace('&#x27;', "'").replace('&quot;', '"').replace('&amp;', '&')
+                num_cols = 2
+                for r_m in full_rows[:-1]:
+                    td_count = len(re.findall(r'<td[^>]*>', r_m.group(0)))
+                    if td_count > num_cols:
+                        num_cols = td_count
+                
+                cat_pdf_indices = [idx for idx, (p_num, pl) in enumerate(all_pdf_lines) if _text_similarity(pl, cat_name) >= 0.8]
+                if cat_pdf_indices:
+                    cat_idx = cat_pdf_indices[0]
+                    cat_page = all_pdf_lines[cat_idx][0]
+                    missing_options = []
+                    for look_idx in range(cat_idx + 1, len(all_pdf_lines)):
+                        p_num, pl = all_pdf_lines[look_idx]
+                        if p_num != cat_page:
+                            break
+                        if any(stop_word in pl for stop_word in ['Paintwork', 'สีตัวถัง', 'BMW', 'Effective', 'Printed', 'พิมพ์วันที่', 'คู่มือ', 'Page', 'Z9']):
+                            break
+                        if len(_simplify_text(pl)) >= 3:
+                            all_cell_texts = [_simplify_text(html.unescape(re.sub(r'<[^>]+>', '', c))) for c in re.findall(r'<td[^>]*>(.*?)</td>', harmonized_md, flags=re.DOTALL)]
+                            if _simplify_text(pl) not in all_cell_texts:
+
+                                missing_options.append(pl)
+                    
+                    if missing_options:
+                        injected_rows = [f"<tr><td>{opt}</td>{''.join(['<td>■</td>'] * (num_cols - 1))}</tr>" for opt in missing_options]
+                        row_matches = list(re.finditer(re.escape(last_row_html), harmonized_md))
+                        if row_matches:
+                            target_pos = row_matches[0].end()
+                            harmonized_md = harmonized_md[:target_pos] + "\n" + "\n".join(injected_rows) + harmonized_md[target_pos:]
+                            for opt in missing_options:
+                                print(f"   [HARMONIZER - Trailing Category] Inserted '{opt}' under empty category '{cat_name}'")
+
+            # --- Pattern 2B: In-Table Sequence Gap Recovery ---
+            row_topics = []
+            for r_m in full_rows:
+                cells = re.findall(r'<td[^>]*>(.*?)</td>', r_m.group(0), flags=re.DOTALL)
+                c0 = re.sub(r'<[^>]+>', '', cells[0]).strip().replace('&#x27;', "'").replace('&quot;', '"').replace('&amp;', '&') if cells else ""
+                row_topics.append(c0)
+                
+            aligned = []
+            for p_num, pl in all_pdf_lines:
+                sims = [(_text_similarity(pl, rt), r_idx) for r_idx, rt in enumerate(row_topics)]
+                best_sim, best_idx = max(sims, key=lambda x: x[0]) if sims else (0.0, -1)
+                aligned.append({
+                    'page': p_num,
+                    'text': pl,
+                    'sim': best_sim,
+                    'match_idx': best_idx if best_sim >= 0.70 else None
+                })
+                
+            for i in range(1, len(aligned) - 1):
+                prev = aligned[i - 1]
+                curr = aligned[i]
+                nxt = aligned[i + 1]
+                
+                if curr['match_idx'] is None:
+                    if prev['match_idx'] is not None and nxt['match_idx'] is not None:
+                        if prev['page'] != curr['page'] or curr['page'] != nxt['page']:
+                            continue
+                        if prev['match_idx'] < nxt['match_idx'] and (nxt['match_idx'] - prev['match_idx'] <= 2):
+                            c_text = curr['text']
+                            if any(ign in c_text for ign in ['พิมพ์วันที่', 'Printed', 'BMW', 'Page', 'เอกสาร', 'คู่มือ', 'บีเอ็มดับเบิลยู', 'Effective', 'Z9']):
+                                continue
+                            if len(_simplify_text(c_text)) < 4:
+                                continue
+                                
+                            simp_c = _simplify_text(c_text)
+                            prev_text = _simplify_text(row_topics[prev['match_idx']])
+                            nxt_text = _simplify_text(row_topics[nxt['match_idx']])
+                            
+                            # Skip if c_text is just a wrapped text fragment of adjacent rows
+                            if simp_c in prev_text or simp_c in nxt_text:
+                                continue
+                            if _is_fuzzy_substring(c_text, row_topics[prev['match_idx']], 0.60) or _is_fuzzy_substring(c_text, row_topics[nxt['match_idx']], 0.60):
+                                continue
+                            if _text_similarity(c_text + " " + nxt['text'], row_topics[nxt['match_idx']]) >= 0.70 or _text_similarity(prev['text'] + " " + c_text, row_topics[prev['match_idx']]) >= 0.70:
+                                continue
+                            if _text_similarity(c_text, row_topics[prev['match_idx']]) >= 0.55 or _text_similarity(c_text, row_topics[nxt['match_idx']]) >= 0.55:
+                                continue
+
+                                
+                            all_cell_texts = [_simplify_text(html.unescape(re.sub(r'<[^>]+>', '', c))) for c in re.findall(r'<td[^>]*>(.*?)</td>', harmonized_md, flags=re.DOTALL)]
+                            if simp_c in all_cell_texts:
+                                continue
+
+                                
+                            missing_text = c_text
+                            prev_row_idx = prev['match_idx']
+                            prev_row_full = full_rows[prev_row_idx].group(0)
+                            
+                            num_cols = len(re.findall(r'<td[^>]*>', prev_row_full))
+                            if num_cols < 2:
+                                num_cols = 2
+                            val_cells = ''.join(['<td>■</td>'] * (num_cols - 1))
+                            new_row_html = f"<tr><td>{missing_text}</td>{val_cells}</tr>"
+                            
+                            row_matches = list(re.finditer(re.escape(prev_row_full), harmonized_md))
+                            if row_matches:
+                                target_pos = row_matches[0].end()
+                                harmonized_md = harmonized_md[:target_pos] + "\n" + new_row_html + harmonized_md[target_pos:]
+        # --- Pattern 2C: Inter-Table Un-tabled Section Recovery ---
+        # Checks if an entire section/page of equipment between the last equipment table and Paintwork was omitted by OCR
+        all_tables_after = list(re.finditer(r'<table[^>]*>(.*?)</table>', harmonized_md, flags=re.DOTALL))
+        last_eq_table = None
+        paint_table = None
+        for t in all_tables_after:
+            t_c = t.group(1)
+            if 'Paintwork' in t_c or 'สีตัวถัง' in t_c:
+                paint_table = t
+            elif '■' in t_c or '&#x25a0;' in t_c or '?' in t_c:
+                last_eq_table = t
+                
+        if last_eq_table and paint_table:
+            eq_rows = list(re.finditer(r'<tr[^>]*>(.*?)</tr>', last_eq_table.group(1), flags=re.DOTALL))
+            if eq_rows:
+                last_eq_cells = re.findall(r'<td[^>]*>(.*?)</td>', eq_rows[-1].group(0), flags=re.DOTALL)
+                last_eq_topic = re.sub(r'<[^>]+>', '', last_eq_cells[0]).strip().replace('&#x27;', "'").replace('&quot;', '"').replace('&amp;', '&') if last_eq_cells else ""
+                
+                num_cols = 2
+                for r in eq_rows:
+                    td_count = len(re.findall(r'<td[^>]*>', r.group(0)))
+                    if td_count > num_cols:
+                        num_cols = td_count
+                        
+                idx_end = -1
+                for idx, (p_num, pl) in enumerate(all_pdf_lines):
+                    if _text_similarity(pl, "Paintwork") >= 0.8 or _text_similarity(pl, "สีตัวถัง") >= 0.8:
+                        idx_end = idx
+                        break
+                        
+                idx_start = -1
+                if idx_end != -1:
+                    for idx in range(idx_end - 1, -1, -1):
+                        p_num, pl = all_pdf_lines[idx]
+                        if _text_similarity(pl, last_eq_topic) >= 0.8:
+                            idx_start = idx
+                            break
+                        
+                if idx_start != -1 and idx_end != -1 and idx_end - idx_start > 1:
+                    between_lines = all_pdf_lines[idx_start + 1:idx_end]
+                    KNOWN_CAT_KEYWORDS = [
+                        'Safety', 'Line / package', 'Transmission and technology', 'Exterior', 'Interior',
+                        'Entertainment and communication', 'Equipment', 'ความปลอดภัย', 'ชุดตกแต่งพิเศษ',
+                        'ระบบขับเคลื่อนและเทคโนโลยี', 'อุปกรณ์ภายนอก', 'อุปกรณ์ภายใน', 'ระบบความบันเทิงและการสื่อสาร'
+                    ]
+                    IGNORE_PATTERNS = [
+                        'BMW', 'SPECIFICATIONS', 'Effective', 'Printed', 'พิมพ์วันที่', 'คู่มือ', 'Page', 'Z9',
+                        'ZKK', 'ZLC', 'SCAN QR', 'FOR FURTHER', 'Range dependent', 'The privilege', 'reserves the right'
+                    ]
+                    all_cell_texts = [_simplify_text(html.unescape(re.sub(r'<[^>]+>', '', c))) for c in re.findall(r'<td[^>]*>(.*?)</td>', harmonized_md, flags=re.DOTALL)]
+                    injected_rows = []
+
+                    for p_num, pl in between_lines:
+                        if any(ign.lower() in pl.lower() for ign in IGNORE_PATTERNS):
+                            continue
+                        if len(_simplify_text(pl)) < 4:
+                            continue
+                        if _is_fuzzy_substring(pl, last_eq_topic, 0.60):
+                            continue
+                        is_cat = any(_text_similarity(pl, k) >= 0.85 for k in KNOWN_CAT_KEYWORDS)
+
+                        if is_cat:
+                            injected_rows.append(f'<tr><td colspan="{num_cols}">{pl}</td></tr>')
+                        else:
+                            if _simplify_text(pl) not in all_cell_texts:
+                                val_tds = ''.join(['<td>■</td>'] * (num_cols - 1))
+                                injected_rows.append(f'<tr><td>{pl}</td>{val_tds}</tr>')
+                                
+                    if injected_rows:
+                        # Append before </table> of last_eq_table
+                        table_close_pos = last_eq_table.end() - len('</table>')
+                        harmonized_md = harmonized_md[:table_close_pos] + '\n' + '\n'.join(injected_rows) + '\n' + harmonized_md[table_close_pos:]
+                        print(f"   [HARMONIZER - Inter-Table Recovery] Recovered {len(injected_rows)} rows between '{last_eq_topic}' and Paintwork table")
+    except Exception as e:
+        print(f"   [HARMONIZER WARNING] Native PDF reconciliation encountered: {e}")
+        
+    with open(harmonized_md_path, "w", encoding="utf-8") as f:
+        f.write(harmonized_md)
+    print(f"   -> Intermediate Artifact Saved: {harmonized_md_path}")
+    return harmonized_md
+
+
 def extract_candidate_terms(md_content: str) -> list[str]:
     terms = []
     for row in re.findall(r'<tr[^>]*>(.*?)</tr>', md_content, flags=re.DOTALL):
@@ -662,12 +961,12 @@ def split_cleaned_markdown(cleaned_md: str) -> tuple[str, str]:
                 break
                 
     if paint_start_idx == -1:
-        split_pt = int(len(lines) * 0.75)
-        specs_lines = lines[:split_pt]
-        paint_lines = lines[split_pt:]
+        specs_lines = lines
+        paint_lines = []
     else:
         specs_lines = lines[:paint_start_idx]
         paint_lines = lines[paint_start_idx:]
+
         
     return '\n'.join(specs_lines), '\n'.join(paint_lines)
 
@@ -748,8 +1047,13 @@ def section_2_specs_extractor(specs_md: str, lang_code: str = "th") -> dict:
 
 
 def section_3_paint_extractor(paint_md: str, lang_code: str = "th") -> dict:
+    if not paint_md.strip() or '<table' not in paint_md.lower():
+        print(f"\n[SECTION 3] No Paintwork table present in brochure. Skipping Section 3 (Zero API call).")
+        return {"series": "BMW Specsheet", "models": []}
+        
     print(f"\n[SECTION 3] Extracting Paintwork & Upholstery Matrix (gemini-3.5-flash-lite)...")
     t0 = time.time()
+
     client = get_gemini_client()
     prompt = PROMPT_PAINT_TH if lang_code == "th" else PROMPT_PAINT_EN
     
@@ -1027,8 +1331,11 @@ def run_extraction_pipeline(pdf_path: str, output_json_path: str, lang: str = "t
     # Stage 0: MinerU
     raw_md = run_mineru_stage(pdf_path, lang_code=lang)
     
+    # Pre-Stage 1: Table Harmonizer (Dangling text & native PDF sequence reconciliation)
+    harmonized_md = pre_stage_1_table_harmonizer(raw_md, pdf_path, lang_code=lang)
+    
     # Stage 1: Multimodal Proofreader
-    cleaned_md = section_1_multimodal_proofreader(raw_md, pdf_path, lang_code=lang)
+    cleaned_md = section_1_multimodal_proofreader(harmonized_md, pdf_path, lang_code=lang)
     
     # Partition tables
     specs_md, paint_md = split_cleaned_markdown(cleaned_md)
