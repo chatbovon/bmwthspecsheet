@@ -504,7 +504,24 @@ def _text_similarity(a: str, b: str) -> float:
         return 0.95
     return difflib.SequenceMatcher(None, sa, sb).ratio()
 
+def _is_fuzzy_substring(short_str: str, long_str: str, threshold: float = 0.60) -> bool:
+    s_short = _simplify_text(short_str)
+    s_long = _simplify_text(long_str)
+    if not s_short or not s_long:
+        return False
+    if s_short in s_long:
+        return True
+    len_s = len(s_short)
+    if len_s < 3:
+        return False
+    for start in range(len(s_long) - len_s + 1):
+        window = s_long[start:start + len_s]
+        if difflib.SequenceMatcher(None, s_short, window).ratio() >= threshold:
+            return True
+    return False
+
 def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "th") -> str:
+
     """
     [PRE-STAGE 1] Generic, model-agnostic Table Harmonizer:
     1. Pattern 1 (Dangling Text): Ingests plain-text lines stranded outside </table> back into table.
@@ -646,8 +663,13 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
                             # Skip if c_text is just a wrapped text fragment of adjacent rows
                             if simp_c in prev_text or simp_c in nxt_text:
                                 continue
+                            if _is_fuzzy_substring(c_text, row_topics[prev['match_idx']], 0.60) or _is_fuzzy_substring(c_text, row_topics[nxt['match_idx']], 0.60):
+                                continue
+                            if _text_similarity(c_text + " " + nxt['text'], row_topics[nxt['match_idx']]) >= 0.70 or _text_similarity(prev['text'] + " " + c_text, row_topics[prev['match_idx']]) >= 0.70:
+                                continue
                             if _text_similarity(c_text, row_topics[prev['match_idx']]) >= 0.55 or _text_similarity(c_text, row_topics[nxt['match_idx']]) >= 0.55:
                                 continue
+
                                 
                             all_cell_texts = [_simplify_text(re.sub(r'<[^>]+>', '', c)) for c in re.findall(r'<td[^>]*>(.*?)</td>', harmonized_md, flags=re.DOTALL)]
                             if simp_c in all_cell_texts:
@@ -721,7 +743,12 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
                     for p_num, pl in between_lines:
                         if any(ign.lower() in pl.lower() for ign in IGNORE_PATTERNS):
                             continue
+                        if len(_simplify_text(pl)) < 4:
+                            continue
+                        if _is_fuzzy_substring(pl, last_eq_topic, 0.60):
+                            continue
                         is_cat = any(_text_similarity(pl, k) >= 0.85 for k in KNOWN_CAT_KEYWORDS)
+
                         if is_cat:
                             injected_rows.append(f'<tr><td colspan="{num_cols}">{pl}</td></tr>')
                         else:
