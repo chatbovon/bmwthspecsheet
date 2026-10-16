@@ -22,6 +22,8 @@ import socket
 import zipfile
 import io
 import requests
+import html
+
 
 sys.stdout.reconfigure(encoding='utf-8', line_buffering=True)
 import pypdf
@@ -611,8 +613,9 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
                         if any(stop_word in pl for stop_word in ['Paintwork', 'สีตัวถัง', 'BMW', 'Effective', 'Printed', 'พิมพ์วันที่', 'คู่มือ', 'Page', 'Z9']):
                             break
                         if len(_simplify_text(pl)) >= 3:
-                            all_cell_texts = [_simplify_text(re.sub(r'<[^>]+>', '', c)) for c in re.findall(r'<td[^>]*>(.*?)</td>', harmonized_md, flags=re.DOTALL)]
+                            all_cell_texts = [_simplify_text(html.unescape(re.sub(r'<[^>]+>', '', c))) for c in re.findall(r'<td[^>]*>(.*?)</td>', harmonized_md, flags=re.DOTALL)]
                             if _simplify_text(pl) not in all_cell_texts:
+
                                 missing_options.append(pl)
                     
                     if missing_options:
@@ -649,6 +652,8 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
                 
                 if curr['match_idx'] is None:
                     if prev['match_idx'] is not None and nxt['match_idx'] is not None:
+                        if prev['page'] != curr['page'] or curr['page'] != nxt['page']:
+                            continue
                         if prev['match_idx'] < nxt['match_idx'] and (nxt['match_idx'] - prev['match_idx'] <= 2):
                             c_text = curr['text']
                             if any(ign in c_text for ign in ['พิมพ์วันที่', 'Printed', 'BMW', 'Page', 'เอกสาร', 'คู่มือ', 'บีเอ็มดับเบิลยู', 'Effective', 'Z9']):
@@ -671,9 +676,10 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
                                 continue
 
                                 
-                            all_cell_texts = [_simplify_text(re.sub(r'<[^>]+>', '', c)) for c in re.findall(r'<td[^>]*>(.*?)</td>', harmonized_md, flags=re.DOTALL)]
+                            all_cell_texts = [_simplify_text(html.unescape(re.sub(r'<[^>]+>', '', c))) for c in re.findall(r'<td[^>]*>(.*?)</td>', harmonized_md, flags=re.DOTALL)]
                             if simp_c in all_cell_texts:
                                 continue
+
                                 
                             missing_text = c_text
                             prev_row_idx = prev['match_idx']
@@ -738,8 +744,9 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
                         'BMW', 'SPECIFICATIONS', 'Effective', 'Printed', 'พิมพ์วันที่', 'คู่มือ', 'Page', 'Z9',
                         'ZKK', 'ZLC', 'SCAN QR', 'FOR FURTHER', 'Range dependent', 'The privilege', 'reserves the right'
                     ]
-                    all_cell_texts = [_simplify_text(re.sub(r'<[^>]+>', '', c)) for c in re.findall(r'<td[^>]*>(.*?)</td>', harmonized_md, flags=re.DOTALL)]
+                    all_cell_texts = [_simplify_text(html.unescape(re.sub(r'<[^>]+>', '', c))) for c in re.findall(r'<td[^>]*>(.*?)</td>', harmonized_md, flags=re.DOTALL)]
                     injected_rows = []
+
                     for p_num, pl in between_lines:
                         if any(ign.lower() in pl.lower() for ign in IGNORE_PATTERNS):
                             continue
@@ -954,12 +961,12 @@ def split_cleaned_markdown(cleaned_md: str) -> tuple[str, str]:
                 break
                 
     if paint_start_idx == -1:
-        split_pt = int(len(lines) * 0.75)
-        specs_lines = lines[:split_pt]
-        paint_lines = lines[split_pt:]
+        specs_lines = lines
+        paint_lines = []
     else:
         specs_lines = lines[:paint_start_idx]
         paint_lines = lines[paint_start_idx:]
+
         
     return '\n'.join(specs_lines), '\n'.join(paint_lines)
 
@@ -1040,8 +1047,13 @@ def section_2_specs_extractor(specs_md: str, lang_code: str = "th") -> dict:
 
 
 def section_3_paint_extractor(paint_md: str, lang_code: str = "th") -> dict:
+    if not paint_md.strip() or '<table' not in paint_md.lower():
+        print(f"\n[SECTION 3] No Paintwork table present in brochure. Skipping Section 3 (Zero API call).")
+        return {"series": "BMW Specsheet", "models": []}
+        
     print(f"\n[SECTION 3] Extracting Paintwork & Upholstery Matrix (gemini-3.5-flash-lite)...")
     t0 = time.time()
+
     client = get_gemini_client()
     prompt = PROMPT_PAINT_TH if lang_code == "th" else PROMPT_PAINT_EN
     

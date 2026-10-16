@@ -30618,7 +30618,7 @@
         "model_name": "M5",
         "specifications": [
           {
-            "category": "Engine and Performance",
+            "category": "ENGINE AND PERFORMANCE",
             "details": [
               {
                 "topic": "Engine type",
@@ -30634,11 +30634,11 @@
               },
               {
                 "topic": "Engine torque (Nm/rpm)",
-                "value": "750 / 1,800 - 5,400"
+                "value": "750 /1,800 - 5,400"
               },
               {
                 "topic": "Electric motor power (kW/hp)",
-                "value": "145 / 197"
+                "value": "145 /197"
               },
               {
                 "topic": "Electric motor torque (Nm)",
@@ -30658,7 +30658,7 @@
               },
               {
                 "topic": "System output (kW/hp)",
-                "value": "535 / 727"
+                "value": "535 /727"
               },
               {
                 "topic": "System torque (Nm)",
@@ -30683,20 +30683,20 @@
             ]
           },
           {
-            "category": "Fuel Consumption and CO2 Emission",
+            "category": "FUEL CONSUMPTION AND CO₂",
             "details": [
               {
                 "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
                 "value": "39"
               },
               {
-                "topic": "Combined CO2 (g/km)",
+                "topic": "Combined CO₂ (g/km)",
                 "value": "60"
               }
             ]
           },
           {
-            "category": "Wheels and Tyres",
+            "category": "WHEELS AND TYRES",
             "details": [
               {
                 "topic": "Light alloy wheels",
@@ -30709,11 +30709,11 @@
             ]
           },
           {
-            "category": "Dimension",
+            "category": "DIMENSION",
             "details": [
               {
                 "topic": "Length / width / height (mm)",
-                "value": "5,096 / 1,970 / 1,510"
+                "value": "5,096 /1,970 /1,510"
               },
               {
                 "topic": "Luggage capacity (l)",
@@ -30726,7 +30726,7 @@
             ]
           },
           {
-            "category": "Drivetrain and Technology",
+            "category": "Transmission and technology",
             "details": [
               {
                 "topic": "8-speed Steptronic Sport transmission with gearshift paddles",
@@ -30755,48 +30755,7 @@
             ]
           },
           {
-            "category": "Exterior Equipment",
-            "details": [
-              {
-                "topic": "Adaptive LED headlights",
-                "value": "■"
-              },
-              {
-                "topic": "BMW Iconic Glow exterior package",
-                "value": "■"
-              },
-              {
-                "topic": "Automatic operation of tailgate",
-                "value": "■"
-              },
-              {
-                "topic": "Comfort access system",
-                "value": "■"
-              },
-              {
-                "topic": "M Carbon exterior package",
-                "value": "■"
-              },
-              {
-                "topic": "M Compound brake",
-                "value": "■"
-              },
-              {
-                "topic": "M Lights Shadow Line",
-                "value": "■"
-              },
-              {
-                "topic": "M high-gloss Shadowline",
-                "value": "■"
-              },
-              {
-                "topic": "M High-gloss Shadowline with Extended Contents",
-                "value": "■"
-              }
-            ]
-          },
-          {
-            "category": "Interior Equipment",
+            "category": "Interior",
             "details": [
               {
                 "topic": "M multifunctional seats for driver and front passanger",
@@ -30845,7 +30804,7 @@
             ]
           },
           {
-            "category": "Entertainment and Communication",
+            "category": "Entertainment and communication",
             "details": [
               {
                 "topic": "BMW Live Cockpit Professional",
@@ -30943,40 +30902,6 @@
             ]
           },
           {
-            "category": "Document References",
-            "details": [
-              {
-                "topic": "Publication Date",
-                "value": "30 January 2025"
-              },
-              {
-                "topic": "Package Code (Local Pack)",
-                "value": "(Z6N, Z8P, Z9N)"
-              }
-            ]
-          },
-          {
-            "category": "Notes",
-            "details": [
-              {
-                "topic": "¹ Range dependent on various factors. In particular: personal driving style, route characteristics, exterior temperature, heating / air conditioning, pre-conditioning.",
-                "value": "■"
-              },
-              {
-                "topic": "² The increase of Vmax will be automatically activated when surpassing the 2,000 km run-in distance and having completed the run-in inspection.",
-                "value": "■"
-              },
-              {
-                "topic": "³ Additional inquiries about price and information for optional equipment are available at official BMW dealers.",
-                "value": "■"
-              },
-              {
-                "topic": "* The privilege of purchasing package up to 5 years unlimited mileage warranty and 5 years of maintenance or 100,000 km. (whichever comes first). BMW reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.",
-                "value": "■"
-              }
-            ]
-          },
-          {
             "category": "Package",
             "details": [
               {
@@ -30991,6 +30916,60 @@
               {
                 "topic": "M Carbon ceramic brake³",
                 "value": "■"
+              }
+            ]
+          },
+          {
+            "category": "Exterior",
+            "details": [
+              {
+                "topic": "Adaptive LED headlights",
+                "value": "■"
+              },
+              {
+                "topic": "BMW Iconic Glow exterior package",
+                "value": "■"
+              },
+              {
+                "topic": "Automatic operation of tailgate",
+                "value": "■"
+              },
+              {
+                "topic": "Comfort access system",
+                "value": "■"
+              },
+              {
+                "topic": "M Carbon exterior package",
+                "value": "■"
+              },
+              {
+                "topic": "M Compound brake",
+                "value": "■"
+              },
+              {
+                "topic": "M Lights Shadow Line",
+                "value": "■"
+              },
+              {
+                "topic": "M high-gloss Shadowline",
+                "value": "■"
+              },
+              {
+                "topic": "M High-gloss Shadowline with Extended Contents",
+                "value": "■"
+              }
+            ]
+          },
+          {
+            "category": "Document References",
+            "details": [
+              {
+                "topic": "Publication Date",
+                "value": "30 January 2025"
+              },
+              {
+                "topic": "Local package code",
+                "value": "(Z6N, Z8P, Z9N)"
               }
             ]
           }
@@ -31537,7 +31516,7 @@
         "model_name": "M5 Touring",
         "specifications": [
           {
-            "category": "Engine and Performance",
+            "category": "ENGINE AND PERFORMANCE",
             "details": [
               {
                 "topic": "Engine type",
@@ -31606,20 +31585,20 @@
             ]
           },
           {
-            "category": "Fuel Consumption and CO2 Emission",
+            "category": "FUEL CONSUMPTION AND CO₂",
             "details": [
               {
                 "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
                 "value": "35.7"
               },
               {
-                "topic": "Combined CO2 (g/km)",
+                "topic": "Combined CO₂ (g/km)",
                 "value": "64"
               }
             ]
           },
           {
-            "category": "Wheels and Tyres",
+            "category": "WHEELS AND TYRES",
             "details": [
               {
                 "topic": "Light alloy wheels",
@@ -31627,12 +31606,12 @@
               },
               {
                 "topic": "Tyre size",
-                "value": "Front: 10.5J × 20 / tyres: 285/40 ZR20, Rear: 11J × 21 / tyres: 295/35 ZR21"
+                "value": "Front: 10.5J × 20 / tyres: 285/40 ZR20 Rear: 11J × 21 / tyres: 295/35 ZR21"
               }
             ]
           },
           {
-            "category": "Dimension",
+            "category": "DIMENSION",
             "details": [
               {
                 "topic": "Length / width / height (mm)",
@@ -31649,7 +31628,7 @@
             ]
           },
           {
-            "category": "Drivetrain and Technology",
+            "category": "Transmission and technology",
             "details": [
               {
                 "topic": "8-speed Steptronic Sport transmission with gearshift paddles",
@@ -31678,7 +31657,7 @@
             ]
           },
           {
-            "category": "Exterior Equipment",
+            "category": "Exterior",
             "details": [
               {
                 "topic": "Adaptive LED headlights",
@@ -31719,10 +31698,10 @@
             ]
           },
           {
-            "category": "Interior Equipment",
+            "category": "Interior",
             "details": [
               {
-                "topic": "M multifunctional seats for driver and front passanger",
+                "topic": "M multifunctional seats for driver and front passenger",
                 "value": "■"
               },
               {
@@ -31768,7 +31747,7 @@
             ]
           },
           {
-            "category": "Entertainment and Communication",
+            "category": "Entertainment and communication",
             "details": [
               {
                 "topic": "BMW Live Cockpit Professional",
@@ -31914,40 +31893,6 @@
             ]
           },
           {
-            "category": "Document References",
-            "details": [
-              {
-                "topic": "Publication Date",
-                "value": "18 February 2025"
-              },
-              {
-                "topic": "Package Code (Local Pack)",
-                "value": "(Z9D, Z9E, ZJZ)"
-              }
-            ]
-          },
-          {
-            "category": "Notes",
-            "details": [
-              {
-                "topic": "Range dependent on various factors. In particular: personal driving style, route characteristics, exterior temperature, heating / air conditioning, pre-conditioning.",
-                "value": "-"
-              },
-              {
-                "topic": "The increase of Vmax will be automatically activated when surpassing the 2,000 km run-in distance and having completed the run-in inspection.",
-                "value": "-"
-              },
-              {
-                "topic": "Additional inquiries about price and information for optional equipment are available at official BMW dealers.",
-                "value": "-"
-              },
-              {
-                "topic": "The privilege of purchasing package up to 5 years unlimited mileage warranty and 5 years of maintenance or 100,000 km. (whichever comes first).",
-                "value": "-"
-              }
-            ]
-          },
-          {
             "category": "Package",
             "details": [
               {
@@ -31962,6 +31907,19 @@
               {
                 "topic": "M Carbon ceramic brake³",
                 "value": "■"
+              }
+            ]
+          },
+          {
+            "category": "Document References",
+            "details": [
+              {
+                "topic": "Publication Date",
+                "value": "18 February 2025"
+              },
+              {
+                "topic": "Local package code",
+                "value": "(Z9D, Z9E, ZJZ)"
               }
             ]
           }
@@ -37786,7 +37744,7 @@
         "model_name": "BMW M4 Competition M xDrive",
         "specifications": [
           {
-            "category": "Engine and Performance",
+            "category": "ENGINE AND PERFORMANCE",
             "details": [
               {
                 "topic": "Engine type",
@@ -37815,20 +37773,20 @@
             ]
           },
           {
-            "category": "Fuel Consumption and CO2 Emission",
+            "category": "FUEL CONSUMPTION AND CO₂",
             "details": [
               {
                 "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
                 "value": "10.1"
               },
               {
-                "topic": "Combined CO2 (g/km)",
+                "topic": "Combined CO₂ (g/km)",
                 "value": "225"
               }
             ]
           },
           {
-            "category": "Wheels and Tyres",
+            "category": "WHEELS AND TYRES",
             "details": [
               {
                 "topic": "Light alloy wheels",
@@ -37841,7 +37799,7 @@
             ]
           },
           {
-            "category": "Dimension",
+            "category": "DIMENSION",
             "details": [
               {
                 "topic": "Length / width / height (mm)",
@@ -37858,7 +37816,7 @@
             ]
           },
           {
-            "category": "Drivetrain and Technology",
+            "category": "Transmission and technology",
             "details": [
               {
                 "topic": "8-speed M Steptronic transmission with Drivelogic",
@@ -37887,7 +37845,7 @@
             ]
           },
           {
-            "category": "Exterior Equipment",
+            "category": "Exterior",
             "details": [
               {
                 "topic": "M Compound Brake, Red High-Gloss",
@@ -37928,10 +37886,10 @@
             ]
           },
           {
-            "category": "Interior Equipment",
+            "category": "Interior",
             "details": [
               {
-                "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
+                "topic": "Interior and exterior mirrors on driver's side with automatic anti- dazzle function",
                 "value": "■"
               },
               {
@@ -37977,7 +37935,7 @@
             ]
           },
           {
-            "category": "Entertainment and Communication",
+            "category": "Entertainment and communication",
             "details": [
               {
                 "topic": "BMW Live Cockpit Professional",
@@ -38131,44 +38089,6 @@
             ]
           },
           {
-            "category": "Document References",
-            "details": [
-              {
-                "topic": "Publication Date",
-                "value": "14 July 2026"
-              },
-              {
-                "topic": "Package Code (Local Pack)",
-                "value": "(Z0L, Z6S, Z6W, Z7P, ZLF)"
-              }
-            ]
-          },
-          {
-            "category": "Notes",
-            "details": [
-              {
-                "topic": "1 Range dependent on various factors. In particular: personal driving style, route characteristics, exterior temperature, heating / air conditioning, pre-conditioning.",
-                "value": "■"
-              },
-              {
-                "topic": "2 The increase of Vmax will be automatically activated when surpassing the 2,000 km run-in distance and having completed the run-in inspection.",
-                "value": "■"
-              },
-              {
-                "topic": "3 Additional inquiries about price and information for optional equipment are available at official BMW dealers.",
-                "value": "■"
-              },
-              {
-                "topic": "* The privilege of purchasing package up to 5 years unlimited mileage warranty and 5 years of maintenance or 100,000 km. (whichever comes first).",
-                "value": "■"
-              },
-              {
-                "topic": "BMW reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.",
-                "value": "■"
-              }
-            ]
-          },
-          {
             "category": "Package",
             "details": [
               {
@@ -38183,6 +38103,19 @@
               {
                 "topic": "M Carbon ceramic brake³",
                 "value": "■"
+              }
+            ]
+          },
+          {
+            "category": "Document References",
+            "details": [
+              {
+                "topic": "Publication Date",
+                "value": "14 July 2026"
+              },
+              {
+                "topic": "Local package code",
+                "value": "(Z0L, Z6S, Z6W, Z7P, ZLF)"
               }
             ]
           }
