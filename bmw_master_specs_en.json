@@ -5802,7 +5802,7 @@
         "model_name": "X1 sDrive20i M Sport",
         "specifications": [
           {
-            "category": "Engine and Performance",
+            "category": "ENGINE AND PERFORMANCE",
             "details": [
               {
                 "topic": "Engine type",
@@ -5839,20 +5839,20 @@
             ]
           },
           {
-            "category": "Fuel Consumption and CO2 Emission",
+            "category": "FUEL CONSUMPTION AND CO₂",
             "details": [
               {
                 "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
                 "value": "15.9"
               },
               {
-                "topic": "Combined CO2 (g/km)",
+                "topic": "Combined CO₂ (g/km)",
                 "value": "148"
               }
             ]
           },
           {
-            "category": "Wheels and Tyres",
+            "category": "WHEELS AND TYRES",
             "details": [
               {
                 "topic": "Light alloy wheels",
@@ -5865,7 +5865,7 @@
             ]
           },
           {
-            "category": "Dimension",
+            "category": "DIMENSION",
             "details": [
               {
                 "topic": "Length / width / height (mm)",
@@ -5882,7 +5882,7 @@
             ]
           },
           {
-            "category": "Drivetrain and Technology",
+            "category": "Transmission and technology",
             "details": [
               {
                 "topic": "7-Speed Steptronic Transmission with Double Clutch and Gearshift Paddles",
@@ -5903,7 +5903,7 @@
             ]
           },
           {
-            "category": "Exterior Equipment",
+            "category": "Exterior",
             "details": [
               {
                 "topic": "Comfort Access System",
@@ -5932,7 +5932,7 @@
             ]
           },
           {
-            "category": "Interior Equipment",
+            "category": "Interior",
             "details": [
               {
                 "topic": "Interior and exterior mirrors with automatic anti-dazzle function",
@@ -5969,7 +5969,7 @@
             ]
           },
           {
-            "category": "Entertainment and Communication",
+            "category": "Entertainment and communication",
             "details": [
               {
                 "topic": "BMW Live Cockpit Professional",
@@ -6005,7 +6005,7 @@
                 "value": "■"
               },
               {
-                "topic": "Head airbags for 1ˢᵗ and 2ⁿᵈ seat row",
+                "topic": "Head airbags for 1st and 2nd seat row",
                 "value": "■"
               },
               {
@@ -6104,25 +6104,8 @@
                 "value": "3 July 2025"
               },
               {
-                "topic": "Package Code (Local Pack)",
+                "topic": "Local package code",
                 "value": "(Z9P)"
-              }
-            ]
-          },
-          {
-            "category": "Notes",
-            "details": [
-              {
-                "topic": "1 Range dependent on various factors. In particular: personal driving style, route characteristics, exterior temperature, heating / air conditioning, pre-conditioning.",
-                "value": "■"
-              },
-              {
-                "topic": "* The privilege of purchasing package up to 5 years unlimited mileage warranty and 5 years of maintenance or 100,000 km. (whichever comes first).",
-                "value": "■"
-              },
-              {
-                "topic": "BMW reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.",
-                "value": "■"
               }
             ]
           }

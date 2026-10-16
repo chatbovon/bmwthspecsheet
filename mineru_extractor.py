@@ -491,7 +491,7 @@ def _normalize_pua(text: str) -> str:
 
 def _simplify_text(s: str) -> str:
     s = _normalize_pua(s)
-    return re.sub(r'[^a-zA-Z0-9\u0e01-\u0e2e]', '', s).lower()
+    return re.sub(r'[^a-zA-Z\u0e01-\u0e2e]', '', s).lower()
 
 def _text_similarity(a: str, b: str) -> float:
     sa, sb = _simplify_text(a), _simplify_text(b)
@@ -558,10 +558,51 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
         table_matches = list(re.finditer(r'<table[^>]*>(.*?)</table>', harmonized_md, flags=re.DOTALL))
         for t_match in table_matches:
             t_content = t_match.group(1)
-            if 'Paintwork' in t_content or 'สีตัวถัง' in t_content:
+            # Gap recovery strictly applies to equipment tables with checkmarks (exclude Paintwork and Technical specs)
+            if 'Paintwork' in t_content or 'สีตัวถัง' in t_content or not ('■' in t_content or '&#x25a0;' in t_content or '?' in t_content):
                 continue
                 
             full_rows = list(re.finditer(r'<tr[^>]*>.*?</tr>', t_content, flags=re.DOTALL))
+            if not full_rows:
+                continue
+
+            # --- Pattern 2A: Trailing Empty Category Recovery ---
+            last_row_html = full_rows[-1].group(0)
+            cat_match = re.search(r'<td\s+colspan=[\'"]?\d+[\'"]?[^>]*>(.*?)</td>', last_row_html, flags=re.IGNORECASE)
+            if cat_match:
+                cat_name = re.sub(r'<[^>]+>', '', cat_match.group(1)).strip().replace('&#x27;', "'").replace('&quot;', '"').replace('&amp;', '&')
+                num_cols = 2
+                for r_m in full_rows[:-1]:
+                    td_count = len(re.findall(r'<td[^>]*>', r_m.group(0)))
+                    if td_count > num_cols:
+                        num_cols = td_count
+                
+                cat_pdf_indices = [idx for idx, (p_num, pl) in enumerate(all_pdf_lines) if _text_similarity(pl, cat_name) >= 0.8]
+                if cat_pdf_indices:
+                    cat_idx = cat_pdf_indices[0]
+                    cat_page = all_pdf_lines[cat_idx][0]
+                    missing_options = []
+                    for look_idx in range(cat_idx + 1, len(all_pdf_lines)):
+                        p_num, pl = all_pdf_lines[look_idx]
+                        if p_num != cat_page:
+                            break
+                        if any(stop_word in pl for stop_word in ['Paintwork', 'สีตัวถัง', 'BMW', 'Effective', 'Printed', 'พิมพ์วันที่', 'คู่มือ', 'Page', 'Z9']):
+                            break
+                        if len(_simplify_text(pl)) >= 3:
+                            all_cell_texts = [_simplify_text(re.sub(r'<[^>]+>', '', c)) for c in re.findall(r'<td[^>]*>(.*?)</td>', harmonized_md, flags=re.DOTALL)]
+                            if _simplify_text(pl) not in all_cell_texts:
+                                missing_options.append(pl)
+                    
+                    if missing_options:
+                        injected_rows = [f"<tr><td>{opt}</td>{''.join(['<td>■</td>'] * (num_cols - 1))}</tr>" for opt in missing_options]
+                        row_matches = list(re.finditer(re.escape(last_row_html), harmonized_md))
+                        if row_matches:
+                            target_pos = row_matches[0].end()
+                            harmonized_md = harmonized_md[:target_pos] + "\n" + "\n".join(injected_rows) + harmonized_md[target_pos:]
+                            for opt in missing_options:
+                                print(f"   [HARMONIZER - Trailing Category] Inserted '{opt}' under empty category '{cat_name}'")
+
+            # --- Pattern 2B: In-Table Sequence Gap Recovery ---
             row_topics = []
             for r_m in full_rows:
                 cells = re.findall(r'<td[^>]*>(.*?)</td>', r_m.group(0), flags=re.DOTALL)
@@ -592,7 +633,8 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
                                 continue
                             if len(_simplify_text(c_text)) < 4:
                                 continue
-                            if _simplify_text(c_text) in _simplify_text(harmonized_md):
+                            all_cell_texts = [_simplify_text(re.sub(r'<[^>]+>', '', c)) for c in re.findall(r'<td[^>]*>(.*?)</td>', harmonized_md, flags=re.DOTALL)]
+                            if _simplify_text(c_text) in all_cell_texts:
                                 continue
                                 
                             missing_text = c_text
