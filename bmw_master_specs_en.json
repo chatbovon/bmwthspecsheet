@@ -35269,7 +35269,7 @@
         "model_name": "iX2 xDrive30 M Sport",
         "specifications": [
           {
-            "category": "Engine and Performance",
+            "category": "ENGINE AND PERFORMANCE",
             "details": [
               {
                 "topic": "Electric motor",
@@ -35280,7 +35280,7 @@
                 "value": "225 / 306"
               },
               {
-                "topic": "Maximum output incl. temp.boost (kW/hp)",
+                "topic": "Maximum output incl. temp. boost (kW/hp)",
                 "value": "230 / 313"
               },
               {
@@ -35288,11 +35288,11 @@
                 "value": "494"
               },
               {
-                "topic": "Electric range¹, NEDC (km)",
+                "topic": "Electric range ¹, NEDC (km)",
                 "value": "395"
               },
               {
-                "topic": "Electric range¹, WLTP (km)",
+                "topic": "Electric range ¹, WLTP (km)",
                 "value": "417 - 449"
               },
               {
@@ -35322,11 +35322,11 @@
             ]
           },
           {
-            "category": "Wheels and Tyres",
+            "category": "WHEELS AND TYRES",
             "details": [
               {
                 "topic": "Wheels",
-                "value": "20\" M lightalloy wheels V-spoke Bicolour"
+                "value": "20\" M light-alloy wheels V-spoke Bicolour"
               },
               {
                 "topic": "Tyre size",
@@ -35335,7 +35335,7 @@
             ]
           },
           {
-            "category": "Dimension",
+            "category": "DIMENSION",
             "details": [
               {
                 "topic": "Length / width / height (mm)",
@@ -35408,7 +35408,7 @@
             ]
           },
           {
-            "category": "Drivetrain and Technology",
+            "category": "Transmission and technology",
             "details": [
               {
                 "topic": "Automatic transmission",
@@ -35433,7 +35433,7 @@
             ]
           },
           {
-            "category": "Exterior Equipment",
+            "category": "Exterior",
             "details": [
               {
                 "topic": "Panorama glass roof",
@@ -35478,7 +35478,7 @@
             ]
           },
           {
-            "category": "Interior Equipment",
+            "category": "Interior",
             "details": [
               {
                 "topic": "M Sport seats for driver and front passenger",
@@ -35527,7 +35527,7 @@
             ]
           },
           {
-            "category": "Entertainment and Communication",
+            "category": "Entertainment and communication",
             "details": [
               {
                 "topic": "BMW Live Cockpit Professional",
@@ -35662,25 +35662,8 @@
                 "value": "15 January 2025"
               },
               {
-                "topic": "Package Code (Local Pack)",
+                "topic": "Local package code",
                 "value": "(Z2O, Z0N, Z8C, Z8D)"
-              }
-            ]
-          },
-          {
-            "category": "Notes",
-            "details": [
-              {
-                "topic": "¹ Range dependent on various factors. In particular: personal driving style, route characteristics, exterior temperature, heating / air conditioning, pre-conditioning.",
-                "value": "-"
-              },
-              {
-                "topic": "* The privilege of purchasing package up to 6 years unlimited mileage warranty and 6 years unlimited mileage of maintenance and 8 years high-voltage battery and its units warranty or 160,000 km. (whichever comes first). Service Interval are due every 24 months.",
-                "value": "-"
-              },
-              {
-                "topic": "BMW reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.",
-                "value": "-"
               }
             ]
           }
@@ -36184,7 +36167,7 @@
         "model_name": "iX1 eDrive20L M Sport",
         "specifications": [
           {
-            "category": "Engine and Performance",
+            "category": "ENGINE AND PERFORMANCE",
             "details": [
               {
                 "topic": "Electric motor",
@@ -36199,11 +36182,11 @@
                 "value": "250"
               },
               {
-                "topic": "Electric range¹, NEDC (km)",
+                "topic": "Electric range ¹, NEDC (km)",
                 "value": "469"
               },
               {
-                "topic": "Electric range¹, WLTP (km)",
+                "topic": "Electric range ¹, WLTP (km)",
                 "value": "458 - 539"
               },
               {
@@ -36233,7 +36216,7 @@
             ]
           },
           {
-            "category": "Wheels and Tyres",
+            "category": "WHEELS AND TYRES",
             "details": [
               {
                 "topic": "Wheels",
@@ -36246,7 +36229,7 @@
             ]
           },
           {
-            "category": "Dimension",
+            "category": "DIMENSION",
             "details": [
               {
                 "topic": "Length / width / height (mm)",
@@ -36315,7 +36298,7 @@
             ]
           },
           {
-            "category": "Drivetrain and Technology",
+            "category": "Transmission and technology",
             "details": [
               {
                 "topic": "Automatic transmission",
@@ -36340,7 +36323,7 @@
             ]
           },
           {
-            "category": "Exterior Equipment",
+            "category": "Exterior",
             "details": [
               {
                 "topic": "Adaptive LED headlights",
@@ -36377,7 +36360,7 @@
             ]
           },
           {
-            "category": "Interior Equipment",
+            "category": "Interior",
             "details": [
               {
                 "topic": "Interior and exterior mirrors on driver's side with automatic anti-dazzle function",
@@ -36414,7 +36397,7 @@
             ]
           },
           {
-            "category": "Entertainment and Communication",
+            "category": "Entertainment and communication",
             "details": [
               {
                 "topic": "BMW Live Cockpit Plus",
@@ -36569,25 +36552,8 @@
                 "value": "3 July 2025"
               },
               {
-                "topic": "Package Code (Local Pack)",
+                "topic": "Local package code",
                 "value": "(ZLD)"
-              }
-            ]
-          },
-          {
-            "category": "Notes",
-            "details": [
-              {
-                "topic": "Range dependent on various factors. In particular: personal driving style, route characteristics, exterior temperature, heating / air conditioning, pre-conditioning.",
-                "value": "■"
-              },
-              {
-                "topic": "The privilege of purchasing package up to 6 years unlimited mileage warranty and 6 years unlimited mileage of maintenance and 8 years high-voltage battery and its units warranty or 160,000 km. (whichever comes first). Service Interval are due every 24 months.",
-                "value": "■"
-              },
-              {
-                "topic": "BMW reserves the right to change all information, specifications and illustrations without prior notice and is not responsible for typographical errors.",
-                "value": "■"
               }
             ]
           }
