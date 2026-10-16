@@ -406,11 +406,6 @@
             color: #e11d48;
             border: 1px solid rgba(225, 29, 72, 0.3);
         }
-        .badge-sound {
-            background: rgba(14, 165, 233, 0.12);
-            color: #0284c7;
-            border: 1px solid rgba(14, 165, 233, 0.3);
-        }
         .badge-center-airbag {
             background: rgba(16, 185, 129, 0.12);
             color: #059669;
@@ -1992,9 +1987,6 @@
         }
         if (lower.includes('plus')) {
             return '<span class="feature-badge badge-plus">PLUS</span>';
-        }
-        if (lower.includes('bowers') || lower.includes('harman') || lower.includes('sound')) {
-            return '<span class="feature-badge badge-sound">AUDIO</span>';
         }
         if (lower.includes('m sport') || lower.includes('adaptive m') || lower.includes('aerodynamic')) {
             return '<span class="feature-badge badge-sport">M SPORT</span>';
