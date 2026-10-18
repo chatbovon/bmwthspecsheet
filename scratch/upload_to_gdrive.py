@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 from google.oauth2 import service_account
 from google.oauth2.credentials import Credentials
@@ -81,7 +82,8 @@ def main():
         return
 
     if not service:
-        return
+        print("[GDRIVE] [FATAL] Drive service authentication failed. Exiting with error.")
+        sys.exit(1)
 
     # 1. Fetch existing files in Google Drive folder
     print("[GDRIVE] Fetching list of existing files from Google Drive...")
@@ -105,8 +107,8 @@ def main():
                 break
         print(f"[GDRIVE] Found {len(existing_files)} existing files on Google Drive.")
     except Exception as e:
-        print(f"[GDRIVE] [ERROR] Failed to list folder contents: {e}")
-        return
+        print(f"[GDRIVE] [FATAL] Failed to list folder contents (check token/permissions): {e}")
+        sys.exit(1)
 
     # 2. Scan local directories
     workspace_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -132,6 +134,7 @@ def main():
     # 3. Upload only missing files
     uploaded_count = 0
     skipped_count = 0
+    failed_count = 0
     
     for fname, full_path in files_to_upload:
         if fname in existing_files:
@@ -144,10 +147,16 @@ def main():
             success = upload_pdf_to_folder(service, folder_id, full_path)
             if success:
                 uploaded_count += 1
+            else:
+                failed_count += 1
 
     print(f"\n[GDRIVE] Sync completed:")
     print(f"  - Uploaded: {uploaded_count} files")
     print(f"  - Skipped: {skipped_count} files")
+    print(f"  - Failed: {failed_count} files")
+    if failed_count > 0:
+        print(f"[GDRIVE] [FATAL] {failed_count} files failed to upload to Google Drive.")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
