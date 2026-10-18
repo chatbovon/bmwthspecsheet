@@ -13291,7 +13291,7 @@
                 }
             }
         ],
-        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/iX3-20260213-02_TH_REV1.pdf.asset.1782450816279.pdf",
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/2026/iX3-20260213-02_TH_REV1.pdf.asset.1782450816279.pdf",
         "low_confidence_flags": [
             {
                 "model_name": "iX3 50 xDrive M Sport",
@@ -13839,7 +13839,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Local package code' (mapped: 'local package code'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
             }
-        ]
+        ],
+        "source_file": "iX3-20260213-02_TH_REV1.pdf.asset.1782450816279.pdf"
     },
     {
         "series": "BMW 4 SERIES",
@@ -16870,7 +16871,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Local package code' (mapped: 'local package code'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
             }
-        ]
+        ],
+        "source_file": "4-20260714-01_TH_.pdf.asset.1784613825348.pdf"
     },
     {
         "series": "BMW M2",
@@ -43256,6 +43258,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 3: English is 'AC Charging Reference Note' (mapped: 'ac charging reference note'), Thai is 'หมายเหตุการชาร์จ AC' (mapped: 'หมายเหตุการชาร์จ ac')"
             }
-        ]
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/5-20260417-01_TH.pdf.asset.1779074950693.pdf",
+        "source_file": "5-20260417-01_TH.pdf.asset.1779074950693.pdf"
     }
 ]

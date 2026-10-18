@@ -81,12 +81,26 @@ def run_batch_extraction(lang="th", target_file=None):
                 with open(temp_json, "r", encoding="utf-8") as f:
                     result = json.load(f)
 
-                # Ensure pdf_source is set
+                # Ensure pdf_source and source_file are set
                 result["pdf_source"] = filename
+                result["source_file"] = filename
+
+                # Look up live web pdf_url if available
+                url_map_file = os.path.join(WORKSPACE_DIR, "scratch", "live_web_pdf_urls.json")
+                if os.path.exists(url_map_file):
+                    try:
+                        with open(url_map_file, "r", encoding="utf-8") as uf:
+                            url_map = json.load(uf)
+                        if filename in url_map:
+                            result["pdf_url"] = url_map[filename]
+                    except Exception as url_err:
+                        print(f"[BATCH WARNING] Failed to load pdf_url from {url_map_file}: {url_err}")
 
                 # Try to preserve old images mapping if entry exists in master catalog
                 old_entry = next((item for item in master_specs if item.get("pdf_source") == filename), None)
                 if old_entry:
+                    if not result.get("pdf_url") and old_entry.get("pdf_url"):
+                        result["pdf_url"] = old_entry["pdf_url"]
                     old_images = {}
                     for m in old_entry.get("models", []):
                         mname = m.get("model_name")
