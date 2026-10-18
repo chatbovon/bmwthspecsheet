@@ -14924,5 +14924,2137 @@
             "gemini-3.5-flash-lite"
         ],
         "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/2024/i7-20240410-01_EN.pdf"
+    },
+    {
+        "series": "BMW 5 SERIES",
+        "models": [
+            {
+                "model_name": "520d M Sport Pro",
+                "specifications": [
+                    {
+                        "category": "Engine and Performance",
+                        "details": [
+                            {
+                                "topic": "Engine type",
+                                "value": "BMW TwinPower Turbo 4-cylinder inline diesel engine"
+                            },
+                            {
+                                "topic": "Displacement (cm³)",
+                                "value": "1,995"
+                            },
+                            {
+                                "topic": "Engine power (kW/hp/rpm)",
+                                "value": "145 / 197 / 4,000"
+                            },
+                            {
+                                "topic": "Engine torque (Nm/rpm)",
+                                "value": "400 / 1,500 - 2,750"
+                            },
+                            {
+                                "topic": "Electric motor power (kW/hp)",
+                                "value": "8 / 11"
+                            },
+                            {
+                                "topic": "Electric motor torque (Nm)",
+                                "value": "25"
+                            },
+                            {
+                                "topic": "Electrical range¹ , NEDC (km)",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "High voltage battery energy content (kWh)",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "System output (kW/hp)",
+                                "value": "145 / 197"
+                            },
+                            {
+                                "topic": "System torque (Nm)",
+                                "value": "400"
+                            },
+                            {
+                                "topic": "Top speed (km/h)",
+                                "value": "233"
+                            },
+                            {
+                                "topic": "Top speed electric (km/h)",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "0 - 100 km/h (s)",
+                                "value": "7.3"
+                            },
+                            {
+                                "topic": "Electric energy consumption, NEDC (kWh/100 km)",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Maximum AC charging power (kW)",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "AC charging time 0 - 100%",
+                                "value": "-"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Fuel Consumption and CO2",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "18.5"
+                            },
+                            {
+                                "topic": "Combined CO2 (g/km)",
+                                "value": "142"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Wheels and Tyres",
+                        "details": [
+                            {
+                                "topic": "Light alloy wheels",
+                                "value": "20\" M light alloy wheels Star-spoke style Bicolour Jet Black"
+                            },
+                            {
+                                "topic": "Tyre size",
+                                "value": "Front: 8.5 J × 20 / tyres: 245/40 R 20 | Rear: 10 J × 20 / tyres: 275/35 R 20"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Dimension",
+                        "details": [
+                            {
+                                "topic": "Length / width / height (mm)",
+                                "value": "5,060 / 1,900 / 1,515"
+                            },
+                            {
+                                "topic": "Luggage capacity (l)",
+                                "value": "520"
+                            },
+                            {
+                                "topic": "Curb weight (kg)",
+                                "value": "1,850"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Transmission and Technology",
+                        "details": [
+                            {
+                                "topic": "Steptronic transmission with gearshift paddles",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport suspension",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Driving Assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Driving Assistant Professional",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Parking Assistant Plus",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Exterior Equipment",
+                        "details": [
+                            {
+                                "topic": "Adaptive LED headlights",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "High-beam assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport brake, red high-gloss",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport brake, dark blue metallic",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Automatic operation of tailgate",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Comfort access system",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Iconic Glow exterior package",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Panorama glass roof",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Expanded exterior mirror package",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M rear spoiler",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport exterior parts",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Lights Shadowline",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M High-gloss Shadowline",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M High-gloss Shadowline with Extended Contents",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Interior Equipment",
+                        "details": [
+                            {
+                                "topic": "M leather steering wheel",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M seat belts",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Sport seats for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Comfort seats front, electrically adjustable",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Seat adjustment, electric, with memory",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport interior parts",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dark Silver M accent combined with Aluminium Rhombicle",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dark Silver M accent combined with Carbon Fibre and high-gloss silver threads",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Interior rear-view mirror with automatic anti-dazzle function",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M headliner anthracite",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Ambient light",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Glass application 'CraftedClarity' for interior elements",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Roller sunblinds",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Travel & Comfort System",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "4-Zone Automatic air conditioning",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Interior camera",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Entertainment and Communication",
+                        "details": [
+                            {
+                                "topic": "BMW Live Cockpit Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "HiFi loudspeaker system Harman Kardon",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Bowers & Wilkins surround sound system",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "BMW Iconic sounds electric",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "BMW ConnectedDrive",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Connected Package Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Smartphone integration",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Natural Interaction",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Personal eSIM",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Wireless charging tray",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Safety",
+                        "details": [
+                            {
+                                "topic": "Airbag for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Side airbags for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Central airbag (driver's seat)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Head airbags for 1st and 2nd seat row",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Teleservices",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Intelligent Emergency Call",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Stability Control (DSC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Anti-lock Brake System (ABS)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Brake Assist (BA)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic braking lights",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Cornering Brake Control (CBC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Crash sensor",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Active Protection",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Attentiveness assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Park Distance Control (PDC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Acoustic protection for pedestrians",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Tyre Pressure Monitoring System",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre Repair Kit",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Line / Package",
+                        "details": [
+                            {
+                                "topic": "M Sport",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport Pro",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork & Upholstery",
+                        "details": [
+                            {
+                                "topic": "Black Sapphire Metallic",
+                                "value": "Veganza perforated and quilted - Espresso Brown"
+                            },
+                            {
+                                "topic": "Mineral White Metallic",
+                                "value": "Veganza perforated and quilted - Espresso Brown"
+                            },
+                            {
+                                "topic": "Brooklyn Grey Metallic",
+                                "value": "Veganza perforated and quilted - Espresso Brown"
+                            },
+                            {
+                                "topic": "Phytonic Blue Metallic",
+                                "value": "Veganza perforated and quilted - Black"
+                            },
+                            {
+                                "topic": "Cape York Green Metallic",
+                                "value": "Veganza perforated and quilted - Black"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "10 July 2024"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z4V, Z7M)"
+                            },
+                            {
+                                "topic": "AC Charging Reference Note",
+                                "value": "-"
+                            }
+                        ]
+                    }
+                ],
+                "is_custom_archived": true
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "specifications": [
+                    {
+                        "category": "Engine and Performance",
+                        "details": [
+                            {
+                                "topic": "Engine type",
+                                "value": "BMW TwinPower Turbo 4-cylinder inline petrol engine"
+                            },
+                            {
+                                "topic": "Displacement (cm³)",
+                                "value": "1,998"
+                            },
+                            {
+                                "topic": "Engine power (kW/hp/rpm)",
+                                "value": "140 / 190 / 4,400 - 6,500"
+                            },
+                            {
+                                "topic": "Engine torque (Nm/rpm)",
+                                "value": "310 / 1,500 - 4,000"
+                            },
+                            {
+                                "topic": "Electric motor power (kW/hp)",
+                                "value": "135 / 184"
+                            },
+                            {
+                                "topic": "Electric motor torque (Nm)",
+                                "value": "250"
+                            },
+                            {
+                                "topic": "Electrical range¹ , NEDC (km)",
+                                "value": "108 (NEDC)"
+                            },
+                            {
+                                "topic": "High voltage battery energy content (kWh)",
+                                "value": "22.1"
+                            },
+                            {
+                                "topic": "System output (kW/hp)",
+                                "value": "220 / 299"
+                            },
+                            {
+                                "topic": "System torque (Nm)",
+                                "value": "450"
+                            },
+                            {
+                                "topic": "Top speed (km/h)",
+                                "value": "230"
+                            },
+                            {
+                                "topic": "Top speed electric (km/h)",
+                                "value": "140"
+                            },
+                            {
+                                "topic": "0 - 100 km/h (s)",
+                                "value": "6.3"
+                            },
+                            {
+                                "topic": "Electric energy consumption, NEDC (kWh/100 km)",
+                                "value": "18.64"
+                            },
+                            {
+                                "topic": "Maximum AC charging power (kW)",
+                                "value": "7.4"
+                            },
+                            {
+                                "topic": "AC charging time 0 - 100%",
+                                "value": "3 hours 15 minutes*"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Fuel Consumption and CO2",
+                        "details": [
+                            {
+                                "topic": "Combined fuel consumption from ECO Sticker result (km/l)",
+                                "value": "76.9"
+                            },
+                            {
+                                "topic": "Combined CO2 (g/km)",
+                                "value": "29"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Wheels and Tyres",
+                        "details": [
+                            {
+                                "topic": "Light alloy wheels",
+                                "value": "20\" M aerodynamic wheels Bicolour Black Grey"
+                            },
+                            {
+                                "topic": "Tyre size",
+                                "value": "Front: 8.5 J × 20 / tyres: 245/40 R 20 | Rear: 10 J × 20 / tyres: 275/35 R 20"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Dimension",
+                        "details": [
+                            {
+                                "topic": "Length / width / height (mm)",
+                                "value": "5,060 / 1,900 / 1,515"
+                            },
+                            {
+                                "topic": "Luggage capacity (l)",
+                                "value": "520"
+                            },
+                            {
+                                "topic": "Curb weight (kg)",
+                                "value": "2,080"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Transmission and Technology",
+                        "details": [
+                            {
+                                "topic": "Steptronic transmission with gearshift paddles",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport suspension",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Driving Assistant",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Driving Assistant Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Parking Assistant Plus",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Exterior Equipment",
+                        "details": [
+                            {
+                                "topic": "Adaptive LED headlights",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "High-beam assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport brake, red high-gloss",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "M Sport brake, dark blue metallic",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Automatic operation of tailgate",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Comfort access system",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Iconic Glow exterior package",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Panorama glass roof",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Expanded exterior mirror package",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M rear spoiler",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport exterior parts",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Lights Shadowline",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M High-gloss Shadowline",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M High-gloss Shadowline with Extended Contents",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Interior Equipment",
+                        "details": [
+                            {
+                                "topic": "M leather steering wheel",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M seat belts",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Sport seats for driver and front passenger",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Comfort seats front, electrically adjustable",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Seat adjustment, electric, with memory",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "M Sport interior parts",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dark Silver M accent combined with Aluminium Rhombicle",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Dark Silver M accent combined with Carbon Fibre and high-gloss silver threads",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Interior rear-view mirror with automatic anti-dazzle function",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M headliner anthracite",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Ambient light",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Glass application 'CraftedClarity' for interior elements",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Roller sunblinds",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Travel & Comfort System",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "4-Zone Automatic air conditioning",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Interior camera",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Entertainment and Communication",
+                        "details": [
+                            {
+                                "topic": "BMW Live Cockpit Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "HiFi loudspeaker system Harman Kardon",
+                                "value": "-"
+                            },
+                            {
+                                "topic": "Bowers & Wilkins surround sound system",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Iconic sounds electric",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW ConnectedDrive",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Connected Package Professional",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Smartphone integration",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "BMW Natural Interaction",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Personal eSIM",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Wireless charging tray",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Safety",
+                        "details": [
+                            {
+                                "topic": "Airbag for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Side airbags for driver and front passenger",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Central airbag (driver's seat)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Head airbags for 1st and 2nd seat row",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Teleservices",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Intelligent Emergency Call",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic Stability Control (DSC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Anti-lock Brake System (ABS)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Brake Assist (BA)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Dynamic braking lights",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Cornering Brake Control (CBC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Crash sensor",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Active Protection",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Attentiveness assistant",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Park Distance Control (PDC)",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Acoustic protection for pedestrians",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre Pressure Monitoring System",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "Tyre Repair Kit",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Line / Package",
+                        "details": [
+                            {
+                                "topic": "M Sport",
+                                "value": "■"
+                            },
+                            {
+                                "topic": "M Sport Pro",
+                                "value": "■"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Paintwork & Upholstery",
+                        "details": [
+                            {
+                                "topic": "Black Sapphire Metallic",
+                                "value": "BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
+                            },
+                            {
+                                "topic": "Mineral White Metallic",
+                                "value": "BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
+                            },
+                            {
+                                "topic": "Brooklyn Grey Metallic",
+                                "value": "BMW Individual leather 'Merino' - Copper Brown/Atlas Grey"
+                            },
+                            {
+                                "topic": "Phytonic Blue Metallic",
+                                "value": "BMW Individual leather 'Merino' - Black/Atlas Grey"
+                            },
+                            {
+                                "topic": "Cape York Green Metallic",
+                                "value": "BMW Individual leather 'Merino' - Black/Atlas Grey"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "Document References",
+                        "details": [
+                            {
+                                "topic": "Publication Date",
+                                "value": "10 July 2024"
+                            },
+                            {
+                                "topic": "Package Code (Local Pack)",
+                                "value": "(Z4U, Z7N)"
+                            },
+                            {
+                                "topic": "AC Charging Reference Note",
+                                "value": "Referenced from https://www.bmw.co.th/th/all-models/5-series/sedan/bmw-5-series-sedan-phev-overview.html"
+                            }
+                        ]
+                    }
+                ],
+                "is_custom_archived": true
+            }
+        ],
+        "source_file": "5-20240710-01_EN.pdf",
+        "pdf_source": "5-20240710-01_EN.pdf",
+        "extracted_by_models": [
+            "gemini-3.6-flash",
+            "gemini-3.5-flash"
+        ],
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/2024/5-20240710-01_EN.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 1: English is 'Engine type' (mapped: 'engine type'), Thai is 'ชนิดเครื่องยนต์' (mapped: 'ชนิดเครื่องยนต์')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร) / Displacement (cm³)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 2: English is 'Displacement (cm³)' (mapped: 'displacement (cm³)'), Thai is 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)' (mapped: 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที) / Engine power (kW/hp/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 3: English is 'Engine power (kW/hp/rpm)' (mapped: 'engine power (kw/hp/rpm)'), Thai is 'กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' (mapped: 'max. output (kw/hp/rpm)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที) / Engine torque (Nm/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 4: English is 'Engine torque (Nm/rpm)' (mapped: 'engine torque (nm/rpm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' (mapped: 'max. torque (nm/rpm)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า) / Electric motor power (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 5: English is 'Electric motor power (kW/hp)' (mapped: 'electric motor power (kw/hp)'), Thai is 'กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร) / Electric motor torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 6: English is 'Electric motor torque (Nm)' (mapped: 'electric motor torque (nm)'), Thai is 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹ , มาตรฐาน NEDC (กิโลเมตร) / Electrical range¹ , NEDC (km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 7: English is 'Electrical range¹ , NEDC (km)' (mapped: 'electrical range¹ , nedc (km)'), Thai is 'ระยะทางขับเคลื่อนไฟฟ้า¹ , มาตรฐาน NEDC (กิโลเมตร)' (mapped: 'ระยะทางขับเคลื่อนไฟฟ้า¹ , มาตรฐาน nedc (กิโลเมตร)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง) / High voltage battery energy content (kWh)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 8: English is 'High voltage battery energy content (kWh)' (mapped: 'high voltage battery energy content (kwh)'), Thai is 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)' (mapped: 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า) / System output (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 9: English is 'System output (kW/hp)' (mapped: 'system output (kw/hp)'), Thai is 'กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดรวมสูงสุด (นิวตันเมตร) / System torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 10: English is 'System torque (Nm)' (mapped: 'system torque (nm)'), Thai is 'แรงบิดรวมสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดรวมสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "ความเร็วสูงสุดในการขับขี่แบบไฟฟ้า (กิโลเมตร/ชั่วโมง) / Top speed electric (km/h)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 12: English is 'Top speed electric (km/h)' (mapped: 'top speed electric (km/h)'), Thai is 'ความเร็วสูงสุดในการขับขี่แบบไฟฟ้า (กิโลเมตร/ชั่วโมง)' (mapped: 'ความเร็วสูงสุดในการขับขี่แบบไฟฟ้า (กิโลเมตร/ชั่วโมง)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) / 0 - 100 km/h (s)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 13: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)' (mapped: 'acceleration 0 - 100 km/h (s)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, NEDC (kWh/100 km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 14: English is 'Electric energy consumption, NEDC (kWh/100 km)' (mapped: 'electric energy consumption, nedc (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน nedc (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์) / Maximum AC charging power (kW)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 15: English is 'Maximum AC charging power (kW)' (mapped: 'maximum ac charging power (kw)'), Thai is 'กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)' (mapped: 'กำลังการชาร์จแบบกระแสสลับ (ac) สูงสุด (กิโลวัตต์)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100% / AC charging time 0 - 100%",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 16: English is 'AC charging time 0 - 100%' (mapped: 'ac charging time 0 - 100%'), Thai is 'ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%' (mapped: 'ระยะเวลาในการชาร์จแบบกระแสสลับ (ac) จาก 0 - 100%')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Fuel Consumption and CO2",
+                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร) / Combined fuel consumption from ECO Sticker result (km/l)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Fuel Consumption and CO2' at position 1: English is 'Combined fuel consumption from ECO Sticker result (km/l)' (mapped: 'combined fuel consumption from eco sticker result (km/l)'), Thai is 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)' (mapped: 'fuel consumption combined (km/l)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Fuel Consumption and CO2",
+                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร) / Combined CO2 (g/km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Fuel Consumption and CO2' at position 2: English is 'Combined CO2 (g/km)' (mapped: 'combined co2 (g/km)'), Thai is 'ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)' (mapped: 'co2 emission combined (g/km)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Wheels and Tyres' at position 1: English is 'Light alloy wheels' (mapped: 'light alloy wheels'), Thai is 'ล้อ' (mapped: 'ล้อ')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Dimension",
+                "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร) / Length / width / height (mm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 1: English is 'Length / width / height (mm)' (mapped: 'length / width / height (mm)'), Thai is 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)' (mapped: 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Dimension",
+                "topic": "ปริมาตรในการบรรจุของ (ลิตร) / Luggage capacity (l)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 2: English is 'Luggage capacity (l)' (mapped: 'luggage capacity (l)'), Thai is 'ปริมาตรในการบรรจุของ (ลิตร)' (mapped: 'ปริมาตรในการบรรจุของ (ลิตร)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Dimension",
+                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม) / Curb weight (kg)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 3: English is 'Curb weight (kg)' (mapped: 'curb weight (kg)'), Thai is 'น้ำหนักรถสุทธิ (กิโลกรัม)' (mapped: 'น้ำหนักรถสุทธิ (กิโลกรัม)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Transmission and Technology",
+                "topic": "เกียร์อัตโนมัติแบบ Steptronic พร้อม Gearshift Paddles / Steptronic transmission with gearshift paddles",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and Technology' at position 1: English is 'Steptronic transmission with gearshift paddles' (mapped: 'steptronic transmission with gearshift paddles'), Thai is 'เกียร์อัตโนมัติแบบ Steptronic พร้อม Gearshift Paddles' (mapped: 'เกียร์อัตโนมัติแบบ steptronic พร้อม gearshift paddles')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Transmission and Technology",
+                "topic": "ช่วงล่าง M Sport / M Sport suspension",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and Technology' at position 2: English is 'M Sport suspension' (mapped: 'm sport suspension'), Thai is 'ช่วงล่าง M Sport' (mapped: 'ช่วงล่าง m sport')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Transmission and Technology",
+                "topic": "ระบบช่วยการขับขี่ (Driving Assistant) / Driving Assistant",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and Technology' at position 3: English is 'Driving Assistant' (mapped: 'driving assistant'), Thai is 'ระบบช่วยการขับขี่ (Driving Assistant)' (mapped: 'ระบบช่วยการขับขี่ (driving assistant)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Transmission and Technology",
+                "topic": "ระบบช่วยการขับขี่ รุ่น Professional (Driving Assistant Professional) / Driving Assistant Professional",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and Technology' at position 4: English is 'Driving Assistant Professional' (mapped: 'driving assistant professional'), Thai is 'ระบบช่วยการขับขี่ รุ่น Professional (Driving Assistant Professional)' (mapped: 'ระบบช่วยการขับขี่ รุ่น professional (driving assistant professional)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Transmission and Technology",
+                "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus) / Parking Assistant Plus",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and Technology' at position 5: English is 'Parking Assistant Plus' (mapped: 'parking assistant plus'), Thai is 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus)' (mapped: 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น plus (parking assistant plus)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED) / Adaptive LED headlights",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 1: English is 'Adaptive LED headlights' (mapped: 'adaptive led headlights'), Thai is 'ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)' (mapped: 'ระบบไฟหน้า led อัจฉริยะ (adaptive led)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant) / High-beam assistant",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 2: English is 'High-beam assistant' (mapped: 'high-beam assistant'), Thai is 'ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)' (mapped: 'ระบบปรับการทำงานไฟสูงอัตโนมัติ (high-beam assistant)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สีแดงเงา / M Sport brake, red high-gloss",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 3: English is 'M Sport brake, red high-gloss' (mapped: 'm sport brake, red high-gloss'), Thai is 'คาลิเปอร์เบรกดีไซน์ M Sport สีแดงเงา' (mapped: 'คาลิเปอร์เบรกดีไซน์ m sport สีแดงเงา')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สี dark blue metallic / M Sport brake, dark blue metallic",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 4: English is 'M Sport brake, dark blue metallic' (mapped: 'm sport brake, dark blue metallic'), Thai is 'คาลิเปอร์เบรกดีไซน์ M Sport สี dark blue metallic' (mapped: 'คาลิเปอร์เบรกดีไซน์ m sport สี dark blue metallic')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า / Automatic operation of tailgate",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 5: English is 'Automatic operation of tailgate' (mapped: 'automatic operation of tailgate'), Thai is 'ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า' (mapped: 'ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System) / Comfort access system",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 6: English is 'Comfort access system' (mapped: 'comfort access system'), Thai is 'ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)' (mapped: 'ระบบปลดล็อกประตูอัจฉริยะ (comfort access system)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ชุดตกแต่งภายนอกแบบ Iconic Glow / BMW Iconic Glow exterior package",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 7: English is 'BMW Iconic Glow exterior package' (mapped: 'bmw iconic glow exterior package'), Thai is 'ชุดตกแต่งภายนอกแบบ Iconic Glow' (mapped: 'ชุดตกแต่งภายนอกแบบ iconic glow')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "หลังคากระจก Panorama / Panorama glass roof",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 8: English is 'Panorama glass roof' (mapped: 'panorama glass roof'), Thai is 'หลังคากระจก Panorama' (mapped: 'หลังคากระจก panorama')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "กระจกมองข้างพับด้วยไฟฟ้า พร้อมตัดแสงอัตโนมัติที่กระจกฝั่งคนขับ / Expanded exterior mirror package",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 9: English is 'Expanded exterior mirror package' (mapped: 'expanded exterior mirror package'), Thai is 'กระจกมองข้างพับด้วยไฟฟ้า พร้อมตัดแสงอัตโนมัติที่กระจกฝั่งคนขับ' (mapped: 'กระจกมองข้างพับด้วยไฟฟ้า พร้อมตัดแสงอัตโนมัติที่กระจกฝั่งคนขับ')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "สปอยเลอร์หลังดีไซน์ M / M rear spoiler",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 10: English is 'M rear spoiler' (mapped: 'm rear spoiler'), Thai is 'สปอยเลอร์หลังดีไซน์ M' (mapped: 'สปอยเลอร์หลังดีไซน์ m')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ชุดตกแต่งภายนอกแบบ M Sport / M Sport exterior parts",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 11: English is 'M Sport exterior parts' (mapped: 'm sport exterior parts'), Thai is 'ชุดตกแต่งภายนอกแบบ M Sport' (mapped: 'ชุดตกแต่งภายนอกแบบ m sport')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "โคมไฟหน้าตกแต่งดีไซน์ M สีดำ (M Lights Shadowline) / M Lights Shadowline",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 12: English is 'M Lights Shadowline' (mapped: 'm lights shadowline'), Thai is 'โคมไฟหน้าตกแต่งดีไซน์ M สีดำ (M Lights Shadowline)' (mapped: 'โคมไฟหน้าตกแต่งดีไซน์ m สีดำ (m lights shadowline)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ภายนอกตกแต่งด้วยวัสดุสีดำเงา / M High-gloss Shadowline",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 13: English is 'M High-gloss Shadowline' (mapped: 'm high-gloss shadowline'), Thai is 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา' (mapped: 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ภายนอกพร้อมชุดตกแต่ง M ด้วยวัสดุสีดำเงา / M High-gloss Shadowline with Extended Contents",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 14: English is 'M High-gloss Shadowline with Extended Contents' (mapped: 'm high-gloss shadowline with extended contents'), Thai is 'ภายนอกพร้อมชุดตกแต่ง M ด้วยวัสดุสีดำเงา' (mapped: 'ภายนอกพร้อมชุดตกแต่ง m ด้วยวัสดุสีดำเงา')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "พวงมาลัยหุ้มหนังดีไซน์ M / M leather steering wheel",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 1: English is 'M leather steering wheel' (mapped: 'm leather steering wheel'), Thai is 'พวงมาลัยหุ้มหนังดีไซน์ M' (mapped: 'พวงมาลัยหุ้มหนังดีไซน์ m')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "เข็มขัดนิรภัยดีไซน์ M / M seat belts",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 2: English is 'M seat belts' (mapped: 'm seat belts'), Thai is 'เข็มขัดนิรภัยดีไซน์ M' (mapped: 'เข็มขัดนิรภัยดีไซน์ m')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "เบาะนั่งตอนหน้าดีไซน์ Sport / Sport seats for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 3: English is 'Sport seats for driver and front passenger' (mapped: 'sport seats for driver and front passenger'), Thai is 'เบาะนั่งตอนหน้าดีไซน์ Sport' (mapped: 'เบาะนั่งตอนหน้าดีไซน์ sport')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "เบาะนั่งตอนหน้าแบบ Comfort ปรับไฟฟ้า / Comfort seats front, electrically adjustable",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 4: English is 'Comfort seats front, electrically adjustable' (mapped: 'comfort seats front, electrically adjustable'), Thai is 'เบาะนั่งตอนหน้าแบบ Comfort ปรับไฟฟ้า' (mapped: 'เบาะนั่งตอนหน้าแบบ comfort ปรับไฟฟ้า')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ / Seat adjustment, electric, with memory",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 5: English is 'Seat adjustment, electric, with memory' (mapped: 'seat adjustment, electric, with memory'), Thai is 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ' (mapped: 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ภายในตกแต่งดีไซน์ M Sport / M Sport interior parts",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 6: English is 'M Sport interior parts' (mapped: 'm sport interior parts'), Thai is 'ภายในตกแต่งดีไซน์ M Sport' (mapped: 'ภายในตกแต่งดีไซน์ m sport')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ภายในตกแต่งด้วยสี Dark Silver M ผสมกับอะลูมิเนียมลาย Rhombicle / Dark Silver M accent combined with Aluminium Rhombicle",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 7: English is 'Dark Silver M accent combined with Aluminium Rhombicle' (mapped: 'dark silver m accent combined with aluminium rhombicle'), Thai is 'ภายในตกแต่งด้วยสี Dark Silver M ผสมกับอะลูมิเนียมลาย Rhombicle' (mapped: 'ภายในตกแต่งด้วยสี dark silver m ผสมกับอะลูมิเนียมลาย rhombicle')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ภายในตกแต่งด้วยสี Dark Silver M ผสมกับ Carbon Fibre ถักด้วยวัสดุสีเงินแบบ M / Dark Silver M accent combined with Carbon Fibre and high-gloss silver threads",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 8: English is 'Dark Silver M accent combined with Carbon Fibre and high-gloss silver threads' (mapped: 'dark silver m accent combined with carbon fibre and high-gloss silver threads'), Thai is 'ภายในตกแต่งด้วยสี Dark Silver M ผสมกับ Carbon Fibre ถักด้วยวัสดุสีเงินแบบ M' (mapped: 'ภายในตกแต่งด้วยสี dark silver m ผสมกับ carbon fibre ถักด้วยวัสดุสีเงินแบบ m')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "กระจกมองหลังตัดแสงอัตโนมัติ / Interior rear-view mirror with automatic anti-dazzle function",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 9: English is 'Interior rear-view mirror with automatic anti-dazzle function' (mapped: 'interior rear-view mirror with automatic anti-dazzle function'), Thai is 'กระจกมองหลังตัดแสงอัตโนมัติ' (mapped: 'กระจกมองหลังตัดแสงอัตโนมัติ')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "เพดานหลังคาภายในดีไซน์ M สี Anthracite / M headliner anthracite",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 10: English is 'M headliner anthracite' (mapped: 'm headliner anthracite'), Thai is 'เพดานหลังคาภายในดีไซน์ M สี Anthracite' (mapped: 'เพดานหลังคาภายในดีไซน์ m สี anthracite')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light) / Ambient light",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 11: English is 'Ambient light' (mapped: 'ambient light'), Thai is 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)' (mapped: 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (ambient light)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ภายในตกแต่งด้วยผลึกแก้ว 'CraftedClarity' / Glass application 'CraftedClarity' for interior elements",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 12: English is 'Glass application 'CraftedClarity' for interior elements' (mapped: 'glass application 'craftedclarity' for interior elements'), Thai is 'ภายในตกแต่งด้วยผลึกแก้ว 'CraftedClarity'' (mapped: 'ภายในตกแต่งด้วยผลึกแก้ว 'craftedclarity'')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ม่านบังแดดที่ประตูหลังและกระจกหลัง / Roller sunblinds",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 13: English is 'Roller sunblinds' (mapped: 'roller sunblinds'), Thai is 'ม่านบังแดดที่ประตูหลังและกระจกหลัง' (mapped: 'ม่านบังแดดที่ประตูหลังและกระจกหลัง')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ระบบ Travel & Comfort / Travel & Comfort System",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 14: English is 'Travel & Comfort System' (mapped: 'travel & comfort system'), Thai is 'ระบบ Travel & Comfort' (mapped: 'ระบบ travel & comfort')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ระบบปรับอากาศอัตโนมัติแบบ 4 โซน / 4-Zone Automatic air conditioning",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 15: English is '4-Zone Automatic air conditioning' (mapped: '4-zone automatic air conditioning'), Thai is 'ระบบปรับอากาศอัตโนมัติแบบ 4 โซน' (mapped: 'ระบบปรับอากาศอัตโนมัติแบบ 4 โซน')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ระบบกล้องภายในรถ / Interior camera",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 16: English is 'Interior camera' (mapped: 'interior camera'), Thai is 'ระบบกล้องภายในรถ' (mapped: 'ระบบกล้องภายในรถ')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบเครื่องเสียง HiFi loudspeaker Harman Kardon / HiFi loudspeaker system Harman Kardon",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 2: English is 'HiFi loudspeaker system Harman Kardon' (mapped: 'hifi loudspeaker system harman kardon'), Thai is 'ระบบเครื่องเสียง HiFi loudspeaker Harman Kardon' (mapped: 'ระบบเครื่องเสียง hifi loudspeaker harman kardon')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins / Bowers & Wilkins surround sound system",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 3: English is 'Bowers & Wilkins surround sound system' (mapped: 'bowers & wilkins surround sound system'), Thai is 'ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins' (mapped: 'ระบบเสียงรอบทิศทางคุณภาพสูง bowers & wilkins')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบจำลองเสียงเครื่องยนต์ Iconic sounds electric / BMW Iconic sounds electric",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 4: English is 'BMW Iconic sounds electric' (mapped: 'bmw iconic sounds electric'), Thai is 'ระบบจำลองเสียงเครื่องยนต์ Iconic sounds electric' (mapped: 'ระบบจำลองเสียงเครื่องยนต์ iconic sounds electric')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบ BMW ConnectedDrive / BMW ConnectedDrive",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 5: English is 'BMW ConnectedDrive' (mapped: 'bmw connecteddrive'), Thai is 'ระบบ BMW ConnectedDrive' (mapped: 'ระบบ bmw connecteddrive')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบ BMW Connected Package Professional / BMW Connected Package Professional",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 6: English is 'BMW Connected Package Professional' (mapped: 'bmw connected package professional'), Thai is 'ระบบ BMW Connected Package Professional' (mapped: 'ระบบ bmw connected package professional')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบเชื่อมต่อ Smartphone / Smartphone integration",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 7: English is 'Smartphone integration' (mapped: 'smartphone integration'), Thai is 'ระบบเชื่อมต่อ Smartphone' (mapped: 'ระบบเชื่อมต่อ smartphone')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบสั่งงานอัจฉริยะ BMW Natural Interaction / BMW Natural Interaction",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 8: English is 'BMW Natural Interaction' (mapped: 'bmw natural interaction'), Thai is 'ระบบสั่งงานอัจฉริยะ BMW Natural Interaction' (mapped: 'ระบบสั่งงานอัจฉริยะ bmw natural interaction')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM) / Personal eSIM",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 9: English is 'Personal eSIM' (mapped: 'personal esim'), Thai is 'ระบบ eSIM ส่วนบุคคล (Personal eSIM)' (mapped: 'ระบบ esim ส่วนบุคคล (personal esim)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย / Wireless charging tray",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 10: English is 'Wireless charging tray' (mapped: 'wireless charging tray'), Thai is 'ระบบชาร์จโทรศัพท์แบบไร้สาย' (mapped: 'ระบบชาร์จโทรศัพท์แบบไร้สาย')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า / Airbag for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 1: English is 'Airbag for driver and front passenger' (mapped: 'airbag for driver and front passenger'), Thai is 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า / Side airbags for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 2: English is 'Side airbags for driver and front passenger' (mapped: 'side airbags for driver and front passenger'), Thai is 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ) / Central airbag (driver's seat)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 3: English is 'Central airbag (driver's seat)' (mapped: 'central airbag (driver's seat)'), Thai is 'ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ)' (mapped: 'ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง) / Head airbags for 1st and 2nd seat row",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 4: English is 'Head airbags for 1st and 2nd seat row' (mapped: 'head airbags for 1st and 2nd seat row'), Thai is 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)' (mapped: 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบ Teleservices / Teleservices",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 5: English is 'Teleservices' (mapped: 'teleservices'), Thai is 'ระบบ Teleservices' (mapped: 'ระบบ teleservices')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call) / Intelligent Emergency Call",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 6: English is 'Intelligent Emergency Call' (mapped: 'intelligent emergency call'), Thai is 'ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)' (mapped: 'ปุ่มโทรออกฉุกเฉิน (intelligent emergency call)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC) / Dynamic Stability Control (DSC)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 7: English is 'Dynamic Stability Control (DSC)' (mapped: 'dynamic stability control (dsc)'), Thai is 'ระบบควบคุมเสถียรภาพการขับขี่ (DSC)' (mapped: 'ระบบควบคุมเสถียรภาพการขับขี่ (dsc)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS) / Anti-lock Brake System (ABS)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 8: English is 'Anti-lock Brake System (ABS)' (mapped: 'anti-lock brake system (abs)'), Thai is 'ระบบป้องกันล้อล็อกขณะเบรก (ABS)' (mapped: 'ระบบป้องกันล้อล็อกขณะเบรก (abs)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist) / Brake Assist (BA)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 9: English is 'Brake Assist (BA)' (mapped: 'brake assist (ba)'), Thai is 'ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist)' (mapped: 'ระบบช่วยเสริมแรงเบรกอัตโนมัติ (brake assist)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ไฟเบรกกระพริบฉุกเฉิน (Dynamic Braking Lights) / Dynamic braking lights",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 10: English is 'Dynamic braking lights' (mapped: 'dynamic braking lights'), Thai is 'ไฟเบรกกระพริบฉุกเฉิน (Dynamic Braking Lights)' (mapped: 'ไฟเบรกกระพริบฉุกเฉิน (dynamic braking lights)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC) / Cornering Brake Control (CBC)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 11: English is 'Cornering Brake Control (CBC)' (mapped: 'cornering brake control (cbc)'), Thai is 'ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC)' (mapped: 'ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (cbc)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor) / Crash sensor",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 12: English is 'Crash sensor' (mapped: 'crash sensor'), Thai is 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)' (mapped: 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (crash sensor)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบ Active Protection / Active Protection",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 13: English is 'Active Protection' (mapped: 'active protection'), Thai is 'ระบบ Active Protection' (mapped: 'ระบบ active protection')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบช่วยเตือนอาการเหนื่อยล้าขณะขับขี่ (Attentiveness Assistant) / Attentiveness assistant",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 14: English is 'Attentiveness assistant' (mapped: 'attentiveness assistant'), Thai is 'ระบบช่วยเตือนอาการเหนื่อยล้าขณะขับขี่ (Attentiveness Assistant)' (mapped: 'ระบบช่วยเตือนอาการเหนื่อยล้าขณะขับขี่ (attentiveness assistant)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "เซนเซอร์ควบคุมระยะการจอดด้านหน้าและหลัง / Park Distance Control (PDC)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 15: English is 'Park Distance Control (PDC)' (mapped: 'park distance control (pdc)'), Thai is 'เซนเซอร์ควบคุมระยะการจอดด้านหน้าและหลัง' (mapped: 'เซนเซอร์ควบคุมระยะการจอดด้านหน้าและหลัง')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบสร้างเสียงจำลอง เตือนผู้ใช้ถนนรอบข้าง / Acoustic protection for pedestrians",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 16: English is 'Acoustic protection for pedestrians' (mapped: 'acoustic protection for pedestrians'), Thai is 'ระบบสร้างเสียงจำลอง เตือนผู้ใช้ถนนรอบข้าง' (mapped: 'ระบบสร้างเสียงจำลอง เตือนผู้ใช้ถนนรอบข้าง')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบตรวจวัดลมยาง / Tyre Pressure Monitoring System",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 17: English is 'Tyre Pressure Monitoring System' (mapped: 'tyre pressure monitoring system'), Thai is 'ระบบตรวจวัดลมยาง' (mapped: 'ระบบตรวจวัดลมยาง')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Safety",
+                "topic": "ชุดปะยางฉุกเฉิน / Tyre Repair Kit",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 18: English is 'Tyre Repair Kit' (mapped: 'tyre repair kit'), Thai is 'ชุดปะยางฉุกเฉิน' (mapped: 'ชุดปะยางฉุกเฉิน')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Line / Package",
+                "topic": "ชุดตกแต่ง M Sport / M Sport",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Line / Package' at position 1: English is 'M Sport' (mapped: 'm sport'), Thai is 'ชุดตกแต่ง M Sport' (mapped: 'ชุดตกแต่ง m sport')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Line / Package",
+                "topic": "ชุดตกแต่ง M Sport Pro / M Sport Pro",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Line / Package' at position 2: English is 'M Sport Pro' (mapped: 'm sport pro'), Thai is 'ชุดตกแต่ง M Sport Pro' (mapped: 'ชุดตกแต่ง m sport pro')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Document References",
+                "topic": "รหัสแพ็กเกจ (Local Pack) / Package Code (Local Pack)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
+            },
+            {
+                "model_name": "520d M Sport Pro",
+                "category": "Document References",
+                "topic": "หมายเหตุการชาร์จ AC / AC Charging Reference Note",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 3: English is 'AC Charging Reference Note' (mapped: 'ac charging reference note'), Thai is 'หมายเหตุการชาร์จ AC' (mapped: 'หมายเหตุการชาร์จ ac')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 1: English is 'Engine type' (mapped: 'engine type'), Thai is 'ชนิดเครื่องยนต์' (mapped: 'ชนิดเครื่องยนต์')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร) / Displacement (cm³)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 2: English is 'Displacement (cm³)' (mapped: 'displacement (cm³)'), Thai is 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)' (mapped: 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที) / Engine power (kW/hp/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 3: English is 'Engine power (kW/hp/rpm)' (mapped: 'engine power (kw/hp/rpm)'), Thai is 'กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' (mapped: 'max. output (kw/hp/rpm)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที) / Engine torque (Nm/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 4: English is 'Engine torque (Nm/rpm)' (mapped: 'engine torque (nm/rpm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' (mapped: 'max. torque (nm/rpm)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า) / Electric motor power (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 5: English is 'Electric motor power (kW/hp)' (mapped: 'electric motor power (kw/hp)'), Thai is 'กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร) / Electric motor torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 6: English is 'Electric motor torque (Nm)' (mapped: 'electric motor torque (nm)'), Thai is 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹ , มาตรฐาน NEDC (กิโลเมตร) / Electrical range¹ , NEDC (km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 7: English is 'Electrical range¹ , NEDC (km)' (mapped: 'electrical range¹ , nedc (km)'), Thai is 'ระยะทางขับเคลื่อนไฟฟ้า¹ , มาตรฐาน NEDC (กิโลเมตร)' (mapped: 'ระยะทางขับเคลื่อนไฟฟ้า¹ , มาตรฐาน nedc (กิโลเมตร)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง) / High voltage battery energy content (kWh)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 8: English is 'High voltage battery energy content (kWh)' (mapped: 'high voltage battery energy content (kwh)'), Thai is 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)' (mapped: 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า) / System output (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 9: English is 'System output (kW/hp)' (mapped: 'system output (kw/hp)'), Thai is 'กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "แรงบิดรวมสูงสุด (นิวตันเมตร) / System torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 10: English is 'System torque (Nm)' (mapped: 'system torque (nm)'), Thai is 'แรงบิดรวมสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดรวมสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "ความเร็วสูงสุดในการขับขี่แบบไฟฟ้า (กิโลเมตร/ชั่วโมง) / Top speed electric (km/h)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 12: English is 'Top speed electric (km/h)' (mapped: 'top speed electric (km/h)'), Thai is 'ความเร็วสูงสุดในการขับขี่แบบไฟฟ้า (กิโลเมตร/ชั่วโมง)' (mapped: 'ความเร็วสูงสุดในการขับขี่แบบไฟฟ้า (กิโลเมตร/ชั่วโมง)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) / 0 - 100 km/h (s)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 13: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)' (mapped: 'acceleration 0 - 100 km/h (s)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, NEDC (kWh/100 km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 14: English is 'Electric energy consumption, NEDC (kWh/100 km)' (mapped: 'electric energy consumption, nedc (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน nedc (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์) / Maximum AC charging power (kW)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 15: English is 'Maximum AC charging power (kW)' (mapped: 'maximum ac charging power (kw)'), Thai is 'กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)' (mapped: 'กำลังการชาร์จแบบกระแสสลับ (ac) สูงสุด (กิโลวัตต์)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Engine and Performance",
+                "topic": "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100% / AC charging time 0 - 100%",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Engine and Performance' at position 16: English is 'AC charging time 0 - 100%' (mapped: 'ac charging time 0 - 100%'), Thai is 'ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%' (mapped: 'ระยะเวลาในการชาร์จแบบกระแสสลับ (ac) จาก 0 - 100%')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Fuel Consumption and CO2",
+                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร) / Combined fuel consumption from ECO Sticker result (km/l)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Fuel Consumption and CO2' at position 1: English is 'Combined fuel consumption from ECO Sticker result (km/l)' (mapped: 'combined fuel consumption from eco sticker result (km/l)'), Thai is 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)' (mapped: 'fuel consumption combined (km/l)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Fuel Consumption and CO2",
+                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร) / Combined CO2 (g/km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Fuel Consumption and CO2' at position 2: English is 'Combined CO2 (g/km)' (mapped: 'combined co2 (g/km)'), Thai is 'ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)' (mapped: 'co2 emission combined (g/km)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Wheels and Tyres",
+                "topic": "ล้อ / Light alloy wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Wheels and Tyres' at position 1: English is 'Light alloy wheels' (mapped: 'light alloy wheels'), Thai is 'ล้อ' (mapped: 'ล้อ')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Dimension",
+                "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร) / Length / width / height (mm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 1: English is 'Length / width / height (mm)' (mapped: 'length / width / height (mm)'), Thai is 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)' (mapped: 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Dimension",
+                "topic": "ปริมาตรในการบรรจุของ (ลิตร) / Luggage capacity (l)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 2: English is 'Luggage capacity (l)' (mapped: 'luggage capacity (l)'), Thai is 'ปริมาตรในการบรรจุของ (ลิตร)' (mapped: 'ปริมาตรในการบรรจุของ (ลิตร)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Dimension",
+                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม) / Curb weight (kg)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Dimension' at position 3: English is 'Curb weight (kg)' (mapped: 'curb weight (kg)'), Thai is 'น้ำหนักรถสุทธิ (กิโลกรัม)' (mapped: 'น้ำหนักรถสุทธิ (กิโลกรัม)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Transmission and Technology",
+                "topic": "เกียร์อัตโนมัติแบบ Steptronic พร้อม Gearshift Paddles / Steptronic transmission with gearshift paddles",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and Technology' at position 1: English is 'Steptronic transmission with gearshift paddles' (mapped: 'steptronic transmission with gearshift paddles'), Thai is 'เกียร์อัตโนมัติแบบ Steptronic พร้อม Gearshift Paddles' (mapped: 'เกียร์อัตโนมัติแบบ steptronic พร้อม gearshift paddles')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Transmission and Technology",
+                "topic": "ช่วงล่าง M Sport / M Sport suspension",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and Technology' at position 2: English is 'M Sport suspension' (mapped: 'm sport suspension'), Thai is 'ช่วงล่าง M Sport' (mapped: 'ช่วงล่าง m sport')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Transmission and Technology",
+                "topic": "ระบบช่วยการขับขี่ (Driving Assistant) / Driving Assistant",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and Technology' at position 3: English is 'Driving Assistant' (mapped: 'driving assistant'), Thai is 'ระบบช่วยการขับขี่ (Driving Assistant)' (mapped: 'ระบบช่วยการขับขี่ (driving assistant)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Transmission and Technology",
+                "topic": "ระบบช่วยการขับขี่ รุ่น Professional (Driving Assistant Professional) / Driving Assistant Professional",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and Technology' at position 4: English is 'Driving Assistant Professional' (mapped: 'driving assistant professional'), Thai is 'ระบบช่วยการขับขี่ รุ่น Professional (Driving Assistant Professional)' (mapped: 'ระบบช่วยการขับขี่ รุ่น professional (driving assistant professional)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Transmission and Technology",
+                "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus) / Parking Assistant Plus",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and Technology' at position 5: English is 'Parking Assistant Plus' (mapped: 'parking assistant plus'), Thai is 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus)' (mapped: 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น plus (parking assistant plus)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED) / Adaptive LED headlights",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 1: English is 'Adaptive LED headlights' (mapped: 'adaptive led headlights'), Thai is 'ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)' (mapped: 'ระบบไฟหน้า led อัจฉริยะ (adaptive led)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant) / High-beam assistant",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 2: English is 'High-beam assistant' (mapped: 'high-beam assistant'), Thai is 'ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)' (mapped: 'ระบบปรับการทำงานไฟสูงอัตโนมัติ (high-beam assistant)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สีแดงเงา / M Sport brake, red high-gloss",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 3: English is 'M Sport brake, red high-gloss' (mapped: 'm sport brake, red high-gloss'), Thai is 'คาลิเปอร์เบรกดีไซน์ M Sport สีแดงเงา' (mapped: 'คาลิเปอร์เบรกดีไซน์ m sport สีแดงเงา')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สี dark blue metallic / M Sport brake, dark blue metallic",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 4: English is 'M Sport brake, dark blue metallic' (mapped: 'm sport brake, dark blue metallic'), Thai is 'คาลิเปอร์เบรกดีไซน์ M Sport สี dark blue metallic' (mapped: 'คาลิเปอร์เบรกดีไซน์ m sport สี dark blue metallic')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า / Automatic operation of tailgate",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 5: English is 'Automatic operation of tailgate' (mapped: 'automatic operation of tailgate'), Thai is 'ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า' (mapped: 'ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System) / Comfort access system",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 6: English is 'Comfort access system' (mapped: 'comfort access system'), Thai is 'ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)' (mapped: 'ระบบปลดล็อกประตูอัจฉริยะ (comfort access system)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ชุดตกแต่งภายนอกแบบ Iconic Glow / BMW Iconic Glow exterior package",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 7: English is 'BMW Iconic Glow exterior package' (mapped: 'bmw iconic glow exterior package'), Thai is 'ชุดตกแต่งภายนอกแบบ Iconic Glow' (mapped: 'ชุดตกแต่งภายนอกแบบ iconic glow')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "หลังคากระจก Panorama / Panorama glass roof",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 8: English is 'Panorama glass roof' (mapped: 'panorama glass roof'), Thai is 'หลังคากระจก Panorama' (mapped: 'หลังคากระจก panorama')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "กระจกมองข้างพับด้วยไฟฟ้า พร้อมตัดแสงอัตโนมัติที่กระจกฝั่งคนขับ / Expanded exterior mirror package",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 9: English is 'Expanded exterior mirror package' (mapped: 'expanded exterior mirror package'), Thai is 'กระจกมองข้างพับด้วยไฟฟ้า พร้อมตัดแสงอัตโนมัติที่กระจกฝั่งคนขับ' (mapped: 'กระจกมองข้างพับด้วยไฟฟ้า พร้อมตัดแสงอัตโนมัติที่กระจกฝั่งคนขับ')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "สปอยเลอร์หลังดีไซน์ M / M rear spoiler",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 10: English is 'M rear spoiler' (mapped: 'm rear spoiler'), Thai is 'สปอยเลอร์หลังดีไซน์ M' (mapped: 'สปอยเลอร์หลังดีไซน์ m')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ชุดตกแต่งภายนอกแบบ M Sport / M Sport exterior parts",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 11: English is 'M Sport exterior parts' (mapped: 'm sport exterior parts'), Thai is 'ชุดตกแต่งภายนอกแบบ M Sport' (mapped: 'ชุดตกแต่งภายนอกแบบ m sport')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "โคมไฟหน้าตกแต่งดีไซน์ M สีดำ (M Lights Shadowline) / M Lights Shadowline",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 12: English is 'M Lights Shadowline' (mapped: 'm lights shadowline'), Thai is 'โคมไฟหน้าตกแต่งดีไซน์ M สีดำ (M Lights Shadowline)' (mapped: 'โคมไฟหน้าตกแต่งดีไซน์ m สีดำ (m lights shadowline)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ภายนอกตกแต่งด้วยวัสดุสีดำเงา / M High-gloss Shadowline",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 13: English is 'M High-gloss Shadowline' (mapped: 'm high-gloss shadowline'), Thai is 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา' (mapped: 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Exterior Equipment",
+                "topic": "ภายนอกพร้อมชุดตกแต่ง M ด้วยวัสดุสีดำเงา / M High-gloss Shadowline with Extended Contents",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior Equipment' at position 14: English is 'M High-gloss Shadowline with Extended Contents' (mapped: 'm high-gloss shadowline with extended contents'), Thai is 'ภายนอกพร้อมชุดตกแต่ง M ด้วยวัสดุสีดำเงา' (mapped: 'ภายนอกพร้อมชุดตกแต่ง m ด้วยวัสดุสีดำเงา')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "พวงมาลัยหุ้มหนังดีไซน์ M / M leather steering wheel",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 1: English is 'M leather steering wheel' (mapped: 'm leather steering wheel'), Thai is 'พวงมาลัยหุ้มหนังดีไซน์ M' (mapped: 'พวงมาลัยหุ้มหนังดีไซน์ m')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "เข็มขัดนิรภัยดีไซน์ M / M seat belts",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 2: English is 'M seat belts' (mapped: 'm seat belts'), Thai is 'เข็มขัดนิรภัยดีไซน์ M' (mapped: 'เข็มขัดนิรภัยดีไซน์ m')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "เบาะนั่งตอนหน้าดีไซน์ Sport / Sport seats for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 3: English is 'Sport seats for driver and front passenger' (mapped: 'sport seats for driver and front passenger'), Thai is 'เบาะนั่งตอนหน้าดีไซน์ Sport' (mapped: 'เบาะนั่งตอนหน้าดีไซน์ sport')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "เบาะนั่งตอนหน้าแบบ Comfort ปรับไฟฟ้า / Comfort seats front, electrically adjustable",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 4: English is 'Comfort seats front, electrically adjustable' (mapped: 'comfort seats front, electrically adjustable'), Thai is 'เบาะนั่งตอนหน้าแบบ Comfort ปรับไฟฟ้า' (mapped: 'เบาะนั่งตอนหน้าแบบ comfort ปรับไฟฟ้า')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ / Seat adjustment, electric, with memory",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 5: English is 'Seat adjustment, electric, with memory' (mapped: 'seat adjustment, electric, with memory'), Thai is 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ' (mapped: 'เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ภายในตกแต่งดีไซน์ M Sport / M Sport interior parts",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 6: English is 'M Sport interior parts' (mapped: 'm sport interior parts'), Thai is 'ภายในตกแต่งดีไซน์ M Sport' (mapped: 'ภายในตกแต่งดีไซน์ m sport')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ภายในตกแต่งด้วยสี Dark Silver M ผสมกับอะลูมิเนียมลาย Rhombicle / Dark Silver M accent combined with Aluminium Rhombicle",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 7: English is 'Dark Silver M accent combined with Aluminium Rhombicle' (mapped: 'dark silver m accent combined with aluminium rhombicle'), Thai is 'ภายในตกแต่งด้วยสี Dark Silver M ผสมกับอะลูมิเนียมลาย Rhombicle' (mapped: 'ภายในตกแต่งด้วยสี dark silver m ผสมกับอะลูมิเนียมลาย rhombicle')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ภายในตกแต่งด้วยสี Dark Silver M ผสมกับ Carbon Fibre ถักด้วยวัสดุสีเงินแบบ M / Dark Silver M accent combined with Carbon Fibre and high-gloss silver threads",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 8: English is 'Dark Silver M accent combined with Carbon Fibre and high-gloss silver threads' (mapped: 'dark silver m accent combined with carbon fibre and high-gloss silver threads'), Thai is 'ภายในตกแต่งด้วยสี Dark Silver M ผสมกับ Carbon Fibre ถักด้วยวัสดุสีเงินแบบ M' (mapped: 'ภายในตกแต่งด้วยสี dark silver m ผสมกับ carbon fibre ถักด้วยวัสดุสีเงินแบบ m')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "กระจกมองหลังตัดแสงอัตโนมัติ / Interior rear-view mirror with automatic anti-dazzle function",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 9: English is 'Interior rear-view mirror with automatic anti-dazzle function' (mapped: 'interior rear-view mirror with automatic anti-dazzle function'), Thai is 'กระจกมองหลังตัดแสงอัตโนมัติ' (mapped: 'กระจกมองหลังตัดแสงอัตโนมัติ')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "เพดานหลังคาภายในดีไซน์ M สี Anthracite / M headliner anthracite",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 10: English is 'M headliner anthracite' (mapped: 'm headliner anthracite'), Thai is 'เพดานหลังคาภายในดีไซน์ M สี Anthracite' (mapped: 'เพดานหลังคาภายในดีไซน์ m สี anthracite')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light) / Ambient light",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 11: English is 'Ambient light' (mapped: 'ambient light'), Thai is 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)' (mapped: 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (ambient light)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ภายในตกแต่งด้วยผลึกแก้ว 'CraftedClarity' / Glass application 'CraftedClarity' for interior elements",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 12: English is 'Glass application 'CraftedClarity' for interior elements' (mapped: 'glass application 'craftedclarity' for interior elements'), Thai is 'ภายในตกแต่งด้วยผลึกแก้ว 'CraftedClarity'' (mapped: 'ภายในตกแต่งด้วยผลึกแก้ว 'craftedclarity'')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ม่านบังแดดที่ประตูหลังและกระจกหลัง / Roller sunblinds",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 13: English is 'Roller sunblinds' (mapped: 'roller sunblinds'), Thai is 'ม่านบังแดดที่ประตูหลังและกระจกหลัง' (mapped: 'ม่านบังแดดที่ประตูหลังและกระจกหลัง')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ระบบ Travel & Comfort / Travel & Comfort System",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 14: English is 'Travel & Comfort System' (mapped: 'travel & comfort system'), Thai is 'ระบบ Travel & Comfort' (mapped: 'ระบบ travel & comfort')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ระบบปรับอากาศอัตโนมัติแบบ 4 โซน / 4-Zone Automatic air conditioning",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 15: English is '4-Zone Automatic air conditioning' (mapped: '4-zone automatic air conditioning'), Thai is 'ระบบปรับอากาศอัตโนมัติแบบ 4 โซน' (mapped: 'ระบบปรับอากาศอัตโนมัติแบบ 4 โซน')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Interior Equipment",
+                "topic": "ระบบกล้องภายในรถ / Interior camera",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior Equipment' at position 16: English is 'Interior camera' (mapped: 'interior camera'), Thai is 'ระบบกล้องภายในรถ' (mapped: 'ระบบกล้องภายในรถ')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบเครื่องเสียง HiFi loudspeaker Harman Kardon / HiFi loudspeaker system Harman Kardon",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 2: English is 'HiFi loudspeaker system Harman Kardon' (mapped: 'hifi loudspeaker system harman kardon'), Thai is 'ระบบเครื่องเสียง HiFi loudspeaker Harman Kardon' (mapped: 'ระบบเครื่องเสียง hifi loudspeaker harman kardon')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins / Bowers & Wilkins surround sound system",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 3: English is 'Bowers & Wilkins surround sound system' (mapped: 'bowers & wilkins surround sound system'), Thai is 'ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins' (mapped: 'ระบบเสียงรอบทิศทางคุณภาพสูง bowers & wilkins')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบจำลองเสียงเครื่องยนต์ Iconic sounds electric / BMW Iconic sounds electric",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 4: English is 'BMW Iconic sounds electric' (mapped: 'bmw iconic sounds electric'), Thai is 'ระบบจำลองเสียงเครื่องยนต์ Iconic sounds electric' (mapped: 'ระบบจำลองเสียงเครื่องยนต์ iconic sounds electric')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบ BMW ConnectedDrive / BMW ConnectedDrive",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 5: English is 'BMW ConnectedDrive' (mapped: 'bmw connecteddrive'), Thai is 'ระบบ BMW ConnectedDrive' (mapped: 'ระบบ bmw connecteddrive')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบ BMW Connected Package Professional / BMW Connected Package Professional",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 6: English is 'BMW Connected Package Professional' (mapped: 'bmw connected package professional'), Thai is 'ระบบ BMW Connected Package Professional' (mapped: 'ระบบ bmw connected package professional')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบเชื่อมต่อ Smartphone / Smartphone integration",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 7: English is 'Smartphone integration' (mapped: 'smartphone integration'), Thai is 'ระบบเชื่อมต่อ Smartphone' (mapped: 'ระบบเชื่อมต่อ smartphone')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบสั่งงานอัจฉริยะ BMW Natural Interaction / BMW Natural Interaction",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 8: English is 'BMW Natural Interaction' (mapped: 'bmw natural interaction'), Thai is 'ระบบสั่งงานอัจฉริยะ BMW Natural Interaction' (mapped: 'ระบบสั่งงานอัจฉริยะ bmw natural interaction')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM) / Personal eSIM",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 9: English is 'Personal eSIM' (mapped: 'personal esim'), Thai is 'ระบบ eSIM ส่วนบุคคล (Personal eSIM)' (mapped: 'ระบบ esim ส่วนบุคคล (personal esim)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Entertainment and Communication",
+                "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย / Wireless charging tray",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and Communication' at position 10: English is 'Wireless charging tray' (mapped: 'wireless charging tray'), Thai is 'ระบบชาร์จโทรศัพท์แบบไร้สาย' (mapped: 'ระบบชาร์จโทรศัพท์แบบไร้สาย')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า / Airbag for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 1: English is 'Airbag for driver and front passenger' (mapped: 'airbag for driver and front passenger'), Thai is 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า / Side airbags for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 2: English is 'Side airbags for driver and front passenger' (mapped: 'side airbags for driver and front passenger'), Thai is 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ) / Central airbag (driver's seat)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 3: English is 'Central airbag (driver's seat)' (mapped: 'central airbag (driver's seat)'), Thai is 'ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ)' (mapped: 'ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง) / Head airbags for 1st and 2nd seat row",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 4: English is 'Head airbags for 1st and 2nd seat row' (mapped: 'head airbags for 1st and 2nd seat row'), Thai is 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)' (mapped: 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบ Teleservices / Teleservices",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 5: English is 'Teleservices' (mapped: 'teleservices'), Thai is 'ระบบ Teleservices' (mapped: 'ระบบ teleservices')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call) / Intelligent Emergency Call",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 6: English is 'Intelligent Emergency Call' (mapped: 'intelligent emergency call'), Thai is 'ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)' (mapped: 'ปุ่มโทรออกฉุกเฉิน (intelligent emergency call)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC) / Dynamic Stability Control (DSC)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 7: English is 'Dynamic Stability Control (DSC)' (mapped: 'dynamic stability control (dsc)'), Thai is 'ระบบควบคุมเสถียรภาพการขับขี่ (DSC)' (mapped: 'ระบบควบคุมเสถียรภาพการขับขี่ (dsc)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS) / Anti-lock Brake System (ABS)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 8: English is 'Anti-lock Brake System (ABS)' (mapped: 'anti-lock brake system (abs)'), Thai is 'ระบบป้องกันล้อล็อกขณะเบรก (ABS)' (mapped: 'ระบบป้องกันล้อล็อกขณะเบรก (abs)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist) / Brake Assist (BA)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 9: English is 'Brake Assist (BA)' (mapped: 'brake assist (ba)'), Thai is 'ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist)' (mapped: 'ระบบช่วยเสริมแรงเบรกอัตโนมัติ (brake assist)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ไฟเบรกกระพริบฉุกเฉิน (Dynamic Braking Lights) / Dynamic braking lights",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 10: English is 'Dynamic braking lights' (mapped: 'dynamic braking lights'), Thai is 'ไฟเบรกกระพริบฉุกเฉิน (Dynamic Braking Lights)' (mapped: 'ไฟเบรกกระพริบฉุกเฉิน (dynamic braking lights)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC) / Cornering Brake Control (CBC)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 11: English is 'Cornering Brake Control (CBC)' (mapped: 'cornering brake control (cbc)'), Thai is 'ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC)' (mapped: 'ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (cbc)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor) / Crash sensor",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 12: English is 'Crash sensor' (mapped: 'crash sensor'), Thai is 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)' (mapped: 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (crash sensor)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบ Active Protection / Active Protection",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 13: English is 'Active Protection' (mapped: 'active protection'), Thai is 'ระบบ Active Protection' (mapped: 'ระบบ active protection')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบช่วยเตือนอาการเหนื่อยล้าขณะขับขี่ (Attentiveness Assistant) / Attentiveness assistant",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 14: English is 'Attentiveness assistant' (mapped: 'attentiveness assistant'), Thai is 'ระบบช่วยเตือนอาการเหนื่อยล้าขณะขับขี่ (Attentiveness Assistant)' (mapped: 'ระบบช่วยเตือนอาการเหนื่อยล้าขณะขับขี่ (attentiveness assistant)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "เซนเซอร์ควบคุมระยะการจอดด้านหน้าและหลัง / Park Distance Control (PDC)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 15: English is 'Park Distance Control (PDC)' (mapped: 'park distance control (pdc)'), Thai is 'เซนเซอร์ควบคุมระยะการจอดด้านหน้าและหลัง' (mapped: 'เซนเซอร์ควบคุมระยะการจอดด้านหน้าและหลัง')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบสร้างเสียงจำลอง เตือนผู้ใช้ถนนรอบข้าง / Acoustic protection for pedestrians",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 16: English is 'Acoustic protection for pedestrians' (mapped: 'acoustic protection for pedestrians'), Thai is 'ระบบสร้างเสียงจำลอง เตือนผู้ใช้ถนนรอบข้าง' (mapped: 'ระบบสร้างเสียงจำลอง เตือนผู้ใช้ถนนรอบข้าง')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ระบบตรวจวัดลมยาง / Tyre Pressure Monitoring System",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 17: English is 'Tyre Pressure Monitoring System' (mapped: 'tyre pressure monitoring system'), Thai is 'ระบบตรวจวัดลมยาง' (mapped: 'ระบบตรวจวัดลมยาง')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Safety",
+                "topic": "ชุดปะยางฉุกเฉิน / Tyre Repair Kit",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 18: English is 'Tyre Repair Kit' (mapped: 'tyre repair kit'), Thai is 'ชุดปะยางฉุกเฉิน' (mapped: 'ชุดปะยางฉุกเฉิน')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Line / Package",
+                "topic": "ชุดตกแต่ง M Sport / M Sport",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Line / Package' at position 1: English is 'M Sport' (mapped: 'm sport'), Thai is 'ชุดตกแต่ง M Sport' (mapped: 'ชุดตกแต่ง m sport')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Line / Package",
+                "topic": "ชุดตกแต่ง M Sport Pro / M Sport Pro",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Line / Package' at position 2: English is 'M Sport Pro' (mapped: 'm sport pro'), Thai is 'ชุดตกแต่ง M Sport Pro' (mapped: 'ชุดตกแต่ง m sport pro')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Document References",
+                "topic": "รหัสแพ็กเกจ (Local Pack) / Package Code (Local Pack)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
+            },
+            {
+                "model_name": "530e M Sport Pro",
+                "category": "Document References",
+                "topic": "หมายเหตุการชาร์จ AC / AC Charging Reference Note",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 3: English is 'AC Charging Reference Note' (mapped: 'ac charging reference note'), Thai is 'หมายเหตุการชาร์จ AC' (mapped: 'หมายเหตุการชาร์จ ac')"
+            }
+        ]
     }
 ]
