@@ -1119,6 +1119,234 @@ def apply_business_rules(final_output: dict, source_pdf_path: str, lang_code: st
                     elif c_name == cat_ref.upper():
                         cat["details"].append({"topic": top_note, "value": nt})
 
+    # Rule 1.1: 3 Series AC Charging from official website
+    if "3-20250625-01" in pdf_name:
+        ac_map_th = {
+            '320d M Sport': ('-', '-', '-'),
+            '330e M Sport': ('11', '2 ชั่วโมง 15 นาที*', 'อ้างอิงจาก https://www.bmw.co.th/th/all-models/3-series/bmw-3-series-sedan/bmw-3-series-sedan-plug-in-hybrid.html/the-new-330e-m-sport.bmw'),
+            'M340i xDrive': ('-', '-', '-')
+        }
+        ac_map_en = {
+            '320d M Sport': ('-', '-', '-'),
+            '330e M Sport': ('11', '2 hours 15 minutes*', 'Referenced from https://www.bmw.co.th/th/all-models/3-series/bmw-3-series-sedan/bmw-3-series-sedan-plug-in-hybrid.html/the-new-330e-m-sport.bmw'),
+            'M340i xDrive': ('-', '-', '-')
+        }
+        active_map = ac_map_th if lang_code == "th" else ac_map_en
+        cat_engine = "เครื่องยนต์และสมรรถนะ" if lang_code == "th" else "Engine and Performance"
+        cat_ref = "ข้อมูลเอกสารอ้างอิง" if lang_code == "th" else "Document References"
+        top_pwr = "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)" if lang_code == "th" else "Maximum AC charging power (kW)"
+        top_time = "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%" if lang_code == "th" else "AC charging time 0 - 100%"
+        top_note = "หมายเหตุการชาร์จ AC" if lang_code == "th" else "AC Charging Reference Note"
+
+        for m in final_output.get("models", []):
+            mname = m.get("model_name")
+            if mname in active_map:
+                pwr, tm, nt = active_map[mname]
+                for cat in m.get("specifications", []):
+                    c_name = cat.get("category", "").strip().upper()
+                    if c_name == cat_engine.upper():
+                        cat["details"].append({"topic": top_pwr, "value": pwr})
+                        cat["details"].append({"topic": top_time, "value": tm})
+                    elif c_name == cat_ref.upper():
+                        cat["details"].append({"topic": top_note, "value": nt})
+
+    # Rule 1.2: 7 Series AC Charging from official website
+    if "7-20250130-01" in pdf_name:
+        ac_map_th = {
+            '740d M Sport': ('-', '-', '-'),
+            '750e xDrive M Sport': ('7.4', '3 ชั่วโมง*', 'อ้างอิงจาก https://www.bmw.co.th/th/all-models/7-series/7-series-sedan/bmw-7-series-sedan.html/bmw-740d-m-sport.bmw')
+        }
+        ac_map_en = {
+            '740d M Sport': ('-', '-', '-'),
+            '750e xDrive M Sport': ('7.4', '3 hours*', 'Referenced from https://www.bmw.co.th/th/all-models/7-series/7-series-sedan/bmw-7-series-sedan.html/bmw-740d-m-sport.bmw')
+        }
+        active_map = ac_map_th if lang_code == "th" else ac_map_en
+        cat_engine = "เครื่องยนต์และสมรรถนะ" if lang_code == "th" else "Engine and Performance"
+        cat_ref = "ข้อมูลเอกสารอ้างอิง" if lang_code == "th" else "Document References"
+        top_pwr = "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)" if lang_code == "th" else "Maximum AC charging power (kW)"
+        top_time = "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%" if lang_code == "th" else "AC charging time 0 - 100%"
+        top_note = "หมายเหตุการชาร์จ AC" if lang_code == "th" else "AC Charging Reference Note"
+
+        for m in final_output.get("models", []):
+            mname = m.get("model_name")
+            if mname in active_map:
+                pwr, tm, nt = active_map[mname]
+                for cat in m.get("specifications", []):
+                    c_name = cat.get("category", "").strip().upper()
+                    if c_name == cat_engine.upper():
+                        cat["details"].append({"topic": top_pwr, "value": pwr})
+                        cat["details"].append({"topic": top_time, "value": tm})
+                    elif c_name == cat_ref.upper():
+                        cat["details"].append({"topic": top_note, "value": nt})
+
+    if "7-20250130-02" in pdf_name:
+        ac_map_th = {
+            'M760e xDrive': ('7.4', '3 ชั่วโมง*', 'อ้างอิงจาก https://www.bmw.co.th/th/all-models/7-series/7-series-sedan/bmw-7-series-sedan.html/bmw-740d-m-sport.bmw')
+        }
+        ac_map_en = {
+            'M760e xDrive': ('7.4', '3 hours*', 'Referenced from https://www.bmw.co.th/th/all-models/7-series/7-series-sedan/bmw-7-series-sedan.html/bmw-740d-m-sport.bmw')
+        }
+        active_map = ac_map_th if lang_code == "th" else ac_map_en
+        cat_engine = "เครื่องยนต์และสมรรถนะ" if lang_code == "th" else "Engine and Performance"
+        cat_ref = "ข้อมูลเอกสารอ้างอิง" if lang_code == "th" else "Document References"
+        top_pwr = "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)" if lang_code == "th" else "Maximum AC charging power (kW)"
+        top_time = "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%" if lang_code == "th" else "AC charging time 0 - 100%"
+        top_note = "หมายเหตุการชาร์จ AC" if lang_code == "th" else "AC Charging Reference Note"
+
+        for m in final_output.get("models", []):
+            mname = m.get("model_name")
+            if mname in active_map:
+                pwr, tm, nt = active_map[mname]
+                for cat in m.get("specifications", []):
+                    c_name = cat.get("category", "").strip().upper()
+                    if c_name == cat_engine.upper():
+                        cat["details"].append({"topic": top_pwr, "value": pwr})
+                        cat["details"].append({"topic": top_time, "value": tm})
+                    elif c_name == cat_ref.upper():
+                        cat["details"].append({"topic": top_note, "value": nt})
+
+    # Rule 1.3: X5 Series AC Charging from official website
+    if "X5-20260417-01" in pdf_name:
+        ac_map_th = {
+            'X5 xDrive30d M Sport': ('-', '-', '-'),
+            'X5 xDrive50e M Sport': ('7.4', '4:30 ชม.*', 'อ้างอิงจาก https://www.bmw.co.th/th/all-models/x-series/x5/bmw-x5-technical-data.html')
+        }
+        ac_map_en = {
+            'X5 xDrive30d M Sport': ('-', '-', '-'),
+            'X5 xDrive50e M Sport': ('7.4', '4 hours 30 minutes*', 'Referenced from https://www.bmw.co.th/th/all-models/x-series/x5/bmw-x5-technical-data.html')
+        }
+        active_map = ac_map_th if lang_code == "th" else ac_map_en
+        cat_engine = "เครื่องยนต์และสมรรถนะ" if lang_code == "th" else "Engine and Performance"
+        cat_ref = "ข้อมูลเอกสารอ้างอิง" if lang_code == "th" else "Document References"
+        top_pwr = "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)" if lang_code == "th" else "Maximum AC charging power (kW)"
+        top_time = "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%" if lang_code == "th" else "AC charging time 0 - 100%"
+        top_note = "หมายเหตุการชาร์จ AC" if lang_code == "th" else "AC Charging Reference Note"
+
+        for m in final_output.get("models", []):
+            mname = m.get("model_name")
+            if mname in active_map:
+                pwr, tm, nt = active_map[mname]
+                for cat in m.get("specifications", []):
+                    c_name = cat.get("category", "").strip().upper()
+                    if c_name == cat_engine.upper():
+                        cat["details"].append({"topic": top_pwr, "value": pwr})
+                        cat["details"].append({"topic": top_time, "value": tm})
+                    elif c_name == cat_ref.upper():
+                        cat["details"].append({"topic": top_note, "value": nt})
+
+    # Rule 1.4: XM Series AC Charging from official website
+    if "XM-20250130-02" in pdf_name:
+        ac_map_th = {'XM': ('7.4', '4 ชั่วโมง 25 นาที*', 'อ้างอิงจาก https://www.bmw.co.th/th/all-models/m-series/xm/bmw-xm-technical-data.html')}
+        ac_map_en = {'XM': ('7.4', '4 hours 25 minutes*', 'Referenced from https://www.bmw.co.th/th/all-models/m-series/xm/bmw-xm-technical-data.html')}
+        active_map = ac_map_th if lang_code == "th" else ac_map_en
+        cat_engine = "เครื่องยนต์และสมรรถนะ" if lang_code == "th" else "Engine and Performance"
+        cat_ref = "ข้อมูลเอกสารอ้างอิง" if lang_code == "th" else "Document References"
+        top_pwr = "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)" if lang_code == "th" else "Maximum AC charging power (kW)"
+        top_time = "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%" if lang_code == "th" else "AC charging time 0 - 100%"
+        top_note = "หมายเหตุการชาร์จ AC" if lang_code == "th" else "AC Charging Reference Note"
+        for m in final_output.get("models", []):
+            mname = m.get("model_name")
+            if mname in active_map:
+                pwr, tm, nt = active_map[mname]
+                for cat in m.get("specifications", []):
+                    c_name = cat.get("category", "").strip().upper()
+                    if c_name == cat_engine.upper():
+                        cat["details"].append({"topic": top_pwr, "value": pwr})
+                        cat["details"].append({"topic": top_time, "value": tm})
+                    elif c_name == cat_ref.upper():
+                        cat["details"].append({"topic": top_note, "value": nt})
+
+    if "XM-20250130-03" in pdf_name:
+        ac_map_th = {'XM Label Red': ('7.4', '4 ชั่วโมง 25 นาที*', 'อ้างอิงจาก https://www.bmw.co.th/th/all-models/m-series/xm/bmw-xm-technical-data.html')}
+        ac_map_en = {'XM Label Red': ('7.4', '4 hours 25 minutes*', 'Referenced from https://www.bmw.co.th/th/all-models/m-series/xm/bmw-xm-technical-data.html')}
+        active_map = ac_map_th if lang_code == "th" else ac_map_en
+        cat_engine = "เครื่องยนต์และสมรรถนะ" if lang_code == "th" else "Engine and Performance"
+        cat_ref = "ข้อมูลเอกสารอ้างอิง" if lang_code == "th" else "Document References"
+        top_pwr = "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)" if lang_code == "th" else "Maximum AC charging power (kW)"
+        top_time = "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%" if lang_code == "th" else "AC charging time 0 - 100%"
+        top_note = "หมายเหตุการชาร์จ AC" if lang_code == "th" else "AC Charging Reference Note"
+        for m in final_output.get("models", []):
+            mname = m.get("model_name")
+            if mname in active_map:
+                pwr, tm, nt = active_map[mname]
+                for cat in m.get("specifications", []):
+                    c_name = cat.get("category", "").strip().upper()
+                    if c_name == cat_engine.upper():
+                        cat["details"].append({"topic": top_pwr, "value": pwr})
+                        cat["details"].append({"topic": top_time, "value": tm})
+                    elif c_name == cat_ref.upper():
+                        cat["details"].append({"topic": top_note, "value": nt})
+
+    if "XM-20251126-01" in pdf_name:
+        ac_map_th = {
+            'XM 50e': ('7.4', '4 ชั่วโมง 25 นาที*', 'อ้างอิงจาก https://www.bmw.co.th/th/all-models/m-series/xm/bmw-xm-technical-data.html'),
+            'XM 50e (Shadow Line)': ('7.4', '4 ชั่วโมง 25 นาที*', 'อ้างอิงจาก https://www.bmw.co.th/th/all-models/m-series/xm/bmw-xm-technical-data.html')
+        }
+        ac_map_en = {
+            'XM 50e': ('7.4', '4 hours 25 minutes*', 'Referenced from https://www.bmw.co.th/th/all-models/m-series/xm/bmw-xm-technical-data.html'),
+            'XM 50e (Shadow Line)': ('7.4', '4 hours 25 minutes*', 'Referenced from https://www.bmw.co.th/th/all-models/m-series/xm/bmw-xm-technical-data.html')
+        }
+        active_map = ac_map_th if lang_code == "th" else ac_map_en
+        cat_engine = "เครื่องยนต์และสมรรถนะ" if lang_code == "th" else "Engine and Performance"
+        cat_ref = "ข้อมูลเอกสารอ้างอิง" if lang_code == "th" else "Document References"
+        top_pwr = "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)" if lang_code == "th" else "Maximum AC charging power (kW)"
+        top_time = "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%" if lang_code == "th" else "AC charging time 0 - 100%"
+        top_note = "หมายเหตุการชาร์จ AC" if lang_code == "th" else "AC Charging Reference Note"
+        for m in final_output.get("models", []):
+            mname = m.get("model_name")
+            if mname in active_map:
+                pwr, tm, nt = active_map[mname]
+                for cat in m.get("specifications", []):
+                    c_name = cat.get("category", "").strip().upper()
+                    if c_name == cat_engine.upper():
+                        cat["details"].append({"topic": top_pwr, "value": pwr})
+                        cat["details"].append({"topic": top_time, "value": tm})
+                    elif c_name == cat_ref.upper():
+                        cat["details"].append({"topic": top_note, "value": nt})
+
+    # Rule 1.5: M5 Series AC Charging from official website
+    if "M5-20250130-05" in pdf_name:
+        ac_map_th = {'M5': ('11', '2 ชม. 15 นาที*', 'อ้างอิงจาก https://www.bmw.co.th/th/all-models/m-series/m5-series/bmw-m5-sedan-technical-data.html')}
+        ac_map_en = {'M5': ('11', '2 hours 15 minutes*', 'Referenced from https://www.bmw.co.th/th/all-models/m-series/m5-series/bmw-m5-sedan-technical-data.html')}
+        active_map = ac_map_th if lang_code == "th" else ac_map_en
+        cat_engine = "เครื่องยนต์และสมรรถนะ" if lang_code == "th" else "Engine and Performance"
+        cat_ref = "ข้อมูลเอกสารอ้างอิง" if lang_code == "th" else "Document References"
+        top_pwr = "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)" if lang_code == "th" else "Maximum AC charging power (kW)"
+        top_time = "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%" if lang_code == "th" else "AC charging time 0 - 100%"
+        top_note = "หมายเหตุการชาร์จ AC" if lang_code == "th" else "AC Charging Reference Note"
+        for m in final_output.get("models", []):
+            mname = m.get("model_name")
+            if mname in active_map:
+                pwr, tm, nt = active_map[mname]
+                for cat in m.get("specifications", []):
+                    c_name = cat.get("category", "").strip().upper()
+                    if c_name == cat_engine.upper():
+                        cat["details"].append({"topic": top_pwr, "value": pwr})
+                        cat["details"].append({"topic": top_time, "value": tm})
+                    elif c_name == cat_ref.upper():
+                        cat["details"].append({"topic": top_note, "value": nt})
+
+    if "M5-20260714-01" in pdf_name:
+        ac_map_th = {'M5 Touring': ('11', '2 ชม. 15 นาที*', 'อ้างอิงจาก https://www.bmw.co.th/th/all-models/m-series/m5-series/bmw-m5-touring-technical-data.html')}
+        ac_map_en = {'M5 Touring': ('11', '2 hours 15 minutes*', 'Referenced from https://www.bmw.co.th/th/all-models/m-series/m5-series/bmw-m5-touring-technical-data.html')}
+        active_map = ac_map_th if lang_code == "th" else ac_map_en
+        cat_engine = "เครื่องยนต์และสมรรถนะ" if lang_code == "th" else "Engine and Performance"
+        cat_ref = "ข้อมูลเอกสารอ้างอิง" if lang_code == "th" else "Document References"
+        top_pwr = "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)" if lang_code == "th" else "Maximum AC charging power (kW)"
+        top_time = "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%" if lang_code == "th" else "AC charging time 0 - 100%"
+        top_note = "หมายเหตุการชาร์จ AC" if lang_code == "th" else "AC Charging Reference Note"
+        for m in final_output.get("models", []):
+            mname = m.get("model_name")
+            if mname in active_map:
+                pwr, tm, nt = active_map[mname]
+                for cat in m.get("specifications", []):
+                    c_name = cat.get("category", "").strip().upper()
+                    if c_name == cat_engine.upper():
+                        cat["details"].append({"topic": top_pwr, "value": pwr})
+                        cat["details"].append({"topic": top_time, "value": tm})
+                    elif c_name == cat_ref.upper():
+                        cat["details"].append({"topic": top_note, "value": nt})
+
     # Rule 2: iX3 800V append to sixth-gen eDrive
     if "iX3" in pdf_name:
         for m in final_output.get("models", []):
