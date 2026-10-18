@@ -1163,9 +1163,21 @@ def apply_recovery_and_healing_rules(final_output: dict, source_pdf_path: str, l
         elif mname.startswith("XM"):
             new_series = "BMW XM"
             break
+        elif re.match(r'^[2-8]\d{2}', mname):
+            lead = mname[0]
+            new_series = f"BMW {lead} Series"
+            break
+        elif re.match(r'^X[1-7]', mname):
+            first_word = mname.split()[0]
+            new_series = f"BMW {first_word[:2]}"
+            break
+        elif re.match(r'^Z4', mname):
+            new_series = "BMW Z4"
+            break
     else:
         pdf_base = os.path.basename(source_pdf_path)
-        series_match = re.match(r'^([0-9]|iX?[0-9]|M[0-9]|X[0-9]|Z[0-9])', pdf_base)
+        clean_base = re.sub(r'^(temp_|brochure_|download_)', '', pdf_base, flags=re.IGNORECASE)
+        series_match = re.match(r'^([0-9]|iX?[0-9]|M[0-9]|X[0-9]|Z[0-9])', clean_base)
         if series_match:
             lead = series_match.group(1)
             if lead.isdigit():

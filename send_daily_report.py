@@ -16,8 +16,66 @@ sys.stdout.reconfigure(encoding='utf-8')
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 TH_CATALOG = os.path.join(BASE_DIR, "bmw_master_specs.json")
 EN_CATALOG = os.path.join(BASE_DIR, "bmw_master_specs_en.json")
+CUSTOM_TH_CATALOG = os.path.join(BASE_DIR, "bmw_custom_specs.json")
+CUSTOM_EN_CATALOG = os.path.join(BASE_DIR, "bmw_custom_specs_en.json")
 GAS_WEBAPP_URL = os.environ.get("GAS_WEBAPP_URL")
 GAS_SECRET_TOKEN = os.environ.get("GAS_SECRET_TOKEN")
+
+# Category 99 (Uncategorized / Unknown Series) classifier matching custom.html getSortScore
+def get_sort_category(series_name):
+    name = (series_name or "").strip().upper()
+    if name.startswith("BMW "):
+        name = name[4:].strip()
+        
+    category = 99
+    secondary = name
+    
+    if re.match(r'^\d', name):
+        category = 1  # Series 2-8
+        match = re.match(r'^(\d+)', name)
+        if match:
+            secondary = match.group(1).zfill(3)
+    elif name.startswith("X") and len(name) > 1 and re.match(r'^\d', name[1:]):
+        category = 2  # X1-7
+        match = re.match(r'^(\d+)', name[1:])
+        if match:
+            secondary = match.group(1).zfill(3)
+    elif name.startswith("Z"):
+        category = 3  # Z
+    elif name.startswith("I") or name.startswith("IX"):
+        category = 4  # i / iX
+    elif name.startswith("M") or name.startswith("XM"):
+        category = 5  # M & XM
+        
+    return category, secondary
+
+def audit_uncategorized_series(th_data, en_data, custom_th_data=None, custom_en_data=None):
+    uncategorized = []
+    datasets = [
+        ("Master Specs (TH)", th_data),
+        ("Master Specs (EN)", en_data),
+    ]
+    if custom_th_data:
+        datasets.append(("Custom Specs (TH)", custom_th_data))
+    if custom_en_data:
+        datasets.append(("Custom Specs (EN)", custom_en_data))
+        
+    for db_label, db_list in datasets:
+        if not isinstance(db_list, list):
+            continue
+        for entry in db_list:
+            series_name = entry.get("series", "")
+            cat, _ = get_sort_category(series_name)
+            if cat == 99:
+                models = [m.get("model_name", "") for m in entry.get("models", [])]
+                pdf_source = entry.get("pdf_source", entry.get("pdf_filename", "Unknown PDF"))
+                uncategorized.append({
+                    "database": db_label,
+                    "series": series_name or "(Empty Series Name)",
+                    "pdf_source": pdf_source,
+                    "models": models
+                })
+    return uncategorized
 
 # Helper to check if model is a pure M (high performance) model
 def is_pure_m_car(model_name):
@@ -252,12 +310,45 @@ def check_overrides_stats():
         return 0, 0
 
 # Compile HTML Report
-def generate_html_report(added_pdfs, removed_pdfs, missing_imgs, total_non_m, models_missing_imgs, discrepancies, total_checks, api_status, files_overridden, total_rules):
+def generate_html_report(added_pdfs, removed_pdfs, missing_imgs, total_non_m, models_missing_imgs, discrepancies, total_checks, api_status, files_overridden, total_rules, uncategorized=None):
     # Calculate health score
     health_score = 100.0
     if total_checks > 0:
         health_score = max(0.0, 100.0 - (len(discrepancies) / total_checks * 100.0))
         
+    # Uncategorized Series Alert Banner (Category 99)
+    uncategorized_html = ""
+    if uncategorized:
+        uncategorized_html = f"""
+        <div style="background-color: #fff3f3; border: 2px solid #dc3545; border-radius: 8px; padding: 16px; margin-bottom: 24px; font-family: Arial, sans-serif;">
+          <h3 style="color: #dc3545; margin-top: 0; font-size: 18px; display: flex; align-items: center; gap: 8px;">
+            🚨 ตรวจพบข้อมูลใน &quot;หมวด 99 (อื่นๆ)&quot; - โปรดตรวจสอบทันที!
+          </h3>
+          <p style="margin: 0 0 12px 0; color: #721c24; font-size: 14px; line-height: 1.5;">
+            พบชื่อซีรีส์ที่ไม่ตรงตามมาตรฐานการจัดกลุ่ม (Series 2-8, X, Z, i, M, XM) ส่งผลให้ระบบจัดเข้าหมวด 99 (ตกไปอยู่ท้ายสุดของ Dropdown ใน custom.html):
+          </p>
+          <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+            <tr style="background-color: #f8d7da; border-bottom: 2px solid #f5c6cb; text-align: left;">
+              <th style="padding: 8px;">ฐานข้อมูล</th>
+              <th style="padding: 8px;">ชื่อ Series ที่พบ</th>
+              <th style="padding: 8px;">ไฟล์ PDF ต้นทาง</th>
+              <th style="padding: 8px;">รุ่นรถยนต์</th>
+            </tr>
+        """
+        for item in uncategorized:
+            models_str = ", ".join(item["models"][:3])
+            if len(item["models"]) > 3:
+                models_str += f" (+{len(item['models'])-3} รุ่น)"
+            uncategorized_html += f"""
+            <tr style="border-bottom: 1px solid #f5c6cb; vertical-align: top;">
+              <td style="padding: 8px; font-weight: bold;">{item['database']}</td>
+              <td style="padding: 8px; font-weight: bold; color: #dc3545;">{item['series']}</td>
+              <td style="padding: 8px;">{item['pdf_source']}</td>
+              <td style="padding: 8px;">{models_str}</td>
+            </tr>
+            """
+        uncategorized_html += "</table></div>"
+
     # PDF updates table
     pdf_updates_html = ""
     if not added_pdfs and not removed_pdfs:
@@ -341,6 +432,8 @@ def generate_html_report(added_pdfs, removed_pdfs, missing_imgs, total_non_m, mo
         <!-- Main Content -->
         <div style="padding: 20px; font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
           
+          {uncategorized_html}
+
           <!-- 1. PDF Updates -->
           <h3 style="border-bottom: 2px solid #0b132b; padding-bottom: 5px; color: #0b132b;">1. 📄 Brochure PDF Changes</h3>
           {pdf_updates_html}
@@ -385,6 +478,22 @@ def main():
     except Exception as e:
         print(f"[ERROR] Failed to load json databases: {e}")
         sys.exit(0)
+
+    # Load custom/archived catalogs if present
+    custom_th_data = []
+    custom_en_data = []
+    if os.path.exists(CUSTOM_TH_CATALOG):
+        try:
+            with open(CUSTOM_TH_CATALOG, encoding="utf-8") as f:
+                custom_th_data = json.load(f)
+        except Exception as e:
+            print(f"[WARNING] Failed to load custom TH catalog: {e}")
+    if os.path.exists(CUSTOM_EN_CATALOG):
+        try:
+            with open(CUSTOM_EN_CATALOG, encoding="utf-8") as f:
+                custom_en_data = json.load(f)
+        except Exception as e:
+            print(f"[WARNING] Failed to load custom EN catalog: {e}")
         
     # Gather report data
     print("[AUDIT] Checking PDF brochure updates...")
@@ -396,6 +505,13 @@ def main():
     print("[AUDIT] Running data discrepancy checks...")
     discrepancies, total_checks = audit_data_discrepancies(th_data, en_data)
     
+    print("[AUDIT] Auditing Category 99 (Uncategorized series)...")
+    uncategorized = audit_uncategorized_series(th_data, en_data, custom_th_data, custom_en_data)
+    if uncategorized:
+        print(f"[ALERT] Found {len(uncategorized)} entries categorized as Category 99 (Uncategorized)!")
+    else:
+        print("[AUDIT] All series correctly categorized (0 in Category 99).")
+
     print("[AUDIT] Fetching API health parameters...")
     api_status = check_api_health()
     
@@ -408,7 +524,8 @@ def main():
         added_pdfs, removed_pdfs, missing_imgs, 
         total_non_m, models_missing_imgs, 
         discrepancies, total_checks, 
-        api_status, files_overridden, total_rules
+        api_status, files_overridden, total_rules,
+        uncategorized=uncategorized
     )
     
     # Send via Google Apps Script (GAS) Web App
@@ -419,9 +536,13 @@ def main():
         sys.exit(0)
         
     print("[POST] Sending email report to Google Apps Script Web App...")
+    subject_prefix = ""
+    if uncategorized:
+        subject_prefix = f"🚨 [ALERT: {len(uncategorized)} Uncategorized Series (หมวด 99)] "
+
     payload = {
         "secret": GAS_SECRET_TOKEN,
-        "subject": f"🚗 [BMW Specsheet] Daily Monitor Report ({len(discrepancies)} Issues)",
+        "subject": f"{subject_prefix}🚗 [BMW Specsheet] Daily Monitor Report ({len(discrepancies)} Issues)",
         "html_body": html_body
     }
     
