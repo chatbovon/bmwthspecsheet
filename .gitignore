@@ -49,3 +49,6 @@ run_x_series_validation.py
 run_i_series_validation.py
 temp_*_raw.md
 worktrees/
+# Intermediate OCR & Cleansed Markdown Artifacts
+mineru_raw_*.md
+multimodal_cleaned_*.md
