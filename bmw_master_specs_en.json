@@ -9124,6 +9124,83 @@
             ]
           },
           {
+            "category": "Additional Safety & Driving Assistance",
+            "details": [
+              {
+                "topic": "Security Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Lane Departure Warning",
+                "value": "-"
+              },
+              {
+                "topic": "Lane Change Warning",
+                "value": "-"
+              },
+              {
+                "topic": "Emergency Steering intervention",
+                "value": "-"
+              },
+              {
+                "topic": "Evasion Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Emergency Stop Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Emergency Brake Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Rear Collision Prevention",
+                "value": "-"
+              },
+              {
+                "topic": "Attention Assistant with Emergency Stop",
+                "value": "-"
+              },
+              {
+                "topic": "Exit Warning",
+                "value": "-"
+              },
+              {
+                "topic": "Rear Emergency Brake function",
+                "value": "-"
+              },
+              {
+                "topic": "Park Distance Control",
+                "value": "-"
+              },
+              {
+                "topic": "Active Park Distance Control",
+                "value": "-"
+              },
+              {
+                "topic": "Rear view camera with panoramic view",
+                "value": "-"
+              },
+              {
+                "topic": "Park Assist",
+                "value": "-"
+              },
+              {
+                "topic": "Reversing Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Distance Control",
+                "value": "-"
+              },
+              {
+                "topic": "Steering and Lane Control Assistant",
+                "value": "-"
+              }
+            ]
+          },
+          {
             "category": "Line / package",
             "details": [
               {
@@ -9583,6 +9660,83 @@
               {
                 "topic": "Alarm System",
                 "value": "■"
+              }
+            ]
+          },
+          {
+            "category": "Additional Safety & Driving Assistance",
+            "details": [
+              {
+                "topic": "Security Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Lane Departure Warning",
+                "value": "-"
+              },
+              {
+                "topic": "Lane Change Warning",
+                "value": "-"
+              },
+              {
+                "topic": "Emergency Steering intervention",
+                "value": "-"
+              },
+              {
+                "topic": "Evasion Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Emergency Stop Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Emergency Brake Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Rear Collision Prevention",
+                "value": "-"
+              },
+              {
+                "topic": "Attention Assistant with Emergency Stop",
+                "value": "-"
+              },
+              {
+                "topic": "Exit Warning",
+                "value": "-"
+              },
+              {
+                "topic": "Rear Emergency Brake function",
+                "value": "-"
+              },
+              {
+                "topic": "Park Distance Control",
+                "value": "-"
+              },
+              {
+                "topic": "Active Park Distance Control",
+                "value": "-"
+              },
+              {
+                "topic": "Rear view camera with panoramic view",
+                "value": "-"
+              },
+              {
+                "topic": "Park Assist",
+                "value": "-"
+              },
+              {
+                "topic": "Reversing Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Distance Control",
+                "value": "-"
+              },
+              {
+                "topic": "Steering and Lane Control Assistant",
+                "value": "-"
               }
             ]
           },
@@ -11259,6 +11413,83 @@
               {
                 "topic": "Alarm System",
                 "value": "■"
+              }
+            ]
+          },
+          {
+            "category": "Additional Safety & Driving Assistance",
+            "details": [
+              {
+                "topic": "Security Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Lane Departure Warning",
+                "value": "-"
+              },
+              {
+                "topic": "Lane Change Warning",
+                "value": "-"
+              },
+              {
+                "topic": "Emergency Steering intervention",
+                "value": "-"
+              },
+              {
+                "topic": "Evasion Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Emergency Stop Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Emergency Brake Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Rear Collision Prevention",
+                "value": "-"
+              },
+              {
+                "topic": "Attention Assistant with Emergency Stop",
+                "value": "-"
+              },
+              {
+                "topic": "Exit Warning",
+                "value": "-"
+              },
+              {
+                "topic": "Rear Emergency Brake function",
+                "value": "-"
+              },
+              {
+                "topic": "Park Distance Control",
+                "value": "-"
+              },
+              {
+                "topic": "Active Park Distance Control",
+                "value": "-"
+              },
+              {
+                "topic": "Rear view camera with panoramic view",
+                "value": "-"
+              },
+              {
+                "topic": "Park Assist",
+                "value": "-"
+              },
+              {
+                "topic": "Reversing Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Distance Control",
+                "value": "-"
+              },
+              {
+                "topic": "Steering and Lane Control Assistant",
+                "value": "-"
               }
             ]
           },
@@ -34338,6 +34569,83 @@
               {
                 "topic": "Crossroads Warning with city braking function",
                 "value": "■"
+              }
+            ]
+          },
+          {
+            "category": "Additional Safety & Driving Assistance",
+            "details": [
+              {
+                "topic": "Security Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Lane Departure Warning",
+                "value": "-"
+              },
+              {
+                "topic": "Lane Change Warning",
+                "value": "-"
+              },
+              {
+                "topic": "Emergency Steering intervention",
+                "value": "-"
+              },
+              {
+                "topic": "Evasion Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Emergency Stop Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Emergency Brake Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Rear Collision Prevention",
+                "value": "-"
+              },
+              {
+                "topic": "Attention Assistant with Emergency Stop",
+                "value": "-"
+              },
+              {
+                "topic": "Exit Warning",
+                "value": "-"
+              },
+              {
+                "topic": "Rear Emergency Brake function",
+                "value": "-"
+              },
+              {
+                "topic": "Park Distance Control",
+                "value": "-"
+              },
+              {
+                "topic": "Active Park Distance Control",
+                "value": "-"
+              },
+              {
+                "topic": "Rear view camera with panoramic view",
+                "value": "-"
+              },
+              {
+                "topic": "Park Assist",
+                "value": "-"
+              },
+              {
+                "topic": "Reversing Assistant",
+                "value": "-"
+              },
+              {
+                "topic": "Distance Control",
+                "value": "-"
+              },
+              {
+                "topic": "Steering and Lane Control Assistant",
+                "value": "-"
               }
             ]
           },

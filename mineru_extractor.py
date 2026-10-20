@@ -162,11 +162,11 @@ Your task is to take a pre-extracted and cleaned Markdown/HTML specification tab
 
 กฎเหล็กที่ต้องปฏิบัติตามอย่างเคร่งครัด:
 1. ห้ามสรุปความ ห้ามย่อความ ห้ามตัดออปชันย่อยทิ้งเด็ดขาด ต้องดึงข้อมูลมาแบบคำต่อคำ (Verbatim) ให้ครบทุกบรรทัดที่ปรากฏในตาราง
-2. ในเอกสารจะมีตารางอุปกรณ์มาตรฐาน (เช่น ระบบขับเคลื่อน อุปกรณ์ภายนอก อุปกรณ์ภายใน ความปลอดภัย ความบันเทิง) คุณต้องดึงข้อมูลเหล่านี้มาให้ครบถ้วน ห้ามข้ามเด็ดขาด
+2. ในเอกสารจะมีตารางอุปกรณ์มาตรฐาน (เช่น ระบบขับเคลื่อน อุปกรณ์ภายนอก อุปกรณ์ภายใน ความปลอดภัย ระบบความปลอดภัย & ช่วยการขับขี่ เพิ่มเติม ความบันเทิง) คุณต้องดึงข้อมูลเหล่านี้มาให้ครบถ้วน ห้ามข้ามเด็ดขาด
 3. **การจัดการช่องว่าง (Blank Cells):**
    - หากช่องใดในตารางเป็นช่องว่างเปล่า หรือระบุเครื่องหมายขีด "-" ให้ระบุเป็น "-" เสมอ ห้ามคาดเดาหรือพยายามเติมสัญลักษณ์เองเด็ดขาด
    - หากช่องใดมีเครื่องหมาย ■ ให้ระบุเป็น "■" เสมอ
-4. หมวดหมู่มาตรฐาน (10 หมวดหมู่หลัก):
+4. หมวดหมู่มาตรฐาน (11 หมวดหมู่หลัก):
    - "เครื่องยนต์และสมรรถนะ" (หรือ "มอเตอร์ไฟฟ้าและสมรรถนะ" สำหรับรถยนต์ไฟฟ้าล้วน EV)
    - "อัตราสิ้นเปลืองน้ํามันเชื้อเพลิง และระดับการปล่อย CO2"
    - "ล้อและยาง"
@@ -176,6 +176,7 @@ Your task is to take a pre-extracted and cleaned Markdown/HTML specification tab
    - "อุปกรณ์ภายใน"
    - "ระบบความบันเทิงและการสื่อสาร"
    - "ความปลอดภัย"
+   - "ระบบความปลอดภัย & ช่วยการขับขี่ เพิ่มเติม"
    - "ชุดตกแต่งพิเศษ"
 
 JSON Output Structure:
@@ -205,9 +206,9 @@ Your task is to take a pre-extracted and cleaned Markdown/HTML specification tab
 
 Rules:
 1. Verbatim extraction: Never summarize, shorten, or omit any rows or equipment options.
-2. Standard Equipment: Extract all equipment rows under Exterior, Interior, Safety, Entertainment, etc.
+2. Standard Equipment: Extract all equipment rows under Exterior, Interior, Safety, Additional Safety & Driving Assistance, Entertainment, etc.
 3. Blank Cells: If empty or "-", output as "-". If marked with "■", output as "■".
-4. Standard Categories (10 Core Categories):
+4. Standard Categories (11 Core Categories):
    - "Engine and Performance" (or "Electric Motor and Performance" for BEV)
    - "Fuel Consumption and CO2 Emission"
    - "Wheels and Tyres"
@@ -217,6 +218,7 @@ Rules:
    - "Interior Equipment"
    - "Entertainment and Communication"
    - "Safety"
+   - "Additional Safety & Driving Assistance"
    - "Line / Package"
 
 JSON Output Structure:
@@ -736,9 +738,12 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
                 if idx_start != -1 and idx_end != -1 and idx_end - idx_start > 1:
                     between_lines = all_pdf_lines[idx_start + 1:idx_end]
                     KNOWN_CAT_KEYWORDS = [
-                        'Safety', 'Line / package', 'Transmission and technology', 'Exterior', 'Interior',
-                        'Entertainment and communication', 'Equipment', 'ความปลอดภัย', 'ชุดตกแต่งพิเศษ',
-                        'ระบบขับเคลื่อนและเทคโนโลยี', 'อุปกรณ์ภายนอก', 'อุปกรณ์ภายใน', 'ระบบความบันเทิงและการสื่อสาร'
+                        'Safety', 'Additional Safety & Driving Assistance', 'Line / package',
+                        'Transmission and technology', 'Exterior', 'Interior',
+                        'Entertainment and communication', 'Equipment', 'ความปลอดภัย',
+                        'ระบบความปลอดภัย & ช่วยการขับขี่ เพิ่มเติม', 'ชุดตกแต่งพิเศษ',
+                        'ระบบขับเคลื่อนและเทคโนโลยี', 'อุปกรณ์ภายนอก', 'อุปกรณ์ภายใน',
+                        'ระบบความบันเทิงและการสื่อสาร'
                     ]
                     IGNORE_PATTERNS = [
                         'BMW', 'SPECIFICATIONS', 'Effective', 'Printed', 'พิมพ์วันที่', 'คู่มือ', 'Page', 'Z9',
@@ -1070,15 +1075,65 @@ def section_3_paint_extractor(paint_md: str, lang_code: str = "th") -> dict:
     return data
 
 
+def extract_footer_via_visual_fallback(pdf_path: str) -> str:
+    """
+    Visual fallback using pypdfium2 to render the bottom 20% of the last page
+    and Gemini Vision to transcribe the publication date and local package codes.
+    Triggered when pypdf text extraction returns empty or lacks date keywords.
+    """
+    try:
+        pdf = pdfium.PdfDocument(pdf_path)
+        if len(pdf) == 0:
+            return ""
+        page = pdf[len(pdf) - 1]
+        img = page.render(scale=2.0).to_pil()
+        w, h = img.size
+        # Bottom 20% contains the footer
+        crop_img = img.crop((0, int(h * 0.80), w, h))
+
+        buf = io.BytesIO()
+        crop_img.save(buf, format="PNG")
+        img_bytes = buf.getvalue()
+
+        client = get_gemini_client()
+        part = types.Part.from_bytes(data=img_bytes, mime_type="image/png")
+        prompt = (
+            "Look at this footer area at the bottom of the BMW specsheet page.\n"
+            "Extract all text lines exactly as shown, especially the effective date, printed date, "
+            "publication date (e.g., 'Effective from ...', 'พิมพ์วันที่ ...'), and package codes in parentheses like (ZLL, ZLM).\n"
+            "Output the transcription verbatim without explanation."
+        )
+        res = generate_with_fallback(client, contents=[part, prompt])
+        text = res.text.strip() if res and res.text else ""
+        print(f"[FOOTER VISUAL FALLBACK] Extracted: {text}")
+        return text
+    except Exception as e:
+        print(f"[WARN] Footer visual fallback failed: {e}")
+        return ""
+
+
 def extract_pdf_footer_text(pdf_path: str) -> str:
+    text = ""
     try:
         reader = pypdf.PdfReader(pdf_path)
         last_page = reader.pages[-1]
-        text = last_page.extract_text()
-        return text if text else ""
+        raw_text = last_page.extract_text()
+        if raw_text:
+            text = raw_text.strip()
     except Exception as e:
-        print(f"[WARN] Failed to read PDF footer: {e}")
-        return ""
+        print(f"[WARN] Failed to read PDF footer via pypdf: {e}")
+
+    # Check if pypdf extracted meaningful footer with date keywords
+    date_keywords = ["effective from", "printed on", "พิมพ์", "พิมพ", "วันที่"]
+    has_date = any(kw in text.lower() for kw in date_keywords) if text else False
+
+    if not has_date:
+        print(f"[FOOTER] pypdf text extraction missing date keywords (len={len(text)}). Attempting visual fallback...")
+        visual_text = extract_footer_via_visual_fallback(pdf_path)
+        if visual_text:
+            return visual_text
+
+    return text
 
 
 def apply_business_rules(final_output: dict, source_pdf_path: str, lang_code: str = "th"):
@@ -1519,10 +1574,10 @@ def section_4_json_assembler(specs_json: dict, paint_json: dict, source_pdf_path
         line = line.strip()
         if not line:
             continue
-        if "Effective from" in line or "Printed on" in line or "พิม" in line or "วันที่" in line:
+        if re.search(r'(effective from|printed on|พิมพ์|พิมพ|วันที่)', line, re.IGNORECASE):
             parts = line.split("|")
             date_part = parts[0].strip()
-            date_part = re.sub(r'^(Effective from|Printed on|พิมพ์วันที่|พิมพวันที่|พิมพ์|พิมพ|วันที่)\s*', '', date_part)
+            date_part = re.sub(r'^(effective from|printed on|พิมพ์วันที่|พิมพวันที่|พิมพ์|พิมพ|วันที่)\s*', '', date_part, flags=re.IGNORECASE)
             pub_date = date_part.strip()
         matches = re.findall(r'\([^)]*\)', line)
         for m in matches:
