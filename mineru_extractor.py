@@ -162,11 +162,11 @@ Your task is to take a pre-extracted and cleaned Markdown/HTML specification tab
 
 กฎเหล็กที่ต้องปฏิบัติตามอย่างเคร่งครัด:
 1. ห้ามสรุปความ ห้ามย่อความ ห้ามตัดออปชันย่อยทิ้งเด็ดขาด ต้องดึงข้อมูลมาแบบคำต่อคำ (Verbatim) ให้ครบทุกบรรทัดที่ปรากฏในตาราง
-2. ในเอกสารจะมีตารางอุปกรณ์มาตรฐาน (เช่น ระบบขับเคลื่อน อุปกรณ์ภายนอก อุปกรณ์ภายใน ความปลอดภัย ความบันเทิง) คุณต้องดึงข้อมูลเหล่านี้มาให้ครบถ้วน ห้ามข้ามเด็ดขาด
+2. ในเอกสารจะมีตารางอุปกรณ์มาตรฐาน (เช่น ระบบขับเคลื่อน อุปกรณ์ภายนอก อุปกรณ์ภายใน ความปลอดภัย ระบบความปลอดภัย & ช่วยการขับขี่ เพิ่มเติม ความบันเทิง) คุณต้องดึงข้อมูลเหล่านี้มาให้ครบถ้วน ห้ามข้ามเด็ดขาด
 3. **การจัดการช่องว่าง (Blank Cells):**
    - หากช่องใดในตารางเป็นช่องว่างเปล่า หรือระบุเครื่องหมายขีด "-" ให้ระบุเป็น "-" เสมอ ห้ามคาดเดาหรือพยายามเติมสัญลักษณ์เองเด็ดขาด
    - หากช่องใดมีเครื่องหมาย ■ ให้ระบุเป็น "■" เสมอ
-4. หมวดหมู่มาตรฐาน (10 หมวดหมู่หลัก):
+4. หมวดหมู่มาตรฐาน (11 หมวดหมู่หลัก):
    - "เครื่องยนต์และสมรรถนะ" (หรือ "มอเตอร์ไฟฟ้าและสมรรถนะ" สำหรับรถยนต์ไฟฟ้าล้วน EV)
    - "อัตราสิ้นเปลืองน้ํามันเชื้อเพลิง และระดับการปล่อย CO2"
    - "ล้อและยาง"
@@ -176,6 +176,7 @@ Your task is to take a pre-extracted and cleaned Markdown/HTML specification tab
    - "อุปกรณ์ภายใน"
    - "ระบบความบันเทิงและการสื่อสาร"
    - "ความปลอดภัย"
+   - "ระบบความปลอดภัย & ช่วยการขับขี่ เพิ่มเติม"
    - "ชุดตกแต่งพิเศษ"
 
 JSON Output Structure:
@@ -205,9 +206,9 @@ Your task is to take a pre-extracted and cleaned Markdown/HTML specification tab
 
 Rules:
 1. Verbatim extraction: Never summarize, shorten, or omit any rows or equipment options.
-2. Standard Equipment: Extract all equipment rows under Exterior, Interior, Safety, Entertainment, etc.
+2. Standard Equipment: Extract all equipment rows under Exterior, Interior, Safety, Additional Safety & Driving Assistance, Entertainment, etc.
 3. Blank Cells: If empty or "-", output as "-". If marked with "■", output as "■".
-4. Standard Categories (10 Core Categories):
+4. Standard Categories (11 Core Categories):
    - "Engine and Performance" (or "Electric Motor and Performance" for BEV)
    - "Fuel Consumption and CO2 Emission"
    - "Wheels and Tyres"
@@ -217,6 +218,7 @@ Rules:
    - "Interior Equipment"
    - "Entertainment and Communication"
    - "Safety"
+   - "Additional Safety & Driving Assistance"
    - "Line / Package"
 
 JSON Output Structure:
@@ -736,9 +738,12 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
                 if idx_start != -1 and idx_end != -1 and idx_end - idx_start > 1:
                     between_lines = all_pdf_lines[idx_start + 1:idx_end]
                     KNOWN_CAT_KEYWORDS = [
-                        'Safety', 'Line / package', 'Transmission and technology', 'Exterior', 'Interior',
-                        'Entertainment and communication', 'Equipment', 'ความปลอดภัย', 'ชุดตกแต่งพิเศษ',
-                        'ระบบขับเคลื่อนและเทคโนโลยี', 'อุปกรณ์ภายนอก', 'อุปกรณ์ภายใน', 'ระบบความบันเทิงและการสื่อสาร'
+                        'Safety', 'Additional Safety & Driving Assistance', 'Line / package',
+                        'Transmission and technology', 'Exterior', 'Interior',
+                        'Entertainment and communication', 'Equipment', 'ความปลอดภัย',
+                        'ระบบความปลอดภัย & ช่วยการขับขี่ เพิ่มเติม', 'ชุดตกแต่งพิเศษ',
+                        'ระบบขับเคลื่อนและเทคโนโลยี', 'อุปกรณ์ภายนอก', 'อุปกรณ์ภายใน',
+                        'ระบบความบันเทิงและการสื่อสาร'
                     ]
                     IGNORE_PATTERNS = [
                         'BMW', 'SPECIFICATIONS', 'Effective', 'Printed', 'พิมพ์วันที่', 'คู่มือ', 'Page', 'Z9',
