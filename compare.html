@@ -1147,6 +1147,31 @@
             color: var(--text-primary);
         }
 
+        /* Additional Safety Toggle Button */
+        .safety-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 6px;
+            padding: 3px 10px;
+            font-size: 0.78em;
+            font-family: inherit;
+            font-weight: 600;
+            color: #0284c7;
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: fit-content;
+        }
+        .safety-toggle-btn:hover {
+            background-color: #e0f2fe;
+            border-color: #7dd3fc;
+            color: #0369a1;
+        }
+
         /* Print Header Banner (Hidden on screen) */
         .print-header-banner {
             display: none;
@@ -1188,7 +1213,8 @@
             #pageSubtitle,
             #btnPrintModal,
             .section-pdf-source,
-            .row-pdf-source {
+            .row-pdf-source,
+            .safety-toggle-btn {
                 display: none !important;
             }
 
@@ -1406,6 +1432,14 @@
                 padding: 1px 4px !important;
                 border: 1px solid #94a3b8 !important;
                 border-radius: 3px !important;
+            }
+
+            /* Additional Safety Print Collapse/Expand rules */
+            tr:not([data-safety-expanded="true"]) .safety-print-summary {
+                display: block !important;
+            }
+            tr[data-safety-expanded="true"] .safety-print-summary {
+                display: none !important;
             }
         }
     </style>
@@ -2357,7 +2391,35 @@
                         canonicalNameTH: 'คิ้วตกแต่งภายใน',
                         canonicalNameEN: 'Interior Trim Finishers',
                         preferTopicAsValue: true,
-                        aliases: ['ภายในตกแต่งดีไซน์ m ด้วยวัสดุ carbon fibre', 'ภายในตกแต่งด้วยสี dark silver', 'ภายในตกแต่งดีไซน์ m', 'ภายในตกแต่งด้วย', 'interior trim finishers', 'คิ้วตกแต่ง']
+                        aliases: [
+                            'ภายในห้องโดยสารตกแต่งด้วย carbon fibre',
+                            'ภายในห้องโดยสารตกแต่งด้วย',
+                            'carbon fibre m interior trim',
+                            'carbon fibre m signature',
+                            'ภายในตกแต่งดีไซน์ m ด้วยวัสดุ carbon fibre',
+                            'ภายในตกแต่งดีไซน์ m ด้วยวัสดุ',
+                            'ภายในตกแต่งดีไซน์ m ด้วยอะลูมิเนียม',
+                            'ภายในตกแต่งด้วยสี dark silver',
+                            'dark silver m accent',
+                            'dark silver accent',
+                            'ภายในตกแต่งด้วยวัสดุ carbon',
+                            'ภายในตกแต่งด้วยวัสดุคาร์บอน',
+                            'ภายในตกแต่งด้วยอลูมิเนียม',
+                            'ภายในตกแต่งด้วยอะลูมิเนียม',
+                            'aluminium rhombicle',
+                            'aluminium hexacube',
+                            'aluminium graphite',
+                            'aluminium tetragon',
+                            'ภายในตกแต่งด้วยไม้',
+                            'ภายในตกแต่งด้วยลายไม้',
+                            'ash grey blue',
+                            'fine-wood trim',
+                            'interior trim finishers',
+                            'interior trim',
+                            'คิ้วตกแต่ง',
+                            'ภายในตกแต่งด้วย',
+                            'ภายในตกแต่งดีไซน์ m'
+                        ]
                     },
                     {
                         canonicalNameTH: 'ผลึกแก้ว CraftedClarity',
@@ -2475,103 +2537,11 @@
                         canonicalNameTH: 'ถุงลมนิรภัย',
                         canonicalNameEN: 'Airbags',
                         customAirbagExtractor: true
-                    }
-                ]
-            },
-            {
-                id: 'additional_safety',
-                titleTH: '🛡️ ระบบความปลอดภัย & ช่วยการขับขี่ เพิ่มเติม',
-                titleEN: '🛡️ Additional Safety & Driving Assistance',
-                topics: [
-                    {
-                        canonicalNameTH: 'ระบบช่วยรักษาความปลอดภัย (Security Assistant)',
-                        canonicalNameEN: 'Security Assistant',
-                        aliases: ['ระบบช่วยรักษาความปลอดภัย', 'security assistant']
                     },
                     {
-                        canonicalNameTH: 'ระบบเตือนรถออกนอกเลน (Lane Departure Warning)',
-                        canonicalNameEN: 'Lane Departure Warning',
-                        aliases: ['ระบบเตือนรถออกนอกเลน', 'lane departure warning']
-                    },
-                    {
-                        canonicalNameTH: 'ระบบเตือนการเปลี่ยนเลน (Lane Change Warning)',
-                        canonicalNameEN: 'Lane Change Warning',
-                        aliases: ['ระบบเตือนการเปลี่ยนเลน', 'lane change warning']
-                    },
-                    {
-                        canonicalNameTH: 'ระบบช่วยควบคุมพวงมาลัยเพื่อหลบหลีกฉุกเฉิน',
-                        canonicalNameEN: 'Emergency Steering intervention',
-                        aliases: ['ระบบช่วยควบคุมพวงมาลัยเพื่อหลบหลีกฉุกเฉิน', 'emergency steering intervention']
-                    },
-                    {
-                        canonicalNameTH: 'ระบบช่วยหลบหลีกฉุกเฉิน (Evasion Assistant)',
-                        canonicalNameEN: 'Evasion Assistant',
-                        aliases: ['ระบบช่วยหลบหลีกฉุกเฉิน', 'evasion assistant']
-                    },
-                    {
-                        canonicalNameTH: 'ระบบช่วยหยุดรถฉุกเฉิน (Emergency Stop Assistant)',
-                        canonicalNameEN: 'Emergency Stop Assistant',
-                        aliases: ['ระบบช่วยหยุดรถฉุกเฉิน', 'emergency stop assistant']
-                    },
-                    {
-                        canonicalNameTH: 'ระบบช่วยเบรกฉุกเฉิน (Emergency Brake Assistant)',
-                        canonicalNameEN: 'Emergency Brake Assistant',
-                        aliases: ['ระบบช่วยเบรกฉุกเฉิน', 'emergency brake assistant']
-                    },
-                    {
-                        canonicalNameTH: 'ระบบป้องกันการชนด้านหลัง (Rear Collision Prevention)',
-                        canonicalNameEN: 'Rear Collision Prevention',
-                        aliases: ['ระบบป้องกันการชนด้านหลัง', 'rear collision prevention']
-                    },
-                    {
-                        canonicalNameTH: 'ระบบช่วยเตือนอาการเหนื่อยล้าขณะขับขี่ พร้อมระบบหยุดรถฉุกเฉิน',
-                        canonicalNameEN: 'Attention Assistant with Emergency Stop',
-                        aliases: ['ระบบช่วยเตือนอาการเหนื่อยล้าขณะขับขี่ พร้อมระบบหยุดรถฉุกเฉิน', 'attention assistant with emergency stop']
-                    },
-                    {
-                        canonicalNameTH: 'ระบบช่วยเตือนก่อนออกจากรถ (Exit Warning)',
-                        canonicalNameEN: 'Exit Warning',
-                        aliases: ['ระบบช่วยเตือนก่อนออกจากรถ', 'exit warning']
-                    },
-                    {
-                        canonicalNameTH: 'ฟังก์ชันช่วยเบรกฉุกเฉินขณะถอยหลัง (Rear Emergency Brake)',
-                        canonicalNameEN: 'Rear Emergency Brake function',
-                        aliases: ['ฟังก์ชันช่วยเบรกฉุกเฉินขณะถอยหลัง', 'rear emergency brake function', 'rear emergency brake']
-                    },
-                    {
-                        canonicalNameTH: 'เซนเซอร์ควบคุมระยะการจอดด้านหน้าและหลัง (Park Distance Control - PDC)',
-                        canonicalNameEN: 'Park Distance Control',
-                        aliases: ['เซนเซอร์ควบคุมระยะการจอดด้านหน้าและหลัง', 'park distance control - pdc', 'park distance control']
-                    },
-                    {
-                        canonicalNameTH: 'ระบบช่วยตรวจจับระยะห่างขณะจอดรถ พร้อมช่วยเบรกฉุกเฉิน (Active PDC)',
-                        canonicalNameEN: 'Active Park Distance Control',
-                        aliases: ['ระบบช่วยตรวจจับระยะห่างขณะจอดรถ พร้อมช่วยเบรกฉุกเฉิน', 'active park distance control', 'active pdc']
-                    },
-                    {
-                        canonicalNameTH: 'กล้องแสดงภาพด้านหลัง พร้อมมุมมองแบบ Panoramic',
-                        canonicalNameEN: 'Rear view camera with panoramic view',
-                        aliases: ['กล้องแสดงภาพด้านหลัง พร้อมมุมมองแบบ panoramic', 'rear view camera with panoramic view', 'rear view camera with panorama view']
-                    },
-                    {
-                        canonicalNameTH: 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ (Park Assist)',
-                        canonicalNameEN: 'Park Assist',
-                        aliases: ['ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ (park assist)', 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ', 'park assist']
-                    },
-                    {
-                        canonicalNameTH: 'ระบบช่วยถอยหลังอัตโนมัติ (Reversing Assistant)',
-                        canonicalNameEN: 'Reversing Assistant',
-                        aliases: ['ระบบช่วยถอยหลังอัตโนมัติ (reversing assistant)', 'ระบบช่วยถอยหลังอัตโนมัติ', 'reversing assistant']
-                    },
-                    {
-                        canonicalNameTH: 'ระบบช่วยรักษาระยะห่างจากรถคันหน้า (Distance Control)',
-                        canonicalNameEN: 'Distance Control',
-                        aliases: ['ระบบช่วยรักษาระยะห่างจากรถคันหน้า (distance control)', 'ระบบช่วยรักษาระยะห่างจากรถคันหน้า', 'distance control']
-                    },
-                    {
-                        canonicalNameTH: 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ (Steering and Lane Control Assistant)',
-                        canonicalNameEN: 'Steering and Lane Control Assistant',
-                        aliases: ['ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ (steering and lane control assistant)', 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ', 'steering and lane control assistant']
+                        canonicalNameTH: 'ระบบความปลอดภัย & ช่วยการขับขี่ เพิ่มเติม',
+                        canonicalNameEN: 'Additional Safety & Driver Assistance',
+                        customAdditionalSafetyExtractor: true
                     }
                 ]
             }
@@ -3162,6 +3132,91 @@
                 html: html
             };
         }
+
+        // Helper: Extract distinctive additional safety and driving assistance equipment
+        function getAdditionalSafetyEquipment(model) {
+            const isTh = currentLang === 'th';
+            const items = [];
+
+            for (const specBlock of (model.specifications || [])) {
+                const cname = cleanThai(specBlock.category || '').toLowerCase();
+                if (cname.includes('ความปลอดภัย & ช่วยการขับขี่ เพิ่มเติม') || cname.includes('additional safety')) {
+                    for (const detail of (specBlock.details || [])) {
+                        const top = cleanThai(detail.topic || '').trim();
+                        const val = (detail.value || '').trim();
+                        const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
+                        if (isActive && top) {
+                            if (!items.includes(top)) items.push(top);
+                        }
+                    }
+                }
+            }
+
+            if (items.length === 0) {
+                return { value: '-', isCustomHtml: false };
+            }
+
+            const INITIAL_COUNT = 3;
+            let html = '';
+
+            if (items.length <= INITIAL_COUNT) {
+                html = `<div style="display:flex; flex-direction:column; gap:4px; text-align:left; font-size:0.86em; line-height:1.4;">
+                    ${items.map(it => `<div>• ${it}</div>`).join('')}
+                </div>`;
+            } else {
+                const visibleItems = items.slice(0, INITIAL_COUNT);
+                const hiddenItems = items.slice(INITIAL_COUNT);
+                const moreCount = hiddenItems.length;
+
+                html = `<div class="safety-cell-wrapper" style="display:flex; flex-direction:column; gap:4px; text-align:left; font-size:0.86em; line-height:1.4;">
+                    <div class="safety-base-items" style="display:flex; flex-direction:column; gap:4px;">
+                        ${visibleItems.map(it => `<div>• ${it}</div>`).join('')}
+                    </div>
+                    <div class="safety-more-items" style="display:none; flex-direction:column; gap:4px; margin-top:4px;">
+                        ${hiddenItems.map(it => `<div>• ${it}</div>`).join('')}
+                    </div>
+                    <div class="safety-print-summary" style="display:none; font-size:0.82em; color:#64748b; font-style:italic; margin-top:3px;">
+                        ${isTh ? `• และอื่นๆ อีก ${moreCount} รายการ` : `• and ${moreCount} more items`}
+                    </div>
+                    <button type="button" class="safety-toggle-btn" data-more-count="${moreCount}" onclick="toggleSafetyEquipment(this)" title="${isTh ? 'คลิกเพื่อดูทั้งหมด' : 'Click to show all'}">
+                        ${isTh ? `+ ดูเพิ่มเติม (+${moreCount} รายการ)` : `+ Show more (+${moreCount})`}
+                    </button>
+                </div>`;
+            }
+
+            return {
+                value: items.join(', '),
+                isCustomHtml: true,
+                html: html
+            };
+        }
+
+        // Toggle additional safety items expand/collapse across the row
+        window.toggleSafetyEquipment = function(btn) {
+            const tr = btn.closest('tr');
+            if (!tr) return;
+            const isExpanded = tr.getAttribute('data-safety-expanded') === 'true';
+            const newExpanded = !isExpanded;
+            tr.setAttribute('data-safety-expanded', newExpanded ? 'true' : 'false');
+
+            const allMoreDivs = tr.querySelectorAll('.safety-more-items');
+            allMoreDivs.forEach(div => {
+                div.style.display = newExpanded ? 'flex' : 'none';
+            });
+
+            const isTh = currentLang === 'th';
+            const allBtns = tr.querySelectorAll('.safety-toggle-btn');
+            allBtns.forEach(b => {
+                const count = b.getAttribute('data-more-count') || '';
+                if (newExpanded) {
+                    b.innerHTML = isTh ? '▲ ซ่อน' : '▲ Show less';
+                    b.setAttribute('title', isTh ? 'คลิกเพื่อย่อรายการ' : 'Click to collapse');
+                } else {
+                    b.innerHTML = isTh ? `+ ดูเพิ่มเติม (+${count} รายการ)` : `+ Show more (+${count})`;
+                    b.setAttribute('title', isTh ? 'คลิกเพื่อดูทั้งหมด' : 'Click to expand all');
+                }
+            });
+        };
 
         // Helper: Extract distinctive special interior equipment
         function getSpecialInteriorEquipment(model) {
@@ -3807,6 +3862,8 @@
                             res = getSpecialExteriorEquipment(m);
                         } else if (tDef.customSpecialInteriorExtractor) {
                             res = getSpecialInteriorEquipment(m);
+                        } else if (tDef.customAdditionalSafetyExtractor) {
+                            res = getAdditionalSafetyEquipment(m);
                         } else {
                             res = findSpecValueByAliases(m, tDef.aliases, tDef.preferTopicAsValue);
                         }
@@ -4838,6 +4895,25 @@
                 }
             });
         });
+
+        // Format additional safety collapsible items for export
+        tableClone.querySelectorAll('.safety-toggle-btn').forEach(btn => {
+            const tr = btn.closest('tr');
+            const isExpanded = tr && tr.getAttribute('data-safety-expanded') === 'true';
+            if (isExpanded) {
+                btn.remove();
+            } else {
+                const count = btn.getAttribute('data-more-count') || '';
+                const span = document.createElement('div');
+                span.style.fontSize = '0.82em';
+                span.style.color = '#64748b';
+                span.style.fontStyle = 'italic';
+                span.style.marginTop = '4px';
+                span.innerText = currentLang === 'th' ? `• และอื่นๆ อีก ${count} รายการ` : `• and ${count} more items`;
+                btn.parentNode.replaceChild(span, btn);
+            }
+        });
+        tableClone.querySelectorAll('.safety-print-summary').forEach(el => el.remove());
 
         exportContainer.appendChild(tableClone);
         document.body.appendChild(exportContainer);
