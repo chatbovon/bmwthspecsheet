@@ -4998,12 +4998,18 @@
     // Language switch
     function setLanguage(lang) {
         if (currentLang === lang) return;
+        // Capture currently selected model descriptors before reload
+        const prevModels = selectedModelIds.map(id => getModelById(id)).filter(Boolean).map(m => ({
+            source: m.source,
+            modelName: (m.modelName || '').replace(/\s*\([^)]*แปลและดึงข้อมูล[^)]*\)/g, '').trim().toLowerCase()
+        }));
+
         currentLang = lang;
         document.getElementById('langTh').classList.toggle('active', lang === 'th');
         document.getElementById('langEn').classList.toggle('active', lang === 'en');
         updateStaticTexts();
         updateUrlState();
-        loadComparisonData();
+        loadComparisonData(prevModels);
     }
 
     function updateStaticTexts() {
@@ -5628,7 +5634,7 @@
     });
 
     // Load Data
-    function loadComparisonData() {
+    function loadComparisonData(prevModels = null) {
         const cacheBust = '?v=' + new Date().getTime();
         const masterFile = currentLang === 'en' ? 'bmw_master_specs_en.json' : 'bmw_master_specs.json';
         const customFile = currentLang === 'en' ? 'bmw_custom_specs_en.json' : 'bmw_custom_specs.json';
@@ -5651,21 +5657,38 @@
 
             buildFlatCatalog();
 
-            // Check URL state first
-            const hasUrlModels = parseUrlModels();
-            if (!hasUrlModels) {
-                // If we already have valid selected models (e.g. from switching language in memory), preserve them
-                const validExisting = selectedModelIds.filter(id => getModelById(id));
-                if (validExisting.length >= 2) {
-                    selectedModelIds = validExisting;
+            if (prevModels && prevModels.length >= 2) {
+                // Map previous models to the newly loaded catalog by model name and source
+                const mappedIds = prevModels.map(p => {
+                    const match = flatCatalog.find(item => 
+                        item.source === p.source &&
+                        item.modelName.replace(/\s*\([^)]*แปลและดึงข้อมูล[^)]*\)/g, '').trim().toLowerCase() === p.modelName
+                    );
+                    return match ? match.id : null;
+                }).filter(Boolean);
+
+                if (mappedIds.length >= 2) {
+                    selectedModelIds = mappedIds;
                 } else {
-                    // Check localStorage tray
-                    const trayIds = loadTrayFromLocalStorage();
-                    if (trayIds) {
-                        selectedModelIds = trayIds;
-                    } else if (flatCatalog.length >= 2) {
-                        // Default to first 2 models in catalog
-                        selectedModelIds = [flatCatalog[0].id, flatCatalog[1].id];
+                    parseUrlModels();
+                }
+            } else {
+                // Check URL state first
+                const hasUrlModels = parseUrlModels();
+                if (!hasUrlModels) {
+                    // If we already have valid selected models (e.g. from switching language in memory), preserve them
+                    const validExisting = selectedModelIds.filter(id => getModelById(id));
+                    if (validExisting.length >= 2) {
+                        selectedModelIds = validExisting;
+                    } else {
+                        // Check localStorage tray
+                        const trayIds = loadTrayFromLocalStorage();
+                        if (trayIds) {
+                            selectedModelIds = trayIds;
+                        } else if (flatCatalog.length >= 2) {
+                            // Default to first 2 models in catalog
+                            selectedModelIds = [flatCatalog[0].id, flatCatalog[1].id];
+                        }
                     }
                 }
             }
