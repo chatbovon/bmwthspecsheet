@@ -1458,6 +1458,19 @@
             background: #059669;
             transform: translateY(-1px);
         }
+        .btn-save-excel {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff !important;
+            border: 1px solid #10b981;
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25);
+        }
+        .btn-save-excel:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            border-color: #059669;
+            transform: translateY(-1px);
+        }
+
         .btn-modal-cancel {
             padding: 9px 14px;
             border-radius: 8px;
@@ -2016,6 +2029,8 @@
 
 <!-- html2canvas for High-Res Image Export -->
 <script src="html2canvas.min.js"></script>
+<!-- SheetJS for Native Excel Export -->
+<script src="xlsx.full.min.js"></script>
 
 <!-- Script -->
 <script>
@@ -2140,6 +2155,9 @@
             optFontCompactDesc: "For physical paper print (saves pages)",
             btnExecPrint: "🖨️ Print Document",
             btnSaveImage: "🖼️ Save as A4 Image",
+            btnSaveExcel: "📊 Save as Excel (.xlsx)",
+            excelSavedToast: "✅ Excel file saved successfully!",
+            excelSaveError: "⚠️ Failed to generate Excel file. Please try again.",
             btnPrintCancel: "Cancel",
             printBrandTitle: "BMW Thailand • Dynamic Specsheet Comparator",
             printDocSubtitle: "Multi-Model Specification Comparison Report",
@@ -5014,6 +5032,8 @@
         if (btnExecPrint) btnExecPrint.querySelector('span').innerText = trans.btnExecPrint;
         const btnSaveImage = document.getElementById('btnSaveImage');
         if (btnSaveImage) btnSaveImage.querySelector('span').innerText = trans.btnSaveImage;
+        const btnSaveExcel = document.getElementById('btnSaveExcel');
+        if (btnSaveExcel) btnSaveExcel.querySelector('span').innerText = trans.btnSaveExcel;
         const btnPrintCancel = document.getElementById('btnPrintCancel');
         if (btnPrintCancel) btnPrintCancel.innerText = trans.btnPrintCancel;
         const printBrandTitle = document.getElementById('printBrandTitle');
@@ -5156,6 +5176,101 @@
     window.addEventListener('afterprint', () => {
         document.body.classList.remove('print-portrait', 'print-landscape', 'print-hide-photos', 'print-show-photos', 'print-font-compact', 'print-font-large', 'print-font-xlarge');
     });
+
+        function executeSaveExcel() {
+        const trans = TRANSLATIONS[currentLang];
+        const table = document.getElementById('compareTable');
+        if (!table) return;
+
+        closePrintModal();
+
+        try {
+            const selectedModels = selectedModelIds.map(id => getModelById(id)).filter(Boolean);
+            if (selectedModels.length === 0) return;
+
+            const sheetData = [];
+
+            // 1. Header Information
+            sheetData.push(["BMW Thailand • Dynamic Specsheet Comparator"]);
+            sheetData.push([trans.printDocSubtitle || "Multi-Model Specification Comparison Report"]);
+            
+            const now = new Date();
+            const dateStr = now.toLocaleDateString(currentLang === 'th' ? 'th-TH' : 'en-US', {
+                year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+            });
+            const modeDesc = (currentViewMode === 'smart' ? trans.viewModeSmart : trans.viewModeRaw) +
+                (isDiffOnly ? ` • ${trans.diffOnlyText}` : '') +
+                (isHideAllEmpty ? ` • ${trans.hideAllEmptyText}` : '');
+            sheetData.push([`${trans.printTimestampPrefix || 'Printed on: '}${dateStr}`]);
+            sheetData.push([`${trans.printFilterPrefix || 'Mode: '}${modeDesc}`]);
+            sheetData.push([]); // Blank separator row
+
+            // 2. Table Column Headers
+            const headerRow = [trans.thTopicLabel || "ข้อมูล / รุ่นรถ"];
+            selectedModels.forEach(m => {
+                const cleanName = (m.modelName || '').replace(/\s*\([^)]*แปลและดึงข้อมูล[^)]*\)/g, '').trim();
+                headerRow.push(`${cleanName} (${m.seriesName})`);
+            });
+            sheetData.push(headerRow);
+
+            // 3. Table Rows (Only export visible rows)
+            const trs = table.querySelectorAll('tbody tr');
+            trs.forEach(tr => {
+                if (tr.style.display === 'none') return;
+
+                const rowData = [];
+                const isSectionTitle = tr.classList.contains('section-title');
+
+                if (isSectionTitle) {
+                    const cellText = tr.cells[0] ? tr.cells[0].innerText.trim() : '';
+                    rowData.push(`=== ${cellText} ===`);
+                    for (let c = 1; c < headerRow.length; c++) {
+                        rowData.push('');
+                    }
+                } else {
+                    for (let i = 0; i < tr.cells.length; i++) {
+                        let cellText = tr.cells[i] ? tr.cells[i].innerText.trim() : '';
+                        if (i === 0) {
+                            cellText = cellText.replace(/•?\s*DIFF/i, '').trim();
+                        }
+                        if (cellText === '-' || cellText === 'null') cellText = '-';
+                        rowData.push(cellText);
+                    }
+                }
+                sheetData.push(rowData);
+            });
+
+            // 4. Create SheetJS Workbook
+            if (typeof XLSX === 'undefined') {
+                throw new Error("SheetJS library is not loaded");
+            }
+
+            const ws = XLSX.utils.aoa_to_sheet(sheetData);
+
+            // Auto-fit Column Widths
+            const colWidths = [{ wch: 35 }];
+            for (let i = 1; i < headerRow.length; i++) {
+                colWidths.push({ wch: 28 });
+            }
+            ws['!cols'] = colWidths;
+
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "BMW Comparison");
+
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hour = String(now.getHours()).padStart(2, '0');
+            const minute = String(now.getMinutes()).padStart(2, '0');
+            const filename = `BMW_Comparison_${year}${month}${day}_${hour}${minute}.xlsx`;
+
+            XLSX.writeFile(wb, filename);
+            showToast(trans.excelSavedToast, '#10b981');
+        } catch (err) {
+            console.error("Failed to generate Excel file:", err);
+            showToast(trans.excelSaveError, '#ef4444');
+        }
+    }
 
     function executeSaveImage() {
         const trans = TRANSLATIONS[currentLang];
