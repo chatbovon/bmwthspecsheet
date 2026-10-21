@@ -9259,10 +9259,10 @@
           }
         ],
         "images": {
-          "Black Sapphire metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_740d_M_Sport_Black_Sapphire_metallic.png",
-          "Oxide Grey metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_740d_M_Sport_Oxide_Grey_metallic.png",
-          "BMW Individual Dravit Grey metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_740d_M_Sport_BMW_Individual_Dravit_Grey_metallic.png",
-          "Mineral White metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_740d_M_Sport_Mineral_White_metallic.png"
+          "Black Sapphire metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/bmw_740d_m_sport_black_sapphire_metallic.png",
+          "Oxide Grey metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/bmw_740d_m_sport_oxide_grey_metallic.png",
+          "BMW Individual Dravit Grey metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/bmw_740d_m_sport_bmw_individual_dravit_grey_metallic.png",
+          "Mineral White metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/bmw_740d_m_sport_mineral_white_metallic.png"
         },
         "is_custom_archived": false
       },
@@ -9800,10 +9800,10 @@
           }
         ],
         "images": {
-          "BMW Individual Dravit Grey metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_750e_xDrive_M_Sport_BMW_Individual_Dravit_Grey_metallic.png",
-          "Oxide Grey Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_750e_xDrive_M_Sport_Oxide_Grey_metallic.png",
-          "Black Sapphire Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_750e_xDrive_M_Sport_Black_Sapphire_metallic.png",
-          "Mineral White Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/BMW_750e_xDrive_M_Sport_Mineral_White_metallic.png"
+          "BMW Individual Dravit Grey metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/bmw_750e_xdrive_m_sport_bmw_individual_dravit_grey_metallic.png",
+          "Oxide Grey Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/bmw_750e_xdrive_m_sport_oxide_grey_metallic.png",
+          "Black Sapphire Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/bmw_750e_xdrive_m_sport_black_sapphire_metallic.png",
+          "Mineral White Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/bmw_750e_xdrive_m_sport_mineral_white_metallic.png"
         },
         "is_custom_archived": false
       }
@@ -13599,12 +13599,12 @@
           }
         ],
         "images": {
-          "Ocean Wave Blue metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/BMW_iX3_50_xDrive_M_Sport_Ocean_Wave_Blue_metallic.png",
-          "Space Silver metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/BMW_iX3_50_xDrive_M_Sport_Space_Silver_metallic.png",
-          "M Brooklyn Grey metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/BMW_iX3_50_xDrive_M_Sport_M_Brooklyn_Grey_metallic.png",
-          "Black Sapphire metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/BMW_iX3_50_xDrive_M_Sport_Black_Sapphire_metallic.png",
-          "Polarised Grey metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/BMW_iX3_50_xDrive_M_Sport_Polarised_Grey_metallic.png",
-          "Alpine White solid": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/BMW_iX3_50_xDrive_M_Sport_Alpine_White_solid.png"
+          "Ocean Wave Blue metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/bmw_ix3_50_xdrive_m_sport_ocean_wave_blue_metallic.png",
+          "Space Silver metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/bmw_ix3_50_xdrive_m_sport_space_silver_metallic.png",
+          "M Brooklyn Grey metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/bmw_ix3_50_xdrive_m_sport_m_brooklyn_grey_metallic.png",
+          "Black Sapphire metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/bmw_ix3_50_xdrive_m_sport_black_sapphire_metallic.png",
+          "Polarised Grey metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/bmw_ix3_50_xdrive_m_sport_polarised_grey_metallic.png",
+          "Alpine White solid": "images/iX3_20260213_02_TH_REV1.asset.1782450816279/bmw_ix3_50_xdrive_m_sport_alpine_white_solid.png"
         },
         "is_custom_archived": false
       }
