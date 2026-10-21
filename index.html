@@ -1762,16 +1762,6 @@
             };
         }).filter(series => series.models.length > 0);
         
-        // Deduplicate series by canonical series name and models
-        const seenSeriesKeys = new Set();
-        parsedData = parsedData.filter(series => {
-            const modelsKey = (series.models || []).map(m => (m.model_name || '').trim().toLowerCase()).sort().join('|');
-            const key = `${(series.series || '').trim().toLowerCase()}::${modelsKey}`;
-            if (seenSeriesKeys.has(key)) return false;
-            seenSeriesKeys.add(key);
-            return true;
-        });
-
         allSeriesData = sortSeriesData(parsedData);
 
         const seriesSelect = document.getElementById('seriesSelect');

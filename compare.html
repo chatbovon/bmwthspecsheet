@@ -2304,17 +2304,8 @@
     function buildFlatCatalog() {
         flatCatalog = [];
         
-        // 1. Master (Active) models (deduplicate if identical series + models exist)
-        const seenMasterKeys = new Set();
-        const uniqueMasterData = masterData.filter(seriesObj => {
-            const modelsKey = (seriesObj.models || []).map(m => (m.model_name || '').trim().toLowerCase()).sort().join('|');
-            const key = `${(seriesObj.series || '').trim().toLowerCase()}::${modelsKey}`;
-            if (seenMasterKeys.has(key)) return false;
-            seenMasterKeys.add(key);
-            return true;
-        });
-
-        uniqueMasterData.forEach((seriesObj, sIdx) => {
+        // 1. Master (Active) models
+        masterData.forEach((seriesObj, sIdx) => {
             const seriesName = seriesObj.series || `Series #${sIdx+1}`;
             (seriesObj.models || []).forEach((modelObj, mIdx) => {
                 const id = `act:${sIdx}:${mIdx}`;
