@@ -57,11 +57,26 @@ def run_batch_extraction(lang="th", target_file=None):
             print(f"[WARNING] Failed to load existing '{output_file}': {e}")
             master_specs = []
 
+    # Load live web PDFs list if available (to skip obsolete/stray files during batch run)
+    live_pdfs_path = os.path.join(WORKSPACE_DIR, "scratch", "live_web_pdfs.txt")
+    live_pdfs = set()
+    if os.path.exists(live_pdfs_path):
+        try:
+            with open(live_pdfs_path, "r", encoding="utf-8") as lf:
+                live_pdfs = {line.strip().lower() for line in lf if line.strip()}
+        except Exception as e:
+            print(f"[WARNING] Could not read live_web_pdfs.txt: {e}")
+
     success_count = len(processed_pdfs)
 
     for i, filename in enumerate(pdf_entries, 1):
         if filename in processed_pdfs and not target_file:
             print(f"--- [{i}/{len(pdf_entries)}] Skipping (already processed): {filename} ---")
+            continue
+
+        # In automated batch mode, skip files not on live BMW website
+        if live_pdfs and not target_file and filename.lower() not in live_pdfs:
+            print(f"--- [{i}/{len(pdf_entries)}] Skipping (not in live web brochures list): {filename} ---")
             continue
 
         pdf_path = os.path.join(auto_folder, filename)

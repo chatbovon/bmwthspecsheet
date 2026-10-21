@@ -430,6 +430,167 @@
             margin-top: 3px;
         }
 
+        
+        /* Slots Header Bar & Toggle */
+        .slots-header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 4px 2px;
+        }
+        .slots-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .slots-count-pill {
+            background: var(--accent-color);
+            color: #ffffff;
+            font-size: 0.75em;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+        .btn-toggle-slots {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            font-size: 0.8em;
+            font-family: inherit;
+            font-weight: 600;
+            color: var(--accent-color);
+            background: var(--bg-preview-cell);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-toggle-slots:hover {
+            border-color: var(--accent-color);
+            background: var(--card-bg);
+        }
+        .slots-mini-summary {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+            padding: 8px 12px;
+            background: var(--bg-preview-cell);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+        }
+        .mini-car-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.82em;
+            transition: all 0.2s ease;
+        }
+        .mini-car-pill:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-1px);
+        }
+        .mini-pill-series {
+            font-size: 0.72em;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+        .mini-pill-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .mini-pill-edit {
+            font-size: 0.85em;
+            opacity: 0.6;
+            margin-left: 2px;
+        }
+        .mini-vs {
+            font-size: 0.7em;
+            font-weight: 800;
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+        .mini-add-btn {
+            padding: 4px 10px;
+            border-radius: 8px;
+            border: 1px dashed var(--accent-color);
+            background: transparent;
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.78em;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s ease;
+        }
+        .mini-add-btn:hover {
+            background: var(--accent-color);
+            color: #ffffff;
+        }
+        .slots-container.collapsed {
+            display: none !important;
+        }
+
+        /* Compact Table Header Wrap */
+        .th-model-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            width: 100%;
+        }
+        .th-model-title {
+            font-size: 0.88em;
+            font-weight: 700;
+            line-height: 1.25;
+            word-break: break-word;
+        }
+        .th-series-tag {
+            font-size: 0.72em;
+            opacity: 0.85;
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+        .th-model-subnote {
+            font-size: 0.65em;
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 1px 5px;
+            border-radius: 4px;
+            margin-top: 2px;
+            display: inline-block;
+            font-weight: 500;
+            cursor: help;
+        }
+        .mobile-swipe-hint {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.74em;
+            color: var(--accent-color);
+            background: var(--bg-preview-cell);
+            border: 1px solid var(--border-preview-cell);
+            border-radius: 6px;
+            padding: 5px 10px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-align: center;
+        }
+
         /* Model Comparison Slots (Header Cards) */
         .slots-container {
             display: grid;
@@ -962,27 +1123,193 @@
             filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
         }
 
-        /* Responsive */
+        /* Responsive Overhauls for Mobile & Tablets */
         @media (max-width: 768px) {
-            h1 { font-size: 1.5em; }
+            .wrapper {
+                padding: 10px 8px;
+                border-radius: 12px;
+            }
+            h1 { font-size: 1.35em; margin-bottom: 4px; }
+            .subtitle { font-size: 0.82em; margin-bottom: 12px; }
+            
             .slots-container {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                margin-bottom: 12px;
+            }
+            .slot-card {
+                padding: 8px;
+                gap: 4px;
+                border-radius: 10px;
+            }
+            .slot-img-container {
+                height: 65px;
+            }
+            .slot-img {
+                max-height: 55px;
+            }
+            .slot-info .slot-series-name {
+                font-size: 0.68em;
+            }
+            .slot-info .slot-model-name {
+                font-size: 0.8em;
+                line-height: 1.2;
+            }
+            .btn-slot-change {
+                padding: 4px 6px;
+                font-size: 0.72em;
+            }
+            .slot-card-add {
+                min-height: 110px;
+                padding: 8px 4px;
+            }
+            .add-icon-circle {
+                width: 32px;
+                height: 32px;
+                font-size: 1.1em;
+                margin-bottom: 4px;
+            }
+            .add-slot-label {
+                font-size: 0.78em;
+            }
+            .add-slot-desc {
+                font-size: 0.68em;
+            }
+
+            .controls-panel {
+                padding: 10px;
+                margin-bottom: 12px;
             }
             .controls-top-row {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 8px;
             }
             .search-box {
                 width: 100%;
+                font-size: 0.82em;
+                padding: 8px 12px;
             }
             .action-buttons {
-                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 6px;
                 width: 100%;
             }
+            .btn-action, .btn-view-mode {
+                padding: 6px 10px;
+                font-size: 0.76em;
+                flex: 1 1 auto;
+                justify-content: center;
+            }
+
+            /* Mobile Comparison Table (Fit 2 Cars side-by-side) */
+            .table-container {
+                max-height: 80vh;
+                border-radius: 8px;
+                -webkit-overflow-scrolling: touch;
+            }
+            th, td {
+                padding: 7px 5px !important;
+                font-size: 0.76em !important;
+                line-height: 1.25 !important;
+            }
+            
+            /* Sticky Spec Title Column (Compact width ~110px) */
+            thead th:first-child,
+            td:first-child {
+                min-width: 105px !important;
+                max-width: 115px !important;
+                width: 110px !important;
+                padding: 7px 6px !important;
+                font-size: 0.74em !important;
+                line-height: 1.25 !important;
+                word-break: break-word !important;
+                box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
+            }
+
+            /* Car Columns (Width ~125px-135px so 2 cars fit comfortably side-by-side) */
+            thead th:not(:first-child),
+            td:not(:first-child) {
+                min-width: 120px !important;
+                max-width: 140px !important;
+                width: 130px !important;
+                padding: 7px 5px !important;
+                font-size: 0.76em !important;
+                line-height: 1.25 !important;
+                word-break: break-word !important;
+            }
+
+            /* Section / Category Header Row */
+            tr.section-title td {
+                font-size: 0.78em !important;
+                padding: 6px 8px !important;
+                line-height: 1.3 !important;
+            }
+
+            /* Compact Diff Indicator */
+            tr.row-diff td:first-child::after {
+                font-size: 0.58em !important;
+                padding: 1px 4px !important;
+                margin-top: 2px !important;
+                display: inline-block !important;
+            }
+
+            /* Table Header Car Name */
+            .th-model-title {
+                font-size: 0.8em !important;
+                line-height: 1.2 !important;
+            }
+            .th-series-tag {
+                font-size: 0.65em !important;
+            }
+            .th-model-subnote {
+                font-size: 0.58em !important;
+                padding: 1px 3px !important;
+            }
+            .safety-toggle-btn {
+                font-size: 0.7em !important;
+                padding: 2px 6px !important;
+            }
+            .mobile-swipe-hint.visible {
+                display: flex;
+            }
         }
+
         @media (max-width: 480px) {
+            .wrapper {
+                padding: 6px 4px !important;
+            }
+            /* Keep 2 columns for cards instead of 1fr so they don't eat vertical screen */
             .slots-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 6px !important;
+            }
+            .slot-card {
+                padding: 6px !important;
+            }
+            .slot-img-container {
+                height: 55px !important;
+            }
+            .slot-img {
+                max-height: 48px !important;
+            }
+            
+            /* Further optimize table cell width for small mobile screens (360px-390px) */
+            thead th:first-child,
+            td:first-child {
+                min-width: 100px !important;
+                max-width: 110px !important;
+                width: 105px !important;
+                padding: 6px 4px !important;
+                font-size: 0.72em !important;
+            }
+            thead th:not(:first-child),
+            td:not(:first-child) {
+                min-width: 115px !important;
+                max-width: 130px !important;
+                width: 122px !important;
+                padding: 6px 4px !important;
+                font-size: 0.74em !important;
             }
         }
         /* Print & Export Button */
@@ -1124,13 +1451,36 @@
             transform: translateY(-1px);
         }
         .btn-save-image {
-            background: #10b981;
+            background: #6366f1;
             color: #ffffff;
         }
         .btn-save-image:hover {
-            background: #059669;
+            background: #4f46e5;
             transform: translateY(-1px);
         }
+        .btn-save-excel {
+            background: #107c41;
+            color: #ffffff !important;
+            font-weight: 600;
+            border: 1px solid #107c41;
+        }
+        .btn-save-excel:hover {
+            background: #0b5a2f;
+            transform: translateY(-1px);
+        }
+        .btn-save-excel {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff !important;
+            border: 1px solid #10b981;
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25);
+        }
+        .btn-save-excel:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            border-color: #059669;
+            transform: translateY(-1px);
+        }
+
         .btn-modal-cancel {
             padding: 9px 14px;
             border-radius: 8px;
@@ -1172,6 +1522,22 @@
             color: #0369a1;
         }
 
+                @media (max-width: 600px) {
+            .print-modal-footer {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 8px !important;
+                padding: 12px 16px !important;
+            }
+            .print-modal-footer .btn-modal-action,
+            .print-modal-footer .btn-modal-cancel {
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 10px 16px !important;
+                font-size: 0.88em !important;
+            }
+        }
+
         /* Print Header Banner (Hidden on screen) */
         .print-header-banner {
             display: none;
@@ -1202,6 +1568,10 @@
             /* Hide all non-essential UI */
             .top-nav,
             .controls-panel,
+            .slots-header-bar,
+            .slots-mini-summary,
+            .btn-toggle-slots,
+            .mobile-swipe-hint,
             .slot-card-add,
             .slot-actions,
             .btn-remove-slot,
@@ -1501,9 +1871,29 @@
         </div>
     </div>
 
+    <!-- Comparison Slots Header Bar -->
+    <div class="slots-header-bar">
+        <div class="slots-bar-left">
+            <span class="slots-bar-title" id="slotsBarTitle">🚗 เลือกรุ่นรถเปรียบเทียบ</span>
+            <span class="slots-count-pill" id="slotsCountPill">0/4</span>
+        </div>
+        <button type="button" id="btnToggleSlots" class="btn-toggle-slots" onclick="toggleSlotsVisibility()" title="ย่อ/ขยายการ์ดรูปรถ">
+            <span id="toggleSlotsIcon">▲</span>
+            <span id="toggleSlotsText">ซ่อนการ์ดรถ</span>
+        </button>
+    </div>
+
+    <!-- Mini Car Summary Bar (Shown when cards are collapsed) -->
+    <div id="slotsMiniSummary" class="slots-mini-summary" style="display: none;"></div>
+
     <!-- Comparison Slots (Cards) -->
     <div class="slots-container" id="slotsContainer">
         <!-- Rendered dynamically -->
+    </div>
+
+    <!-- Mobile Horizontal Swipe Hint -->
+    <div class="mobile-swipe-hint" id="mobileSwipeHint">
+        <span>👉 เลื่อนตารางแนวนอน เพื่อดูรุ่นถัดไป</span>
     </div>
 
     <!-- Print Header Banner (Shown only in print or image capture) -->
@@ -1656,7 +2046,10 @@
                 <span>🖨️ สั่งพิมพ์ (Print)</span>
             </button>
             <button class="btn-modal-action btn-save-image" id="btnSaveImage" onclick="executeSaveImage()">
-                <span>🖼️ บันทึกเป็นรูป (Save A4 Image)</span>
+                <span>🖼️ บันทึกรูป (Save A4 Image)</span>
+            </button>
+            <button class="btn-modal-action btn-save-excel" id="btnSaveExcel" onclick="executeSaveExcel()">
+                <span>📊 บันทึกเป็น Excel (.xlsx)</span>
             </button>
             <button class="btn-modal-cancel" id="btnPrintCancel" onclick="closePrintModal()">ยกเลิก</button>
         </div>
@@ -1665,6 +2058,8 @@
 
 <!-- html2canvas for High-Res Image Export -->
 <script src="html2canvas.min.js"></script>
+<!-- SheetJS for Native Excel Export -->
+<script src="exceljs.min.js"></script>
 
 <!-- Script -->
 <script>
@@ -1732,7 +2127,15 @@
             printSummaryCount: "กำลังเปรียบเทียบรถ {count} คัน",
             generatingImageToast: "⏳ กำลังสร้างรูปภาพ A4 ความละเอียดสูง...",
             imageSavedToast: "✅ บันทึกรูปภาพ A4 เรียบร้อยแล้ว!",
-            imageSaveError: "⚠️ ไม่สามารถสร้างรูปภาพได้ กรุณาลองใหม่อีกครั้ง"
+            imageSaveError: "⚠️ ไม่สามารถสร้างรูปภาพได้ กรุณาลองใหม่อีกครั้ง",
+            slotsBarTitle: "🚗 เลือกรุ่นรถเปรียบเทียบ",
+            hideSlotsText: "ซ่อนการ์ดรถ",
+            showSlotsText: "แสดงการ์ดรถ",
+            swipeHint: "👉 เลื่อนตารางแนวนอน เพื่อดูรุ่นถัดไป",
+            fromEnNote: "อิงจาก EN",
+            btnSaveExcel: "📊 บันทึกเป็น Excel (.xlsx)",
+            excelSavedToast: "✅ บันทึกไฟล์ Excel เรียบร้อยแล้ว!",
+            excelSaveError: "⚠️ ไม่สามารถสร้างไฟล์ Excel ได้ กรุณาลองใหม่อีกครั้ง"
         },
         en: {
             pageTitle: "BMW Multi-Model Diff Comparator",
@@ -1789,6 +2192,9 @@
             optFontCompactDesc: "For physical paper print (saves pages)",
             btnExecPrint: "🖨️ Print Document",
             btnSaveImage: "🖼️ Save as A4 Image",
+            btnSaveExcel: "📊 Save as Excel (.xlsx)",
+            excelSavedToast: "✅ Excel file saved successfully!",
+            excelSaveError: "⚠️ Failed to generate Excel file. Please try again.",
             btnPrintCancel: "Cancel",
             printBrandTitle: "BMW Thailand • Dynamic Specsheet Comparator",
             printDocSubtitle: "Multi-Model Specification Comparison Report",
@@ -1797,7 +2203,12 @@
             printSummaryCount: "Comparing {count} vehicles",
             generatingImageToast: "⏳ Generating high-resolution A4 image...",
             imageSavedToast: "✅ A4 Image saved successfully!",
-            imageSaveError: "⚠️ Failed to generate image. Please try again."
+            imageSaveError: "⚠️ Failed to generate image. Please try again.",
+            slotsBarTitle: "🚗 Selected Models",
+            hideSlotsText: "Hide Cards",
+            showSlotsText: "Show Cards",
+            swipeHint: "👉 Swipe horizontally to compare more models",
+            fromEnNote: "From EN"
         }
     };
 
@@ -2059,6 +2470,67 @@
     }
 
     // Render the entire comparator
+        let isSlotsCollapsed = false;
+    function toggleSlotsVisibility() {
+        isSlotsCollapsed = !isSlotsCollapsed;
+        const slotsEl = document.getElementById('slotsContainer');
+        const summaryEl = document.getElementById('slotsMiniSummary');
+        const iconEl = document.getElementById('toggleSlotsIcon');
+        const textEl = document.getElementById('toggleSlotsText');
+        const trans = TRANSLATIONS[currentLang];
+        
+        if (isSlotsCollapsed) {
+            if (slotsEl) slotsEl.classList.add('collapsed');
+            if (summaryEl) summaryEl.style.display = 'flex';
+            if (iconEl) iconEl.innerText = '▼';
+            if (textEl) textEl.innerText = trans.showSlotsText || (currentLang === 'th' ? 'แสดงการ์ดรถ' : 'Show Cards');
+        } else {
+            if (slotsEl) slotsEl.classList.remove('collapsed');
+            if (summaryEl) summaryEl.style.display = 'none';
+            if (iconEl) iconEl.innerText = '▲';
+            if (textEl) textEl.innerText = trans.hideSlotsText || (currentLang === 'th' ? 'ซ่อนการ์ดรถ' : 'Hide Cards');
+        }
+    }
+
+    function updateSlotsBarAndSummary(selectedModels) {
+        const trans = TRANSLATIONS[currentLang];
+        const countPill = document.getElementById('slotsCountPill');
+        if (countPill) {
+            countPill.innerText = `${selectedModels.length}/4`;
+        }
+        const barTitle = document.getElementById('slotsBarTitle');
+        if (barTitle) {
+            barTitle.innerText = trans.slotsBarTitle || (currentLang === 'en' ? '🚗 Selected Models' : '🚗 เลือกรุ่นรถเปรียบเทียบ');
+        }
+        const toggleBtnText = document.getElementById('toggleSlotsText');
+        if (toggleBtnText) {
+            toggleBtnText.innerText = isSlotsCollapsed ? (trans.showSlotsText || 'แสดงการ์ดรถ') : (trans.hideSlotsText || 'ซ่อนการ์ดรถ');
+        }
+        const toggleIcon = document.getElementById('toggleSlotsIcon');
+        if (toggleIcon) {
+            toggleIcon.innerText = isSlotsCollapsed ? '▼' : '▲';
+        }
+        
+        const miniSummary = document.getElementById('slotsMiniSummary');
+        if (miniSummary) {
+            let pillsHtml = selectedModels.map((m, idx) => {
+                let cleanTitle = (m.modelName || '').replace(/\s*\([^)]*แปลและดึงข้อมูล[^)]*\)/g, '').trim();
+                return `
+                    <span class="mini-car-pill" onclick="openModelModal(${idx})" title="${trans.changeBtn}">
+                        <span class="mini-pill-series">${m.seriesName}</span>
+                        <span class="mini-pill-name">${cleanTitle}</span>
+                        <span class="mini-pill-edit">✏️</span>
+                    </span>
+                `;
+            }).join('<span class="mini-vs">VS</span>');
+            
+            if (selectedModels.length < 4) {
+                pillsHtml += `<button type="button" class="mini-add-btn" onclick="openModelModal(${selectedModels.length})" title="${trans.addSlotLabel}">+ ${trans.addSlotLabel}</button>`;
+            }
+            miniSummary.innerHTML = pillsHtml;
+        }
+    }
+
     function renderComparator() {
         const trans = TRANSLATIONS[currentLang];
         const selectedModels = selectedModelIds.map(id => getModelById(id)).filter(Boolean);
@@ -2123,9 +2595,41 @@
 
         selectedModels.forEach(m => {
             const th = document.createElement('th');
-            th.innerHTML = `<div>${m.modelName}</div><div style="font-size:0.78em; opacity:0.85; font-weight:normal;">${m.seriesName}</div>`;
+            let mName = m.modelName || '';
+            let noteHtml = '';
+            
+            // Clean up long translation note from title and create compact subnote badge
+            const matchNote = mName.match(/\s*\((แปลและดึงข้อมูลจาก EN[^\)]*)\)/);
+            if (matchNote) {
+                mName = mName.replace(matchNote[0], '').trim();
+                const noteTooltip = matchNote[1];
+                const noteLabel = trans.fromEnNote || (currentLang === 'th' ? 'แปลจาก EN' : 'From EN');
+                noteHtml = `<span class="th-model-subnote" title="${noteTooltip}">📄 ${noteLabel}</span>`;
+            }
+            
+            th.innerHTML = `
+                <div class="th-model-wrap">
+                    <div class="th-model-title">${mName}</div>
+                    ${noteHtml}
+                    <div class="th-series-tag">${m.seriesName}</div>
+                </div>
+            `;
             theadRow.appendChild(th);
         });
+
+        // Update Slots Bar & Mini Summary
+        updateSlotsBarAndSummary(selectedModels);
+
+        // Update Mobile Swipe Hint
+        const swipeHint = document.getElementById('mobileSwipeHint');
+        if (swipeHint) {
+            if (selectedModels.length > 2) {
+                swipeHint.classList.add('visible');
+                swipeHint.querySelector('span').innerText = trans.swipeHint || (currentLang === 'th' ? '👉 เลื่อนตารางแนวนอน เพื่อดูรุ่นถัดไป' : '👉 Swipe horizontally to compare more models');
+            } else {
+                swipeHint.classList.remove('visible');
+            }
+        }
 
         // 3. Define Canonical Topic Definitions for Smart View (Sales Focus)
         const SMART_GROUPS_DEF = [
@@ -2142,7 +2646,7 @@
                     {
                         canonicalNameTH: 'ความจุกระบอกสูบ (cc)',
                         canonicalNameEN: 'Displacement (cc)',
-                        aliases: ['ปริมาตรกระบอกสูบ', 'ความจุเครื่องยนต์', 'cylinder capacity', 'capacity']
+                        aliases: ['displacement', 'ปริมาตรกระบอกสูบ', 'ความจุกระบอกสูบ', 'ความจุเครื่องยนต์', 'cylinder capacity', 'engine displacement']
                     },
                     {
                         canonicalNameTH: 'กำลังสูงสุด (hp)',
@@ -2159,7 +2663,7 @@
                     {
                         canonicalNameTH: 'อัตราเร่ง 0-100 กม./ชม. (วินาที)',
                         canonicalNameEN: 'Acceleration 0-100 km/h (s)',
-                        aliases: ['อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง', 'อัตราเร่ง 0-100', 'acceleration 0 - 100 km/h']
+                        aliases: ['0 - 100 km/h', '0-100 km/h', 'อัตราเร่ง 0 - 100', 'อัตราเร่ง 0-100', 'acceleration 0 - 100', 'acceleration 0-100', 'acceleration']
                     },
                     {
                         canonicalNameTH: 'ความเร็วสูงสุด (กม./ชม.)',
@@ -4184,6 +4688,7 @@
             if (btnHide) btnHide.classList.add('active');
             saveTrayToLocalStorage();
             renderComparator();
+            updateUrlState();
         }
     }
 
@@ -4261,9 +4766,9 @@
         window.history.replaceState({}, '', newUrl);
     }
 
-    function parseUrlState() {
+    // Parse URL settings (lang, view mode, diff, hideEmpty) before loading data
+    function parseUrlOptions() {
         const params = new URLSearchParams(window.location.search);
-        const modelsParam = params.get('models');
         const diffParam = params.get('diff');
         const hideEmptyParam = params.get('hide_empty');
         const viewParam = params.get('view');
@@ -4272,6 +4777,11 @@
         if (langParam === 'en' || langParam === 'th') {
             currentLang = langParam;
         }
+        const langThBtn = document.getElementById('langTh');
+        const langEnBtn = document.getElementById('langEn');
+        if (langThBtn) langThBtn.classList.toggle('active', currentLang === 'th');
+        if (langEnBtn) langEnBtn.classList.toggle('active', currentLang === 'en');
+        updateStaticTexts();
 
         if (viewParam === 'raw' || viewParam === 'smart') {
             currentViewMode = viewParam;
@@ -4283,7 +4793,8 @@
 
         if (diffParam === '1') {
             isDiffOnly = true;
-            document.getElementById('btnDiffToggle').classList.add('active');
+            const btnDiff = document.getElementById('btnDiffToggle');
+            if (btnDiff) btnDiff.classList.add('active');
         }
 
         if (hideEmptyParam === '0') {
@@ -4295,7 +4806,12 @@
             const btnHide = document.getElementById('btnHideEmptyToggle');
             if (btnHide) btnHide.classList.add('active');
         }
+    }
 
+    // Parse model IDs from URL (requires flatCatalog to be populated)
+    function parseUrlModels() {
+        const params = new URLSearchParams(window.location.search);
+        const modelsParam = params.get('models');
         if (modelsParam) {
             const ids = modelsParam.split(',').filter(id => getModelById(id));
             if (ids.length >= 2) {
@@ -4304,6 +4820,11 @@
             }
         }
         return false;
+    }
+
+    function parseUrlState() {
+        parseUrlOptions();
+        return parseUrlModels();
     }
 
     // Copy Share Link
@@ -4477,11 +4998,18 @@
     // Language switch
     function setLanguage(lang) {
         if (currentLang === lang) return;
+        // Capture currently selected model descriptors before reload
+        const prevModels = selectedModelIds.map(id => getModelById(id)).filter(Boolean).map(m => ({
+            source: m.source,
+            modelName: (m.modelName || '').replace(/\s*\([^)]*แปลและดึงข้อมูล[^)]*\)/g, '').trim().toLowerCase()
+        }));
+
         currentLang = lang;
         document.getElementById('langTh').classList.toggle('active', lang === 'th');
         document.getElementById('langEn').classList.toggle('active', lang === 'en');
         updateStaticTexts();
-        loadComparisonData();
+        updateUrlState();
+        loadComparisonData(prevModels);
     }
 
     function updateStaticTexts() {
@@ -4493,6 +5021,16 @@
         document.getElementById('searchInput').placeholder = trans.searchPlaceholder;
         document.getElementById('btnShare').querySelector('span').innerText = trans.copyShareLink;
         document.getElementById('btnReset').querySelector('span').innerText = trans.resetBtn;
+        if (document.getElementById('slotsBarTitle')) {
+            document.getElementById('slotsBarTitle').innerText = trans.slotsBarTitle;
+        }
+        if (document.getElementById('toggleSlotsText')) {
+            document.getElementById('toggleSlotsText').innerText = isSlotsCollapsed ? trans.showSlotsText : trans.hideSlotsText;
+        }
+        const swipeHint = document.getElementById('mobileSwipeHint');
+        if (swipeHint && swipeHint.classList.contains('visible')) {
+            swipeHint.querySelector('span').innerText = trans.swipeHint;
+        }
         document.getElementById('modalTitle').innerText = trans.modalTitle;
         document.getElementById('modalSearchInput').placeholder = trans.modalSearchPlaceholder;
         document.getElementById('tabAll').innerText = trans.tabAll;
@@ -4560,6 +5098,8 @@
         if (btnExecPrint) btnExecPrint.querySelector('span').innerText = trans.btnExecPrint;
         const btnSaveImage = document.getElementById('btnSaveImage');
         if (btnSaveImage) btnSaveImage.querySelector('span').innerText = trans.btnSaveImage;
+        const btnSaveExcel = document.getElementById('btnSaveExcel');
+        if (btnSaveExcel) btnSaveExcel.querySelector('span').innerText = trans.btnSaveExcel;
         const btnPrintCancel = document.getElementById('btnPrintCancel');
         if (btnPrintCancel) btnPrintCancel.innerText = trans.btnPrintCancel;
         const printBrandTitle = document.getElementById('printBrandTitle');
@@ -4702,6 +5242,312 @@
     window.addEventListener('afterprint', () => {
         document.body.classList.remove('print-portrait', 'print-landscape', 'print-hide-photos', 'print-show-photos', 'print-font-compact', 'print-font-large', 'print-font-xlarge');
     });
+
+        async function executeSaveExcel() {
+        const trans = TRANSLATIONS[currentLang];
+        const table = document.getElementById('compareTable');
+        if (!table) return;
+
+        closePrintModal();
+
+        try {
+            const selectedModels = selectedModelIds.map(id => getModelById(id)).filter(Boolean);
+            if (selectedModels.length === 0) return;
+
+            if (typeof ExcelJS === 'undefined') {
+                throw new Error("ExcelJS library is not loaded");
+            }
+
+            const workbook = new ExcelJS.Workbook();
+            workbook.creator = 'BMW Dynamic Specsheet';
+            workbook.lastModifiedBy = 'BMW Specsheet Comparator';
+            const now = new Date();
+            workbook.created = now;
+            workbook.modified = now;
+
+            const worksheet = workbook.addWorksheet('BMW Comparison', {
+                views: [{ state: 'frozen', xSplit: 1, ySplit: 6 }]
+            });
+
+            // Set column widths
+            const cols = [{ width: 38 }];
+            for (let i = 0; i < selectedModels.length; i++) {
+                cols.push({ width: 28 });
+            }
+            worksheet.columns = cols;
+
+            const totalCols = selectedModels.length + 1;
+            const endColLetter = String.fromCharCode(64 + totalCols);
+
+            // 1. Header Information
+            // Row 1: Brand Title
+            const titleRow = worksheet.addRow(["BMW Thailand • Dynamic Specsheet Comparator"]);
+            worksheet.mergeCells(`A1:${endColLetter}1`);
+            titleRow.height = 24;
+            titleRow.getCell(1).font = { name: 'Prompt', size: 14, bold: true, color: { argb: 'FF0066B1' } };
+            titleRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+
+            // Row 2: Subtitle
+            const subRow = worksheet.addRow([trans.printDocSubtitle || "Multi-Model Specification Comparison Report"]);
+            worksheet.mergeCells(`A2:${endColLetter}2`);
+            subRow.height = 18;
+            subRow.getCell(1).font = { name: 'Prompt', size: 10, italic: true, color: { argb: 'FF64748B' } };
+            subRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+
+            // Row 3: Timestamp
+            const dateStr = now.toLocaleDateString(currentLang === 'th' ? 'th-TH' : 'en-US', {
+                year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+            });
+            const timeRow = worksheet.addRow([`${trans.printTimestampPrefix || 'Printed on: '}${dateStr}`]);
+            worksheet.mergeCells(`A3:${endColLetter}3`);
+            timeRow.height = 16;
+            timeRow.getCell(1).font = { name: 'Prompt', size: 9, color: { argb: 'FF94A3B8' } };
+            timeRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+
+            // Row 4: Mode description
+            const modeDesc = (currentViewMode === 'smart' ? trans.viewModeSmart : trans.viewModeRaw) +
+                (isDiffOnly ? ` • ${trans.diffOnlyText}` : '') +
+                (isHideAllEmpty ? ` • ${trans.hideAllEmptyText}` : '');
+            const modeRow = worksheet.addRow([`${trans.printFilterPrefix || 'Mode: '}${modeDesc}`]);
+            worksheet.mergeCells(`A4:${endColLetter}4`);
+            modeRow.height = 16;
+            modeRow.getCell(1).font = { name: 'Prompt', size: 9, color: { argb: 'FF94A3B8' } };
+            modeRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+
+            // Row 5: Blank separator
+            const blankRow = worksheet.addRow([]);
+            blankRow.height = 10;
+
+            // Row 6: Table Column Headers (Vehicle names)
+            const headerValues = [trans.thTopicLabel || "ข้อมูล / รุ่นรถ"];
+            selectedModels.forEach(m => {
+                const cleanName = (m.modelName || '').replace(/\s*\([^)]*แปลและดึงข้อมูล[^)]*\)/g, '').trim();
+                headerValues.push(`${cleanName}\n(${m.seriesName})`);
+            });
+            const headerRow = worksheet.addRow(headerValues);
+            headerRow.height = 36;
+            headerRow.eachCell((cell, colNumber) => {
+                cell.font = { name: 'Prompt', size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
+                cell.fill = {
+                    type: 'pattern',
+                    pattern: 'solid',
+                    fgColor: { argb: 'FF0066B1' } // BMW Blue
+                };
+                cell.alignment = { 
+                    horizontal: colNumber === 1 ? 'left' : 'center', 
+                    vertical: 'middle', 
+                    wrapText: true 
+                };
+                cell.border = {
+                    top: { style: 'medium', color: { argb: 'FF004080' } },
+                    bottom: { style: 'medium', color: { argb: 'FF004080' } },
+                    left: { style: 'thin', color: { argb: 'FF3B82F6' } },
+                    right: { style: 'thin', color: { argb: 'FF3B82F6' } }
+                };
+            });
+
+            // 2. Table Rows
+            const trs = table.querySelectorAll('tbody tr');
+            trs.forEach(tr => {
+                if (tr.style.display === 'none') return;
+
+                // Exclude PDF brochure & external link rows (matches Print & Image exports)
+                if (tr.classList.contains('section-pdf-source') || 
+                    tr.classList.contains('row-pdf-source') ||
+                    tr.classList.contains('hide-all-empty')) {
+                    return;
+                }
+
+                const firstCell = tr.cells[0];
+                const firstCellText = firstCell ? firstCell.innerText.trim() : '';
+                if (firstCellText.includes('Official Brochure') || 
+                    firstCellText.includes('PDF Source')) {
+                    return;
+                }
+
+                const isSectionTitle = tr.classList.contains('section-title');
+
+                if (isSectionTitle) {
+                    const secRow = worksheet.addRow([firstCellText]);
+                    const rowIdx = secRow.number;
+                    worksheet.mergeCells(`A${rowIdx}:${endColLetter}${rowIdx}`);
+                    secRow.height = 24;
+                    secRow.getCell(1).font = { name: 'Prompt', size: 11, bold: true, color: { argb: 'FF0F172A' } };
+                    secRow.getCell(1).fill = {
+                        type: 'pattern',
+                        pattern: 'solid',
+                        fgColor: { argb: 'FFF1F5F9' } // Light slate gray
+                    };
+                    secRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+                    secRow.getCell(1).border = {
+                        top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+                        bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+                    };
+                } else {
+                    const rowVals = [];
+                    for (let i = 0; i < tr.cells.length; i++) {
+                        const td = tr.cells[i];
+                        let text = '';
+                        if (i === 0) {
+                            text = firstCellText.replace(/•?\s*DIFF/i, '').trim();
+                        } else {
+                            if (td) {
+                                // 1. Special handling for Additional Safety Equipment list
+                                const safetyWrapper = td.querySelector('.safety-cell-wrapper');
+                                if (safetyWrapper) {
+                                    const items = [];
+                                    safetyWrapper.querySelectorAll('.safety-base-items div, .safety-more-items div').forEach(div => {
+                                        const it = div.innerText.trim();
+                                        if (it) items.push(it);
+                                    });
+                                    if (items.length > 0) {
+                                        text = items.join('\n');
+                                    }
+                                }
+
+                                if (!text) {
+                                    // 2. Clone td to strip purely decorative badges without altering live DOM
+                                    const clone = td.cloneNode(true);
+                                    // Remove web interactive buttons and summaries
+                                    clone.querySelectorAll('.safety-toggle-btn, .safety-print-summary').forEach(b => b.remove());
+                                    // Remove redundant decorative sales badges (e.g. PLUS, PRO, M SPORT)
+                                    clone.querySelectorAll('.feature-badge').forEach(b => b.remove());
+                                    // Ensure spacing after special pill badges
+                                    clone.querySelectorAll('.badge-acc-included').forEach(b => {
+                                        b.insertAdjacentText('afterend', ' ');
+                                    });
+                                    clone.querySelectorAll('.badge-center-airbag').forEach(b => {
+                                        b.insertAdjacentText('afterend', '\n');
+                                    });
+                                    text = clone.innerText.trim();
+                                }
+
+                                // Check if cell has checkmark icon (option present)
+                                const hasCheck = td.querySelector('.check-icon') || td.querySelector('svg.check-icon') || td.querySelector('svg');
+                                if (hasCheck) {
+                                    if (!text) {
+                                        text = '✓';
+                                    } else if (!text.includes('✓')) {
+                                        text = '✓ ' + text;
+                                    }
+                                }
+                            }
+                            if (text === '' || text === 'null') text = '-';
+                        }
+                        rowVals.push(text);
+                    }
+
+                    // Check if this row has differences (check CSS class or compare model values)
+                    let isDiff = tr.classList.contains('row-diff') || tr.classList.contains('diff-row');
+                    if (!isDiff && rowVals.length > 2) {
+                        const modelVals = rowVals.slice(1).map(v => v.trim());
+                        const firstVal = modelVals[0];
+                        if (!modelVals.every(v => v === firstVal)) {
+                            isDiff = true;
+                        }
+                    }
+
+                    const dataRow = worksheet.addRow(rowVals);
+
+                    // Dynamic row height based on number of lines in cells
+                    let maxLines = 1;
+                    rowVals.forEach(v => {
+                        if (typeof v === 'string') {
+                            const lines = v.split('\n').length;
+                            if (lines > maxLines) maxLines = lines;
+                        }
+                    });
+                    dataRow.height = maxLines > 1 ? Math.min(Math.max(28, maxLines * 16 + 6), 450) : 22;
+
+                    if (isDiff) {
+                        // Diff Row: Clear Yellow Diff Highlight
+                        // Col 1: Topic title
+                        dataRow.getCell(1).font = { name: 'Prompt', size: 10, bold: true, color: { argb: 'FF92400E' } };
+                        dataRow.getCell(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFEF9C3' } }; // Soft light yellow
+                        dataRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+                        dataRow.getCell(1).border = {
+                            bottom: { style: 'thin', color: { argb: 'FFFDE047' } },
+                            top: { style: 'thin', color: { argb: 'FFFDE047' } }
+                        };
+
+                        // Col 2..N: Vehicle values with vibrant yellow background
+                        for (let c = 2; c <= totalCols; c++) {
+                            const valCell = dataRow.getCell(c);
+                            const isCheck = (valCell.value || '').toString().includes('✓');
+                            valCell.font = { 
+                                name: 'Prompt', 
+                                size: isCheck ? 11 : 10, 
+                                bold: true, 
+                                color: { argb: isCheck ? 'FF047857' : 'FF854D0E' } 
+                            };
+                            valCell.fill = { 
+                                type: 'pattern', 
+                                pattern: 'solid', 
+                                fgColor: { argb: 'FFFEF08A' } // Distinct pleasant yellow highlight
+                            };
+                            valCell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
+                            valCell.border = {
+                                bottom: { style: 'thin', color: { argb: 'FFFDE047' } },
+                                top: { style: 'thin', color: { argb: 'FFFDE047' } },
+                                left: { style: 'thin', color: { argb: 'FFFDE047' } },
+                                right: { style: 'thin', color: { argb: 'FFFDE047' } }
+                            };
+                        }
+                    } else {
+                        // Normal row styling
+                        dataRow.getCell(1).font = { name: 'Prompt', size: 10, bold: true, color: { argb: 'FF334155' } };
+                        dataRow.getCell(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFF8FAFC' } };
+                        dataRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+                        dataRow.getCell(1).border = {
+                            bottom: { style: 'thin', color: { argb: 'FFE2E8F0' } }
+                        };
+
+                        for (let c = 2; c <= totalCols; c++) {
+                            const valCell = dataRow.getCell(c);
+                            const isCheck = (valCell.value || '').toString().includes('✓');
+                            valCell.font = { 
+                                name: 'Prompt', 
+                                size: isCheck ? 11 : 10, 
+                                bold: isCheck, 
+                                color: { argb: isCheck ? 'FF059669' : 'FF1E293B' } // Emerald green for checkmark
+                            };
+                            valCell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFFFFF' } };
+                            valCell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
+                            valCell.border = {
+                                bottom: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+                                left: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+                                right: { style: 'thin', color: { argb: 'FFE2E8F0' } }
+                            };
+                        }
+                    }
+                }
+            });
+
+            // 3. Generate file and trigger download
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hour = String(now.getHours()).padStart(2, '0');
+            const minute = String(now.getMinutes()).padStart(2, '0');
+            const filename = `BMW_Comparison_${year}${month}${day}_${hour}${minute}.xlsx`;
+
+            const buffer = await workbook.xlsx.writeBuffer();
+            const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+            const downloadUrl = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = downloadUrl;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(downloadUrl);
+
+            showToast(trans.excelSavedToast, '#10b981');
+        } catch (err) {
+            console.error("Failed to generate Excel file:", err);
+            showToast(trans.excelSaveError, '#ef4444');
+        }
+    }
 
     function executeSaveImage() {
         const trans = TRANSLATIONS[currentLang];
@@ -4999,7 +5845,7 @@
     });
 
     // Load Data
-    function loadComparisonData() {
+    function loadComparisonData(prevModels = null) {
         const cacheBust = '?v=' + new Date().getTime();
         const masterFile = currentLang === 'en' ? 'bmw_master_specs_en.json' : 'bmw_master_specs.json';
         const customFile = currentLang === 'en' ? 'bmw_custom_specs_en.json' : 'bmw_custom_specs.json';
@@ -5022,26 +5868,51 @@
 
             buildFlatCatalog();
 
-            // Check URL state first
-            const hasUrlModels = parseUrlState();
-            if (!hasUrlModels) {
-                // Check localStorage tray
-                const trayIds = loadTrayFromLocalStorage();
-                if (trayIds) {
-                    selectedModelIds = trayIds;
-                } else if (flatCatalog.length >= 2) {
-                    // Default to first 2 models in catalog
-                    selectedModelIds = [flatCatalog[0].id, flatCatalog[1].id];
+            if (prevModels && prevModels.length >= 2) {
+                // Map previous models to the newly loaded catalog by model name and source
+                const mappedIds = prevModels.map(p => {
+                    const match = flatCatalog.find(item => 
+                        item.source === p.source &&
+                        item.modelName.replace(/\s*\([^)]*แปลและดึงข้อมูล[^)]*\)/g, '').trim().toLowerCase() === p.modelName
+                    );
+                    return match ? match.id : null;
+                }).filter(Boolean);
+
+                if (mappedIds.length >= 2) {
+                    selectedModelIds = mappedIds;
+                } else {
+                    parseUrlModels();
+                }
+            } else {
+                // Check URL state first
+                const hasUrlModels = parseUrlModels();
+                if (!hasUrlModels) {
+                    // If we already have valid selected models (e.g. from switching language in memory), preserve them
+                    const validExisting = selectedModelIds.filter(id => getModelById(id));
+                    if (validExisting.length >= 2) {
+                        selectedModelIds = validExisting;
+                    } else {
+                        // Check localStorage tray
+                        const trayIds = loadTrayFromLocalStorage();
+                        if (trayIds) {
+                            selectedModelIds = trayIds;
+                        } else if (flatCatalog.length >= 2) {
+                            // Default to first 2 models in catalog
+                            selectedModelIds = [flatCatalog[0].id, flatCatalog[1].id];
+                        }
+                    }
                 }
             }
 
             renderComparator();
+            updateUrlState();
         }).catch(err => {
             console.error('Failed to load comparison specifications:', err);
         });
     }
 
     // Initial run
+    parseUrlOptions();
     loadComparisonData();
 </script>
 </body>
