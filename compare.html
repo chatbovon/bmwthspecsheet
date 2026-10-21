@@ -2127,7 +2127,15 @@
             printSummaryCount: "กำลังเปรียบเทียบรถ {count} คัน",
             generatingImageToast: "⏳ กำลังสร้างรูปภาพ A4 ความละเอียดสูง...",
             imageSavedToast: "✅ บันทึกรูปภาพ A4 เรียบร้อยแล้ว!",
-            imageSaveError: "⚠️ ไม่สามารถสร้างรูปภาพได้ กรุณาลองใหม่อีกครั้ง"
+            imageSaveError: "⚠️ ไม่สามารถสร้างรูปภาพได้ กรุณาลองใหม่อีกครั้ง",
+            slotsBarTitle: "🚗 เลือกรุ่นรถเปรียบเทียบ",
+            hideSlotsText: "ซ่อนการ์ดรถ",
+            showSlotsText: "แสดงการ์ดรถ",
+            swipeHint: "👉 เลื่อนตารางแนวนอน เพื่อดูรุ่นถัดไป",
+            fromEnNote: "อิงจาก EN",
+            btnSaveExcel: "📊 บันทึกเป็น Excel (.xlsx)",
+            excelSavedToast: "✅ บันทึกไฟล์ Excel เรียบร้อยแล้ว!",
+            excelSaveError: "⚠️ ไม่สามารถสร้างไฟล์ Excel ได้ กรุณาลองใหม่อีกครั้ง"
         },
         en: {
             pageTitle: "BMW Multi-Model Diff Comparator",
@@ -2195,7 +2203,12 @@
             printSummaryCount: "Comparing {count} vehicles",
             generatingImageToast: "⏳ Generating high-resolution A4 image...",
             imageSavedToast: "✅ A4 Image saved successfully!",
-            imageSaveError: "⚠️ Failed to generate image. Please try again."
+            imageSaveError: "⚠️ Failed to generate image. Please try again.",
+            slotsBarTitle: "🚗 Selected Models",
+            hideSlotsText: "Hide Cards",
+            showSlotsText: "Show Cards",
+            swipeHint: "👉 Swipe horizontally to compare more models",
+            fromEnNote: "From EN"
         }
     };
 
@@ -2487,7 +2500,7 @@
         }
         const barTitle = document.getElementById('slotsBarTitle');
         if (barTitle) {
-            barTitle.innerText = trans.slotsBarTitle;
+            barTitle.innerText = trans.slotsBarTitle || (currentLang === 'en' ? '🚗 Selected Models' : '🚗 เลือกรุ่นรถเปรียบเทียบ');
         }
         const toggleBtnText = document.getElementById('toggleSlotsText');
         if (toggleBtnText) {
@@ -4675,6 +4688,7 @@
             if (btnHide) btnHide.classList.add('active');
             saveTrayToLocalStorage();
             renderComparator();
+            updateUrlState();
         }
     }
 
@@ -4752,9 +4766,9 @@
         window.history.replaceState({}, '', newUrl);
     }
 
-    function parseUrlState() {
+    // Parse URL settings (lang, view mode, diff, hideEmpty) before loading data
+    function parseUrlOptions() {
         const params = new URLSearchParams(window.location.search);
-        const modelsParam = params.get('models');
         const diffParam = params.get('diff');
         const hideEmptyParam = params.get('hide_empty');
         const viewParam = params.get('view');
@@ -4763,6 +4777,11 @@
         if (langParam === 'en' || langParam === 'th') {
             currentLang = langParam;
         }
+        const langThBtn = document.getElementById('langTh');
+        const langEnBtn = document.getElementById('langEn');
+        if (langThBtn) langThBtn.classList.toggle('active', currentLang === 'th');
+        if (langEnBtn) langEnBtn.classList.toggle('active', currentLang === 'en');
+        updateStaticTexts();
 
         if (viewParam === 'raw' || viewParam === 'smart') {
             currentViewMode = viewParam;
@@ -4774,7 +4793,8 @@
 
         if (diffParam === '1') {
             isDiffOnly = true;
-            document.getElementById('btnDiffToggle').classList.add('active');
+            const btnDiff = document.getElementById('btnDiffToggle');
+            if (btnDiff) btnDiff.classList.add('active');
         }
 
         if (hideEmptyParam === '0') {
@@ -4786,7 +4806,12 @@
             const btnHide = document.getElementById('btnHideEmptyToggle');
             if (btnHide) btnHide.classList.add('active');
         }
+    }
 
+    // Parse model IDs from URL (requires flatCatalog to be populated)
+    function parseUrlModels() {
+        const params = new URLSearchParams(window.location.search);
+        const modelsParam = params.get('models');
         if (modelsParam) {
             const ids = modelsParam.split(',').filter(id => getModelById(id));
             if (ids.length >= 2) {
@@ -4795,6 +4820,11 @@
             }
         }
         return false;
+    }
+
+    function parseUrlState() {
+        parseUrlOptions();
+        return parseUrlModels();
     }
 
     // Copy Share Link
@@ -4972,6 +5002,7 @@
         document.getElementById('langTh').classList.toggle('active', lang === 'th');
         document.getElementById('langEn').classList.toggle('active', lang === 'en');
         updateStaticTexts();
+        updateUrlState();
         loadComparisonData();
     }
 
@@ -5621,25 +5652,33 @@
             buildFlatCatalog();
 
             // Check URL state first
-            const hasUrlModels = parseUrlState();
+            const hasUrlModels = parseUrlModels();
             if (!hasUrlModels) {
-                // Check localStorage tray
-                const trayIds = loadTrayFromLocalStorage();
-                if (trayIds) {
-                    selectedModelIds = trayIds;
-                } else if (flatCatalog.length >= 2) {
-                    // Default to first 2 models in catalog
-                    selectedModelIds = [flatCatalog[0].id, flatCatalog[1].id];
+                // If we already have valid selected models (e.g. from switching language in memory), preserve them
+                const validExisting = selectedModelIds.filter(id => getModelById(id));
+                if (validExisting.length >= 2) {
+                    selectedModelIds = validExisting;
+                } else {
+                    // Check localStorage tray
+                    const trayIds = loadTrayFromLocalStorage();
+                    if (trayIds) {
+                        selectedModelIds = trayIds;
+                    } else if (flatCatalog.length >= 2) {
+                        // Default to first 2 models in catalog
+                        selectedModelIds = [flatCatalog[0].id, flatCatalog[1].id];
+                    }
                 }
             }
 
             renderComparator();
+            updateUrlState();
         }).catch(err => {
             console.error('Failed to load comparison specifications:', err);
         });
     }
 
     // Initial run
+    parseUrlOptions();
     loadComparisonData();
 </script>
 </body>
