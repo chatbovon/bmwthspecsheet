@@ -5392,15 +5392,35 @@
                             text = firstCellText.replace(/•?\s*DIFF/i, '').trim();
                         } else {
                             if (td) {
-                                // Clone td to strip purely decorative badges without altering live DOM
-                                const clone = td.cloneNode(true);
-                                // Remove redundant decorative sales badges (e.g. PLUS, PRO, M SPORT)
-                                clone.querySelectorAll('.feature-badge').forEach(b => b.remove());
-                                // Ensure spacing after special pill badges
-                                clone.querySelectorAll('.badge-acc-included, .badge-center-airbag').forEach(b => {
-                                    b.insertAdjacentText('afterend', ' ');
-                                });
-                                text = clone.innerText.trim();
+                                // 1. Special handling for Additional Safety Equipment list
+                                const safetyWrapper = td.querySelector('.safety-cell-wrapper');
+                                if (safetyWrapper) {
+                                    const items = [];
+                                    safetyWrapper.querySelectorAll('.safety-base-items div, .safety-more-items div').forEach(div => {
+                                        const it = div.innerText.trim();
+                                        if (it) items.push(it);
+                                    });
+                                    if (items.length > 0) {
+                                        text = items.join('\n');
+                                    }
+                                }
+
+                                if (!text) {
+                                    // 2. Clone td to strip purely decorative badges without altering live DOM
+                                    const clone = td.cloneNode(true);
+                                    // Remove web interactive buttons and summaries
+                                    clone.querySelectorAll('.safety-toggle-btn, .safety-print-summary').forEach(b => b.remove());
+                                    // Remove redundant decorative sales badges (e.g. PLUS, PRO, M SPORT)
+                                    clone.querySelectorAll('.feature-badge').forEach(b => b.remove());
+                                    // Ensure spacing after special pill badges
+                                    clone.querySelectorAll('.badge-acc-included').forEach(b => {
+                                        b.insertAdjacentText('afterend', ' ');
+                                    });
+                                    clone.querySelectorAll('.badge-center-airbag').forEach(b => {
+                                        b.insertAdjacentText('afterend', '\n');
+                                    });
+                                    text = clone.innerText.trim();
+                                }
 
                                 // Check if cell has checkmark icon (option present)
                                 const hasCheck = td.querySelector('.check-icon') || td.querySelector('svg.check-icon') || td.querySelector('svg');
@@ -5428,7 +5448,16 @@
                     }
 
                     const dataRow = worksheet.addRow(rowVals);
-                    dataRow.height = 22;
+
+                    // Dynamic row height based on number of lines in cells
+                    let maxLines = 1;
+                    rowVals.forEach(v => {
+                        if (typeof v === 'string') {
+                            const lines = v.split('\n').length;
+                            if (lines > maxLines) maxLines = lines;
+                        }
+                    });
+                    dataRow.height = maxLines > 1 ? Math.min(Math.max(28, maxLines * 16 + 6), 450) : 22;
 
                     if (isDiff) {
                         // Diff Row: Clear Yellow Diff Highlight
