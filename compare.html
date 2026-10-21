@@ -5352,7 +5352,6 @@
                 if (tr.style.display === 'none') return;
 
                 const isSectionTitle = tr.classList.contains('section-title');
-                const isDiff = tr.classList.contains('diff-row');
 
                 if (isSectionTitle) {
                     const cellText = tr.cells[0] ? tr.cells[0].innerText.trim() : '';
@@ -5374,36 +5373,70 @@
                 } else {
                     const rowVals = [];
                     for (let i = 0; i < tr.cells.length; i++) {
-                        let text = tr.cells[i] ? tr.cells[i].innerText.trim() : '';
+                        const td = tr.cells[i];
+                        let text = td ? td.innerText.trim() : '';
                         if (i === 0) {
                             text = text.replace(/•?\s*DIFF/i, '').trim();
+                        } else {
+                            // Check if cell has checkmark icon (option present)
+                            const hasCheck = td && (td.querySelector('.check-icon') || td.querySelector('svg.check-icon') || td.querySelector('svg'));
+                            if (hasCheck) {
+                                if (!text) {
+                                    text = '✓';
+                                } else if (!text.includes('✓')) {
+                                    text = '✓ ' + text;
+                                }
+                            }
+                            if (text === '' || text === 'null') text = '-';
                         }
-                        if (text === '-' || text === 'null') text = '-';
                         rowVals.push(text);
                     }
+
+                    // Check if this row has differences (check CSS class or compare model values)
+                    let isDiff = tr.classList.contains('row-diff') || tr.classList.contains('diff-row');
+                    if (!isDiff && rowVals.length > 2) {
+                        const modelVals = rowVals.slice(1).map(v => v.trim());
+                        const firstVal = modelVals[0];
+                        if (!modelVals.every(v => v === firstVal)) {
+                            isDiff = true;
+                        }
+                    }
+
                     const dataRow = worksheet.addRow(rowVals);
-                    dataRow.height = 20;
+                    dataRow.height = 22;
 
                     if (isDiff) {
-                        // Amber diff styling
-                        dataRow.getCell(1).font = { name: 'Prompt', size: 10, bold: true, color: { argb: 'FFD97706' } };
-                        dataRow.getCell(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFFBEB' } };
+                        // Diff Row: Clear Yellow Diff Highlight
+                        // Col 1: Topic title
+                        dataRow.getCell(1).font = { name: 'Prompt', size: 10, bold: true, color: { argb: 'FF92400E' } };
+                        dataRow.getCell(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFEF9C3' } }; // Soft light yellow
                         dataRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
                         dataRow.getCell(1).border = {
-                            bottom: { style: 'thin', color: { argb: 'FFFDE68A' } },
-                            top: { style: 'thin', color: { argb: 'FFFDE68A' } }
+                            bottom: { style: 'thin', color: { argb: 'FFFDE047' } },
+                            top: { style: 'thin', color: { argb: 'FFFDE047' } }
                         };
 
+                        // Col 2..N: Vehicle values with vibrant yellow background
                         for (let c = 2; c <= totalCols; c++) {
                             const valCell = dataRow.getCell(c);
-                            valCell.font = { name: 'Prompt', size: 10, bold: true, color: { argb: 'FFB45309' } };
-                            valCell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFFBEB' } };
+                            const isCheck = (valCell.value || '').toString().includes('✓');
+                            valCell.font = { 
+                                name: 'Prompt', 
+                                size: isCheck ? 11 : 10, 
+                                bold: true, 
+                                color: { argb: isCheck ? 'FF047857' : 'FF854D0E' } 
+                            };
+                            valCell.fill = { 
+                                type: 'pattern', 
+                                pattern: 'solid', 
+                                fgColor: { argb: 'FFFEF08A' } // Distinct pleasant yellow highlight
+                            };
                             valCell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
                             valCell.border = {
-                                bottom: { style: 'thin', color: { argb: 'FFFDE68A' } },
-                                top: { style: 'thin', color: { argb: 'FFFDE68A' } },
-                                left: { style: 'thin', color: { argb: 'FFFDE68A' } },
-                                right: { style: 'thin', color: { argb: 'FFFDE68A' } }
+                                bottom: { style: 'thin', color: { argb: 'FFFDE047' } },
+                                top: { style: 'thin', color: { argb: 'FFFDE047' } },
+                                left: { style: 'thin', color: { argb: 'FFFDE047' } },
+                                right: { style: 'thin', color: { argb: 'FFFDE047' } }
                             };
                         }
                     } else {
@@ -5417,7 +5450,13 @@
 
                         for (let c = 2; c <= totalCols; c++) {
                             const valCell = dataRow.getCell(c);
-                            valCell.font = { name: 'Prompt', size: 10, color: { argb: 'FF1E293B' } };
+                            const isCheck = (valCell.value || '').toString().includes('✓');
+                            valCell.font = { 
+                                name: 'Prompt', 
+                                size: isCheck ? 11 : 10, 
+                                bold: isCheck, 
+                                color: { argb: isCheck ? 'FF059669' : 'FF1E293B' } // Emerald green for checkmark
+                            };
                             valCell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFFFFF' } };
                             valCell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
                             valCell.border = {
