@@ -5351,11 +5351,24 @@
             trs.forEach(tr => {
                 if (tr.style.display === 'none') return;
 
+                // Exclude PDF brochure & external link rows (matches Print & Image exports)
+                if (tr.classList.contains('section-pdf-source') || 
+                    tr.classList.contains('row-pdf-source') ||
+                    tr.classList.contains('hide-all-empty')) {
+                    return;
+                }
+
+                const firstCell = tr.cells[0];
+                const firstCellText = firstCell ? firstCell.innerText.trim() : '';
+                if (firstCellText.includes('Official Brochure') || 
+                    firstCellText.includes('PDF Source')) {
+                    return;
+                }
+
                 const isSectionTitle = tr.classList.contains('section-title');
 
                 if (isSectionTitle) {
-                    const cellText = tr.cells[0] ? tr.cells[0].innerText.trim() : '';
-                    const secRow = worksheet.addRow([cellText]);
+                    const secRow = worksheet.addRow([firstCellText]);
                     const rowIdx = secRow.number;
                     worksheet.mergeCells(`A${rowIdx}:${endColLetter}${rowIdx}`);
                     secRow.height = 24;
@@ -5374,17 +5387,29 @@
                     const rowVals = [];
                     for (let i = 0; i < tr.cells.length; i++) {
                         const td = tr.cells[i];
-                        let text = td ? td.innerText.trim() : '';
+                        let text = '';
                         if (i === 0) {
-                            text = text.replace(/•?\s*DIFF/i, '').trim();
+                            text = firstCellText.replace(/•?\s*DIFF/i, '').trim();
                         } else {
-                            // Check if cell has checkmark icon (option present)
-                            const hasCheck = td && (td.querySelector('.check-icon') || td.querySelector('svg.check-icon') || td.querySelector('svg'));
-                            if (hasCheck) {
-                                if (!text) {
-                                    text = '✓';
-                                } else if (!text.includes('✓')) {
-                                    text = '✓ ' + text;
+                            if (td) {
+                                // Clone td to strip purely decorative badges without altering live DOM
+                                const clone = td.cloneNode(true);
+                                // Remove redundant decorative sales badges (e.g. PLUS, PRO, M SPORT)
+                                clone.querySelectorAll('.feature-badge').forEach(b => b.remove());
+                                // Ensure spacing after special pill badges
+                                clone.querySelectorAll('.badge-acc-included, .badge-center-airbag').forEach(b => {
+                                    b.insertAdjacentText('afterend', ' ');
+                                });
+                                text = clone.innerText.trim();
+
+                                // Check if cell has checkmark icon (option present)
+                                const hasCheck = td.querySelector('.check-icon') || td.querySelector('svg.check-icon') || td.querySelector('svg');
+                                if (hasCheck) {
+                                    if (!text) {
+                                        text = '✓';
+                                    } else if (!text.includes('✓')) {
+                                        text = '✓ ' + text;
+                                    }
                                 }
                             }
                             if (text === '' || text === 'null') text = '-';
