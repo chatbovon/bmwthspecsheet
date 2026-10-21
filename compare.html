@@ -430,6 +430,167 @@
             margin-top: 3px;
         }
 
+        
+        /* Slots Header Bar & Toggle */
+        .slots-header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 4px 2px;
+        }
+        .slots-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .slots-count-pill {
+            background: var(--accent-color);
+            color: #ffffff;
+            font-size: 0.75em;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+        .btn-toggle-slots {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            font-size: 0.8em;
+            font-family: inherit;
+            font-weight: 600;
+            color: var(--accent-color);
+            background: var(--bg-preview-cell);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-toggle-slots:hover {
+            border-color: var(--accent-color);
+            background: var(--card-bg);
+        }
+        .slots-mini-summary {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+            padding: 8px 12px;
+            background: var(--bg-preview-cell);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+        }
+        .mini-car-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.82em;
+            transition: all 0.2s ease;
+        }
+        .mini-car-pill:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-1px);
+        }
+        .mini-pill-series {
+            font-size: 0.72em;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+        .mini-pill-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .mini-pill-edit {
+            font-size: 0.85em;
+            opacity: 0.6;
+            margin-left: 2px;
+        }
+        .mini-vs {
+            font-size: 0.7em;
+            font-weight: 800;
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+        .mini-add-btn {
+            padding: 4px 10px;
+            border-radius: 8px;
+            border: 1px dashed var(--accent-color);
+            background: transparent;
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.78em;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s ease;
+        }
+        .mini-add-btn:hover {
+            background: var(--accent-color);
+            color: #ffffff;
+        }
+        .slots-container.collapsed {
+            display: none !important;
+        }
+
+        /* Compact Table Header Wrap */
+        .th-model-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            width: 100%;
+        }
+        .th-model-title {
+            font-size: 0.88em;
+            font-weight: 700;
+            line-height: 1.25;
+            word-break: break-word;
+        }
+        .th-series-tag {
+            font-size: 0.72em;
+            opacity: 0.85;
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+        .th-model-subnote {
+            font-size: 0.65em;
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 1px 5px;
+            border-radius: 4px;
+            margin-top: 2px;
+            display: inline-block;
+            font-weight: 500;
+            cursor: help;
+        }
+        .mobile-swipe-hint {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.74em;
+            color: var(--accent-color);
+            background: var(--bg-preview-cell);
+            border: 1px solid var(--border-preview-cell);
+            border-radius: 6px;
+            padding: 5px 10px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-align: center;
+        }
+
         /* Model Comparison Slots (Header Cards) */
         .slots-container {
             display: grid;
@@ -962,27 +1123,193 @@
             filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
         }
 
-        /* Responsive */
+        /* Responsive Overhauls for Mobile & Tablets */
         @media (max-width: 768px) {
-            h1 { font-size: 1.5em; }
+            .wrapper {
+                padding: 10px 8px;
+                border-radius: 12px;
+            }
+            h1 { font-size: 1.35em; margin-bottom: 4px; }
+            .subtitle { font-size: 0.82em; margin-bottom: 12px; }
+            
             .slots-container {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                margin-bottom: 12px;
+            }
+            .slot-card {
+                padding: 8px;
+                gap: 4px;
+                border-radius: 10px;
+            }
+            .slot-img-container {
+                height: 65px;
+            }
+            .slot-img {
+                max-height: 55px;
+            }
+            .slot-info .slot-series-name {
+                font-size: 0.68em;
+            }
+            .slot-info .slot-model-name {
+                font-size: 0.8em;
+                line-height: 1.2;
+            }
+            .btn-slot-change {
+                padding: 4px 6px;
+                font-size: 0.72em;
+            }
+            .slot-card-add {
+                min-height: 110px;
+                padding: 8px 4px;
+            }
+            .add-icon-circle {
+                width: 32px;
+                height: 32px;
+                font-size: 1.1em;
+                margin-bottom: 4px;
+            }
+            .add-slot-label {
+                font-size: 0.78em;
+            }
+            .add-slot-desc {
+                font-size: 0.68em;
+            }
+
+            .controls-panel {
+                padding: 10px;
+                margin-bottom: 12px;
             }
             .controls-top-row {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 8px;
             }
             .search-box {
                 width: 100%;
+                font-size: 0.82em;
+                padding: 8px 12px;
             }
             .action-buttons {
-                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 6px;
                 width: 100%;
             }
+            .btn-action, .btn-view-mode {
+                padding: 6px 10px;
+                font-size: 0.76em;
+                flex: 1 1 auto;
+                justify-content: center;
+            }
+
+            /* Mobile Comparison Table (Fit 2 Cars side-by-side) */
+            .table-container {
+                max-height: 80vh;
+                border-radius: 8px;
+                -webkit-overflow-scrolling: touch;
+            }
+            th, td {
+                padding: 7px 5px !important;
+                font-size: 0.76em !important;
+                line-height: 1.25 !important;
+            }
+            
+            /* Sticky Spec Title Column (Compact width ~110px) */
+            thead th:first-child,
+            td:first-child {
+                min-width: 105px !important;
+                max-width: 115px !important;
+                width: 110px !important;
+                padding: 7px 6px !important;
+                font-size: 0.74em !important;
+                line-height: 1.25 !important;
+                word-break: break-word !important;
+                box-shadow: 2px 0 6px rgba(0, 0, 0, 0.08);
+            }
+
+            /* Car Columns (Width ~125px-135px so 2 cars fit comfortably side-by-side) */
+            thead th:not(:first-child),
+            td:not(:first-child) {
+                min-width: 120px !important;
+                max-width: 140px !important;
+                width: 130px !important;
+                padding: 7px 5px !important;
+                font-size: 0.76em !important;
+                line-height: 1.25 !important;
+                word-break: break-word !important;
+            }
+
+            /* Section / Category Header Row */
+            tr.section-title td {
+                font-size: 0.78em !important;
+                padding: 6px 8px !important;
+                line-height: 1.3 !important;
+            }
+
+            /* Compact Diff Indicator */
+            tr.row-diff td:first-child::after {
+                font-size: 0.58em !important;
+                padding: 1px 4px !important;
+                margin-top: 2px !important;
+                display: inline-block !important;
+            }
+
+            /* Table Header Car Name */
+            .th-model-title {
+                font-size: 0.8em !important;
+                line-height: 1.2 !important;
+            }
+            .th-series-tag {
+                font-size: 0.65em !important;
+            }
+            .th-model-subnote {
+                font-size: 0.58em !important;
+                padding: 1px 3px !important;
+            }
+            .safety-toggle-btn {
+                font-size: 0.7em !important;
+                padding: 2px 6px !important;
+            }
+            .mobile-swipe-hint.visible {
+                display: flex;
+            }
         }
+
         @media (max-width: 480px) {
+            .wrapper {
+                padding: 6px 4px !important;
+            }
+            /* Keep 2 columns for cards instead of 1fr so they don't eat vertical screen */
             .slots-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 6px !important;
+            }
+            .slot-card {
+                padding: 6px !important;
+            }
+            .slot-img-container {
+                height: 55px !important;
+            }
+            .slot-img {
+                max-height: 48px !important;
+            }
+            
+            /* Further optimize table cell width for small mobile screens (360px-390px) */
+            thead th:first-child,
+            td:first-child {
+                min-width: 100px !important;
+                max-width: 110px !important;
+                width: 105px !important;
+                padding: 6px 4px !important;
+                font-size: 0.72em !important;
+            }
+            thead th:not(:first-child),
+            td:not(:first-child) {
+                min-width: 115px !important;
+                max-width: 130px !important;
+                width: 122px !important;
+                padding: 6px 4px !important;
+                font-size: 0.74em !important;
             }
         }
         /* Print & Export Button */
@@ -1202,6 +1529,10 @@
             /* Hide all non-essential UI */
             .top-nav,
             .controls-panel,
+            .slots-header-bar,
+            .slots-mini-summary,
+            .btn-toggle-slots,
+            .mobile-swipe-hint,
             .slot-card-add,
             .slot-actions,
             .btn-remove-slot,
@@ -1501,9 +1832,29 @@
         </div>
     </div>
 
+    <!-- Comparison Slots Header Bar -->
+    <div class="slots-header-bar">
+        <div class="slots-bar-left">
+            <span class="slots-bar-title" id="slotsBarTitle">🚗 เลือกรุ่นรถเปรียบเทียบ</span>
+            <span class="slots-count-pill" id="slotsCountPill">0/4</span>
+        </div>
+        <button type="button" id="btnToggleSlots" class="btn-toggle-slots" onclick="toggleSlotsVisibility()" title="ย่อ/ขยายการ์ดรูปรถ">
+            <span id="toggleSlotsIcon">▲</span>
+            <span id="toggleSlotsText">ซ่อนการ์ดรถ</span>
+        </button>
+    </div>
+
+    <!-- Mini Car Summary Bar (Shown when cards are collapsed) -->
+    <div id="slotsMiniSummary" class="slots-mini-summary" style="display: none;"></div>
+
     <!-- Comparison Slots (Cards) -->
     <div class="slots-container" id="slotsContainer">
         <!-- Rendered dynamically -->
+    </div>
+
+    <!-- Mobile Horizontal Swipe Hint -->
+    <div class="mobile-swipe-hint" id="mobileSwipeHint">
+        <span>👉 เลื่อนตารางแนวนอน เพื่อดูรุ่นถัดไป</span>
     </div>
 
     <!-- Print Header Banner (Shown only in print or image capture) -->
@@ -2059,6 +2410,67 @@
     }
 
     // Render the entire comparator
+        let isSlotsCollapsed = false;
+    function toggleSlotsVisibility() {
+        isSlotsCollapsed = !isSlotsCollapsed;
+        const slotsEl = document.getElementById('slotsContainer');
+        const summaryEl = document.getElementById('slotsMiniSummary');
+        const iconEl = document.getElementById('toggleSlotsIcon');
+        const textEl = document.getElementById('toggleSlotsText');
+        const trans = TRANSLATIONS[currentLang];
+        
+        if (isSlotsCollapsed) {
+            if (slotsEl) slotsEl.classList.add('collapsed');
+            if (summaryEl) summaryEl.style.display = 'flex';
+            if (iconEl) iconEl.innerText = '▼';
+            if (textEl) textEl.innerText = trans.showSlotsText || (currentLang === 'th' ? 'แสดงการ์ดรถ' : 'Show Cards');
+        } else {
+            if (slotsEl) slotsEl.classList.remove('collapsed');
+            if (summaryEl) summaryEl.style.display = 'none';
+            if (iconEl) iconEl.innerText = '▲';
+            if (textEl) textEl.innerText = trans.hideSlotsText || (currentLang === 'th' ? 'ซ่อนการ์ดรถ' : 'Hide Cards');
+        }
+    }
+
+    function updateSlotsBarAndSummary(selectedModels) {
+        const trans = TRANSLATIONS[currentLang];
+        const countPill = document.getElementById('slotsCountPill');
+        if (countPill) {
+            countPill.innerText = `${selectedModels.length}/4`;
+        }
+        const barTitle = document.getElementById('slotsBarTitle');
+        if (barTitle) {
+            barTitle.innerText = trans.slotsBarTitle;
+        }
+        const toggleBtnText = document.getElementById('toggleSlotsText');
+        if (toggleBtnText) {
+            toggleBtnText.innerText = isSlotsCollapsed ? (trans.showSlotsText || 'แสดงการ์ดรถ') : (trans.hideSlotsText || 'ซ่อนการ์ดรถ');
+        }
+        const toggleIcon = document.getElementById('toggleSlotsIcon');
+        if (toggleIcon) {
+            toggleIcon.innerText = isSlotsCollapsed ? '▼' : '▲';
+        }
+        
+        const miniSummary = document.getElementById('slotsMiniSummary');
+        if (miniSummary) {
+            let pillsHtml = selectedModels.map((m, idx) => {
+                let cleanTitle = (m.modelName || '').replace(/\s*\([^)]*แปลและดึงข้อมูล[^)]*\)/g, '').trim();
+                return `
+                    <span class="mini-car-pill" onclick="openModelModal(${idx})" title="${trans.changeBtn}">
+                        <span class="mini-pill-series">${m.seriesName}</span>
+                        <span class="mini-pill-name">${cleanTitle}</span>
+                        <span class="mini-pill-edit">✏️</span>
+                    </span>
+                `;
+            }).join('<span class="mini-vs">VS</span>');
+            
+            if (selectedModels.length < 4) {
+                pillsHtml += `<button type="button" class="mini-add-btn" onclick="openModelModal(${selectedModels.length})" title="${trans.addSlotLabel}">+ ${trans.addSlotLabel}</button>`;
+            }
+            miniSummary.innerHTML = pillsHtml;
+        }
+    }
+
     function renderComparator() {
         const trans = TRANSLATIONS[currentLang];
         const selectedModels = selectedModelIds.map(id => getModelById(id)).filter(Boolean);
@@ -2123,9 +2535,41 @@
 
         selectedModels.forEach(m => {
             const th = document.createElement('th');
-            th.innerHTML = `<div>${m.modelName}</div><div style="font-size:0.78em; opacity:0.85; font-weight:normal;">${m.seriesName}</div>`;
+            let mName = m.modelName || '';
+            let noteHtml = '';
+            
+            // Clean up long translation note from title and create compact subnote badge
+            const matchNote = mName.match(/\s*\((แปลและดึงข้อมูลจาก EN[^\)]*)\)/);
+            if (matchNote) {
+                mName = mName.replace(matchNote[0], '').trim();
+                const noteTooltip = matchNote[1];
+                const noteLabel = trans.fromEnNote || (currentLang === 'th' ? 'แปลจาก EN' : 'From EN');
+                noteHtml = `<span class="th-model-subnote" title="${noteTooltip}">📄 ${noteLabel}</span>`;
+            }
+            
+            th.innerHTML = `
+                <div class="th-model-wrap">
+                    <div class="th-model-title">${mName}</div>
+                    ${noteHtml}
+                    <div class="th-series-tag">${m.seriesName}</div>
+                </div>
+            `;
             theadRow.appendChild(th);
         });
+
+        // Update Slots Bar & Mini Summary
+        updateSlotsBarAndSummary(selectedModels);
+
+        // Update Mobile Swipe Hint
+        const swipeHint = document.getElementById('mobileSwipeHint');
+        if (swipeHint) {
+            if (selectedModels.length > 2) {
+                swipeHint.classList.add('visible');
+                swipeHint.querySelector('span').innerText = trans.swipeHint || (currentLang === 'th' ? '👉 เลื่อนตารางแนวนอน เพื่อดูรุ่นถัดไป' : '👉 Swipe horizontally to compare more models');
+            } else {
+                swipeHint.classList.remove('visible');
+            }
+        }
 
         // 3. Define Canonical Topic Definitions for Smart View (Sales Focus)
         const SMART_GROUPS_DEF = [
@@ -4493,6 +4937,16 @@
         document.getElementById('searchInput').placeholder = trans.searchPlaceholder;
         document.getElementById('btnShare').querySelector('span').innerText = trans.copyShareLink;
         document.getElementById('btnReset').querySelector('span').innerText = trans.resetBtn;
+        if (document.getElementById('slotsBarTitle')) {
+            document.getElementById('slotsBarTitle').innerText = trans.slotsBarTitle;
+        }
+        if (document.getElementById('toggleSlotsText')) {
+            document.getElementById('toggleSlotsText').innerText = isSlotsCollapsed ? trans.showSlotsText : trans.hideSlotsText;
+        }
+        const swipeHint = document.getElementById('mobileSwipeHint');
+        if (swipeHint && swipeHint.classList.contains('visible')) {
+            swipeHint.querySelector('span').innerText = trans.swipeHint;
+        }
         document.getElementById('modalTitle').innerText = trans.modalTitle;
         document.getElementById('modalSearchInput').placeholder = trans.modalSearchPlaceholder;
         document.getElementById('tabAll').innerText = trans.tabAll;
