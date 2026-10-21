@@ -113,9 +113,13 @@ def run_batch_extraction(lang="th", target_file=None):
                         else:
                             m["images"] = m.get("images", {})
 
-                # If target_file is specified, replace the existing entry
-                if target_file:
-                    master_specs = [item for item in master_specs if item.get("pdf_source") != filename]
+                # Replace existing entry if same PDF source OR same series exists
+                new_series_name = (result.get("series") or "").strip().upper()
+                master_specs = [
+                    item for item in master_specs 
+                    if item.get("pdf_source") != filename and 
+                       (not new_series_name or (item.get("series") or "").strip().upper() != new_series_name)
+                ]
 
                 master_specs.append(result)
                 success_count += 1

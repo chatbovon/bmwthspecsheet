@@ -1,9 +1,6 @@
 name: BMW Auto-Update Specs
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: '0 19 * * *' # Runs every day at 02:00 AM ICT (UTC+7 -> 19:00 UTC)
   workflow_dispatch: # Allows manual runs from the GitHub Actions tab
