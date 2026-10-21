@@ -2059,7 +2059,7 @@
 <!-- html2canvas for High-Res Image Export -->
 <script src="html2canvas.min.js"></script>
 <!-- SheetJS for Native Excel Export -->
-<script src="xlsx.full.min.js"></script>
+<script src="exceljs.min.js"></script>
 
 <!-- Script -->
 <script>
@@ -5243,7 +5243,7 @@
         document.body.classList.remove('print-portrait', 'print-landscape', 'print-hide-photos', 'print-show-photos', 'print-font-compact', 'print-font-large', 'print-font-xlarge');
     });
 
-        function executeSaveExcel() {
+        async function executeSaveExcel() {
         const trans = TRANSLATIONS[currentLang];
         const table = document.getElementById('compareTable');
         if (!table) return;
@@ -5254,75 +5254,183 @@
             const selectedModels = selectedModelIds.map(id => getModelById(id)).filter(Boolean);
             if (selectedModels.length === 0) return;
 
-            const sheetData = [];
+            if (typeof ExcelJS === 'undefined') {
+                throw new Error("ExcelJS library is not loaded");
+            }
+
+            const workbook = new ExcelJS.Workbook();
+            workbook.creator = 'BMW Dynamic Specsheet';
+            workbook.lastModifiedBy = 'BMW Specsheet Comparator';
+            const now = new Date();
+            workbook.created = now;
+            workbook.modified = now;
+
+            const worksheet = workbook.addWorksheet('BMW Comparison', {
+                views: [{ state: 'frozen', xSplit: 1, ySplit: 6 }]
+            });
+
+            // Set column widths
+            const cols = [{ width: 38 }];
+            for (let i = 0; i < selectedModels.length; i++) {
+                cols.push({ width: 28 });
+            }
+            worksheet.columns = cols;
+
+            const totalCols = selectedModels.length + 1;
+            const endColLetter = String.fromCharCode(64 + totalCols);
 
             // 1. Header Information
-            sheetData.push(["BMW Thailand • Dynamic Specsheet Comparator"]);
-            sheetData.push([trans.printDocSubtitle || "Multi-Model Specification Comparison Report"]);
-            
-            const now = new Date();
+            // Row 1: Brand Title
+            const titleRow = worksheet.addRow(["BMW Thailand • Dynamic Specsheet Comparator"]);
+            worksheet.mergeCells(`A1:${endColLetter}1`);
+            titleRow.height = 24;
+            titleRow.getCell(1).font = { name: 'Prompt', size: 14, bold: true, color: { argb: 'FF0066B1' } };
+            titleRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+
+            // Row 2: Subtitle
+            const subRow = worksheet.addRow([trans.printDocSubtitle || "Multi-Model Specification Comparison Report"]);
+            worksheet.mergeCells(`A2:${endColLetter}2`);
+            subRow.height = 18;
+            subRow.getCell(1).font = { name: 'Prompt', size: 10, italic: true, color: { argb: 'FF64748B' } };
+            subRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+
+            // Row 3: Timestamp
             const dateStr = now.toLocaleDateString(currentLang === 'th' ? 'th-TH' : 'en-US', {
                 year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
             });
+            const timeRow = worksheet.addRow([`${trans.printTimestampPrefix || 'Printed on: '}${dateStr}`]);
+            worksheet.mergeCells(`A3:${endColLetter}3`);
+            timeRow.height = 16;
+            timeRow.getCell(1).font = { name: 'Prompt', size: 9, color: { argb: 'FF94A3B8' } };
+            timeRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+
+            // Row 4: Mode description
             const modeDesc = (currentViewMode === 'smart' ? trans.viewModeSmart : trans.viewModeRaw) +
                 (isDiffOnly ? ` • ${trans.diffOnlyText}` : '') +
                 (isHideAllEmpty ? ` • ${trans.hideAllEmptyText}` : '');
-            sheetData.push([`${trans.printTimestampPrefix || 'Printed on: '}${dateStr}`]);
-            sheetData.push([`${trans.printFilterPrefix || 'Mode: '}${modeDesc}`]);
-            sheetData.push([]); // Blank separator row
+            const modeRow = worksheet.addRow([`${trans.printFilterPrefix || 'Mode: '}${modeDesc}`]);
+            worksheet.mergeCells(`A4:${endColLetter}4`);
+            modeRow.height = 16;
+            modeRow.getCell(1).font = { name: 'Prompt', size: 9, color: { argb: 'FF94A3B8' } };
+            modeRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
 
-            // 2. Table Column Headers
-            const headerRow = [trans.thTopicLabel || "ข้อมูล / รุ่นรถ"];
+            // Row 5: Blank separator
+            const blankRow = worksheet.addRow([]);
+            blankRow.height = 10;
+
+            // Row 6: Table Column Headers (Vehicle names)
+            const headerValues = [trans.thTopicLabel || "ข้อมูล / รุ่นรถ"];
             selectedModels.forEach(m => {
                 const cleanName = (m.modelName || '').replace(/\s*\([^)]*แปลและดึงข้อมูล[^)]*\)/g, '').trim();
-                headerRow.push(`${cleanName} (${m.seriesName})`);
+                headerValues.push(`${cleanName}\n(${m.seriesName})`);
             });
-            sheetData.push(headerRow);
+            const headerRow = worksheet.addRow(headerValues);
+            headerRow.height = 36;
+            headerRow.eachCell((cell, colNumber) => {
+                cell.font = { name: 'Prompt', size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
+                cell.fill = {
+                    type: 'pattern',
+                    pattern: 'solid',
+                    fgColor: { argb: 'FF0066B1' } // BMW Blue
+                };
+                cell.alignment = { 
+                    horizontal: colNumber === 1 ? 'left' : 'center', 
+                    vertical: 'middle', 
+                    wrapText: true 
+                };
+                cell.border = {
+                    top: { style: 'medium', color: { argb: 'FF004080' } },
+                    bottom: { style: 'medium', color: { argb: 'FF004080' } },
+                    left: { style: 'thin', color: { argb: 'FF3B82F6' } },
+                    right: { style: 'thin', color: { argb: 'FF3B82F6' } }
+                };
+            });
 
-            // 3. Table Rows (Only export visible rows)
+            // 2. Table Rows
             const trs = table.querySelectorAll('tbody tr');
             trs.forEach(tr => {
                 if (tr.style.display === 'none') return;
 
-                const rowData = [];
                 const isSectionTitle = tr.classList.contains('section-title');
+                const isDiff = tr.classList.contains('diff-row');
 
                 if (isSectionTitle) {
                     const cellText = tr.cells[0] ? tr.cells[0].innerText.trim() : '';
-                    rowData.push(`=== ${cellText} ===`);
-                    for (let c = 1; c < headerRow.length; c++) {
-                        rowData.push('');
-                    }
+                    const secRow = worksheet.addRow([cellText]);
+                    const rowIdx = secRow.number;
+                    worksheet.mergeCells(`A${rowIdx}:${endColLetter}${rowIdx}`);
+                    secRow.height = 24;
+                    secRow.getCell(1).font = { name: 'Prompt', size: 11, bold: true, color: { argb: 'FF0F172A' } };
+                    secRow.getCell(1).fill = {
+                        type: 'pattern',
+                        pattern: 'solid',
+                        fgColor: { argb: 'FFF1F5F9' } // Light slate gray
+                    };
+                    secRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+                    secRow.getCell(1).border = {
+                        top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+                        bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+                    };
                 } else {
+                    const rowVals = [];
                     for (let i = 0; i < tr.cells.length; i++) {
-                        let cellText = tr.cells[i] ? tr.cells[i].innerText.trim() : '';
+                        let text = tr.cells[i] ? tr.cells[i].innerText.trim() : '';
                         if (i === 0) {
-                            cellText = cellText.replace(/•?\s*DIFF/i, '').trim();
+                            text = text.replace(/•?\s*DIFF/i, '').trim();
                         }
-                        if (cellText === '-' || cellText === 'null') cellText = '-';
-                        rowData.push(cellText);
+                        if (text === '-' || text === 'null') text = '-';
+                        rowVals.push(text);
+                    }
+                    const dataRow = worksheet.addRow(rowVals);
+                    dataRow.height = 20;
+
+                    if (isDiff) {
+                        // Amber diff styling
+                        dataRow.getCell(1).font = { name: 'Prompt', size: 10, bold: true, color: { argb: 'FFD97706' } };
+                        dataRow.getCell(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFFBEB' } };
+                        dataRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+                        dataRow.getCell(1).border = {
+                            bottom: { style: 'thin', color: { argb: 'FFFDE68A' } },
+                            top: { style: 'thin', color: { argb: 'FFFDE68A' } }
+                        };
+
+                        for (let c = 2; c <= totalCols; c++) {
+                            const valCell = dataRow.getCell(c);
+                            valCell.font = { name: 'Prompt', size: 10, bold: true, color: { argb: 'FFB45309' } };
+                            valCell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFFBEB' } };
+                            valCell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
+                            valCell.border = {
+                                bottom: { style: 'thin', color: { argb: 'FFFDE68A' } },
+                                top: { style: 'thin', color: { argb: 'FFFDE68A' } },
+                                left: { style: 'thin', color: { argb: 'FFFDE68A' } },
+                                right: { style: 'thin', color: { argb: 'FFFDE68A' } }
+                            };
+                        }
+                    } else {
+                        // Normal row styling
+                        dataRow.getCell(1).font = { name: 'Prompt', size: 10, bold: true, color: { argb: 'FF334155' } };
+                        dataRow.getCell(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFF8FAFC' } };
+                        dataRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+                        dataRow.getCell(1).border = {
+                            bottom: { style: 'thin', color: { argb: 'FFE2E8F0' } }
+                        };
+
+                        for (let c = 2; c <= totalCols; c++) {
+                            const valCell = dataRow.getCell(c);
+                            valCell.font = { name: 'Prompt', size: 10, color: { argb: 'FF1E293B' } };
+                            valCell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFFFFF' } };
+                            valCell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
+                            valCell.border = {
+                                bottom: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+                                left: { style: 'thin', color: { argb: 'FFE2E8F0' } },
+                                right: { style: 'thin', color: { argb: 'FFE2E8F0' } }
+                            };
+                        }
                     }
                 }
-                sheetData.push(rowData);
             });
 
-            // 4. Create SheetJS Workbook
-            if (typeof XLSX === 'undefined') {
-                throw new Error("SheetJS library is not loaded");
-            }
-
-            const ws = XLSX.utils.aoa_to_sheet(sheetData);
-
-            // Auto-fit Column Widths
-            const colWidths = [{ wch: 35 }];
-            for (let i = 1; i < headerRow.length; i++) {
-                colWidths.push({ wch: 28 });
-            }
-            ws['!cols'] = colWidths;
-
-            const wb = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(wb, ws, "BMW Comparison");
-
+            // 3. Generate file and trigger download
             const year = now.getFullYear();
             const month = String(now.getMonth() + 1).padStart(2, '0');
             const day = String(now.getDate()).padStart(2, '0');
@@ -5330,7 +5438,17 @@
             const minute = String(now.getMinutes()).padStart(2, '0');
             const filename = `BMW_Comparison_${year}${month}${day}_${hour}${minute}.xlsx`;
 
-            XLSX.writeFile(wb, filename);
+            const buffer = await workbook.xlsx.writeBuffer();
+            const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+            const downloadUrl = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = downloadUrl;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(downloadUrl);
+
             showToast(trans.excelSavedToast, '#10b981');
         } catch (err) {
             console.error("Failed to generate Excel file:", err);
