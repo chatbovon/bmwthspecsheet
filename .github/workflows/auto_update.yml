@@ -119,24 +119,7 @@ jobs:
         # Smart Fallback for PDFs:
         # If Google Drive failed, commit PDFs to repository as emergency backup so files are not lost.
         # If Google Drive succeeded, keep repository clean.
-        python -c "
-import json, os, subprocess
-status_file = 'scratch/gdrive_status.json'
-gdrive_ok = False
-if os.path.exists(status_file):
-    try:
-        with open(status_file, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-            if data.get('status') == 'success':
-                gdrive_ok = True
-    except Exception:
-        pass
-if not gdrive_ok:
-    print('[GIT] Google Drive backup incomplete. Staging PDFs as emergency repository backup...')
-    subprocess.run(['git', 'add', '-f', 'bmw_brochures_auto/*.pdf', 'bmw_brochures_auto_en/*.pdf'], check=False)
-else:
-    print('[GIT] Google Drive backup OK. PDFs are safely stored in Google Drive.')
-" || true
+        python scratch/sync_pdf_fallback.py || true
 
         if [ -n "$(git status --porcelain)" ]; then
           git commit -m "Auto-update: New brochures, specifications, images, dossiers and audit report [skip ci]"
