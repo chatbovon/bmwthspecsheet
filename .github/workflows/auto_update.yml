@@ -12,7 +12,17 @@ on:
         description: 'Run ONLY image scraper (skips PDF download and PDF extraction)'
         type: boolean
         required: false
-        default: true
+        default: false
+      target_file:
+        description: 'Target specific PDF pattern to re-extract (e.g. 3-20250625-01 or leave empty for all)'
+        type: string
+        required: false
+        default: ''
+      skip_email:
+        description: 'Skip sending daily email report'
+        type: boolean
+        required: false
+        default: false
 
 jobs:
   update-specs:
@@ -53,9 +63,17 @@ jobs:
         GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
         GEMINI_API_KEY_3: ${{ secrets.GEMINI_API_KEY_3 }}
         MINERU_API_TOKEN: ${{ secrets.MINERU_API_TOKEN }}
+        TARGET_FILE: ${{ github.event.inputs.target_file }}
       run: |
-        python -u batch_extractor.py --lang th
-        python -u batch_extractor.py --lang en
+        if [ -n "$TARGET_FILE" ]; then
+          echo "[ACTION] Target file specified: $TARGET_FILE. Running targeted re-extraction for TH and EN..."
+          python -u batch_extractor.py --lang th --file "$TARGET_FILE"
+          python -u batch_extractor.py --lang en --file "$TARGET_FILE"
+        else
+          echo "[ACTION] Running standard batch extraction for all new brochures..."
+          python -u batch_extractor.py --lang th
+          python -u batch_extractor.py --lang en
+        fi
         python -u scratch/compare_th_en_db.py
 
     - name: Automatically Archive Discontinued Models
@@ -90,6 +108,7 @@ jobs:
         python generate_model_dossier.py
 
     - name: Send Daily Email Report (via GAS Web App)
+      if: ${{ github.event.inputs.skip_email != 'true' }}
       continue-on-error: true
       env:
         GEMINI_API_KEY_1: ${{ secrets.GEMINI_API_KEY_1 }}

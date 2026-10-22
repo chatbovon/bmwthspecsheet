@@ -1516,6 +1516,22 @@ def apply_recovery_and_healing_rules(final_output: dict, source_pdf_path: str, l
                     cleaned_val = cleaned_val.replace('‘', "'").replace('’', "'").replace('“', '"').replace('”', '"')
                     detail["value"] = cleaned_val
 
+    # ─── 6. Remove Stray Footer / Print Date Rows from Regular Categories ─────────
+    footer_filter_re = re.compile(r'(พิมพ์วันที่|พิมพวันที่|printed\s+on|effective\s+from)', re.IGNORECASE)
+    for model in final_output.get("models", []):
+        for spec in model.get("specifications", []):
+            cat_name = (spec.get("category") or "").strip()
+            if cat_name in ("ข้อมูลเอกสารอ้างอิง", "Document References"):
+                continue
+            cleaned_details = []
+            for detail in spec.get("details", []):
+                top_str = str(detail.get("topic") or "")
+                if footer_filter_re.search(top_str):
+                    print(f"[STAGE 4 HEALING] Filtered stray footer row from '{cat_name}': '{top_str}'")
+                    continue
+                cleaned_details.append(detail)
+            spec["details"] = cleaned_details
+
 
 def section_4_json_assembler(specs_json: dict, paint_json: dict, source_pdf_path: str, lang_code: str = "th") -> dict:
     print(f"\n[SECTION 4] Assembling Final JSON & Footers via Pure Python (Zero API call)...")
