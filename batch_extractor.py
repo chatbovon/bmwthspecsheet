@@ -41,6 +41,14 @@ def run_batch_extraction(lang="th", target_file=None):
 
     print(f"\n[BATCH] [{lang.upper()}] Found {len(pdf_entries)} PDF files to process in '{auto_folder}'.")
 
+    # Run smart content verification to skip identical brochures
+    if not target_file:
+        try:
+            from verify_pdf_content import verify_and_update
+            verify_and_update(lang=lang)
+        except Exception as e:
+            print(f"[BATCH] [WARNING] Content verification check skipped: {e}")
+
     # Load master catalog
     master_specs = []
     processed_pdfs = set()

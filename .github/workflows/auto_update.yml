@@ -38,6 +38,11 @@ jobs:
       run: |
         python pdf_scraper.py
 
+    - name: Verify PDF Content Changes (Smart-Skip Identical PDFs)
+      if: ${{ github.event.inputs.only_scrape_images != 'true' }}
+      run: |
+        python verify_pdf_content.py --lang all
+
     - name: Run Extractor & Compare (Process PDFs with Gemini)
       if: ${{ github.event.inputs.only_scrape_images != 'true' }}
       env:
