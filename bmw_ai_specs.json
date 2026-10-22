@@ -1,6 +1,6 @@
 {
     "series": "BMW X7",
-    "pdf_source": "X7-20260529-01_TH.pdf.asset.1782451059580.pdf",
+    "pdf_source": "X7-20260529-01_TH.pdf.asset.1782451095961.pdf",
     "models": [
         {
             "model_name": "X7 xDrive40d M Sport",
@@ -29,7 +29,7 @@
                             "value": "9 / 12"
                         },
                         {
-                            "topic": "กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า)",
+                            "topic": "กำลังรวบรวมสูงสุด (กิโลวัตต์/แรงม้า)",
                             "value": "259 / 352"
                         },
                         {
@@ -47,7 +47,7 @@
                     ]
                 },
                 {
-                    "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO₂",
+                    "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO2",
                     "details": [
                         {
                             "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
@@ -158,7 +158,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบช่วยผ่อนแรงกระแทกขณะปิดประตู(Soft-close function for doors)",
+                            "topic": "ระบบช่วยผ่อนแรงกระแทกขณะปิดประตู (Soft-close function for doors)",
                             "value": "■"
                         },
                         {
@@ -187,7 +187,7 @@
                     "category": "อุปกรณ์ภายใน",
                     "details": [
                         {
-                            "topic": "เบาะนั่งที่วางแขนบริเวณคอนโซลกลางและบางส่วนของคอนโซลหน้า และแผงประตูบุด้วยหนังแท้ Merino",
+                            "topic": "เบาะนั่ง ที่วางแขนบริเวณคอนโซลกลางและบางส่วนของคอนโซลหน้า และแผงประตูบุด้วยหนังแท้ Merino",
                             "value": "■"
                         },
                         {
@@ -215,7 +215,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "เพดานหลังคาภายในดีไซน์ M บุด้วยวัสดุ Alcatara สี Anthracite",
+                            "topic": "เพดานหลังคาภายในดีไซน์ M บุด้วยวัสดุ Alcantara สี Anthracite",
                             "value": "■"
                         },
                         {
@@ -281,11 +281,11 @@
                     "category": "ความปลอดภัย",
                     "details": [
                         {
-                            "topic": "ถุงลมนิรภัยสําหรับคนขับและผู้โดยสารตอนหน้า",
+                            "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า",
                             "value": "■"
                         },
                         {
-                            "topic": "ถุงลมนิรภัยด้านข้างสําหรับคนขับและผู้โดยสารตอนหน้า",
+                            "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า",
                             "value": "■"
                         },
                         {
@@ -301,7 +301,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบควบคุมเสถียรภาพการขับซี่ (DSC)",
+                            "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC)",
                             "value": "■"
                         },
                         {
@@ -433,8 +433,14 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "images": {
+                "Brooklyn Grey Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_brooklyn_grey_metallic.png",
+                "Black Sapphire Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_black_sapphire_metallic.png",
+                "Mineral White Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_mineral_white_metallic.png"
+            }
         }
     ],
-    "source_file": "X7-20260529-01_TH.pdf.asset.1782451059580.pdf"
+    "source_file": "X7-20260529-01_TH.pdf.asset.1782451095961.pdf",
+    "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/X7-20260529-01_TH.pdf.asset.1782451095961.pdf"
 }
