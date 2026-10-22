@@ -43823,6 +43823,617 @@
             }
         ],
         "source_file": "7-20250130-02_TH.pdf.asset.1745407582934.pdf",
-        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/2025/7-20250130-02_TH.pdf.asset.1745407582934.pdf"
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/2025/7-20250130-02_TH.pdf.asset.1745407582934.pdf",
+        "low_confidence_flags": [
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ชนิดเครื่องยนต์ / Engine type",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 1: English is 'Engine type' (mapped: 'engine type'), Thai is 'ชนิดเครื่องยนต์' (mapped: 'ชนิดเครื่องยนต์')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร) / Displacement (cm³)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 2: English is 'Displacement (cm³)' (mapped: 'displacement (cm³)'), Thai is 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)' (mapped: 'ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที) / Engine power (kW/hp/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 3: English is 'Engine power (kW/hp/rpm)' (mapped: 'engine power (kw/hp/rpm)'), Thai is 'กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)' (mapped: 'max. output (kw/hp/rpm)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที) / Engine torque (Nm/rpm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 4: English is 'Engine torque (Nm/rpm)' (mapped: 'engine torque (nm/rpm)'), Thai is 'แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)' (mapped: 'max. torque (nm/rpm)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า) / Electric motor power (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 5: English is 'Electric motor power (kW/hp)' (mapped: 'electric motor power (kw/hp)'), Thai is 'กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร) / Electric motor torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 6: English is 'Electric motor torque (Nm)' (mapped: 'electric motor torque (nm)'), Thai is 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดมอเตอร์ไฟฟ้าสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน NEDC (กิโลเมตร) / Electrical range¹, NEDC (km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 7: English is 'Electrical range¹, NEDC (km)' (mapped: 'electrical range¹, nedc (km)'), Thai is 'ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน NEDC (กิโลเมตร)' (mapped: 'ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน nedc (กิโลเมตร)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน WLTP (กิโลเมตร) / Electric range¹, WLTP (km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 8: English is 'Electric range¹, WLTP (km)' (mapped: 'electric range¹, wltp (km)'), Thai is 'ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน WLTP (กิโลเมตร)' (mapped: 'ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน wltp (กิโลเมตร)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ความจุพลังงานแบตเตอรี่แรงสูง (กิโลวัตต์-ชั่วโมง) / High voltage battery energy content (kWh)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 9: English is 'High voltage battery energy content (kWh)' (mapped: 'high voltage battery energy content (kwh)'), Thai is 'ความจุพลังงานแบตเตอรี่แรงสูง (กิโลวัตต์-ชั่วโมง)' (mapped: 'ความจุพลังงานแบตเตอรี่แรงสูง (กิโลวัตต์-ชั่วโมง)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า) / System output (kW/hp)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 10: English is 'System output (kW/hp)' (mapped: 'system output (kw/hp)'), Thai is 'กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า)' (mapped: 'กำลังรวมสูงสุด (กิโลวัตต์/แรงม้า)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "แรงบิดรวมสูงสุด (นิวตันเมตร) / System torque (Nm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 11: English is 'System torque (Nm)' (mapped: 'system torque (nm)'), Thai is 'แรงบิดรวมสูงสุด (นิวตันเมตร)' (mapped: 'แรงบิดรวมสูงสุด (นิวตันเมตร)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ความเร็วสูงสุดในการขับขี่แบบไฟฟ้า (กิโลเมตร/ชั่วโมง) / Top speed electric (km/h)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 13: English is 'Top speed electric (km/h)' (mapped: 'top speed electric (km/h)'), Thai is 'ความเร็วสูงสุดในการขับขี่แบบไฟฟ้า (กิโลเมตร/ชั่วโมง)' (mapped: 'ความเร็วสูงสุดในการขับขี่แบบไฟฟ้า (กิโลเมตร/ชั่วโมง)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที) / 0 - 100 km/h (s)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 14: English is '0 - 100 km/h (s)' (mapped: '0 - 100 km/h (s)'), Thai is 'อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)' (mapped: 'acceleration 0 - 100 km/h (s)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, NEDC (kWh/100 km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 15: English is 'Electric energy consumption, NEDC (kWh/100 km)' (mapped: 'electric energy consumption, nedc (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน nedc (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร) / Electric energy consumption, WLTP (kWh/100 km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 16: English is 'Electric energy consumption, WLTP (kWh/100 km)' (mapped: 'electric energy consumption, wltp (kwh/100 km)'), Thai is 'อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)' (mapped: 'อัตราการใช้ไฟฟ้า, มาตรฐาน wltp (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์) / Maximum AC charging power (kW)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 17: English is 'Maximum AC charging power (kW)' (mapped: 'maximum ac charging power (kw)'), Thai is 'กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)' (mapped: 'กำลังการชาร์จแบบกระแสสลับ (ac) สูงสุด (กิโลวัตต์)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100% / AC charging time 0 - 100%",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 18: English is 'AC charging time 0 - 100%' (mapped: 'ac charging time 0 - 100%'), Thai is 'ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%' (mapped: 'ระยะเวลาในการชาร์จแบบกระแสสลับ (ac) จาก 0 - 100%')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "FUEL CONSUMPTION AND CO₂",
+                "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร) / Combined fuel consumption from ECO Sticker result (km/l)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'FUEL CONSUMPTION AND CO₂' at position 1: English is 'Combined fuel consumption from ECO Sticker result (km/l)' (mapped: 'combined fuel consumption from eco sticker result (km/l)'), Thai is 'อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)' (mapped: 'fuel consumption combined (km/l)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "FUEL CONSUMPTION AND CO₂",
+                "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร) / Combined CO₂ (g/km)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'FUEL CONSUMPTION AND CO₂' at position 2: English is 'Combined CO₂ (g/km)' (mapped: 'combined co₂ (g/km)'), Thai is 'ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)' (mapped: 'co2 emission combined (g/km)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "WHEELS AND TYRES",
+                "topic": "ล้อ / Wheels",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'WHEELS AND TYRES' at position 1: English is 'Wheels' (mapped: 'wheels'), Thai is 'ล้อ' (mapped: 'ล้อ')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "DIMENSION",
+                "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร) / Length / width / height (mm)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'DIMENSION' at position 1: English is 'Length / width / height (mm)' (mapped: 'length / width / height (mm)'), Thai is 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)' (mapped: 'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "DIMENSION",
+                "topic": "ปริมาตรในการบรรจุของ (ลิตร) / Luggage capacity (l)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'DIMENSION' at position 2: English is 'Luggage capacity (l)' (mapped: 'luggage capacity (l)'), Thai is 'ปริมาตรในการบรรจุของ (ลิตร)' (mapped: 'ปริมาตรในการบรรจุของ (ลิตร)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "DIMENSION",
+                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม) / Curb weight (kg)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'DIMENSION' at position 3: English is 'Curb weight (kg)' (mapped: 'curb weight (kg)'), Thai is 'น้ำหนักรถสุทธิ (กิโลกรัม)' (mapped: 'น้ำหนักรถสุทธิ (กิโลกรัม)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Transmission and technology",
+                "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ Sport Steptronic / 8-speed Steptronic Sport transmission",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 1: English is '8-speed Steptronic Sport transmission' (mapped: '8-speed steptronic sport transmission'), Thai is 'เกียร์อัตโนมัติ 8 จังหวะ แบบ Sport Steptronic' (mapped: 'เกียร์อัตโนมัติ 8 จังหวะ แบบ sport steptronic')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Transmission and technology",
+                "topic": "ระบบขับเคลื่อนอัจฉริยะ 4 ล้อ xDrive / xDrive",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 2: English is 'xDrive' (mapped: 'xdrive'), Thai is 'ระบบขับเคลื่อนอัจฉริยะ 4 ล้อ xDrive' (mapped: 'ระบบขับเคลื่อนอัจฉริยะ 4 ล้อ xdrive')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Transmission and technology",
+                "topic": "ระบบช่วยการขับขี่ รุ่น Professional (Driving Assistant Professional) / Driving Assistant Professional",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 3: English is 'Driving Assistant Professional' (mapped: 'driving assistant professional'), Thai is 'ระบบช่วยการขับขี่ รุ่น Professional (Driving Assistant Professional)' (mapped: 'ระบบช่วยการขับขี่ รุ่น professional (driving assistant professional)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Transmission and technology",
+                "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Professional (Parking Assistant Professional) / Parking Assistant Professional",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 4: English is 'Parking Assistant Professional' (mapped: 'parking assistant professional'), Thai is 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Professional (Parking Assistant Professional)' (mapped: 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น professional (parking assistant professional)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Transmission and technology",
+                "topic": "ระบบ BMW Head-up Display / BMW Head-up Display",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 5: English is 'BMW Head-up Display' (mapped: 'bmw head-up display'), Thai is 'ระบบ BMW Head-up Display' (mapped: 'ระบบ bmw head-up display')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Transmission and technology",
+                "topic": "ช่วงล่างถุงลม Adaptive 2-axle / Adaptive 2-axle air suspension",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 6: English is 'Adaptive 2-axle air suspension' (mapped: 'adaptive 2-axle air suspension'), Thai is 'ช่วงล่างถุงลม Adaptive 2-axle' (mapped: 'ช่วงล่างถุงลม adaptive 2-axle')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Transmission and technology",
+                "topic": "ระบบปรับองศาของล้อหลังเพื่อการเข้าโค้งหรือเลี้ยว (Integral Active Steering) / Integral Active Steering",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 7: English is 'Integral Active Steering' (mapped: 'integral active steering'), Thai is 'ระบบปรับองศาของล้อหลังเพื่อการเข้าโค้งหรือเลี้ยว (Integral Active Steering)' (mapped: 'ระบบปรับองศาของล้อหลังเพื่อการเข้าโค้งหรือเลี้ยว (integral active steering)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Transmission and technology",
+                "topic": "ระบบควบคุมช่วงล่าง (Executive Drive Pro) / Executive Drive Pro",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Transmission and technology' at position 8: English is 'Executive Drive Pro' (mapped: 'executive drive pro'), Thai is 'ระบบควบคุมช่วงล่าง (Executive Drive Pro)' (mapped: 'ระบบควบคุมช่วงล่าง (executive drive pro)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Exterior",
+                "topic": "หลังคากระจก Panorama / Panorama glass roof Sky Lounge",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 1: English is 'Panorama glass roof Sky Lounge' (mapped: 'panorama glass roof sky lounge'), Thai is 'หลังคากระจก Panorama' (mapped: 'หลังคากระจก panorama')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Exterior",
+                "topic": "กระจังหน้า BMW kidney 'Iconic Glow' / BMW kidney 'Iconic Glow'",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 2: English is 'BMW kidney 'Iconic Glow'' (mapped: 'bmw kidney 'iconic glow''), Thai is 'กระจังหน้า BMW kidney 'Iconic Glow'' (mapped: 'กระจังหน้า bmw kidney 'iconic glow'')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Exterior",
+                "topic": "ระบบไฟหน้า BMW crystal headlights Iconic Glow / BMW crystal headlights Iconic Glow",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 3: English is 'BMW crystal headlights Iconic Glow' (mapped: 'bmw crystal headlights iconic glow'), Thai is 'ระบบไฟหน้า BMW crystal headlights Iconic Glow' (mapped: 'ระบบไฟหน้า bmw crystal headlights iconic glow')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Exterior",
+                "topic": "ภายนอกตกแต่งด้วยวัสดุสีดำเงา / M high-gloss Shadowline",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 4: English is 'M high-gloss Shadowline' (mapped: 'm high-gloss shadowline'), Thai is 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา' (mapped: 'ภายนอกตกแต่งด้วยวัสดุสีดำเงา')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Exterior",
+                "topic": "ภายนอกพร้อมชุดตกแต่งด้วยวัสดุสีดำเงา / M High-gloss Shadowline with Extended Contents",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 5: English is 'M High-gloss Shadowline with Extended Contents' (mapped: 'm high-gloss shadowline with extended contents'), Thai is 'ภายนอกพร้อมชุดตกแต่งด้วยวัสดุสีดำเงา' (mapped: 'ภายนอกพร้อมชุดตกแต่งด้วยวัสดุสีดำเงา')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Exterior",
+                "topic": "สปอยเลอร์หลังดีไซน์ M / M rear spoiler",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 6: English is 'M rear spoiler' (mapped: 'm rear spoiler'), Thai is 'สปอยเลอร์หลังดีไซน์ M' (mapped: 'สปอยเลอร์หลังดีไซน์ m')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Exterior",
+                "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สีดำเงา / M Sport brake, black high-gloss",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 7: English is 'M Sport brake, black high-gloss' (mapped: 'm sport brake, black high-gloss'), Thai is 'คาลิเปอร์เบรกดีไซน์ M Sport สีดำเงา' (mapped: 'คาลิเปอร์เบรกดีไซน์ m sport สีดำเงา')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Exterior",
+                "topic": "ชุดตกแต่งภายนอกแบบ M Sport / M Sport exterior parts",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 8: English is 'M Sport exterior parts' (mapped: 'm sport exterior parts'), Thai is 'ชุดตกแต่งภายนอกแบบ M Sport' (mapped: 'ชุดตกแต่งภายนอกแบบ m sport')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Exterior",
+                "topic": "ระบบปลดล็อกประตูอัจฉริยะ / Comfort Access System",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 9: English is 'Comfort Access System' (mapped: 'comfort access system'), Thai is 'ระบบปลดล็อกประตูอัจฉริยะ' (mapped: 'ระบบปลดล็อกประตูอัจฉริยะ')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Exterior",
+                "topic": "ระบบประตูเปิดและปิดอัตโนมัติ / Automatic Doors",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 10: English is 'Automatic Doors' (mapped: 'automatic doors'), Thai is 'ระบบประตูเปิดและปิดอัตโนมัติ' (mapped: 'ระบบประตูเปิดและปิดอัตโนมัติ')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Exterior",
+                "topic": "ระบบช่วยผ่อนแรงกระแทกขณะปิดประตู / Soft-close function for doors",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Exterior' at position 11: English is 'Soft-close function for doors' (mapped: 'soft-close function for doors'), Thai is 'ระบบช่วยผ่อนแรงกระแทกขณะปิดประตู' (mapped: 'ระบบช่วยผ่อนแรงกระแทกขณะปิดประตู')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "เบาะนั่งตอนหน้าและหลังพร้อมระบบ Heater / Seat heating front and rear",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 1: English is 'Seat heating front and rear' (mapped: 'seat heating front and rear'), Thai is 'เบาะนั่งตอนหน้าและหลังพร้อมระบบ Heater' (mapped: 'เบาะนั่งตอนหน้าและหลังพร้อมระบบ heater')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "ฟังก์ชันนวดผ่อนคลายสำหรับผู้ขับขี่ / Massage function front",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 2: English is 'Massage function front' (mapped: 'massage function front'), Thai is 'ฟังก์ชันนวดผ่อนคลายสำหรับผู้ขับขี่' (mapped: 'ฟังก์ชันนวดผ่อนคลายสำหรับผู้ขับขี่')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "ฟังก์ชันนวดผ่อนคลายสำหรับผู้โดยสารตอนหลัง / Massage function for rear-seat passengers",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 3: English is 'Massage function for rear-seat passengers' (mapped: 'massage function for rear-seat passengers'), Thai is 'ฟังก์ชันนวดผ่อนคลายสำหรับผู้โดยสารตอนหลัง' (mapped: 'ฟังก์ชันนวดผ่อนคลายสำหรับผู้โดยสารตอนหลัง')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "ระบบระบายอากาศสำหรับเบาะนั่งตอนหน้า / Active seat ventilation in the front seats",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 4: English is 'Active seat ventilation in the front seats' (mapped: 'active seat ventilation in the front seats'), Thai is 'ระบบระบายอากาศสำหรับเบาะนั่งตอนหน้า' (mapped: 'ระบบระบายอากาศสำหรับเบาะนั่งตอนหน้า')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "ระบบระบายอากาศสำหรับเบาะนั่งตอนหลัง / Active seat ventilation, rear",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 5: English is 'Active seat ventilation, rear' (mapped: 'active seat ventilation, rear'), Thai is 'ระบบระบายอากาศสำหรับเบาะนั่งตอนหลัง' (mapped: 'ระบบระบายอากาศสำหรับเบาะนั่งตอนหลัง')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "เบาะนั่งตอนหน้าแบบ multifunctional / Multifunctional seats for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 6: English is 'Multifunctional seats for driver and front passenger' (mapped: 'multifunctional seats for driver and front passenger'), Thai is 'เบาะนั่งตอนหน้าแบบ multifunctional' (mapped: 'เบาะนั่งตอนหน้าแบบ multifunctional')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "เบาะนั่งตอนหลังแบบ multifunctional / Multifunction seats at rear",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 7: English is 'Multifunction seats at rear' (mapped: 'multifunction seats at rear'), Thai is 'เบาะนั่งตอนหลังแบบ multifunctional' (mapped: 'เบาะนั่งตอนหลังแบบ multifunctional')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "พวงมาลัยหุ้มหนังดีไซน์ M / M Leather steering wheel",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 8: English is 'M Leather steering wheel' (mapped: 'm leather steering wheel'), Thai is 'พวงมาลัยหุ้มหนังดีไซน์ M' (mapped: 'พวงมาลัยหุ้มหนังดีไซน์ m')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "ภายในห้องโดยสารตกแต่งด้วย Carbon Fibre ถักด้วยวัสดุสีเงินแบบ M คอนโซลกลางสีดำเงาแบบ Piano Finish Black / Carbon Fibre M interior trim with silver stitching/Piano Finish Black",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 9: English is 'Carbon Fibre M interior trim with silver stitching/Piano Finish Black' (mapped: 'carbon fibre m interior trim with silver stitching/piano finish black'), Thai is 'ภายในห้องโดยสารตกแต่งด้วย Carbon Fibre ถักด้วยวัสดุสีเงินแบบ M คอนโซลกลางสีดำเงาแบบ Piano Finish Black' (mapped: 'ภายในห้องโดยสารตกแต่งด้วย carbon fibre ถักด้วยวัสดุสีเงินแบบ m คอนโซลกลางสีดำเงาแบบ piano finish black')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "ภายในตกแต่งด้วยผลึกแก้ว 'CraftedClarity' / Glass application 'CraftedClarity' for interior elements",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 10: English is 'Glass application 'CraftedClarity' for interior elements' (mapped: 'glass application 'craftedclarity' for interior elements'), Thai is 'ภายในตกแต่งด้วยผลึกแก้ว 'CraftedClarity'' (mapped: 'ภายในตกแต่งด้วยผลึกแก้ว 'craftedclarity'')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "ชุดตกแต่งภายใน BMW Individual / BMW Individual Interior",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 11: English is 'BMW Individual Interior' (mapped: 'bmw individual interior'), Thai is 'ชุดตกแต่งภายใน BMW Individual' (mapped: 'ชุดตกแต่งภายใน bmw individual')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "เพดานหลังคาภายในบุด้วยวัสดุ Alcantara สี Anthracite / M headliner Alcantara anthracite",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 12: English is 'M headliner Alcantara anthracite' (mapped: 'm headliner alcantara anthracite'), Thai is 'เพดานหลังคาภายในบุด้วยวัสดุ Alcantara สี Anthracite' (mapped: 'เพดานหลังคาภายในบุด้วยวัสดุ alcantara สี anthracite')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "ภายในตกแต่งดีไซน์ M Sport / M Sport interior parts",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 13: English is 'M Sport interior parts' (mapped: 'm sport interior parts'), Thai is 'ภายในตกแต่งดีไซน์ M Sport' (mapped: 'ภายในตกแต่งดีไซน์ m sport')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light) / Ambient light",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 14: English is 'Ambient light' (mapped: 'ambient light'), Thai is 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)' (mapped: 'ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (ambient light)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "ม่านบังแดดที่ประตูหลังและกระจกหลัง / Roller sunblinds",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 15: English is 'Roller sunblinds' (mapped: 'roller sunblinds'), Thai is 'ม่านบังแดดที่ประตูหลังและกระจกหลัง' (mapped: 'ม่านบังแดดที่ประตูหลังและกระจกหลัง')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "ระบบปรับอากาศอัตโนมัติแบบ 4 โซน / 4-Zone Automatic air conditioning",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 16: English is '4-Zone Automatic air conditioning' (mapped: '4-zone automatic air conditioning'), Thai is 'ระบบปรับอากาศอัตโนมัติแบบ 4 โซน' (mapped: 'ระบบปรับอากาศอัตโนมัติแบบ 4 โซน')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "ระบบประตูเปิดและปิดอัตโนมัติ / Automatic Doors",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 17: English is 'Automatic Doors' (mapped: 'automatic doors'), Thai is 'ระบบประตูเปิดและปิดอัตโนมัติ' (mapped: 'ระบบประตูเปิดและปิดอัตโนมัติ')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Interior",
+                "topic": "เบาะนั่งตอนหลังแบบ Executive lounge / Executive Lounge seating",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Interior' at position 18: English is 'Executive Lounge seating' (mapped: 'executive lounge seating'), Thai is 'เบาะนั่งตอนหลังแบบ Executive lounge' (mapped: 'เบาะนั่งตอนหลังแบบ executive lounge')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Entertainment and communication",
+                "topic": "ระบบ BMW ConnectedDrive / BMW ConnectedDrive",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 2: English is 'BMW ConnectedDrive' (mapped: 'bmw connecteddrive'), Thai is 'ระบบ BMW ConnectedDrive' (mapped: 'ระบบ bmw connecteddrive')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Entertainment and communication",
+                "topic": "ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins / Bowers & Wilkins surround sound system",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 3: English is 'Bowers & Wilkins surround sound system' (mapped: 'bowers & wilkins surround sound system'), Thai is 'ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins' (mapped: 'ระบบเสียงรอบทิศทางคุณภาพสูง bowers & wilkins')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Entertainment and communication",
+                "topic": "ระบบจำลองเสียงเครื่องยนต์ Iconic sounds electric / BMW IconicSounds Electric",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 4: English is 'BMW IconicSounds Electric' (mapped: 'bmw iconicsounds electric'), Thai is 'ระบบจำลองเสียงเครื่องยนต์ Iconic sounds electric' (mapped: 'ระบบจำลองเสียงเครื่องยนต์ iconic sounds electric')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Entertainment and communication",
+                "topic": "แผงควบคุมบริเวณแผงประตู BMW Touch Command / BMW Touch Command",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 6: English is 'BMW Touch Command' (mapped: 'bmw touch command'), Thai is 'แผงควบคุมบริเวณแผงประตู BMW Touch Command' (mapped: 'แผงควบคุมบริเวณแผงประตู bmw touch command')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Entertainment and communication",
+                "topic": "ระบบจอภาพสำหรับผู้โดยสารตอนหลัง BMW Theatre Screen / BMW Theatre Screen",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 7: English is 'BMW Theatre Screen' (mapped: 'bmw theatre screen'), Thai is 'ระบบจอภาพสำหรับผู้โดยสารตอนหลัง BMW Theatre Screen' (mapped: 'ระบบจอภาพสำหรับผู้โดยสารตอนหลัง bmw theatre screen')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Entertainment and communication",
+                "topic": "ระบบเชื่อมต่อ Smartphone / Smartphone integration",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 8: English is 'Smartphone integration' (mapped: 'smartphone integration'), Thai is 'ระบบเชื่อมต่อ Smartphone' (mapped: 'ระบบเชื่อมต่อ smartphone')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Entertainment and communication",
+                "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM) / Personal eSIM",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 9: English is 'Personal eSIM' (mapped: 'personal esim'), Thai is 'ระบบ eSIM ส่วนบุคคล (Personal eSIM)' (mapped: 'ระบบ esim ส่วนบุคคล (personal esim)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Entertainment and communication",
+                "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย / Wireless charging tray",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Entertainment and communication' at position 10: English is 'Wireless charging tray' (mapped: 'wireless charging tray'), Thai is 'ระบบชาร์จโทรศัพท์แบบไร้สาย' (mapped: 'ระบบชาร์จโทรศัพท์แบบไร้สาย')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า / Airbag for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 1: English is 'Airbag for driver and front passenger' (mapped: 'airbag for driver and front passenger'), Thai is 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า / Side airbags for driver and front passenger",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 2: English is 'Side airbags for driver and front passenger' (mapped: 'side airbags for driver and front passenger'), Thai is 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง) / Head airbags for 1st and 2nd seat row",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 3: English is 'Head airbags for 1st and 2nd seat row' (mapped: 'head airbags for 1st and 2nd seat row'), Thai is 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)' (mapped: 'ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ) / Central airbag (driver's seat)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 4: English is 'Central airbag (driver's seat)' (mapped: 'central airbag (driver's seat)'), Thai is 'ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ)' (mapped: 'ถุงลมนิรภัยกลางห้องโดยสาร (บริเวณเบาะคนขับ)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "ระบบ Teleservices / Teleservices",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 5: English is 'Teleservices' (mapped: 'teleservices'), Thai is 'ระบบ Teleservices' (mapped: 'ระบบ teleservices')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call) / Intelligent Emergency Call",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 6: English is 'Intelligent Emergency Call' (mapped: 'intelligent emergency call'), Thai is 'ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)' (mapped: 'ปุ่มโทรออกฉุกเฉิน (intelligent emergency call)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "ตัวยึดคาร์ซีทสำหรับเด็ก ISOFIX / ISOFIX child seat mounting",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 7: English is 'ISOFIX child seat mounting' (mapped: 'isofix child seat mounting'), Thai is 'ตัวยึดคาร์ซีทสำหรับเด็ก ISOFIX' (mapped: 'ตัวยึดคาร์ซีทสำหรับเด็ก isofix')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC) / Dynamic Stability Control (DSC)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 8: English is 'Dynamic Stability Control (DSC)' (mapped: 'dynamic stability control (dsc)'), Thai is 'ระบบควบคุมเสถียรภาพการขับขี่ (DSC)' (mapped: 'ระบบควบคุมเสถียรภาพการขับขี่ (dsc)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS) / Anti-lock braking system (ABS)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 9: English is 'Anti-lock braking system (ABS)' (mapped: 'anti-lock braking system (abs)'), Thai is 'ระบบป้องกันล้อล็อกขณะเบรก (ABS)' (mapped: 'ระบบป้องกันล้อล็อกขณะเบรก (abs)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist) / Brake Assist (BA)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 10: English is 'Brake Assist (BA)' (mapped: 'brake assist (ba)'), Thai is 'ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist)' (mapped: 'ระบบช่วยเสริมแรงเบรกอัตโนมัติ (brake assist)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor) / Crash sensor",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 11: English is 'Crash sensor' (mapped: 'crash sensor'), Thai is 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)' (mapped: 'เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (crash sensor)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "ระบบสร้างเสียงจำลองเตือนผู้ใช้ถนนรอบข้าง / Acoustic protection for pedestrians",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 12: English is 'Acoustic protection for pedestrians' (mapped: 'acoustic protection for pedestrians'), Thai is 'ระบบสร้างเสียงจำลองเตือนผู้ใช้ถนนรอบข้าง' (mapped: 'ระบบสร้างเสียงจำลองเตือนผู้ใช้ถนนรอบข้าง')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "ระบบตรวจวัดลมยาง / Tyre Pressure Monitoring System",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 13: English is 'Tyre Pressure Monitoring System' (mapped: 'tyre pressure monitoring system'), Thai is 'ระบบตรวจวัดลมยาง' (mapped: 'ระบบตรวจวัดลมยาง')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "ชุดปะยางฉุกเฉิน / Tyre repair kit",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 14: English is 'Tyre repair kit' (mapped: 'tyre repair kit'), Thai is 'ชุดปะยางฉุกเฉิน' (mapped: 'ชุดปะยางฉุกเฉิน')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Safety",
+                "topic": "ระบบสัญญาณกันขโมย / Alarm System",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 15: English is 'Alarm System' (mapped: 'alarm system'), Thai is 'ระบบสัญญาณกันขโมย' (mapped: 'ระบบสัญญาณกันขโมย')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Line / package",
+                "topic": "ชุดตกแต่ง M Performance / M Performance package",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Line / package' at position 1: English is 'M Performance package' (mapped: 'm performance package'), Thai is 'ชุดตกแต่ง M Performance' (mapped: 'ชุดตกแต่ง m performance')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Document References",
+                "topic": "วันที่พิมพ์เอกสาร / Publication Date",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Value mismatch for 'วันที่พิมพ์เอกสาร' / 'Publication Date': Thai has 'วั นที่ 27 กุมภาพั นธ์ 2568', English has '27 February 2025'"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Document References",
+                "topic": "รหัสแพ็กเกจ (Local Pack) / Local package code",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Local package code' (mapped: 'local package code'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Document References",
+                "topic": "หมายเหตุการชาร์จ AC / AC Charging Reference Note",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 3: English is 'AC Charging Reference Note' (mapped: 'ac charging reference note'), Thai is 'หมายเหตุการชาร์จ AC' (mapped: 'หมายเหตุการชาร์จ ac')"
+            }
+        ]
     }
 ]
