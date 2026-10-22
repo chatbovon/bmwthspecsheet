@@ -445,7 +445,13 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "images": {
+                "M Portimao Blue metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_m_portimao_blue_metallic.png",
+                "M Brooklyn Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_m_brooklyn_grey_metallic.png",
+                "Black Sapphire metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_black_sapphire_metallic.png",
+                "Mineral White metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_mineral_white_metallic.png"
+            }
         },
         {
             "model_name": "330e M Sport",
@@ -890,7 +896,13 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "images": {
+                "M Brooklyn Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_m_brooklyn_grey_metallic.png",
+                "Black Sapphire metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_black_sapphire_metallic.png",
+                "M Portimao Blue metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_m_portimao_blue_metallic.png",
+                "Mineral White metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_mineral_white_metallic.png"
+            }
         },
         {
             "model_name": "M340i xDrive",
@@ -1335,7 +1347,14 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "images": {
+                "BMW Individual Dravit Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_bmw_individual_dravit_grey_metallic.png",
+                "M Brooklyn Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_m_brooklyn_grey_metallic.png",
+                "Black Sapphire metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_black_sapphire_metallic.png",
+                "M Portimao Blue metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_m_portimao_blue_metallic.png",
+                "Mineral White metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_mineral_white_metallic.png"
+            }
         }
     ],
     "source_file": "3-20250625-01_EN.pdf.asset.1763550156076.pdf",
