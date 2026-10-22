@@ -167,7 +167,8 @@ def run_batch_extraction(lang="th", target_file=None):
                         # Stage updated files
                         subprocess.run(["git", "add", output_file], check=False)
                         subprocess.run(["git", "add", "-f", compat_file], check=False)
-                        subprocess.run(["git", "add", "-f", pdf_path], check=False)
+                        # PDFs are managed by Google Drive sync and workflow fallback, do not force-add to git
+                        # subprocess.run(["git", "add", "-f", pdf_path], check=False)
                         
                         # Commit progress
                         subprocess.run(["git", "commit", "-m", f"Auto-update: Processed {filename} [skip ci]"], check=False)

@@ -309,13 +309,62 @@ def check_overrides_stats():
     except:
         return 0, 0
 
+# Check Google Drive Upload Status
+def audit_gdrive_status():
+    status_file = os.path.join(BASE_DIR, "scratch", "gdrive_status.json")
+    if not os.path.exists(status_file):
+        return None
+    try:
+        with open(status_file, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"[WARNING] Could not read gdrive_status.json: {e}")
+        return None
+
 # Compile HTML Report
-def generate_html_report(added_pdfs, removed_pdfs, missing_imgs, total_non_m, models_missing_imgs, discrepancies, total_checks, api_status, files_overridden, total_rules, uncategorized=None):
+def generate_html_report(added_pdfs, removed_pdfs, missing_imgs, total_non_m, models_missing_imgs, discrepancies, total_checks, api_status, files_overridden, total_rules, uncategorized=None, gdrive_status=None):
     # Calculate health score
     health_score = 100.0
     if total_checks > 0:
         health_score = max(0.0, 100.0 - (len(discrepancies) / total_checks * 100.0))
         
+    # Google Drive Status Banner
+    gdrive_html = ""
+    if gdrive_status:
+        g_status = gdrive_status.get("status")
+        g_uploaded = gdrive_status.get("uploaded_count", 0)
+        g_skipped = gdrive_status.get("skipped_count", 0)
+        g_failed = gdrive_status.get("failed_count", 0)
+        g_msg = gdrive_status.get("message", "")
+        failed_files = gdrive_status.get("failed_files", [])
+
+        if g_status == "failed" or g_failed > 0:
+            file_list_str = "<br>".join([f"• {fn}" for fn in failed_files[:10]])
+            if len(failed_files) > 10:
+                file_list_str += f"<br>• ... and {len(failed_files) - 10} more files."
+            gdrive_html = f"""
+            <div style="background-color: #fff3f3; border: 2px solid #dc3545; border-radius: 8px; padding: 16px; margin-bottom: 24px; font-family: Arial, sans-serif;">
+              <h3 style="color: #dc3545; margin-top: 0; font-size: 18px; display: flex; align-items: center; gap: 8px;">
+                🚨 [ALERT] การสำรองไฟล์ขึ้น Google Drive ไม่สมบูรณ์ / ขัดข้อง!
+              </h3>
+              <p style="margin: 0 0 10px 0; color: #721c24; font-size: 14px; line-height: 1.5;">
+                <strong>สาเหตุ:</strong> {g_msg}<br>
+                <strong>ไฟล์ที่อัปโหลดไม่ผ่าน:</strong> <span style="color: #dc3545; font-weight: bold;">{g_failed} ไฟล์</span> (สำเร็จ: {g_uploaded}, ข้าม: {g_skipped})<br>
+                <strong>ระบบสำรองฉุกเฉิน (Fallback):</strong> ระบบได้นำไฟล์ PDF ค้างไว้บน <strong>GitHub Repository</strong> เป็นการชั่วคราวแล้ว ไฟล์จะไม่สูญหาย เมื่อแก้ไขสิทธิ์ Google Drive เสร็จแล้ว รอบถัดไปจะอัปขึ้น Drive และเคลียร์ออกจาก Git ให้โดยอัตโนมัติ
+              </p>
+              <div style="font-size: 12px; color: #491217; background-color: #f8d7da; padding: 10px; border-radius: 4px; max-height: 140px; overflow-y: auto;">
+                {file_list_str}
+              </div>
+            </div>
+            """
+        else:
+            gdrive_html = f"""
+            <div style="background-color: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 6px; padding: 12px 16px; margin-bottom: 20px; font-family: Arial, sans-serif;">
+              <span style="color: #2e7d32; font-size: 14px; font-weight: bold;">☁️ Google Drive Backup:</span>
+              <span style="color: #2e7d32; font-size: 14px;"> สำรองไฟล์ PDF ขึ้น Google Drive เรียบร้อยสมบูรณ์ ({g_uploaded} ไฟล์ใหม่ถูกอัปโหลด, {g_skipped} ไฟล์เดิมข้าม, ไม่มีไฟล์ตกค้าง)</span>
+            </div>
+            """
+
     # Uncategorized Series Alert Banner (Category 99)
     uncategorized_html = ""
     if uncategorized:
@@ -432,6 +481,7 @@ def generate_html_report(added_pdfs, removed_pdfs, missing_imgs, total_non_m, mo
         <!-- Main Content -->
         <div style="padding: 20px; font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
           
+          {gdrive_html}
           {uncategorized_html}
 
           <!-- 1. PDF Updates -->
@@ -518,6 +568,9 @@ def main():
     print("[AUDIT] Fetching override rules...")
     files_overridden, total_rules = check_overrides_stats()
     
+    print("[AUDIT] Checking Google Drive backup status...")
+    gdrive_status = audit_gdrive_status()
+
     # Generate HTML Report body
     print("[REPORT] Formatting HTML body...")
     html_body = generate_html_report(
@@ -525,7 +578,8 @@ def main():
         total_non_m, models_missing_imgs, 
         discrepancies, total_checks, 
         api_status, files_overridden, total_rules,
-        uncategorized=uncategorized
+        uncategorized=uncategorized,
+        gdrive_status=gdrive_status
     )
     
     # Send via Google Apps Script (GAS) Web App
@@ -537,8 +591,10 @@ def main():
         
     print("[POST] Sending email report to Google Apps Script Web App...")
     subject_prefix = ""
+    if gdrive_status and (gdrive_status.get("status") == "failed" or gdrive_status.get("failed_count", 0) > 0):
+        subject_prefix += "🚨 [ALERT: GDrive Backup Failed] "
     if uncategorized:
-        subject_prefix = f"🚨 [ALERT: {len(uncategorized)} Uncategorized Series (หมวด 99)] "
+        subject_prefix += f"🚨 [ALERT: {len(uncategorized)} Uncategorized Series (หมวด 99)] "
 
     payload = {
         "secret": GAS_SECRET_TOKEN,

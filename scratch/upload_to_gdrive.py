@@ -59,7 +59,46 @@ def upload_pdf_to_folder(service, folder_id, file_path):
         print(f"   -> [ERROR] Failed to upload {filename}: {e}")
         return False
 
+def save_status(status, message, uploaded=0, skipped=0, failed=0, failed_files=None):
+    workspace_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    status_file = os.path.join(workspace_dir, "scratch", "gdrive_status.json")
+    data = {
+        "status": status,
+        "message": message,
+        "uploaded_count": uploaded,
+        "skipped_count": skipped,
+        "failed_count": failed,
+        "failed_files": failed_files or []
+    }
+    try:
+        os.makedirs(os.path.dirname(status_file), exist_ok=True)
+        with open(status_file, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        print(f"[GDRIVE] Status written to {status_file}")
+    except Exception as e:
+        print(f"[GDRIVE] [WARNING] Could not save status: {e}")
+
 def main():
+    workspace_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    target_dirs = [
+        "bmw_brochures_auto",
+        "bmw_brochures_auto_en",
+        "bmw_brochures_custom",
+        "bmw_brochures_custom_en"
+    ]
+
+    files_to_upload = []
+    for dname in target_dirs:
+        dir_path = os.path.join(workspace_dir, dname)
+        if not os.path.exists(dir_path):
+            continue
+        for fname in os.listdir(dir_path):
+            if fname.lower().endswith(".pdf"):
+                full_path = os.path.join(dir_path, fname)
+                files_to_upload.append((fname, full_path))
+
+    print(f"[GDRIVE] Found {len(files_to_upload)} total local PDFs across directories.")
+
     key_json = os.getenv("GDRIVE_SERVICE_ACCOUNT_KEY")
     client_id = os.getenv("GDRIVE_CLIENT_ID")
     client_secret = os.getenv("GDRIVE_CLIENT_SECRET")
@@ -68,7 +107,8 @@ def main():
     
     if not folder_id:
         print("[GDRIVE] [WARNING] GDRIVE_FOLDER_ID env variable is missing. Skipping upload.")
-        return
+        save_status("failed", "GDRIVE_FOLDER_ID env variable is missing", failed=len(files_to_upload), failed_files=[f[0] for f in files_to_upload])
+        sys.exit(1)
 
     service = None
     if client_id and client_secret and refresh_token:
@@ -79,10 +119,12 @@ def main():
         service = get_drive_service_service_account(key_json)
     else:
         print("[GDRIVE] [WARNING] No Google Drive credentials found. Please set OAuth2 user secrets or a Service Account key.")
-        return
+        save_status("failed", "No Google Drive credentials found in environment", failed=len(files_to_upload), failed_files=[f[0] for f in files_to_upload])
+        sys.exit(1)
 
     if not service:
         print("[GDRIVE] [FATAL] Drive service authentication failed. Exiting with error.")
+        save_status("failed", "Drive service authentication failed", failed=len(files_to_upload), failed_files=[f[0] for f in files_to_upload])
         sys.exit(1)
 
     # 1. Fetch existing files in Google Drive folder
@@ -108,33 +150,14 @@ def main():
         print(f"[GDRIVE] Found {len(existing_files)} existing files on Google Drive.")
     except Exception as e:
         print(f"[GDRIVE] [FATAL] Failed to list folder contents (check token/permissions): {e}")
+        save_status("failed", f"Failed to list folder contents: {e}", failed=len(files_to_upload), failed_files=[f[0] for f in files_to_upload])
         sys.exit(1)
 
-    # 2. Scan local directories
-    workspace_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    target_dirs = [
-        "bmw_brochures_auto",
-        "bmw_brochures_auto_en",
-        "bmw_brochures_custom",
-        "bmw_brochures_custom_en"
-    ]
-
-    files_to_upload = []
-    for dname in target_dirs:
-        dir_path = os.path.join(workspace_dir, dname)
-        if not os.path.exists(dir_path):
-            continue
-        for fname in os.listdir(dir_path):
-            if fname.lower().endswith(".pdf"):
-                full_path = os.path.join(dir_path, fname)
-                files_to_upload.append((fname, full_path))
-
-    print(f"[GDRIVE] Found {len(files_to_upload)} total local PDFs across directories.")
-
-    # 3. Upload only missing files
+    # 2. Upload only missing files
     uploaded_count = 0
     skipped_count = 0
     failed_count = 0
+    failed_files = []
     
     for fname, full_path in files_to_upload:
         if fname in existing_files:
@@ -149,14 +172,19 @@ def main():
                 uploaded_count += 1
             else:
                 failed_count += 1
+                failed_files.append(fname)
 
     print(f"\n[GDRIVE] Sync completed:")
     print(f"  - Uploaded: {uploaded_count} files")
     print(f"  - Skipped: {skipped_count} files")
     print(f"  - Failed: {failed_count} files")
+
     if failed_count > 0:
         print(f"[GDRIVE] [FATAL] {failed_count} files failed to upload to Google Drive.")
+        save_status("failed", f"{failed_count} files failed to upload", uploaded=uploaded_count, skipped=skipped_count, failed=failed_count, failed_files=failed_files)
         sys.exit(1)
+    else:
+        save_status("success", "All files synchronized successfully", uploaded=uploaded_count, skipped=skipped_count, failed=0)
 
 if __name__ == "__main__":
     main()

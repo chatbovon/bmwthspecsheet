@@ -111,9 +111,31 @@ jobs:
         git add bmw_master_specs.json bmw_master_specs_en.json bmw_custom_specs.json bmw_custom_specs_en.json specsheet_audit_report.md .nojekyll generate_model_dossier.py
         git add -f dossier/ || true
         git add -f bmw_ai_specs.json bmw_ai_specs_en.json || true
-        # git add -f bmw_brochures_auto/*.pdf bmw_brochures_auto_en/*.pdf || true
         git add -f images/**/*.png || true
-        if [ -n "$(git status --porcelain bmw_master_specs.json bmw_master_specs_en.json bmw_custom_specs.json bmw_custom_specs_en.json bmw_ai_specs.json bmw_ai_specs_en.json specsheet_audit_report.md dossier/ images/)" ]; then
+
+        # Smart Fallback for PDFs:
+        # If Google Drive failed, commit PDFs to repository as emergency backup so files are not lost.
+        # If Google Drive succeeded, keep repository clean.
+        python -c "
+import json, os, subprocess
+status_file = 'scratch/gdrive_status.json'
+gdrive_ok = False
+if os.path.exists(status_file):
+    try:
+        with open(status_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            if data.get('status') == 'success':
+                gdrive_ok = True
+    except Exception:
+        pass
+if not gdrive_ok:
+    print('[GIT] Google Drive backup incomplete. Staging PDFs as emergency repository backup...')
+    subprocess.run(['git', 'add', '-f', 'bmw_brochures_auto/*.pdf', 'bmw_brochures_auto_en/*.pdf'], check=False)
+else:
+    print('[GIT] Google Drive backup OK. PDFs are safely stored in Google Drive.')
+" || true
+
+        if [ -n "$(git status --porcelain)" ]; then
           git commit -m "Auto-update: New brochures, specifications, images, dossiers and audit report [skip ci]"
           git push
         else
