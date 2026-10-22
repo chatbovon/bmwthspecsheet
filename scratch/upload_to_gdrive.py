@@ -18,7 +18,7 @@ def get_drive_service_service_account(key_json_str):
         creds = service_account.Credentials.from_service_account_info(info, scopes=SCOPES)
         return build('drive', 'v3', credentials=creds)
     except Exception as e:
-        print(f"[GDRIVE] [ERROR] Failed to authenticate service account: {e}")
+        print(f"[GDRIVE] [ERROR] Failed to initialize service account: {e}")
         return None
 
 def get_drive_service_oauth2(client_id, client_secret, refresh_token):
@@ -33,8 +33,50 @@ def get_drive_service_oauth2(client_id, client_secret, refresh_token):
         )
         return build('drive', 'v3', credentials=creds)
     except Exception as e:
-        print(f"[GDRIVE] [ERROR] Failed to authenticate OAuth2 user credentials: {e}")
+        print(f"[GDRIVE] [ERROR] Failed to initialize OAuth2 credentials: {e}")
         return None
+
+def authenticate_drive(key_json, client_id, client_secret, refresh_token, folder_id):
+    """
+    Dual-strategy authentication:
+    1. Prioritize Service Account (Permanent, enterprise-grade, never expires).
+    2. Fall back to OAuth2 User Credentials if Service Account is missing or fails.
+    """
+    # Strategy 1: Service Account
+    if key_json:
+        try:
+            print("[GDRIVE] Attempting authentication via Service Account...")
+            svc = get_drive_service_service_account(key_json)
+            if svc:
+                # Perform a quick 1-file test call to verify permissions on folder_id
+                svc.files().list(
+                    q=f"'{folder_id}' in parents and trashed = false",
+                    pageSize=1,
+                    fields="files(id)"
+                ).execute()
+                print("[GDRIVE] [SUCCESS] Authenticated successfully via Service Account!")
+                return svc, "Service Account"
+        except Exception as sa_err:
+            print(f"[GDRIVE] [WARNING] Service Account authentication failed: {sa_err}")
+
+    # Strategy 2: OAuth2 User Credentials
+    if client_id and client_secret and refresh_token:
+        try:
+            print("[GDRIVE] Attempting authentication via OAuth2 User Credentials...")
+            svc = get_drive_service_oauth2(client_id, client_secret, refresh_token)
+            if svc:
+                # Perform a quick 1-file test call to verify permissions on folder_id
+                svc.files().list(
+                    q=f"'{folder_id}' in parents and trashed = false",
+                    pageSize=1,
+                    fields="files(id)"
+                ).execute()
+                print("[GDRIVE] [SUCCESS] Authenticated successfully via OAuth2 User Credentials!")
+                return svc, "OAuth2"
+        except Exception as oauth_err:
+            print(f"[GDRIVE] [WARNING] OAuth2 authentication failed: {oauth_err}")
+
+    return None, None
 
 def upload_pdf_to_folder(service, folder_id, file_path):
     filename = os.path.basename(file_path)
@@ -110,25 +152,16 @@ def main():
         save_status("failed", "GDRIVE_FOLDER_ID env variable is missing", failed=len(files_to_upload), failed_files=[f[0] for f in files_to_upload])
         sys.exit(1)
 
-    service = None
-    if client_id and client_secret and refresh_token:
-        print("[GDRIVE] Authenticating using OAuth2 User Credentials...")
-        service = get_drive_service_oauth2(client_id, client_secret, refresh_token)
-    elif key_json:
-        print("[GDRIVE] Authenticating using Service Account...")
-        service = get_drive_service_service_account(key_json)
-    else:
-        print("[GDRIVE] [WARNING] No Google Drive credentials found. Please set OAuth2 user secrets or a Service Account key.")
-        save_status("failed", "No Google Drive credentials found in environment", failed=len(files_to_upload), failed_files=[f[0] for f in files_to_upload])
-        sys.exit(1)
+    service, auth_type = authenticate_drive(key_json, client_id, client_secret, refresh_token, folder_id)
 
     if not service:
-        print("[GDRIVE] [FATAL] Drive service authentication failed. Exiting with error.")
-        save_status("failed", "Drive service authentication failed", failed=len(files_to_upload), failed_files=[f[0] for f in files_to_upload])
+        err_msg = "Google Drive authentication failed (both Service Account and OAuth2 failed or missing)"
+        print(f"[GDRIVE] [FATAL] {err_msg}. Exiting with error.")
+        save_status("failed", err_msg, failed=len(files_to_upload), failed_files=[f[0] for f in files_to_upload])
         sys.exit(1)
 
     # 1. Fetch existing files in Google Drive folder
-    print("[GDRIVE] Fetching list of existing files from Google Drive...")
+    print(f"[GDRIVE] Fetching list of existing files from Google Drive folder ({auth_type})...")
     existing_files = {}
     try:
         page_token = None
@@ -149,7 +182,7 @@ def main():
                 break
         print(f"[GDRIVE] Found {len(existing_files)} existing files on Google Drive.")
     except Exception as e:
-        print(f"[GDRIVE] [FATAL] Failed to list folder contents (check token/permissions): {e}")
+        print(f"[GDRIVE] [FATAL] Failed to list folder contents: {e}")
         save_status("failed", f"Failed to list folder contents: {e}", failed=len(files_to_upload), failed_files=[f[0] for f in files_to_upload])
         sys.exit(1)
 
