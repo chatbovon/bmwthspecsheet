@@ -101,6 +101,16 @@ jobs:
       run: |
         python send_daily_report.py
 
+    - name: Manage GitHub Issues on Critical Errors
+      if: always()
+      continue-on-error: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+      run: |
+        python scratch/manage_github_issues.py
+
     - name: Commit and Push changes
       run: |
         git config --global user.name "github-actions[bot]"
