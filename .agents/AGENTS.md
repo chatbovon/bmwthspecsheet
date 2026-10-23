@@ -38,3 +38,8 @@
 - **No Heavy Dictionaries in Prompts:** Do NOT inject heavy controlled vocabularies, master dictionaries, or lengthy term lists (e.g., 470 terms) into LLM prompts. Doing so wastes precious context space, slows down inference, and incurs unnecessary token costs.
 - **Pure Python Post-Processing:** Resolve predictable OCR errors, typographical quirks, and formatting issues through deterministic Pure Python healing rules (Stage 4) and minimal targeted prompt guidance rather than dumping large reference datasets.
 
+## 10. Pure Generic Architecture (No Model-Specific Code)
+- **Model-Agnostic Design:** All feature creation, improvements, and bug fixes in the extraction, harmonizing, parsing, and post-processing pipeline must be purely generic and model-agnostic across all BMW series.
+- **No Hardcoded Model Exceptions:** It is strictly forbidden to hardcode model-specific patches, conditions, or exceptions in the codebase (such as `if "X7-..." in source_pdf_path:` or checking for specific model identifiers) to fix an issue for a single car model.
+- **Separation of Concerns:** Genuine source PDF typographical errors or omissions published by BMW Thailand must be handled strictly through `manual_overrides.json`, while extractor and parser logic must remain universally robust and applicable to all models.
+

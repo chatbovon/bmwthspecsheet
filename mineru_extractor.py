@@ -508,6 +508,13 @@ def _text_similarity(a: str, b: str) -> float:
         return 0.95
     return difflib.SequenceMatcher(None, sa, sb).ratio()
 
+def _strip_common_prefix(s1: str, s2: str) -> tuple[str, str]:
+    min_len = min(len(s1), len(s2))
+    idx = 0
+    while idx < min_len and s1[idx] == s2[idx]:
+        idx += 1
+    return s1[idx:].strip(), s2[idx:].strip()
+
 def _is_fuzzy_substring(short_str: str, long_str: str, threshold: float = 0.60) -> bool:
     s_short = _simplify_text(short_str)
     s_long = _simplify_text(long_str)
@@ -672,9 +679,14 @@ def pre_stage_1_table_harmonizer(raw_md: str, pdf_path: str, lang_code: str = "t
                                 continue
                             if _is_fuzzy_substring(c_text, row_topics[prev['match_idx']], 0.60) or _is_fuzzy_substring(c_text, row_topics[nxt['match_idx']], 0.60):
                                 continue
-                            if _text_similarity(c_text + " " + nxt['text'], row_topics[nxt['match_idx']]) >= 0.70 or _text_similarity(prev['text'] + " " + c_text, row_topics[prev['match_idx']]) >= 0.70:
-                                continue
-                            if _text_similarity(c_text, row_topics[prev['match_idx']]) >= 0.55 or _text_similarity(c_text, row_topics[nxt['match_idx']]) >= 0.55:
+                            # Evaluate distinctiveness after stripping common prefixes (e.g. 'ระบบเตือนการ...', 'ระบบช่วย...')
+                            tail_c_prev, tail_prev = _strip_common_prefix(simp_c, prev_text)
+                            tail_c_nxt, tail_nxt = _strip_common_prefix(simp_c, nxt_text)
+
+                            sim_core_prev = difflib.SequenceMatcher(None, tail_c_prev, tail_prev).ratio() if tail_c_prev and tail_prev else _text_similarity(c_text, row_topics[prev['match_idx']])
+                            sim_core_nxt = difflib.SequenceMatcher(None, tail_c_nxt, tail_nxt).ratio() if tail_c_nxt and tail_nxt else _text_similarity(c_text, row_topics[nxt['match_idx']])
+
+                            if sim_core_prev >= 0.75 or sim_core_nxt >= 0.75:
                                 continue
 
                                 

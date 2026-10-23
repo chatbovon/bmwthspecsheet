@@ -52,3 +52,4 @@ worktrees/
 # Intermediate OCR & Cleansed Markdown Artifacts
 mineru_raw_*.md
 multimodal_cleaned_*.md
+pre_stage_1_harmonized_*.md
