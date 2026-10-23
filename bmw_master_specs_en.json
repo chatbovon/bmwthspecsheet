@@ -43829,7 +43829,8 @@
                     "Brooklyn Grey Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_brooklyn_grey_metallic.png",
                     "Black Sapphire Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_black_sapphire_metallic.png",
                     "Mineral White Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_mineral_white_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             }
         ],
         "source_file": "X7-20260529-01_EN.pdf.asset.1782449621294.pdf",
@@ -44223,13 +44224,6 @@
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "Topic Count",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic count mismatch in category 'Safety': English has 28 topics, Thai has 27 topics"
-            },
-            {
-                "model_name": "X7 xDrive40d M Sport",
-                "category": "Safety",
                 "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า / Airbag for driver and front passenger",
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 1: English is 'Airbag for driver and front passenger' (mapped: 'airbag for driver and front passenger'), Thai is 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า')"
@@ -44349,72 +44343,79 @@
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบเตือนการจราจรด้านหลัง / Lane Change Warning",
+                "topic": "ระบบเตือนการเปลี่ยนเลน / Lane Change Warning",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 18: English is 'Lane Change Warning' (mapped: 'lane change warning'), Thai is 'ระบบเตือนการจราจรด้านหลัง' (mapped: 'ระบบเตือนการจราจรด้านหลัง')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 18: English is 'Lane Change Warning' (mapped: 'lane change warning'), Thai is 'ระบบเตือนการเปลี่ยนเลน' (mapped: 'ระบบเตือนการเปลี่ยนเลน')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบป้องกันการชนด้านหลัง / Rear crossing traffic warning",
+                "topic": "ระบบเตือนการจราจรด้านหลัง / Rear crossing traffic warning",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 19: English is 'Rear crossing traffic warning' (mapped: 'rear crossing traffic warning'), Thai is 'ระบบป้องกันการชนด้านหลัง' (mapped: 'ระบบป้องกันการชนด้านหลัง')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 19: English is 'Rear crossing traffic warning' (mapped: 'rear crossing traffic warning'), Thai is 'ระบบเตือนการจราจรด้านหลัง' (mapped: 'ระบบเตือนการจราจรด้านหลัง')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function) / Rear Collision Prevention",
+                "topic": "ระบบป้องกันการชนด้านหลัง / Rear Collision Prevention",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 20: English is 'Rear Collision Prevention' (mapped: 'rear collision prevention'), Thai is 'ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)' (mapped: 'ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน stop&go (active cruise control with stop&go function)')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 20: English is 'Rear Collision Prevention' (mapped: 'rear collision prevention'), Thai is 'ระบบป้องกันการชนด้านหลัง' (mapped: 'ระบบป้องกันการชนด้านหลัง')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ / Active cruise control with Stop&Go function",
+                "topic": "ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function) / Active cruise control with Stop&Go function",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 21: English is 'Active cruise control with Stop&Go function' (mapped: 'active cruise control with stop&go function'), Thai is 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ' (mapped: 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 21: English is 'Active cruise control with Stop&Go function' (mapped: 'active cruise control with stop&go function'), Thai is 'ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)' (mapped: 'ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน stop&go (active cruise control with stop&go function)')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบช่วยหยุดรถฉุกเฉิน / Steering and Lane Control Assistant",
+                "topic": "ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ / Steering and Lane Control Assistant",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 22: English is 'Steering and Lane Control Assistant' (mapped: 'steering and lane control assistant'), Thai is 'ระบบช่วยหยุดรถฉุกเฉิน' (mapped: 'ระบบช่วยหยุดรถฉุกเฉิน')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 22: English is 'Steering and Lane Control Assistant' (mapped: 'steering and lane control assistant'), Thai is 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ' (mapped: 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบช่วยเปลี่ยนช่องทางเดินรถ / Emergency Stop Assistant",
+                "topic": "ระบบช่วยหยุดรถฉุกเฉิน / Emergency Stop Assistant",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 23: English is 'Emergency Stop Assistant' (mapped: 'emergency stop assistant'), Thai is 'ระบบช่วยเปลี่ยนช่องทางเดินรถ' (mapped: 'ระบบช่วยเปลี่ยนช่องทางเดินรถ')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 23: English is 'Emergency Stop Assistant' (mapped: 'emergency stop assistant'), Thai is 'ระบบช่วยหยุดรถฉุกเฉิน' (mapped: 'ระบบช่วยหยุดรถฉุกเฉิน')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง / Lane Change Assistant",
+                "topic": "ระบบช่วยเปลี่ยนช่องทางเดินรถ / Lane Change Assistant",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 24: English is 'Lane Change Assistant' (mapped: 'lane change assistant'), Thai is 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง' (mapped: 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 24: English is 'Lane Change Assistant' (mapped: 'lane change assistant'), Thai is 'ระบบช่วยเปลี่ยนช่องทางเดินรถ' (mapped: 'ระบบช่วยเปลี่ยนช่องทางเดินรถ')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบเตือนการจราจรด้านหน้า / Lane Keeping Assistant with active side collision protection",
+                "topic": "ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง / Lane Keeping Assistant with active side collision protection",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 25: English is 'Lane Keeping Assistant with active side collision protection' (mapped: 'lane keeping assistant with active side collision protection'), Thai is 'ระบบเตือนการจราจรด้านหน้า' (mapped: 'ระบบเตือนการจราจรด้านหน้า')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 25: English is 'Lane Keeping Assistant with active side collision protection' (mapped: 'lane keeping assistant with active side collision protection'), Thai is 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง' (mapped: 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบช่วยหลบหลีกฉุกเฉิน / Front crossing traffic warning",
+                "topic": "ระบบเตือนการจราจรด้านหน้า / Front crossing traffic warning",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 26: English is 'Front crossing traffic warning' (mapped: 'front crossing traffic warning'), Thai is 'ระบบช่วยหลบหลีกฉุกเฉิน' (mapped: 'ระบบช่วยหลบหลีกฉุกเฉิน')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 26: English is 'Front crossing traffic warning' (mapped: 'front crossing traffic warning'), Thai is 'ระบบเตือนการจราจรด้านหน้า' (mapped: 'ระบบเตือนการจราจรด้านหน้า')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรกฉุกเฉิน / Evasion Assistant",
+                "topic": "ระบบช่วยหลบหลีกฉุกเฉิน / Evasion Assistant",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 27: English is 'Evasion Assistant' (mapped: 'evasion assistant'), Thai is 'ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรกฉุกเฉิน' (mapped: 'ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรกฉุกเฉิน')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 27: English is 'Evasion Assistant' (mapped: 'evasion assistant'), Thai is 'ระบบช่วยหลบหลีกฉุกเฉิน' (mapped: 'ระบบช่วยหลบหลีกฉุกเฉิน')"
+            },
+            {
+                "model_name": "X7 xDrive40d M Sport",
+                "category": "Safety",
+                "topic": "ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรกฉุกเฉิน / Crossroads Warning with city braking function",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 28: English is 'Crossroads Warning with city braking function' (mapped: 'crossroads warning with city braking function'), Thai is 'ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรกฉุกเฉิน' (mapped: 'ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรกฉุกเฉิน')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",

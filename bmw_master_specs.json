@@ -326,7 +326,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "3-20260112-01_TH_Li.pdf.asset.1768894796709.pdf",
@@ -1076,7 +1077,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "4-20241113-02_TH.pdf.asset.1745407581563.pdf",
@@ -1813,7 +1815,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "M3-20230815-01_TH.pdf.asset.1724906649623.pdf",
@@ -2717,7 +2720,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             },
             {
                 "model_name": "X5 xDrive50e M Sport",
@@ -3204,7 +3208,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "X5-20260417-01_TH.pdf.asset.1779075010632.pdf",
@@ -4915,7 +4920,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "XM-20250130-02_TH_WLTP.pdf.asset.1740723963122.pdf",
@@ -5747,7 +5753,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "XM-20250130-03_TH_WLTP.pdf.asset.1740723896658.pdf",
@@ -6739,7 +6746,8 @@
                     "Oxide Grey metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/bmw_740d_m_sport_oxide_grey_metallic.png",
                     "BMW Individual Dravit Grey metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/bmw_740d_m_sport_bmw_individual_dravit_grey_metallic.png",
                     "Mineral White metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/bmw_740d_m_sport_mineral_white_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             },
             {
                 "model_name": "750e xDrive M Sport",
@@ -7279,7 +7287,8 @@
                     "Oxide Grey Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/bmw_750e_xdrive_m_sport_oxide_grey_metallic.png",
                     "Black Sapphire Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/bmw_750e_xdrive_m_sport_black_sapphire_metallic.png",
                     "Mineral White Metallic": "images/7_20250130_01_TH_WLTP.asset.1740723717847/bmw_750e_xdrive_m_sport_mineral_white_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             }
         ],
         "source_file": "7-20250130-01_TH_WLTP.pdf.asset.1740723717847.pdf",
@@ -9343,7 +9352,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "i7-20240710-01_TH.pdf.asset.1758628809179.pdf",
@@ -10484,7 +10494,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "iX-20251030-01_TH_REV-Color.pdf.asset.1763711932423.pdf",
@@ -11473,7 +11484,8 @@
                     "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_arctic_race_blue_metallic.png",
                     "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_black_sapphire_metallic.png",
                     "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_mineral_white_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             },
             {
                 "model_name": "430i Coupé M Sport",
@@ -11918,7 +11930,8 @@
                     "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_black_sapphire_metallic.png",
                     "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_bmw_individual_dravit_grey_metallic.png",
                     "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_mineral_white_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             },
             {
                 "model_name": "M440i xDrive",
@@ -12349,7 +12362,8 @@
                     "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_m_brooklyn_grey_metallic.png",
                     "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_black_sapphire_metallic.png",
                     "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_mineral_white_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             }
         ],
         "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/2026/4-20260714-01_TH_.pdf.asset.1784613825348.pdf",
@@ -14463,7 +14477,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             },
             {
                 "model_name": "M2 (M Racetrack)",
@@ -14866,7 +14881,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             },
             {
                 "model_name": "M2 (MT)",
@@ -15269,7 +15285,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "M2.-20260714-01_TH.pdf.asset.1784613855343.pdf",
@@ -17130,7 +17147,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "M3-20260714-01_TH.pdf.asset.1784613855376.pdf",
@@ -18090,7 +18108,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "X6-20260223-01_TH.pdf.asset.1784613825303.pdf",
@@ -19038,7 +19057,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             },
             {
                 "model_name": "XM 50e (Shadow Line)",
@@ -19450,7 +19470,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "XM-20251126-01_TH_.pdf.asset.1784613825367.pdf",
@@ -20913,7 +20934,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "M3-20250818-01_TH.pdf.asset.1758516215456.pdf",
@@ -21793,7 +21815,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "M4-20251104-02_TH.pdf.asset.1784613855399.pdf",
@@ -22662,7 +22685,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "M2-CS-20250910-01_TH.pdf.asset.1758261830128.pdf",
@@ -23516,7 +23540,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "M5-20250130-05_TH.pdf.asset.1745407582783.pdf",
@@ -24481,7 +24506,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "M5-20260714-01_TH.pdf.asset.1784613855320.pdf",
@@ -25450,7 +25476,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             },
             {
                 "model_name": "Z4 M40i",
@@ -25801,7 +25828,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "Z4-20240610-02_TH.pdf.asset.1758628086952.pdf",
@@ -27021,7 +27049,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "iX2-20240710-01_TH-(1).pdf.asset.1738060128032.pdf",
@@ -27954,7 +27983,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "i5-20260714-01_TH.pdf.asset.1784613825396.pdf",
@@ -28912,7 +28942,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "iX1_L-20260605-01_TH.pdf.asset.1785989516845.pdf",
@@ -29741,7 +29772,8 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "is_custom_archived": false
             }
         ],
         "source_file": "X4-20240418-01_TH.pdf.asset.1758627513274.pdf",
@@ -30685,7 +30717,8 @@
                     "Cape York Green metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_inspiring_cape_york_green_metallic.png",
                     "Oxide Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_inspiring_oxide_grey_metallic.png",
                     "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_inspiring_mineral_white_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             },
             {
                 "model_name": "520d M Sport",
@@ -31185,7 +31218,8 @@
                     "M Brooklyn Grey metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_520d_m_sport_m_brooklyn_grey_metallic.png",
                     "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_520d_m_sport_black_sapphire_metallic.png",
                     "Phytonic Blue metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_520d_m_sport_phytonic_blue_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             },
             {
                 "model_name": "530e M Sport",
@@ -31685,7 +31719,8 @@
                     "Black Sapphire metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_black_sapphire_metallic.png",
                     "Mineral White metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_mineral_white_metallic.png",
                     "Phytonic Blue metallic": "images/5_20260417_01_TH.asset.1779074950693/bmw_530e_m_sport_phytonic_blue_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             }
         ],
         "low_confidence_flags": [
@@ -34093,7 +34128,8 @@
                     "Black Sapphire metallic": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_black_sapphire_metallic.png",
                     "M Portimao Blue metallic": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_m_portimao_blue_metallic.png",
                     "Alpine White solid": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_alpine_white_solid.png"
-                }
+                },
+                "is_custom_archived": false
             }
         ],
         "source_file": "2-20260622-01_TH.pdf.asset.1782450657977.pdf",
@@ -34835,7 +34871,8 @@
                     "Alpine White solid": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_alpine_white_solid.png",
                     "Space Silver metallic": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_space_silver_metallic.png",
                     "Black Sapphire metallic": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_black_sapphire_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             }
         ],
         "source_file": "X1-20260417-01_TH.pdf.asset.1778763269988.pdf",
@@ -35635,7 +35672,8 @@
                     "M Brooklyn Grey metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_20d_xdrive_m_sport_pro_m_brooklyn_grey_metallic.png",
                     "Black Sapphire metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_20d_xdrive_m_sport_pro_black_sapphire_metallic.png",
                     "Alpine White solid": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_20d_xdrive_m_sport_pro_alpine_white_solid.png"
-                }
+                },
+                "is_custom_archived": false
             },
             {
                 "model_name": "X3 M50 xDrive",
@@ -36047,7 +36085,8 @@
                     "Black Sapphire metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_m50_xdrive_black_sapphire_metallic.png",
                     "BMW Individual Tanzanite Blue metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_m50_xdrive_bmw_individual_tanzanite_blue_metallic.png",
                     "Alpine White solid": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_m50_xdrive_alpine_white_solid.png"
-                }
+                },
+                "is_custom_archived": false
             }
         ],
         "source_file": "X3-20260116-01_TH.pdf.asset.1778763269931.pdf",
@@ -37608,7 +37647,8 @@
                     "Black Sapphire metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_black_sapphire_metallic.png",
                     "Polarised Grey metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_polarised_grey_metallic.png",
                     "Alpine White solid": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_alpine_white_solid.png"
-                }
+                },
+                "is_custom_archived": false
             }
         ],
         "source_file": "iX3-20260213-02_TH_REV1.pdf.asset.1782450846969.pdf",
@@ -38623,7 +38663,8 @@
                     "M Brooklyn Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_m_brooklyn_grey_metallic.png",
                     "Black Sapphire metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_black_sapphire_metallic.png",
                     "Mineral White metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_mineral_white_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             },
             {
                 "model_name": "330e M Sport",
@@ -39074,7 +39115,8 @@
                     "Black Sapphire metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_black_sapphire_metallic.png",
                     "M Portimao Blue metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_m_portimao_blue_metallic.png",
                     "Mineral White metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_mineral_white_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             },
             {
                 "model_name": "M340i xDrive",
@@ -39526,7 +39568,8 @@
                     "Black Sapphire metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_black_sapphire_metallic.png",
                     "M Portimao Blue metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_m_portimao_blue_metallic.png",
                     "Mineral White metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_mineral_white_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             }
         ],
         "source_file": "3-20250625-01_TH.pdf.asset.1763550244972.pdf",
@@ -41737,7 +41780,8 @@
                     "M Sao Paulo Yellow solid": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_M_Sao_Paulo_Yellow_solid.png",
                     "BMW Individual Frozen Portimao Blue metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_BMW_Individual_Frozen_Portimao_Blue_metallic.png",
                     "BMW Individual Frozen Brilliant White metallic": "images/M4_20250312_01_TH.asset.1745407583372/BMW_BMW_M4_Competition_M_xDrive_BMW_Individual_Frozen_Brilliant_White_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             }
         ],
         "source_file": "M4-20260714-01_TH.pdf.asset.1784613855304.pdf",
@@ -42723,7 +42767,8 @@
                     "Black Sapphire Metallic": "images/7_20250130_02_TH.asset.1745407582934/bmw_m760e_xdrive_black_sapphire_metallic.png",
                     "BMW Individual Dravit Grey metallic": "images/7_20250130_02_TH.asset.1745407582934/bmw_m760e_xdrive_bmw_individual_dravit_grey_metallic.png",
                     "Mineral White Metallic": "images/7_20250130_02_TH.asset.1745407582934/bmw_m760e_xdrive_mineral_white_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             }
         ],
         "source_file": "7-20250130-02_TH.pdf.asset.1745407582934.pdf",
@@ -43784,7 +43829,8 @@
                     "Brooklyn Grey Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_brooklyn_grey_metallic.png",
                     "Black Sapphire Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_black_sapphire_metallic.png",
                     "Mineral White Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_mineral_white_metallic.png"
-                }
+                },
+                "is_custom_archived": false
             }
         ],
         "source_file": "X7-20260529-01_TH.pdf.asset.1782451095961.pdf",
@@ -44178,13 +44224,6 @@
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "Topic Count",
-                "type": "Cross-DB Discrepancy",
-                "reason": "Topic count mismatch in category 'Safety': English has 28 topics, Thai has 27 topics"
-            },
-            {
-                "model_name": "X7 xDrive40d M Sport",
-                "category": "Safety",
                 "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า / Airbag for driver and front passenger",
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 1: English is 'Airbag for driver and front passenger' (mapped: 'airbag for driver and front passenger'), Thai is 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า' (mapped: 'ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า')"
@@ -44304,72 +44343,79 @@
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบเตือนการจราจรด้านหลัง / Lane Change Warning",
+                "topic": "ระบบเตือนการเปลี่ยนเลน / Lane Change Warning",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 18: English is 'Lane Change Warning' (mapped: 'lane change warning'), Thai is 'ระบบเตือนการจราจรด้านหลัง' (mapped: 'ระบบเตือนการจราจรด้านหลัง')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 18: English is 'Lane Change Warning' (mapped: 'lane change warning'), Thai is 'ระบบเตือนการเปลี่ยนเลน' (mapped: 'ระบบเตือนการเปลี่ยนเลน')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบป้องกันการชนด้านหลัง / Rear crossing traffic warning",
+                "topic": "ระบบเตือนการจราจรด้านหลัง / Rear crossing traffic warning",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 19: English is 'Rear crossing traffic warning' (mapped: 'rear crossing traffic warning'), Thai is 'ระบบป้องกันการชนด้านหลัง' (mapped: 'ระบบป้องกันการชนด้านหลัง')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 19: English is 'Rear crossing traffic warning' (mapped: 'rear crossing traffic warning'), Thai is 'ระบบเตือนการจราจรด้านหลัง' (mapped: 'ระบบเตือนการจราจรด้านหลัง')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function) / Rear Collision Prevention",
+                "topic": "ระบบป้องกันการชนด้านหลัง / Rear Collision Prevention",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 20: English is 'Rear Collision Prevention' (mapped: 'rear collision prevention'), Thai is 'ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)' (mapped: 'ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน stop&go (active cruise control with stop&go function)')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 20: English is 'Rear Collision Prevention' (mapped: 'rear collision prevention'), Thai is 'ระบบป้องกันการชนด้านหลัง' (mapped: 'ระบบป้องกันการชนด้านหลัง')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ / Active cruise control with Stop&Go function",
+                "topic": "ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function) / Active cruise control with Stop&Go function",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 21: English is 'Active cruise control with Stop&Go function' (mapped: 'active cruise control with stop&go function'), Thai is 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ' (mapped: 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 21: English is 'Active cruise control with Stop&Go function' (mapped: 'active cruise control with stop&go function'), Thai is 'ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)' (mapped: 'ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน stop&go (active cruise control with stop&go function)')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบช่วยหยุดรถฉุกเฉิน / Steering and Lane Control Assistant",
+                "topic": "ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ / Steering and Lane Control Assistant",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 22: English is 'Steering and Lane Control Assistant' (mapped: 'steering and lane control assistant'), Thai is 'ระบบช่วยหยุดรถฉุกเฉิน' (mapped: 'ระบบช่วยหยุดรถฉุกเฉิน')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 22: English is 'Steering and Lane Control Assistant' (mapped: 'steering and lane control assistant'), Thai is 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ' (mapped: 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบช่วยเปลี่ยนช่องทางเดินรถ / Emergency Stop Assistant",
+                "topic": "ระบบช่วยหยุดรถฉุกเฉิน / Emergency Stop Assistant",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 23: English is 'Emergency Stop Assistant' (mapped: 'emergency stop assistant'), Thai is 'ระบบช่วยเปลี่ยนช่องทางเดินรถ' (mapped: 'ระบบช่วยเปลี่ยนช่องทางเดินรถ')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 23: English is 'Emergency Stop Assistant' (mapped: 'emergency stop assistant'), Thai is 'ระบบช่วยหยุดรถฉุกเฉิน' (mapped: 'ระบบช่วยหยุดรถฉุกเฉิน')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง / Lane Change Assistant",
+                "topic": "ระบบช่วยเปลี่ยนช่องทางเดินรถ / Lane Change Assistant",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 24: English is 'Lane Change Assistant' (mapped: 'lane change assistant'), Thai is 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง' (mapped: 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 24: English is 'Lane Change Assistant' (mapped: 'lane change assistant'), Thai is 'ระบบช่วยเปลี่ยนช่องทางเดินรถ' (mapped: 'ระบบช่วยเปลี่ยนช่องทางเดินรถ')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบเตือนการจราจรด้านหน้า / Lane Keeping Assistant with active side collision protection",
+                "topic": "ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง / Lane Keeping Assistant with active side collision protection",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 25: English is 'Lane Keeping Assistant with active side collision protection' (mapped: 'lane keeping assistant with active side collision protection'), Thai is 'ระบบเตือนการจราจรด้านหน้า' (mapped: 'ระบบเตือนการจราจรด้านหน้า')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 25: English is 'Lane Keeping Assistant with active side collision protection' (mapped: 'lane keeping assistant with active side collision protection'), Thai is 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง' (mapped: 'ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถพร้อมป้องกันการชนจากด้านข้าง')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบช่วยหลบหลีกฉุกเฉิน / Front crossing traffic warning",
+                "topic": "ระบบเตือนการจราจรด้านหน้า / Front crossing traffic warning",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 26: English is 'Front crossing traffic warning' (mapped: 'front crossing traffic warning'), Thai is 'ระบบช่วยหลบหลีกฉุกเฉิน' (mapped: 'ระบบช่วยหลบหลีกฉุกเฉิน')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 26: English is 'Front crossing traffic warning' (mapped: 'front crossing traffic warning'), Thai is 'ระบบเตือนการจราจรด้านหน้า' (mapped: 'ระบบเตือนการจราจรด้านหน้า')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
                 "category": "Safety",
-                "topic": "ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรกฉุกเฉิน / Evasion Assistant",
+                "topic": "ระบบช่วยหลบหลีกฉุกเฉิน / Evasion Assistant",
                 "type": "Cross-DB Discrepancy",
-                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 27: English is 'Evasion Assistant' (mapped: 'evasion assistant'), Thai is 'ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรกฉุกเฉิน' (mapped: 'ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรกฉุกเฉิน')"
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 27: English is 'Evasion Assistant' (mapped: 'evasion assistant'), Thai is 'ระบบช่วยหลบหลีกฉุกเฉิน' (mapped: 'ระบบช่วยหลบหลีกฉุกเฉิน')"
+            },
+            {
+                "model_name": "X7 xDrive40d M Sport",
+                "category": "Safety",
+                "topic": "ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรกฉุกเฉิน / Crossroads Warning with city braking function",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Safety' at position 28: English is 'Crossroads Warning with city braking function' (mapped: 'crossroads warning with city braking function'), Thai is 'ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรกฉุกเฉิน' (mapped: 'ระบบเตือนการชนที่ทางแยกพร้อมช่วยเบรกฉุกเฉิน')"
             },
             {
                 "model_name": "X7 xDrive40d M Sport",
