@@ -1434,37 +1434,48 @@ def apply_recovery_and_healing_rules(final_output: dict, source_pdf_path: str, l
     model_names = [m.get("model_name", "").strip() for m in final_output.get("models", [])]
     new_series = final_output.get("series", "BMW Specsheet")
     for mname in model_names:
-        if re.match(r'^i[0-9a-zA-Z]', mname):
-            first_word = mname.split()[0]
+        clean_m = re.sub(r'^BMW\s+', '', mname, flags=re.IGNORECASE).strip()
+        if re.match(r'^i[0-9a-zA-Z]', clean_m):
+            first_word = clean_m.split()[0]
             new_series = f"BMW {first_word}"
             break
-        elif re.match(r'^M[23458](\s|$|[a-zA-Z])', mname) and not re.match(r'^M\d{3}', mname):
-            m = re.match(r'^M\d', mname.split()[0])
+        elif re.match(r'^M[23458](\s|$|[a-zA-Z])', clean_m) and not re.match(r'^M\d{3}', clean_m):
+            m = re.match(r'^M\d', clean_m.split()[0])
             if m:
                 new_series = f"BMW {m.group(0)}"
                 break
-        elif mname.startswith("XM"):
+        elif clean_m.startswith("XM"):
             new_series = "BMW XM"
             break
-        elif re.match(r'^[2-8]\d{2}', mname):
-            lead = mname[0]
+        elif re.match(r'^[2-8]\d{2}', clean_m):
+            lead = clean_m[0]
             new_series = f"BMW {lead} Series"
             break
-        elif re.match(r'^X[1-7]', mname):
-            first_word = mname.split()[0]
+        elif re.match(r'^X[1-7]', clean_m):
+            first_word = clean_m.split()[0]
             new_series = f"BMW {first_word[:2]}"
             break
-        elif re.match(r'^Z4', mname):
+        elif re.match(r'^Z4', clean_m):
             new_series = "BMW Z4"
             break
     else:
         pdf_base = os.path.basename(source_pdf_path)
         clean_base = re.sub(r'^(temp_|brochure_|download_)', '', pdf_base, flags=re.IGNORECASE)
-        series_match = re.match(r'^([0-9]|iX?[0-9]|M[0-9]|X[0-9]|Z[0-9])', clean_base)
-        if series_match:
-            lead = series_match.group(1)
-            if lead.isdigit():
-                new_series = f"BMW {lead} Series"
+        m_match = re.match(r'^(M[23458])', clean_base, flags=re.IGNORECASE)
+        x_match = re.match(r'^(X[1-7])', clean_base, flags=re.IGNORECASE)
+        z_match = re.match(r'^(Z4)', clean_base, flags=re.IGNORECASE)
+        i_match = re.match(r'^(i[0-9a-zA-Z]+)', clean_base, flags=re.IGNORECASE)
+        num_match = re.match(r'^([2-8])', clean_base)
+        if m_match:
+            new_series = f"BMW {m_match.group(1).upper()}"
+        elif x_match:
+            new_series = f"BMW {x_match.group(1).upper()}"
+        elif z_match:
+            new_series = "BMW Z4"
+        elif i_match:
+            new_series = f"BMW {i_match.group(1)}"
+        elif num_match:
+            new_series = f"BMW {num_match.group(1)} Series"
     final_output["series"] = new_series
 
     # ─── 3. Blank Cell Recovery for Standard Safety/Tech (DEPRECATED & DISABLED) ───
