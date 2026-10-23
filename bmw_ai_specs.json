@@ -1,6 +1,6 @@
 {
     "series": "BMW X7",
-    "pdf_source": "X7-20260529-01_TH.pdf.asset.1782451095961.pdf",
+    "pdf_source": "X7-20260529-01_TH.pdf.asset.1782451059580.pdf",
     "models": [
         {
             "model_name": "X7 xDrive40d M Sport",
@@ -54,7 +54,7 @@
                             "value": "13.2"
                         },
                         {
-                            "topic": "ระดับการปล่อย CO₂ เฉลี่ย (กรัม/กิโลเมตร)",
+                            "topic": "ระดับการปล่อย CO2 เฉลี่ย (กรัม/กิโลเมตร)",
                             "value": "200"
                         }
                     ]
@@ -68,7 +68,7 @@
                         },
                         {
                             "topic": "ขนาดยาง",
-                            "value": "ล้อหน้า: 9.5 J × 23 / ยาง 275/35 R 23 ล้อหลัง: 10.5 J × 23 / ยาง 315/30 R 23"
+                            "value": "ล้อหน้า: 9.5 J x 23 / ยาง 275/35 R 23 ล้อหลัง: 10.5 J x 23 / ยาง 315/30 R 23"
                         }
                     ]
                 },
@@ -289,7 +289,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ถุงลมนิรภัยศิรษะสําหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)",
+                            "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)",
                             "value": "■"
                         },
                         {
@@ -433,14 +433,8 @@
                         }
                     ]
                 }
-            ],
-            "images": {
-                "Brooklyn Grey Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_brooklyn_grey_metallic.png",
-                "Black Sapphire Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_black_sapphire_metallic.png",
-                "Mineral White Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_mineral_white_metallic.png"
-            }
+            ]
         }
     ],
-    "source_file": "X7-20260529-01_TH.pdf.asset.1782451095961.pdf",
-    "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/X7-20260529-01_TH.pdf.asset.1782451095961.pdf"
+    "source_file": "X7-20260529-01_TH.pdf.asset.1782451059580.pdf"
 }
