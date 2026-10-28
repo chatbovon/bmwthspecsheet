@@ -594,28 +594,46 @@ async def scrape_model_paintworks(page, config, model_name, model_obj=None):
     # Map the default color to its filename
     images_dict[initial_color_name] = filename
     
-    # 2. Click and capture remaining swatches
-    for i in range(count_swatches):
-        swatch = paint_swatches.nth(i)
-        color_name = await swatch.get_attribute("data-test-swatch-name")
-        paint_code = await swatch.get_attribute("data-node-code")
-        if not color_name:
-            color_name = f"Paint_{paint_code}"
-            
+    # 2. Collect all swatch identifiers upfront to protect against dynamic DOM re-ordering
+    swatch_items = []
+    for idx in range(count_swatches):
+        sw = paint_swatches.nth(idx)
+        c_code = await sw.get_attribute("data-node-code")
+        c_name = await sw.get_attribute("data-test-swatch-name")
+        if not c_name:
+            c_name = f"Paint_{c_code}"
+        if c_code:
+            swatch_items.append({"code": c_code, "name": c_name})
+
+    # Click and capture remaining swatches using unique data-node-code locator
+    for idx, item in enumerate(swatch_items):
+        paint_code = item["code"]
+        color_name = item["name"]
+
         if paint_code == initial_code:
             continue
-            
-        print(f"  --- Scraping Paint Swatch #{i+1}: {color_name} (Code: {paint_code}) ---")
-        
+
+        print(f"  --- Scraping Paint Swatch #{idx+1}: {color_name} (Code: {paint_code}) ---")
+
+        # Target swatch by unique code so DOM re-ordering does not cause missed swatches
+        swatch = page.locator(f"con-swatch[data-node-code='{paint_code}']")
+        if await swatch.count() == 0:
+            print(f"  [WARNING] Swatch with code '{paint_code}' not found in current DOM. Retrying...")
+            await asyncio.sleep(2)
+            swatch = page.locator(f"con-swatch[data-node-code='{paint_code}']")
+            if await swatch.count() == 0:
+                print(f"  [ERROR] Swatch '{color_name}' ({paint_code}) could not be located. Skipping.")
+                continue
+
         await check_and_dismiss_modals(page)
-        await swatch.click()
+        await swatch.first.click()
         await asyncio.sleep(2)
         await check_and_dismiss_modals(page)
         await asyncio.sleep(2)
-        
+
         clean_color_name = color_name.replace(" ", "_").replace("/", "-").replace("\\", "-")
         filename = f"{image_dir}/{(model_key_name + '_' + clean_color_name).lower()}.png"
-        
+
         await capture_360_canvas(page, filename)
         images_dict[color_name] = filename
         
@@ -721,7 +739,27 @@ async def main():
                     print(f" - [SKIP] Excluded M Power model from image scraper: {series.get('series')} | {model.get('model_name')}")
                 continue
                 
+            # Check if model has no images or has missing images compared to expected specsheet colors
+            needs_scraping = False
             if "images" not in model or not model["images"]:
+                needs_scraping = True
+            else:
+                expected_colors = []
+                for cat in model.get("specifications", []):
+                    cat_name = cat.get("category", "").lower()
+                    if "paintwork" in cat_name or "สีตัวถัง" in cat_name:
+                        expected_colors = [d.get("topic", "") for d in cat.get("details", []) if d.get("value", "").strip() != "-"]
+                        break
+                if expected_colors:
+                    existing_keys = [k.lower().replace(" ", "").replace("metallic", "").replace("solid", "") for k in model.get("images", {}).keys()]
+                    for exp_c in expected_colors:
+                        norm_exp = exp_c.lower().replace(" ", "").replace("metallic", "").replace("solid", "")
+                        if not any(norm_exp in k or k in norm_exp for k in existing_keys):
+                            needs_scraping = True
+                            print(f" - [INCOMPLETE IMAGES] Model {model.get('model_name')} is missing image for expected color '{exp_c}'. Scheduling scrape.")
+                            break
+
+            if needs_scraping:
                 # Perform case-insensitive directory resolution to match physical folders on disk
                 disk_pdf_dir = clean_pdf
                 if os.path.exists("images"):
@@ -810,7 +848,10 @@ async def main():
                 
                 # Update images key in our model dictionary
                 if images_dict:
-                    model["images"] = images_dict
+                    if "images" in model and isinstance(model["images"], dict):
+                        model["images"].update(images_dict)
+                    else:
+                        model["images"] = images_dict
                     print(f"Successfully scraped and mapped {len(images_dict)} images for {model_name}.")
             except Exception as e:
                 print(f"[ERROR] Failed to scrape {model_name}: {e}")

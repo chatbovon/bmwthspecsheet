@@ -2547,7 +2547,8 @@
                 "images": {
                     "Alpine White solid": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_alpine_white_solid.png",
                     "Space Silver metallic": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_space_silver_metallic.png",
-                    "Black Sapphire metallic": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_black_sapphire_metallic.png"
+                    "Black Sapphire metallic": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_black_sapphire_metallic.png",
+                    "Portimao Blue metallic": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_portimao_blue_metallic.png"
                 }
             }
         ],
@@ -29248,7 +29249,8 @@
                     "BMW Individual Frozen Grey II metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_bmw_individual_frozen_grey_ii_metallic.png",
                     "San Francisco Red metallic": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_san_francisco_red_metallic.png",
                     "Alpine White solid": "images/Z4_20240610_02_TH.asset.1758628086952/bmw_z4_m40i_alpine_white_solid.png",
-                    "Frozen Deep Green II Metallic": "images/Z4_20240610_02_TH.asset.1758628086952/z4_m40i_frozen_deep_green_ii_metallic.png"
+                    "Frozen Deep Green II Metallic": "images/Z4_20240610_02_TH.asset.1758628086952/z4_m40i_frozen_deep_green_ii_metallic.png",
+                    "Frozen Deep Green ll Metallic": "images/Z4_20240610_02_TH.asset.1758628086952/z4_m40i_frozen_deep_green_ii_metallic.png"
                 }
             }
         ],
@@ -44879,7 +44881,8 @@
                 "images": {
                     "BMW Individual Two-Tone Oxide Grey II metallic with Sapphire Black metallic": "images/i7_20261006_03_TH_335kW.asset.1793160815961/bmw_i7_50_xdrive_m_sport_bmw_individual_two-tone_oxide_grey_ii_metallic_with_sapphire_black_metallic.png",
                     "Oxide Grey metallic": "images/i7_20261006_03_TH_335kW.asset.1793160815961/bmw_i7_50_xdrive_m_sport_oxide_grey_metallic.png",
-                    "Black Sapphire metallic": "images/i7_20261006_03_TH_335kW.asset.1793160815961/bmw_i7_50_xdrive_m_sport_black_sapphire_metallic.png"
+                    "Black Sapphire metallic": "images/i7_20261006_03_TH_335kW.asset.1793160815961/bmw_i7_50_xdrive_m_sport_black_sapphire_metallic.png",
+                    "BMW Individual Dravit Grey metallic": "images/i7_20261006_03_TH_335kW.asset.1793160815961/bmw_i7_50_xdrive_m_sport_bmw_individual_dravit_grey_metallic.png"
                 }
             }
         ],

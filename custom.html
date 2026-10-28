@@ -921,12 +921,22 @@
         if (!modelData || !modelData.images) return null;
         
         // Find matching color
+        const cleanColorStr = (s) => (s || "").toLowerCase()
+            .replace(/\bmetalic\b/g, "metallic")
+            .replace(/\bll\b/g, "ii")
+            .replace(/[-\s_]/g, "");
+
         let matchedColorKey = Object.keys(modelData.images).find(key => {
             const k = key.toLowerCase();
+            const cNorm = cleanColorStr(normColor);
+            const kNorm = cleanColorStr(k);
             return normColor === k || 
-                   normColor.replace(/ /g, "") === k.replace(/ /g, "") ||
+                   cNorm === kNorm ||
+                   cNorm === kNorm.replace(/^m/, "") ||
+                   cNorm.replace(/^m/, "") === kNorm ||
                    normColor.includes(k) || 
                    k.includes(normColor) ||
+                   cNorm.replace("metallic", "") === kNorm.replace("metallic", "") ||
                    normColor.replace("metallic", "").trim() === k.replace("metallic", "").replace(/^m\s+/, "").trim();
         });
         
