@@ -5,9 +5,9 @@
             {
                 "model_name": "320Li M Sport",
                 "images": {
-                    "M Brooklyn Grey metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/bmw_320li_m_sport_m_brooklyn_grey_metallic.png",
-                    "M Carbon Black metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/bmw_320li_m_sport_m_carbon_black_metallic.png",
-                    "Mineral White metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/bmw_320li_m_sport_mineral_white_metallic.png"
+                    "M Brooklyn Grey metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/bmw_320li_m_sport_m_brooklyn_grey_metallic.webp",
+                    "Mineral White metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/bmw_320li_m_sport_mineral_white_metallic.webp",
+                    "M Carbon Black metallic": "images/3_20260112_01_TH_Li.asset.1768894796709/bmw_320li_m_sport_m_carbon_black_metallic.webp"
                 },
                 "specifications": [
                     {
@@ -741,11 +741,11 @@
             {
                 "model_name": "430i Convertible M Sport",
                 "images": {
-                    "Mineral White metallic": "images/4_20241113_02_TH.asset.1745407581563/BMW_430i_Convertible_M_Sport_Mineral_White_metallic.png",
-                    "Cape York Green metallic": "images/4_20241113_02_TH.asset.1745407581563/BMW_430i_Convertible_M_Sport_Cape_York_Green_metallic.png",
-                    "M Brooklyn Grey metallic": "images/4_20241113_02_TH.asset.1745407581563/BMW_430i_Convertible_M_Sport_M_Brooklyn_Grey_metallic.png",
-                    "Black Sapphire metallic": "images/4_20241113_02_TH.asset.1745407581563/BMW_430i_Convertible_M_Sport_Black_Sapphire_metallic.png",
-                    "BMW Individual Tanzanite Blue metallic": "images/4_20241113_02_TH.asset.1745407581563/BMW_430i_Convertible_M_Sport_BMW_Individual_Tanzanite_Blue_metallic.png"
+                    "Mineral White metallic": "images/4_20241113_02_TH.asset.1745407581563/bmw_430i_convertible_m_sport_mineral_white_metallic.webp",
+                    "Black Sapphire metallic": "images/4_20241113_02_TH.asset.1745407581563/bmw_430i_convertible_m_sport_black_sapphire_metallic.webp",
+                    "Cape York Green metallic": "images/4_20241113_02_TH.asset.1745407581563/bmw_430i_convertible_m_sport_cape_york_green_metallic.webp",
+                    "M Brooklyn Grey metallic": "images/4_20241113_02_TH.asset.1745407581563/bmw_430i_convertible_m_sport_m_brooklyn_grey_metallic.webp",
+                    "BMW Individual Tanzanite Blue metallic": "images/4_20241113_02_TH.asset.1745407581563/bmw_430i_convertible_m_sport_bmw_individual_tanzanite_blue_metallic.webp"
                 },
                 "specifications": [
                     {
@@ -2235,10 +2235,10 @@
             {
                 "model_name": "X5 xDrive30d M Sport",
                 "images": {
-                    "Skyscraper Grey Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_skyscraper_grey_metallic.png",
-                    "Mineral White Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_mineral_white_metallic.png",
-                    "Black Sapphire Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_black_sapphire_metallic.png",
-                    "Manhattan Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_manhattan_metallic.png"
+                    "Skyscraper Grey metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_skyscraper_grey_metallic.webp",
+                    "Black Sapphire metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_black_sapphire_metallic.webp",
+                    "Manhattan metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_manhattan_metallic.webp",
+                    "Mineral White metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive30d_m_sport_mineral_white_metallic.webp"
                 },
                 "specifications": [
                     {
@@ -2722,10 +2722,10 @@
             {
                 "model_name": "X5 xDrive50e M Sport",
                 "images": {
-                    "Manhattan Metallic": "images/X5_20260417_01_TH.asset.1779075010632/BMW_X5_xDrive50e_M_Sport_Manhattan_Metallic.png",
-                    "Skyscraper Grey Metallic": "images/X5_20260417_01_TH.asset.1779075010632/BMW_X5_xDrive50e_M_Sport_Skyscraper_Grey_Metallic.png",
-                    "Black Sapphire Metallic": "images/X5_20260417_01_TH.asset.1779075010632/BMW_X5_xDrive50e_M_Sport_Black_Sapphire_Metallic.png",
-                    "Mineral White Metallic": "images/X5_20260417_01_TH.asset.1779075010632/BMW_X5_xDrive50e_M_Sport_Mineral_White_Metallic.png"
+                    "Manhattan Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive50e_m_sport_manhattan_metallic.webp",
+                    "Black Sapphire Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive50e_m_sport_black_sapphire_metallic.webp",
+                    "Mineral White Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive50e_m_sport_mineral_white_metallic.webp",
+                    "Skyscraper Grey Metallic": "images/X5_20260417_01_TH.asset.1779075010632/bmw_x5_xdrive50e_m_sport_skyscraper_grey_metallic.webp"
                 },
                 "specifications": [
                     {
@@ -10236,12 +10236,12 @@
                     }
                 ],
                 "images": {
-                    "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_bmw_individual_dravit_grey_metallic.png",
-                    "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_cape_york_green_metallic.png",
-                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_m_brooklyn_grey_metallic.png",
-                    "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_arctic_race_blue_metallic.png",
-                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_black_sapphire_metallic.png",
-                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_mineral_white_metallic.png"
+                    "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_bmw_individual_dravit_grey_metallic.webp",
+                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_m_brooklyn_grey_metallic.webp",
+                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_black_sapphire_metallic.webp",
+                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_mineral_white_metallic.webp",
+                    "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_cape_york_green_metallic.webp",
+                    "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_arctic_race_blue_metallic.webp"
                 }
             },
             {
@@ -10681,12 +10681,12 @@
                     }
                 ],
                 "images": {
-                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_m_brooklyn_grey_metallic.png",
-                    "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_cape_york_green_metallic.png",
-                    "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_arctic_race_blue_metallic.png",
-                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_black_sapphire_metallic.png",
-                    "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_bmw_individual_dravit_grey_metallic.png",
-                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_mineral_white_metallic.png"
+                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_m_brooklyn_grey_metallic.webp",
+                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_black_sapphire_metallic.webp",
+                    "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_bmw_individual_dravit_grey_metallic.webp",
+                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_mineral_white_metallic.webp",
+                    "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_cape_york_green_metallic.webp",
+                    "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_arctic_race_blue_metallic.webp"
                 }
             },
             {
@@ -11114,10 +11114,10 @@
                     }
                 ],
                 "images": {
-                    "Fire Red metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_fire_red_metallic.png",
-                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_m_brooklyn_grey_metallic.png",
-                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_black_sapphire_metallic.png",
-                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_mineral_white_metallic.png"
+                    "Fire Red metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_fire_red_metallic.webp",
+                    "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_m_brooklyn_grey_metallic.webp",
+                    "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_black_sapphire_metallic.webp",
+                    "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_m440i_xdrive_mineral_white_metallic.webp"
                 }
             }
         ],
@@ -16461,10 +16461,10 @@
             {
                 "model_name": "X6 xDrive40i M Sport",
                 "images": {
-                    "Brooklyn Grey Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_brooklyn_grey_metallic.png",
-                    "Black Sapphire Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_black_sapphire_metallic.png",
-                    "Manhattan Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_manhattan_metallic.png",
-                    "Mineral White Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_mineral_white_metallic.png"
+                    "Brooklyn Grey Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_brooklyn_grey_metallic.webp",
+                    "Black Sapphire Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_black_sapphire_metallic.webp",
+                    "Manhattan Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_manhattan_metallic.webp",
+                    "Mineral White Metallic": "images/X6_20260223_01_TH.asset.1784613825303/bmw_x6_xdrive40i_m_sport_mineral_white_metallic.webp"
                 },
                 "specifications": [
                     {
@@ -25385,11 +25385,11 @@
             {
                 "model_name": "iX2 xDrive30 M Sport",
                 "images": {
-                    "Cape York Green metallic": "images/ix2_20240710_01_th_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_cape_york_green_metallic.png",
-                    "Fire Red metallic": "images/ix2_20240710_01_th_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_fire_red_metallic.png",
-                    "M Brooklyn Grey metallic": "images/ix2_20240710_01_th_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_m_brooklyn_grey_metallic.png",
-                    "Black Sapphire metallic": "images/ix2_20240710_01_th_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_black_sapphire_metallic.png",
-                    "Alpine White solid": "images/ix2_20240710_01_th_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_alpine_white_solid.png"
+                    "Cape York Green metallic": "images/ix2_20240710_01_th_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_cape_york_green_metallic.webp",
+                    "Fire Red metallic": "images/ix2_20240710_01_th_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_fire_red_metallic.webp",
+                    "M Brooklyn Grey metallic": "images/ix2_20240710_01_th_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_m_brooklyn_grey_metallic.webp",
+                    "Black Sapphire metallic": "images/ix2_20240710_01_th_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_black_sapphire_metallic.webp",
+                    "Alpine White solid": "images/ix2_20240710_01_th_(1).asset.1738060128032/bmw_ix2_xdrive30_m_sport_alpine_white_solid.webp"
                 },
                 "specifications": [
                     {
@@ -27286,9 +27286,9 @@
             {
                 "model_name": "iX1 eDrive20L M Sport",
                 "images": {
-                    "M Brooklyn Grey metallic": "images/iX1_L_20260605_01_TH.asset.1785989516845/bmw_ix1_edrive20l_m_sport_m_brooklyn_grey_metallic.png",
-                    "M Carbon Black metallic": "images/iX1_L_20260605_01_TH.asset.1785989516845/bmw_ix1_edrive20l_m_sport_m_carbon_black_metallic.png",
-                    "Mineral White metallic": "images/iX1_L_20260605_01_TH.asset.1785989516845/bmw_ix1_edrive20l_m_sport_mineral_white_metallic.png"
+                    "M Brooklyn Grey metallic": "images/iX1_L_20260605_01_TH.asset.1785989516845/bmw_ix1_edrive20l_m_sport_m_brooklyn_grey_metallic.webp",
+                    "M Carbon Black metallic": "images/iX1_L_20260605_01_TH.asset.1785989516845/bmw_ix1_edrive20l_m_sport_m_carbon_black_metallic.webp",
+                    "Mineral White metallic": "images/iX1_L_20260605_01_TH.asset.1785989516845/bmw_ix1_edrive20l_m_sport_mineral_white_metallic.webp"
                 },
                 "specifications": [
                     {
@@ -28160,11 +28160,11 @@
             {
                 "model_name": "X4 xDrive20d M Sport",
                 "images": {
-                    "Alpine White Solid": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_alpine_white_solid.png",
-                    "Black Sapphire Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_black_sapphire_metallic.png",
-                    "Brooklyn Grey Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_brooklyn_grey_metallic.png",
-                    "Phytonic Blue Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_phytonic_blue_metallic.png",
-                    "Piemont Red Metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_piemont_red_metallic.png"
+                    "Alpine White solid": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_alpine_white_solid.webp",
+                    "Black Sapphire metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_black_sapphire_metallic.webp",
+                    "Brooklyn Grey metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_brooklyn_grey_metallic.webp",
+                    "Phytonic Blue metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_phytonic_blue_metallic.webp",
+                    "Piemont Red metallic": "images/x4_20240418_01_th.asset.1758627513274/bmw_x4_xdrive20d_m_sport_piemont_red_metallic.webp"
                 },
                 "specifications": [
                     {
@@ -32859,10 +32859,10 @@
                     }
                 ],
                 "images": {
-                    "M Brooklyn Grey metallic": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_m_brooklyn_grey_metallic.png",
-                    "Black Sapphire metallic": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_black_sapphire_metallic.png",
-                    "M Portimao Blue metallic": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_m_portimao_blue_metallic.png",
-                    "Alpine White solid": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_alpine_white_solid.png"
+                    "M Brooklyn Grey metallic": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_m_brooklyn_grey_metallic.webp",
+                    "Black Sapphire metallic": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_black_sapphire_metallic.webp",
+                    "Alpine White solid": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_alpine_white_solid.webp",
+                    "M Portimao Blue metallic": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_m_portimao_blue_metallic.webp"
                 }
             }
         ],
@@ -33602,10 +33602,10 @@
                     }
                 ],
                 "images": {
-                    "Alpine White solid": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_alpine_white_solid.png",
-                    "Space Silver metallic": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_space_silver_metallic.png",
-                    "Black Sapphire metallic": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_black_sapphire_metallic.png",
-                    "Portimao Blue metallic": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_portimao_blue_metallic.png"
+                    "Alpine White solid": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_alpine_white_solid.webp",
+                    "Space Silver metallic": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_space_silver_metallic.webp",
+                    "Black Sapphire metallic": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_black_sapphire_metallic.webp",
+                    "Portimao Blue metallic": "images/X1_20260417_01_TH.asset.1778763269988/bmw_x1_sdrive20i_m_sport_portimao_blue_metallic.webp"
                 }
             }
         ],
@@ -34402,10 +34402,10 @@
                     }
                 ],
                 "images": {
-                    "BMW Individual Tanzanite Blue metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_20d_xdrive_m_sport_pro_bmw_individual_tanzanite_blue_metallic.png",
-                    "M Brooklyn Grey metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_20d_xdrive_m_sport_pro_m_brooklyn_grey_metallic.png",
-                    "Black Sapphire metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_20d_xdrive_m_sport_pro_black_sapphire_metallic.png",
-                    "Alpine White solid": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_20d_xdrive_m_sport_pro_alpine_white_solid.png"
+                    "BMW Individual Tanzanite Blue metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_20d_xdrive_m_sport_pro_bmw_individual_tanzanite_blue_metallic.webp",
+                    "M Brooklyn Grey metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_20d_xdrive_m_sport_pro_m_brooklyn_grey_metallic.webp",
+                    "Black Sapphire metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_20d_xdrive_m_sport_pro_black_sapphire_metallic.webp",
+                    "Alpine White solid": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_20d_xdrive_m_sport_pro_alpine_white_solid.webp"
                 }
             },
             {
@@ -34813,11 +34813,11 @@
                     }
                 ],
                 "images": {
-                    "DUNE GREY METALLIC": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_m50_xdrive_dune_grey_metallic.png",
-                    "M Brooklyn Grey metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_m50_xdrive_m_brooklyn_grey_metallic.png",
-                    "Black Sapphire metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_m50_xdrive_black_sapphire_metallic.png",
-                    "BMW Individual Tanzanite Blue metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_m50_xdrive_bmw_individual_tanzanite_blue_metallic.png",
-                    "Alpine White solid": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_m50_xdrive_alpine_white_solid.png"
+                    "DUNE GREY METALLIC": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_m50_xdrive_dune_grey_metallic.webp",
+                    "M Brooklyn Grey metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_m50_xdrive_m_brooklyn_grey_metallic.webp",
+                    "Black Sapphire metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_m50_xdrive_black_sapphire_metallic.webp",
+                    "BMW Individual Tanzanite Blue metallic": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_m50_xdrive_bmw_individual_tanzanite_blue_metallic.webp",
+                    "Alpine White solid": "images/X3_20260116_01_TH.asset.1778763269931/bmw_x3_m50_xdrive_alpine_white_solid.webp"
                 }
             }
         ],
@@ -36373,12 +36373,12 @@
                     }
                 ],
                 "images": {
-                    "Ocean Wave Blue metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_ocean_wave_blue_metallic.png",
-                    "Space Silver metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_space_silver_metallic.png",
-                    "M Brooklyn Grey metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_m_brooklyn_grey_metallic.png",
-                    "Black Sapphire metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_black_sapphire_metallic.png",
-                    "Polarised Grey metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_polarised_grey_metallic.png",
-                    "Alpine White solid": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_alpine_white_solid.png"
+                    "Ocean Wave Blue metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_ocean_wave_blue_metallic.webp",
+                    "Space Silver metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_space_silver_metallic.webp",
+                    "M Brooklyn Grey metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_m_brooklyn_grey_metallic.webp",
+                    "Black Sapphire metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_black_sapphire_metallic.webp",
+                    "Polarised Grey metallic": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_polarised_grey_metallic.webp",
+                    "Alpine White solid": "images/iX3_20260213_02_TH_REV1.asset.1782450846969/bmw_ix3_50_xdrive_m_sport_alpine_white_solid.webp"
                 }
             }
         ],
@@ -37390,10 +37390,10 @@
                     }
                 ],
                 "images": {
-                    "M Portimao Blue metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_m_portimao_blue_metallic.png",
-                    "M Brooklyn Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_m_brooklyn_grey_metallic.png",
-                    "Black Sapphire metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_black_sapphire_metallic.png",
-                    "Mineral White metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_mineral_white_metallic.png"
+                    "M Portimao Blue metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_m_portimao_blue_metallic.webp",
+                    "M Brooklyn Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_m_brooklyn_grey_metallic.webp",
+                    "Black Sapphire metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_black_sapphire_metallic.webp",
+                    "Mineral White metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_320d_m_sport_mineral_white_metallic.webp"
                 }
             },
             {
@@ -37841,10 +37841,10 @@
                     }
                 ],
                 "images": {
-                    "M Brooklyn Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_m_brooklyn_grey_metallic.png",
-                    "Black Sapphire metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_black_sapphire_metallic.png",
-                    "M Portimao Blue metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_m_portimao_blue_metallic.png",
-                    "Mineral White metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_mineral_white_metallic.png"
+                    "M Brooklyn Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_m_brooklyn_grey_metallic.webp",
+                    "M Portimao Blue metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_m_portimao_blue_metallic.webp",
+                    "Black Sapphire metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_black_sapphire_metallic.webp",
+                    "Mineral White metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_330e_m_sport_mineral_white_metallic.webp"
                 }
             },
             {
@@ -38292,11 +38292,11 @@
                     }
                 ],
                 "images": {
-                    "BMW Individual Dravit Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_bmw_individual_dravit_grey_metallic.png",
-                    "M Brooklyn Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_m_brooklyn_grey_metallic.png",
-                    "Black Sapphire metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_black_sapphire_metallic.png",
-                    "M Portimao Blue metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_m_portimao_blue_metallic.png",
-                    "Mineral White metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_mineral_white_metallic.png"
+                    "BMW Individual Dravit Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_bmw_individual_dravit_grey_metallic.webp",
+                    "M Brooklyn Grey metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_m_brooklyn_grey_metallic.webp",
+                    "Black Sapphire metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_black_sapphire_metallic.webp",
+                    "M Portimao Blue metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_m_portimao_blue_metallic.webp",
+                    "Mineral White metallic": "images/3_20250625_01_TH.asset.1763550244972/bmw_m340i_xdrive_mineral_white_metallic.webp"
                 }
             }
         ],
@@ -41482,9 +41482,9 @@
                     }
                 ],
                 "images": {
-                    "Brooklyn Grey Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_brooklyn_grey_metallic.png",
-                    "Black Sapphire Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_black_sapphire_metallic.png",
-                    "Mineral White Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_mineral_white_metallic.png"
+                    "Brooklyn Grey Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_brooklyn_grey_metallic.webp",
+                    "Black Sapphire Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_black_sapphire_metallic.webp",
+                    "Mineral White Metallic": "images/X7_20260529_01_TH.asset.1782451095961/bmw_x7_xdrive40d_m_sport_mineral_white_metallic.webp"
                 }
             }
         ],
@@ -44879,10 +44879,10 @@
                     }
                 ],
                 "images": {
-                    "BMW Individual Two-Tone Oxide Grey II metallic with Sapphire Black metallic": "images/i7_20261006_03_TH_335kW.asset.1793160815961/bmw_i7_50_xdrive_m_sport_bmw_individual_two-tone_oxide_grey_ii_metallic_with_sapphire_black_metallic.png",
-                    "Oxide Grey metallic": "images/i7_20261006_03_TH_335kW.asset.1793160815961/bmw_i7_50_xdrive_m_sport_oxide_grey_metallic.png",
-                    "Black Sapphire metallic": "images/i7_20261006_03_TH_335kW.asset.1793160815961/bmw_i7_50_xdrive_m_sport_black_sapphire_metallic.png",
-                    "BMW Individual Dravit Grey metallic": "images/i7_20261006_03_TH_335kW.asset.1793160815961/bmw_i7_50_xdrive_m_sport_bmw_individual_dravit_grey_metallic.png"
+                    "BMW Individual Two-Tone Oxide Grey II metallic with Sapphire Black metallic": "images/i7_20261006_03_TH_335kW.asset.1793160815961/bmw_i7_50_xdrive_m_sport_bmw_individual_two-tone_oxide_grey_ii_metallic_with_sapphire_black_metallic.webp",
+                    "Oxide Grey metallic": "images/i7_20261006_03_TH_335kW.asset.1793160815961/bmw_i7_50_xdrive_m_sport_oxide_grey_metallic.webp",
+                    "Black Sapphire metallic": "images/i7_20261006_03_TH_335kW.asset.1793160815961/bmw_i7_50_xdrive_m_sport_black_sapphire_metallic.webp",
+                    "BMW Individual Dravit Grey metallic": "images/i7_20261006_03_TH_335kW.asset.1793160815961/bmw_i7_50_xdrive_m_sport_bmw_individual_dravit_grey_metallic.webp"
                 }
             }
         ],

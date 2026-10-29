@@ -12,22 +12,44 @@ import difflib
 
 # Configurator specifications for our targeted test models
 SCRAPE_CONFIGS = {
+    "220 Gran Coupe M Sport Pro": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/F74/64GGZ9H",
+        "engine_keyword": "220",
+        "model_key_name": "BMW_220_Gran_Coupe_M_Sport_Pro"
+    },
+    "320d M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G20/24FWZ7U",
+        "engine_keyword": "320d",
+        "model_key_name": "BMW_320d_M_Sport"
+    },
+    "330e M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G20/84BWZ7J",
+        "engine_keyword": "330e",
+        "model_key_name": "BMW_330e_M_Sport"
+    },
+    "M340i xDrive": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G20/84FVZ7H",
+        "engine_keyword": "M340i",
+        "model_key_name": "BMW_M340i_xDrive"
+    },
+    "320Li M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G28/38FHZ7T",
+        "engine_keyword": "320Li",
+        "model_key_name": "BMW_320Li_M_Sport"
+    },
     "420i Coupé M Sport": {
         "base_url": "https://configure.bmw.co.th/th_TH/configure/G22/12HBZ0Y",
         "engine_keyword": "420i",
-        "image_dir": "images/4series_images",
         "model_key_name": "BMW_420i_Coupe_M_Sport"
     },
     "430i Coupé M Sport": {
         "base_url": "https://configure.bmw.co.th/th_TH/configure/G22/42HBZ07",
         "engine_keyword": "430i",
-        "image_dir": "images/4series_images",
         "model_key_name": "BMW_430i_Coupe_M_Sport"
     },
     "M440i xDrive": {
         "base_url": "https://configure.bmw.co.th/th_TH/configure/G22/72HBZ0V",
         "engine_keyword": "M440i",
-        "image_dir": "images/4series_images",
         "model_key_name": "BMW_M440i_xDrive"
     },
     "430i Convertible M Sport": {
@@ -35,13 +57,60 @@ SCRAPE_CONFIGS = {
         "engine_keyword": "430i",
         "model_key_name": "BMW_430i_Convertible_M_Sport"
     },
+    "X1 sDrive20i M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/U11/44EEZ8K",
+        "engine_keyword": "20i",
+        "model_key_name": "BMW_X1_sDrive20i_M_Sport"
+    },
+    "iX1 eDrive20L M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/U12/12HNZLD",
+        "engine_keyword": "20L",
+        "model_key_name": "BMW_iX1_eDrive20L_M_Sport"
+    },
+    "iX2 xDrive30 M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/U10/72GMZ2O",
+        "engine_keyword": "30",
+        "model_key_name": "BMW_iX2_xDrive30_M_Sport"
+    },
     "X3 20d xDrive M Sport Pro": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G45/44JAZ7V",
         "engine_keyword": "20d",
         "model_key_name": "BMW_X3_20d_xDrive_M_Sport_Pro"
     },
     "X3 M50 xDrive": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G45/34JAZ7X",
         "engine_keyword": "M50",
         "model_key_name": "BMW_X3_M50_xDrive"
+    },
+    "iX3 50 xDrive M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/NA5/32HRZKS",
+        "engine_keyword": "50",
+        "model_key_name": "BMW_iX3_50_xDrive_M_Sport"
+    },
+    "X4 xDrive20d M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G02/28CAZ8T",
+        "engine_keyword": "20d",
+        "model_key_name": "BMW_X4_xDrive20d_M_Sport"
+    },
+    "X5 xDrive30d M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G05/14EVZ4Y",
+        "engine_keyword": "30d",
+        "model_key_name": "BMW_X5_xDrive30d_M_Sport"
+    },
+    "X5 xDrive50e M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G05/48EUZ5E",
+        "engine_keyword": "50e",
+        "model_key_name": "BMW_X5_xDrive50e_M_Sport"
+    },
+    "X6 xDrive40i M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G06/34EXZ4Z",
+        "engine_keyword": "40i",
+        "model_key_name": "BMW_X6_xDrive40i_M_Sport"
+    },
+    "X7 xDrive40d M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G07/24ENZ5A",
+        "engine_keyword": "40d",
+        "model_key_name": "BMW_X7_xDrive40d_M_Sport"
     },
     "530e M Sport": {
         "engine_keyword": "530e M Sport",
@@ -51,12 +120,23 @@ SCRAPE_CONFIGS = {
         "base_url": "https://configure.bmw.co.th/th_TH/configure/G28/38FHZ7T",
         "engine_keyword": "320Li",
         "model_key_name": "BMW_320Li_M_Sport"
+    },
+    "i7 50 xDrive M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/G70/62HYZLL",
+        "engine_keyword": "i7 50 xDrive",
+        "model_key_name": "BMW_i7_50_xDrive_M_Sport"
     }
 }
 
 async def check_and_dismiss_modals(page):
-    # Check and dismiss con-modal-conflict or con-modal-logic if present
-    conflict_modal = page.locator("con-modal-conflict, con-modal-logic")
+    # Ensure cookie consent overlay does not intercept modal buttons
+    try:
+        await page.add_style_tag(content="epaas-consent-drawer-shell { display: none !important; pointer-events: none !important; }")
+    except Exception:
+        pass
+
+    # Check and dismiss con-modal-conflict or con-modal-logic or dialog modals if present
+    conflict_modal = page.locator("con-modal-conflict, con-modal-logic, div[role='dialog']")
     if await conflict_modal.count() > 0:
         # Find any confirm button (accept/confirm/ok/proceed)
         confirm_selectors = [
@@ -74,11 +154,21 @@ async def check_and_dismiss_modals(page):
         
         for selector in confirm_selectors:
             btn = conflict_modal.locator(selector)
-            if await btn.count() > 0:
-                print(f"  [MODAL] Dismissing modal using selector: {selector}")
-                await btn.first.click()
-                await asyncio.sleep(5)
-                return True
+            count = await btn.count()
+            if count > 0:
+                for idx in range(count):
+                    b = btn.nth(idx)
+                    try:
+                        if await b.is_visible():
+                            print(f"  [MODAL] Dismissing modal using selector: {selector} (Button #{idx+1})")
+                            try:
+                                await b.click(force=True, timeout=4000)
+                            except Exception:
+                                await b.evaluate("el => el.click()")
+                            await asyncio.sleep(5)
+                            return True
+                    except Exception:
+                        pass
                 
     return False
 
@@ -155,17 +245,21 @@ async def capture_360_canvas(page, filename):
         }""")
         
         # Take screenshot of con-modal-360-visualization canvas
+        temp_screen = filename if filename.endswith('.png') else os.path.splitext(filename)[0] + '.png'
         canvas_el = page.locator("con-modal-360-visualization canvas").first
-        await canvas_el.screenshot(path=filename)
+        await canvas_el.screenshot(path=temp_screen)
         
         # Compress and resize to 50%
         try:
             from PIL import Image
-            with Image.open(filename) as img:
+            with Image.open(temp_screen) as img:
                 w, h = img.size
                 resized_img = img.resize((w // 2, h // 2), Image.Resampling.LANCZOS)
-                resized_img.save(filename, optimize=True, quality=85)
-            print(f"    [SUCCESS] Saved screenshot & compressed (50%): {filename}")
+                fmt = "WEBP" if filename.endswith('.webp') else "PNG"
+                resized_img.save(filename, format=fmt, optimize=True, quality=85)
+            if temp_screen != filename and os.path.exists(temp_screen):
+                os.remove(temp_screen)
+            print(f"    [SUCCESS] Saved 360 screenshot & compressed (50%): {filename}")
         except Exception as e:
             print(f"    [WARNING] Failed to compress screenshot: {e}")
         
@@ -198,7 +292,102 @@ async def capture_360_canvas(page, filename):
         # Hide overlays recursively before taking viewport screenshot
         await hide_viewport_overlays(page)
         
-        await page.screenshot(path=filename)
+        temp_screen = filename if filename.endswith('.png') else os.path.splitext(filename)[0] + '.png'
+        await page.screenshot(path=temp_screen)
+        if temp_screen != filename:
+            try:
+                from PIL import Image
+                with Image.open(temp_screen) as img:
+                    w, h = img.size
+                    resized_img = img.resize((w // 2, h // 2), Image.Resampling.LANCZOS)
+                    resized_img.save(filename, format="WEBP", quality=85)
+                if os.path.exists(temp_screen):
+                    os.remove(temp_screen)
+            except Exception as e:
+                print(f"    [WARNING] Viewport conversion error: {e}")
+        return True
+
+
+async def capture_stage_or_canvas(page, filename):
+    """
+    Captures car image.
+    Primary: Extracts the direct 3/4 front view image URL from the stage slider,
+             downloads the clean native WebP image, and saves it.
+    Fallback: Opens 360 mode or captures viewport canvas if stage slider is unavailable.
+    """
+    print(f"  [VISUALIZER] Attempting direct stage 3/4 front image capture...")
+    
+    img_url = await page.evaluate("""() => {
+        try {
+            const app = document.querySelector('con-app');
+            if (!app || !app.shadowRoot) return null;
+            const configure = app.shadowRoot.querySelector('con-configure');
+            if (!configure || !configure.shadowRoot) return null;
+            const stage = configure.shadowRoot.querySelector('con-stage-desktop');
+            if (!stage || !stage.shadowRoot) return null;
+            const slider = stage.shadowRoot.querySelector('con-slider-view');
+            if (!slider || !slider.shadowRoot) return null;
+            const nativeSlider = slider.shadowRoot.querySelector('con-native-slider');
+            if (!nativeSlider || !nativeSlider.shadowRoot) return null;
+            
+            const imgs = Array.from(nativeSlider.shadowRoot.querySelectorAll('img'));
+            const visibleCars = imgs.filter(img => {
+                const r = img.getBoundingClientRect();
+                return r.width > 500 && r.height > 500 && Math.abs(r.left) < 100;
+            });
+            return visibleCars.length > 0 ? visibleCars[0].src : null;
+        } catch (e) {
+            return null;
+        }
+    }""")
+    
+    if img_url:
+        import urllib.request
+        from PIL import Image
+        
+        webp_filename = filename if filename.endswith('.webp') else os.path.splitext(filename)[0] + '.webp'
+        temp_raw = webp_filename + '.tmp'
+        try:
+            urllib.request.urlretrieve(img_url, temp_raw)
+            with Image.open(temp_raw) as img:
+                w, h = img.size
+                
+                # Universal 16:9 Stage Crop Framing
+                # Cozy Cloud stage composite positions the vehicle in the lower-left area
+                # Target width: 72% of full canvas, Aspect ratio: 16:9, cx: 35.5%, cy: 51.5%
+                crop_w = int(w * 0.72)
+                crop_h = int(crop_w * 9 / 16)
+                cx = int(w * 0.355)
+                cy = int(h * 0.515)
+
+                x1 = max(0, cx - crop_w // 2)
+                y1 = max(0, cy - crop_h // 2)
+                x2 = min(w, x1 + crop_w)
+                y2 = min(h, y1 + crop_h)
+
+                if x1 == 0:
+                    x2 = min(w, crop_w)
+                if y1 == 0:
+                    y2 = min(h, crop_h)
+
+                cropped = img.crop((x1, y1, x2, y2))
+                cw, ch = cropped.size
+                resized = cropped.resize((cw // 2, ch // 2), Image.Resampling.LANCZOS)
+                resized.save(webp_filename, format="WEBP", quality=85, method=6)
+                
+            if os.path.exists(temp_raw):
+                os.remove(temp_raw)
+                
+            print(f"    [SUCCESS] Saved 3/4 front WebP image ({os.path.getsize(webp_filename)} bytes): {webp_filename}")
+            return webp_filename
+        except Exception as e:
+            print(f"    [WARNING] Direct stage download failed ({e}), falling back to 360 canvas.")
+            if os.path.exists(temp_raw):
+                os.remove(temp_raw)
+                
+    # Fallback to existing 360 canvas or viewport capture
+    await capture_360_canvas(page, filename)
+    return filename
         
 def detect_body_style(model_name: str, series_name: str = ""):
     """Detect target body style and define required and forbidden tokens."""
@@ -562,11 +751,11 @@ async def scrape_model_paintworks(page, config, model_name, model_obj=None):
     for idx in range(count_swatches):
         swatch = paint_swatches.nth(idx)
         is_selected = await swatch.evaluate("""(el) => {
-            if (el.classList.contains('is-selected') || el.classList.contains('selected') || el.hasAttribute('selected') || el.getAttribute('aria-checked') === 'true') {
+            if (el.getAttribute('data-is-selected') === 'true' || el.classList.contains('is-selected') || el.classList.contains('selected') || el.hasAttribute('selected') || el.getAttribute('aria-checked') === 'true') {
                 return true;
             }
             if (el.shadowRoot) {
-                const checkedEl = el.shadowRoot.querySelector('[aria-checked="true"], [checked], .is-selected, .selected');
+                const checkedEl = el.shadowRoot.querySelector('[data-is-selected="true"], [aria-checked="true"], [checked], .is-selected, .selected');
                 if (checkedEl) return true;
             }
             return false;
@@ -586,13 +775,13 @@ async def scrape_model_paintworks(page, config, model_name, model_obj=None):
     
     # 1. Capture the default color rendering first
     clean_color_name = initial_color_name.replace(" ", "_").replace("/", "-").replace("\\", "-")
-    filename = f"{image_dir}/{(model_key_name + '_' + clean_color_name).lower()}.png"
+    filename = f"{image_dir}/{(model_key_name + '_' + clean_color_name).lower()}.webp"
     
     await check_and_dismiss_modals(page)
-    await capture_360_canvas(page, filename)
+    actual_path = await capture_stage_or_canvas(page, filename)
     
     # Map the default color to its filename
-    images_dict[initial_color_name] = filename
+    images_dict[initial_color_name] = actual_path or filename
     
     # 2. Collect all swatch identifiers upfront to protect against dynamic DOM re-ordering
     swatch_items = []
@@ -611,6 +800,7 @@ async def scrape_model_paintworks(page, config, model_name, model_obj=None):
         color_name = item["name"]
 
         if paint_code == initial_code:
+            print(f"  [SKIP INITIAL] Swatch '{color_name}' ({paint_code}) matches initial selected code. Skipping redundant click.")
             continue
 
         print(f"  --- Scraping Paint Swatch #{idx+1}: {color_name} (Code: {paint_code}) ---")
@@ -625,17 +815,35 @@ async def scrape_model_paintworks(page, config, model_name, model_obj=None):
                 print(f"  [ERROR] Swatch '{color_name}' ({paint_code}) could not be located. Skipping.")
                 continue
 
-        await check_and_dismiss_modals(page)
-        await swatch.first.click()
-        await asyncio.sleep(2)
-        await check_and_dismiss_modals(page)
-        await asyncio.sleep(2)
+        is_now_selected = await swatch.evaluate("""(el) => {
+            if (el.getAttribute('data-is-selected') === 'true' || el.classList.contains('is-selected') || el.classList.contains('selected') || el.getAttribute('aria-checked') === 'true') {
+                return true;
+            }
+            if (el.shadowRoot) {
+                const checkedEl = el.shadowRoot.querySelector('[data-is-selected="true"], [aria-checked="true"], .is-selected, .selected');
+                if (checkedEl) return true;
+            }
+            return false;
+        }""")
+
+        if is_now_selected:
+            print(f"  [ALREADY SELECTED] Swatch '{color_name}' ({paint_code}) is already active. Skipping click to prevent deselect.")
+        else:
+            await check_and_dismiss_modals(page)
+            await swatch.first.click()
+            await asyncio.sleep(2)
+            dismissed = await check_and_dismiss_modals(page)
+            if dismissed:
+                print(f"  [MODAL DISMISSED] Waiting 5s for stage to re-render '{color_name}'...")
+                await asyncio.sleep(5)
+            else:
+                await asyncio.sleep(2)
 
         clean_color_name = color_name.replace(" ", "_").replace("/", "-").replace("\\", "-")
-        filename = f"{image_dir}/{(model_key_name + '_' + clean_color_name).lower()}.png"
+        filename = f"{image_dir}/{(model_key_name + '_' + clean_color_name).lower()}.webp"
 
-        await capture_360_canvas(page, filename)
-        images_dict[color_name] = filename
+        actual_path = await capture_stage_or_canvas(page, filename)
+        images_dict[color_name] = actual_path or filename
         
     return images_dict
 
@@ -698,7 +906,8 @@ def resolve_unmapped_paints(model, images_dict):
         # Rename file on disk to match new key
         model_key_name = model.get("model_name", "").replace(" ", "_")
         clean_color_name = new_key.replace(" ", "_").replace("/", "-").replace("\\", "-")
-        new_filename = f"{os.path.dirname(old_path)}/{(model_key_name + '_' + clean_color_name).lower()}.png"
+        ext = os.path.splitext(old_path)[1] or ".webp"
+        new_filename = f"{os.path.dirname(old_path)}/{(model_key_name + '_' + clean_color_name).lower()}{ext}"
         
         try:
             if os.path.exists(old_path):
@@ -715,6 +924,15 @@ def resolve_unmapped_paints(model, images_dict):
     return images_dict
 
 async def main():
+    import sys
+    model_filter = None
+    force_scrape = False
+    for i, arg in enumerate(sys.argv):
+        if arg == "--model" and i + 1 < len(sys.argv):
+            model_filter = sys.argv[i + 1].lower()
+        if arg == "--force":
+            force_scrape = True
+
     specs_file = "bmw_master_specs.json"
     
     # Load specifications database
@@ -732,6 +950,18 @@ async def main():
         pdf_source = series.get("pdf_source", "unknown")
         clean_pdf = pdf_source.replace(".pdf", "").replace("-", "_").replace(" ", "_")
         for model in series.get("models", []):
+            model_name = model.get("model_name", "")
+            if model_filter == "x1-x7":
+                s_low = series_name.lower()
+                m_low = model_name.lower()
+                if not any(f"x{n}" in s_low or f"ix{n}" in s_low or f"x{n}" in m_low or f"ix{n}" in m_low for n in range(1, 8)):
+                    continue
+            elif model_filter in ["2-4", "234", "2-3-4"]:
+                s_low = series_name.lower()
+                if not any(f"{n} series" in s_low for n in [2, 3, 4]):
+                    continue
+            elif model_filter and model_filter not in model_name.lower() and model_filter not in series_name.lower():
+                continue
             if is_m_car:
                 if "images" not in model:
                     model["images"] = {}
@@ -759,7 +989,7 @@ async def main():
                             print(f" - [INCOMPLETE IMAGES] Model {model.get('model_name')} is missing image for expected color '{exp_c}'. Scheduling scrape.")
                             break
 
-            if needs_scraping:
+            if force_scrape or needs_scraping:
                 # Perform case-insensitive directory resolution to match physical folders on disk
                 disk_pdf_dir = clean_pdf
                 if os.path.exists("images"):
