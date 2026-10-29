@@ -3642,6 +3642,7 @@
             const isTh = currentLang === 'th';
             const items = [];
 
+            // 1. Check explicit additional safety category (backward compatibility with custom specs)
             for (const specBlock of (model.specifications || [])) {
                 const cname = cleanThai(specBlock.category || '').toLowerCase();
                 if (cname.includes('ความปลอดภัย & ช่วยการขับขี่ เพิ่มเติม') || cname.includes('additional safety')) {
@@ -3651,6 +3652,45 @@
                         const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
                         if (isActive && top) {
                             if (!items.includes(top)) items.push(top);
+                        }
+                    }
+                }
+            }
+
+            // 2. Fallback: If not found, extract from main Safety category by filtering out base safety features
+            if (items.length === 0) {
+                const EXCLUDE_BASE_KEYWORDS = [
+                    'airbag', 'ถุงลม', 'teleservices', 'emergency call', 'ปุ่มโทรออกฉุกเฉิน',
+                    'isofix', 'คาร์ซีท', 'dsc', 'dynamic stability', 'เสถียรภาพ',
+                    'abs', 'anti-lock', 'ป้องกันล้อล็อก', 'brake assist', 'เสริมแรงเบรก',
+                    'crash sensor', 'เซนเซอร์ควบคุมระบบความปลอดภัย', 'เซนเซอร์ตรวจจับการชน',
+                    'acoustic protection', 'เสียงจำลอง', 'tyre repair', 'ปะยาง',
+                    'tyre pressure', 'ลมยาง', 'warning triangle', 'ป้ายสามเหลี่ยม',
+                    'first-aid', 'ปฐมพยาบาล', 'active protection'
+                ];
+                const PACKAGE_EXCLUDE_KEYWORDS = [
+                    'driving assistant professional', 'ระบบช่วยการขับขี่รุ่น professional', 'ระบบช่วยการขับขี่ รุ่น professional',
+                    'driving assistant plus', 'ระบบช่วยการขับขี่รุ่น plus', 'ระบบช่วยการขับขี่ รุ่น plus',
+                    'parking assistant professional', 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติรุ่น professional', 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น professional',
+                    'parking assistant plus', 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติรุ่น plus', 'ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น plus'
+                ];
+
+                for (const specBlock of (model.specifications || [])) {
+                    const cname = cleanThai(specBlock.category || '').toLowerCase();
+                    if (cname === 'ความปลอดภัย' || cname === 'safety') {
+                        for (const detail of (specBlock.details || [])) {
+                            const top = cleanThai(detail.topic || '').trim();
+                            const val = (detail.value || '').trim();
+                            const topLower = top.toLowerCase();
+                            const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
+
+                            if (isActive && top) {
+                                const isBase = EXCLUDE_BASE_KEYWORDS.some(k => topLower.includes(k));
+                                const isPkg = PACKAGE_EXCLUDE_KEYWORDS.some(k => topLower.includes(k));
+                                if (!isBase && !isPkg && !items.includes(top)) {
+                                    items.push(top);
+                                }
+                            }
                         }
                     }
                 }
