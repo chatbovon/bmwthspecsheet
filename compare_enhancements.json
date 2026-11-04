@@ -20,6 +20,15 @@
           "is_real_vehicle_verified": true,
           "note": "รถจริงมี แต่pdfไม่มี",
           "verified_date": "2026-10-30"
+        },
+        {
+          "category": "อุปกรณ์ภายใน",
+          "topic": "ระบบกล้องภายในรถ",
+          "original_topic": "",
+          "value": "■",
+          "is_real_vehicle_verified": true,
+          "note": "รถจริงมี",
+          "verified_date": "2026-11-04"
         }
       ],
       "en": [
@@ -38,6 +47,14 @@
           "is_real_vehicle_verified": true,
           "note": "รถจริงมี แต่pdfไม่มี",
           "verified_date": "2026-10-30"
+        },
+        {
+          "category": "Interior",
+          "topic": "Interior Camera",
+          "value": "■",
+          "is_real_vehicle_verified": true,
+          "note": "รถจริงมี",
+          "verified_date": "2026-11-04"
         }
       ]
     },
