@@ -2294,6 +2294,15 @@
             : [cleanThai(topicNameOrAliases).toLowerCase()];
 
         for (const item of items) {
+            // Category check if categoryName provided
+            if (categoryName) {
+                const cCat = cleanThai(categoryName).toLowerCase();
+                const iCat = cleanThai(item.category || '').toLowerCase();
+                if (cCat && iCat && !cCat.includes(iCat) && !iCat.includes(cCat)) {
+                    continue;
+                }
+            }
+
             const itemTopic = cleanThai(item.topic || '').toLowerCase();
             const origTopic = cleanThai(item.original_topic || '').toLowerCase();
             const normItemTopic = itemTopic.replace(/แบบ\s*/g, '').replace(/\s+/g, ' ').trim();
@@ -2301,11 +2310,23 @@
 
             for (const alias of searchAliases) {
                 const normAlias = alias.replace(/แบบ\s*/g, '').replace(/\s+/g, ' ').trim();
-                if (itemTopic === alias || itemTopic.includes(alias) || alias.includes(itemTopic) ||
-                    normItemTopic === normAlias || normItemTopic.includes(normAlias) || normAlias.includes(normItemTopic) ||
-                    (origTopic && (origTopic === alias || origTopic.includes(alias) || alias.includes(origTopic))) ||
-                    (normOrigTopic && (normOrigTopic === normAlias || normOrigTopic.includes(normAlias) || normAlias.includes(normOrigTopic)))) {
+                const isShortAlias = alias.length <= 3;
+
+                // Exact match
+                if (itemTopic === alias || normItemTopic === normAlias ||
+                    (origTopic && (origTopic === alias || normOrigTopic === normAlias))) {
                     return item;
+                }
+
+                // If alias is short (e.g. 'ล้อ' <= 3 chars), strictly do NOT do loose substring inclusion
+                // to prevent false positives (e.g. 'กล้อง' containing 'ล้อ')
+                if (!isShortAlias) {
+                    if (itemTopic.includes(alias) || alias.includes(itemTopic) ||
+                        normItemTopic.includes(normAlias) || normAlias.includes(normItemTopic) ||
+                        (origTopic && (origTopic.includes(alias) || alias.includes(origTopic))) ||
+                        (normOrigTopic && (normOrigTopic.includes(normAlias) || normAlias.includes(normOrigTopic)))) {
+                        return item;
+                    }
                 }
             }
         }
@@ -4766,11 +4787,13 @@
             // Priority 1: Check aliases in order of preference for active/present values
             for (const alias of aliases) {
                 const aliasLower = cleanThai(alias).toLowerCase();
+                const isShortAlias = aliasLower.length <= 3;
                 for (const specBlock of (model.specifications || [])) {
                     for (const detail of (specBlock.details || [])) {
                         const top = cleanThai(detail.topic || '').trim();
                         const topLower = top.toLowerCase();
-                        if (topLower.includes(aliasLower)) {
+                        const isMatch = isShortAlias ? (topLower === aliasLower) : topLower.includes(aliasLower);
+                        if (isMatch) {
                             const val = (detail.value || '').trim();
                             const isCheckMark = TRANSLATIONS[currentLang].yesWords.includes(val.toLowerCase());
                             const isActive = val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none';
@@ -4790,10 +4813,13 @@
             // Priority 2: Check if any alias matched with '-' (explicitly not equipped)
             for (const alias of aliases) {
                 const aliasLower = cleanThai(alias).toLowerCase();
+                const isShortAlias = aliasLower.length <= 3;
                 for (const specBlock of (model.specifications || [])) {
                     for (const detail of (specBlock.details || [])) {
                         const top = cleanThai(detail.topic || '').trim();
-                        if (top.toLowerCase().includes(aliasLower)) {
+                        const topLower = top.toLowerCase();
+                        const isMatch = isShortAlias ? (topLower === aliasLower) : topLower.includes(aliasLower);
+                        if (isMatch) {
                             // Check if compare enhancement overrides this '-'
                             const enhancement = getModelEnhancement(model.modelName, specBlock.category, aliases);
                             if (enhancement && enhancement.is_real_vehicle_verified) {
