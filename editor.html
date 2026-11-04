@@ -477,7 +477,7 @@
             padding: 20px;
         }
 
-        .modal-overlay.active {
+        .modal-overlay.active, .modal-overlay.open {
             display: flex;
             animation: fadeIn 0.2s ease;
         }
@@ -793,6 +793,10 @@
                 <span class="server-status-dot"></span>
                 <span id="serverStatusText">Connected (Port 8000)</span>
             </div>
+            <button class="nav-btn" onclick="openGithubModal()" id="btnGithubSettings">
+                <span>⚙️</span>
+                <span id="btnGithubText">GitHub Token</span>
+            </button>
             <a href="compare.html" class="nav-btn" target="_blank">
                 <span>📊</span>
                 <span>Open Compare</span>
@@ -997,63 +1001,358 @@
         </div>
     </div>
 
+    <!-- GitHub Settings Modal -->
+    <div class="modal-overlay" id="githubModalOverlay">
+        <div class="modal-card" style="max-width: 580px;">
+            <div class="modal-header">
+                <div class="modal-title" style="display:flex; align-items:center; gap:8px;">
+                    <span>⚙️</span>
+                    <span>ตั้งค่า GitHub Personal Access Token (สำหรับบันทึกบนเว็บ)</span>
+                </div>
+                <button class="modal-close-btn" onclick="closeGithubModal()">×</button>
+            </div>
+            <div class="modal-body" style="display:flex; flex-direction:column; gap:16px;">
+                <div style="background: rgba(0, 102, 177, 0.06); border: 1px solid rgba(0, 102, 177, 0.2); border-radius: var(--radius-sm); padding: 12px 14px; font-size: 0.83rem; line-height: 1.5; color: #1e3a8a;">
+                    <strong>💡 วิธีสร้าง Token (ใช้เวลา 1 นาที):</strong><br>
+                    1. ไปที่ GitHub ➔ <strong>Settings</strong> ➔ <strong>Developer Settings</strong> ➔ <strong>Personal access tokens</strong> (Fine-grained หรือ Tokens Classic)<br>
+                    2. เลือก Repository: <code>chatbovon/bmwthspecsheet</code><br>
+                    3. ติ๊กเลือกสิทธิ์ <strong>Repository permissions: Contents ➔ Read and write</strong><br>
+                    4. คัดลอก Token (ขึ้นต้นด้วย <code>github_pat_</code> หรือ <code>ghp_</code>) มาวางในช่องด้านล่าง
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <span>🔑 GitHub Personal Access Token (PAT)</span>
+                        <span class="form-label-required">* ปลอดภัย เก็บไว้เฉพาะในบราวเซอร์ของคุณ</span>
+                    </label>
+                    <div style="position: relative;">
+                        <input type="password" class="form-input" id="githubTokenInput" placeholder="github_pat_... หรือ ghp_..." style="padding-right: 40px;">
+                        <button type="button" onclick="toggleTokenVisibility()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 1rem;" title="ดู/ซ่อน Token">👁️</button>
+                    </div>
+                </div>
+
+                <div id="githubConnectionStatus" style="font-size: 0.82rem; padding: 8px 12px; border-radius: 4px; display: none;"></div>
+            </div>
+            <div class="modal-footer" style="justify-content: space-between;">
+                <button type="button" class="btn-action-danger" onclick="clearGithubToken()">🗑️ ลบ Token ออก</button>
+                <div style="display: flex; gap: 10px;">
+                    <button type="button" class="btn-action-secondary" onclick="testGithubConnection()">🔍 ทดสอบการเชื่อมต่อ</button>
+                    <button type="button" class="btn-action-primary" onclick="saveGithubToken()">💾 บันทึก Token</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Toast Container -->
     <div class="toast-container" id="toastContainer"></div>
 
     <script>
+        // State Management
         let allModels = [];
         let currentModelDetails = null;
         let selectedModelName = '';
         let currentScope = 'enhancement'; // 'enhancement' or 'override'
         let currentEditingItem = null;
 
+        // GitHub API Configuration & Hybrid State
+        const GITHUB_REPO_OWNER = 'chatbovon';
+        const GITHUB_REPO_NAME = 'bmwthspecsheet';
+        const GITHUB_BRANCH = 'main';
+
+        let isCloudMode = false;
+        let staticMasterTH = null;
+        let staticMasterEN = null;
+        let staticEnhancements = null;
+        let staticOverrides = null;
+
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             fetchHealthCheck();
             loadModelCatalog();
             setupSearchAutocomplete();
+
+            // Overlay click dismiss for GitHub Modal
+            const ghOverlay = document.getElementById('githubModalOverlay');
+            if (ghOverlay) {
+                ghOverlay.addEventListener('click', (e) => {
+                    if (e.target === ghOverlay) closeGithubModal();
+                });
+            }
         });
 
-        // 1. Health check
-        async function fetchHealthCheck() {
-            try {
-                const res = await fetch('/api/health');
-                const data = await res.json();
-                if (data.status === 'ok') {
-                    document.getElementById('serverStatusText').innerText = 'Connected (Port 8000)';
-                    document.getElementById('serverStatusPill').style.display = 'flex';
-                }
-            } catch (err) {
-                document.getElementById('serverStatusText').innerText = 'Server Offline';
-                document.getElementById('serverStatusPill').style.background = 'rgba(239, 68, 68, 0.15)';
-                document.getElementById('serverStatusPill').style.color = '#ef4444';
+        // ==========================================
+        // 1. GitHub Token Management & Cloud UI
+        // ==========================================
+        function getGithubToken() {
+            return localStorage.getItem('bmw_github_token') || '';
+        }
+
+        function openGithubModal() {
+            document.getElementById('githubTokenInput').value = getGithubToken();
+            const statusDiv = document.getElementById('githubConnectionStatus');
+            statusDiv.style.display = 'none';
+            document.getElementById('githubModalOverlay').classList.add('active', 'open');
+        }
+
+        function closeGithubModal() {
+            document.getElementById('githubModalOverlay').classList.remove('active', 'open');
+        }
+
+        function toggleTokenVisibility() {
+            const input = document.getElementById('githubTokenInput');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+
+        function saveGithubToken() {
+            const token = document.getElementById('githubTokenInput').value.trim();
+            if (!token) {
+                localStorage.removeItem('bmw_github_token');
+                showToast('ลบ Token แล้ว', 'info');
+            } else {
+                localStorage.setItem('bmw_github_token', token);
+                showToast('บันทึก GitHub Token ในเบราว์เซอร์เรียบร้อยแล้ว', 'success');
+            }
+            updateCloudStatusUI();
+            closeGithubModal();
+        }
+
+        function clearGithubToken() {
+            if (confirm('คุณต้องการลบ GitHub Token ที่บันทึกไว้ออกใช่หรือไม่?')) {
+                localStorage.removeItem('bmw_github_token');
+                document.getElementById('githubTokenInput').value = '';
+                showToast('ลบ GitHub Token เรียบร้อยแล้ว', 'info');
+                updateCloudStatusUI();
             }
         }
 
-        // 2. Load Model Catalog
+        async function testGithubConnection() {
+            const token = document.getElementById('githubTokenInput').value.trim();
+            const statusDiv = document.getElementById('githubConnectionStatus');
+            if (!token) {
+                statusDiv.style.display = 'block';
+                statusDiv.style.background = 'rgba(239, 68, 68, 0.1)';
+                statusDiv.style.color = '#dc2626';
+                statusDiv.innerText = '❌ กรุณากรอก Token ก่อนทดสอบ';
+                return;
+            }
+
+            statusDiv.style.display = 'block';
+            statusDiv.style.background = 'rgba(0, 102, 177, 0.1)';
+            statusDiv.style.color = '#1e3a8a';
+            statusDiv.innerText = '⏳ กำลังตรวจสอบการเชื่อมต่อกับ GitHub...';
+
+            try {
+                const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    const hasPush = data.permissions && data.permissions.push;
+                    statusDiv.style.background = 'rgba(5, 150, 105, 0.1)';
+                    statusDiv.style.color = '#047857';
+                    statusDiv.innerHTML = `✅ <strong>เชื่อมต่อสำเร็จ!</strong> Repository: <code>${data.full_name}</code> (สิทธิ์เขียน: ${hasPush ? 'มีสิทธิ์บันทึกได้' : 'อ่านได้อย่างเดียว'})`;
+                } else {
+                    statusDiv.style.background = 'rgba(239, 68, 68, 0.1)';
+                    statusDiv.style.color = '#dc2626';
+                    statusDiv.innerText = `❌ เชื่อมต่อไม่สำเร็จ (${res.status} ${res.statusText}) - ตรวจสอบว่า Token มีสิทธิ์ใน repo`;
+                }
+            } catch (err) {
+                statusDiv.style.background = 'rgba(239, 68, 68, 0.1)';
+                statusDiv.style.color = '#dc2626';
+                statusDiv.innerText = `❌ เกิดข้อผิดพลาดในการเชื่อมต่อ: ${err.message}`;
+            }
+        }
+
+        function updateCloudStatusUI() {
+            const token = getGithubToken();
+            const btnText = document.getElementById('btnGithubText');
+            const pill = document.getElementById('serverStatusPill');
+            const statusText = document.getElementById('serverStatusText');
+
+            if (!isCloudMode) {
+                pill.style.display = 'flex';
+                pill.style.background = 'rgba(5, 150, 105, 0.12)';
+                pill.style.color = '#047857';
+                statusText.innerText = 'Local Server (Port 8000)';
+                if (btnText) btnText.innerText = token ? 'GitHub Token (Saved)' : 'GitHub Token';
+                return;
+            }
+
+            pill.style.display = 'flex';
+            if (token) {
+                pill.style.background = 'rgba(5, 150, 105, 0.12)';
+                pill.style.color = '#047857';
+                statusText.innerText = 'GitHub Cloud (Token Set)';
+                if (btnText) btnText.innerText = 'GitHub Token (Ready)';
+            } else {
+                pill.style.background = 'rgba(217, 119, 6, 0.12)';
+                pill.style.color = '#b45309';
+                statusText.innerText = 'GitHub Cloud (Token Required)';
+                if (btnText) btnText.innerText = 'Set GitHub Token';
+            }
+        }
+
+        // Unicode-safe Base64 Helpers for GitHub REST API
+        function unicodeToBase64(str) {
+            const bytes = new TextEncoder().encode(str);
+            let binary = '';
+            for (let i = 0; i < bytes.byteLength; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            return window.btoa(binary);
+        }
+
+        function base64ToUnicode(b64) {
+            const binary = window.atob(b64.replace(/\s/g, ''));
+            const bytes = new Uint8Array(binary.length);
+            for (let i = 0; i < binary.length; i++) {
+                bytes[i] = binary.charCodeAt(i);
+            }
+            return new TextDecoder().decode(bytes);
+        }
+
+        // ==========================================
+        // 2. Health check & Auto Mode Switch
+        // ==========================================
+        async function fetchHealthCheck() {
+            const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            if (!isLocalhost) {
+                isCloudMode = true;
+                updateCloudStatusUI();
+                return;
+            }
+
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 1500);
+
+            try {
+                const res = await fetch('/api/health', { signal: controller.signal });
+                clearTimeout(timeoutId);
+                const data = await res.json();
+                if (data.status === 'ok') {
+                    isCloudMode = false;
+                    updateCloudStatusUI();
+                    return;
+                }
+            } catch (err) {
+                // Fallback to Cloud Mode
+            }
+            isCloudMode = true;
+            updateCloudStatusUI();
+        }
+
+        // ==========================================
+        // 3. Load Model Catalog (Hybrid)
+        // ==========================================
         async function loadModelCatalog() {
+            if (isCloudMode) {
+                await loadCloudCatalog();
+                return;
+            }
+
             try {
                 const res = await fetch('/api/models');
                 const data = await res.json();
                 if (data.success) {
                     allModels = data.models || [];
                     populateSeriesDropdown();
-                    
-                    // Auto-select X1 by default if available, or first model
                     const defaultModel = allModels.find(m => m.model_name.includes('X1 sDrive20i')) || allModels[0];
-                    if (defaultModel) {
-                        selectModel(defaultModel.model_name);
-                    }
+                    if (defaultModel) selectModel(defaultModel.model_name);
+                } else {
+                    throw new Error(data.error || 'Failed to load local models');
                 }
             } catch (err) {
-                showToast('Failed to load models catalog: ' + err, 'error');
+                console.warn('Local API unavailable, falling back to Cloud catalog...', err);
+                isCloudMode = true;
+                updateCloudStatusUI();
+                await loadCloudCatalog();
+            }
+        }
+
+        async function loadCloudCatalog() {
+            try {
+                const [resTH, resEN, resCustTH, resCustEN, resEnh, resOvr] = await Promise.all([
+                    fetch('bmw_master_specs.json').then(r => r.json()).catch(() => []),
+                    fetch('bmw_master_specs_en.json').then(r => r.json()).catch(() => []),
+                    fetch('bmw_custom_specs.json').then(r => r.json()).catch(() => []),
+                    fetch('bmw_custom_specs_en.json').then(r => r.json()).catch(() => []),
+                    fetch('compare_enhancements.json').then(r => r.json()).catch(() => ({ models: {} })),
+                    fetch('manual_overrides.json').then(r => r.json()).catch(() => ({}))
+                ]);
+
+                staticMasterTH = [...resTH, ...resCustTH];
+                staticMasterEN = [...resEN, ...resCustEN];
+                staticEnhancements = resEnh || { models: {} };
+                staticOverrides = resOvr || {};
+
+                const enMap = {};
+                for (const s of staticMasterEN) {
+                    const sName = s.series || '';
+                    for (const m of (s.models || [])) {
+                        const mName = m.model_name || '';
+                        enMap[mName] = {
+                            series: sName,
+                            pdf_source: m.pdf_source || s.pdf_source || ''
+                        };
+                    }
+                }
+
+                const modelList = [];
+                const enhancements = (staticEnhancements && staticEnhancements.models) || {};
+
+                for (const s of staticMasterTH) {
+                    const sName = s.series || '';
+                    for (const m of (s.models || [])) {
+                        const mName = m.model_name || '';
+                        const pdfSourceTH = m.pdf_source || s.pdf_source || '';
+                        const enInfo = enMap[mName] || {};
+
+                        let enhCount = 0;
+                        const enhItems = enhancements[mName] || {};
+                        if (Array.isArray(enhItems.th)) enhCount = enhItems.th.length;
+                        else if (enhItems.th) enhCount = 1;
+
+                        let hasOvr = false;
+                        const pdfBase = pdfSourceTH ? pdfSourceTH.split('/').pop() : '';
+                        for (const [prefix, pData] of Object.entries(staticOverrides)) {
+                            if (prefix.startsWith('_')) continue;
+                            if (pdfBase.startsWith(prefix) && pData && typeof pData === 'object') {
+                                if (pData[mName]) {
+                                    hasOvr = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        modelList.push({
+                            model_name: mName,
+                            series_th: sName,
+                            series_en: enInfo.series || sName,
+                            pdf_source_th: pdfSourceTH,
+                            pdf_source_en: enInfo.pdf_source || '',
+                            has_enhancement: enhCount > 0,
+                            enhancement_count: enhCount,
+                            has_override: hasOvr
+                        });
+                    }
+                }
+
+                allModels = modelList;
+                populateSeriesDropdown();
+                const defaultModel = allModels.find(m => m.model_name.includes('X1 sDrive20i')) || allModels[0];
+                if (defaultModel) selectModel(defaultModel.model_name);
+            } catch (err) {
+                showToast('Failed to load cloud catalog: ' + err.message, 'error');
             }
         }
 
         function populateSeriesDropdown() {
             const seriesSelect = document.getElementById('seriesSelect');
             const uniqueSeries = Array.from(new Set(allModels.map(m => m.series_th))).filter(Boolean).sort();
-            
+
             seriesSelect.innerHTML = '<option value="ALL">ทุกซีรีส์ (All Series)</option>';
             uniqueSeries.forEach(s => {
                 const opt = document.createElement('option');
@@ -1095,12 +1394,19 @@
             }
         }
 
-        // 3. Select & Load Model Details
+        // ==========================================
+        // 4. Select & Load Model Details (Hybrid)
+        // ==========================================
         async function selectModel(modelName) {
             selectedModelName = modelName;
             document.getElementById('modelSearchInput').value = modelName;
             document.getElementById('modelSummaryBar').style.display = 'flex';
             document.getElementById('activeModelName').innerText = modelName;
+
+            if (isCloudMode) {
+                loadCloudModelDetails(modelName);
+                return;
+            }
 
             try {
                 const res = await fetch(`/api/model_details?model_name=${encodeURIComponent(modelName)}`);
@@ -1110,11 +1416,89 @@
                     renderModelBadges();
                     renderDualPanes();
                 } else {
-                    showToast(data.error || 'Failed to load details', 'error');
+                    loadCloudModelDetails(modelName);
                 }
             } catch (err) {
-                showToast('Error loading model details: ' + err, 'error');
+                loadCloudModelDetails(modelName);
             }
+        }
+
+        function loadCloudModelDetails(modelName) {
+            if (!staticMasterTH || !staticMasterEN) return;
+            const cleanName = modelName.trim().toLowerCase();
+
+            let thModel = null;
+            let thSeries = '';
+            for (const s of staticMasterTH) {
+                for (const m of (s.models || [])) {
+                    if ((m.model_name || '').trim().toLowerCase() === cleanName) {
+                        thModel = m;
+                        thSeries = s.series || '';
+                        break;
+                    }
+                }
+                if (thModel) break;
+            }
+
+            let enModel = null;
+            let enSeries = '';
+            for (const s of staticMasterEN) {
+                for (const m of (s.models || [])) {
+                    if ((m.model_name || '').trim().toLowerCase() === cleanName) {
+                        enModel = m;
+                        enSeries = s.series || '';
+                        break;
+                    }
+                }
+                if (enModel) break;
+            }
+
+            if (!thModel && !enModel) {
+                showToast(`ไม่พบข้อมูลรุ่น '${modelName}'`, 'error');
+                return;
+            }
+
+            const matchedOverrides = [];
+            const pdfSource = (thModel || {}).pdf_source || '';
+            const pdfBase = pdfSource ? pdfSource.split('/').pop() : '';
+            for (const [prefix, pData] of Object.entries(staticOverrides || {})) {
+                if (prefix.startsWith('_')) continue;
+                if (pdfBase.startsWith(prefix) && pData && typeof pData === 'object') {
+                    for (const [mKey, catData] of Object.entries(pData)) {
+                        if (mKey.trim().toLowerCase() === cleanName && catData && typeof catData === 'object') {
+                            for (const [catName, topics] of Object.entries(catData)) {
+                                if (catName.startsWith('_')) continue;
+                                if (topics && typeof topics === 'object') {
+                                    for (const [topName, val] of Object.entries(topics)) {
+                                        matchedOverrides.push({
+                                            prefix: prefix,
+                                            category: catName,
+                                            topic: topName,
+                                            value: val
+                                        });
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            const enhancements = (staticEnhancements && staticEnhancements.models && staticEnhancements.models[modelName]) || { th: [], en: [] };
+
+            currentModelDetails = {
+                success: true,
+                model_name: modelName,
+                series_th: thSeries,
+                series_en: enSeries,
+                th: thModel || { model_name: modelName, specifications: [] },
+                en: enModel || { model_name: modelName, specifications: [] },
+                enhancements: enhancements,
+                overrides: matchedOverrides
+            };
+
+            renderModelBadges();
+            renderDualPanes();
         }
 
         function renderModelBadges() {
@@ -1138,7 +1522,9 @@
             }
         }
 
-        // 4. Render TH & EN Dual Panes
+        // ==========================================
+        // 5. Render TH & EN Dual Panes
+        // ==========================================
         function renderDualPanes() {
             const thSpecs = currentModelDetails.th.specifications || [];
             const enSpecs = currentModelDetails.en.specifications || [];
@@ -1167,292 +1553,280 @@
             const cTopic = cleanThai(topic);
             const cCat = cleanThai(category);
 
-            // 1. Exact match on topic or original_topic
             for (const e of enhancements) {
                 if (cleanThai(e.category) !== cCat) continue;
                 if (cleanThai(e.topic) === cTopic) return e;
                 if (e.original_topic && cleanThai(e.original_topic) === cTopic) return e;
             }
 
-            // 2. Substring / Inclusion match in same category
-            // e.g. "ระบบไฟหน้าแบบ led อัจฉริยะ" vs "ระบบไฟหน้าแบบ led"
             for (const e of enhancements) {
                 if (cleanThai(e.category) !== cCat) continue;
-                const eTop = cleanThai(e.topic);
-                if (eTop.includes(cTopic) || cTopic.includes(eTop)) return e;
+                const eTopic = cleanThai(e.topic);
+                if (cTopic.includes(eTopic) || eTopic.includes(cTopic)) return e;
+                if (e.original_topic) {
+                    const eOrig = cleanThai(e.original_topic);
+                    if (cTopic.includes(eOrig) || eOrig.includes(cTopic)) return e;
+                }
             }
-
             return null;
         }
 
-        function renderPaneContent(containerId, specsList, modelEnhancements, overrides, lang) {
+        function renderPaneContent(containerId, specCategories, enhancements, overrides, lang) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
 
-            if (!specsList || specsList.length === 0) {
-                container.innerHTML = `<div class="empty-placeholder"><span>ไม่พบข้อมูลสเปกในไฟล์ต้นฉบับ</span></div>`;
-                return;
-            }
+            const isTh = lang === 'th';
+            const counterpartLang = isTh ? 'en' : 'th';
+            const counterpartSpecs = currentModelDetails[counterpartLang].specifications || [];
+            const counterpartEnhancements = (currentModelDetails.enhancements && currentModelDetails.enhancements[counterpartLang]) || [];
 
-            specsList.forEach((catObj, catIdx) => {
-                const catGroup = document.createElement('div');
-                catGroup.className = 'category-group';
+            specCategories.forEach((catObj, catIdx) => {
+                const catCard = document.createElement('div');
+                catCard.className = 'cat-card';
 
                 const catHeader = document.createElement('div');
-                catHeader.className = 'category-header';
+                catHeader.className = 'cat-card-header';
                 catHeader.innerHTML = `
-                    <span>${catObj.category}</span>
-                    <button class="btn-add-topic" onclick="openAddTopicModal('${escapeAttr(catObj.category)}', '${lang}')">
-                        <span>+</span>
-                        <span>เพิ่มหัวข้อ</span>
+                    <div class="cat-card-title">
+                        <span>📁</span>
+                        <span>${catObj.category}</span>
+                    </div>
+                    <button class="btn-add-topic" onclick="openAddModal('${encodeURIComponent(catObj.category)}', '${lang}')">
+                        <span>➕</span>
+                        <span>${isTh ? 'เพิ่มอุปกรณ์ในหมวดนี้' : 'Add Item'}</span>
                     </button>
                 `;
-                catGroup.appendChild(catHeader);
+                catCard.appendChild(catHeader);
 
                 const table = document.createElement('table');
                 table.className = 'spec-table';
+                const tbody = document.createElement('tbody');
 
-                // Collect topics from specBlock
-                const details = catObj.details || [];
-                details.forEach(detail => {
-                    const tr = createSpecRow(catObj.category, detail.topic, detail.value, modelEnhancements, overrides, lang);
-                    table.appendChild(tr);
+                (catObj.details || []).forEach((row) => {
+                    const tr = document.createElement('tr');
+                    const enhMatch = findMatchingEnhancement(enhancements, catObj.category, row.topic);
+                    const ovrMatch = overrides.find(o => cleanThai(o.category) === cleanThai(catObj.category) && cleanThai(o.topic) === cleanThai(row.topic));
+
+                    let badgeHtml = '';
+                    if (enhMatch) {
+                        tr.classList.add('row-enhancement');
+                        badgeHtml = `<span class="badge-tag badge-enhancement-active" title="${enhMatch.note || ''}">🚗 Verified</span>`;
+                    } else if (ovrMatch) {
+                        tr.classList.add('row-override');
+                        badgeHtml = `<span class="badge-tag badge-override-active">🌐 Override</span>`;
+                    }
+
+                    tr.innerHTML = `
+                        <td class="td-topic">
+                            <div>${row.topic} ${badgeHtml}</div>
+                        </td>
+                        <td class="td-value">${row.value}</td>
+                        <td class="td-action">
+                            <button class="btn-edit-row" onclick="openEditModal('${encodeURIComponent(catObj.category)}', '${encodeURIComponent(row.topic)}', '${encodeURIComponent(row.value)}', '${lang}', ${Boolean(enhMatch)}, ${Boolean(ovrMatch)})">
+                                แก้ไข
+                            </button>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
                 });
 
-                // Also render any compare enhancements in this category that were not in original PDF
-                modelEnhancements.forEach(enh => {
-                    if (enh.category && cleanThai(enh.category) === cleanThai(catObj.category)) {
-                        const alreadyRendered = details.some(d => findMatchingEnhancement([enh], catObj.category, d.topic));
-                        if (!alreadyRendered) {
-                            const tr = createSpecRow(catObj.category, enh.topic, enh.value, modelEnhancements, overrides, lang);
-                            table.appendChild(tr);
+                // Render extra enhancements in this category that are not in PDF
+                enhancements.forEach((enh) => {
+                    if (cleanThai(enh.category) === cleanThai(catObj.category)) {
+                        const inPdf = (catObj.details || []).some(d => cleanThai(d.topic) === cleanThai(enh.topic) || (enh.original_topic && cleanThai(d.topic) === cleanThai(enh.original_topic)));
+                        if (!inPdf) {
+                            const tr = document.createElement('tr');
+                            tr.classList.add('row-enhancement');
+                            tr.innerHTML = `
+                                <td class="td-topic">
+                                    <div>${enh.topic} <span class="badge-tag badge-enhancement-active" title="${enh.note || ''}">🚗 Verified (Added)</span></div>
+                                </td>
+                                <td class="td-value">${enh.value}</td>
+                                <td class="td-action">
+                                    <button class="btn-edit-row" onclick="openEditModal('${encodeURIComponent(catObj.category)}', '${encodeURIComponent(enh.topic)}', '${encodeURIComponent(enh.value)}', '${lang}', true, false)">
+                                        แก้ไข
+                                    </button>
+                                </td>
+                            `;
+                            tbody.appendChild(tr);
                         }
                     }
                 });
 
-                catGroup.appendChild(table);
-                container.appendChild(catGroup);
+                table.appendChild(tbody);
+                catCard.appendChild(table);
+                container.appendChild(catCard);
             });
         }
 
-        function createSpecRow(category, topic, value, enhancements, overrides, lang) {
-            const tr = document.createElement('tr');
-            
-            // Check if this row is an enhancement
-            const enh = findMatchingEnhancement(enhancements, category, topic);
-            // Check if this row has override
-            const ovr = overrides.find(o => cleanThai(o.category) === cleanThai(category) && (cleanThai(o.topic) === cleanThai(topic) || cleanThai(o.topic).includes(cleanThai(topic))));
-
-            let displayValue = value;
-            let statusPill = '';
-            let displayTopicHtml = `<span>${topic}</span>`;
-
-            if (enh) {
-                tr.classList.add('row-enhancement');
-                displayValue = enh.value || '■';
-                statusPill = `<span class="pill-verified-real" title="${escapeAttr(enh.note || '')}">🚗 รถจริงมี</span>`;
-                if (cleanThai(enh.topic) !== cleanThai(topic)) {
-                    displayTopicHtml = `<span>${enh.topic}</span> <span style="font-size:0.75rem; color:#64748b; font-weight:normal;">(ใน PDF: ${topic})</span>`;
-                }
-            } else if (ovr) {
-                tr.classList.add('row-override');
-                displayValue = ovr.value;
-                statusPill = `<span class="pill-override-badge">🌐 Override</span>`;
-            }
-
-            const currentTopicToEdit = enh ? enh.topic : topic;
-            tr.innerHTML = `
-                <td class="td-topic">
-                    ${displayTopicHtml}
-                    ${statusPill}
-                </td>
-                <td class="td-value">${displayValue}</td>
-                <td class="td-action">
-                    <button class="btn-edit-row" onclick="openEditTopicModal('${escapeAttr(category)}', '${escapeAttr(currentTopicToEdit)}', '${escapeAttr(displayValue)}', '${lang}', ${enh ? 'true' : 'false'}, '${escapeAttr(topic)}')">
-                        ✎ แก้ไข
-                    </button>
-                </td>
-            `;
-            return tr;
-        }
-
-        // 5. Modal Handling
+        // ==========================================
+        // 6. Modal Edit & Save Logic
+        // ==========================================
         function setScope(scope) {
             currentScope = scope;
             const cardEnh = document.getElementById('scopeCardEnhancement');
             const cardOvr = document.getElementById('scopeCardOverride');
-
             if (scope === 'enhancement') {
-                cardEnh.classList.add('active-enhancement');
+                cardEnh.classList.add('active', 'active-enhancement');
                 cardOvr.classList.remove('active');
             } else {
-                cardEnh.classList.remove('active-enhancement');
                 cardOvr.classList.add('active');
+                cardEnh.classList.remove('active', 'active-enhancement');
             }
         }
 
-        function setQuickValue(val) {
-            document.getElementById('editValue').value = val;
-        }
+        function openAddModal(encodedCat, lang) {
+            const cat = decodeURIComponent(encodedCat);
+            currentEditingItem = { isNew: true, category: cat, lang: lang };
+            document.getElementById('editModalTitle').innerText = '➕ เพิ่มอุปกรณ์ / แก้ไขสเปกใหม่';
+            setScope('enhancement');
 
-        function openEditTopicModal(category, topic, value, lang, isExistingEnhancement = false, originalPdfTopic = '') {
-            currentEditingItem = { category, topic, value, lang, isExistingEnhancement, originalPdfTopic: originalPdfTopic || topic };
-
-            
-            document.getElementById('modalTitle').innerText = `✏️ แก้ไขสเปก: ${topic}`;
-            document.getElementById('editValue').value = value || '■';
-
-            // Find matching pair in other language
-            if (isExistingEnhancement) {
-                const thEnhList = (currentModelDetails.enhancements && currentModelDetails.enhancements.th) || [];
-                const enEnhList = (currentModelDetails.enhancements && currentModelDetails.enhancements.en) || [];
-                let thItem = null, enItem = null;
-                if (lang === 'th') {
-                    thItem = thEnhList.find(e => e.topic && e.topic.trim().toLowerCase() === topic.trim().toLowerCase());
-                    const idx = thEnhList.indexOf(thItem);
-                    if (idx >= 0 && idx < enEnhList.length) enItem = enEnhList[idx];
-                } else {
-                    enItem = enEnhList.find(e => e.topic && e.topic.trim().toLowerCase() === topic.trim().toLowerCase());
-                    const idx = enEnhList.indexOf(enItem);
-                    if (idx >= 0 && idx < thEnhList.length) thItem = thEnhList[idx];
-                }
-
-                document.getElementById('editCategoryTH').value = (thItem && thItem.category) || category;
-                document.getElementById('editTopicTH').value = (thItem && thItem.topic) || topic;
-                document.getElementById('editCategoryEN').value = (enItem && enItem.category) || category;
-                document.getElementById('editTopicEN').value = (enItem && enItem.topic) || topic;
-            } else if (lang === 'th') {
-                document.getElementById('editCategoryTH').value = category;
-                document.getElementById('editTopicTH').value = topic;
-                // Attempt to find EN topic
-                const enPair = findCorrespondingTopic(category, topic, 'th');
-                document.getElementById('editCategoryEN').value = enPair.category;
-                document.getElementById('editTopicEN').value = enPair.topic;
-            } else {
-                document.getElementById('editCategoryEN').value = category;
-                document.getElementById('editTopicEN').value = topic;
-                const thPair = findCorrespondingTopic(category, topic, 'en');
-                document.getElementById('editCategoryTH').value = thPair.category;
-                document.getElementById('editTopicTH').value = thPair.topic;
-            }
-
-            // Populate reason if existing enhancement
-            if (isExistingEnhancement) {
-                setScope('enhancement');
-                const enhList = (currentModelDetails.enhancements && currentModelDetails.enhancements[lang]) || [];
-                const item = enhList.find(e => e.topic && e.topic.trim().toLowerCase() === topic.trim().toLowerCase());
-                document.getElementById('editReason').value = (item && item.note) || '';
-                document.getElementById('btnDeleteEnhancement').style.display = 'inline-flex';
-            } else {
-                setScope('enhancement'); // Default recommendation
-                document.getElementById('editReason').value = '';
-                document.getElementById('btnDeleteEnhancement').style.display = 'none';
-            }
-
-            document.getElementById('editModalOverlay').classList.add('active');
-        }
-
-        function openAddTopicModal(category, lang) {
-            currentEditingItem = { category, topic: '', value: '■', lang, isExistingEnhancement: false };
-            document.getElementById('modalTitle').innerText = `+ เพิ่มหัวข้อใหม่ในหมวด: ${category}`;
+            document.getElementById('editCatTH').value = cat;
+            document.getElementById('editCatEN').value = cat;
+            document.getElementById('editTopicTH').value = '';
+            document.getElementById('editTopicEN').value = '';
             document.getElementById('editValue').value = '■';
             document.getElementById('editReason').value = '';
             document.getElementById('btnDeleteEnhancement').style.display = 'none';
 
+            // Auto-fill counterpart category
+            autoMatchCounterpartCategory(cat, lang);
+
+            document.getElementById('editModalOverlay').classList.add('open');
+        }
+
+        function openEditModal(encodedCat, encodedTopic, encodedVal, lang, isEnhancement, isOverride) {
+            const cat = decodeURIComponent(encodedCat);
+            const topic = decodeURIComponent(encodedTopic);
+            const val = decodeURIComponent(encodedVal);
+
+            currentEditingItem = { isNew: false, category: cat, topic: topic, value: val, lang: lang, originalPdfTopic: topic };
+            document.getElementById('editModalTitle').innerText = '✏️ แก้ไขข้อมูล / เสริมอุปกรณ์';
+            setScope(isOverride ? 'override' : 'enhancement');
+
             if (lang === 'th') {
-                document.getElementById('editCategoryTH').value = category;
-                document.getElementById('editTopicTH').value = '';
-                const enPair = findCorrespondingCategory(category, 'th');
-                document.getElementById('editCategoryEN').value = enPair;
-                document.getElementById('editTopicEN').value = '';
+                document.getElementById('editCatTH').value = cat;
+                document.getElementById('editTopicTH').value = topic;
+                autoMatchCounterpart(cat, topic, 'th');
             } else {
-                document.getElementById('editCategoryEN').value = category;
-                document.getElementById('editTopicEN').value = '';
-                const thPair = findCorrespondingCategory(category, 'en');
-                document.getElementById('editCategoryTH').value = thPair;
-                document.getElementById('editTopicTH').value = '';
+                document.getElementById('editCatEN').value = cat;
+                document.getElementById('editTopicEN').value = topic;
+                autoMatchCounterpart(cat, topic, 'en');
             }
 
-            setScope('enhancement');
-            document.getElementById('editModalOverlay').classList.add('active');
+            document.getElementById('editValue').value = val;
+            document.getElementById('btnDeleteEnhancement').style.display = isEnhancement ? 'inline-flex' : 'none';
+
+            // Fill reason if existing
+            let note = '';
+            const enhList = (currentModelDetails.enhancements && currentModelDetails.enhancements[lang]) || [];
+            const enh = findMatchingEnhancement(enhList, cat, topic);
+            if (enh && enh.note) note = enh.note;
+            document.getElementById('editReason').value = note;
+
+            document.getElementById('editModalOverlay').classList.add('open');
         }
 
         function closeEditModal() {
-            document.getElementById('editModalOverlay').classList.remove('active');
+            document.getElementById('editModalOverlay').classList.remove('open');
         }
 
-        // Helper: Find corresponding category and topic across TH/EN
-        function findCorrespondingCategory(sourceCat, fromLang) {
-            const targetSpecs = fromLang === 'th' ? (currentModelDetails.en.specifications || []) : (currentModelDetails.th.specifications || []);
-            const sourceSpecs = fromLang === 'th' ? (currentModelDetails.th.specifications || []) : (currentModelDetails.en.specifications || []);
-            
-            const sourceIdx = sourceSpecs.findIndex(s => s.category.trim().toLowerCase() === sourceCat.trim().toLowerCase());
-            if (sourceIdx >= 0 && sourceIdx < targetSpecs.length) {
-                return targetSpecs[sourceIdx].category;
-            }
-            return sourceCat;
-        }
-
-        function findCorrespondingTopic(sourceCat, sourceTopic, fromLang) {
-            const targetCat = findCorrespondingCategory(sourceCat, fromLang);
-            const targetSpecs = fromLang === 'th' ? (currentModelDetails.en.specifications || []) : (currentModelDetails.th.specifications || []);
-            const sourceSpecs = fromLang === 'th' ? (currentModelDetails.th.specifications || []) : (currentModelDetails.en.specifications || []);
-
-            const targetBlock = targetSpecs.find(s => s.category.trim().toLowerCase() === targetCat.trim().toLowerCase());
-            const sourceBlock = sourceSpecs.find(s => s.category.trim().toLowerCase() === sourceCat.trim().toLowerCase());
-
-            if (sourceBlock && targetBlock) {
-                const topicIdx = (sourceBlock.details || []).findIndex(d => d.topic.trim().toLowerCase() === sourceTopic.trim().toLowerCase());
-                if (topicIdx >= 0 && topicIdx < (targetBlock.details || []).length) {
-                    return { category: targetCat, topic: targetBlock.details[topicIdx].topic };
+        function autoMatchCounterpartCategory(cat, fromLang) {
+            const toLang = fromLang === 'th' ? 'en' : 'th';
+            const toSpecs = currentModelDetails[toLang].specifications || [];
+            const fromSpecs = currentModelDetails[fromLang].specifications || [];
+            const idx = fromSpecs.findIndex(c => cleanThai(c.category) === cleanThai(cat));
+            if (idx >= 0 && idx < toSpecs.length) {
+                if (fromLang === 'th') {
+                    document.getElementById('editCatEN').value = toSpecs[idx].category;
+                } else {
+                    document.getElementById('editCatTH').value = toSpecs[idx].category;
                 }
             }
-            return { category: targetCat, topic: sourceTopic };
         }
 
-        // 6. Submit Save
+        function autoMatchCounterpart(cat, topic, fromLang) {
+            autoMatchCounterpartCategory(cat, fromLang);
+            const toLang = fromLang === 'th' ? 'en' : 'th';
+            const toSpecs = currentModelDetails[toLang].specifications || [];
+            const fromSpecs = currentModelDetails[fromLang].specifications || [];
+            const catIdx = fromSpecs.findIndex(c => cleanThai(c.category) === cleanThai(cat));
+
+            if (catIdx >= 0 && catIdx < toSpecs.length) {
+                const targetCat = toSpecs[catIdx];
+                const fromCat = fromSpecs[catIdx];
+                const rowIdx = (fromCat.details || []).findIndex(d => cleanThai(d.topic) === cleanThai(topic));
+                if (rowIdx >= 0 && targetCat.details && rowIdx < targetCat.details.length) {
+                    const matchTopic = targetCat.details[rowIdx].topic;
+                    if (fromLang === 'th') {
+                        document.getElementById('editTopicEN').value = matchTopic;
+                    } else {
+                        document.getElementById('editTopicTH').value = matchTopic;
+                    }
+                }
+            }
+        }
+
+        // ==========================================
+        // 7. Save & Delete Actions (Hybrid)
+        // ==========================================
         async function submitModalSave() {
+            const catTH = document.getElementById('editCatTH').value.trim();
+            const catEN = document.getElementById('editCatEN').value.trim();
             const topicTH = document.getElementById('editTopicTH').value.trim();
             const topicEN = document.getElementById('editTopicEN').value.trim();
-            const catTH = document.getElementById('editCategoryTH').value.trim();
-            const catEN = document.getElementById('editCategoryEN').value.trim();
             const value = document.getElementById('editValue').value.trim();
             const reason = document.getElementById('editReason').value.trim();
 
-            if (!topicTH || !topicEN) {
-                alert('กรุณากรอกหัวข้อทั้งภาษาไทยและภาษาอังกฤษ (Strict TH/EN Specsheet Alignment)');
+            if (!catTH || !topicTH || !topicEN) {
+                showToast('กรุณากรอกข้อมูลหัวข้อทั้งภาษาไทยและอังกฤษให้ครบถ้วน', 'warning');
                 return;
             }
-
             if (!reason) {
-                alert('กรุณากรอกเหตุผลประกอบ / หมายเหตุอ้างอิง (Audit Reason)');
+                showToast('กรุณาระบุเหตุผลประกอบ (Audit Reason) เพื่อความโปร่งใส', 'warning');
                 return;
             }
 
             const btnSave = document.getElementById('btnSaveModal');
             btnSave.disabled = true;
-            btnSave.innerText = 'กำลังบันทึก...';
+            btnSave.innerText = '⏳ กำลังบันทึก...';
+
+            const payload = {
+                model_name: selectedModelName,
+                th: {
+                    category: catTH,
+                    topic: topicTH,
+                    original_topic: currentEditingItem.originalPdfTopic || '',
+                    value: value || '■',
+                    note: reason
+                },
+                en: {
+                    category: catEN,
+                    topic: topicEN,
+                    original_topic: currentEditingItem.originalPdfTopic || '',
+                    value: value || '■',
+                    note: reason
+                }
+            };
 
             try {
-                if (currentScope === 'enhancement') {
-                    const payload = {
-                        model_name: selectedModelName,
-                        th: {
-                            category: catTH,
-                            topic: topicTH,
-                            original_topic: currentEditingItem.originalPdfTopic || '',
-                            value: value || '■',
-                            note: reason
-                        },
-                        en: {
-                            category: catEN,
-                            topic: topicEN,
-                            original_topic: currentEditingItem.originalPdfTopic || '',
-                            value: value || '■',
-                            note: reason
+                // If in Cloud Mode, save via GitHub REST API
+                if (isCloudMode) {
+                    if (currentScope === 'enhancement') {
+                        const success = await saveEnhancementViaGitHub(payload);
+                        if (success) {
+                            showToast('✅ บันทึกและ Commit ขึ้น GitHub สำเร็จแล้ว! (GitHub Pages จะอัปเดตใน 1-2 นาที)', 'success');
+                            closeEditModal();
+                            selectModel(selectedModelName);
                         }
-                    };
+                    } else {
+                        showToast('⚠️ ใน Cloud Mode ระบบรองรับการบันทึก Compare Enhancement เป็นหลัก', 'warning');
+                    }
+                    return;
+                }
 
+                // If in Local Server Mode
+                if (currentScope === 'enhancement') {
                     const res = await fetch('/api/save_compare_enhancement', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -1467,7 +1841,6 @@
                         showToast(resData.error || 'บันทึกล้มเหลว', 'error');
                     }
                 } else {
-                    // Global Override
                     const payloadTH = {
                         model_name: selectedModelName,
                         category: catTH,
@@ -1491,7 +1864,7 @@
                     }
                 }
             } catch (err) {
-                showToast('Save error: ' + err, 'error');
+                showToast('Save error: ' + err.message, 'error');
             } finally {
                 btnSave.disabled = false;
                 btnSave.innerText = '💾 บันทึกข้อมูล (Save)';
@@ -1504,6 +1877,16 @@
             const topicEN = document.getElementById('editTopicEN').value.trim();
 
             try {
+                if (isCloudMode) {
+                    const success = await deleteEnhancementViaGitHub(selectedModelName, topicTH, topicEN);
+                    if (success) {
+                        showToast('✅ ลบรายการและ Commit ขึ้น GitHub สำเร็จแล้ว!', 'success');
+                        closeEditModal();
+                        selectModel(selectedModelName);
+                    }
+                    return;
+                }
+
                 const res = await fetch('/api/delete_compare_enhancement', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -1522,70 +1905,244 @@
                     showToast(resData.error || 'ลบล้มเหลว', 'error');
                 }
             } catch (err) {
-                showToast('Delete error: ' + err, 'error');
+                showToast('Delete error: ' + err.message, 'error');
             }
         }
 
-        // 7. Backups History Modal
+        // ==========================================
+        // 8. GitHub API Commit Functions
+        // ==========================================
+        async function saveEnhancementViaGitHub(payload) {
+            const token = getGithubToken();
+            if (!token) {
+                openGithubModal();
+                showToast('กรุณาระบุ GitHub Token ก่อนบันทึก', 'warning');
+                return false;
+            }
+
+            showToast('⏳ กำลังดึงไฟล์และเตรียม Commit ขึ้น GitHub...', 'info');
+
+            const url = `https://api.github.com/repos/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}/contents/compare_enhancements.json?ref=${GITHUB_BRANCH}`;
+            const getRes = await fetch(url, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+
+            if (!getRes.ok) {
+                throw new Error(`ไม่สามารถอ่าน compare_enhancements.json จาก GitHub ได้ (${getRes.status} ${getRes.statusText})`);
+            }
+
+            const fileData = await getRes.json();
+            const sha = fileData.sha;
+            let contentJson = {};
+            try {
+                const decoded = base64ToUnicode(fileData.content);
+                contentJson = JSON.parse(decoded);
+            } catch (e) {
+                contentJson = { _schema_version: "1.0", models: {} };
+            }
+
+            if (!contentJson.models) contentJson.models = {};
+            if (!contentJson.models[payload.model_name]) {
+                contentJson.models[payload.model_name] = { th: [], en: [] };
+            }
+
+            const modelObj = contentJson.models[payload.model_name];
+            if (!Array.isArray(modelObj.th)) modelObj.th = [];
+            if (!Array.isArray(modelObj.en)) modelObj.en = [];
+
+            function upsertItem(list, item) {
+                const idx = list.findIndex(e => cleanThai(e.category) === cleanThai(item.category) && (cleanThai(e.topic) === cleanThai(item.topic) || (item.original_topic && cleanThai(e.original_topic) === cleanThai(item.original_topic))));
+                const record = {
+                    category: item.category,
+                    topic: item.topic,
+                    original_topic: item.original_topic || '',
+                    value: item.value || '■',
+                    is_real_vehicle_verified: true,
+                    note: item.note || '',
+                    verified_date: new Date().toISOString().slice(0, 10)
+                };
+                if (idx >= 0) {
+                    list[idx] = record;
+                } else {
+                    list.push(record);
+                }
+            }
+
+            upsertItem(modelObj.th, payload.th);
+            upsertItem(modelObj.en, payload.en);
+
+            const updatedStr = JSON.stringify(contentJson, null, 2);
+            const updatedB64 = unicodeToBase64(updatedStr);
+
+            const putRes = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: `feat(editor): update compare enhancements for ${payload.model_name} via Web Editor`,
+                    content: updatedB64,
+                    sha: sha,
+                    branch: GITHUB_BRANCH
+                })
+            });
+
+            if (!putRes.ok) {
+                const errJson = await putRes.json().catch(() => ({}));
+                throw new Error(errJson.message || `บันทึกล้มเหลว (${putRes.status})`);
+            }
+
+            staticEnhancements = contentJson;
+            return true;
+        }
+
+        async function deleteEnhancementViaGitHub(modelName, topicTH, topicEN) {
+            const token = getGithubToken();
+            if (!token) {
+                openGithubModal();
+                showToast('กรุณาระบุ GitHub Token ก่อนลบรายการ', 'warning');
+                return false;
+            }
+
+            showToast('⏳ กำลังดึงไฟล์และเตรียม Commit การลบขึ้น GitHub...', 'info');
+
+            const url = `https://api.github.com/repos/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}/contents/compare_enhancements.json?ref=${GITHUB_BRANCH}`;
+            const getRes = await fetch(url, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+
+            if (!getRes.ok) throw new Error(`ไม่สามารถอ่านไฟล์ได้ (${getRes.status})`);
+
+            const fileData = await getRes.json();
+            const sha = fileData.sha;
+            const decoded = base64ToUnicode(fileData.content);
+            const contentJson = JSON.parse(decoded);
+
+            const modelObj = (contentJson.models && contentJson.models[modelName]) || null;
+            if (modelObj) {
+                if (Array.isArray(modelObj.th)) {
+                    modelObj.th = modelObj.th.filter(e => cleanThai(e.topic) !== cleanThai(topicTH) && cleanThai(e.original_topic) !== cleanThai(topicTH));
+                }
+                if (Array.isArray(modelObj.en)) {
+                    modelObj.en = modelObj.en.filter(e => cleanThai(e.topic) !== cleanThai(topicEN) && cleanThai(e.original_topic) !== cleanThai(topicEN));
+                }
+            }
+
+            const updatedStr = JSON.stringify(contentJson, null, 2);
+            const updatedB64 = unicodeToBase64(updatedStr);
+
+            const putRes = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: `feat(editor): remove enhancement for ${modelName} via Web Editor`,
+                    content: updatedB64,
+                    sha: sha,
+                    branch: GITHUB_BRANCH
+                })
+            });
+
+            if (!putRes.ok) {
+                const errJson = await putRes.json().catch(() => ({}));
+                throw new Error(errJson.message || `ลบล้มเหลว (${putRes.status})`);
+            }
+
+            staticEnhancements = contentJson;
+            return true;
+        }
+
+        // ==========================================
+        // 9. Backups History Modal (Local Only)
+        // ==========================================
         async function openBackupsModal() {
-            document.getElementById('backupsModalOverlay').classList.add('active');
-            const body = document.getElementById('backupsListBody');
-            body.innerHTML = '<div class="empty-placeholder"><span>กำลังโหลดรายการสำรองข้อมูล...</span></div>';
+            if (isCloudMode) {
+                showToast('ประวัติ Backups รองรับเมื่อรันบน Local Server เท่านั้น (บน GitHub สามารถดูได้จาก Git Commit History)', 'info');
+                return;
+            }
+            const modalBody = document.getElementById('backupsListBody');
+            modalBody.innerHTML = '<div class="empty-placeholder"><span>กำลังโหลดรายการสำรองข้อมูล...</span></div>';
+            document.getElementById('backupsModalOverlay').classList.add('open');
 
             try {
                 const res = await fetch('/api/backups');
                 const data = await res.json();
-                if (data.success && data.backups.length > 0) {
-                    body.innerHTML = '';
+                if (data.success && data.backups && data.backups.length > 0) {
+                    modalBody.innerHTML = '';
+                    const list = document.createElement('div');
+                    list.style.display = 'flex';
+                    list.style.flexDirection = 'column';
+                    list.style.gap = '8px';
+
                     data.backups.forEach(b => {
                         const item = document.createElement('div');
                         item.style.padding = '10px 14px';
-                        item.style.borderBottom = '1px solid #e2e8f0';
+                        item.style.background = '#f8fafc';
+                        item.style.border = '1px solid var(--border-color)';
+                        item.style.borderRadius = 'var(--radius-sm)';
                         item.style.display = 'flex';
                         item.style.justifyContent = 'space-between';
                         item.style.alignItems = 'center';
+
                         item.innerHTML = `
                             <div>
-                                <div style="font-weight:600; font-size:0.86rem; color:#0f172a;">${b.filename}</div>
-                                <div style="font-size:0.75rem; color:#64748b;">${new Date(b.modified).toLocaleString()}</div>
+                                <div style="font-weight: 600; font-size: 0.85rem; color: #0f172a;">${b.filename}</div>
+                                <div style="font-size: 0.76rem; color: var(--text-light);">${b.created_at}</div>
                             </div>
-                            <span style="font-size:0.78rem; font-weight:600; color:#0284c7;">${(b.size_bytes / 1024).toFixed(1)} KB</span>
+                            <span class="badge-tag" style="background:#e2e8f0; color:#334155;">${(b.size_bytes / 1024).toFixed(1)} KB</span>
                         `;
-                        body.appendChild(item);
+                        list.appendChild(item);
                     });
+                    modalBody.appendChild(list);
                 } else {
-                    body.innerHTML = '<div class="empty-placeholder"><span>ยังไม่มีประวัติการสำรองข้อมูล</span></div>';
+                    modalBody.innerHTML = '<div class="empty-placeholder"><span>ยังไม่มีประวัติการสำรองข้อมูล</span></div>';
                 }
             } catch (err) {
-                body.innerHTML = `<div class="empty-placeholder"><span style="color:#ef4444;">เกิดข้อผิดพลาดในการโหลด Backups</span></div>`;
+                modalBody.innerHTML = `<div class="empty-placeholder" style="color: #ef4444;"><span>โหลดล้มเหลว: ${err.message}</span></div>`;
             }
         }
 
         function closeBackupsModal() {
-            document.getElementById('backupsModalOverlay').classList.remove('active');
+            document.getElementById('backupsModalOverlay').classList.remove('open');
         }
 
-        // 8. Toast Helper
-        function showToast(message, type = 'success') {
+        // ==========================================
+        // 10. Toast Notification
+        // ==========================================
+        function showToast(message, type = 'info') {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
             toast.className = `toast toast-${type}`;
+
+            let icon = 'ℹ️';
+            if (type === 'success') icon = '✅';
+            if (type === 'error') icon = '❌';
+            if (type === 'warning') icon = '⚠️';
+
             toast.innerHTML = `
-                <span>${type === 'success' ? '✅' : '⚠️'}</span>
+                <span>${icon}</span>
                 <span>${message}</span>
             `;
+
             container.appendChild(toast);
+
             setTimeout(() => {
                 toast.style.opacity = '0';
-                toast.style.transform = 'translateX(50px)';
+                toast.style.transform = 'translateY(10px)';
                 toast.style.transition = 'all 0.3s ease';
                 setTimeout(() => toast.remove(), 300);
             }, 4000);
-        }
-
-        function escapeAttr(str) {
-            if (!str) return '';
-            return String(str).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
     </script>
 </body>
