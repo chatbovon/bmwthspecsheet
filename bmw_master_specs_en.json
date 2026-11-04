@@ -9900,7 +9900,7 @@
                             },
                             {
                                 "topic": "AC Charging Reference Note",
-                                "value": "Referenced from https://www.bmw.co.th/th/all-models/7-series/7-series-sedan/bmw-7-series-sedan.html/bmw-740d-m-sport.bmw"
+                                "value": "Referenced from Web Archive: https://web.archive.org/web/20231128145210/https://www.bmw.co.th/en/all-models/7-series/7-series-sedan/bmw-7-series-sedan.html"
                             }
                         ]
                     }
@@ -43289,6 +43289,14 @@
                             {
                                 "topic": "Electric energy consumption, WLTP (kWh/100 km)",
                                 "value": "18.2 - 16.7"
+                            },
+                            {
+                                "topic": "Maximum AC charging power (kW)",
+                                "value": "11"
+                            },
+                            {
+                                "topic": "AC charging time 0 - 100%",
+                                "value": "2:00 hours"
                             }
                         ]
                     },
@@ -43315,6 +43323,10 @@
                             {
                                 "topic": "Luggage capacity (l)",
                                 "value": "525"
+                            },
+                            {
+                                "topic": "Curb weight (kg)",
+                                "value": "2,560"
                             }
                         ]
                     },
@@ -43699,6 +43711,10 @@
                             {
                                 "topic": "Local package code",
                                 "value": "-"
+                            },
+                            {
+                                "topic": "AC Charging Reference Note",
+                                "value": "Referenced from https://www.bmw.co.th/th/all-models/m-series/sedan/bmw-7-series-sedan-m-models-technical-data.html/bmw-m760e-xdrive-sedan.bmw"
                             }
                         ]
                     }

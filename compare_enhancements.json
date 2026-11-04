@@ -1,0 +1,69 @@
+{
+  "_schema_version": "1.0",
+  "_description": "Compare-only vehicle equipment enhancements (Real-world equipment omitted in official BMW Thailand brochures)",
+  "models": {
+    "X1 sDrive20i M Sport": {
+      "th": [
+        {
+          "category": "ระบบความบันเทิงและการสื่อสาร",
+          "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย",
+          "value": "■",
+          "is_real_vehicle_verified": true,
+          "note": "ตัวรถจริงติดตั้งแท่นชาร์จโทรศัพท์ไร้สายเป็นอุปกรณ์มาตรฐาน (โบรชัวร์ BMW Thailand ตกหล่นหัวข้อนี้)",
+          "verified_date": "2026-10-30"
+        },
+        {
+          "category": "อุปกรณ์ภายใน",
+          "topic": "ระบบปรับอากาศอัตโนมัติแบบ 2 โซน",
+          "original_topic": "",
+          "value": "■",
+          "is_real_vehicle_verified": true,
+          "note": "รถจริงมี แต่pdfไม่มี",
+          "verified_date": "2026-10-30"
+        }
+      ],
+      "en": [
+        {
+          "category": "Entertainment and communication",
+          "topic": "Wireless charging tray",
+          "value": "■",
+          "is_real_vehicle_verified": true,
+          "note": "Standard equipment on actual Thai-spec vehicle (Omitted in official BMW Thailand brochure)",
+          "verified_date": "2026-10-30"
+        },
+        {
+          "category": "Interior",
+          "topic": "2-Zone Automatic air conditioning",
+          "value": "■",
+          "is_real_vehicle_verified": true,
+          "note": "รถจริงมี แต่pdfไม่มี",
+          "verified_date": "2026-10-30"
+        }
+      ]
+    },
+    "iX1 eDrive20L M Sport": {
+      "th": [
+        {
+          "category": "อุปกรณ์ภายนอก",
+          "topic": "ระบบไฟหน้าแบบ LED อัจฉริยะ",
+          "original_topic": "ระบบไฟหน้าแบบ LED",
+          "value": "■",
+          "is_real_vehicle_verified": true,
+          "note": "รถจริงมี แต่pdfตกหล่น",
+          "verified_date": "2026-10-30"
+        }
+      ],
+      "en": [
+        {
+          "category": "Exterior",
+          "topic": "Adaptive LED headlights",
+          "original_topic": "Adaptive LED headlights",
+          "value": "■",
+          "is_real_vehicle_verified": true,
+          "note": "รถจริงมี แต่pdfตกหล่น",
+          "verified_date": "2026-10-30"
+        }
+      ]
+    }
+  }
+}

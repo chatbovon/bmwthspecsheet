@@ -429,6 +429,39 @@
             display: inline-block;
             margin-top: 3px;
         }
+        .badge-real-vehicle {
+            background: rgba(16, 185, 129, 0.14);
+            color: #047857;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            font-size: 0.72em;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            margin-top: 3px;
+            cursor: help;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(16, 185, 129, 0.1);
+        }
+        .badge-real-vehicle:hover {
+            background: rgba(16, 185, 129, 0.25);
+            border-color: rgba(16, 185, 129, 0.6);
+            transform: translateY(-1px);
+        }
+        :root.dark-theme .badge-real-vehicle {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            border-color: rgba(52, 211, 153, 0.4);
+        }
+        .cell-verified-feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+        }
 
         
         /* Slots Header Bar & Toggle */
@@ -2217,6 +2250,67 @@
     let masterData = [];
     let customData = [];
     let flatCatalog = []; // Array of all models with unified metadata
+    let counterpartCatalog = []; // Parallel catalog in opposite language for Cross-Language Diff Verification
+    let compareEnhancements = {}; // Compare-only vehicle enhancements (Layer 3)
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function getEnhancementsList(modelData, lang) {
+        if (!modelData || !modelData[lang]) return [];
+        const val = modelData[lang];
+        if (Array.isArray(val)) return val;
+        if (typeof val === 'object') {
+            if (val.topic) return [val];
+            return Object.values(val);
+        }
+        return [];
+    }
+
+    function getModelEnhancement(modelName, categoryName, topicNameOrAliases, targetLang = currentLang) {
+        if (!compareEnhancements || !modelName) return null;
+        const cleanMName = cleanThai(modelName).toLowerCase();
+        let modelEnhance = null;
+        for (const [k, v] of Object.entries(compareEnhancements)) {
+            if (cleanThai(k).toLowerCase() === cleanMName) {
+                modelEnhance = v;
+                break;
+            }
+        }
+        if (!modelEnhance) return null;
+
+        const items = getEnhancementsList(modelEnhance, targetLang);
+        if (!items || items.length === 0) return null;
+
+        const searchAliases = Array.isArray(topicNameOrAliases)
+            ? topicNameOrAliases.map(a => cleanThai(a).toLowerCase())
+            : [cleanThai(topicNameOrAliases).toLowerCase()];
+
+        for (const item of items) {
+            const itemTopic = cleanThai(item.topic || '').toLowerCase();
+            const origTopic = cleanThai(item.original_topic || '').toLowerCase();
+            const normItemTopic = itemTopic.replace(/แบบ\s*/g, '').replace(/\s+/g, ' ').trim();
+            const normOrigTopic = origTopic.replace(/แบบ\s*/g, '').replace(/\s+/g, ' ').trim();
+
+            for (const alias of searchAliases) {
+                const normAlias = alias.replace(/แบบ\s*/g, '').replace(/\s+/g, ' ').trim();
+                if (itemTopic === alias || itemTopic.includes(alias) || alias.includes(itemTopic) ||
+                    normItemTopic === normAlias || normItemTopic.includes(normAlias) || normAlias.includes(normItemTopic) ||
+                    (origTopic && (origTopic === alias || origTopic.includes(alias) || alias.includes(origTopic))) ||
+                    (normOrigTopic && (normOrigTopic === normAlias || normOrigTopic.includes(normAlias) || normAlias.includes(normOrigTopic)))) {
+                    return item;
+                }
+            }
+        }
+        return null;
+    }
     
     // Comparison State: array of model IDs (e.g., ['act:0:0', 'act:0:1'])
     let selectedModelIds = [];
@@ -2332,6 +2426,8 @@
                 flatCatalog.push({
                     id,
                     source: 'cust',
+                    isCustom: true,
+                    isArchived: Boolean(modelObj.is_custom_archived !== false),
                     seriesIndex: sIdx,
                     modelIndex: mIdx,
                     seriesName,
@@ -2343,6 +2439,58 @@
                 });
             });
         });
+    }
+
+    // Build unified counterpart catalog for cross-language diff verification
+    function buildCounterpartCatalog(cpMaster, cpCustom) {
+        counterpartCatalog = [];
+        (cpMaster || []).forEach((seriesObj, sIdx) => {
+            const seriesName = seriesObj.series || `Series #${sIdx+1}`;
+            (seriesObj.models || []).forEach((modelObj, mIdx) => {
+                counterpartCatalog.push({
+                    id: `act:${sIdx}:${mIdx}`,
+                    source: 'act',
+                    seriesIndex: sIdx,
+                    modelIndex: mIdx,
+                    seriesName,
+                    modelName: modelObj.model_name,
+                    pdfSource: modelObj.pdf_source || seriesObj.pdf_source,
+                    specifications: modelObj.specifications || []
+                });
+            });
+        });
+
+        (cpCustom || []).forEach((seriesObj, sIdx) => {
+            const seriesName = seriesObj.series || `Custom Series #${sIdx+1}`;
+            (seriesObj.models || []).forEach((modelObj, mIdx) => {
+                counterpartCatalog.push({
+                    id: `cust:${sIdx}:${mIdx}`,
+                    source: 'cust',
+                    seriesIndex: sIdx,
+                    modelIndex: mIdx,
+                    seriesName,
+                    modelName: modelObj.model_name,
+                    pdfSource: modelObj.pdf_source || seriesObj.pdf_source,
+                    specifications: modelObj.specifications || []
+                });
+            });
+        });
+    }
+
+    // Helper to find counterpart model in opposite language
+    function getCounterpartModel(modelItem) {
+        if (!modelItem || counterpartCatalog.length === 0) return null;
+        const cleanName = (modelItem.modelName || '').trim().toLowerCase();
+        let match = counterpartCatalog.find(item => 
+            item.source === modelItem.source && 
+            item.modelName.trim().toLowerCase() === cleanName
+        );
+        if (!match) {
+            match = counterpartCatalog.find(item => 
+                item.modelName.trim().toLowerCase() === cleanName
+            );
+        }
+        return match;
     }
 
     // Helper to resolve an exterior thumbnail image
@@ -2459,14 +2607,93 @@
             .replace(/\u00A0/g, ' ');
     }
 
+    // String similarity calculation using Bigram Dice coefficient
+    function getStringSimilarity(s1, s2) {
+        if (s1 === s2) return 1.0;
+        if (!s1 || !s2) return 0.0;
+        if (s1.length < 2 || s2.length < 2) return s1 === s2 ? 1.0 : 0.0;
+        
+        const getBigrams = str => {
+            const bigrams = new Map();
+            for (let i = 0; i < str.length - 1; i++) {
+                const b = str.substring(i, i + 2);
+                bigrams.set(b, (bigrams.get(b) || 0) + 1);
+            }
+            return bigrams;
+        };
+        
+        const b1 = getBigrams(s1);
+        const b2 = getBigrams(s2);
+        let intersection = 0;
+        for (const [k, v] of b1.entries()) {
+            if (b2.has(k)) {
+                intersection += Math.min(v, b2.get(k));
+            }
+        }
+        const total = (s1.length - 1) + (s2.length - 1);
+        return total > 0 ? (2.0 * intersection) / total : 0.0;
+    }
+
+    // Evaluate equivalence between two values:
+    // 1. Exact normalized match
+    // 2. Strict Numbers Guard: if numbers are present, all numbers must match in sequence 100%
+    // 3. For long strings (>= 20 chars), similarity threshold >= 90% (or rounded to 90%)
+    function areValuesEquivalent(valA, valB) {
+        const normA = normalizeForDiff(valA);
+        const normB = normalizeForDiff(valB);
+        
+        if (normA === normB) return true;
+        if (!normA || !normB) return false;
+        
+        // If either is __YES__ or __NO__, they must match exactly
+        if (normA.startsWith('__') || normB.startsWith('__')) return false;
+        
+        // Strict Numbers Guard: if numbers are present, all numbers must match in sequence
+        const numsA = normA.match(/\d+(?:\.\d+)?/g) || [];
+        const numsB = normB.match(/\d+(?:\.\d+)?/g) || [];
+        if (numsA.length > 0 || numsB.length > 0) {
+            if (numsA.length !== numsB.length) return false;
+            for (let i = 0; i < numsA.length; i++) {
+                if (numsA[i] !== numsB[i]) return false;
+            }
+        }
+        
+        // For long strings (>= 20 chars), check similarity >= 90% (rounded)
+        if (normA.length >= 20 && normB.length >= 20) {
+            const sim = getStringSimilarity(normA, normB);
+            if (Math.round(sim * 100) >= 90 || sim >= 0.88) return true;
+        }
+        
+        return false;
+    }
+
     // Normalize value for diff comparison
     function normalizeForDiff(val) {
         if (!val) return "";
         let s = cleanThai(val).trim().toLowerCase();
         if (TRANSLATIONS[currentLang].yesWords.includes(s)) return "__YES__";
         if (TRANSLATIONS[currentLang].noWords.includes(s)) return "__NO__";
-        // Remove subtle punctuation/spacing differences
-        return s.replace(/\s+/g, " ");
+        
+        // Normalize Thai phrasing variants like "แบบ", spaces, and common synonyms for diffing
+        let normalized = s
+            .replace(/แบบ/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+
+        // Synonyms normalization for headlights (Adaptive LED = LED อัจฉริยะ)
+        if (normalized.includes("led อัจฉริยะ") || normalized.includes("adaptive led")) {
+            normalized = normalized.replace(/led\s*อัจฉริยะ/g, "adaptive led");
+        }
+
+        // Clean units and standard tags for clean diffing
+        normalized = normalized
+            .replace(/กม\.\/ลิตร|km\/l/gi, "")
+            .replace(/kwh\/100\s*(?:กม\.|km)/gi, "")
+            .replace(/\((?:wltp|nedc)\)/gi, "")
+            .replace(/\s+/g, " ")
+            .trim();
+
+        return normalized;
     }
 
     // Render the entire comparator
@@ -2684,9 +2911,14 @@
                 titleEN: '🔋 Efficiency, Battery & Range',
                 topics: [
                     {
-                        canonicalNameTH: 'อัตราสิ้นเปลือง / อัตราใช้ไฟฟ้า',
-                        canonicalNameEN: 'Consumption (Fuel / Electric)',
-                        customConsumptionExtractor: true
+                        canonicalNameTH: 'อัตราสิ้นเปลืองน้ำมัน (กม./ลิตร)',
+                        canonicalNameEN: 'Fuel Consumption (km/l)',
+                        customFuelConsumptionExtractor: true
+                    },
+                    {
+                        canonicalNameTH: 'อัตราการใช้ไฟฟ้า (kWh/100 กม.)',
+                        canonicalNameEN: 'Electric Consumption (kWh/100 km)',
+                        customElectricConsumptionExtractor: true
                     },
                     {
                         canonicalNameTH: 'ความจุพลังงาน (ถังน้ำมัน / แบตเตอรี่)',
@@ -2783,6 +3015,56 @@
                 ]
             },
             {
+                id: 'dimensions',
+                titleTH: '📏 มิติตัวถัง น้ำหนัก และพื้นที่สัมภาระ (Dimensions, Weight & Luggage)',
+                titleEN: '📏 Dimensions, Weight & Luggage',
+                topics: [
+                    {
+                        canonicalNameTH: 'มิติรถยนต์ ยาว / กว้าง / สูง (มิลลิเมตร)',
+                        canonicalNameEN: 'Length / Width / Height (mm)',
+                        aliases: [
+                            'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)',
+                            'มิติรถยนต์ ยาว/กว้าง/สูง',
+                            'มิตรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)',
+                            'มิตรถยนต์ ยาว/กว้าง/สูง',
+                            'มิติรถยนต์',
+                            'length / width / height (mm)',
+                            'length / width / height',
+                            'length/width/height',
+                            'dimensions'
+                        ]
+                    },
+                    {
+                        canonicalNameTH: 'ความจุพื้นที่เก็บสัมภาระท้าย (ลิตร)',
+                        canonicalNameEN: 'Luggage Capacity (l)',
+                        aliases: [
+                            'ปริมาตรในการบรรจุของ (ลิตร)',
+                            'ปริมาตรในการบรรจุสัมภาระ (ลิตร)',
+                            'ความจุพื้นที่เก็บสัมภาระท้าย (ลิตร)',
+                            'ความจุพื้นที่เก็บสัมภาระ',
+                            'ความจุสัมภาระท้าย',
+                            'luggage capacity (l)',
+                            'luggage capacity',
+                            'boot capacity'
+                        ]
+                    },
+                    {
+                        canonicalNameTH: 'น้ำหนักรถสุทธิ (กิโลกรัม)',
+                        canonicalNameEN: 'Curb Weight (kg)',
+                        aliases: [
+                            'น้ำหนักรถสุทธิ (กิโลกรัม)',
+                            'น้ำหนักรถสุทธิ',
+                            'น้ําหนักรถสุทธิ (กิโลกรัม)',
+                            'น้ําหนักรถสุทธิ',
+                            'น้ำหนักสุทธิ (กิโลกรัม)',
+                            'น้ำหนักสุทธิ',
+                            'curb weight (kg)',
+                            'curb weight'
+                        ]
+                    }
+                ]
+            },
+            {
                 id: 'exterior',
                 titleTH: '✨ การตกแต่งภายนอก & อุปกรณ์ (Exterior Styling & Equipment)',
                 titleEN: '✨ Exterior Styling & Equipment',
@@ -2791,19 +3073,7 @@
                         canonicalNameTH: 'แพ็กเกจชุดแต่งภายนอก (M Sport / M Sport Pro / M Carbon)',
                         canonicalNameEN: 'Exterior Package (M Sport / Pro / M Carbon)',
                         preferTopicAsValue: true,
-                        aliases: [
-                            'ชุดตกแต่งภายนอก m carbon',
-                            'm carbon exterior package',
-                            'm carbon exterior',
-                            'm carbon',
-                            'm sport pro',
-                            'ชุดตกแต่ง m sport pro',
-                            'ชุดตกแต่งภายนอกแบบ m sport',
-                            'ชุดตกแต่งพิเศษ m sport',
-                            'ชุดตกแต่ง m sport',
-                            'm aerodynamics',
-                            'm sport package'
-                        ]
+                        customExteriorPackageExtractor: true
                     },
                     {
                         canonicalNameTH: 'กระจังหน้าเรืองแสง Iconic Glow',
@@ -2873,7 +3143,15 @@
                     {
                         canonicalNameTH: 'ระบบปรับอากาศอัตโนมัติ',
                         canonicalNameEN: 'Automatic Climate Control',
-                        customACExtractor: true
+                        customACExtractor: true,
+                        aliases: [
+                            'ระบบปรับอากาศอัตโนมัติ',
+                            'ระบบปรับอากาศ',
+                            'automatic climate control',
+                            'climate control',
+                            'automatic air conditioning',
+                            'air conditioning'
+                        ]
                     },
                     {
                         canonicalNameTH: 'ม่านบังแดด',
@@ -3462,43 +3740,78 @@
         }
 
         // Helper: Extract Automatic Air Conditioning / Climate Control info with zone description
-        function getAirConditioningInfo(model) {
-            const isTh = currentLang === 'th';
+        function getAirConditioningInfo(model, lang = currentLang) {
+            const isTh = lang === 'th';
             let matchedZone = '';
             let hasAutoAc = false;
+            let isRealVehicle = false;
+            let verifiedNote = '';
 
-            for (const specBlock of (model.specifications || [])) {
-                for (const detail of (specBlock.details || [])) {
-                    const top = (detail.topic || '').trim();
-                    const topLower = top.toLowerCase();
-                    const val = (detail.value || '').trim();
-                    const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
-
-                    if (isActive && (topLower.includes('ปรับอากาศ') || topLower.includes('climate control') || topLower.includes('air conditioning'))) {
-                        // Skip footnote / battery disclaimer lines
-                        if (topLower.includes('พฤติกรรม') || topLower.includes('การขับขี่')) continue;
-
-                        hasAutoAc = true;
-                        if (topLower.includes('5 โซน') || topLower.includes('5-zone')) {
-                            matchedZone = '5';
-                            break;
-                        } else if (topLower.includes('4 โซน') || topLower.includes('4-zone')) {
-                            matchedZone = '4';
-                            break;
-                        } else if (topLower.includes('3 โซน') || topLower.includes('3-zone')) {
-                            matchedZone = '3';
-                            break;
-                        } else if (topLower.includes('2 โซน') || topLower.includes('2-zone')) {
-                            matchedZone = '2';
-                            break;
-                        }
+            // Priority 0: Check Compare Enhancement for AC
+            const acAliases = [
+                'ระบบปรับอากาศอัตโนมัติ',
+                'ระบบปรับอากาศ',
+                'automatic climate control',
+                'climate control',
+                'automatic air conditioning',
+                'air conditioning'
+            ];
+            const mNameClean = model.modelName || model.model_name || '';
+            const enhancement = getModelEnhancement(mNameClean, null, acAliases, lang);
+            if (enhancement && enhancement.is_real_vehicle_verified) {
+                const eVal = (enhancement.value || '').trim();
+                const eTop = (enhancement.topic || '').toLowerCase();
+                const isActive = eVal === '■' || ['yes', 'มี', 'standard'].includes(eVal.toLowerCase()) || eVal.length > 1;
+                if (isActive) {
+                    hasAutoAc = true;
+                    isRealVehicle = true;
+                    verifiedNote = enhancement.note || '';
+                    if (eTop.includes('5 โซน') || eTop.includes('5-zone')) {
+                        matchedZone = '5';
+                    } else if (eTop.includes('4 โซน') || eTop.includes('4-zone')) {
+                        matchedZone = '4';
+                    } else if (eTop.includes('3 โซน') || eTop.includes('3-zone')) {
+                        matchedZone = '3';
+                    } else if (eTop.includes('2 โซน') || eTop.includes('2-zone')) {
+                        matchedZone = '2';
                     }
                 }
-                if (matchedZone) break;
+            }
+
+            if (!matchedZone && !hasAutoAc) {
+                for (const specBlock of (model.specifications || [])) {
+                    for (const detail of (specBlock.details || [])) {
+                        const top = (detail.topic || '').trim();
+                        const topLower = top.toLowerCase();
+                        const val = (detail.value || '').trim();
+                        const isActive = val === '■' || ['yes', 'มี', 'standard'].includes(val.toLowerCase());
+
+                        if (isActive && (topLower.includes('ปรับอากาศ') || topLower.includes('climate control') || topLower.includes('air conditioning'))) {
+                            // Skip footnote / battery disclaimer lines
+                            if (topLower.includes('พฤติกรรม') || topLower.includes('การขับขี่')) continue;
+
+                            hasAutoAc = true;
+                            if (topLower.includes('5 โซน') || topLower.includes('5-zone')) {
+                                matchedZone = '5';
+                                break;
+                            } else if (topLower.includes('4 โซน') || topLower.includes('4-zone')) {
+                                matchedZone = '4';
+                                break;
+                            } else if (topLower.includes('3 โซน') || topLower.includes('3-zone')) {
+                                matchedZone = '3';
+                                break;
+                            } else if (topLower.includes('2 โซน') || topLower.includes('2-zone')) {
+                                matchedZone = '2';
+                                break;
+                            }
+                        }
+                    }
+                    if (matchedZone) break;
+                }
             }
 
             // Fallback for XM models (standard 4-zone climate control)
-            const mName = (model.model_name || '').toLowerCase();
+            const mName = mNameClean.toLowerCase();
             if (!matchedZone && hasAutoAc === false && mName.includes('xm')) {
                 hasAutoAc = true;
                 matchedZone = '4';
@@ -3507,31 +3820,41 @@
             if (matchedZone === '5') {
                 return {
                     value: isTh ? 'อัตโนมัติแบบ 5 โซน' : '5-Zone Automatic Climate Control',
-                    isTextOption: true
+                    isTextOption: true,
+                    isRealVehicleVerified: isRealVehicle,
+                    verifiedNote: verifiedNote
                 };
             }
             if (matchedZone === '4') {
                 return {
                     value: isTh ? 'อัตโนมัติแบบ 4 โซน' : '4-Zone Automatic Climate Control',
-                    isTextOption: true
+                    isTextOption: true,
+                    isRealVehicleVerified: isRealVehicle,
+                    verifiedNote: verifiedNote
                 };
             }
             if (matchedZone === '3') {
                 return {
                     value: isTh ? 'อัตโนมัติแบบ 3 โซน' : '3-Zone Automatic Climate Control',
-                    isTextOption: true
+                    isTextOption: true,
+                    isRealVehicleVerified: isRealVehicle,
+                    verifiedNote: verifiedNote
                 };
             }
             if (matchedZone === '2') {
                 return {
                     value: isTh ? 'อัตโนมัติแบบ 2 โซน' : '2-Zone Automatic Climate Control',
-                    isTextOption: true
+                    isTextOption: true,
+                    isRealVehicleVerified: isRealVehicle,
+                    verifiedNote: verifiedNote
                 };
             }
             if (hasAutoAc) {
                 return {
                     value: isTh ? 'ระบบปรับอากาศอัตโนมัติ' : 'Automatic Climate Control',
-                    isTextOption: true
+                    isTextOption: true,
+                    isRealVehicleVerified: isRealVehicle,
+                    verifiedNote: verifiedNote
                 };
             }
 
@@ -3584,6 +3907,73 @@
         }
 
         // Helper: Extract distinctive special exterior equipment
+        // Helper: Extract exterior styling package (M Carbon, M Sport Pro, M Sport, M Aerodynamics)
+        function getExteriorPackageInfo(model) {
+            // Priority 1: M Carbon exterior package
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = cleanThai(detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none';
+                    if (isActive && (topLower.includes('m carbon exterior') || topLower.includes('ชุดตกแต่งภายนอก m carbon'))) {
+                        return { value: top, isTextOption: true };
+                    }
+                }
+            }
+
+            // Priority 2: M Sport Pro
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = cleanThai(detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none';
+                    if (isActive) {
+                        if (topLower.includes('m sport package pro') || topLower.includes('m sport pro') || topLower.includes('ชุดตกแต่ง m sport pro') || topLower.includes('แพ็กเกจ m sport pro') || topLower.includes('specific additional contents of m sport package pro') || topLower.includes('อุปกรณ์เพิ่มเติมเฉพาะสำหรับ m sport package pro')) {
+                            return { value: top, isTextOption: true };
+                        }
+                    }
+                }
+            }
+
+            // Priority 3: M Sport / M Sport Package / M Sport exterior parts
+            for (const specBlock of (model.specifications || [])) {
+                const catLower = cleanThai(specBlock.category || '').toLowerCase();
+                for (const detail of (specBlock.details || [])) {
+                    const top = cleanThai(detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none';
+                    if (isActive) {
+                        if (catLower.includes('line / package') || catLower === 'package' || catLower.includes('ชุดตกแต่ง')) {
+                            if (topLower === 'm sport' || topLower.includes('m sport') || topLower.includes('ชุดตกแต่ง m sport')) {
+                                return { value: top, isTextOption: true };
+                            }
+                        }
+                        if (topLower.includes('m sport package') || topLower.includes('ชุดตกแต่งพิเศษ m sport') || topLower.includes('ชุดตกแต่งภายนอกแบบ m sport') || topLower.includes('m sport exterior parts') || topLower.includes('ชุดตกแต่ง m sport')) {
+                            return { value: top, isTextOption: true };
+                        }
+                    }
+                }
+            }
+
+            // Priority 4: M Aerodynamics package
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = cleanThai(detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none';
+                    if (isActive && (topLower.includes('m aerodynamics') || topLower.includes('ชุดตกแต่ง m aerodynamics'))) {
+                        return { value: top, isTextOption: true };
+                    }
+                }
+            }
+
+            return { value: '-', isTextOption: false };
+        }
+
         function getSpecialExteriorEquipment(model) {
             const isTh = currentLang === 'th';
             const items = [];
@@ -3952,8 +4342,20 @@
                     
                     let refLinkHtml = '';
                     if (hasStar) {
-                        const refUrl = 'https://www.bmw.co.th/th/all-models/5-series/sedan/bmw-5-series-sedan-phev-overview.html';
-                        const linkText = isTh ? 'อ้างอิงจากเว็บ BMW Thailand' : 'Referenced from BMW web';
+                        let refUrl = '';
+                        if (acRefNote) {
+                            const mUrl = acRefNote.match(/https?:\/\/[^\s"'<>]+/i);
+                            if (mUrl) refUrl = mUrl[0];
+                        }
+                        if (!refUrl && model.webUrl) refUrl = model.webUrl;
+                        if (!refUrl) refUrl = 'https://www.bmw.co.th/th/all-models.html';
+                        const isArchive = refUrl.includes('archive.org');
+                        let linkText;
+                        if (isArchive) {
+                            linkText = isTh ? 'อ้างอิงจากเว็บ BMW Thailand (Web Archive)' : 'Referenced from BMW web (Web Archive)';
+                        } else {
+                            linkText = isTh ? 'อ้างอิงจากเว็บ BMW Thailand' : 'Referenced from BMW web';
+                        }
                         refLinkHtml = `<a href="${refUrl}" target="_blank" rel="noopener noreferrer" style="font-size:0.75em; color:var(--primary-color, #1c69d4); text-decoration:underline; margin-top:2px;">${linkText}</a>`;
                     }
 
@@ -4009,6 +4411,68 @@
                 resVal = nedcVal.toLowerCase().includes('nedc') ? nedcVal : `${nedcVal} (NEDC)`;
             }
             return resVal ? { value: resVal, isTextOption: true } : { value: '-', isTextOption: false };
+        }
+
+        // Helper: Extract fuel consumption (km/l)
+        function getFuelConsumptionInfo(model) {
+            let fuelVal = '';
+
+            for (const specBlock of (model.specifications || [])) {
+                const cat = cleanThai(specBlock.category || '').toLowerCase();
+                if (cat.includes('หมายเหตุ') || cat.includes('note')) continue;
+                for (const detail of (specBlock.details || [])) {
+                    const top = cleanThai(detail.topic || '').toLowerCase();
+                    const val = (detail.value || '').trim();
+                    if (!val || val === '-' || val === '■' || val.toLowerCase() === 'null' || val.toLowerCase() === 'none') continue;
+
+                    // Fuel consumption (combined)
+                    if (top.includes('สิ้นเปลือง') || top.includes('fuel consumption')) {
+                        if (!fuelVal) fuelVal = val;
+                    }
+                }
+            }
+
+            if (!fuelVal) return { value: '-', isTextOption: false };
+
+            const cleanVal = fuelVal.replace(/(?:กิโลเมตร\/ลิตร|กม\.\/ลิตร|km\/l)/gi, '').trim();
+            return { value: cleanVal, isTextOption: true };
+        }
+
+        // Helper: Extract electric energy consumption (kWh/100 km)
+        function getElectricConsumptionInfo(model) {
+            let electricWltp = '';
+            let electricNedc = '';
+            let electricFallback = '';
+
+            for (const specBlock of (model.specifications || [])) {
+                const cat = cleanThai(specBlock.category || '').toLowerCase();
+                if (cat.includes('หมายเหตุ') || cat.includes('note')) continue;
+                for (const detail of (specBlock.details || [])) {
+                    const top = cleanThai(detail.topic || '').toLowerCase();
+                    const val = (detail.value || '').trim();
+                    if (!val || val === '-' || val === '■' || val.toLowerCase() === 'null' || val.toLowerCase() === 'none') continue;
+
+                    // Electric energy consumption
+                    if (top.includes('การใช้ไฟฟ้า') || top.includes('การใช้พลังงานไฟฟ้า') || top.includes('electric energy consumption') || top.includes('electrical consumption')) {
+                        if (top.includes('wltp')) {
+                            electricWltp = val;
+                        } else if (top.includes('nedc')) {
+                            if (!electricNedc) electricNedc = val;
+                        } else if (!electricFallback) {
+                            electricFallback = val;
+                        }
+                    }
+                }
+            }
+
+            const rawVal = electricWltp || electricFallback || electricNedc;
+            if (!rawVal) return { value: '-', isTextOption: false };
+
+            let cleanVal = rawVal.replace(/(?:กิโลวัตต์-ชั่วโมง\/100 กิโลเมตร|kwh\/100 km|kwh\/100 กม\.|kwh)/gi, '').trim();
+            cleanVal = cleanVal.replace(/\((?:wltp|nedc)\)/gi, '').trim();
+
+            const std = electricWltp ? ' (WLTP)' : (electricNedc ? ' (NEDC)' : '');
+            return { value: `${cleanVal}${std}`, isTextOption: true };
         }
 
         // Helper: Extract fuel / electric consumption strictly using WLTP for electric energy
@@ -4330,11 +4794,39 @@
                     for (const detail of (specBlock.details || [])) {
                         const top = cleanThai(detail.topic || '').trim();
                         if (top.toLowerCase().includes(aliasLower)) {
+                            // Check if compare enhancement overrides this '-'
+                            const enhancement = getModelEnhancement(model.modelName, specBlock.category, aliases);
+                            if (enhancement && enhancement.is_real_vehicle_verified) {
+                                const eVal = enhancement.value || '■';
+                                const displayVal = preferTopicAsValue ? (enhancement.topic || top) : eVal;
+                                return {
+                                    value: displayVal,
+                                    topic: enhancement.topic || top,
+                                    isTextOption: preferTopicAsValue,
+                                    isRealVehicleVerified: true,
+                                    verifiedNote: enhancement.note || ''
+                                };
+                            }
                             return { value: '-', topic: top, isTextOption: false };
                         }
                     }
                 }
             }
+
+            // Priority 3: Check compare enhancement if omitted from brochure completely
+            const enhancement = getModelEnhancement(model.modelName, null, aliases);
+            if (enhancement && enhancement.is_real_vehicle_verified) {
+                const eVal = enhancement.value || '■';
+                const displayVal = preferTopicAsValue ? (enhancement.topic || aliases[0]) : eVal;
+                return {
+                    value: displayVal,
+                    topic: enhancement.topic || aliases[0],
+                    isTextOption: preferTopicAsValue,
+                    isRealVehicleVerified: true,
+                    verifiedNote: enhancement.note || ''
+                };
+            }
+
             return { value: '-', topic: '', isTextOption: false };
         }
 
@@ -4371,10 +4863,40 @@
                     tr.appendChild(tdTopic);
 
                     let normalizedValues = [];
+                    let rawValues = [];
 
                     selectedModels.forEach(m => {
                         let res;
-                        if (tDef.customPowerExtractor) {
+                        const canonicalSearchAliases = [
+                            tDef.canonicalNameTH,
+                            tDef.canonicalNameEN,
+                            ...(tDef.aliases || [])
+                        ].filter(Boolean);
+
+                        const hasCustomExtractor = Boolean(
+                            tDef.customPowerExtractor || tDef.customTorqueExtractor || 
+                            tDef.customChargingExtractor || tDef.customElectricRangeExtractor || 
+                            tDef.customFuelConsumptionExtractor || tDef.customElectricConsumptionExtractor ||
+                            tDef.customConsumptionExtractor || tDef.customSeatExtractor || 
+                            tDef.customCockpitExtractor || tDef.customHUDExtractor || 
+                            tDef.customDrivetrainExtractor || tDef.customActiveCruiseExtractor || 
+                            tDef.customAirbagExtractor || tDef.customIASExtractor || 
+                            tDef.customACExtractor || tDef.customSunblindExtractor || 
+                            tDef.customExteriorPackageExtractor || tDef.customSpecialExteriorExtractor || 
+                            tDef.customSpecialInteriorExtractor || tDef.customAdditionalSafetyExtractor
+                        );
+                        const rowEnhancement = !hasCustomExtractor ? getModelEnhancement(m.modelName, null, canonicalSearchAliases) : null;
+                        if (rowEnhancement && rowEnhancement.is_real_vehicle_verified) {
+                            const eVal = rowEnhancement.value || '■';
+                            const displayVal = tDef.preferTopicAsValue ? (rowEnhancement.topic || canonicalSearchAliases[0]) : eVal;
+                            res = {
+                                value: displayVal,
+                                topic: rowEnhancement.topic || canonicalSearchAliases[0],
+                                isTextOption: tDef.preferTopicAsValue,
+                                isRealVehicleVerified: true,
+                                verifiedNote: rowEnhancement.note || ''
+                            };
+                        } else if (tDef.customPowerExtractor) {
                             res = getPowerInfo(m);
                         } else if (tDef.customTorqueExtractor) {
                             res = getTorqueInfo(m);
@@ -4382,6 +4904,10 @@
                             res = getChargingInfo(m);
                         } else if (tDef.customElectricRangeExtractor) {
                             res = getElectricRange(m);
+                        } else if (tDef.customFuelConsumptionExtractor) {
+                            res = getFuelConsumptionInfo(m);
+                        } else if (tDef.customElectricConsumptionExtractor) {
+                            res = getElectricConsumptionInfo(m);
                         } else if (tDef.customConsumptionExtractor) {
                             res = getConsumptionInfo(m);
                         } else if (tDef.customSeatExtractor) {
@@ -4402,6 +4928,8 @@
                             res = getAirConditioningInfo(m);
                         } else if (tDef.customSunblindExtractor) {
                             res = getSunblindInfo(m);
+                        } else if (tDef.customExteriorPackageExtractor) {
+                            res = getExteriorPackageInfo(m);
                         } else if (tDef.customSpecialExteriorExtractor) {
                             res = getSpecialExteriorEquipment(m);
                         } else if (tDef.customSpecialInteriorExtractor) {
@@ -4431,15 +4959,72 @@
                             }
                         }
                         
+                        if (res.isRealVehicleVerified) {
+                            const badgeText = currentLang === 'en' ? 'Actual Car 🚗' : 'รถจริงมี 🚗';
+                            const tooltipText = (currentLang === 'en' ? '💡 Verified from actual vehicle: ' : '💡 ยืนยันจากตัวรถจริง: ') + (res.verifiedNote || '');
+                            cellContent = `<div class="cell-verified-feature">${cellContent}<span class="badge-real-vehicle footnote-trigger" data-tooltip="${escapeHtml(tooltipText)}">${badgeText}</span></div>`;
+                        }
+
                         tdVal.innerHTML = addFootnoteTooltips(cellContent, true);
                         tr.appendChild(tdVal);
 
+                        rawValues.push(specVal);
                         normalizedValues.push(normalizeForDiff(specVal));
                     });
 
-                    // Diff evaluation
-                    const firstVal = normalizedValues[0];
-                    const isDiff = normalizedValues.some(v => v !== firstVal);
+                    // Diff evaluation with Smart Normalizer
+                    let isDiff = false;
+                    for (let i = 1; i < rawValues.length; i++) {
+                        if (!areValuesEquivalent(rawValues[0], rawValues[i])) {
+                            isDiff = true;
+                            break;
+                        }
+                    }
+
+                    // Cross-Language Consistency Check (If different in current view, verify against counterpart language specification)
+                    if (isDiff && counterpartCatalog && counterpartCatalog.length > 0) {
+                        const cpValues = selectedModels.map(m => {
+                            const cpModel = getCounterpartModel(m);
+                            if (!cpModel) return null;
+                            let res;
+                            if (tDef.customPowerExtractor) res = getPowerInfo(cpModel);
+                            else if (tDef.customTorqueExtractor) res = getTorqueInfo(cpModel);
+                            else if (tDef.customChargingExtractor) res = getChargingInfo(cpModel);
+                            else if (tDef.customElectricRangeExtractor) res = getElectricRange(cpModel);
+                            else if (tDef.customFuelConsumptionExtractor) res = getFuelConsumptionInfo(cpModel);
+                            else if (tDef.customElectricConsumptionExtractor) res = getElectricConsumptionInfo(cpModel);
+                            else if (tDef.customConsumptionExtractor) res = getConsumptionInfo(cpModel);
+                            else if (tDef.customSeatExtractor) res = getCombinedSeatInfo(cpModel);
+                            else if (tDef.customCockpitExtractor) res = getCockpitInfo(cpModel);
+                            else if (tDef.customHUDExtractor) res = getHUDInfo(cpModel);
+                            else if (tDef.customDrivetrainExtractor) res = getDrivetrainInfo(cpModel);
+                            else if (tDef.customActiveCruiseExtractor) res = getActiveCruiseControlInfo(cpModel);
+                            else if (tDef.customAirbagExtractor) res = getAirbagInfo(cpModel);
+                            else if (tDef.customIASExtractor) res = getIASInfo(cpModel);
+                            else if (tDef.customACExtractor) res = getAirConditioningInfo(cpModel, currentLang === 'en' ? 'th' : 'en');
+                            else if (tDef.customSunblindExtractor) res = getSunblindInfo(cpModel);
+                            else if (tDef.customExteriorPackageExtractor) res = getExteriorPackageInfo(cpModel);
+                            else if (tDef.customSpecialExteriorExtractor) res = getSpecialExteriorEquipment(cpModel);
+                            else if (tDef.customSpecialInteriorExtractor) res = getSpecialInteriorEquipment(cpModel);
+                            else if (tDef.customAdditionalSafetyExtractor) res = getAdditionalSafetyEquipment(cpModel);
+                            else res = findSpecValueByAliases(cpModel, tDef.aliases, tDef.preferTopicAsValue);
+                            return res ? res.value : null;
+                        });
+
+                        if (cpValues.every(v => v !== null && v !== undefined && v !== '')) {
+                            let cpDiff = false;
+                            for (let i = 1; i < cpValues.length; i++) {
+                                if (!areValuesEquivalent(cpValues[0], cpValues[i])) {
+                                    cpDiff = true;
+                                    break;
+                                }
+                            }
+                            if (!cpDiff) {
+                                isDiff = false;
+                            }
+                        }
+                    }
+
                     const isAllEmpty = normalizedValues.every(v => v === "__NO__");
 
                     if (isAllEmpty) {
@@ -4501,6 +5086,16 @@
                             }
                         });
                     }
+                    // Also union topics from compareEnhancements if matching categoryName
+                    const modelEnhances = getEnhancementsList(compareEnhancements[m.modelName], currentLang);
+                    modelEnhances.forEach(item => {
+                        if (item.category && cleanThai(item.category) === cleanThai(categoryName) && item.topic) {
+                            const cleanT = cleanThai(item.topic);
+                            if (!uniqueTopics.some(t => cleanThai(t) === cleanT)) {
+                                uniqueTopics.push(item.topic);
+                            }
+                        }
+                    });
                 });
 
                 if (uniqueTopics.length === 0) return;
@@ -4525,25 +5120,88 @@
                     tr.appendChild(tdTopic);
 
                     let normalizedValues = [];
+                    let rawValues = [];
 
                     selectedModels.forEach(m => {
                         let specVal = "-";
+                        let isRealVehicleVerified = false;
+                        let verifiedNote = "";
+
                         const specBlock = (m.specifications || []).find(s => s.category === categoryName);
                         if (specBlock) {
                             const detail = (specBlock.details || []).find(d => cleanThai(d.topic) === cleanThai(topicName));
                             if (detail) specVal = detail.value;
                         }
 
+                        const enhancement = getModelEnhancement(m.modelName, categoryName, topicName);
+                        if (enhancement && enhancement.is_real_vehicle_verified && (specVal === "-" || !specVal || specVal.trim() === "")) {
+                            specVal = enhancement.value || "■";
+                            isRealVehicleVerified = true;
+                            verifiedNote = enhancement.note || "";
+                        }
+
+                        let cellContent = formatValue(specVal);
+                        if (isRealVehicleVerified) {
+                            const badgeText = currentLang === 'en' ? 'Actual Car 🚗' : 'รถจริงมี 🚗';
+                            const tooltipText = (currentLang === 'en' ? '💡 Verified from actual vehicle: ' : '💡 ยืนยันจากตัวรถจริง: ') + (verifiedNote || '');
+                            cellContent = `<div class="cell-verified-feature">${cellContent}<span class="badge-real-vehicle footnote-trigger" data-tooltip="${escapeHtml(tooltipText)}">${badgeText}</span></div>`;
+                        }
+
                         const tdVal = document.createElement('td');
-                        tdVal.innerHTML = addFootnoteTooltips(formatValue(specVal), true);
+                        tdVal.innerHTML = addFootnoteTooltips(cellContent, true);
                         tr.appendChild(tdVal);
 
+                        rawValues.push(specVal);
                         normalizedValues.push(normalizeForDiff(specVal));
                     });
 
-                    // Diff evaluation
-                    const firstVal = normalizedValues[0];
-                    const isDiff = normalizedValues.some(v => v !== firstVal);
+                    // Diff evaluation with Smart Normalizer
+                    let isDiff = false;
+                    for (let i = 1; i < rawValues.length; i++) {
+                        if (!areValuesEquivalent(rawValues[0], rawValues[i])) {
+                            isDiff = true;
+                            break;
+                        }
+                    }
+
+                    // Cross-Language Consistency Check for Raw Mode
+                    if (isDiff && counterpartCatalog && counterpartCatalog.length > 0) {
+                        const cpValues = selectedModels.map(m => {
+                            const cpModel = getCounterpartModel(m);
+                            if (!cpModel) return null;
+                            let catIndex = -1;
+                            const thCats = (m.specifications || []);
+                            for (let cIdx = 0; cIdx < thCats.length; cIdx++) {
+                                if (thCats[cIdx].category === categoryName) {
+                                    catIndex = cIdx;
+                                    break;
+                                }
+                            }
+                            if (catIndex !== -1 && cpModel.specifications && cpModel.specifications[catIndex]) {
+                                const cpCat = cpModel.specifications[catIndex];
+                                const thCat = thCats[catIndex];
+                                const tIdx = (thCat.details || []).findIndex(d => cleanThai(d.topic) === cleanThai(topicName));
+                                if (tIdx !== -1 && cpCat.details && cpCat.details[tIdx]) {
+                                    return cpCat.details[tIdx].value;
+                                }
+                            }
+                            return null;
+                        });
+
+                        if (cpValues.every(v => v !== null && v !== undefined && v !== '')) {
+                            let cpDiff = false;
+                            for (let i = 1; i < cpValues.length; i++) {
+                                if (!areValuesEquivalent(cpValues[0], cpValues[i])) {
+                                    cpDiff = true;
+                                    break;
+                                }
+                            }
+                            if (!cpDiff) {
+                                isDiff = false;
+                            }
+                        }
+                    }
+
                     const isAllEmpty = normalizedValues.every(v => v === "__NO__");
 
                     if (isAllEmpty) {
@@ -5007,7 +5665,7 @@
     const compareTable = document.getElementById('compareTable');
     if (compareTable) {
         compareTable.addEventListener('mouseover', function(e) {
-            const trigger = e.target.closest('.footnote-trigger');
+            const trigger = e.target.closest('.footnote-trigger, .badge-real-vehicle');
             if (!trigger) return;
 
             const text = trigger.getAttribute('data-tooltip');
@@ -5029,7 +5687,7 @@
         });
 
         compareTable.addEventListener('mouseout', function(e) {
-            const trigger = e.target.closest('.footnote-trigger');
+            const trigger = e.target.closest('.footnote-trigger, .badge-real-vehicle');
             if (!trigger) return;
             tooltipEl.classList.remove('show');
         });
@@ -5889,13 +6547,19 @@
         const cacheBust = '?v=' + new Date().getTime();
         const masterFile = currentLang === 'en' ? 'bmw_master_specs_en.json' : 'bmw_master_specs.json';
         const customFile = currentLang === 'en' ? 'bmw_custom_specs_en.json' : 'bmw_custom_specs.json';
+        const cpMasterFile = currentLang === 'en' ? 'bmw_master_specs.json' : 'bmw_master_specs_en.json';
+        const cpCustomFile = currentLang === 'en' ? 'bmw_custom_specs.json' : 'bmw_custom_specs_en.json';
 
         Promise.all([
             fetch(masterFile + cacheBust).then(res => res.json()).catch(() => []),
-            fetch(customFile + cacheBust).then(res => res.json()).catch(() => [])
-        ]).then(([mJson, cJson]) => {
+            fetch(customFile + cacheBust).then(res => res.json()).catch(() => []),
+            fetch(cpMasterFile + cacheBust).then(res => res.json()).catch(() => []),
+            fetch(cpCustomFile + cacheBust).then(res => res.json()).catch(() => []),
+            fetch('compare_enhancements.json' + cacheBust).then(res => res.json()).catch(() => ({}))
+        ]).then(([mJson, cJson, cpMJson, cpCJson, eJson]) => {
             masterData = Array.isArray(mJson) ? mJson : [];
             customData = Array.isArray(cJson) ? cJson : [];
+            compareEnhancements = (eJson && eJson.models) ? eJson.models : {};
 
             // Filter active models for masterData
             masterData = masterData.map(series => ({
@@ -5907,6 +6571,17 @@
             customData = sortSeriesData(customData);
 
             buildFlatCatalog();
+
+            // Build counterpart catalog for cross-language diff verification
+            let cpMaster = Array.isArray(cpMJson) ? cpMJson : [];
+            let cpCustom = Array.isArray(cpCJson) ? cpCJson : [];
+            cpMaster = cpMaster.map(series => ({
+                ...series,
+                models: (series.models || []).filter(m => !m.is_custom_archived)
+            })).filter(series => series.models.length > 0);
+            cpMaster = sortSeriesData(cpMaster);
+            cpCustom = sortSeriesData(cpCustom);
+            buildCounterpartCatalog(cpMaster, cpCustom);
 
             if (prevModels && prevModels.length >= 2) {
                 // Map previous models to the newly loaded catalog by model name and source

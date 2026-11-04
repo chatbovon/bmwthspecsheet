@@ -7277,7 +7277,7 @@
                             },
                             {
                                 "topic": "หมายเหตุการชาร์จ AC",
-                                "value": "อ้างอิงจาก https://www.bmw.co.th/th/all-models/7-series/7-series-sedan/bmw-7-series-sedan.html/bmw-740d-m-sport.bmw"
+                                "value": "อ้างอิงจาก Web Archive: https://web.archive.org/web/20231128145210/https://www.bmw.co.th/th/all-models/7-series/7-series-sedan/bmw-7-series-sedan.html"
                             }
                         ]
                     }
@@ -43289,6 +43289,14 @@
                             {
                                 "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)",
                                 "value": "18.2 - 16.7"
+                            },
+                            {
+                                "topic": "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)",
+                                "value": "11"
+                            },
+                            {
+                                "topic": "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%",
+                                "value": "2:00 ชั่วโมง"
                             }
                         ]
                     },
@@ -43315,6 +43323,10 @@
                             {
                                 "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
                                 "value": "525"
+                            },
+                            {
+                                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
+                                "value": "2,560"
                             }
                         ]
                     },
@@ -43699,6 +43711,10 @@
                             {
                                 "topic": "รหัสแพ็กเกจ (Local Pack)",
                                 "value": "-"
+                            },
+                            {
+                                "topic": "หมายเหตุการชาร์จ AC",
+                                "value": "อ้างอิงจาก https://www.bmw.co.th/th/all-models/m-series/sedan/bmw-7-series-sedan-m-models-technical-data.html/bmw-m760e-xdrive-sedan.bmw"
                             }
                         ]
                     }
