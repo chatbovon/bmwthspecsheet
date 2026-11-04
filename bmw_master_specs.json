@@ -43825,6 +43825,20 @@
             },
             {
                 "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์) / Maximum AC charging power (kW)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 16: English is 'Maximum AC charging power (kW)' (mapped: 'maximum ac charging power (kw)'), Thai is 'กำลังการชาร์จแบบกระแสสลับ (AC) สูงสุด (กิโลวัตต์)' (mapped: 'กำลังการชาร์จแบบกระแสสลับ (ac) สูงสุด (กิโลวัตต์)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "ENGINE AND PERFORMANCE",
+                "topic": "ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100% / AC charging time 0 - 100%",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'ENGINE AND PERFORMANCE' at position 17: English is 'AC charging time 0 - 100%' (mapped: 'ac charging time 0 - 100%'), Thai is 'ระยะเวลาในการชาร์จแบบกระแสสลับ (AC) จาก 0 - 100%' (mapped: 'ระยะเวลาในการชาร์จแบบกระแสสลับ (ac) จาก 0 - 100%')"
+            },
+            {
+                "model_name": "M760e xDrive",
                 "category": "WHEELS AND TYRES",
                 "topic": "ล้อ / Wheels",
                 "type": "Cross-DB Discrepancy",
@@ -43843,6 +43857,13 @@
                 "topic": "ปริมาตรในการบรรจุของ (ลิตร) / Luggage capacity (l)",
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'DIMENSION' at position 2: English is 'Luggage capacity (l)' (mapped: 'luggage capacity (l)'), Thai is 'ปริมาตรในการบรรจุของ (ลิตร)' (mapped: 'ปริมาตรในการบรรจุของ (ลิตร)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "DIMENSION",
+                "topic": "น้ำหนักรถสุทธิ (กิโลกรัม) / Curb weight (kg)",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'DIMENSION' at position 3: English is 'Curb weight (kg)' (mapped: 'curb weight (kg)'), Thai is 'น้ำหนักรถสุทธิ (กิโลกรัม)' (mapped: 'น้ำหนักรถสุทธิ (กิโลกรัม)')"
             },
             {
                 "model_name": "M760e xDrive",
@@ -44410,6 +44431,13 @@
                 "topic": "รหัสแพ็กเกจ (Local Pack) / Local package code",
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Local package code' (mapped: 'local package code'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
+            },
+            {
+                "model_name": "M760e xDrive",
+                "category": "Document References",
+                "topic": "หมายเหตุการชาร์จ AC / AC Charging Reference Note",
+                "type": "Cross-DB Discrepancy",
+                "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 3: English is 'AC Charging Reference Note' (mapped: 'ac charging reference note'), Thai is 'หมายเหตุการชาร์จ AC' (mapped: 'หมายเหตุการชาร์จ ac')"
             }
         ]
     },
