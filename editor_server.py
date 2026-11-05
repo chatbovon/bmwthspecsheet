@@ -504,11 +504,28 @@ class SpecEditorHandler(SimpleHTTPRequestHandler):
                 })
         self.send_json(200, {"success": True, "count": len(files), "backups": files})
 
-def run_server(host="127.0.0.1", port=8000):
+def run_server(host="0.0.0.0", port=8000):
     server_address = (host, port)
     httpd = ThreadingHTTPServer(server_address, SpecEditorHandler)
+    
+    # Detect local IP for LAN / mobile access
+    local_ips = []
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        local_ips.append(s.getsockname()[0])
+        s.close()
+    except Exception:
+        pass
+
     print(f"================================================================")
-    print(f"BMW Spec Editor Server running at http://{host}:{port}/editor.html")
+    print(f"BMW Specsheet Local Server running on port {port}:")
+    print(f"  Local PC:   http://localhost:{port}/index.html")
+    print(f"  Compare:    http://localhost:{port}/compare.html")
+    print(f"  Editor:     http://localhost:{port}/editor.html")
+    for ip in local_ips:
+        print(f"  Mobile/LAN: http://{ip}:{port}/index.html")
+        print(f"              http://{ip}:{port}/compare.html")
     print(f"Working Directory: {WORKSPACE_DIR}")
     print(f"Backups Directory: {BACKUPS_DIR}")
     print(f"Press Ctrl+C to terminate.")
@@ -521,7 +538,7 @@ def run_server(host="127.0.0.1", port=8000):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="BMW Spec Editor Local Backend Server")
-    parser.add_argument("--host", default="127.0.0.1", help="Host to bind (default: 127.0.0.1)")
+    parser.add_argument("--host", default="0.0.0.0", help="Host to bind (default: 127.0.0.1)")
     parser.add_argument("--port", type=int, default=8000, help="Port to listen (default: 8000)")
     args = parser.parse_args()
     run_server(host=args.host, port=args.port)
