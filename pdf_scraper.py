@@ -32,7 +32,7 @@ TARGETS = [
 def download_pdf(page, pdf_url, download_dir, filename):
     """ฟังก์ชันดาวน์โหลดไฟล์โดยใช้ Session ของ Playwright"""
     try:
-        response = page.request.get(pdf_url, timeout=30000)
+        response = page.request.get(pdf_url, timeout=45000)
         if response.ok:
             with open(os.path.join(download_dir, filename), 'wb') as f:
                 f.write(response.body())
@@ -69,13 +69,56 @@ def scrape_target(target):
     skipped_count = 0
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
+        browser = p.chromium.launch(
+            headless=True,
+            args=[
+                "--no-sandbox",
+                "--disable-setuid-sandbox",
+                "--disable-dev-shm-usage",
+                "--disable-blink-features=AutomationControlled"
+            ]
+        )
+        context = browser.new_context(
+            viewport={"width": 1920, "height": 1080},
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+        )
+        page = context.new_page()
         
-        print("1. กำลังเปิดหน้าเว็บ BMW Brochure...")
-        page.goto(url, timeout=60000)
-        page.wait_for_load_state('networkidle')
-        time.sleep(3) 
+        max_nav_retries = 2
+        nav_success = False
+        for attempt in range(1, max_nav_retries + 1):
+            try:
+                print(f"1. กำลังเปิดหน้าเว็บ BMW Brochure (ครั้งที่ {attempt}/{max_nav_retries})...")
+                page.goto(url, wait_until="domcontentloaded", timeout=60000)
+                
+                # Graceful wait for networkidle without throwing fatal error
+                try:
+                    page.wait_for_load_state('networkidle', timeout=12000)
+                except Exception:
+                    print("   -> [Notice] Network idle timed out or background telemetry active; continuing with DOM.")
+                
+                # Give dynamic PDF links time to mount
+                try:
+                    page.wait_for_selector("a[href*='.pdf']", timeout=15000)
+                except Exception:
+                    pass
+
+                time.sleep(3)
+                nav_success = True
+                break
+            except Exception as e:
+                print(f"   -> [Warning] โหลดหน้าเว็บไม่สำเร็จ (attempt {attempt}): {e}")
+                if attempt < max_nav_retries:
+                    time.sleep(5)
+
+        if not nav_success:
+            print(f"!! [ERROR] ไม่สามารถโหลดหน้าเว็บ BMW Brochure ({lang.upper()}) ได้หลังจากพยายาม {max_nav_retries} ครั้ง")
+            try:
+                context.close()
+            except Exception:
+                pass
+            browser.close()
+            return
 
         print("2. กำลังกวาดสายตาหาลิงก์ PDF ทั้งหมด...")
         links = page.locator("a").evaluate_all(
@@ -85,6 +128,10 @@ def scrape_target(target):
         
         if not unique_links:
             print("!! ไม่พบลิงก์ PDF (อาจจะติด Lazy Loading หรือเว็บมีปัญหา)")
+            try:
+                context.close()
+            except Exception:
+                pass
             browser.close()
             return
 
@@ -128,6 +175,10 @@ def scrape_target(target):
                 # หน่วงเวลา 5 วินาที เฉพาะตอนที่มีการดึงไฟล์ใหม่เท่านั้น (ประหยัดเวลาสุดๆ)
                 time.sleep(5)
 
+        try:
+            context.close()
+        except Exception:
+            pass
         browser.close()
 
     # [กฎข้อ 3]: วิเคราะห์หารถรุ่นที่หายไปจากเว็บ
@@ -146,7 +197,10 @@ def scrape_target(target):
 def run_scraper():
     all_web_filenames.clear()
     for target in TARGETS:
-        scrape_target(target)
+        try:
+            scrape_target(target)
+        except Exception as e:
+            print(f"[SCRAPER] [ERROR] Unhandled error scraping target {target.get('lang')}: {e}")
     
     # Save the consolidated list of live web PDFs and URL mapping
     scratch_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scratch")
