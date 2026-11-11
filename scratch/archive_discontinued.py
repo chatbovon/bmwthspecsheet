@@ -32,9 +32,11 @@ def archive_discontinued_in_db(db_path, custom_db_path):
     with open(live_list_path, "r", encoding="utf-8") as f:
         live_pdfs = {line.strip().lower() for line in f if line.strip()}
         
-    # Circuit Breaker: If live PDFs count is dangerously low (e.g. < 5), abort immediately
-    if len(live_pdfs) < 5:
-        print(f"[ARCHIVER] [CRITICAL] Dangerously low live PDFs count ({len(live_pdfs)}). BMW site might be down. Aborting archiving to prevent database corruption.")
+    # Circuit Breaker: Abort if live PDFs total or per-language counts are dangerously low
+    th_live_count = sum(1 for p in live_pdfs if "_th" in p)
+    en_live_count = sum(1 for p in live_pdfs if "_en" in p)
+    if len(live_pdfs) < 5 or th_live_count < 5 or en_live_count < 5:
+        print(f"[ARCHIVER] [CRITICAL] Incomplete live PDFs count (total={len(live_pdfs)}, TH={th_live_count}, EN={en_live_count}). Aborting archiving to prevent database corruption.")
         return False
         
     print(f"\n[ARCHIVER] Scanning databases: {os.path.basename(db_path)} and {os.path.basename(custom_db_path)}")

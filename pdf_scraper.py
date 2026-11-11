@@ -43,6 +43,49 @@ def download_pdf(page, pdf_url, download_dir, filename):
         print(f"   -> [Error] {e}")
     return False
 
+EXCLUDED_FILENAME_KEYWORDS = ("brochure", "catalog", "leaflet")
+EXCLUDED_LINK_KEYWORDS = ("โบรชัวร์", "brochure", "catalog", "leaflet")
+
+
+def collect_unique_pdf_links(link_records):
+    """Group PDF anchor records by href while keeping all observed link labels."""
+    grouped = {}
+    for record in link_records:
+        if isinstance(record, str):
+            href, label = record, ""
+        else:
+            href = (record.get("href") or "").strip()
+            label = " ".join(
+                part.strip()
+                for part in (
+                    record.get("text") or "",
+                    record.get("aria") or "",
+                    record.get("title") or "",
+                )
+                if part and part.strip()
+            )
+        if not href or ".pdf" not in href.lower():
+            continue
+        grouped.setdefault(href, []).append(label)
+    return list(grouped.items())
+
+
+def is_marketing_brochure(filename, labels=()):
+    """Return (True, reason) if PDF filename or all anchor labels indicate a marketing brochure."""
+    filename_lower = (filename or "").lower()
+    if any(keyword in filename_lower for keyword in EXCLUDED_FILENAME_KEYWORDS):
+        return True, "filename"
+
+    non_empty_labels = [" ".join(lbl.lower().split()) for lbl in (labels or ()) if lbl and lbl.strip()]
+    if non_empty_labels and all(
+        any(keyword in lbl for keyword in EXCLUDED_LINK_KEYWORDS)
+        for lbl in non_empty_labels
+    ):
+        return True, "link_label"
+
+    return False, ""
+
+
 all_web_filenames = set()
 all_web_pdf_urls = {}
 
@@ -118,14 +161,21 @@ def scrape_target(target):
             except Exception:
                 pass
             browser.close()
-            return
+            return False
 
         print("2. กำลังกวาดสายตาหาลิงก์ PDF ทั้งหมด...")
-        links = page.locator("a").evaluate_all(
-            "elements => elements.map(e => e.href).filter(href => href.toLowerCase().includes('.pdf'))"
+        raw_link_records = page.locator("a").evaluate_all(
+            r"""elements => elements
+                .filter(e => (e.href || '').toLowerCase().includes('.pdf'))
+                .map(e => ({
+                    href: e.href,
+                    text: (e.innerText || e.textContent || '').replace(/\s+/g, ' ').trim(),
+                    aria: e.getAttribute('aria-label') || '',
+                    title: e.getAttribute('title') || ''
+                }))"""
         )
-        unique_links = list(set(links))
-        
+        unique_links = collect_unique_pdf_links(raw_link_records)
+
         if not unique_links:
             print("!! ไม่พบลิงก์ PDF (อาจจะติด Lazy Loading หรือเว็บมีปัญหา)")
             try:
@@ -133,25 +183,28 @@ def scrape_target(target):
             except Exception:
                 pass
             browser.close()
-            return
+            return False
 
         print(f"-> เจอลิงก์ PDF ทั้งหมด {len(unique_links)} ลิงก์\n")
 
         # 3. เริ่มกระบวนการคัดกรองและดาวน์โหลด
-        for i, link in enumerate(unique_links, 1):
+        for i, (link, labels) in enumerate(unique_links, 1):
             # ดึงชื่อไฟล์จาก URL และถอดรหัส (เช่น แปลง %20 เป็นช่องว่าง) ให้เป็นชื่อไฟล์จริงๆ
             raw_filename = link.split('/')[-1].split('?')[0]
             filename = unquote(raw_filename)
             filename_lower = filename.lower()
 
-            # [กฎข้อ 1]: ตัดไฟล์โบรชัวร์การตลาดทิ้ง (เอาเฉพาะ Specsheet)
-            # เช็กว่ามีคำว่า brochure, catalog หรือ leaflet อยู่ในชื่อไฟล์หรือไม่
-            excluded_keywords = ["brochure", "catalog", "leaflet"]
-            if any(keyword in filename_lower for keyword in excluded_keywords):
-                continue
-            
             # กันเหนียว: ข้ามไฟล์ที่ไม่ได้นามสกุล pdf จริงๆ
             if not filename_lower.endswith('.pdf'):
+                continue
+
+            # [กฎข้อ 1]: ตัดไฟล์โบรชัวร์การตลาดทิ้ง (เอาเฉพาะ Specsheet)
+            # เช็กทั้งชื่อไฟล์ (brochure, catalog, leaflet) และข้อความบนลิงก์ (เช่น โบรชัวร์ / Brochure)
+            excluded, exclude_reason = is_marketing_brochure(filename, labels)
+            if excluded:
+                if exclude_reason == "link_label":
+                    display_label = next((lbl for lbl in labels if lbl), "")
+                    print(f"[{i}/{len(unique_links)}] ⏭️ ข้ามโบรชัวร์การตลาด (จากข้อความลิงก์ '{display_label}'): {filename}")
                 continue
 
             # จดชื่อไฟล์นี้ไว้ในตะกร้า ว่าเว็บยังมีรถรุ่นนี้ขายอยู่
@@ -186,6 +239,10 @@ def scrape_target(target):
     print(f"  - โหลดไฟล์ใหม่เพิ่ม: {downloaded_count} ไฟล์")
     print(f"  - ข้ามไฟล์ซ้ำ: {skipped_count} ไฟล์")
     
+    if len(web_filenames) < 5:
+        print(f"!! [CIRCUIT BREAKER] Found only {len(web_filenames)} specsheet PDFs for {lang.upper()} (< 5). Marking target scrape incomplete.")
+        return False
+
     # เอาไฟล์ในเครื่อง ตั้งต้น ลบด้วย ไฟล์ที่เว็บบอกว่ามี = ไฟล์ที่ถูกถอดออก
     removed_files = existing_files - web_filenames
     if removed_files:
@@ -193,26 +250,44 @@ def scrape_target(target):
     else:
         print("\n[SCRAPER] No discontinued PDFs detected. Active files match web 100%.")
     print(f"{'='*50}\n")
+    return True
 
 def run_scraper():
     all_web_filenames.clear()
+    all_web_pdf_urls.clear()
+    target_results = {}
     for target in TARGETS:
+        lang = target.get("lang", "unknown")
         try:
-            scrape_target(target)
+            target_results[lang] = bool(scrape_target(target))
         except Exception as e:
-            print(f"[SCRAPER] [ERROR] Unhandled error scraping target {target.get('lang')}: {e}")
-    
-    # Save the consolidated list of live web PDFs and URL mapping
+            print(f"[SCRAPER] [ERROR] Unhandled error scraping target {lang}: {e}")
+            target_results[lang] = False
+
     scratch_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scratch")
     if not os.path.exists(scratch_dir):
         os.makedirs(scratch_dir)
     list_path = os.path.join(scratch_dir, "live_web_pdfs.txt")
+    mapping_path = os.path.join(scratch_dir, "live_web_pdf_urls.json")
+
+    all_targets_ok = (len(target_results) == len(TARGETS)) and all(target_results.values())
+    if not all_targets_ok:
+        print(f"\n[SCRAPER] [CIRCUIT BREAKER] Scrape incomplete ({target_results}). Refusing to write partial live_web_pdfs.txt or archive databases.")
+        for stale_path in (list_path, mapping_path):
+            if os.path.exists(stale_path):
+                try:
+                    os.remove(stale_path)
+                    print(f"[SCRAPER] Removed stale file: {stale_path}")
+                except Exception as rm_err:
+                    print(f"[SCRAPER] [WARNING] Could not remove stale file {stale_path}: {rm_err}")
+        return False
+
+    # Save the consolidated list of live web PDFs and URL mapping
     with open(list_path, "w", encoding="utf-8") as f:
         for fname in sorted(all_web_filenames):
             f.write(fname + "\n")
     print(f"\n[SCRAPER] Saved {len(all_web_filenames)} live web PDF filenames to {list_path}")
 
-    mapping_path = os.path.join(scratch_dir, "live_web_pdf_urls.json")
     with open(mapping_path, "w", encoding="utf-8") as f:
         json.dump(all_web_pdf_urls, f, indent=2, ensure_ascii=False)
     print(f"[SCRAPER] Saved {len(all_web_pdf_urls)} live web PDF URLs to {mapping_path}")
@@ -237,14 +312,18 @@ def run_scraper():
                     print(f"[SCRAPER] Updated live pdf_url in {db_file}")
             except Exception as e:
                 print(f"[SCRAPER] [WARNING] Failed to update pdf_url in {db_file}: {e}")
+    return True
 
 if __name__ == "__main__":
-    run_scraper()
-    
-    # Automatically run database synchronization and pruning after scraper finishes
-    try:
-        print("\n[SCRAPER] Triggering database sync and pruning...")
-        import sync_database
-        sync_database.main()
-    except Exception as e:
-        print(f"[WARNING] Automatic database sync failed: {e}")
+    scrape_ok = run_scraper()
+
+    # Automatically run database synchronization and pruning only when all targets scraped cleanly
+    if scrape_ok:
+        try:
+            print("\n[SCRAPER] Triggering database sync and pruning...")
+            import sync_database
+            sync_database.main()
+        except Exception as e:
+            print(f"[WARNING] Automatic database sync failed: {e}")
+    else:
+        print("[SCRAPER] [CIRCUIT BREAKER] Skipping sync_database due to incomplete scrape.")

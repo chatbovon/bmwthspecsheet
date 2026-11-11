@@ -1,0 +1,127 @@
+# Model-Agnostic PDF Update Classification Implementation Plan
+
+> **Purpose:** แผนสำหรับใช้ดำเนินการใน worktree ใหม่ (แตกจาก local `main`) เพื่อสร้างระบบจำแนกสถานะการอัปเดต PDF เป็น **4 เคสอัตโนมัติ (Pure Python, Model-Agnostic 100%)** และทดสอบจำลองผลบนข้อมูลจริงของ **`740d xDrive M Sport`** กับ **`M760e xDrive`** โดย **ยังไม่ดึงรูปสี** และ **ยังไม่แก้ไขฐานข้อมูลจริง** จนกว่าจะตรวจผลและได้รับอนุมัติขั้นถัดไป
+
+---
+
+## 0. Baseline State Already Included in Local `main`
+
+ก่อนเริ่ม worktree ใหม่ ระบบบน local `main` มีสถานะฐานข้อมูลและโค้ดพื้นฐานล่าสุดดังนี้:
+
+1. **Databases (`bmw_master_specs.json`, `bmw_master_specs_en.json`)**:
+   - มีทั้งสิ้น **34 active entries** (TH/EN ตรงกันครบ, `is_custom_archived: false` สำหรับ `740d xDrive M Sport` [`7-20261014-01`], `M760e xDrive` [`7-20261015-01`] และ `i7 50 xDrive M Sport` [`i7-20261006-03`])
+   - ผลตรวจสอบความสอดคล้อง TH/EN ด้วย `send_daily_report.audit_data_discrepancies`: `checks=4078, issues=0`
+   - ผลตรวจสอบรูปภาพ (`send_daily_report.audit_missing_images`): **31/33 Non-M models** (ขาดรูปเฉพาะ 2 รุ่น LCI คือ `740d xDrive M Sport` และ `M760e xDrive`)
+2. **Scraper & Circuit Breakers (`pdf_scraper.py`, `sync_database.py`, `scratch/archive_discontinued.py`)**:
+   - `pdf_scraper.py` มี `collect_unique_pdf_links` และ `is_marketing_brochure` กรองทั้งชื่อไฟล์และข้อความบนลิงก์ (`"โบรชัวร์"`, `"Brochure"`, `"Catalog"`, `"Leaflet"`) ทำให้หน้าเว็บจริง TH/EN คัดได้ **34 specsheets ตรงกับฐานข้อมูล 100%** พร้อม Circuit Breaker ป้องกันการ archive หากโหลดหน้าเว็บไม่ครบ
+3. **Frontend UI (`index.html`, `custom.html`)**:
+   - แสดงแถว `"รูปภาพตัวอย่าง"` / `"Vehicle Preview"` ต่อท้ายหมวด `Paintwork` ผ่าน `renderVehiclePreviewSection`
+
+---
+
+## 1. Strict Constraints & Workspace Rules
+
+งานทั้งหมดใน worktree ใหม่ต้องยึดตามกฎหลักใน `AGENTS.md` และ `GEMINI.md`:
+
+- **Rule 10 (`AGENTS.md`) / Rule 12 (`GEMINI.md`) — Pure Generic Architecture:** ห้ามเขียนเงื่อนไขระบุชื่อรุ่นรถใดๆ (`if "740d" ...`, `if "M760e" ...`, `if "i7" ...`) ลงในโค้ด classifier / pipeline เด็ดขาด ชื่อรุ่น `740d` และ `M760e` ใช้เป็นเพียงข้อมูลทดสอบ (test verification targets) เท่านั้น
+- **Rule 8 (`AGENTS.md`) / Rule 10 (`GEMINI.md`) — Strict Plan-to-Code Fidelity:** Implement ตาม Stage 1 → 2 → 3 → 4 แบบ 1:1 ห้ามรวบขั้นหรือข้ามขั้นตอน
+- **Rule 9 (`AGENTS.md`) / Rule 11 (`GEMINI.md`) — Zero Heavy Controlled Vocabulary:** ใช้ Pure Python deterministic normalization เท่านั้น ไม่เรียก LLM API และไม่ฝัง dictionary ขนาดใหญ่
+- **Scope Boundary (Explicit User Instruction):** **ไม่รันและไม่แก้ไขระบบดึงรูปสี (`auto_image_scraper.py`) ในเฟสนี้** — เน้นเฉพาะการจำแนกสถานะ PDF 4 เคส + integration การ carry-over รูปเดิม + การทดสอบจำแนกเคสของ `740d` / `M760e` และรุ่นอื่นๆ ใน catalog แบบ non-destructive dry-run
+
+---
+
+## 2. Real Data Characteristics Observed in Catalog
+
+จากการตรวจสอบไฟล์จริง `bmw_master_specs*.json` และ `bmw_custom_specs*.json` พบข้อเท็จจริงสำคัญที่ต้องออกแบบรองรับแบบ generic:
+
+1. **Lineage Across Master & Custom Archives:**
+   - รุ่นก่อนหน้าของ PDF ที่เพิ่งอัปเดตอาจไม่ได้อยู่ใน `bmw_master_specs*.json` แล้ว แต่อาจถูกย้ายไปเก็บใน `bmw_custom_specs*.json`
+   - ตัวอย่างจริง: `M760e xDrive` (`7-20261015-01`, `images: []`) มีรุ่นก่อนหน้าชื่อเดียวกันเป๊ะ (`M760e xDrive`, `7-20250130-02`, มีรูปครบ 4 สี) อยู่ใน `bmw_custom_specs*.json`
+2. **Real-World Typo & Formatting Variations in Visual Fingerprint Fields:**
+   - **Dimensions (`Length / width / height (mm)`)**:
+     - หมวด: `มิติรถยนต์` (TH) / `DIMENSION` / `Dimension` (EN)
+     - ชื่อหัวข้อใน PDF ไทยบางฉบับมีคำสะกด `'มิตรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)'` แทน `'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)'` → ควรจับจาก substring `'ยาว/กว้าง/สูง'` (TH) หรือ `'length / width / height'` (EN) ภายในหมวดมิติรถยนต์
+     - ค่าตัวเลขมีรูปแบบคอมม่า/เว้นวรรคต่างกัน (เช่น `'5,391 / 1,950 / 1,544'` vs `'5395 / 1950 / 1558'`)
+   - **Wheels (`Light alloy wheels` / `Wheels` / `ล้อ`)**:
+     - หมวด: `ล้อและยาง` (TH) / `WHEELS AND TYRES` / `Wheels and Tyres` (EN) — **ต้องกรองเฉพาะในหมวดล้อและยาง** เพื่อไม่ให้สับสนกับพวงมาลัย (`Steering wheel`) ในหมวด `Interior`
+     - หัวข้อ: `'ล้อ'` (TH) หรือ `'Wheels'` / `'Light alloy wheels'` (EN)
+     - สัญลักษณ์นิ้วมีทั้ง double apostrophe `''` (เช่น `20''`) และ double quote `"` (เช่น `21"`) รวมถึงเว้นวรรคติดกัน (เช่น `aerodynamicขนาด`)
+
+---
+
+## 3. Target 4-Stage Implementation Architecture
+
+### Stage 1: Model-Agnostic Lineage Resolver (`pdf_update_classifier.py`)
+
+สร้างฟังก์ชันค้นหารุ่นก่อนหน้าแบบ generic จากทั้ง `master_specs` และ `custom_specs`:
+
+- `normalize_series_name(series_name: str) -> str`: normalize ชื่อซีรีส์ (เช่น `"BMW 7 SERIES"` == `"BMW 7 Series"` → `"bmw 7 series"`)
+- `normalize_model_name(model_name: str) -> str`: normalize ชื่อรุ่นแบบ case-insensitive / whitespace-collapsed (เช่นตัดช่องว่างเกิน, รองรับอักขระ `é`/`e`)
+- `extract_doc_date_sort_key(pdf_source: str) -> tuple`: ใช้เรียงลำดับความใหม่ของ predecessor ในกรณีพบหลายรายการใน archive (เลือกฉบับล่าสุดที่มีข้อมูลครบและไม่ใช่ `pdf_source` เดียวกันกับ candidate ถ้าเป็นการอัปเดตข้ามไฟล์)
+- `find_predecessor_lineage(candidate_entry, candidate_model, master_specs, custom_specs)`:
+  - จับคู่แบบ **Strict Matching** ด้วย `(normalized_series, normalized_model_name)`
+  - หากไม่พบ exact match ให้เก็บ `closest_series_models` (รุ่นอื่นในซีรีส์เดียวกันที่อาจใกล้เคียงเชิงชื่อ/ตัวเลข เช่น `740d M Sport` สำหรับ `740d xDrive M Sport`) ไว้ใน metadata เฉยๆ **ห้ามนำมาจับคู่เป็น minor update เพื่อยืมรูปข้ามรุ่นย่อยเด็ดขาด**
+
+### Stage 2: Pure Python Visual Fingerprint Extractor & Comparator (`pdf_update_classifier.py`)
+
+ดึงลายนิ้วมือรูปลักษณ์ภายนอกแบบ deterministic สำหรับทุกรุ่น:
+
+- `normalize_dimensions_value(raw_value: str) -> str`: สกัดเลข 3 ค่า `L / W / H` ด้วย regex ตัวเลข (ตัด `,` และช่องว่าง) → คืนค่ามาตรฐาน เช่น `"5391/1950/1544"`
+- `normalize_wheels_value(raw_value: str) -> str`: แปลง `''` / `“` / `”` → `"`, lowercase, collapse whitespace
+- `extract_visual_fingerprint(model: dict) -> dict`:
+  - ดึง `dimensions`, `wheels`, และ optional `powertrain_output` (เพื่อแสดงในรายงาน diff เชิงตรวจสอบ)
+  - บังคับตรวจเฉพาะหมวด `มิติรถยนต์` / `dimension` และ `ล้อและยาง` / `wheels` เท่านั้น
+- `compare_visual_fingerprints(old_fp: dict, new_fp: dict) -> dict`:
+  - เปรียบเทียบทั้ง `dimensions` และ `wheels`
+  - **Fail-safe guard:** หาก `dimensions` หรือ `wheels` ของฝั่งเก่าหรือฝั่งใหม่ **ว่าง/หาไม่พบ (`missing_fields`)** ให้ถือว่าไม่สามารถยืนยันความเหมือนโฉมได้ (ห้ามจัดเป็น Case 2 `MINOR_UPDATE` เพื่อป้องกันการคัดลอกรูปผิดโฉมโดยไม่ตั้งใจ)
+
+### Stage 3: 4-Case Decision Matrix & Pipeline Integration
+
+#### 4 Automated Classification Cases (`classify_model_update` / `classify_brochure_update`)
+
+| Case ID | Case Name | Status / Action | Deterministic Condition (Pure Python) | Image Carry-over Behavior |
+| :--- | :--- | :--- | :--- | :--- |
+| **1** | `IDENTICAL` | `smart_skipped` | พบ predecessor และไฟล์ PDF มี `pdf_sha256` หรือข้อความหลัง normalize (`verify_pdf_content.extract_normalized_text`) เหมือนกัน 100% | ใช้ข้อมูลและ `images` เดิม 100%, ข้าม AI extraction |
+| **2** | `MINOR_UPDATE` | `reused_same_gen` | พบ exact lineage predecessor, เนื้อหา PDF เปลี่ยน (หรือไม่ทราบ PDF เก่าแต่คนละไฟล์), และ **Visual Fingerprint ตรงกัน 100%** (ทั้ง `dimensions` และ `wheels` ครบและเท่ากัน) | **Reuse `images` เดิมอัตโนมัติ** เฉพาะสีที่มีอยู่ในโมเดลใหม่ (ผ่านสี normalized match) |
+| **3** | `LCI_OR_VISUAL_CHANGE` | `lci_refresh_required` | พบ exact lineage predecessor แต่ `dimensions` เปลี่ยน **หรือ** `wheels` เปลี่ยน (หรือ fail-safe เมื่อ fingerprint ไม่ครบ) | **ห้าม reuse รูปเก่าอัตโนมัติ** ตั้ง `images: {}` และเก็บ `visual_diff` / `previous_images_count` ไว้ในผลลัพธ์ |
+| **4** | `BRAND_NEW` | `new_model_scrape` | ไม่พบ exact `(series, model_name)` ใน `master_specs` และ `custom_specs` | ตั้ง `images: {}` (แนบ `closest_series_models` ในผลวินิจฉัยถ้ามี) |
+
+#### Files to Integrate in Stage 3
+1. **Create `pdf_update_classifier.py`**:
+   - รวม Stage 1 + Stage 2 + Stage 3 classifier + CLI dry-run analyzer (`python pdf_update_classifier.py --dry-run --lang all`)
+   - Output ระดับทั้งรุ่น (per-model) และสรุประดับไฟล์ PDF (per-brochure) เพื่อรองรับโบรชัวร์ที่มีหลายรุ่นย่อยในไฟล์เดียว
+2. **Update `verify_pdf_content.py` (`L89-L228`)**:
+   - คง behavior เดิมของ `smart_skipped` (Case 1) เป็นด่านแรก และเพิ่มตัวช่วยหา predecessor ผ่าน lineage / normalized text สำหรับกรณีชื่อไฟล์/วันที่เปลี่ยนไปจากเดิม (แทนที่การเทียบ `new_base == old_base` อย่างเดียว)
+3. **Update `batch_extractor.py` (`L122-L138`)**:
+   - เปลี่ยน logic เดิม (`old_entry = next((item for item in master_specs if item.get("pdf_source") == filename), None)`) ให้เรียก `pdf_update_classifier` เทียบกับทั้ง `master_specs` และ `custom_specs` (TH/EN ตามภาษา):
+     - `Case 2 (reused_same_gen)` → คัดลอก `images` ที่สีตรงกันจาก predecessor พร้อมอัปเดต `"image_status": "reused_same_gen"`
+     - `Case 3 (lci_refresh_required)` → กำหนด `"images": {}`, `"image_status": "lci_refresh_required"`
+     - `Case 4 (new_model_scrape)` → กำหนด `"images": {}`, `"image_status": "new_model_scrape"`
+   - **หมายเหตุ:** ยังไม่แตะ `auto_image_scraper.py` และไม่รันสคริปต์ดึงรูปสี
+
+### Stage 4: Verification & Real-Catalog Test (`740d` & `M760e`)
+
+1. **Unit Tests (Isolated, Zero API Calls)**:
+   - ทดสอบครบทั้ง 4 เคส (`IDENTICAL`, `MINOR_UPDATE`, `LCI_OR_VISUAL_CHANGE`, `BRAND_NEW`)
+   - ทดสอบ edge cases:
+     - สัญลักษณ์นิ้ว `20''` vs `20"`
+     - คำสะกด `'มิตรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)'` vs `'มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)'`
+     - Missing dimension/wheel field → fail-safe ไม่หลุดเป็น Case 2
+     - Predecessor อยู่ใน `custom_specs` (archived)
+     - Multi-model brochure (เช่นหนึ่งรุ่นเป็น Minor Update อีกรุ่นเป็น New Model)
+2. **Real-Catalog Dry-Run Check (`TH` และ `EN` — No File Writes)**:
+   - ทดสอบรัน `pdf_update_classifier` จำลองเทียบ `bmw_master_specs*.json` กับ `bmw_custom_specs*.json` (excluding exact same `pdf_source` entry เพื่อให้เห็นผลเมื่อรุ่นนั้นถูกอัปเดตเข้ามา)
+   - ยืนยันผลเฉพาะจุดสำหรับ:
+     - **`M760e xDrive` (`7-20261015-01`)**: ต้องจัดเข้า **Case 3 (`lci_refresh_required`)** โดยจับคู่กับ `7-20250130-02` ใน `bmw_custom_specs*.json` และตรวจพบทั้ง **dimensions** (`5391/1950/1544` → `5395/1950/1550`) และ **wheels** ที่เปลี่ยนไป
+     - **`740d xDrive M Sport` (`7-20261014-01`)**: ต้องจัดเข้า **Case 4 (`new_model_scrape`)** ภายใต้ strict model lineage (และแสดง `closest_series_models` ชี้ไปยัง `740d M Sport` ที่มี delta มิติ/ล้อ `5391/1950/1544` → `5395/1950/1550`, ล้อ `20"` → `21"`)
+   - ทดสอบรุ่นอื่นๆ ที่มีประวัติเทียบเคียงได้ใน `master` vs `custom` (เช่น `iX1 eDrive20L M Sport`, `X7 xDrive40d M Sport`, `i5 eDrive40 M Sport`, `M5 Touring`, `220 Gran Coupe M Sport Pro`, `M3 Competition M xDrive Touring`) เพื่อตรวจว่า Case 2 และ Case 3 แยกแม่นยำจริงทั้ง TH และ EN
+   - **Rule 8 Verification Compliance:** ไม่รัน `run_production_validation.py` และไม่รัน `batch_extractor.py` แบบยิง Gemini API จริง
+
+---
+
+## 4. Future Phase (Deferred — Out of Current Worktree Scope Unless Separately Approved)
+
+หลังจากได้ผลทดสอบ 4 เคสจาก Stage 4 เรียบร้อยแล้ว ค่อยพิจารณาอนุมัติในรอบถัดไป:
+- เพิ่ม `Spec Guard` (เช็กแรงม้า/รุ่นบน Configurator) และสถานะ `pending_configurator` ใน `auto_image_scraper.py`
+- อัปเดต `send_daily_report.py` แยกกลุ่ม `pending_configurator` vs `broken` ในอีเมล `Image Coverage`
+- แก้ `.github/workflows/auto_update.yml` บรรทัด `146` จาก `git add -f images/**/*.png` ให้ครอบคลุม `images/**/*.webp` ด้วย
