@@ -8,7 +8,17 @@ from playwright.async_api import async_playwright
 # Reconfigure console encoding to UTF-8
 sys.stdout.reconfigure(encoding='utf-8')
 
+import re
+import copy
 import difflib
+from pdf_update_classifier import (
+    STATUS_BLOCKED_TH_EN_CONFLICT,
+    STATUS_PENDING_CONFIGURATOR,
+    STATUS_PENDING_PAIRED_LANGUAGE,
+    STATUS_SCRAPED,
+    extract_powertrain_metrics,
+    extract_visual_fingerprint,
+)
 
 # Configurator specifications for our targeted test models
 SCRAPE_CONFIGS = {
@@ -437,6 +447,239 @@ def normalize_color_name(name: str) -> str:
     s = re.sub(r'\s+', ' ', s).strip()
     return s
 
+BLOCKED_IMAGE_STATUSES = {
+    STATUS_BLOCKED_TH_EN_CONFLICT,
+    STATUS_PENDING_PAIRED_LANGUAGE,
+}
+
+GENERIC_ENGINE_TOKENS = {
+    "bmw", "m", "sport", "pro", "line", "series", "gran", "coupe", "coupé",
+    "convertible", "touring", "sedan", "limousine", "xdrive", "edrive", "sdrive",
+}
+
+
+def should_skip_by_image_status(model_obj):
+    """Return (should_skip, current_status) if TH/EN conflict or unpaired cycle halts scraping."""
+    status = (model_obj.get("image_status") or "").strip()
+    return (status in BLOCKED_IMAGE_STATUSES), status
+
+
+def should_schedule_scrape(model_obj, force_scrape=False):
+    """Return (should_scrape, reason) honoring gate blocks and retrying pending_configurator."""
+    skip_gate, gate_status = should_skip_by_image_status(model_obj)
+    if skip_gate:
+        return False, f"gate_skip:{gate_status}"
+    if force_scrape:
+        return True, "force_scrape"
+    if gate_status == STATUS_PENDING_CONFIGURATOR:
+        return True, "pending_configurator_retry"
+    if not model_obj.get("images"):
+        return True, "missing_images"
+    missing_cols = _find_missing_expected_colors(model_obj)
+    if missing_cols:
+        return True, f"incomplete_colors:{missing_cols[0]}"
+    return False, "complete"
+
+
+def _get_expected_paintwork_colors(model_obj):
+    for cat in model_obj.get("specifications", []) or []:
+        cat_name = (cat.get("category") or "").lower()
+        if "paintwork" in cat_name or "สีตัวถัง" in cat_name:
+            return [
+                d.get("topic", "")
+                for d in cat.get("details", []) or []
+                if (d.get("topic") or "").strip() and (d.get("value") or "").strip() != "-"
+            ]
+    return []
+
+
+def _find_missing_expected_colors(model_obj):
+    expected_colors = _get_expected_paintwork_colors(model_obj)
+    if not expected_colors:
+        return []
+    existing_keys = [
+        k.lower().replace(" ", "").replace("metallic", "").replace("solid", "")
+        for k in (model_obj.get("images") or {}).keys()
+    ]
+    missing = []
+    for exp_c in expected_colors:
+        norm_exp = exp_c.lower().replace(" ", "").replace("metallic", "").replace("solid", "")
+        if not any(norm_exp in k or k in norm_exp for k in existing_keys):
+            missing.append(exp_c)
+    return missing
+
+
+def extract_configurator_power_metrics(text):
+    """Extract explicit kW and hp/PS power integers from configurator UI text."""
+    if not text:
+        return {"kw_values": [], "hp_values": []}
+    clean = re.sub(r"(\d),(\d)", r"\1\2", str(text)).lower()
+    kw_vals = []
+    hp_vals = []
+    for m in re.finditer(r"(\d{2,4})\s*(?:kw\b|กิโลวัตต์)", clean):
+        kw_vals.append(int(m.group(1)))
+    for m in re.finditer(r"(\d{2,4})\s*(?:hp\b|ps\b|แรงม้า)", clean):
+        hp_vals.append(int(m.group(1)))
+    for m in re.finditer(r"(\d{2,4})\s*/\s*(\d{2,4})\s*(?:hp\b|ps\b|แรงม้า)", clean):
+        kw_c, hp_c = int(m.group(1)), int(m.group(2))
+        if hp_c >= kw_c:
+            kw_vals.append(kw_c)
+            hp_vals.append(hp_c)
+    return {
+        "kw_values": sorted(set(kw_vals)),
+        "hp_values": sorted(set(hp_vals)),
+    }
+
+
+def extract_configurator_wheel_inches(wheel_texts):
+    """Extract distinct 2-digit wheel inch sizes (16-24) from wheel swatch texts."""
+    if not wheel_texts:
+        return []
+    if isinstance(wheel_texts, str):
+        items = [wheel_texts]
+    else:
+        items = list(wheel_texts)
+    inches = set()
+    for item in items:
+        txt = str(item or "").lower().replace("''", '"').replace("”", '"').replace("″", '"')
+        for m in re.finditer(r'\b(\d{2})\s*(?:"|นิ้ว|inch(?:es)?)', txt):
+            val = int(m.group(1))
+            if 16 <= val <= 24:
+                inches.add(str(val))
+    return sorted(inches)
+
+
+def is_confident_engine_match(engine_keyword, card_text, score):
+    """Prevent low-confidence fallback clicks onto unrelated engine variants (e.g. 740d vs 750e)."""
+    if score >= 80:
+        return True
+    card_low = (card_text or "").lower()
+    specific_tokens = [
+        tok.lower()
+        for tok in re.findall(r"[a-z0-9]+", engine_keyword or "")
+        if tok.lower() not in GENERIC_ENGINE_TOKENS and any(ch.isdigit() for ch in tok)
+    ]
+    if not specific_tokens:
+        return score >= 50
+    return all(tok in card_low for tok in specific_tokens)
+
+
+def evaluate_spec_guard(model_obj, engine_card_text="", page_text="", wheel_texts=None):
+    """
+    Model-agnostic Spec Guard preventing LCI specsheets from scraping Pre-LCI configurator images:
+      1. Compare specsheet powertrain output (kW / hp) against selected engine card / summary text.
+      2. Compare specsheet wheel inch size(s) against exposed configurator wheel swatches.
+    Fails open gracefully when the configurator UI does not expose comparable figures.
+    """
+    if not model_obj:
+        return {"passed": True, "reason": "No model_obj provided"}
+
+    power_profile = extract_powertrain_metrics(model_obj)
+    fp = extract_visual_fingerprint(model_obj)
+    expected_inches = (fp.get("wheels_core") or {}).get("inch_sizes") or []
+
+    obs_power = extract_configurator_power_metrics(engine_card_text)
+    if not obs_power["kw_values"] and not obs_power["hp_values"] and page_text:
+        obs_power = extract_configurator_power_metrics(page_text)
+
+    candidates = power_profile.get("candidates") or []
+    obs_kw = obs_power["kw_values"]
+    obs_hp = obs_power["hp_values"]
+
+    if candidates and (obs_kw or obs_hp):
+        matched_candidate = False
+        for cand in candidates:
+            kw_ok = True if not obs_kw else any(abs(k - cand["kw"]) <= 3 for k in obs_kw)
+            hp_ok = True if not obs_hp else any(abs(h - cand["hp"]) <= 4 for h in obs_hp)
+            if kw_ok and hp_ok:
+                matched_candidate = True
+                break
+        if not matched_candidate:
+            return {
+                "passed": False,
+                "reason": (
+                    f"Power output mismatch: specsheet={candidates}, "
+                    f"configurator_kw={obs_kw}, configurator_hp={obs_hp}"
+                ),
+                "expected_power": candidates,
+                "observed_power": obs_power,
+            }
+
+    obs_inches = extract_configurator_wheel_inches(wheel_texts)
+    if expected_inches and obs_inches:
+        if not set(expected_inches).intersection(obs_inches):
+            return {
+                "passed": False,
+                "reason": f"Wheel inch mismatch: specsheet={expected_inches}, configurator={obs_inches}",
+                "expected_power": candidates,
+                "observed_power": obs_power,
+                "expected_wheel_inches": expected_inches,
+                "observed_wheel_inches": obs_inches,
+            }
+
+    return {
+        "passed": True,
+        "reason": "Spec Guard checks passed",
+        "expected_power": candidates,
+        "observed_power": obs_power,
+        "expected_wheel_inches": expected_inches,
+        "observed_wheel_inches": obs_inches,
+    }
+
+
+def apply_pending_configurator_status(model_obj):
+    """Mark model as pending_configurator for automatic retry on subsequent daily runs."""
+    if not isinstance(model_obj.get("images"), dict):
+        model_obj["images"] = {}
+    model_obj["image_status"] = STATUS_PENDING_CONFIGURATOR
+
+
+def apply_scraped_images_status(model_obj, images_dict):
+    """Update model images dict and stamp scraped vs pending_configurator based on coverage."""
+    if images_dict:
+        if isinstance(model_obj.get("images"), dict):
+            model_obj["images"].update(images_dict)
+        else:
+            model_obj["images"] = dict(images_dict)
+        missing_after = _find_missing_expected_colors(model_obj)
+        model_obj["image_status"] = STATUS_SCRAPED if not missing_after else STATUS_PENDING_CONFIGURATOR
+        return not missing_after
+    apply_pending_configurator_status(model_obj)
+    return False
+
+
+def mirror_updates_to_en(th_data, en_file="bmw_master_specs_en.json"):
+    """Mirror both images and image_status symmetrically to EN catalog (Rule 6 / Rule 7)."""
+    if not os.path.exists(en_file):
+        return False
+    with open(en_file, "r", encoding="utf-8") as f:
+        en_data = json.load(f)
+
+    th_lookup = {}
+    for s_up in th_data:
+        s_key = (s_up.get("series") or "").strip().lower()
+        for m_up in s_up.get("models", []) or []:
+            m_key = (m_up.get("model_name") or "").strip().lower()
+            th_lookup[(s_key, m_key)] = m_up
+
+    for s_en in en_data:
+        s_key = (s_en.get("series") or "").strip().lower()
+        for m_en in s_en.get("models", []) or []:
+            m_key = (m_en.get("model_name") or "").strip().lower()
+            m_up = th_lookup.get((s_key, m_key))
+            if not m_up:
+                continue
+            if "images" in m_up:
+                m_en["images"] = copy.deepcopy(m_up["images"])
+            if "image_status" in m_up:
+                m_en["image_status"] = m_up["image_status"]
+            else:
+                m_en.pop("image_status", None)
+
+    with open(en_file, "w", encoding="utf-8") as f:
+        json.dump(en_data, f, ensure_ascii=False, indent=4)
+    return True
+
 async def discover_configurator_url(page, series_name, model_name):
     url = "https://configure.bmw.co.th/"
     print(f"  [DISCOVERY] Navigating to portal {url} to find: '{series_name}' | '{model_name}'...")
@@ -565,22 +808,26 @@ def log_scraper_warning(model_name, best_score, best_candidate):
             json.dump(warnings, f, ensure_ascii=False, indent=4)
 
 async def select_engine(page, engine_keyword):
-    # Try clicking Engine Tab
+    ok, _ = await select_engine_with_info(page, engine_keyword)
+    return ok
+
+
+async def select_engine_with_info(page, engine_keyword):
+    """Select engine variant card on configurator and return (selected_ok, card_text)."""
     engine_tab = page.locator("button:has-text('เครื่องยนต์'), button:has-text('Engine')")
     if await engine_tab.count() > 0:
         print(f"  [NAV] Clicking Engine tab...")
         await engine_tab.first.click()
         await asyncio.sleep(4)
-        
-        # Extract text of all engine card elements
+
         card_locators = [
             page.locator("con-sgt-card"),
             page.locator("div.engine-card-labels"),
             page.locator("div.engine-card"),
             page.locator("con-engine-selection-card"),
-            page.locator("div.engine-selection-card")
+            page.locator("div.engine-selection-card"),
         ]
-        
+
         candidates = []
         for loc in card_locators:
             count = await loc.count()
@@ -590,7 +837,7 @@ async def select_engine(page, engine_keyword):
                     text = await el.inner_text()
                     if text and text.strip():
                         candidates.append((el, text.strip()))
-                    
+
         if not candidates:
             print("  [NAV] No engine card candidates found. Fallback to direct text selection.")
             card = page.locator("con-sgt-card").filter(has_text=engine_keyword)
@@ -598,20 +845,24 @@ async def select_engine(page, engine_keyword):
                 card = page.locator("button").filter(has_text=engine_keyword)
             if await card.count() == 0:
                 card = page.get_by_text(engine_keyword)
-                
+
             if await card.count() > 0:
+                fb_text = ""
+                try:
+                    fb_text = (await card.first.inner_text()) or ""
+                except Exception:
+                    pass
                 await card.first.click()
                 await asyncio.sleep(3)
                 await check_and_dismiss_modals(page)
-                return True
+                return True, fb_text.strip()
             log_scraper_warning(engine_keyword, 0, "No candidates/tabs found")
-            return False
-            
-        # Fuzzy match on the candidate card text
+            return False, ""
+
         best_el = None
         best_score = 0
         target = engine_keyword.lower()
-        
+
         for el, text in candidates:
             text_lower = text.lower()
             score = 0
@@ -622,33 +873,42 @@ async def select_engine(page, engine_keyword):
                     score += 20
             ratio = difflib.SequenceMatcher(None, target, text_lower).ratio()
             score += int(ratio * 50)
-            
+
             if score > best_score:
                 best_score = score
                 best_el = el
-                
+
         if best_el:
             card_text = await best_el.inner_text()
             clean_card_text = card_text.replace('\n', ' | ')
+            if not is_confident_engine_match(engine_keyword, card_text, best_score):
+                log_scraper_warning(engine_keyword, best_score, clean_card_text)
+                print(f"  [WARNING] Low-confidence engine match (Score: {best_score}) for '{engine_keyword}': '{clean_card_text}'. Marking pending_configurator.")
+                return False, clean_card_text
             if best_score < 80:
                 log_scraper_warning(engine_keyword, best_score, clean_card_text)
-                print(f"  [WARNING] Match confidence low (Score: {best_score} < 80) for engine '{engine_keyword}'. Best guess: {clean_card_text}. Logging warning and proceeding.")
+                print(f"  [WARNING] Match confidence low (Score: {best_score} < 80) for engine '{engine_keyword}'. Best guess: {clean_card_text}. Proceeding.")
             else:
                 print(f"  [NAV] Selecting best engine option (Score: {best_score}): {clean_card_text}")
             await best_el.click()
             await asyncio.sleep(4)
             await check_and_dismiss_modals(page)
             await asyncio.sleep(2)
-            return True
+            return True, clean_card_text
         else:
             log_scraper_warning(engine_keyword, 0, "No candidates matched")
             print(f"  [WARNING] Could not find any engine card match for '{engine_keyword}'. Skipping.")
-            return False
+            return False, ""
     else:
         print("  [NAV] Engine tab not found, using default pre-selected option.")
-        return True
+        return True, ""
 
 async def scrape_model_paintworks(page, config, model_name, model_obj=None):
+    images_dict, _ = await scrape_model_paintworks_with_status(page, config, model_name, model_obj=model_obj)
+    return images_dict
+
+
+async def scrape_model_paintworks_with_status(page, config, model_name, model_obj=None):
     base_url = config["base_url"]
     engine_keyword = config["engine_keyword"]
     image_dir = config["image_dir"]
@@ -673,15 +933,16 @@ async def scrape_model_paintworks(page, config, model_name, model_obj=None):
     await page.add_style_tag(content="epaas-consent-drawer-shell { display: none !important; }")
     await asyncio.sleep(1)
     
-    # Select engine option if necessary
-    engine_ok = await select_engine(page, engine_keyword)
+    # Select engine option if necessary (captures card text for Spec Guard)
+    engine_ok, selected_card_text = await select_engine_with_info(page, engine_keyword)
     if not engine_ok:
-        print(f"  [ERROR] Engine keyword '{engine_keyword}' could not be selected. Skipping.")
-        return {}
-        
+        print(f"  [ERROR] Engine keyword '{engine_keyword}' could not be selected. Marking pending_configurator.")
+        return {}, {"status": STATUS_PENDING_CONFIGURATOR, "reason": "engine_not_found"}
+
     # Validate model name and Body Style Conflict Guard
     current_url = page.url.lower()
     header_text_clean = ""
+    active_summary_text = ""
     try:
         model_name_locator = page.locator("h4.model-name")
         if await model_name_locator.count() > 0:
@@ -690,21 +951,62 @@ async def scrape_model_paintworks(page, config, model_name, model_obj=None):
             target_lower = engine_keyword.lower()
             if target_lower not in header_text_clean and header_text_clean not in target_lower:
                 print(f"  [ERROR] Model validation failed! Configurator header shows '{header_text}', but expected '{engine_keyword}'. Aborting.")
-                return {}
+                return {}, {"status": STATUS_PENDING_CONFIGURATOR, "reason": "model_header_mismatch"}
             else:
                 print(f"  [VALIDATION] Confirmed model header matches: '{header_text}' (Target: '{engine_keyword}')")
         else:
             print("  [VALIDATION] [WARNING] Could not locate 'h4.model-name' header on screen. Proceeding with caution.")
+
+        # Collect active model header/summary bar text for Spec Guard fallback when engine card has no text
+        for sel in ("con-header", ".con-header", "[class*='technical']", "con-engine-summary"):
+            loc = page.locator(sel)
+            if await loc.count() > 0:
+                try:
+                    t = await loc.first.inner_text()
+                    if t:
+                        active_summary_text += "\n" + t
+                except Exception:
+                    pass
     except Exception as e:
         print(f"  [VALIDATION] [WARNING] Error checking model header element: {e}. Proceeding.")
-        
+
     # Strict Body Style Conflict Guard
     body_info = detect_body_style(model_name)
     for forbid_kw in body_info["forbidden"]:
         if forbid_kw in current_url or forbid_kw in header_text_clean:
             print(f"  [BODY GUARD REJECTED] Page URL or header matches forbidden term '{forbid_kw}' for target '{model_name}' (Body Style: {body_info['style']})! Aborting.")
-            return {}
-    
+            return {}, {"status": STATUS_PENDING_CONFIGURATOR, "reason": f"body_guard:{forbid_kw}"}
+
+    # Collect wheel swatch labels for Spec Guard if wheels tab is available
+    wheel_texts = []
+    try:
+        wheel_tab = page.locator("button:has-text('ล้อ'), button:has-text('Wheels')")
+        if await wheel_tab.count() > 0:
+            await wheel_tab.first.click()
+            await asyncio.sleep(2)
+            w_swatches = page.locator("con-swatch")
+            w_cnt = await w_swatches.count()
+            for w_idx in range(w_cnt):
+                sw = w_swatches.nth(w_idx)
+                w_name = await sw.get_attribute("data-test-swatch-name") or ""
+                w_cat = (await sw.get_attribute("data-node-category-alt") or "").lower()
+                if w_name and ("wheel" in w_cat or "rim" in w_cat or "ล้อ" in w_cat or not w_cat):
+                    wheel_texts.append(w_name)
+    except Exception as wh_err:
+        print(f"  [SPEC GUARD] Wheel tab check skipped: {wh_err}")
+
+    # Model-Agnostic Spec Guard (Power kW/hp + Wheel inches) against Pre-LCI traps
+    spec_guard = evaluate_spec_guard(
+        model_obj,
+        engine_card_text=selected_card_text,
+        page_text=active_summary_text,
+        wheel_texts=wheel_texts,
+    )
+    if not spec_guard["passed"]:
+        print(f"  [SPEC GUARD REJECTED] {spec_guard['reason']}! Halting to avoid scraping Pre-LCI images.")
+        return {}, {"status": STATUS_PENDING_CONFIGURATOR, "reason": spec_guard["reason"]}
+    print(f"  [SPEC GUARD PASSED] {spec_guard['reason']}")
+
     # Click Paint tab
     print("  [NAV] Clicking 'สี' (Paint) tab...")
     paint_tab = page.locator("button:has-text('สี')")
@@ -712,22 +1014,20 @@ async def scrape_model_paintworks(page, config, model_name, model_obj=None):
         await paint_tab.first.click()
         await asyncio.sleep(4)
     else:
-        print("  [ERROR] Paint tab not found! Skipping.")
-        return {}
-        
+        print("  [ERROR] Paint tab not found! Marking pending_configurator.")
+        return {}, {"status": STATUS_PENDING_CONFIGURATOR, "reason": "paint_tab_missing"}
+
     # Get all paint swatches
     paint_swatches = page.locator("con-swatch[data-node-category-alt='Paintwork']")
     count_swatches = await paint_swatches.count()
     print(f"  Found {count_swatches} paint swatches.")
-    
+    if count_swatches == 0:
+        print("  [ERROR] Zero paint swatches rendered on configurator. Marking pending_configurator.")
+        return {}, {"status": STATUS_PENDING_CONFIGURATOR, "reason": "zero_swatches"}
+
     # Specsheet-Driven Color Verification Guard
     if model_obj:
-        expected_colors = []
-        for cat in model_obj.get("specifications", []):
-            cat_name = cat.get("category", "").lower()
-            if "paintwork" in cat_name or "สีตัวถัง" in cat_name:
-                expected_colors = [d.get("topic", "") for d in cat.get("details", []) if d.get("value", "").strip() != "-"]
-                break
+        expected_colors = _get_expected_paintwork_colors(model_obj)
         if expected_colors:
             expected_cores = {normalize_color_name(c) for c in expected_colors if c}
             page_swatch_names = []
@@ -743,7 +1043,7 @@ async def scrape_model_paintworks(page, config, model_name, model_obj=None):
             print(f"  [COLOR GUARD] Matched color overlap: {len(matched_cores)}/{len(expected_cores)}")
             if len(expected_cores) > 0 and len(matched_cores) == 0:
                 print(f"  [COLOR GUARD REJECTED] Zero overlap with specsheet colors! Possible variant mismatch. Aborting.")
-                return {}
+                return {}, {"status": STATUS_PENDING_CONFIGURATOR, "reason": "color_guard_rejected"}
     
     # Find default selected paint swatch first
     initial_code = None
@@ -845,7 +1145,7 @@ async def scrape_model_paintworks(page, config, model_name, model_obj=None):
         actual_path = await capture_stage_or_canvas(page, filename)
         images_dict[color_name] = actual_path or filename
         
-    return images_dict
+    return images_dict, {"status": STATUS_SCRAPED if images_dict else STATUS_PENDING_CONFIGURATOR, "reason": "ok" if images_dict else "empty_images"}
 
 def resolve_unmapped_paints(model, images_dict):
     if not images_dict:
@@ -968,28 +1268,16 @@ async def main():
                     db_modified = True
                     print(f" - [SKIP] Excluded M Power model from image scraper: {series.get('series')} | {model.get('model_name')}")
                 continue
-                
-            # Check if model has no images or has missing images compared to expected specsheet colors
-            needs_scraping = False
-            if "images" not in model or not model["images"]:
-                needs_scraping = True
-            else:
-                expected_colors = []
-                for cat in model.get("specifications", []):
-                    cat_name = cat.get("category", "").lower()
-                    if "paintwork" in cat_name or "สีตัวถัง" in cat_name:
-                        expected_colors = [d.get("topic", "") for d in cat.get("details", []) if d.get("value", "").strip() != "-"]
-                        break
-                if expected_colors:
-                    existing_keys = [k.lower().replace(" ", "").replace("metallic", "").replace("solid", "") for k in model.get("images", {}).keys()]
-                    for exp_c in expected_colors:
-                        norm_exp = exp_c.lower().replace(" ", "").replace("metallic", "").replace("solid", "")
-                        if not any(norm_exp in k or k in norm_exp for k in existing_keys):
-                            needs_scraping = True
-                            print(f" - [INCOMPLETE IMAGES] Model {model.get('model_name')} is missing image for expected color '{exp_c}'. Scheduling scrape.")
-                            break
 
-            if force_scrape or needs_scraping:
+            # Dual-Language Gate & Pending-Retry Scheduler
+            should_run, sched_reason = should_schedule_scrape(model, force_scrape=force_scrape)
+            if sched_reason.startswith("gate_skip:"):
+                print(f" - [GATE SKIP] Halted image scraping for {series.get('series')} | {model_name} ({sched_reason})")
+                continue
+            if sched_reason.startswith("incomplete_colors:") or sched_reason == "pending_configurator_retry":
+                print(f" - [SCHEDULED] {model_name} queued for scraping ({sched_reason}).")
+
+            if should_run:
                 # Perform case-insensitive directory resolution to match physical folders on disk
                 disk_pdf_dir = clean_pdf
                 if os.path.exists("images"):
@@ -1000,27 +1288,10 @@ async def main():
                 target_models.append((series, model, disk_pdf_dir))
                 
     if db_modified:
-        # Write updated mappings back to Thai file
         with open(specs_file, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
-        
-        # Mirror to English file
-        en_file = "bmw_master_specs_en.json"
-        if os.path.exists(en_file):
-            with open(en_file, "r", encoding="utf-8") as f:
-                en_data = json.load(f)
-            for s_en in en_data:
-                s_name = s_en.get("series", "")
-                for m_en in s_en.get("models", []):
-                    m_name = m_en.get("model_name", "")
-                    for s_up in data:
-                        if s_up.get("series") == s_name:
-                            for m_up in s_up.get("models", []):
-                                if m_up.get("model_name") == m_name and "images" in m_up:
-                                    m_en["images"] = m_up["images"]
-            with open(en_file, "w", encoding="utf-8") as f:
-                json.dump(en_data, f, ensure_ascii=False, indent=4)
-        print(f"Saved initialized empty images for M models to databases.")
+        mirror_updates_to_en(data)
+        print("Saved initialized empty images for M models to databases.")
                     
     if not target_models:
         print("\nNo models found lacking images for the target series. No scraping required!")
@@ -1060,60 +1331,42 @@ async def main():
                 if discovered_url:
                     config["base_url"] = discovered_url
                 else:
-                    print(f"  [ERROR] Could not dynamically discover URL for '{model_name}'. Skipping.")
+                    print(f"  [PENDING CONFIGURATOR] Could not discover configurator URL for '{model_name}'. Marking pending_configurator.")
+                    apply_pending_configurator_status(model)
                     continue
-            
+
             print(f"\n==================================================")
             print(f"SCRAPING IMAGES FOR: {model_name}")
             print(f"  [PDF SOURCE]: {series_obj.get('pdf_source')}")
             print(f"  [BASE URL]: {config['base_url']}")
             print(f"  [OUTPUT DIR]: {config['image_dir']}")
             print(f"==================================================")
-            
+
             try:
-                images_dict = await scrape_model_paintworks(page, config, model_name, model)
-                
-                # Automatically resolve unmapped default paints to the single missing expected color
+                images_dict, status_info = await scrape_model_paintworks_with_status(page, config, model_name, model)
                 images_dict = resolve_unmapped_paints(model, images_dict)
-                
-                # Update images key in our model dictionary
+
                 if images_dict:
-                    if "images" in model and isinstance(model["images"], dict):
-                        model["images"].update(images_dict)
-                    else:
-                        model["images"] = images_dict
-                    print(f"Successfully scraped and mapped {len(images_dict)} images for {model_name}.")
+                    complete = apply_scraped_images_status(model, images_dict)
+                    print(
+                        f"Successfully scraped and mapped {len(images_dict)} images for {model_name} "
+                        f"(image_status={model.get('image_status')}, complete={complete})."
+                    )
+                else:
+                    apply_pending_configurator_status(model)
+                    print(f"[PENDING CONFIGURATOR] {model_name} deferred (reason={status_info.get('reason')}).")
             except Exception as e:
                 print(f"[ERROR] Failed to scrape {model_name}: {e}")
-                
+                apply_pending_configurator_status(model)
+
         await browser.close()
-        
-    # Write updated mappings back to files
+
+    # Write updated mappings & image_status symmetrically to TH and EN catalogs
     print(f"\nWriting updated specifications back to {specs_file}...")
     with open(specs_file, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
-        
-    # Mirror changes to the English spec file
-    en_file = "bmw_master_specs_en.json"
-    if os.path.exists(en_file):
-        print(f"Mirroring updates to {en_file}...")
-        with open(en_file, "r", encoding="utf-8") as f:
-            en_data = json.load(f)
-            
-        for series in en_data:
-            series_name = series.get("series", "")
-            for model in series.get("models", []):
-                model_name = model.get("model_name", "")
-                
-                # Find matching model in updated data
-                for s_updated in data:
-                    if s_updated.get("series") == series_name:
-                        for m_updated in s_updated.get("models", []):
-                            if m_updated.get("model_name") == model_name and "images" in m_updated:
-                                model["images"] = m_updated["images"]
-                                
-        with open(en_file, "w", encoding="utf-8") as f:
-            json.dump(en_data, f, ensure_ascii=False, indent=4)
+    print("Mirroring images and image_status to bmw_master_specs_en.json...")
+    mirror_updates_to_en(data)
             
     print("\nAuto-image scraping pipeline finished successfully!")
 

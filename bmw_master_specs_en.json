@@ -23363,7 +23363,8 @@
                     }
                 ],
                 "images": {},
-                "is_custom_archived": false
+                "is_custom_archived": false,
+                "image_status": "new_model_scrape"
             }
         ],
         "source_file": "M3-20250818-01_EN.pdf.asset.1758516236100.pdf",
@@ -25114,7 +25115,8 @@
                     }
                 ],
                 "images": {},
-                "is_custom_archived": false
+                "is_custom_archived": false,
+                "image_status": "new_model_scrape"
             }
         ],
         "source_file": "M2-CS-20250910-01_EN.pdf.asset.1758261740557.pdf",
@@ -26994,7 +26996,8 @@
                     }
                 ],
                 "images": {},
-                "is_custom_archived": false
+                "is_custom_archived": false,
+                "image_status": "new_model_scrape"
             }
         ],
         "source_file": "M5-20250130-05_EN.pdf.asset.1745391122834.pdf",
@@ -32180,10 +32183,10 @@
                     }
                 ],
                 "images": {
-                    "M Brooklyn Grey metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_M_Brooklyn_Grey_metallic.png",
-                    "Black Sapphire metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_Black_Sapphire_metallic.png",
-                    "M Portimao Blue metallic": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_M_Portimao_Blue_metallic.png",
-                    "Alpine White solid": "images/2_20260622_01_TH.asset.1782450623206/BMW_220_Gran_Coupe_M_Sport_Pro_Alpine_White_solid.png"
+                    "M Brooklyn Grey metallic": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_m_brooklyn_grey_metallic.webp",
+                    "Black Sapphire metallic": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_black_sapphire_metallic.webp",
+                    "Alpine White solid": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_alpine_white_solid.webp",
+                    "M Portimao Blue metallic": "images/2_20260622_01_TH.asset.1782450657977/bmw_220_gran_coupe_m_sport_pro_m_portimao_blue_metallic.webp"
                 },
                 "is_custom_archived": false
             }
@@ -42596,7 +42599,9 @@
                         ]
                     }
                 ],
-                "is_custom_archived": false
+                "is_custom_archived": false,
+                "images": {},
+                "image_status": "new_model_scrape"
             }
         ],
         "source_file": "7-20261014-01_EN.pdf.asset.1793099190356.pdf",
@@ -43719,7 +43724,9 @@
                         ]
                     }
                 ],
-                "is_custom_archived": false
+                "is_custom_archived": false,
+                "images": {},
+                "image_status": "lci_refresh_required"
             }
         ],
         "source_file": "7-20261015-01_EN.pdf.asset.1793099190322.pdf",

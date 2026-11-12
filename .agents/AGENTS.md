@@ -25,9 +25,12 @@
 - **No AI Patching:** Do NOT use manual overrides to fix AI extraction or parsing failures. AI errors must be resolved by tuning the prompts or extractor logic, ensuring the AI model extracts what is actually in the PDF as accurately as possible.
 - **Comments/Metadata:** All overrides in the JSON file should include a clear reason explaining why the PDF is wrong and what is being corrected. Ignore keys starting with `_` to support comments in JSON.
 
-## 7. Strict TH/EN Specsheet Alignment
-- **Identical Structure & Data:** All validation and auditing logic must strictly check that the Thai and English brochures match in all components: numerical values, option presence, category names, topic names, category counts, topic counts, and exact order/position of rows and columns.
-- **No Bypasses:** Do not build ignore rules or filters for differences in ordering or naming. Category grouping mismatches and vehicle-specific engineering differences must be flagged as active issues for remediation.
+## 7. Strict TH/EN Specsheet & Image Alignment
+- **Identical Structure, Data & Images:** All validation and auditing logic must strictly check that the Thai and English brochures and databases match 100% in all components: numerical values, option presence, category names, topic names, category counts, topic counts, exact order/position of rows and columns, as well as `images` mappings and `image_status`.
+- **Dual-Language Visual Fingerprint Gate:** When classifying PDF updates, TH and EN must be reconciled as a pair (only when both languages belong to the same update cycle):
+  - **Dimensions (`L / W / H`):** Must agree symmetrically across TH and EN. If one language remains unchanged while the other changes, flag `blocked_th_en_conflict`, halt image scraping for that model, and report in the daily email audit.
+  - **Wheels:** If EN is unchanged while TH text changed only in Thai wording/spacing (same numeric wheel sizes and English style/code tokens in TH), treat EN as authoritative. If numeric wheel sizes or English tokens in TH also changed, or if TH is unchanged while EN changed, flag `blocked_th_en_conflict`, halt image scraping for that model, and report in the daily email audit.
+- **No Bypasses:** Do not build ignore rules or filters for differences in ordering, naming, or TH/EN image mappings. Category grouping mismatches, vehicle-specific engineering differences, and `images` discrepancies must be flagged as active issues for remediation.
 
 ## 8. Strict Plan-to-Code Fidelity & No Premature Shortcut
 - **1:1 Architecture Mapping:** Whenever an architectural plan or workflow is agreed upon with the user (e.g., a multi-stage pipeline like Section 1 -> 2 -> 3 -> 4), the implementation must strictly map each stage 1:1 in the code.

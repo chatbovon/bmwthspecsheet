@@ -81,6 +81,11 @@ jobs:
       run: |
         python scratch/archive_discontinued.py
 
+    - name: Run Dual-Language Image Reconciliation Gate
+      if: ${{ github.event.inputs.only_scrape_images != 'true' }}
+      run: |
+        python -u pdf_update_classifier.py --reconcile-th-en
+
     - name: Run Auto-Image Scraper (Download missing vehicle previews)
       run: |
         python auto_image_scraper.py
@@ -143,7 +148,7 @@ jobs:
         git add bmw_master_specs.json bmw_master_specs_en.json bmw_custom_specs.json bmw_custom_specs_en.json specsheet_audit_report.md .nojekyll generate_model_dossier.py
         git add -f dossier/ || true
         git add -f bmw_ai_specs.json bmw_ai_specs_en.json || true
-        git add -f images/**/*.png || true
+        git add -f 'images/**/*.png' 'images/**/*.webp' || true
 
         # Smart Fallback for PDFs:
         # If Google Drive failed, commit PDFs to repository as emergency backup so files are not lost.

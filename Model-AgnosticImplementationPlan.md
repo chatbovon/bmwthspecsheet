@@ -1,6 +1,6 @@
 # Model-Agnostic PDF Update Classification Implementation Plan
 
-> **Purpose:** แผนสำหรับใช้ดำเนินการใน worktree ใหม่ (แตกจาก local `main`) เพื่อสร้างระบบจำแนกสถานะการอัปเดต PDF เป็น **4 เคสอัตโนมัติ (Pure Python, Model-Agnostic 100%)** และทดสอบจำลองผลบนข้อมูลจริงของ **`740d xDrive M Sport`** กับ **`M760e xDrive`** โดย **ยังไม่ดึงรูปสี** และ **ยังไม่แก้ไขฐานข้อมูลจริง** จนกว่าจะตรวจผลและได้รับอนุมัติขั้นถัดไป
+> **Purpose:** แผนสำหรับใช้ดำเนินการใน worktree ใหม่ (แตกจาก local `main`) เพื่อสร้างระบบจำแนกสถานะการอัปเดต PDF เป็น **4 เคสอัตโนมัติ (Pure Python, Model-Agnostic 100%)** พร้อม **Dual-Language Reconciliation Gate (TH/EN 100% Alignment)** และอัปเดตระบบตรวจสอบ/แจ้งเตือนอีเมลใน `send_daily_report.py` จากนั้นทดสอบจำลองผลบนข้อมูลจริงของ **`740d xDrive M Sport`** กับ **`M760e xDrive`** โดย **ยังไม่รัน/ยังไม่แก้ `auto_image_scraper.py`** และ **ยังไม่แก้ไขฐานข้อมูลจริง** จนกว่าจะตรวจผลและได้รับอนุมัติขั้นถัดไป
 
 ---
 
@@ -26,7 +26,8 @@
 - **Rule 10 (`AGENTS.md`) / Rule 12 (`GEMINI.md`) — Pure Generic Architecture:** ห้ามเขียนเงื่อนไขระบุชื่อรุ่นรถใดๆ (`if "740d" ...`, `if "M760e" ...`, `if "i7" ...`) ลงในโค้ด classifier / pipeline เด็ดขาด ชื่อรุ่น `740d` และ `M760e` ใช้เป็นเพียงข้อมูลทดสอบ (test verification targets) เท่านั้น
 - **Rule 8 (`AGENTS.md`) / Rule 10 (`GEMINI.md`) — Strict Plan-to-Code Fidelity:** Implement ตาม Stage 1 → 2 → 3 → 4 แบบ 1:1 ห้ามรวบขั้นหรือข้ามขั้นตอน
 - **Rule 9 (`AGENTS.md`) / Rule 11 (`GEMINI.md`) — Zero Heavy Controlled Vocabulary:** ใช้ Pure Python deterministic normalization เท่านั้น ไม่เรียก LLM API และไม่ฝัง dictionary ขนาดใหญ่
-- **Scope Boundary (Explicit User Instruction):** **ไม่รันและไม่แก้ไขระบบดึงรูปสี (`auto_image_scraper.py`) ในเฟสนี้** — เน้นเฉพาะการจำแนกสถานะ PDF 4 เคส + integration การ carry-over รูปเดิม + การทดสอบจำแนกเคสของ `740d` / `M760e` และรุ่นอื่นๆ ใน catalog แบบ non-destructive dry-run
+- **Rule 6 (`GEMINI.md`) / Rule 7 (`AGENTS.md`) — Strict TH/EN Specsheet & Image Alignment:** ทั้งข้อมูลสเปค, `images`, และ `image_status` ของ TH และ EN ต้องตรงกัน 100% หากเกิดความขัดแย้งของ Visual Fingerprint (มิติเปลี่ยนฝั่งเดียว หรือล้อฝั่ง TH คงเดิมแต่ EN เปลี่ยน / ขนาดและรหัสล้อขัดแย้งกัน) ต้องหยุดดึงรูปสีเฉพาะรุ่นนั้น (`blocked_th_en_conflict`) และรายงานในอีเมลทันที
+- **Scope Boundary (Explicit User Instruction):** **ไม่รันและไม่แก้ไขระบบดึงรูปสี (`auto_image_scraper.py`) ในเฟสนี้** — เน้นเฉพาะระบบจำแนกสถานะ PDF 4 เคส + Dual-Language Reconciliation Gate + integration การ carry-over/hold รูป + การตรวจ/แจ้งเตือนอีเมลใน `send_daily_report.py` + การทดสอบแบบ non-destructive dry-run (ส่วนการให้ `auto_image_scraper.py` ข้าม `blocked_th_en_conflict` และรองรับ `Spec Guard` / `pending_configurator` อยู่ในเฟสถัดไป Section 4)
 
 ---
 
@@ -67,7 +68,8 @@
 ดึงลายนิ้วมือรูปลักษณ์ภายนอกแบบ deterministic สำหรับทุกรุ่น:
 
 - `normalize_dimensions_value(raw_value: str) -> str`: สกัดเลข 3 ค่า `L / W / H` ด้วย regex ตัวเลข (ตัด `,` และช่องว่าง) → คืนค่ามาตรฐาน เช่น `"5391/1950/1544"`
-- `normalize_wheels_value(raw_value: str) -> str`: แปลง `''` / `“` / `”` → `"`, lowercase, collapse whitespace
+- `normalize_wheels_value(raw_value: str) -> str`: แปลง `''` / `“` / `”` → `"`, lowercase, แทรกช่องว่างตรงรอยต่ออักษรละติน/ตัวเลขกับอักษรไทย (เช่น `aerodynamicขนาด` → `aerodynamic ขนาด`), และ collapse whitespace
+- `extract_wheel_core_signature(raw_value: str) -> dict`: สกัดข้อมูลแกนหลักของล้อแบบ Pure Python regex (ไม่มี dictionary ขนาดใหญ่) ได้แก่ **ตัวเลขขนาดนิ้วล้อ** (เช่น `["18"]` หรือ `["19", "20"]`) และ **token ตัวอักษร/รหัสภาษาอังกฤษ** (เช่น `double-spoke`, `909`, `m`, `bicolour`) เพื่อใช้ตรวจสอบใน Dual-Language Gate ว่าการเปลี่ยนฝั่ง TH เป็นเพียงการแก้คำ/เว้นวรรคภาษาไทยหรือเปลี่ยนสเปคขนาด/รหัสล้อจริง
 - `extract_visual_fingerprint(model: dict) -> dict`:
   - ดึง `dimensions`, `wheels`, และ optional `powertrain_output` (เพื่อแสดงในรายงาน diff เชิงตรวจสอบ)
   - บังคับตรวจเฉพาะหมวด `มิติรถยนต์` / `dimension` และ `ล้อและยาง` / `wheels` เท่านั้น
@@ -86,9 +88,23 @@
 | **3** | `LCI_OR_VISUAL_CHANGE` | `lci_refresh_required` | พบ exact lineage predecessor แต่ `dimensions` เปลี่ยน **หรือ** `wheels` เปลี่ยน (หรือ fail-safe เมื่อ fingerprint ไม่ครบ) | **ห้าม reuse รูปเก่าอัตโนมัติ** ตั้ง `images: {}` และเก็บ `visual_diff` / `previous_images_count` ไว้ในผลลัพธ์ |
 | **4** | `BRAND_NEW` | `new_model_scrape` | ไม่พบ exact `(series, model_name)` ใน `master_specs` และ `custom_specs` | ตั้ง `images: {}` (แนบ `closest_series_models` ในผลวินิจฉัยถ้ามี) |
 
+#### Dual-Language Reconciliation Gate (`reconcile_th_en_updates`)
+เนื่องจากใน `.github/workflows/auto_update.yml` ขั้นตอน `batch_extractor.py --lang th` รันก่อน `--lang en` (ตอน TH รันเสร็จยังไม่มีสเปค EN ใหม่) จึงต้องมีขั้นตอน **Dual-Language Reconciliation Gate** ทำงานหลังสกัดครบทั้ง TH และ EN (ก่อน `auto_image_scraper.py` และ `send_daily_report.py`) เพื่อบังคับให้ TH และ EN มี `images` และ `image_status` **ตรงกัน 100%**:
+
+1. **Paired-Cycle Check:** ตรวจสอบว่า TH และ EN อัปเดตเป็นคู่ฉบับรอบเดียวกัน (เทียบ document date / `pdf_source` ของ TH vs EN) หากวันนั้นมีโบรชัวร์ใหม่อัปโหลดเข้ามาเพียงภาษาเดียว (อีกภาษายังเป็นไฟล์เก่าจากรอบก่อน) ให้ติดสถานะ `pending_paired_language` (ไม่ถือว่า EN เก่าที่ยังไม่อัปเดตเป็นการยืนยัน `EN_old == EN_new`) และแจ้งเตือนในรายงาน
+2. **Dimensions Rule (Symmetric Conflict Check):**
+   - มิติรถยนต์ (`L / W / H`) เป็นตัวเลขล้วน ต้องตรงกันทั้ง TH และ EN (`EN_unchanged == TH_unchanged`)
+   - หากฝั่งหนึ่งเท่าเดิมแต่อีกฝั่งเปลี่ยน (`EN_old == EN_new` แต่ `TH_old != TH_new` **หรือ** `TH_old == TH_new` แต่ `EN_old != EN_new`) → จัดเป็น **`blocked_th_en_conflict`** (หยุดดึงรูปสีเฉพาะรุ่นนั้นทันที และส่ง Alert ในอีเมลเพื่อแก้ปัญหา)
+3. **Wheels Rule (Authoritative EN + TH Core-Spec Guard):**
+   - **`EN_old == EN_new` แต่ `TH_old != TH_new`:** ใช้ `extract_wheel_core_signature` ตรวจเทียบ **ตัวเลขขนาดนิ้ว + token/รหัสภาษาอังกฤษ** ของ TH เก่า vs TH ใหม่:
+     - หากขนาดนิ้วและรหัสภาษาอังกฤษใน TH ตรงกัน 100% (ต่างกันเฉพาะคำบรรยายไทย/คำสะกด/เว้นวรรค) → **ให้ถือ EN เป็นหลัก** (`wheels_match = True`, เข้า Case 2 `reused_same_gen` หากมิติตรงกันด้วย และบันทึก audit note)
+     - หากขนาดนิ้วหรือรหัสภาษาอังกฤษใน TH เปลี่ยนด้วย → จัดเป็น **`blocked_th_en_conflict`** (สงสัยว่า EN ลืมอัปเดตหรือสกัดผิด: หยุดดึงรูปสีเฉพาะรุ่นนั้นและแจ้ง Alert ในอีเมล)
+   - **`TH_old == TH_new` แต่ `EN_old != EN_new`:** ผิดปกติ → จัดเป็น **`blocked_th_en_conflict`** (หยุดดึงรูปสีเฉพาะรุ่นนั้นและแจ้ง Alert ในอีเมล)
+4. **100% Image & Status Sync:** เขียน `images` และ `image_status` (`reused_same_gen`, `lci_refresh_required`, `new_model_scrape`, `blocked_th_en_conflict`, หรือ `pending_paired_language`) ให้ตรงกัน 100% ทั้งใน `bmw_master_specs.json` และ `bmw_master_specs_en.json`
+
 #### Files to Integrate in Stage 3
 1. **Create `pdf_update_classifier.py`**:
-   - รวม Stage 1 + Stage 2 + Stage 3 classifier + CLI dry-run analyzer (`python pdf_update_classifier.py --dry-run --lang all`)
+   - รวม Stage 1 + Stage 2 + Stage 3 classifier + `reconcile_th_en_updates` (Dual-Language Gate) + CLI dry-run analyzer (`python pdf_update_classifier.py --dry-run --lang all`) และโหมด `--reconcile-th-en` สำหรับทำงานหลัง extraction ครบทั้ง 2 ภาษา
    - Output ระดับทั้งรุ่น (per-model) และสรุประดับไฟล์ PDF (per-brochure) เพื่อรองรับโบรชัวร์ที่มีหลายรุ่นย่อยในไฟล์เดียว
 2. **Update `verify_pdf_content.py` (`L89-L228`)**:
    - คง behavior เดิมของ `smart_skipped` (Case 1) เป็นด่านแรก และเพิ่มตัวช่วยหา predecessor ผ่าน lineage / normalized text สำหรับกรณีชื่อไฟล์/วันที่เปลี่ยนไปจากเดิม (แทนที่การเทียบ `new_base == old_base` อย่างเดียว)
@@ -97,7 +113,10 @@
      - `Case 2 (reused_same_gen)` → คัดลอก `images` ที่สีตรงกันจาก predecessor พร้อมอัปเดต `"image_status": "reused_same_gen"`
      - `Case 3 (lci_refresh_required)` → กำหนด `"images": {}`, `"image_status": "lci_refresh_required"`
      - `Case 4 (new_model_scrape)` → กำหนด `"images": {}`, `"image_status": "new_model_scrape"`
-   - **หมายเหตุ:** ยังไม่แตะ `auto_image_scraper.py` และไม่รันสคริปต์ดึงรูปสี
+   - **หมายเหตุ:** ยังไม่แตะ `auto_image_scraper.py` และไม่รันสคริปต์ดึงรูปสี (แต่ให้รองรับการเรียก `reconcile_th_en_updates` หลังสกัดครบทั้ง TH และ EN เพื่อ sync `images` / `image_status` ให้ตรงกัน 100%)
+4. **Update `send_daily_report.py` (`audit_data_discrepancies` & `generate_html_report`)**:
+   - เพิ่มการตรวจเทียบ `images` และ `image_status` ระหว่าง TH กับ EN ใน `audit_data_discrepancies` (ไม่ให้มี `images` discrepancy หลุดรอด)
+   - เพิ่มหมวด Alert ในอีเมลสำหรับรุ่นที่ติด `blocked_th_en_conflict` (มิติเปลี่ยนฝั่งเดียว หรือ ล้อ TH คงเดิมแต่ EN เปลี่ยน / ขนาดและรหัสล้อขัดแย้งกัน) และ `pending_paired_language` เพื่อให้ตรวจสอบและแก้ไขก่อนดึงรูปสี
 
 ### Stage 4: Verification & Real-Catalog Test (`740d` & `M760e`)
 
@@ -109,6 +128,12 @@
      - Missing dimension/wheel field → fail-safe ไม่หลุดเป็น Case 2
      - Predecessor อยู่ใน `custom_specs` (archived)
      - Multi-model brochure (เช่นหนึ่งรุ่นเป็น Minor Update อีกรุ่นเป็น New Model)
+     - Dual-language Dimensions conflict (EN เท่าเดิมแต่ TH เปลี่ยน และ TH เท่าเดิมแต่ EN เปลี่ยน → `blocked_th_en_conflict`)
+     - Dual-language Wheels: EN เท่าเดิม + TH เปลี่ยนเฉพาะคำ/เว้นวรรคไทย (`aerodynamicขนาด` vs `aerodynamic ขนาด`, `นี้ว` vs `นิ้ว`) → ถือ EN เป็นหลัก (`MINOR_UPDATE` / `reused_same_gen`)
+     - Dual-language Wheels: EN เท่าเดิม + TH เปลี่ยนตัวเลขขนาดนิ้ว/รหัสลายล้อ → `blocked_th_en_conflict`
+     - Dual-language Wheels: TH เท่าเดิม + EN เปลี่ยน → `blocked_th_en_conflict`
+     - Unpaired update cycle (อัปเดตมาแค่ภาษาเดียว) → `pending_paired_language`
+     - `send_daily_report.audit_data_discrepancies` ตรวจจับ `images` / `image_status` mismatch ระหว่าง TH กับ EN ได้ครบถ้วน
 2. **Real-Catalog Dry-Run Check (`TH` และ `EN` — No File Writes)**:
    - ทดสอบรัน `pdf_update_classifier` จำลองเทียบ `bmw_master_specs*.json` กับ `bmw_custom_specs*.json` (excluding exact same `pdf_source` entry เพื่อให้เห็นผลเมื่อรุ่นนั้นถูกอัปเดตเข้ามา)
    - ยืนยันผลเฉพาะจุดสำหรับ:
@@ -122,6 +147,10 @@
 ## 4. Future Phase (Deferred — Out of Current Worktree Scope Unless Separately Approved)
 
 หลังจากได้ผลทดสอบ 4 เคสจาก Stage 4 เรียบร้อยแล้ว ค่อยพิจารณาอนุมัติในรอบถัดไป:
-- เพิ่ม `Spec Guard` (เช็กแรงม้า/รุ่นบน Configurator) และสถานะ `pending_configurator` ใน `auto_image_scraper.py`
+- อัปเดต `auto_image_scraper.py`:
+  - ข้ามรุ่นที่ติด `blocked_th_en_conflict` หรือ `pending_paired_language` (หยุดดึงรูปสีอัตโนมัติจนกว่า conflict จะถูกแก้)
+  - เพิ่ม `Spec Guard` (เช็กแรงม้า/สเปคบน Configurator เทียบกับ specsheet เพื่อป้องกันรุ่น LCI ชื่อเดิมไปดูดรูป Pre-LCI เก่า) และสถานะ `pending_configurator` เมื่อ Configurator ยังไม่มีรุ่น/โฉมใหม่ (เพื่อให้รอบวันถัดไปกลับมาลองดึงใหม่อัตโนมัติทันทีที่ BMW เปิดตัวบน Configurator)
 - อัปเดต `send_daily_report.py` แยกกลุ่ม `pending_configurator` vs `broken` ในอีเมล `Image Coverage`
-- แก้ `.github/workflows/auto_update.yml` บรรทัด `146` จาก `git add -f images/**/*.png` ให้ครอบคลุม `images/**/*.webp` ด้วย
+- อัปเดต `.github/workflows/auto_update.yml`:
+  - เรียกขั้นตอน Dual-Language Reconciliation (`python pdf_update_classifier.py --reconcile-th-en`) หลังจบ `batch_extractor.py --lang th` และ `--lang en` (ก่อน `auto_image_scraper.py`)
+  - แก้บรรทัด `146` จาก `git add -f images/**/*.png` ให้ครอบคลุม `images/**/*.webp` ด้วย

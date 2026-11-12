@@ -19703,7 +19703,8 @@
                         ]
                     }
                 ],
-                "is_custom_archived": false
+                "is_custom_archived": false,
+                "image_status": "new_model_scrape"
             }
         ],
         "source_file": "M3-20250818-01_TH.pdf.asset.1758516215456.pdf",
@@ -21454,7 +21455,8 @@
                         ]
                     }
                 ],
-                "is_custom_archived": false
+                "is_custom_archived": false,
+                "image_status": "new_model_scrape"
             }
         ],
         "source_file": "M2-CS-20250910-01_TH.pdf.asset.1758261830128.pdf",
@@ -22309,7 +22311,8 @@
                         ]
                     }
                 ],
-                "is_custom_archived": false
+                "is_custom_archived": false,
+                "image_status": "new_model_scrape"
             }
         ],
         "source_file": "M5-20250130-05_TH.pdf.asset.1745407582783.pdf",
@@ -42596,7 +42599,9 @@
                         ]
                     }
                 ],
-                "is_custom_archived": false
+                "is_custom_archived": false,
+                "images": {},
+                "image_status": "new_model_scrape"
             }
         ],
         "source_file": "7-20261014-01_TH.pdf.asset.1793099190290.pdf",
@@ -43719,7 +43724,9 @@
                         ]
                     }
                 ],
-                "is_custom_archived": false
+                "is_custom_archived": false,
+                "images": {},
+                "image_status": "lci_refresh_required"
             }
         ],
         "source_file": "7-20261015-01_TH.pdf.asset.1793099190342.pdf",

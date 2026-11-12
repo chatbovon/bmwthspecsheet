@@ -8,20 +8,93 @@ from dotenv import load_dotenv
 sys.stdout.reconfigure(encoding='utf-8')
 
 # Import the core MinerU + Gemini extraction pipeline
-from mineru_extractor import run_extraction_pipeline
+# MinerU + Gemini extraction pipeline is imported lazily inside run_batch_extraction()
+from pdf_update_classifier import (
+    STATUS_LCI_REFRESH_REQUIRED,
+    STATUS_REUSED_SAME_GEN,
+    classify_brochure_update,
+    compare_visual_fingerprints,
+    extract_visual_fingerprint,
+    match_carry_over_images,
+    normalize_model_name,
+    reconcile_databases_th_en,
+)
 
 WORKSPACE_DIR = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(os.path.join(WORKSPACE_DIR, ".env"), override=True)
+
+def apply_classification_to_result(result, master_specs, custom_specs, filename, target_file=None):
+    """
+    Classify extracted brochure models (Cases 2/3/4) against master_specs and custom_specs,
+    carrying over matched colors on MINOR_UPDATE and clearing stale images on LCI_OR_VISUAL_CHANGE.
+    """
+    old_entry = next((item for item in master_specs if item.get("pdf_source") == filename), None)
+    if old_entry and not result.get("pdf_url") and old_entry.get("pdf_url"):
+        result["pdf_url"] = old_entry["pdf_url"]
+
+    old_models_by_norm = {}
+    if old_entry:
+        for om in old_entry.get("models", []) or []:
+            nm = normalize_model_name(om.get("model_name", ""))
+            if nm:
+                old_models_by_norm[nm] = om
+
+    classification = classify_brochure_update(
+        candidate_entry=result,
+        master_specs=master_specs,
+        custom_specs=custom_specs,
+        exclude_pdf_source=filename,
+    )
+
+    for model, cls_res in zip(result.get("models", []) or [], classification.get("models", []) or []):
+        mname = model.get("model_name", "")
+        norm_m = normalize_model_name(mname)
+        old_m = old_models_by_norm.get(norm_m)
+
+        # If re-extracting an already-registered brochure (--file) with no prior archive,
+        # compare against its own previous entry so verified images are kept iff visual specs match.
+        if (
+            cls_res.get("case_name") == "BRAND_NEW"
+            and target_file
+            and old_m
+            and isinstance(old_m.get("images"), dict)
+            and old_m.get("images")
+        ):
+            comp = compare_visual_fingerprints(
+                extract_visual_fingerprint(old_m),
+                extract_visual_fingerprint(model),
+            )
+            if comp["all_match"]:
+                carried = match_carry_over_images(old_m["images"], model)
+                model["images"] = carried
+                model["image_status"] = STATUS_REUSED_SAME_GEN
+                print(f"[CLASSIFY] [{mname}] In-place MINOR_UPDATE -> {STATUS_REUSED_SAME_GEN} (images={len(carried)})")
+            else:
+                model["images"] = {}
+                model["image_status"] = STATUS_LCI_REFRESH_REQUIRED
+                print(f"[CLASSIFY] [{mname}] In-place LCI_OR_VISUAL_CHANGE -> {STATUS_LCI_REFRESH_REQUIRED}")
+            continue
+
+        model["images"] = cls_res.get("images", {})
+        model["image_status"] = cls_res.get("image_status")
+        print(
+            f"[CLASSIFY] [{mname}] Case {cls_res.get('case_id')} ({cls_res.get('case_name')}) "
+            f"-> image_status={model['image_status']} (images={len(model['images'])})"
+        )
+    return classification
+
 
 def run_batch_extraction(lang="th", target_file=None):
     if lang == "en":
         auto_folder = "bmw_brochures_auto_en"
         output_file = "bmw_master_specs_en.json"
         compat_file = "bmw_ai_specs_en.json"
+        custom_file = "bmw_custom_specs_en.json"
     else:
         auto_folder = "bmw_brochures_auto"
         output_file = "bmw_master_specs.json"
         compat_file = "bmw_ai_specs.json"
+        custom_file = "bmw_custom_specs.json"
 
     if not os.path.exists(auto_folder):
         os.makedirs(auto_folder)
@@ -65,6 +138,18 @@ def run_batch_extraction(lang="th", target_file=None):
             print(f"[WARNING] Failed to load existing '{output_file}': {e}")
             master_specs = []
 
+    # Load custom archive catalog for visual-fingerprint predecessor lookup
+    custom_specs = []
+    if os.path.exists(custom_file):
+        try:
+            with open(custom_file, 'r', encoding='utf-8') as f:
+                custom_specs = json.load(f)
+                if not isinstance(custom_specs, list):
+                    custom_specs = []
+        except Exception as e:
+            print(f"[WARNING] Failed to load existing '{custom_file}': {e}")
+            custom_specs = []
+
     # Load live web PDFs list if available (to skip obsolete/stray files during batch run)
     live_pdfs_path = os.path.join(WORKSPACE_DIR, "scratch", "live_web_pdfs.txt")
     live_pdfs = set()
@@ -97,6 +182,7 @@ def run_batch_extraction(lang="th", target_file=None):
 
         try:
             # Call the MinerU + Gemini extraction pipeline
+            from mineru_extractor import run_extraction_pipeline
             run_extraction_pipeline(pdf_path, temp_json, lang)
 
             # Load the extracted result
@@ -119,22 +205,14 @@ def run_batch_extraction(lang="th", target_file=None):
                     except Exception as url_err:
                         print(f"[BATCH WARNING] Failed to load pdf_url from {url_map_file}: {url_err}")
 
-                # Try to preserve old images mapping if entry exists in master catalog
-                old_entry = next((item for item in master_specs if item.get("pdf_source") == filename), None)
-                if old_entry:
-                    if not result.get("pdf_url") and old_entry.get("pdf_url"):
-                        result["pdf_url"] = old_entry["pdf_url"]
-                    old_images = {}
-                    for m in old_entry.get("models", []):
-                        mname = m.get("model_name")
-                        if mname and "images" in m:
-                            old_images[mname] = m["images"]
-                    for m in result.get("models", []):
-                        mname = m.get("model_name")
-                        if mname in old_images:
-                            m["images"] = old_images[mname]
-                        else:
-                            m["images"] = m.get("images", {})
+                # Model-agnostic visual-fingerprint update classification (Cases 2/3/4)
+                apply_classification_to_result(
+                    result=result,
+                    master_specs=master_specs,
+                    custom_specs=custom_specs,
+                    filename=filename,
+                    target_file=target_file,
+                )
 
                 # If target_file is specified, replace the existing entry
                 if target_file:
@@ -197,5 +275,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="BMW Specsheet Batch Extractor using MinerU")
     parser.add_argument("--lang", type=str, default="th", choices=["th", "en"], help="Language of brochures to extract (th or en)")
     parser.add_argument("--file", "--target", dest="file", type=str, default=None, help="Target specific PDF filename to extract")
+    parser.add_argument("--reconcile-th-en", action="store_true", help="Run Dual-Language TH/EN image reconciliation after extraction")
     args = parser.parse_args()
     run_batch_extraction(lang=args.lang, target_file=args.file)
+    if args.reconcile_th_en:
+        reconcile_databases_th_en(dry_run=False)

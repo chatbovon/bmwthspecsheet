@@ -21,6 +21,12 @@ import json
 import hashlib
 import re
 
+from pdf_update_classifier import (
+    STATUS_SMART_SKIPPED,
+    extract_doc_date_sort_key,
+    extract_paired_brochure_key,
+)
+
 # Fix Windows console encoding
 if sys.platform.startswith('win'):
     try:
@@ -86,6 +92,98 @@ def get_base_pdf_name(filename):
         return filename.split('.asset.')[0]
     return filename
 
+def _is_entry_identical_to_pdf(lang, new_file, new_path, new_sha, old_item, auto_folder, new_text_cache):
+    """Compare a candidate PDF against one master catalog item (Tier 1 SHA-256 -> Tier 2 Normalized Text)."""
+    old_file = old_item.get("pdf_source")
+    if not old_file:
+        return False, ""
+    old_path = os.path.join(auto_folder, old_file)
+
+    # Tier 1 Check: Binary Hash (SHA-256)
+    if os.path.exists(old_path):
+        old_sha = compute_sha256(old_path)
+        if new_sha and old_sha and new_sha == old_sha:
+            return True, "100% Binary Match (Identical SHA-256 Checksum)"
+    elif old_item.get("pdf_sha256") and new_sha and new_sha == old_item.get("pdf_sha256"):
+        return True, "100% Binary Match with Recorded Master Hash"
+
+    # Tier 2 Check: Normalized Text Content
+    if os.path.exists(old_path):
+        print(f"[VERIFY] [{lang.upper()}] SHA-256 differs for '{new_file}' vs '{old_file}'. Running Tier 2 Text Verification...")
+        if new_text_cache[0] is None:
+            new_text_cache[0] = extract_normalized_text(new_path)
+        old_text = extract_normalized_text(old_path)
+        if new_text_cache[0] and old_text and new_text_cache[0] == old_text:
+            return True, "100% Normalized Text Match (Identical Specifications & Tables)"
+
+    return False, ""
+
+
+def find_identical_master_entry(lang, new_file, new_path, new_sha, master_specs, auto_folder, live_pdfs=None):
+    """
+    Case 1 (smart_skipped) lookup:
+    1. Direct base-filename match (ignores .asset.<ts> suffixes).
+    2. Lineage fallback when brochure filename/date changes:
+       - Binary SHA-256 match against any non-live master entry.
+       - Normalized text match against non-live master entries sharing the same series prefix.
+    Returns (matched_item_or_None, is_identical, match_reason).
+    """
+    new_base = get_base_pdf_name(new_file)
+    new_text_cache = [None]
+
+    # Step 1: Exact base-name match
+    for item in master_specs:
+        old_source = item.get("pdf_source", "")
+        if not old_source:
+            continue
+        if get_base_pdf_name(old_source) == new_base:
+            is_identical, match_reason = _is_entry_identical_to_pdf(
+                lang, new_file, new_path, new_sha, item, auto_folder, new_text_cache
+            )
+            return item, is_identical, match_reason
+
+    # Step 2: Lineage fallback for renamed / newly dated identical brochures
+    new_prefix = extract_paired_brochure_key(new_file)[0]
+    prefix_candidates = []
+
+    for item in master_specs:
+        old_source = item.get("pdf_source", "")
+        if not old_source:
+            continue
+        if live_pdfs and old_source in live_pdfs:
+            # Do not treat a still-live brochure as replaced by a sibling file
+            continue
+        old_path = os.path.join(auto_folder, old_source)
+
+        # Tier 1 SHA-256 match across any non-live catalog item
+        if os.path.exists(old_path):
+            old_sha = compute_sha256(old_path)
+            if new_sha and old_sha and new_sha == old_sha:
+                return item, True, "100% Binary Match via Lineage SHA-256 (Filename/Date Changed)"
+        elif item.get("pdf_sha256") and new_sha and new_sha == item.get("pdf_sha256"):
+            return item, True, "100% Binary Match via Lineage Master Hash (Filename/Date Changed)"
+
+        if new_prefix and extract_paired_brochure_key(old_source)[0] == new_prefix and os.path.exists(old_path):
+            prefix_candidates.append(item)
+
+    if prefix_candidates:
+        prefix_candidates.sort(
+            key=lambda x: extract_doc_date_sort_key(x.get("pdf_source", "")),
+            reverse=True,
+        )
+        for item in prefix_candidates:
+            old_source = item.get("pdf_source", "")
+            old_path = os.path.join(auto_folder, old_source)
+            print(f"[VERIFY] [{lang.upper()}] Lineage check '{new_file}' vs '{old_source}'...")
+            if new_text_cache[0] is None:
+                new_text_cache[0] = extract_normalized_text(new_path)
+            old_text = extract_normalized_text(old_path)
+            if new_text_cache[0] and old_text and new_text_cache[0] == old_text:
+                return item, True, "100% Normalized Text Match via Series Lineage (Filename/Date Changed)"
+
+    return None, False, ""
+
+
 def verify_and_update(lang='th', dry_run=False):
     is_th = (lang.lower() == 'th')
     auto_folder = os.path.join(WORKSPACE_DIR, "bmw_brochures_auto" if is_th else "bmw_brochures_auto_en")
@@ -147,53 +245,24 @@ def verify_and_update(lang='th', dry_run=False):
 
     for new_file in sorted(candidates):
         new_path = os.path.join(auto_folder, new_file)
-        new_base = get_base_pdf_name(new_file)
         new_sha = compute_sha256(new_path)
 
-        # Find matching series in master_specs
-        matched_item = None
-        for item in master_specs:
-            old_source = item.get("pdf_source", "")
-            if not old_source:
-                continue
-            old_base = get_base_pdf_name(old_source)
-            if new_base == old_base:
-                matched_item = item
-                break
+        # Find matching series in master_specs (base-name first, then lineage SHA-256 / series-prefix text)
+        matched_item, is_identical, match_reason = find_identical_master_entry(
+            lang, new_file, new_path, new_sha, master_specs, auto_folder, live_pdfs=live_pdfs
+        )
 
         if not matched_item:
-            # No base name match, this might be a completely new brochure/model family
-            print(f"[VERIFY] [{lang.upper()}] [NEW-MODEL] '{new_file}' has no prior brochure base match. Will extract.")
+            # No base name match and no identical lineage match -> genuine new brochure/model family
+            print(f"[VERIFY] [{lang.upper()}] [NEW-MODEL] '{new_file}' has no prior brochure match. Will extract.")
             continue
 
         old_file = matched_item.get("pdf_source")
         old_path = os.path.join(auto_folder, old_file)
         series_name = matched_item.get("series", "Unknown Series")
 
-        is_identical = False
-        match_reason = ""
-
-        # Tier 1 Check: Binary Hash (SHA-256)
-        if os.path.exists(old_path):
-            old_sha = compute_sha256(old_path)
-            if new_sha and old_sha and new_sha == old_sha:
-                is_identical = True
-                match_reason = "100% Binary Match (Identical SHA-256 Checksum)"
-        elif matched_item.get("pdf_sha256") and new_sha == matched_item.get("pdf_sha256"):
-            is_identical = True
-            match_reason = "100% Binary Match with Recorded Master Hash"
-
-        # Tier 2 Check: Normalized Text Content
-        if not is_identical and os.path.exists(old_path):
-            print(f"[VERIFY] [{lang.upper()}] SHA-256 differs for '{new_file}' vs '{old_file}'. Running Tier 2 Text Verification...")
-            new_text = extract_normalized_text(new_path)
-            old_text = extract_normalized_text(old_path)
-            if new_text and old_text and new_text == old_text:
-                is_identical = True
-                match_reason = "100% Normalized Text Match (Identical Specifications & Tables)"
-
         if is_identical:
-            print(f"\n[SMART-SKIP] [{lang.upper()}] Series: {series_name}")
+            print(f"\n[SMART-SKIP] [{lang.upper()}] Case={STATUS_SMART_SKIPPED} | Series: {series_name}")
             print(f"  Old Brochure: {old_file}")
             print(f"  New Brochure: {new_file}")
             print(f"  Result: {match_reason}")

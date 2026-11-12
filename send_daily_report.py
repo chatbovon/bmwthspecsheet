@@ -3,6 +3,7 @@ import sys
 import json
 import subprocess
 import re
+import html as html_lib
 import requests
 from dotenv import load_dotenv
 
@@ -149,20 +150,27 @@ def find_matching_image(opt_name, images_dict):
     return None
 
 # 2. Audit Missing Images (Non-M)
-def audit_missing_images(th_data):
-    missing_images_report = {}
-    total_non_m_models = 0
-    models_with_missing_images = 0
-    
+BLOCKED_IMAGE_STATUSES = {"blocked_th_en_conflict", "pending_paired_language"}
+
+
+def categorize_missing_images(th_data):
+    """Categorize non-M image coverage into complete, broken, pending_configurator, and blocked buckets."""
+    broken = {}
+    pending_configurator = {}
+    blocked = {}
+    total_non_m = 0
+    complete_count = 0
+
     for series_item in th_data:
         for model in series_item.get("models", []):
             model_name = model.get("model_name", "Unknown")
             if is_pure_m_car(model_name):
                 continue
-                
-            total_non_m_models += 1
-            images_dict = model.get("images", {})
-            
+
+            total_non_m += 1
+            images_dict = model.get("images", {}) or {}
+            image_status = (model.get("image_status") or "").strip()
+
             # Find paintwork options in specifications
             paint_options = []
             for cat in model.get("specifications", []):
@@ -173,7 +181,7 @@ def audit_missing_images(th_data):
                         opt_val = (detail.get("value") or "").strip()
                         if opt_name and opt_val != "-":
                             paint_options.append(opt_name)
-                            
+
             missing_for_model = []
             if not images_dict and paint_options:
                 missing_for_model.append("Missing entirely (no image dictionary)")
@@ -186,12 +194,37 @@ def audit_missing_images(th_data):
                         full_img_path = os.path.join(BASE_DIR, img_path)
                         if not os.path.exists(full_img_path):
                             missing_for_model.append(f"Image file not found on disk: '{opt}' ({img_path})")
-                            
-            if missing_for_model:
-                missing_images_report[model_name] = missing_for_model
-                models_with_missing_images += 1
-                
-    return missing_images_report, total_non_m_models, models_with_missing_images
+
+            if image_status in BLOCKED_IMAGE_STATUSES:
+                blocked[model_name] = missing_for_model or [f"Image scraping halted ({image_status})"]
+            elif image_status == "pending_configurator":
+                pending_configurator[model_name] = missing_for_model or [
+                    "Waiting for BMW Thailand web configurator update (image_status: pending_configurator)"
+                ]
+            elif missing_for_model:
+                broken[model_name] = missing_for_model
+            else:
+                complete_count += 1
+
+    return {
+        "broken": broken,
+        "pending_configurator": pending_configurator,
+        "blocked": blocked,
+        "total_non_m": total_non_m,
+        "complete_count": complete_count,
+        "broken_count": len(broken),
+        "pending_count": len(pending_configurator),
+        "blocked_count": len(blocked),
+    }
+
+
+def audit_missing_images(th_data):
+    breakdown = categorize_missing_images(th_data)
+    missing_images_report = {}
+    missing_images_report.update(breakdown["broken"])
+    missing_images_report.update(breakdown["pending_configurator"])
+    missing_images_report.update(breakdown["blocked"])
+    return missing_images_report, breakdown["total_non_m"], len(missing_images_report)
 
 # 3. Cross-DB alignment and discrepancy audit
 def audit_data_discrepancies(th_data, en_data):
@@ -221,6 +254,27 @@ def audit_data_discrepancies(th_data, en_data):
                 })
                 continue
                 
+            # Strict TH/EN image mapping & image_status 100% alignment (Rule 6 / Rule 7)
+            th_imgs = th_model.get("images") or {}
+            en_imgs = en_model.get("images") or {}
+            total_checks += 1
+            if th_imgs != en_imgs:
+                discrepancies.append({
+                    "model": mname,
+                    "type": "Image Mapping Mismatch",
+                    "description": f"Image mappings differ between TH ({len(th_imgs)} colors) and EN ({len(en_imgs)} colors).",
+                })
+
+            th_img_status = th_model.get("image_status") or ""
+            en_img_status = en_model.get("image_status") or ""
+            total_checks += 1
+            if th_img_status != en_img_status:
+                discrepancies.append({
+                    "model": mname,
+                    "type": "Image Status Mismatch",
+                    "description": f"image_status differs between TH ({th_img_status!r}) and EN ({en_img_status!r}).",
+                })
+
             # Filter out localized Notes/disclaimers
             th_specs = [c for c in th_model.get("specifications", []) if (c.get("category") or "").strip() not in ("หมายเหตุ", "Notes")]
             en_specs = [c for c in en_model.get("specifications", []) if (c.get("category") or "").strip() not in ("หมายเหตุ", "Notes")]
@@ -321,8 +375,83 @@ def audit_gdrive_status():
         print(f"[WARNING] Could not read gdrive_status.json: {e}")
         return None
 
+# Audit TH/EN Visual Fingerprint Conflicts & Pending Paired Language Updates
+def audit_image_conflicts(th_data, en_data, reconciliation_report_path=None):
+    conflict_statuses = {"blocked_th_en_conflict", "pending_paired_language"}
+    found_map = {}
+
+    def _collect(data, lang_label):
+        for series_item in data or []:
+            series_name = (series_item.get("series") or "").strip()
+            pdf_src = series_item.get("pdf_source") or ""
+            for m in series_item.get("models", []) or []:
+                status = (m.get("image_status") or "").strip()
+                if status not in conflict_statuses:
+                    continue
+                mname = (m.get("model_name") or "").strip()
+                key = (series_name.lower(), mname.lower())
+                entry = found_map.setdefault(
+                    key,
+                    {
+                        "series": series_name,
+                        "model_name": mname,
+                        "image_status": status,
+                        "conflict_type": (
+                            "TH/EN Visual Fingerprint Conflict"
+                            if status == "blocked_th_en_conflict"
+                            else "Waiting for Paired Language Brochure"
+                        ),
+                        "reason": (
+                            f"{lang_label} flagged image_status='{status}' ({pdf_src})."
+                        ),
+                        "languages": [],
+                    },
+                )
+                if lang_label not in entry["languages"]:
+                    entry["languages"].append(lang_label)
+                # Prefer blocked_th_en_conflict precedence if both statuses occur across languages
+                if status == "blocked_th_en_conflict" and entry["image_status"] != "blocked_th_en_conflict":
+                    entry["image_status"] = status
+
+    _collect(th_data, "TH")
+    _collect(en_data, "EN")
+
+    if reconciliation_report_path is None:
+        reconciliation_report_path = os.path.join(BASE_DIR, "scratch", "th_en_reconciliation_report.json")
+
+    if reconciliation_report_path and os.path.exists(reconciliation_report_path):
+        try:
+            with open(reconciliation_report_path, "r", encoding="utf-8") as f:
+                rep = json.load(f)
+            for c in rep.get("conflicts", []) or []:
+                c_series = (c.get("series") or "").strip()
+                c_model = (c.get("model_name") or "").strip()
+                c_status = (c.get("image_status") or "blocked_th_en_conflict").strip()
+                if c_status not in conflict_statuses:
+                    continue
+                key = (c_series.lower(), c_model.lower())
+                if key in found_map:
+                    if c.get("conflict_type"):
+                        found_map[key]["conflict_type"] = c["conflict_type"]
+                    if c.get("reason"):
+                        found_map[key]["reason"] = c["reason"]
+                else:
+                    found_map[key] = {
+                        "series": c_series,
+                        "model_name": c_model,
+                        "image_status": c_status,
+                        "conflict_type": c.get("conflict_type") or c_status,
+                        "reason": c.get("reason") or "Flagged by Dual-Language Reconciliation Gate.",
+                        "languages": ["TH", "EN"],
+                    }
+        except Exception as e:
+            print(f"[WARNING] Could not read reconciliation report '{reconciliation_report_path}': {e}")
+
+    return list(found_map.values())
+
+
 # Compile HTML Report
-def generate_html_report(added_pdfs, removed_pdfs, missing_imgs, total_non_m, models_missing_imgs, discrepancies, total_checks, api_status, files_overridden, total_rules, uncategorized=None, gdrive_status=None):
+def generate_html_report(added_pdfs, removed_pdfs, missing_imgs, total_non_m, models_missing_imgs, discrepancies, total_checks, api_status, files_overridden, total_rules, uncategorized=None, gdrive_status=None, image_conflicts=None, missing_img_breakdown=None):
     # Calculate health score
     health_score = 100.0
     if total_checks > 0:
@@ -398,6 +527,48 @@ def generate_html_report(added_pdfs, removed_pdfs, missing_imgs, total_non_m, mo
             """
         uncategorized_html += "</table></div>"
 
+    # TH/EN Image Conflict & Pending Paired Language Banner
+    image_conflicts_html = ""
+    if image_conflicts:
+        blocked_count = sum(1 for c in image_conflicts if c.get("image_status") == "blocked_th_en_conflict")
+        pending_count = sum(1 for c in image_conflicts if c.get("image_status") == "pending_paired_language")
+        border_col = "#dc3545" if blocked_count > 0 else "#e67e22"
+        bg_col = "#fff3f3" if blocked_count > 0 else "#fff8eb"
+        head_bg = "#f8d7da" if blocked_count > 0 else "#ffe8cc"
+        title_txt = (
+            f"🚨 [ALERT] ตรวจพบความขัดแย้ง TH/EN ของรูปภาพ ({blocked_count} รุ่นถูกระงับ, {pending_count} รุ่นรอจับคู่ภาษา)"
+            if blocked_count > 0
+            else f"⏳ [PENDING] มี {pending_count} รุ่นรอไฟล์โบรชัวร์คู่ภาษา (TH/EN Paired Update Gate)"
+        )
+        image_conflicts_html = f"""
+        <div style="background-color: {bg_col}; border: 2px solid {border_col}; border-radius: 8px; padding: 16px; margin-bottom: 24px; font-family: Arial, sans-serif;">
+          <h3 style="color: {border_col}; margin-top: 0; font-size: 18px;">{html_lib.escape(title_txt)}</h3>
+          <p style="margin: 0 0 12px 0; color: #5c2a2a; font-size: 14px; line-height: 1.5;">
+            ระบบได้หยุดการดึงรูปสีอัตโนมัติสำหรับรุ่นที่มีความขัดแย้งระหว่างข้อมูล TH และ EN เพื่อป้องกันรูปภาพไม่ตรงกันทั้งสองภาษา:
+          </p>
+          <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+            <tr style="background-color: {head_bg}; border-bottom: 2px solid {border_col}; text-align: left;">
+              <th style="padding: 8px;">รุ่นรถยนต์</th>
+              <th style="padding: 8px;">สถานะ</th>
+              <th style="padding: 8px;">ประเภท</th>
+              <th style="padding: 8px;">รายละเอียด</th>
+            </tr>
+        """
+        for item in image_conflicts:
+            st = html_lib.escape(str(item.get("image_status", "")))
+            md = html_lib.escape(str(item.get("model_name", "")))
+            ct = html_lib.escape(str(item.get("conflict_type", "")))
+            rs = html_lib.escape(str(item.get("reason", "")))
+            image_conflicts_html += f"""
+            <tr style="border-bottom: 1px solid #f5c6cb; vertical-align: top;">
+              <td style="padding: 8px; font-weight: bold;">{md}</td>
+              <td style="padding: 8px; font-weight: bold; color: {border_col};">{st}</td>
+              <td style="padding: 8px;">{ct}</td>
+              <td style="padding: 8px;">{rs}</td>
+            </tr>
+            """
+        image_conflicts_html += "</table></div>"
+
     # PDF updates table
     pdf_updates_html = ""
     if not added_pdfs and not removed_pdfs:
@@ -418,17 +589,66 @@ def generate_html_report(added_pdfs, removed_pdfs, missing_imgs, total_non_m, mo
         api_html += f"<li style='margin-bottom: 5px; font-family: Arial, sans-serif;'>{status.split(':')[0]}: <span style='color: {color}; font-weight: bold;'>{status.split(':')[1]}</span></li>"
     api_html += "</ul>"
 
-    # Missing images table
-    missing_imgs_html = ""
-    if not missing_imgs:
-        missing_imgs_html = "<p style='color: #28a745; font-weight: bold; font-family: Arial, sans-serif;'>🎉 All non-M models have 100% complete paintwork images mapped on disk!</p>"
+    # Missing images breakdown (2A Broken vs 2B Pending BMW Configurator, excluding blocked models from broken)
+    if missing_img_breakdown is None:
+        fallback_broken = missing_imgs if isinstance(missing_imgs, dict) else {}
+        broken_imgs = fallback_broken
+        pending_imgs = {}
+        blocked_imgs = {}
+        complete_count = max(0, total_non_m - models_missing_imgs)
+        broken_count = len(broken_imgs) if broken_imgs else models_missing_imgs
+        pending_count = 0
+        blocked_count = 0
     else:
-        missing_imgs_html = "<table style='width: 100%; border-collapse: collapse; margin-bottom: 20px; font-family: Arial, sans-serif;'>"
-        missing_imgs_html += "<tr style='background-color: #f8f9fa; border-bottom: 2px solid #dee2e6; text-align: left;'><th style='padding: 8px; width: 30%;'>Model</th><th style='padding: 8px;'>Details / Missing Colors</th></tr>"
-        for model, details in missing_imgs.items():
-            details_str = "<br>".join([f"• {d}" for d in details])
-            missing_imgs_html += f"<tr style='border-bottom: 1px solid #dee2e6; vertical-align: top;'><td style='padding: 8px; font-weight: bold;'>{model}</td><td style='padding: 8px; color: #d9534f;'>{details_str}</td></tr>"
-        missing_imgs_html += "</table>"
+        broken_imgs = missing_img_breakdown.get("broken", {})
+        pending_imgs = missing_img_breakdown.get("pending_configurator", {})
+        blocked_imgs = missing_img_breakdown.get("blocked", {})
+        complete_count = missing_img_breakdown.get("complete_count", max(0, total_non_m - models_missing_imgs))
+        broken_count = missing_img_breakdown.get("broken_count", len(broken_imgs))
+        pending_count = missing_img_breakdown.get("pending_count", len(pending_imgs))
+        blocked_count = missing_img_breakdown.get("blocked_count", len(blocked_imgs))
+
+    if broken_count > 0 or blocked_count > 0:
+        coverage_color = "#dc3545"
+    elif pending_count > 0:
+        coverage_color = "#f0ad4e"
+    else:
+        coverage_color = "#28a745"
+
+    if broken_count == 0 and pending_count == 0 and blocked_count == 0:
+        coverage_sublabel = "(Non-M models with images)"
+    else:
+        coverage_sublabel = (
+            f"({complete_count} complete | {broken_count} broken | "
+            f"{pending_count} pending configurator | {blocked_count} blocked)"
+        )
+
+    def _render_img_issue_table(items_dict, text_color):
+        tbl = "<table style='width: 100%; border-collapse: collapse; margin-bottom: 16px; font-family: Arial, sans-serif;'>"
+        tbl += "<tr style='background-color: #f8f9fa; border-bottom: 2px solid #dee2e6; text-align: left;'><th style='padding: 8px; width: 30%;'>Model</th><th style='padding: 8px;'>Details / Missing Colors</th></tr>"
+        for m_name, details in items_dict.items():
+            esc_model = html_lib.escape(str(m_name))
+            details_str = "<br>".join([f"• {html_lib.escape(str(d))}" for d in details])
+            tbl += f"<tr style='border-bottom: 1px solid #dee2e6; vertical-align: top;'><td style='padding: 8px; font-weight: bold;'>{esc_model}</td><td style='padding: 8px; color: {text_color};'>{details_str}</td></tr>"
+        tbl += "</table>"
+        return tbl
+
+    missing_imgs_html = "<h4 style='margin: 12px 0 6px 0; color: #0b132b; font-family: Arial, sans-serif;'>2A. Broken / Missing Images</h4>"
+    if not broken_imgs:
+        missing_imgs_html += "<p style='color: #28a745; font-weight: bold; font-family: Arial, sans-serif;'>🎉 Zero broken/unexplained missing paintwork images on disk!</p>"
+    else:
+        missing_imgs_html += _render_img_issue_table(broken_imgs, "#d9534f")
+
+    missing_imgs_html += "<h4 style='margin: 14px 0 6px 0; color: #8a6d3b; font-family: Arial, sans-serif;'>2B. Pending BMW Configurator</h4>"
+    if not pending_imgs:
+        missing_imgs_html += "<p style='color: #6c757d; font-family: Arial, sans-serif;'>⏳ Pending BMW Configurator: 0 models waiting.</p>"
+    else:
+        missing_imgs_html += "<p style='color: #8a6d3b; font-size: 13px; margin: 0 0 8px 0; font-family: Arial, sans-serif;'>รุ่นที่ Spec Guard / Auto-Scraper รอข้อมูลหรือรูปสีใหม่จาก BMW Thailand Online Configurator (ระบบจะลองดึงใหม่อัตโนมัติทุกวัน โดยไม่นับเป็นรูปเสีย):</p>"
+        missing_imgs_html += _render_img_issue_table(pending_imgs, "#8a6d3b")
+
+    if blocked_imgs:
+        blocked_names = html_lib.escape(", ".join(blocked_imgs.keys()))
+        missing_imgs_html += f"<p style='color: #6c757d; font-size: 13px; font-family: Arial, sans-serif;'>🚫 Blocked / Unpaired TH-EN models ({len(blocked_imgs)}: {blocked_names}) are excluded from Broken Images and listed in the TH/EN Conflict Gate above.</p>"
 
     # Discrepancies table
     discrepancies_html = ""
@@ -466,8 +686,8 @@ def generate_html_report(added_pdfs, removed_pdfs, missing_imgs, total_non_m, mo
           
           <div style="background-color: #f8f9fa; border-left: 4px solid #e28743; padding: 15px; border-radius: 4px;">
             <div style="font-size: 12px; color: #6c757d; font-weight: bold; text-transform: uppercase;">Image Coverage</div>
-            <div style="font-size: 24px; font-weight: bold; color: { '#28a745' if models_missing_imgs == 0 else '#dc3545' };">{total_non_m - models_missing_imgs}/{total_non_m}</div>
-            <div style="font-size: 11px; color: #6c757d;">(Non-M models with images)</div>
+            <div style="font-size: 24px; font-weight: bold; color: {coverage_color};">{complete_count}/{total_non_m}</div>
+            <div style="font-size: 11px; color: #6c757d;">{coverage_sublabel}</div>
           </div>
 
           <div style="background-color: #f8f9fa; border-left: 4px solid #5bc0be; padding: 15px; border-radius: 4px;">
@@ -483,6 +703,7 @@ def generate_html_report(added_pdfs, removed_pdfs, missing_imgs, total_non_m, mo
           
           {gdrive_html}
           {uncategorized_html}
+          {image_conflicts_html}
 
           <!-- 1. PDF Updates -->
           <h3 style="border-bottom: 2px solid #0b132b; padding-bottom: 5px; color: #0b132b;">1. 📄 Brochure PDF Changes</h3>
@@ -550,6 +771,7 @@ def main():
     added_pdfs, removed_pdfs = audit_pdf_changes()
     
     print("[AUDIT] Auditing missing color images...")
+    img_breakdown = categorize_missing_images(th_data)
     missing_imgs, total_non_m, models_missing_imgs = audit_missing_images(th_data)
     
     print("[AUDIT] Running data discrepancy checks...")
@@ -571,6 +793,13 @@ def main():
     print("[AUDIT] Checking Google Drive backup status...")
     gdrive_status = audit_gdrive_status()
 
+    print("[AUDIT] Auditing TH/EN image conflicts & paired update status...")
+    image_conflicts = audit_image_conflicts(th_data, en_data)
+    if image_conflicts:
+        print(f"[ALERT] Found {len(image_conflicts)} model(s) with TH/EN image conflict or pending paired update!")
+    else:
+        print("[AUDIT] No TH/EN image conflicts detected (0 blocked/pending).")
+
     # Generate HTML Report body
     print("[REPORT] Formatting HTML body...")
     html_body = generate_html_report(
@@ -579,7 +808,9 @@ def main():
         discrepancies, total_checks, 
         api_status, files_overridden, total_rules,
         uncategorized=uncategorized,
-        gdrive_status=gdrive_status
+        gdrive_status=gdrive_status,
+        image_conflicts=image_conflicts,
+        missing_img_breakdown=img_breakdown
     )
     
     # Send via Google Apps Script (GAS) Web App
@@ -595,6 +826,14 @@ def main():
         subject_prefix += "🚨 [ALERT: GDrive Backup Failed] "
     if uncategorized:
         subject_prefix += f"🚨 [ALERT: {len(uncategorized)} Uncategorized Series (หมวด 99)] "
+
+    if image_conflicts:
+        blocked_cnt = sum(1 for c in image_conflicts if c.get("image_status") == "blocked_th_en_conflict")
+        pending_cnt = sum(1 for c in image_conflicts if c.get("image_status") == "pending_paired_language")
+        if blocked_cnt > 0:
+            subject_prefix += f"🚨 [ALERT: {blocked_cnt} TH/EN Image Conflict(s)] "
+        elif pending_cnt > 0:
+            subject_prefix += f"⏳ [PENDING: {pending_cnt} Unpaired Update(s)] "
 
     payload = {
         "secret": GAS_SECRET_TOKEN,
