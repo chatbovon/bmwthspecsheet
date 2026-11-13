@@ -42601,7 +42601,7 @@
                 ],
                 "is_custom_archived": false,
                 "images": {},
-                "image_status": "new_model_scrape"
+                "image_status": "pending_configurator"
             }
         ],
         "source_file": "7-20261014-01_EN.pdf.asset.1793099190356.pdf",
@@ -43726,7 +43726,7 @@
                 ],
                 "is_custom_archived": false,
                 "images": {},
-                "image_status": "lci_refresh_required"
+                "image_status": "pending_configurator"
             }
         ],
         "source_file": "7-20261015-01_EN.pdf.asset.1793099190322.pdf",
