@@ -1,450 +1,28 @@
 {
-    "series": "BMW 4 Series",
-    "pdf_source": "4_SERIES_ALL_TH_.pdf.asset.1794805688627.pdf",
+    "series": "BMW M2",
+    "pdf_source": "M2.-20260806-01_TH.pdf.asset.1794805688646.pdf",
     "models": [
         {
-            "model_name": "420i Coupé M Sport",
+            "model_name": "M2 M xDrive",
             "specifications": [
                 {
                     "category": "เครื่องยนต์และสมรรถนะ",
                     "details": [
                         {
                             "topic": "ชนิดเครื่องยนต์",
-                            "value": "เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี BMW TwinPower Turbo"
+                            "value": "เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี M TwinPower Turbo"
                         },
                         {
                             "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)",
-                            "value": "1,998"
+                            "value": "2,993"
                         },
                         {
                             "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
-                            "value": "135 / 184 / 5,000 - 6,500"
+                            "value": "353 / 480 / 6,250"
                         },
                         {
                             "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)",
-                            "value": "300 / 1,350 - 4,000"
-                        },
-                        {
-                            "topic": "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)",
-                            "value": "240"
-                        },
-                        {
-                            "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)",
-                            "value": "7.5"
-                        }
-                    ]
-                },
-                {
-                    "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO₂",
-                    "details": [
-                        {
-                            "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
-                            "value": "15.6"
-                        },
-                        {
-                            "topic": "ระดับการปล่อย CO₂ เฉลี่ย (กรัม/กิโลเมตร)",
-                            "value": "145"
-                        }
-                    ]
-                },
-                {
-                    "category": "ล้อและยาง",
-                    "details": [
-                        {
-                            "topic": "ล้อ",
-                            "value": "ล้ออัลลอย M ขนาด 18 นิ้ว ลาย Double-spoke แบบสลับสี"
-                        },
-                        {
-                            "topic": "ขนาดยาง",
-                            "value": "7.5J × 18 / ยาง 225/40 R18"
-                        },
-                        {
-                            "topic": "ยาง Runflat",
-                            "value": "■"
-                        }
-                    ]
-                },
-                {
-                    "category": "มิติรถยนต์",
-                    "details": [
-                        {
-                            "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)",
-                            "value": "4,768 / 1,852 / 1,383"
-                        },
-                        {
-                            "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
-                            "value": "440"
-                        },
-                        {
-                            "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
-                            "value": "1,600"
-                        }
-                    ]
-                },
-                {
-                    "category": "ระบบขับเคลื่อนและเทคโนโลยี",
-                    "details": [
-                        {
-                            "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ Steptronicพร้อม Gearshift Paddles",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ Sport Steptronicพร้อม Gearshift Paddles",
-                            "value": "-"
-                        },
-                        {
-                            "topic": "ช่วงล่าง M Sport",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "พวงมาลัยไฟฟ้าแปรผันตามการหมุนและความเร็ว",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบควบคุมความเร็วอัตโนมัติ พร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบช่วยการขับขี่ (Driving Assistant)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ (Parking Assistant)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus)",
-                            "value": "-"
-                        }
-                    ]
-                },
-                {
-                    "category": "อุปกรณ์ภายนอก",
-                    "details": [
-                        {
-                            "topic": "ระบบไฟหน้าแบบ LED",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)",
-                            "value": "-"
-                        },
-                        {
-                            "topic": "คาลิเปอร์เบรกดีไซน์ M Sport",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "หลังคากระจกเปิด-ปิดด้วยระบบไฟฟ้า",
-                            "value": "-"
-                        },
-                        {
-                            "topic": "ชุดตกแต่ง M Aerodynamics",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "โคมไฟหน้าตกแต่งดีไซน์ M สีดํา (M Lights Shadow Line)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ภายนอกตกแต่งด้วยชุดแต่ง M สีดำเงา",
-                            "value": "■"
-                        }
-                    ]
-                },
-                {
-                    "category": "อุปกรณ์ภายใน",
-                    "details": [
-                        {
-                            "topic": "กระจกมองข้างฝั่งคนขับและกระจกมองหลังตัดแสงอัตโนมัติ",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "พนักพิงฝั่งคนขับปรับความกว้างได้",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "เบาะนั่งตอนหน้าปรับช่วงหลังล่างได้",
-                            "value": "-"
-                        },
-                        {
-                            "topic": "พวงมาลัยหุ้มหนังดีไซน์ M แบบ M Performance",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "พวงมาลัยหุ้มหนังดีไซน์ M",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "คอนโซลด้านบนแบบ Luxury",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "เข็มขัดนิรภัยดีไซน์ M",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ชุดไฟล่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "เพดานหลังคาภายในสี Anthracite",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบปรับอากาศอัตโนมัติ",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ภายในตกแต่งดีไซน์ M ด้วยวัสดุอะลูมิเนียมแบบ Fine-Brushed",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ภายในตกแต่งด้วยวัสดุ Carbon Fibre",
-                            "value": "-"
-                        },
-                        {
-                            "topic": "ฟังก์ชันช่วยการจัดเก็บสัมภาระ",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "แผงควบคุมแบบ Galvanic",
-                            "value": "■"
-                        }
-                    ]
-                },
-                {
-                    "category": "ระบบความบันเกิงและการสื่อสาร",
-                    "details": [
-                        {
-                            "topic": "BMW Live Cockpit Plus",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "BMW Live Cockpit Professional",
-                            "value": "-"
-                        },
-                        {
-                            "topic": "ระบบ BMW Connected Package Professional",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบ BMW ConnectedDrive",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเครื่องเสียง HiFi loudspeaker",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเครื่องเสียงรอบทิศทาง Harman Kardon",
-                            "value": "-"
-                        },
-                        {
-                            "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเชื่อมต่อ Smartphone",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM)",
-                            "value": "■"
-                        }
-                    ]
-                },
-                {
-                    "category": "ความปลอดภัย",
-                    "details": [
-                        {
-                            "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบ Teleservices",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบควบคุมเสถียรภาพการขับซี่ (DSC)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบควบคุมการยืดเกาะถนน (DTC)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "เซนเซอร์ควบคุมระยะการจอดด้านหน้าและหลัง",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบตรวจวัดลมยาง",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ป้ายสามเหลี่ยมเตือนสะท้อนแสง",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ชุดปะยางฉุกเฉินรุ่น Plus",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเตือนการชนด้านหน้าพร้อมระบบช่วยเบรก",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเตือนคนเดินเท้าพร้อมระบบเบรกอัตโนมัติในเมือง",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเตือนรถออกนอกเลนพร้อมช่วยนำรถกลับเข้าเลน",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเตือนการเปลี่ยนเลน",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเตือนการจราจรด้านหลัง",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบป้องกันการชนด้านหลัง",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบควบคุมความเร็วอัตโนมัติ พร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)",
-                            "value": "■"
-                        }
-                    ]
-                },
-                {
-                    "category": "ชุดตกแต่งพิเศษ",
-                    "details": [
-                        {
-                            "topic": "ชุดตกแต่ง M Sport",
-                            "value": "■"
-                        }
-                    ]
-                },
-                {
-                    "category": "Paintwork / สีตัวถังและวัสดุภายใน",
-                    "details": [
-                        {
-                            "topic": "Mineral White Metallic",
-                            "value": "Leather 'Vernasca' - Black/Red highlight"
-                        },
-                        {
-                            "topic": "Black Sapphire Metallic",
-                            "value": "Leather 'Vernasca' - Black/Red highlight"
-                        },
-                        {
-                            "topic": "Brooklyn Grey Metallic",
-                            "value": "Leather 'Vernasca' - Black/Red highlight"
-                        },
-                        {
-                            "topic": "Dravit Grey Metallic",
-                            "value": "Leather 'Vernasca' - Black/Red highlight"
-                        },
-                        {
-                            "topic": "Arctic Race Blue Metallic",
-                            "value": "Leather 'Vernasca' - Mocha decor stitching"
-                        },
-                        {
-                            "topic": "Cape York Green Metallic",
-                            "value": "Leather 'Vernasca' - Mocha decor stitching"
-                        }
-                    ]
-                },
-                {
-                    "category": "ข้อมูลเอกสารอ้างอิง",
-                    "details": [
-                        {
-                            "topic": "วันที่พิมพ์เอกสาร",
-                            "value": "14 กรกฎาคม 2569"
-                        },
-                        {
-                            "topic": "รหัสแพ็กเกจ (Local Pack)",
-                            "value": "(ZLI)"
-                        }
-                    ]
-                }
-            ],
-            "images": {
-                "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_mineral_white_metallic.webp",
-                "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_black_sapphire_metallic.webp",
-                "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_m_brooklyn_grey_metallic.webp",
-                "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_bmw_individual_dravit_grey_metallic.webp",
-                "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_arctic_race_blue_metallic.webp",
-                "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_cape_york_green_metallic.webp"
-            },
-            "image_status": "reused_same_gen"
-        },
-        {
-            "model_name": "430i Coupé M Sport",
-            "specifications": [
-                {
-                    "category": "เครื่องยนต์และสมรรถนะ",
-                    "details": [
-                        {
-                            "topic": "ชนิดเครื่องยนต์",
-                            "value": "เครื่องยนต์เบนซิน 4 สูบ เทคโนโลยี BMW TwinPower Turbo"
-                        },
-                        {
-                            "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)",
-                            "value": "1,998"
-                        },
-                        {
-                            "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
-                            "value": "190 / 258 / 5,000 - 6,500"
-                        },
-                        {
-                            "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)",
-                            "value": "400 / 1,550 - 4,400"
+                            "value": "600 / 2,700 - 5,620"
                         },
                         {
                             "topic": "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)",
@@ -452,7 +30,11 @@
                         },
                         {
                             "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)",
-                            "value": "5.8"
+                            "value": "3.7"
+                        },
+                        {
+                            "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)¹",
+                            "value": "3.4"
                         }
                     ]
                 },
@@ -461,11 +43,11 @@
                     "details": [
                         {
                             "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
-                            "value": "15.2"
+                            "value": "9.9"
                         },
                         {
                             "topic": "ระดับการปล่อย CO₂ เฉลี่ย (กรัม/กิโลเมตร)",
-                            "value": "150"
+                            "value": "227"
                         }
                     ]
                 },
@@ -474,15 +56,11 @@
                     "details": [
                         {
                             "topic": "ล้อ",
-                            "value": "ล้ออัลลอย M ขนาด 19 นิ้ว ลาย Double-spoke แบบสลับสี"
+                            "value": "ล้ออัลลอย M ขนาด 19 และ 20 นิ้ว ลาย Double-spoke"
                         },
                         {
                             "topic": "ขนาดยาง",
-                            "value": "ล้อหน้า: 8 J x 19 / ยาง 225/40 R19 ล้อหลัง: 8.5 J x 19 / ยาง 255/35 R19"
-                        },
-                        {
-                            "topic": "ยาง Runflat",
-                            "value": "■"
+                            "value": "ล้อหน้า: 9.5 J × 19 / ยาง 275/35 ZR 19 ล้อหลัง: 10.5 J × 20 / ยาง 285/30 ZR 20"
                         }
                     ]
                 },
@@ -491,15 +69,15 @@
                     "details": [
                         {
                             "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)",
-                            "value": "4,768 / 1,852 / 1,383"
+                            "value": "4,580 / 1,887 / 1,404"
                         },
                         {
                             "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
-                            "value": "440"
+                            "value": "390"
                         },
                         {
-                            "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
-                            "value": "1,620"
+                            "topic": "น้ำหนักสุทธิไม่รวมคนขับ (กิโลกรัม)",
+                            "value": "1,780"
                         }
                     ]
                 },
@@ -507,23 +85,23 @@
                     "category": "ระบบขับเคลื่อนและเทคโนโลยี",
                     "details": [
                         {
-                            "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ Steptronicพร้อม Gearshift Paddles",
-                            "value": "-"
-                        },
-                        {
-                            "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ Sport Steptronicพร้อม Gearshift Paddles",
+                            "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ M Steptronic พร้อม Drivelogic",
                             "value": "■"
                         },
                         {
-                            "topic": "ช่วงล่าง M Sport",
+                            "topic": "โหมดการขับขี่ M Drive Professional",
                             "value": "■"
                         },
                         {
-                            "topic": "พวงมาลัยไฟฟ้าแปรผันตามการหมุนและความเร็ว",
+                            "topic": "ระบบเฟืองท้าย M Sport",
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบควบคุมความเร็วอัตโนมัติ พร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)",
+                            "topic": "ช่วงล่าง Adaptive M",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบควบคุมความเร็วอัตโนมัติ พร้อมฟังก์ชัน Stop&Go(Active cruise control with Stop&Go function)",
                             "value": "■"
                         },
                         {
@@ -532,10 +110,6 @@
                         },
                         {
                             "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ (Parking Assistant)",
-                            "value": "-"
-                        },
-                        {
-                            "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus)",
                             "value": "■"
                         }
                     ]
@@ -544,15 +118,19 @@
                     "category": "อุปกรณ์ภายนอก",
                     "details": [
                         {
-                            "topic": "ระบบไฟหน้าแบบ LED",
-                            "value": "-"
-                        },
-                        {
-                            "topic": "ระบบไฟหน้า LED อัจฉริยะ (Adaptive LED)",
+                            "topic": "ชุดเบรก M Compound Brake สีแดงเงา",
                             "value": "■"
                         },
                         {
-                            "topic": "คาลิเปอร์เบรกดีไซน์ M Sport",
+                            "topic": "โคมไฟหน้าตกแต่งสีดำ (M Lights Shadowline)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ภายนอกตกแต่งด้วยชุดแต่ง M สีดำเงา",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "หลังคา M Carbon",
                             "value": "■"
                         },
                         {
@@ -560,27 +138,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบปลดล็อกประตูอัจฉริยะ (Comfort Access System)",
+                            "topic": "ระบบปลดล็อกประตูอัจฉริยะ",
                             "value": "■"
                         },
                         {
-                            "topic": "หลังคากระจกเปิด-ปิดด้วยระบบไฟฟ้า",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ชุดตกแต่ง M Aerodynamics",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "โคมไฟหน้าตกแต่งดีไซน์ M สีดํา (M Lights Shadow Line)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ภายนอกตกแต่งด้วยชุดแต่ง M สีดำเงา",
+                            "topic": "ระบบไฟหน้า LED อัจจริยะ",
                             "value": "■"
                         }
                     ]
@@ -589,15 +151,39 @@
                     "category": "อุปกรณ์ภายใน",
                     "details": [
                         {
+                            "topic": "ภายในตกแต่งดีไซน์ M ด้วยวัสดุ Carbon Fibre",
+                            "value": "■"
+                        },
+                        {
                             "topic": "กระจกมองข้างฝั่งคนขับและกระจกมองหลังตัดแสงอัตโนมัติ",
                             "value": "■"
                         },
                         {
-                            "topic": "พนักพิงฝั่งคนขับปรับความกว้างได้",
+                            "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)",
                             "value": "■"
                         },
                         {
+                            "topic": "เอ็มชัดนิรภัยดีไซน์ M",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "เบาะนั่งตอนหน้าดีไซน์ M Sport",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "เบาะนั่ง M Carbon ทรง Bucket Seat",
+                            "value": "-"
+                        },
+                        {
                             "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบอุ่นเบาะสำหรับคนขับและผู้โดยสารเบาะหน้า",
+                            "value": "-"
+                        },
+                        {
+                            "topic": "กาบบันไดดีไซน์ M แบบเรืองแสง",
                             "value": "■"
                         },
                         {
@@ -605,39 +191,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "พวงมาลัยหุ้มหนังดีไซน์ M แบบ M Performance",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "พวงมาลัยหุ้มหนังดีไซน์ M",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "คอนโซลด้านบนแบบ Luxury",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "เข็มขัดนิรภัยดีไซน์ M",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ชุดไฟล่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "เพดานหลังคาภายในสี Anthracite",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบปรับอากาศอัตโนมัติ",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ภายในตกแต่งดีไซน์ M ด้วยวัสดุอะลูมิเนียมแบบ Fine-Brushed",
-                            "value": "-"
-                        },
-                        {
-                            "topic": "ภายในตกแต่งด้วยวัสดุ Carbon Fibre",
+                            "topic": "หลังคาภายในดีไซน์ M สี Anthracite",
                             "value": "■"
                         },
                         {
@@ -645,7 +199,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "แผงควบคุมแบบ Galvanic",
+                            "topic": "ระบบปรับอากาศอัตโนมัติ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ที่รองศีรษะเบาะตอนหลังพับได้",
                             "value": "■"
                         }
                     ]
@@ -654,15 +212,7 @@
                     "category": "ระบบความบันเกิงและการสื่อสาร",
                     "details": [
                         {
-                            "topic": "BMW Live Cockpit Plus",
-                            "value": "-"
-                        },
-                        {
                             "topic": "BMW Live Cockpit Professional",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบ BMW Connected Package Professional",
                             "value": "■"
                         },
                         {
@@ -670,15 +220,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบเครื่องเสียง HiFi loudspeaker",
-                            "value": "-"
-                        },
-                        {
-                            "topic": "ระบบเครื่องเสียงรอบทิศทาง Harman Kardon",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย",
+                            "topic": "BMW Connected Package Professional",
                             "value": "■"
                         },
                         {
@@ -686,7 +228,15 @@
                             "value": "■"
                         },
                         {
+                            "topic": "ระบบเครื่องเสียงรอบทิศทาง Harman Kardon",
+                            "value": "■"
+                        },
+                        {
                             "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย",
                             "value": "■"
                         }
                     ]
@@ -715,11 +265,15 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบควบคุมเสถียรภาพการขับซี่ (DSC)",
+                            "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC)",
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบควบคุมการยืดเกาะถนน (DTC)",
+                            "topic": "ระบบควบคุมแรงดันเบรกแบบแปรผัน (DBC)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC)",
                             "value": "■"
                         },
                         {
@@ -731,7 +285,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC)",
+                            "topic": "เซนเซอร์ควบคุมระยะการจอดด้านหน้าและหลัง",
                             "value": "■"
                         },
                         {
@@ -739,19 +293,15 @@
                             "value": "■"
                         },
                         {
-                            "topic": "เซนเซอร์ควบคุมระยะการจอดด้านหน้าและหลัง",
-                            "value": "■"
-                        },
-                        {
                             "topic": "ระบบตรวจวัดลมยาง",
                             "value": "■"
                         },
                         {
-                            "topic": "ป้ายสามเหลี่ยมเตือนสะท้อนแสง",
+                            "topic": "ชุดปะยางฉุกเฉิน",
                             "value": "■"
                         },
                         {
-                            "topic": "ชุดปะยางฉุกเฉินรุ่น Plus",
+                            "topic": "ป้ายสามเหลี่ยมเตือนสะท้อนแสง",
                             "value": "■"
                         },
                         {
@@ -779,7 +329,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบควบคุมความเร็วอัตโนมัติ พร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)",
+                            "topic": "ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)",
                             "value": "■"
                         }
                     ]
@@ -788,8 +338,8 @@
                     "category": "ชุดตกแต่งพิเศษ",
                     "details": [
                         {
-                            "topic": "ชุดตกแต่ง M Sport",
-                            "value": "■"
+                            "topic": "แพ็กเกจ M Driver's",
+                            "value": "-"
                         }
                     ]
                 },
@@ -797,28 +347,36 @@
                     "category": "Paintwork / สีตัวถังและวัสดุภายใน",
                     "details": [
                         {
-                            "topic": "Mineral White Metallic",
-                            "value": "Leather 'Vernasca' - Black/Red highlight"
+                            "topic": "Zandvoort Blue Solid",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
                         },
                         {
-                            "topic": "Black Sapphire Metallic",
-                            "value": "Leather 'Vernasca' - Black/Red highlight"
+                            "topic": "Alpine White Solid",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
+                        },
+                        {
+                            "topic": "Sao Paulo Yellow Solid",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
+                        },
+                        {
+                            "topic": "Fire Red Metallic",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
+                        },
+                        {
+                            "topic": "Skyscraper Grey Metallic",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
                         },
                         {
                             "topic": "Brooklyn Grey Metallic",
-                            "value": "Leather 'Vernasca' - Black/Red highlight"
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
                         },
                         {
-                            "topic": "Dravit Grey Metallic",
-                            "value": "Leather 'Vernasca' - Black/Red highlight"
+                            "topic": "Portimao Blue Metallic",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
                         },
                         {
-                            "topic": "Arctic Race Blue Metallic",
-                            "value": "Leather 'Vernasca' - Mocha decor stitching"
-                        },
-                        {
-                            "topic": "Cape York Green Metallic",
-                            "value": "Leather 'Vernasca' - Mocha decor stitching"
+                            "topic": "Black Sapphire Metallic",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
                         }
                     ]
                 },
@@ -827,26 +385,414 @@
                     "details": [
                         {
                             "topic": "วันที่พิมพ์เอกสาร",
-                            "value": "14 กรกฎาคม 2569"
+                            "value": "6 สิงหาคม 2569"
                         },
                         {
                             "topic": "รหัสแพ็กเกจ (Local Pack)",
-                            "value": "-"
+                            "value": "(ZLJ, ZME)"
                         }
                     ]
                 }
             ],
-            "images": {
-                "Mineral White metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_mineral_white_metallic.webp",
-                "Black Sapphire metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_black_sapphire_metallic.webp",
-                "M Brooklyn Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_m_brooklyn_grey_metallic.webp",
-                "BMW Individual Dravit Grey metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_bmw_individual_dravit_grey_metallic.webp",
-                "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_arctic_race_blue_metallic.webp",
-                "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_cape_york_green_metallic.webp"
-            },
-            "image_status": "reused_same_gen"
+            "images": {},
+            "image_status": "new_model_scrape"
+        },
+        {
+            "model_name": "M2 M xDrive (M Racetrack)",
+            "specifications": [
+                {
+                    "category": "เครื่องยนต์และสมรรถนะ",
+                    "details": [
+                        {
+                            "topic": "ชนิดเครื่องยนต์",
+                            "value": "เครื่องยนต์เบนซิน 6 สูบ เทคโนโลยี M TwinPower Turbo"
+                        },
+                        {
+                            "topic": "ปริมาตรกระบอกสูบ (ลูกบาศก์เซนติเมตร)",
+                            "value": "2,993"
+                        },
+                        {
+                            "topic": "กำลังสูงสุด (กิโลวัตต์/แรงม้า/รอบต่อนาที)",
+                            "value": "353 / 480 / 6,250"
+                        },
+                        {
+                            "topic": "แรงบิดสูงสุด (นิวตันเมตร/รอบต่อนาที)",
+                            "value": "600 / 2,700 - 5,620"
+                        },
+                        {
+                            "topic": "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)",
+                            "value": "285"
+                        },
+                        {
+                            "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)",
+                            "value": "3.7"
+                        },
+                        {
+                            "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)¹",
+                            "value": "3.4"
+                        }
+                    ]
+                },
+                {
+                    "category": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิง และระดับการปล่อย CO₂",
+                    "details": [
+                        {
+                            "topic": "อัตราสิ้นเปลืองน้ำมันเชื้อเพลิงเฉลี่ย - อ้างอิงผล ECO Sticker (กิโลเมตร/ลิตร)",
+                            "value": "9.9"
+                        },
+                        {
+                            "topic": "ระดับการปล่อย CO₂ เฉลี่ย (กรัม/กิโลเมตร)",
+                            "value": "227"
+                        }
+                    ]
+                },
+                {
+                    "category": "ล้อและยาง",
+                    "details": [
+                        {
+                            "topic": "ล้อ",
+                            "value": "ล้ออัลลอย M ขนาด 19 และ 20 นิ้ว ลาย Double-spoke"
+                        },
+                        {
+                            "topic": "ขนาดยาง",
+                            "value": "ล้อหน้า: 9.5 J × 19 / ยาง 275/35 ZR 19 ล้อหลัง: 10.5 J × 20 / ยาง 285/30 ZR 20"
+                        }
+                    ]
+                },
+                {
+                    "category": "มิติรถยนต์",
+                    "details": [
+                        {
+                            "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)",
+                            "value": "4,580 / 1,887 / 1,404"
+                        },
+                        {
+                            "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
+                            "value": "390"
+                        },
+                        {
+                            "topic": "น้ำหนักสุทธิไม่รวมคนขับ (กิโลกรัม)",
+                            "value": "1,780"
+                        }
+                    ]
+                },
+                {
+                    "category": "ระบบขับเคลื่อนและเทคโนโลยี",
+                    "details": [
+                        {
+                            "topic": "เกียร์อัตโนมัติ 8 จังหวะ แบบ M Steptronic พร้อม Drivelogic",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "โหมดการขับขี่ M Drive Professional",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบเฟืองท้าย M Sport",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ช่วงล่าง Adaptive M",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบควบคุมความเร็วอัตโนมัติ พร้อมฟังก์ชัน Stop&Go(Active cruise control with Stop&Go function)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบช่วยการขับขี่ (Driving Assistant)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ (Parking Assistant)",
+                            "value": "■"
+                        }
+                    ]
+                },
+                {
+                    "category": "อุปกรณ์ภายนอก",
+                    "details": [
+                        {
+                            "topic": "ชุดเบรก M Compound Brake สีแดงเงา",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "โคมไฟหน้าตกแต่งสีดำ (M Lights Shadowline)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ภายนอกตกแต่งด้วยชุดแต่ง M สีดำเงา",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "หลังคา M Carbon",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบปรับการทำงานไฟสูงอัตโนมัติ (High-beam Assistant)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบปลดล็อกประตูอัจฉริยะ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบไฟหน้า LED อัจจริยะ",
+                            "value": "■"
+                        }
+                    ]
+                },
+                {
+                    "category": "อุปกรณ์ภายใน",
+                    "details": [
+                        {
+                            "topic": "ภายในตกแต่งดีไซน์ M ด้วยวัสดุ Carbon Fibre",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "กระจกมองข้างฝั่งคนขับและกระจกมองหลังตัดแสงอัตโนมัติ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "เอ็มชัดนิรภัยดีไซน์ M",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "เบาะนั่งตอนหน้าดีไซน์ M Sport",
+                            "value": "-"
+                        },
+                        {
+                            "topic": "เบาะนั่ง M Carbon ทรง Bucket Seat",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจำตำแหน่งเฉพาะฝั่งคนขับ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบอุ่นเบาะสำหรับคนขับและผู้โดยสารเบาะหน้า",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "กาบบันไดดีไซน์ M แบบเรืองแสง",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "เบาะนั่งตอนหน้าปรับช่วงหลังล่างได้",
+                            "value": "-"
+                        },
+                        {
+                            "topic": "หลังคาภายในดีไซน์ M สี Anthracite",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ฟังก์ชันช่วยการจัดเก็บสัมภาระ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบปรับอากาศอัตโนมัติ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ที่รองศีรษะเบาะตอนหลังพับได้",
+                            "value": "■"
+                        }
+                    ]
+                },
+                {
+                    "category": "ระบบความบันเกิงและการสื่อสาร",
+                    "details": [
+                        {
+                            "topic": "BMW Live Cockpit Professional",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบ BMW ConnectedDrive",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "BMW Connected Package Professional",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบเชื่อมต่อ Smartphone",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบเครื่องเสียงรอบทิศทาง Harman Kardon",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบ eSIM ส่วนบุคคล (Personal eSIM)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย",
+                            "value": "■"
+                        }
+                    ]
+                },
+                {
+                    "category": "ความปลอดภัย",
+                    "details": [
+                        {
+                            "topic": "ถุงลมนิรภัยสำหรับคนขับและผู้โดยสารตอนหน้า",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ถุงลมนิรภัยด้านข้างสำหรับคนขับและผู้โดยสารตอนหน้า",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบ Teleservices",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ปุ่มโทรออกฉุกเฉิน (Intelligent Emergency Call)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบควบคุมแรงดันเบรกแบบแปรผัน (DBC)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบควบคุมการกระจายแรงเบรกขณะเข้าโค้ง (CBC)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบป้องกันล้อล็อกขณะเบรก (ABS)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "เซนเซอร์ควบคุมระยะการจอดด้านหน้าและหลัง",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบตรวจวัดลมยาง",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ชุดปะยางฉุกเฉิน",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ป้ายสามเหลี่ยมเตือนสะท้อนแสง",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบเตือนการชนด้านหน้าพร้อมระบบช่วยเบรก",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบเตือนคนเดินเท้าพร้อมระบบเบรกอัตโนมัติในเมือง",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบเตือนรถออกนอกเลนพร้อมช่วยนำรถกลับเข้าเลน",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบเตือนการเปลี่ยนเลน",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบเตือนการจราจรด้านหลัง",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบป้องกันการชนด้านหลัง",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบควบคุมความเร็วอัตโนมัติพร้อมฟังก์ชัน Stop&Go (Active cruise control with Stop&Go function)",
+                            "value": "■"
+                        }
+                    ]
+                },
+                {
+                    "category": "ชุดตกแต่งพิเศษ",
+                    "details": [
+                        {
+                            "topic": "แพ็กเกจ M Driver's",
+                            "value": "■"
+                        }
+                    ]
+                },
+                {
+                    "category": "Paintwork / สีตัวถังและวัสดุภายใน",
+                    "details": [
+                        {
+                            "topic": "Zandvoort Blue Solid",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
+                        },
+                        {
+                            "topic": "Alpine White Solid",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
+                        },
+                        {
+                            "topic": "Sao Paulo Yellow Solid",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
+                        },
+                        {
+                            "topic": "Fire Red Metallic",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
+                        },
+                        {
+                            "topic": "Skyscraper Grey Metallic",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
+                        },
+                        {
+                            "topic": "Brooklyn Grey Metallic",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
+                        },
+                        {
+                            "topic": "Portimao Blue Metallic",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
+                        },
+                        {
+                            "topic": "Black Sapphire Metallic",
+                            "value": "Leather 'Vernasca' - Black/Contrast Stitching Blue, Black/Exclusive Highlight, Black/Red highlight"
+                        }
+                    ]
+                },
+                {
+                    "category": "ข้อมูลเอกสารอ้างอิง",
+                    "details": [
+                        {
+                            "topic": "วันที่พิมพ์เอกสาร",
+                            "value": "6 สิงหาคม 2569"
+                        },
+                        {
+                            "topic": "รหัสแพ็กเกจ (Local Pack)",
+                            "value": "(ZLK)"
+                        }
+                    ]
+                }
+            ],
+            "images": {},
+            "image_status": "new_model_scrape"
         }
     ],
-    "source_file": "4_SERIES_ALL_TH_.pdf.asset.1794805688627.pdf",
-    "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/2026/4_SERIES_ALL_TH_.pdf.asset.1794805688627.pdf"
+    "source_file": "M2.-20260806-01_TH.pdf.asset.1794805688646.pdf",
+    "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/2026/M2.-20260806-01_TH.pdf.asset.1794805688646.pdf"
 }
