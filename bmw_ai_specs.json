@@ -1,56 +1,48 @@
 {
-    "series": "BMW i7",
-    "pdf_source": "i7-20261006-03_TH_335kW.pdf.asset.1793160815961.pdf",
+    "series": "BMW iX3",
+    "pdf_source": "iX3_20L-20261110-01_TH.pdf.asset.1794805688681.pdf",
     "models": [
         {
-            "model_name": "i7 50 xDrive M Sport",
+            "model_name": "iX3 40L xDrive M Sport",
             "specifications": [
                 {
                     "category": "เครื่องยนต์และสมรรถนะ",
                     "details": [
                         {
                             "topic": "มอเตอร์ไฟฟ้า",
-                            "value": "BMW eDrive technology"
+                            "value": "BMW eDrive technology รุ่นที่ 6 (800 V)"
                         },
                         {
                             "topic": "กำลังมอเตอร์ไฟฟ้าสูงสุด (กิโลวัตต์/แรงม้า)",
-                            "value": "335 / 455"
+                            "value": "275 / 374"
                         },
                         {
-                            "topic": "แรงบิดสูงสุด (นิ้วตันเมตร)",
-                            "value": "660"
+                            "topic": "แรงบิดสูงสุด (นิวตันเมตร)",
+                            "value": "565"
                         },
                         {
-                            "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน NEDC (กิโลเมตร)",
-                            "value": "สูงสุดถึง 692"
-                        },
-                        {
-                            "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน WLTP (กิโลเมตร)",
-                            "value": "620 - 727"
+                            "topic": "ระยะทางขับเคลื่อนไฟฟ้า¹, มาตรฐาน CLTC (กิโลเมตร)",
+                            "value": "702"
                         },
                         {
                             "topic": "ชนิดแบตเตอรี่ (แรงดันสูง)",
-                            "value": "ลิเทียม-ไอออน (Lithium-ion)"
+                            "value": "Lithium-ion"
                         },
                         {
-                            "topic": "ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง (กิโลวัตต์-ชั่วโมง)",
-                            "value": "118.1"
+                            "topic": "ความจุพลังงานแบตเตอรี่แรงสูง (กิโลวัตต์-ชั่วโมง)",
+                            "value": "86.9"
                         },
                         {
                             "topic": "ความเร็วสูงสุด (กิโลเมตร/ชั่วโมง)",
-                            "value": "210"
+                            "value": "200"
                         },
                         {
                             "topic": "อัตราเร่ง 0 - 100 กิโลเมตร/ชั่วโมง (วินาที)",
-                            "value": "5.5"
+                            "value": "5.6"
                         },
                         {
-                            "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน NEDC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)",
-                            "value": "18"
-                        },
-                        {
-                            "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน WLTP (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)",
-                            "value": "20.4"
+                            "topic": "อัตราการใช้ไฟฟ้า, มาตรฐาน CLTC (กิโลวัตต์-ชั่วโมง/100 กิโลเมตร)",
+                            "value": "13.5"
                         }
                     ]
                 },
@@ -59,11 +51,11 @@
                     "details": [
                         {
                             "topic": "ล้อ",
-                            "value": "ล้ออัลลอยน้ำหนักเบา BMW Individual ขนาด 21 นิ้ว ลาย Multi-spoke แบบสลับสี"
+                            "value": "ล้ออัลลอยน้ำหนักเบา M ขนาด 21 นิ้ว ลาย Star-spoke แบบสลับสี"
                         },
                         {
                             "topic": "ขนาดยาง",
-                            "value": "หน้า: 9 J × 21 / ยาง 255/40 R21 หลัง: 10.5 J × 21 / ยาง 285/35 R21\""
+                            "value": "9.0 J × 21 / tyres 255/40 R21"
                         }
                     ]
                 },
@@ -72,15 +64,19 @@
                     "details": [
                         {
                             "topic": "มิติรถยนต์ ยาว/กว้าง/สูง (มิลลิเมตร)",
-                            "value": "5395 / 1950 / 1558"
+                            "value": "4,885 / 1,895 / 1,634"
                         },
                         {
                             "topic": "ปริมาตรในการบรรจุของ (ลิตร)",
-                            "value": "500"
+                            "value": "510 - 1,900"
                         },
                         {
-                            "topic": "น้ำหนักรถสุทธิ (กิโลกรัม)",
-                            "value": "2770"
+                            "topic": "ปริมาตรช่องเก็บสัมภาระด้านหน้า (ลิตร)",
+                            "value": "58"
+                        },
+                        {
+                            "topic": "น้ำหนักรถสุทธิไม่รวมคนขับ (กิโลกรัม)",
+                            "value": "2,270"
                         }
                     ]
                 },
@@ -98,19 +94,19 @@
                     "details": [
                         {
                             "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                            "value": "63 ชั่วโมง"
+                            "value": "43 ชั่วโมง 45 นาที"
                         },
                         {
                             "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                            "value": "17 ชั่วโมง 15 นาที"
+                            "value": "12 ชั่วโมง 15 นาที"
                         },
                         {
                             "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                            "value": "11 ชั่วโมง 15 นาที"
+                            "value": "8 ชั่วโมง 15 นาที"
                         },
                         {
                             "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
-                            "value": "5 ชั่วโมง 45 นาที"
+                            "value": "4 ชั่วโมง 15 นาที"
                         }
                     ]
                 },
@@ -119,7 +115,7 @@
                     "details": [
                         {
                             "topic": "รองรับการชาร์จแบบกระแสตรง (DC) สูงสุด (กิโลวัตต์)",
-                            "value": "250"
+                            "value": "300"
                         }
                     ]
                 },
@@ -128,19 +124,15 @@
                     "details": [
                         {
                             "topic": "DC charging vehicle at 125A by EVSE",
-                            "value": "1 ชั่วโมง 47 นาที"
+                            "value": "44 นาที"
                         },
                         {
                             "topic": "DC charging vehicle at 250A by EVSE",
-                            "value": "54 นาที"
+                            "value": "26 นาที"
                         },
                         {
                             "topic": "DC charging vehicle at 500A by EVSE",
-                            "value": "30 นาที"
-                        },
-                        {
-                            "topic": "DC charging vehicle at 630A by EVSE",
-                            "value": "28 นาที"
+                            "value": "21 นาที"
                         }
                     ]
                 },
@@ -160,15 +152,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ รุ่น Plus (Parking Assistant Plus)",
+                            "topic": "ระบบช่วยนํารถเข้าที่จอดอัตโนมัติรุ่น Plus (Parking Assistant Plus)",
                             "value": "■"
                         },
                         {
-                            "topic": "ช่วงล่างถุงลม Adaptive 2-axle",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบปรับองศาของล้อหลังเพื่อการเข้าโค้งหรือเลี้ยว (Integral Active Steering)",
+                            "topic": "ระบบควบคุมสมรรถนะการขับขี่ (BMW Dynamic Performance Control)",
                             "value": "■"
                         }
                     ]
@@ -177,19 +165,19 @@
                     "category": "อุปกรณ์ภายนอก",
                     "details": [
                         {
-                            "topic": "หลังคากระจก Panorama Sky Lounge",
+                            "topic": "ชุดตกแต่งภายนอกแบบ Iconic Glow",
                             "value": "■"
                         },
                         {
-                            "topic": "ภายนอกตกแต่งด้วยชุดแต่ง M สีดำเงา",
+                            "topic": "ระบบไฟหน้า LED อัจฉริยะ",
                             "value": "■"
                         },
                         {
-                            "topic": "สปอยเลอร์หลังดีไซน์ M",
+                            "topic": "หลังคากระจกพาโนรามา เคลือบสารกันรังสีUV",
                             "value": "■"
                         },
                         {
-                            "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สีน้ำเงินเข้ม",
+                            "topic": "คาลิเปอร์เบรกดีไซน์ M Sport สี dark blue metallic",
                             "value": "■"
                         },
                         {
@@ -197,15 +185,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "กระจังหน้า BMW kidney Iconic Glow",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบไฟหน้า BMW Individual crystal headlights Iconic Glow",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบไฟต้อนรับแบบ Ceremonial Light Carpet",
+                            "topic": "ระบบเปิด-ปิดบานประตูท้ายอัตโนมัติด้วยระบบไฟฟ้า",
                             "value": "■"
                         },
                         {
@@ -213,7 +193,23 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบช่วยผ่อนแรงกระแทกขณะปิดประตู (Soft-close function for doors)",
+                            "topic": "กระจกมองข้างปรับไฟฟ้าพร้อมระบบตัดแสงอัตโนมัติฝังคนขับ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ฝาชาร์จไฟฟ้าอัจจริยะ",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ช่องเก็บสัมภาระด้านหน้า",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ราวหลังคา สีดำเงา (Black High-gloss)",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ดิฟฟิวเซอร์หลัง สีดำเงา (Black High-gloss)",
                             "value": "■"
                         }
                     ]
@@ -222,23 +218,11 @@
                     "category": "อุปกรณ์ภายใน",
                     "details": [
                         {
-                            "topic": "เบาะนั่งตอนหน้าและหลังพร้อมระบบ Heater",
+                            "topic": "พวงมาลัยดีไซน์ Sports",
                             "value": "■"
                         },
                         {
-                            "topic": "ฟังก์ชันนวดผ่อนคลายสำหรับผู้ขับขี่",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ฟังก์ชันนวดผ่อนคลายสำหรับผู้โดยสารตอนหลัง",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบระบายอากาศสำหรับเบาะนั่งตอนหน้า",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบระบายอากาศสำหรับเบาะนั่งตอนหลัง",
+                            "topic": "ระบบอุ่นพวงมาลัย (Steering-wheel heating)",
                             "value": "■"
                         },
                         {
@@ -246,47 +230,23 @@
                             "value": "■"
                         },
                         {
-                            "topic": "เบาะนั่งตอนหลังแบบ multifunctional",
+                            "topic": "ระบบระบายอากาศสำหรับเบาะนั่งตอนหน้า",
                             "value": "■"
                         },
                         {
-                            "topic": "พวงมาลัยหุ้มหนังดีไซน์ M",
+                            "topic": "ระบบอุ่นเบาะสำหรับคนขับและผู้โดยสารเบาะหน้า",
                             "value": "■"
                         },
                         {
-                            "topic": "ภายในห้องโดยสารตกแต่งด้วย Carbon Fibre ถักด้วยวัสดุสีเงินแบบ M คอนโซลกลางสีดำเงาแบบ Piano Finish Black",
+                            "topic": "ระบบอุ่นเบาะสำหรับผู้โดยสารเบาะหลัง",
                             "value": "■"
                         },
                         {
-                            "topic": "เพดานหลังคาภายในบุด้วยวัสดุ BMW Individual สี Anthracite",
+                            "topic": "เบาะนั่งตอนหน้าปรับไฟฟ้าพร้อมระบบจําตําแหน่ง",
                             "value": "■"
                         },
                         {
-                            "topic": "ชุดไฟส่องสว่างภายในห้องโดยสาร (Ambient Light)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ภายในตกแต่งด้วยผลึกแก้ว BMW Individual CraftedClarity",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ม่านบังแดดที่ประตูหลังและกระจกหลัง",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบปรับอากาศอัตโนมัติแบบ 4 โซน",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบประตูเปิดและปิดอัตโนมัติ",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "เบาะนั่งตอนหลังแบบ Executive lounge",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "คอนโซลด้านหลังแบบ Executive Lounge",
+                            "topic": "ฟังก์ชันนวดผ่อนคลายสําหรับผู้โดยสารตอนหน้า",
                             "value": "■"
                         },
                         {
@@ -294,15 +254,19 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบอุ่นพวงมาลัย",
+                            "topic": "พนักพิงเบาะหลังปรับเอนได้",
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบช่องบรรทุกสัมภาระแบบ Through-Loading",
+                            "topic": "ชุดไฟส่องสว่างภายในและภายนอกห้องโดยสาร (Ambient Light)",
                             "value": "■"
                         },
                         {
                             "topic": "ภายในตกแต่งดีไซน์ M Sport",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบปรับอากาศอัตโนมัติแบบ 3 โซน",
                             "value": "■"
                         }
                     ]
@@ -311,27 +275,7 @@
                     "category": "ระบบความบันเทิงและการสื่อสาร",
                     "details": [
                         {
-                            "topic": "ระบบ BMW ConnectedDrive",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเสียงรอบทิศทางคุณภาพสูง Bowers & Wilkins Diamond",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบจำลองเสียงเครื่องยนต์ Iconic sounds electric",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบความบันเทิงสำหรับผู้โดยสารตอนหลัง BMW Theatre Screen",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "จอสำหรับผู้โดยสารด้านหน้า BMW Passenger Screen",
+                            "topic": "BMW Panoramic iDrive",
                             "value": "■"
                         },
                         {
@@ -339,11 +283,19 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบ Head-up Display แบบ 3D",
+                            "topic": "ระบบ Head-up display แบบ 3D",
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบจำลองเสียงเครื่องยนต์ BMW IconicSounds Electric",
+                            "topic": "ระบบเครื่องเสียง HiFi loudspeaker Harman Kardon",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบชาร์จโทรศัพท์แบบไร้สาย",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "ระบบ BMW ConnectedDrive",
                             "value": "■"
                         }
                     ]
@@ -360,7 +312,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารตอนหลังกลาง)",
+                            "topic": "ถุงลมนิรภัยศีรษะสำหรับผู้โดยสารตอนหน้าและหลัง (ยกเว้นผู้โดยสารแถวหลังตอนกลาง)",
                             "value": "■"
                         },
                         {
@@ -380,7 +332,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบควบคุมเสถียรภาพการขับขี่ (DSC)",
+                            "topic": "ระบบควบคุมเสถียรภาพการขับซี่ (DSC)",
                             "value": "■"
                         },
                         {
@@ -388,15 +340,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบช่วยเสริมแรงเบรกอัตโนมัติ (Brake Assist)",
+                            "topic": "ระบบควบคุมแรงดันเบรกแบบแปรผัน (DBC)",
                             "value": "■"
                         },
                         {
-                            "topic": "เซนเซอร์ควบคุมระบบความปลอดภัยเมื่อเกิดการชน (Crash Sensor)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบสร้างเสียงจำลองเตือนผู้ใช้งานรอบข้าง",
+                            "topic": "ระบบสร้างเสียงจำลองเตือนผู้ใช้ถนนรอบข้าง",
                             "value": "■"
                         },
                         {
@@ -404,11 +352,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบตรวจวัดลมยาง",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "ระบบเฝ้าระวังรอบคันพร้อมบันทึกภาพ (Security Assistant)",
+                            "topic": "ระบบตรวจสอบวัดลมยาง",
                             "value": "■"
                         },
                         {
@@ -452,11 +396,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบตรวจจับระยะห่างขณะจอดรถ",
+                            "topic": "ระบบตรวจสอบระยะห่างขณะจอดรถ",
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบตรวจจับระยะห่างขณะจอดรถ พร้อมช่วยเบรกฉุกเฉิน",
+                            "topic": "ระบบตรวจสอบระยะห่างขณะจอดรถ พร้อมช่วยเบรกฉุกเฉิน",
                             "value": "■"
                         },
                         {
@@ -464,7 +408,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "ระบบช่วยนำรถเข้าที่จอดอัตโนมัติ",
+                            "topic": "ระบบช่วยนํารถเข้าที่จอดอัตโนมัติ",
                             "value": "■"
                         },
                         {
@@ -478,6 +422,10 @@
                         {
                             "topic": "ระบบช่วยควบคุมรถให้อยู่ในช่องทางเดินรถ",
                             "value": "■"
+                        },
+                        {
+                            "topic": "ป้ายสามเหลี่ยมเตือนสะท้อนแสง",
+                            "value": "■"
                         }
                     ]
                 },
@@ -485,7 +433,7 @@
                     "category": "ชุดตกแต่งพิเศษ",
                     "details": [
                         {
-                            "topic": "ชุดตกแต่งพิเศษ M Sport",
+                            "topic": "ชุดตกแต่ง M Sport",
                             "value": "■"
                         }
                     ]
@@ -494,20 +442,20 @@
                     "category": "Paintwork / สีตัวถังและวัสดุภายใน",
                     "details": [
                         {
-                            "topic": "Black Sapphire Metallic",
-                            "value": "BMW Individual leather 'Merino' - Mocha"
+                            "topic": "Polarised Grey Metallic",
+                            "value": "Interior design Contemporary - Castanea bicolour"
                         },
                         {
-                            "topic": "Oxide Grey Metallic",
-                            "value": "BMW Individual leather 'Merino' - Black"
+                            "topic": "M Carbon Black Metallic",
+                            "value": "Interior design Contemporary - Castanea bicolour"
                         },
                         {
-                            "topic": "BMW Individual Dravit Grey Metallic",
-                            "value": "BMW Individual leather 'Merino' - Black"
+                            "topic": "Mineral White Metallic",
+                            "value": "Interior design Contemporary - Castanea bicolour"
                         },
                         {
-                            "topic": "BMW Individual Two-Tone Oxide Grey II Metallic with Sapphire Black Metallic",
-                            "value": "BMW Individual leather 'Merino' - Tartufo"
+                            "topic": "Space Silver Metallic",
+                            "value": "Interior design Contemporary - Castanea bicolour"
                         }
                     ]
                 },
@@ -516,17 +464,19 @@
                     "details": [
                         {
                             "topic": "วันที่พิมพ์เอกสาร",
-                            "value": "28 ตุลาคม 2569"
+                            "value": "19 มีนาคม 2569"
                         },
                         {
                             "topic": "รหัสแพ็กเกจ (Local Pack)",
-                            "value": "(ZLL, ZLM)"
+                            "value": "(ZMA)"
                         }
                     ]
                 }
-            ]
+            ],
+            "images": {},
+            "image_status": "new_model_scrape"
         }
     ],
-    "source_file": "i7-20261006-03_TH_335kW.pdf.asset.1793160815961.pdf",
-    "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/2026/i7-20261006-03_TH_335kW.pdf.asset.1793160815961.pdf"
+    "source_file": "iX3_20L-20261110-01_TH.pdf.asset.1794805688681.pdf",
+    "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/2026/iX3_20L-20261110-01_TH.pdf.asset.1794805688681.pdf"
 }

@@ -29,6 +29,8 @@ WORKSPACE_DIR = os.path.dirname(os.path.abspath(__file__))
 BACKUPS_DIR = os.path.join(WORKSPACE_DIR, "backups")
 MASTER_TH_FILE = os.path.join(WORKSPACE_DIR, "bmw_master_specs.json")
 MASTER_EN_FILE = os.path.join(WORKSPACE_DIR, "bmw_master_specs_en.json")
+CUSTOM_TH_FILE = os.path.join(WORKSPACE_DIR, "bmw_custom_specs.json")
+CUSTOM_EN_FILE = os.path.join(WORKSPACE_DIR, "bmw_custom_specs_en.json")
 OVERRIDES_FILE = os.path.join(WORKSPACE_DIR, "manual_overrides.json")
 ENHANCEMENTS_FILE = os.path.join(WORKSPACE_DIR, "compare_enhancements.json")
 
@@ -61,6 +63,13 @@ def load_json_file(filepath, default_factory=dict):
 def save_json_file(filepath, data):
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+
+def extract_brochure_year(pdf_source):
+    import re
+    if not pdf_source:
+        return ""
+    m = re.search(r'(202[0-9])', pdf_source)
+    return m.group(1) if m else ""
 
 class SpecEditorHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
@@ -149,60 +158,86 @@ class SpecEditorHandler(SimpleHTTPRequestHandler):
         self.send_json(404, {"success": False, "error": f"Unknown endpoint: {path}"})
 
     def handle_get_models(self):
-        th_data = load_json_file(MASTER_TH_FILE, list)
-        en_data = load_json_file(MASTER_EN_FILE, list)
+        th_master = load_json_file(MASTER_TH_FILE, list)
+        en_master = load_json_file(MASTER_EN_FILE, list)
+        th_custom = load_json_file(CUSTOM_TH_FILE, list)
+        en_custom = load_json_file(CUSTOM_EN_FILE, list)
         enhancements = load_json_file(ENHANCEMENTS_FILE, dict).get("models", {})
         overrides = load_json_file(OVERRIDES_FILE, dict)
 
-        # Map EN models by model_name
-        en_map = {}
-        for s in en_data:
+        en_map_master = {}
+        for s in en_master:
             s_name = s.get("series", "")
             for m in s.get("models", []):
-                m_name = m.get("model_name", "")
-                en_map[m_name] = {
+                en_map_master[m.get("model_name", "")] = {
+                    "series": s_name,
+                    "pdf_source": m.get("pdf_source") or s.get("pdf_source", "")
+                }
+
+        en_map_custom = {}
+        for s in en_custom:
+            s_name = s.get("series", "")
+            for m in s.get("models", []):
+                en_map_custom[m.get("model_name", "")] = {
                     "series": s_name,
                     "pdf_source": m.get("pdf_source") or s.get("pdf_source", "")
                 }
 
         model_list = []
-        for s in th_data:
-            s_name = s.get("series", "")
-            for m in s.get("models", []):
-                m_name = m.get("model_name", "")
-                pdf_source_th = m.get("pdf_source") or s.get("pdf_source", "")
-                en_info = en_map.get(m_name, {})
-                
-                # Check enhancements
-                has_enh = m_name in enhancements
-                enh_items = enhancements.get(m_name, {})
-                enh_count = 0
-                if isinstance(enh_items.get("th"), list):
-                    enh_count = len(enh_items.get("th"))
-                elif isinstance(enh_items.get("th"), dict) and enh_items.get("th"):
-                    enh_count = 1
+        seen_keys = set()
 
-                # Check manual overrides
-                has_ovr = False
-                pdf_base = os.path.basename(pdf_source_th)
-                for prefix, p_data in overrides.items():
-                    if prefix.startswith("_"):
+        def add_models_from_catalog(catalog, status, en_map):
+            for s in catalog:
+                s_name = s.get("series", "")
+                for m in s.get("models", []):
+                    m_name = m.get("model_name", "")
+                    if not m_name:
                         continue
-                    if pdf_base.startswith(prefix) and isinstance(p_data, dict):
-                        if m_name in p_data:
-                            has_ovr = True
-                            break
+                    pdf_source_th = m.get("pdf_source") or s.get("pdf_source", "")
+                    year = extract_brochure_year(pdf_source_th)
+                    key = f"{m_name}|{status}|{year}"
+                    if key in seen_keys:
+                        continue
+                    seen_keys.add(key)
 
-                model_list.append({
-                    "model_name": m_name,
-                    "series_th": s_name,
-                    "series_en": en_info.get("series", s_name),
-                    "pdf_source_th": pdf_source_th,
-                    "pdf_source_en": en_info.get("pdf_source", ""),
-                    "has_enhancement": has_enh,
-                    "enhancement_count": enh_count,
-                    "has_override": has_ovr
-                })
+                    en_info = en_map.get(m_name, {})
+
+                    # Check enhancements
+                    has_enh = m_name in enhancements
+                    enh_items = enhancements.get(m_name, {})
+                    enh_count = 0
+                    if isinstance(enh_items.get("th"), list):
+                        enh_count = len(enh_items.get("th"))
+                    elif isinstance(enh_items.get("th"), dict) and enh_items.get("th"):
+                        enh_count = 1
+
+                    # Check manual overrides
+                    has_ovr = False
+                    pdf_base = os.path.basename(pdf_source_th)
+                    for prefix, p_data in overrides.items():
+                        if prefix.startswith("_"):
+                            continue
+                        if pdf_base.startswith(prefix) and isinstance(p_data, dict):
+                            if m_name in p_data:
+                                has_ovr = True
+                                break
+
+                    model_list.append({
+                        "id": key,
+                        "model_name": m_name,
+                        "status": status,
+                        "year": year,
+                        "series_th": s_name,
+                        "series_en": en_info.get("series", s_name),
+                        "pdf_source_th": pdf_source_th,
+                        "pdf_source_en": en_info.get("pdf_source", ""),
+                        "has_enhancement": has_enh,
+                        "enhancement_count": enh_count,
+                        "has_override": has_ovr
+                    })
+
+        add_models_from_catalog(th_master, "active", en_map_master)
+        add_models_from_catalog(th_custom, "archived", en_map_custom)
 
         self.send_json(200, {"success": True, "count": len(model_list), "models": model_list})
 

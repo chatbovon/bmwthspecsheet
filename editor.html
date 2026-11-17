@@ -6,7 +6,7 @@
     <title>BMW Specsheet & Enhancement Management Console</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0066b1;
@@ -23,7 +23,7 @@
             --text-main: #0f172a;
             --text-muted: #64748b;
             --text-light: #94a3b8;
-            --font-family: 'Prompt', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-family: 'Sarabun', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             --radius-sm: 6px;
             --radius-md: 10px;
             --radius-lg: 14px;
@@ -45,6 +45,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow-x: hidden;
         }
 
         /* Top Navigation Bar */
@@ -148,6 +149,107 @@
             gap: 16px;
         }
 
+        /* Status Filter Pills */
+        .status-filter-pills {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #f1f5f9;
+            padding: 4px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .status-pill:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .status-pill.active {
+            background: #ffffff;
+            color: var(--primary);
+            border-color: rgba(0, 102, 177, 0.2);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot-active {
+            background-color: #10b981;
+            box-shadow: 0 0 4px rgba(16, 185, 129, 0.5);
+        }
+
+        .dot-archived {
+            background-color: #f59e0b;
+            box-shadow: 0 0 4px rgba(245, 158, 11, 0.5);
+        }
+
+        .pill-count {
+            background: #e2e8f0;
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        .status-pill.active .pill-count {
+            background: rgba(0, 102, 177, 0.1);
+            color: var(--primary);
+        }
+
+        /* Smart Status Badges */
+        .badge-status {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.02em;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            white-space: nowrap;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .badge-status-active {
+            background: #ecfdf5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .badge-status-archived {
+            background: #fffbeb;
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+
         .search-group {
             display: flex;
             align-items: center;
@@ -187,6 +289,73 @@
             pointer-events: none;
         }
 
+        .search-autocomplete-list {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            width: 100%;
+            min-width: 380px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            max-height: 380px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .autocomplete-item {
+            padding: 9px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #f1f5f9;
+            transition: background 0.15s ease;
+        }
+
+        .autocomplete-item:last-child {
+            border-bottom: none;
+        }
+
+        .autocomplete-item:hover,
+        .autocomplete-item.active {
+            background: #f0f7ff;
+        }
+
+        .autocomplete-item-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .autocomplete-item-name mark {
+            background: #fef08a;
+            color: inherit;
+            padding: 0 1px;
+            border-radius: 2px;
+        }
+
+        .autocomplete-item-series {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .autocomplete-empty {
+            padding: 16px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.86rem;
+        }
+
         .series-select {
             padding: 9px 14px;
             border: 1px solid var(--border-color);
@@ -196,10 +365,28 @@
             outline: none;
             background: #ffffff;
             cursor: pointer;
+            max-width: 320px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .series-select optgroup {
+            font-weight: 700;
+            color: var(--primary);
+            background: #f8fafc;
+            padding: 4px 0;
+        }
+
+        .series-select option {
+            font-weight: 500;
+            color: var(--text-main);
+            background: #ffffff;
+            padding: 4px 10px;
         }
 
         .series-select:focus {
             border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 177, 0.12);
         }
 
         .model-info-summary {
@@ -774,6 +961,182 @@
             font-size: 2.5rem;
             color: #cbd5e1;
         }
+        /* Mobile Pane Switcher */
+        .mobile-pane-switcher {
+            display: none;
+            background: #e2e8f0;
+            padding: 4px;
+            border-radius: var(--radius-sm);
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+
+        .mobile-tab-btn {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 9px 12px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            font-weight: 600;
+            font-family: inherit;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-tab-btn.active {
+            background: #ffffff;
+            color: var(--primary);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+
+        .mobile-tab-btn .flag-tag {
+            font-size: 0.7rem;
+            padding: 2px 5px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            .top-navbar {
+                padding: 10px 14px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .navbar-brand {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .navbar-actions {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                overflow-x: auto;
+                padding-bottom: 4px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .navbar-actions::-webkit-scrollbar {
+                display: none;
+            }
+
+            .nav-btn {
+                padding: 6px 10px;
+                font-size: 0.78rem;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            .server-status-pill {
+                flex-shrink: 0;
+                font-size: 0.75rem;
+                padding: 4px 8px;
+            }
+
+            .toolbar-bar {
+                padding: 12px 14px;
+                gap: 12px;
+            }
+
+            .status-filter-pills {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .search-group {
+                flex-direction: column;
+                align-items: stretch;
+                max-width: 100%;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .search-input-wrapper {
+                width: 100%;
+            }
+
+            .search-autocomplete-list {
+                min-width: 100%;
+                max-width: 100%;
+            }
+
+            .series-select {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .model-info-summary {
+                width: 100%;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .workspace-main {
+                padding: 12px 10px;
+            }
+
+            .mobile-pane-switcher {
+                display: flex;
+            }
+
+            .dual-pane-container {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .spec-table td {
+                padding: 8px 10px;
+                font-size: 0.82rem;
+            }
+
+            .td-topic {
+                width: 58%;
+            }
+
+            .td-value {
+                width: 28%;
+            }
+
+            .td-action {
+                width: 14%;
+            }
+
+            .btn-edit-row {
+                padding: 3px 6px;
+                font-size: 0.72rem;
+            }
+
+            .modal-overlay {
+                padding: 10px;
+            }
+
+            .modal-card {
+                max-width: 100%;
+                max-height: 90vh;
+            }
+
+            .modal-header {
+                padding: 14px 18px;
+            }
+
+            .modal-body {
+                padding: 16px;
+                max-height: 70vh;
+            }
+        }
     </style>
 </head>
 <body>
@@ -814,13 +1177,32 @@
 
     <!-- Sub-header / Filter Toolbar -->
     <section class="toolbar-bar">
+        <!-- Status Filter Pills -->
+        <div class="status-filter-pills" id="statusFilterPills">
+            <button class="status-pill active" data-status="ALL" onclick="setStatusFilter('ALL')">
+                <span>🚗 ทั้งหมด</span>
+                <span class="pill-count" id="countAll">0</span>
+            </button>
+            <button class="status-pill" data-status="ACTIVE" onclick="setStatusFilter('ACTIVE')">
+                <span class="status-dot dot-active"></span>
+                <span>รุ่นปัจจุบัน (Active)</span>
+                <span class="pill-count" id="countActive">0</span>
+            </button>
+            <button class="status-pill" data-status="ARCHIVED" onclick="setStatusFilter('ARCHIVED')">
+                <span class="status-dot dot-archived"></span>
+                <span>รุ่นก่อนหน้า (Archived)</span>
+                <span class="pill-count" id="countArchived">0</span>
+            </button>
+        </div>
+
         <div class="search-group">
             <div class="search-input-wrapper">
                 <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="modelSearchInput" placeholder="พิมพ์ค้นหารุ่นรถ (เช่น X1, 320d, i7, M440i)..." autocomplete="off">
+                <input type="text" class="search-input" id="modelSearchInput" placeholder="พิมพ์ค้นหารุ่นรถ (เช่น 220, M Sport, X1, i7)..." autocomplete="off">
+                <div id="searchAutocompleteList" class="search-autocomplete-list" style="display: none;"></div>
             </div>
-            <select class="series-select" id="seriesSelect" onchange="filterModelsBySeries()">
-                <option value="ALL">ทุกซีรีส์ (All Series)</option>
+            <select class="series-select" id="seriesSelect" onchange="onModelDropdownChange(this.value)">
+                <option value="">-- กำลังโหลดรายชื่อรุ่นรถ... --</option>
             </select>
         </div>
 
@@ -837,9 +1219,21 @@
 
     <!-- Main Workspace -->
     <main class="workspace-main">
+        <!-- Mobile Pane Switcher (Visible on mobile <= 768px) -->
+        <div class="mobile-pane-switcher" id="mobilePaneSwitcher">
+            <button class="mobile-tab-btn active" id="tabBtnTH" onclick="switchMobilePane('th')">
+                <span class="flag-tag">TH</span>
+                <span>สเปกภาษาไทย</span>
+            </button>
+            <button class="mobile-tab-btn" id="tabBtnEN" onclick="switchMobilePane('en')">
+                <span class="flag-tag">EN</span>
+                <span>English Specs</span>
+            </button>
+        </div>
+
         <div class="dual-pane-container" id="dualPaneContainer">
             <!-- Thai Specifications Pane -->
-            <div class="pane-card">
+            <div class="pane-card" id="thPaneCard">
                 <div class="pane-header">
                     <div class="pane-header-title">
                         <span class="flag-tag">TH</span>
@@ -856,7 +1250,7 @@
             </div>
 
             <!-- English Specifications Pane -->
-            <div class="pane-card">
+            <div class="pane-card" id="enPaneCard">
                 <div class="pane-header">
                     <div class="pane-header-title">
                         <span class="flag-tag">EN</span>
@@ -1050,7 +1444,10 @@
         // State Management
         let allModels = [];
         let currentModelDetails = null;
+        let selectedModelId = '';
         let selectedModelName = '';
+        let selectedModelStatus = 'active';
+        let currentStatusFilter = 'ALL';
         let currentScope = 'enhancement'; // 'enhancement' or 'override'
         let currentEditingItem = null;
 
@@ -1062,8 +1459,31 @@
         let isCloudMode = false;
         let staticMasterTH = null;
         let staticMasterEN = null;
+        let staticCustomTH = null;
+        let staticCustomEN = null;
         let staticEnhancements = null;
         let staticOverrides = null;
+
+        function extractBrochureYear(pdfSource) {
+            if (!pdfSource) return '';
+            const match = pdfSource.match(/(202[0-9])/);
+            return match ? match[1] : '';
+        }
+
+        function setStatusFilter(status) {
+            currentStatusFilter = status;
+            document.querySelectorAll('.status-pill').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.status === status);
+            });
+
+            populateSeriesDropdown();
+
+            const input = document.getElementById('modelSearchInput');
+            if (input && input.value.trim().length > 0) {
+                const event = new Event('input', { bubbles: true });
+                input.dispatchEvent(event);
+            }
+        }
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
@@ -1257,7 +1677,15 @@
                 const res = await fetch('/api/models');
                 const data = await res.json();
                 if (data.success) {
-                    allModels = data.models || [];
+                    const rawModels = data.models || [];
+                    const seenApiModels = new Set();
+                    allModels = [];
+                    for (const m of rawModels) {
+                        if (m.model_name && !seenApiModels.has(m.model_name)) {
+                            seenApiModels.add(m.model_name);
+                            allModels.push(m);
+                        }
+                    }
                     populateSeriesDropdown();
                     const defaultModel = allModels.find(m => m.model_name.includes('X1 sDrive20i')) || allModels[0];
                     if (defaultModel) selectModel(defaultModel.model_name);
@@ -1283,17 +1711,29 @@
                     fetch('manual_overrides.json').then(r => r.json()).catch(() => ({}))
                 ]);
 
-                staticMasterTH = [...resTH, ...resCustTH];
-                staticMasterEN = [...resEN, ...resCustEN];
+                staticMasterTH = resTH || [];
+                staticMasterEN = resEN || [];
+                staticCustomTH = resCustTH || [];
+                staticCustomEN = resCustEN || [];
                 staticEnhancements = resEnh || { models: {} };
                 staticOverrides = resOvr || {};
 
-                const enMap = {};
+                const enMapMaster = {};
                 for (const s of staticMasterEN) {
                     const sName = s.series || '';
                     for (const m of (s.models || [])) {
-                        const mName = m.model_name || '';
-                        enMap[mName] = {
+                        enMapMaster[m.model_name || ''] = {
+                            series: sName,
+                            pdf_source: m.pdf_source || s.pdf_source || ''
+                        };
+                    }
+                }
+
+                const enMapCustom = {};
+                for (const s of staticCustomEN) {
+                    const sName = s.series || '';
+                    for (const m of (s.models || [])) {
+                        enMapCustom[m.model_name || ''] = {
                             series: sName,
                             pdf_source: m.pdf_source || s.pdf_source || ''
                         };
@@ -1301,137 +1741,393 @@
                 }
 
                 const modelList = [];
+                const seenKeys = new Set();
                 const enhancements = (staticEnhancements && staticEnhancements.models) || {};
 
-                for (const s of staticMasterTH) {
-                    const sName = s.series || '';
-                    for (const m of (s.models || [])) {
-                        const mName = m.model_name || '';
-                        const pdfSourceTH = m.pdf_source || s.pdf_source || '';
-                        const enInfo = enMap[mName] || {};
+                function processCatalogModels(catalogList, status) {
+                    for (const s of catalogList) {
+                        const sName = s.series || '';
+                        for (const m of (s.models || [])) {
+                            const mName = m.model_name || '';
+                            if (!mName) continue;
+                            const pdfSourceTH = m.pdf_source || s.pdf_source || '';
+                            const year = extractBrochureYear(pdfSourceTH);
+                            const uniqueKey = `${mName}|${status}|${year}`;
+                            if (seenKeys.has(uniqueKey)) continue;
+                            seenKeys.add(uniqueKey);
 
-                        let enhCount = 0;
-                        const enhItems = enhancements[mName] || {};
-                        if (Array.isArray(enhItems.th)) enhCount = enhItems.th.length;
-                        else if (enhItems.th) enhCount = 1;
+                            const enMap = status === 'active' ? enMapMaster : enMapCustom;
+                            const enInfo = enMap[mName] || enMapMaster[mName] || {};
 
-                        let hasOvr = false;
-                        const pdfBase = pdfSourceTH ? pdfSourceTH.split('/').pop() : '';
-                        for (const [prefix, pData] of Object.entries(staticOverrides)) {
-                            if (prefix.startsWith('_')) continue;
-                            if (pdfBase.startsWith(prefix) && pData && typeof pData === 'object') {
-                                if (pData[mName]) {
-                                    hasOvr = true;
-                                    break;
+                            let enhCount = 0;
+                            const enhItems = enhancements[mName] || {};
+                            if (Array.isArray(enhItems.th)) enhCount = enhItems.th.length;
+                            else if (enhItems.th) enhCount = 1;
+
+                            let hasOvr = false;
+                            const pdfBase = pdfSourceTH ? pdfSourceTH.split('/').pop() : '';
+                            for (const [prefix, pData] of Object.entries(staticOverrides)) {
+                                if (prefix.startsWith('_')) continue;
+                                if (pdfBase.startsWith(prefix) && pData && typeof pData === 'object') {
+                                    if (pData[mName]) {
+                                        hasOvr = true;
+                                        break;
+                                    }
                                 }
                             }
-                        }
 
-                        modelList.push({
-                            model_name: mName,
-                            series_th: sName,
-                            series_en: enInfo.series || sName,
-                            pdf_source_th: pdfSourceTH,
-                            pdf_source_en: enInfo.pdf_source || '',
-                            has_enhancement: enhCount > 0,
-                            enhancement_count: enhCount,
-                            has_override: hasOvr
-                        });
+                            modelList.push({
+                                id: uniqueKey,
+                                model_name: mName,
+                                status: status,
+                                year: year,
+                                series_th: sName,
+                                series_en: enInfo.series || sName,
+                                pdf_source_th: pdfSourceTH,
+                                pdf_source_en: enInfo.pdf_source || '',
+                                has_enhancement: enhCount > 0,
+                                enhancement_count: enhCount,
+                                has_override: hasOvr
+                            });
+                        }
                     }
                 }
 
+                // Process active models first, then archived
+                processCatalogModels(staticMasterTH, 'active');
+                processCatalogModels(staticCustomTH, 'archived');
+
                 allModels = modelList;
+
+                // Update Status Pill Counts
+                const activeCount = allModels.filter(m => m.status === 'active').length;
+                const archivedCount = allModels.filter(m => m.status === 'archived').length;
+                const elCountAll = document.getElementById('countAll');
+                const elCountActive = document.getElementById('countActive');
+                const elCountArchived = document.getElementById('countArchived');
+                if (elCountAll) elCountAll.innerText = allModels.length;
+                if (elCountActive) elCountActive.innerText = activeCount;
+                if (elCountArchived) elCountArchived.innerText = archivedCount;
+
                 populateSeriesDropdown();
-                const defaultModel = allModels.find(m => m.model_name.includes('X1 sDrive20i')) || allModels[0];
-                if (defaultModel) selectModel(defaultModel.model_name);
+                const defaultModel = allModels.find(m => m.model_name.includes('X1 sDrive20i') && m.status === 'active') || allModels[0];
+                if (defaultModel) selectModel(defaultModel.id);
             } catch (err) {
                 showToast('Failed to load cloud catalog: ' + err.message, 'error');
             }
         }
 
+        function normalizeSeriesName(name) {
+            if (!name) return 'Other Series';
+            let s = name.trim();
+            s = s.replace(/\s+SERIES$/i, ' Series');
+            s = s.replace(/\s+/g, ' ');
+            return s;
+        }
+
         function populateSeriesDropdown() {
             const seriesSelect = document.getElementById('seriesSelect');
-            const uniqueSeries = Array.from(new Set(allModels.map(m => m.series_th))).filter(Boolean).sort();
+            if (!seriesSelect) return;
 
-            seriesSelect.innerHTML = '<option value="ALL">ทุกซีรีส์ (All Series)</option>';
-            uniqueSeries.forEach(s => {
-                const opt = document.createElement('option');
-                opt.value = s;
-                opt.innerText = s;
-                seriesSelect.appendChild(opt);
+            let filtered = allModels;
+            if (currentStatusFilter === 'ACTIVE') {
+                filtered = allModels.filter(m => m.status === 'active');
+            } else if (currentStatusFilter === 'ARCHIVED') {
+                filtered = allModels.filter(m => m.status === 'archived');
+            }
+
+            seriesSelect.innerHTML = `<option value="">-- เลือกรุ่นรถ (${filtered.length} รุ่น) --</option>`;
+
+            // Group all models by normalized series name
+            const grouped = {};
+            filtered.forEach(m => {
+                const sName = normalizeSeriesName(m.series_th);
+                if (!grouped[sName]) grouped[sName] = [];
+                grouped[sName].push(m);
             });
+
+            // Natural numeric sort for Series names
+            const sortedSeries = Object.keys(grouped).sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+
+            sortedSeries.forEach(sName => {
+                const optgroup = document.createElement('optgroup');
+                optgroup.label = `🚗 ${sName} (${grouped[sName].length} รุ่น)`;
+
+                grouped[sName].forEach(m => {
+                    const opt = document.createElement('option');
+                    opt.value = m.id;
+                    const statusTag = m.status === 'active' ? '🟢' : '📦';
+                    const yrStr = m.year ? ` (${m.year})` : '';
+                    opt.innerText = `${statusTag} ${m.model_name}${yrStr}`;
+                    if (m.id === selectedModelId) {
+                        opt.selected = true;
+                    }
+                    optgroup.appendChild(opt);
+                });
+
+                seriesSelect.appendChild(optgroup);
+            });
+        }
+
+        function onModelDropdownChange(modelId) {
+            if (!modelId) return;
+            selectModel(modelId);
         }
 
         function setupSearchAutocomplete() {
             const input = document.getElementById('modelSearchInput');
+            const listEl = document.getElementById('searchAutocompleteList');
+            if (!input || !listEl) return;
+
+            let activeIndex = -1;
+            let currentMatches = [];
+
+            function renderAutocomplete(query) {
+                const q = query.trim().toLowerCase();
+                if (!q) {
+                    listEl.style.display = 'none';
+                    listEl.innerHTML = '';
+                    currentMatches = [];
+                    activeIndex = -1;
+                    return;
+                }
+
+                let candidates = allModels;
+                if (currentStatusFilter === 'ACTIVE') {
+                    candidates = allModels.filter(m => m.status === 'active');
+                } else if (currentStatusFilter === 'ARCHIVED') {
+                    candidates = allModels.filter(m => m.status === 'archived');
+                }
+
+                // Filter models matching model_name, series, or year
+                currentMatches = candidates.filter(m => {
+                    const mName = m.model_name.toLowerCase();
+                    const sName = (m.series_th || '').toLowerCase();
+                    const yr = String(m.year || '');
+                    return mName.includes(q) || sName.includes(q) || yr.includes(q);
+                });
+
+                if (currentMatches.length === 0) {
+                    listEl.innerHTML = '<div class="autocomplete-empty">❌ ไม่พบรุ่นรถที่ตรงกับคำค้นหา</div>';
+                    listEl.style.display = 'block';
+                    activeIndex = -1;
+                    return;
+                }
+
+                listEl.innerHTML = '';
+                activeIndex = -1;
+
+                currentMatches.slice(0, 15).forEach((m, idx) => {
+                    const item = document.createElement('div');
+                    item.className = 'autocomplete-item';
+                    item.dataset.index = idx;
+
+                    // Highlight matched keyword in model name
+                    const regex = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                    const highlightedName = m.model_name.replace(regex, '<mark>$1</mark>');
+                    const sName = normalizeSeriesName(m.series_th);
+
+                    const statusBadgeHtml = m.status === 'active'
+                        ? `<span class="badge-status badge-status-active">🟢 Active ${m.year}</span>`
+                        : `<span class="badge-status badge-status-archived">📦 Archived ${m.year}</span>`;
+
+                    item.innerHTML = `
+                        <div class="autocomplete-item-name">
+                            🚗 ${highlightedName}
+                            ${statusBadgeHtml}
+                        </div>
+                        <div class="autocomplete-item-series">${sName}</div>
+                    `;
+
+                    item.addEventListener('click', () => {
+                        selectModel(m.id);
+                        listEl.style.display = 'none';
+                    });
+
+                    listEl.appendChild(item);
+                });
+
+                listEl.style.display = 'block';
+            }
+
             input.addEventListener('input', (e) => {
-                const query = e.target.value.trim().toLowerCase();
-                if (!query) return;
-                const match = allModels.find(m => m.model_name.toLowerCase().includes(query));
-                if (match && query.length >= 3) {
-                    // Optional auto-select or drop-down
+                renderAutocomplete(e.target.value);
+            });
+
+            input.addEventListener('focus', () => {
+                if (input.value.trim().length > 0) {
+                    renderAutocomplete(input.value);
                 }
             });
 
             input.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    const query = input.value.trim().toLowerCase();
-                    const match = allModels.find(m => m.model_name.toLowerCase().includes(query));
-                    if (match) {
-                        selectModel(match.model_name);
+                const items = listEl.querySelectorAll('.autocomplete-item');
+                if (listEl.style.display !== 'none' && items.length > 0) {
+                    if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        activeIndex = (activeIndex + 1) % items.length;
+                        updateActiveItem(items);
+                    } else if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        activeIndex = (activeIndex - 1 + items.length) % items.length;
+                        updateActiveItem(items);
+                    } else if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (activeIndex >= 0 && activeIndex < currentMatches.length) {
+                            selectModel(currentMatches[activeIndex].id);
+                            listEl.style.display = 'none';
+                        } else if (currentMatches.length > 0) {
+                            selectModel(currentMatches[0].id);
+                            listEl.style.display = 'none';
+                        }
+                    } else if (e.key === 'Escape') {
+                        listEl.style.display = 'none';
                     }
+                } else if (e.key === 'Enter') {
+                    const query = input.value.trim().toLowerCase();
+                    let candidates = allModels;
+                    if (currentStatusFilter === 'ACTIVE') candidates = allModels.filter(m => m.status === 'active');
+                    else if (currentStatusFilter === 'ARCHIVED') candidates = allModels.filter(m => m.status === 'archived');
+                    const match = candidates.find(m => m.model_name.toLowerCase().includes(query));
+                    if (match) {
+                        selectModel(match.id);
+                        listEl.style.display = 'none';
+                    }
+                }
+            });
+
+            function updateActiveItem(items) {
+                items.forEach((it, idx) => {
+                    it.classList.toggle('active', idx === activeIndex);
+                    if (idx === activeIndex) {
+                        it.scrollIntoView({ block: 'nearest' });
+                    }
+                });
+            }
+
+            // Click outside to dismiss autocomplete dropdown
+            document.addEventListener('click', (e) => {
+                if (!input.contains(e.target) && !listEl.contains(e.target)) {
+                    listEl.style.display = 'none';
                 }
             });
         }
 
-        function filterModelsBySeries() {
-            const series = document.getElementById('seriesSelect').value;
-            if (series === 'ALL') {
-                if (allModels.length > 0) selectModel(allModels[0].model_name);
+        // ==========================================
+        // Mobile Pane Switcher (TH / EN)
+        // ==========================================
+        let currentMobilePane = 'th';
+
+        function switchMobilePane(lang) {
+            currentMobilePane = lang;
+            const tabTH = document.getElementById('tabBtnTH');
+            const tabEN = document.getElementById('tabBtnEN');
+            const paneTH = document.getElementById('thPaneCard');
+            const paneEN = document.getElementById('enPaneCard');
+
+            if (!tabTH || !tabEN || !paneTH || !paneEN) return;
+
+            if (window.innerWidth <= 768) {
+                if (lang === 'th') {
+                    tabTH.classList.add('active');
+                    tabEN.classList.remove('active');
+                    paneTH.style.display = 'flex';
+                    paneEN.style.display = 'none';
+                } else {
+                    tabEN.classList.add('active');
+                    tabTH.classList.remove('active');
+                    paneTH.style.display = 'none';
+                    paneEN.style.display = 'flex';
+                }
             } else {
-                const match = allModels.find(m => m.series_th === series);
-                if (match) selectModel(match.model_name);
+                tabTH.classList.add('active');
+                tabEN.classList.remove('active');
+                paneTH.style.display = 'flex';
+                paneEN.style.display = 'flex';
             }
         }
+
+        window.addEventListener('resize', () => {
+            const paneTH = document.getElementById('thPaneCard');
+            const paneEN = document.getElementById('enPaneCard');
+            if (!paneTH || !paneEN) return;
+
+            if (window.innerWidth > 768) {
+                paneTH.style.display = 'flex';
+                paneEN.style.display = 'flex';
+            } else {
+                switchMobilePane(currentMobilePane);
+            }
+        });
 
         // ==========================================
         // 4. Select & Load Model Details (Hybrid)
         // ==========================================
-        async function selectModel(modelName) {
-            selectedModelName = modelName;
-            document.getElementById('modelSearchInput').value = modelName;
+        async function selectModel(modelIdOrName) {
+            let modelObj = allModels.find(m => m.id === modelIdOrName);
+            if (!modelObj) {
+                modelObj = allModels.find(m => m.model_name === modelIdOrName);
+            }
+            if (!modelObj && allModels.length > 0) {
+                modelObj = allModels[0];
+            }
+            if (!modelObj) return;
+
+            selectedModelId = modelObj.id;
+            selectedModelName = modelObj.model_name;
+            selectedModelStatus = modelObj.status;
+
+            document.getElementById('modelSearchInput').value = modelObj.model_name;
+            const seriesSelect = document.getElementById('seriesSelect');
+            if (seriesSelect) seriesSelect.value = modelObj.id;
             document.getElementById('modelSummaryBar').style.display = 'flex';
-            document.getElementById('activeModelName').innerText = modelName;
+            document.getElementById('activeModelName').innerText = modelObj.model_name;
+
+            renderModelBadges(modelObj);
 
             if (isCloudMode) {
-                loadCloudModelDetails(modelName);
+                loadCloudModelDetails(modelObj);
                 return;
             }
 
             try {
-                const res = await fetch(`/api/model_details?model_name=${encodeURIComponent(modelName)}`);
+                const res = await fetch(`/api/model_details?model_name=${encodeURIComponent(modelObj.model_name)}&status=${encodeURIComponent(modelObj.status)}`);
                 const data = await res.json();
                 if (data.success) {
                     currentModelDetails = data;
-                    renderModelBadges();
+                    renderModelBadges(modelObj);
                     renderDualPanes();
                 } else {
-                    loadCloudModelDetails(modelName);
+                    loadCloudModelDetails(modelObj);
                 }
             } catch (err) {
-                loadCloudModelDetails(modelName);
+                loadCloudModelDetails(modelObj);
             }
         }
 
-        function loadCloudModelDetails(modelName) {
+        function loadCloudModelDetails(modelObjOrName) {
             if (!staticMasterTH || !staticMasterEN) return;
-            const cleanName = modelName.trim().toLowerCase();
+            const modelObj = (typeof modelObjOrName === 'object' && modelObjOrName !== null)
+                ? modelObjOrName
+                : (allModels.find(m => m.id === modelObjOrName || m.model_name === modelObjOrName) || { model_name: String(modelObjOrName), status: 'active' });
+
+            const cleanName = modelObj.model_name.trim().toLowerCase();
+            const isArchived = modelObj.status === 'archived';
+            const targetPdf = (modelObj.pdf_source_th || '').trim();
+
+            const primaryThCatalog = isArchived ? staticCustomTH : staticMasterTH;
+            const fallbackThCatalog = isArchived ? staticMasterTH : staticCustomTH;
+            const primaryEnCatalog = isArchived ? staticCustomEN : staticMasterEN;
+            const fallbackEnCatalog = isArchived ? staticMasterEN : staticCustomEN;
 
             let thModel = null;
             let thSeries = '';
-            for (const s of staticMasterTH) {
+
+            for (const s of primaryThCatalog) {
                 for (const m of (s.models || [])) {
                     if ((m.model_name || '').trim().toLowerCase() === cleanName) {
+                        const mPdf = (m.pdf_source || s.pdf_source || '').trim();
+                        if (targetPdf && mPdf && targetPdf !== mPdf) continue;
                         thModel = m;
                         thSeries = s.series || '';
                         break;
@@ -1440,9 +2136,22 @@
                 if (thModel) break;
             }
 
+            if (!thModel) {
+                for (const s of fallbackThCatalog) {
+                    for (const m of (s.models || [])) {
+                        if ((m.model_name || '').trim().toLowerCase() === cleanName) {
+                            thModel = m;
+                            thSeries = s.series || '';
+                            break;
+                        }
+                    }
+                    if (thModel) break;
+                }
+            }
+
             let enModel = null;
             let enSeries = '';
-            for (const s of staticMasterEN) {
+            for (const s of primaryEnCatalog) {
                 for (const m of (s.models || [])) {
                     if ((m.model_name || '').trim().toLowerCase() === cleanName) {
                         enModel = m;
@@ -1453,13 +2162,26 @@
                 if (enModel) break;
             }
 
+            if (!enModel) {
+                for (const s of fallbackEnCatalog) {
+                    for (const m of (s.models || [])) {
+                        if ((m.model_name || '').trim().toLowerCase() === cleanName) {
+                            enModel = m;
+                            enSeries = s.series || '';
+                            break;
+                        }
+                    }
+                    if (enModel) break;
+                }
+            }
+
             if (!thModel && !enModel) {
-                showToast(`ไม่พบข้อมูลรุ่น '${modelName}'`, 'error');
+                showToast(`ไม่พบข้อมูลรุ่น '${modelObj.model_name}'`, 'error');
                 return;
             }
 
             const matchedOverrides = [];
-            const pdfSource = (thModel || {}).pdf_source || '';
+            const pdfSource = (thModel || {}).pdf_source || targetPdf || '';
             const pdfBase = pdfSource ? pdfSource.split('/').pop() : '';
             for (const [prefix, pData] of Object.entries(staticOverrides || {})) {
                 if (prefix.startsWith('_')) continue;
@@ -1484,28 +2206,44 @@
                 }
             }
 
-            const enhancements = (staticEnhancements && staticEnhancements.models && staticEnhancements.models[modelName]) || { th: [], en: [] };
+            const enhancements = (staticEnhancements && staticEnhancements.models && staticEnhancements.models[modelObj.model_name]) || { th: [], en: [] };
 
             currentModelDetails = {
                 success: true,
-                model_name: modelName,
+                model_name: modelObj.model_name,
+                model_id: modelObj.id || `${modelObj.model_name}|${modelObj.status}`,
+                status: modelObj.status,
+                year: modelObj.year,
                 series_th: thSeries,
                 series_en: enSeries,
-                th: thModel || { model_name: modelName, specifications: [] },
-                en: enModel || { model_name: modelName, specifications: [] },
+                th: thModel || { model_name: modelObj.model_name, specifications: [] },
+                en: enModel || { model_name: modelObj.model_name, specifications: [] },
                 enhancements: enhancements,
                 overrides: matchedOverrides
             };
 
-            renderModelBadges();
+            renderModelBadges(modelObj);
             renderDualPanes();
         }
 
-        function renderModelBadges() {
+        function renderModelBadges(modelObj) {
             const badgesContainer = document.getElementById('activeModelBadges');
+            if (!badgesContainer) return;
             badgesContainer.innerHTML = '';
 
-            const enhList = (currentModelDetails.enhancements && currentModelDetails.enhancements.th) || [];
+            const m = modelObj || allModels.find(item => item.id === selectedModelId || item.model_name === selectedModelName) || {};
+            const isArchived = m.status === 'archived';
+
+            // Smart Status Badge
+            const statusBadge = document.createElement('span');
+            statusBadge.className = `badge-tag ${isArchived ? 'badge-status-archived' : 'badge-status-active'}`;
+            statusBadge.innerText = isArchived
+                ? `📦 รุ่นก่อนหน้า (Archived ${m.year || ''})`
+                : `🟢 รุ่นปัจจุบัน (Active ${m.year || ''})`;
+            badgesContainer.appendChild(statusBadge);
+
+            // Compare Enhancement Badge
+            const enhList = (currentModelDetails && currentModelDetails.enhancements && currentModelDetails.enhancements.th) || [];
             if (enhList.length > 0) {
                 const b = document.createElement('span');
                 b.className = 'badge-tag badge-enhancement-active';
@@ -1513,7 +2251,8 @@
                 badgesContainer.appendChild(b);
             }
 
-            const ovrList = currentModelDetails.overrides || [];
+            // PDF Overrides Badge
+            const ovrList = (currentModelDetails && currentModelDetails.overrides) || [];
             if (ovrList.length > 0) {
                 const b = document.createElement('span');
                 b.className = 'badge-tag badge-override-active';
@@ -1536,6 +2275,10 @@
 
             renderPaneContent('thContentArea', thSpecs, enhancements.th || [], overrides, 'th');
             renderPaneContent('enContentArea', enSpecs, enhancements.en || [], overrides, 'en');
+
+            if (window.innerWidth <= 768) {
+                switchMobilePane(currentMobilePane);
+            }
         }
 
         function cleanThai(str) {
@@ -1817,7 +2560,7 @@
                         if (success) {
                             showToast('✅ บันทึกและ Commit ขึ้น GitHub สำเร็จแล้ว! (GitHub Pages จะอัปเดตใน 1-2 นาที)', 'success');
                             closeEditModal();
-                            selectModel(selectedModelName);
+                            selectModel(selectedModelId || selectedModelName);
                         }
                     } else {
                         showToast('⚠️ ใน Cloud Mode ระบบรองรับการบันทึก Compare Enhancement เป็นหลัก', 'warning');
@@ -1836,7 +2579,7 @@
                     if (resData.success) {
                         showToast(`บันทึก Compare Enhancement สำเร็จ (สำรองข้อมูลที่ ${resData.backup_file})`, 'success');
                         closeEditModal();
-                        selectModel(selectedModelName);
+                        selectModel(selectedModelId || selectedModelName);
                     } else {
                         showToast(resData.error || 'บันทึกล้มเหลว', 'error');
                     }
@@ -1858,7 +2601,7 @@
                     if (resData.success) {
                         showToast(`บันทึก Global Override สำเร็จ (สำรองข้อมูลที่ ${resData.backup_file})`, 'success');
                         closeEditModal();
-                        selectModel(selectedModelName);
+                        selectModel(selectedModelId || selectedModelName);
                     } else {
                         showToast(resData.error || 'บันทึกล้มเหลว', 'error');
                     }
@@ -1882,7 +2625,7 @@
                     if (success) {
                         showToast('✅ ลบรายการและ Commit ขึ้น GitHub สำเร็จแล้ว!', 'success');
                         closeEditModal();
-                        selectModel(selectedModelName);
+                        selectModel(selectedModelId || selectedModelName);
                     }
                     return;
                 }
@@ -1900,7 +2643,7 @@
                 if (resData.success) {
                     showToast('ลบรายการสำเร็จ (สำรองข้อมูลแล้ว)', 'success');
                     closeEditModal();
-                    selectModel(selectedModelName);
+                    selectModel(selectedModelId || selectedModelName);
                 } else {
                     showToast(resData.error || 'ลบล้มเหลว', 'error');
                 }

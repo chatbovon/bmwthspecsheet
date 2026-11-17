@@ -30,17 +30,43 @@ TARGETS = [
 ]
 
 def download_pdf(page, pdf_url, download_dir, filename):
-    """ฟังก์ชันดาวน์โหลดไฟล์โดยใช้ Session ของ Playwright"""
+    """ฟังก์ชันดาวน์โหลดไฟล์โดยใช้ Session ของ Playwright พร้อม Browser Download Fallback"""
+    target_path = os.path.join(download_dir, filename)
+
+    # วิธีที่ 1: ดาวน์โหลดผ่าน APIRequestContext (เร็วที่สุดเมื่อเซิร์ฟเวอร์อนุญาต)
     try:
         response = page.request.get(pdf_url, timeout=45000)
         if response.ok:
-            with open(os.path.join(download_dir, filename), 'wb') as f:
+            with open(target_path, 'wb') as f:
                 f.write(response.body())
             return True
         else:
-            print(f"   -> [Error] Server return HTTP {response.status}")
+            print(f"   -> [Notice] Direct request returned HTTP {response.status}, attempting browser download fallback...")
     except Exception as e:
-        print(f"   -> [Error] {e}")
+        print(f"   -> [Notice] Direct request failed ({e}), attempting browser download fallback...")
+
+    # วิธีที่ 2: Browser Download Fallback (รองรับ attachment header และ Akamai protection)
+    try:
+        download_page = page.context.new_page()
+        try:
+            with download_page.expect_download(timeout=45000) as download_info:
+                try:
+                    download_page.goto(pdf_url)
+                except Exception:
+                    pass  # download_page.goto raises when navigation triggers a file download
+            download = download_info.value
+            download.save_as(target_path)
+            if os.path.exists(target_path) and os.path.getsize(target_path) > 0:
+                print(f"   -> [Success] Downloaded via browser session ({os.path.getsize(target_path)} bytes)")
+                return True
+        finally:
+            try:
+                download_page.close()
+            except Exception:
+                pass
+    except Exception as fallback_err:
+        print(f"   -> [Error] Browser download fallback failed: {fallback_err}")
+
     return False
 
 EXCLUDED_FILENAME_KEYWORDS = ("brochure", "catalog", "leaflet")

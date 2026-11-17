@@ -1,56 +1,48 @@
 {
-    "series": "BMW i7",
-    "pdf_source": "i7-20261006-03_EN_335kW.pdf.asset.1793160815988.pdf",
+    "series": "BMW iX3",
+    "pdf_source": "iX3_20L-20261110-01_EN.pdf.asset.1794805688602.pdf",
     "models": [
         {
-            "model_name": "i7 50 xDrive M Sport",
+            "model_name": "iX3 40L xDrive M Sport",
             "specifications": [
                 {
                     "category": "ENGINE AND PERFORMANCE",
                     "details": [
                         {
                             "topic": "Electric motor",
-                            "value": "BMW eDrive technology"
+                            "value": "Sixth-generation BMW eDrive technology (800 V)"
                         },
                         {
                             "topic": "Maximum output (kW/hp)",
-                            "value": "335 / 455"
+                            "value": "275 / 374"
                         },
                         {
                             "topic": "Maximum torque (Nm)",
-                            "value": "660"
+                            "value": "565"
                         },
                         {
-                            "topic": "Electric range¹, NEDC (km)",
-                            "value": "up to 692"
-                        },
-                        {
-                            "topic": "Electric range¹, WLTP (km)",
-                            "value": "620 - 727"
+                            "topic": "Electric range¹, CLTC (km)",
+                            "value": "702"
                         },
                         {
                             "topic": "Battery type (High voltage)",
-                            "value": "Lithium Ion"
+                            "value": "Lithium-ion"
                         },
                         {
                             "topic": "High voltage battery energy content (kWh)",
-                            "value": "118.1"
+                            "value": "86.9"
                         },
                         {
                             "topic": "Top speed (km/h)",
-                            "value": "210"
+                            "value": "200"
                         },
                         {
                             "topic": "0 - 100 km/h (s)",
-                            "value": "5.5"
+                            "value": "5.6"
                         },
                         {
-                            "topic": "Electric energy consumption, NEDC (kWh/100 km)",
-                            "value": "18"
-                        },
-                        {
-                            "topic": "Electric energy consumption, WLTP (kWh/100 km)",
-                            "value": "20.4"
+                            "topic": "Electric energy consumption, CLTC (kWh/100 km)",
+                            "value": "13.5"
                         }
                     ]
                 },
@@ -59,11 +51,11 @@
                     "details": [
                         {
                             "topic": "Wheels",
-                            "value": "21\" BMW Individual light alloy wheels Multi-spoke style Bicolour"
+                            "value": "21\" M light alloy wheels Star-spoke style I Bicolour"
                         },
                         {
                             "topic": "Tyre size",
-                            "value": "Front: 9 J × 21 / tyres 255/40 R21 Rear: 10.5 J × 21 / tyres 285/35 R21\""
+                            "value": "9.0 J × 21 / tyres 255/40 R21"
                         }
                     ]
                 },
@@ -72,15 +64,19 @@
                     "details": [
                         {
                             "topic": "Length / width / height (mm)",
-                            "value": "5395 / 1950 / 1558"
+                            "value": "4,885 / 1,895 / 1,634"
                         },
                         {
                             "topic": "Luggage capacity (l)",
-                            "value": "500"
+                            "value": "510 - 1,900"
                         },
                         {
-                            "topic": "Curb weight (kg)",
-                            "value": "2770"
+                            "topic": "Storage compartment under the bonnet capacity (l)",
+                            "value": "58"
+                        },
+                        {
+                            "topic": "Curb weight without driver (kg)",
+                            "value": "2,270"
                         }
                     ]
                 },
@@ -97,20 +93,20 @@
                     "category": "CHARGING TIME 0 - 100%",
                     "details": [
                         {
-                            "topic": "AC charging at 2.3kW (220-230V / 10A / 1ph)",
-                            "value": "63 Hours"
+                            "topic": "AC charging at 2.3kW (230V / 10A / 1ph)",
+                            "value": "43 hours 45 minutes"
                         },
                         {
                             "topic": "AC charging at 7.4kW Wallbox (230V / 32A / 1ph)",
-                            "value": "17 Hours 15 Minutes"
+                            "value": "12 hours 15 minutes"
                         },
                         {
                             "topic": "AC charging at 11kW Flexible Fast Charger (230V / 16A / 3ph)",
-                            "value": "11 Hours 15 Minutes"
+                            "value": "8 hours 15 minutes"
                         },
                         {
                             "topic": "AC charging at 22kW Wallbox (230V / 32A / 3ph)",
-                            "value": "5 Hours 45 Minutes"
+                            "value": "4 hours 15 minutes"
                         }
                     ]
                 },
@@ -119,7 +115,7 @@
                     "details": [
                         {
                             "topic": "Maximum charging power DC (kW)",
-                            "value": "250"
+                            "value": "300"
                         }
                     ]
                 },
@@ -128,19 +124,15 @@
                     "details": [
                         {
                             "topic": "DC charging vehicle at 125A by EVSE",
-                            "value": "1 Hours 47 Minutes"
+                            "value": "44 minutes"
                         },
                         {
                             "topic": "DC charging vehicle at 250A by EVSE",
-                            "value": "54 Minutes"
+                            "value": "26 minutes"
                         },
                         {
                             "topic": "DC charging vehicle at 500A by EVSE",
-                            "value": "30 Minutes"
-                        },
-                        {
-                            "topic": "DC charging vehicle at 630A by EVSE",
-                            "value": "28 Minutes"
+                            "value": "21 minutes"
                         }
                     ]
                 },
@@ -164,11 +156,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Adaptive 2-axle air suspension",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Integral Active Steering",
+                            "topic": "BMW Dynamic Performance Control",
                             "value": "■"
                         }
                     ]
@@ -177,15 +165,15 @@
                     "category": "Exterior",
                     "details": [
                         {
-                            "topic": "Panorama glass roof Sky Lounge",
+                            "topic": "BMW Iconic Glow exterior package",
                             "value": "■"
                         },
                         {
-                            "topic": "M high-gloss Shadowline",
+                            "topic": "LED headlights with adaptive lighting functions",
                             "value": "■"
                         },
                         {
-                            "topic": "M rear spoiler",
+                            "topic": "Panoramic sunroof with climate comfort glazing",
                             "value": "■"
                         },
                         {
@@ -197,15 +185,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "BMW kidney Iconic Glow",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "BMW Individual crystal headlights Iconic Glow",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Ceremonial Light Carpet",
+                            "topic": "Automatic operation of tailgate",
                             "value": "■"
                         },
                         {
@@ -213,7 +193,23 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Soft-close function for doors",
+                            "topic": "Expanded exterior mirror package",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Intelligent charging flap",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Storage compartment under the bonnet",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Roof rails in Black High-gloss",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Rear Diffuser in Black High-gloss",
                             "value": "■"
                         }
                     ]
@@ -222,23 +218,11 @@
                     "category": "Interior",
                     "details": [
                         {
-                            "topic": "Seat heating front and rear",
+                            "topic": "Sports steering wheel",
                             "value": "■"
                         },
                         {
-                            "topic": "Massage function front",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Massage function for rear-seat passengers",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Active seat ventilation in the front seats",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Active seat ventilation, rear",
+                            "topic": "Steering wheel heating",
                             "value": "■"
                         },
                         {
@@ -246,47 +230,23 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Multifunction seats at rear",
+                            "topic": "Active seat ventilation in the front seats",
                             "value": "■"
                         },
                         {
-                            "topic": "M Leather steering wheel",
+                            "topic": "Seat heating for driver and front passenger",
                             "value": "■"
                         },
                         {
-                            "topic": "Carbon Fibre M interior trim with silver stitching/Piano Finish Black",
+                            "topic": "Seat heating for rear seats",
                             "value": "■"
                         },
                         {
-                            "topic": "BMW Individual Anthracite Alcantara headlining",
+                            "topic": "Electronically adjustable seats with memory",
                             "value": "■"
                         },
                         {
-                            "topic": "Ambient light",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "BMW Individual CraftedClarity glass application for interior elements",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Roller sunblinds",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "4-Zone Automatic air conditioning",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Automatic Doors",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Executive Lounge seating",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Executive Lounge rear console",
+                            "topic": "Massage function front",
                             "value": "■"
                         },
                         {
@@ -294,15 +254,19 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Steering-wheel heating",
+                            "topic": "Seat backrest adjustment, rear seats",
                             "value": "■"
                         },
                         {
-                            "topic": "Through-loading system",
+                            "topic": "Ambient light",
                             "value": "■"
                         },
                         {
                             "topic": "M Sport interior parts",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "3-zone automatic air conditioning",
                             "value": "■"
                         }
                     ]
@@ -311,27 +275,7 @@
                     "category": "Entertainment and communication",
                     "details": [
                         {
-                            "topic": "BMW ConnectedDrive",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Bowers & Wilkins Diamond surround sound system",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "BMW Iconic sounds electric",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Rear-seat entertainment Experience (BMW Theatre Screen)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Wireless charging tray",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "BMW Passenger Screen",
+                            "topic": "BMW Panoramic iDrive",
                             "value": "■"
                         },
                         {
@@ -339,11 +283,19 @@
                             "value": "■"
                         },
                         {
-                            "topic": "BMW 3D Head-up Display",
+                            "topic": "BMW 3D Head-up display",
                             "value": "■"
                         },
                         {
-                            "topic": "BMW IconicSounds Electric",
+                            "topic": "HiFi loudspeaker system Harman Kardon",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "Wireless charging tray",
+                            "value": "■"
+                        },
+                        {
+                            "topic": "BMW ConnectedDrive",
                             "value": "■"
                         }
                     ]
@@ -388,11 +340,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Brake Assist (BA)",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Crash sensor",
+                            "topic": "Dynamic Brake Control (DBC)",
                             "value": "■"
                         },
                         {
@@ -400,15 +348,11 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Tyre repair kit Plus",
+                            "topic": "Tyre Repair Kit Plus",
                             "value": "■"
                         },
                         {
                             "topic": "Tyre Pressure Monitoring System",
-                            "value": "■"
-                        },
-                        {
-                            "topic": "Security Assistant",
                             "value": "■"
                         },
                         {
@@ -452,7 +396,7 @@
                             "value": "■"
                         },
                         {
-                            "topic": "Park Distance Control",
+                            "topic": "Park Distance Control (PDC)",
                             "value": "■"
                         },
                         {
@@ -478,6 +422,10 @@
                         {
                             "topic": "Steering and Lane Control Assistant",
                             "value": "■"
+                        },
+                        {
+                            "topic": "Warning triangle",
+                            "value": "■"
                         }
                     ]
                 },
@@ -494,20 +442,20 @@
                     "category": "Paintwork & Upholstery",
                     "details": [
                         {
-                            "topic": "Black Sapphire Metallic",
-                            "value": "BMW Individual leather 'Merino' - Mocha"
+                            "topic": "Polarised Grey Metallic",
+                            "value": "Interior design Contemporary - Castanea bicolour"
                         },
                         {
-                            "topic": "Oxide Grey Metallic",
-                            "value": "BMW Individual leather 'Merino' - Black"
+                            "topic": "M Carbon Black Metallic",
+                            "value": "Interior design Contemporary - Castanea bicolour"
                         },
                         {
-                            "topic": "BMW Individual Dravit Grey Metallic",
-                            "value": "BMW Individual leather 'Merino' - Black"
+                            "topic": "Mineral White Metallic",
+                            "value": "Interior design Contemporary - Castanea bicolour"
                         },
                         {
-                            "topic": "BMW Individual Two-Tone Oxide Grey II Metallic with Sapphire Black Metallic",
-                            "value": "BMW Individual leather 'Merino' - Tartufo"
+                            "topic": "Space Silver Metallic",
+                            "value": "Interior design Contemporary - Castanea bicolour"
                         }
                     ]
                 },
@@ -516,17 +464,19 @@
                     "details": [
                         {
                             "topic": "Publication Date",
-                            "value": "28 October 2026"
+                            "value": "19 March 2026"
                         },
                         {
                             "topic": "Local package code",
-                            "value": "(ZLL, ZLM)"
+                            "value": "(ZMA)"
                         }
                     ]
                 }
-            ]
+            ],
+            "images": {},
+            "image_status": "new_model_scrape"
         }
     ],
-    "source_file": "i7-20261006-03_EN_335kW.pdf.asset.1793160815988.pdf",
-    "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/common/Brochure/2026/i7-20261006-03_EN_335kW.pdf.asset.1793160815988.pdf"
+    "source_file": "iX3_20L-20261110-01_EN.pdf.asset.1794805688602.pdf",
+    "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/Topics/Specs/2026/iX3_20L-20261110-01_EN.pdf.asset.1794805688602.pdf"
 }
