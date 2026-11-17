@@ -3020,7 +3020,20 @@
                     {
                         canonicalNameTH: 'ความจุพลังงาน (ถังน้ำมัน / แบตเตอรี่)',
                         canonicalNameEN: 'Energy Capacity (Tank / Battery)',
-                        aliases: ['ความจุถังน้ำมันเชื้อเพลิง', 'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง', 'ความจุแบตเตอรี่', 'fuel tank capacity', 'high-voltage battery capacity']
+                        aliases: [
+                            'ความจุพลังงานแบตเตอรี่แรงสูง',
+                            'ความจุพลังงานแบตเตอรี่ไฟฟ้าแรงสูง',
+                            'ความจุพลังงานแบตเตอรี่',
+                            'ความจุแบตเตอรี่',
+                            'ความจุถังน้ำมันเชื้อเพลิง',
+                            'ความจุถังน้ำมัน',
+                            'high voltage battery energy content',
+                            'high-voltage battery capacity',
+                            'battery energy content',
+                            'battery capacity',
+                            'fuel tank capacity',
+                            'tank capacity'
+                        ]
                     },
                     {
                         canonicalNameTH: 'ระยะทางขับเคลื่อนไฟฟ้า (กม.)',
@@ -4798,76 +4811,112 @@
 
         // Helper: Find value from model's specifications matching a set of aliases (searches by alias priority)
         function findSpecValueByAliases(model, aliases, preferTopicAsValue = false) {
-            // Priority 1: Check aliases in order of preference for active/present values
-            for (const alias of aliases) {
-                const aliasLower = cleanThai(alias).toLowerCase();
-                const isShortAlias = aliasLower.length <= 3;
-                for (const specBlock of (model.specifications || [])) {
-                    for (const detail of (specBlock.details || [])) {
-                        const top = cleanThai(detail.topic || '').trim();
-                        const topLower = top.toLowerCase();
-                        const isMatch = isShortAlias ? (topLower === aliasLower) : topLower.includes(aliasLower);
-                        if (isMatch) {
-                            const val = (detail.value || '').trim();
-                            const isCheckMark = TRANSLATIONS[currentLang].yesWords.includes(val.toLowerCase());
-                            const isActive = val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none';
-                            
-                            if (isActive) {
-                                if (preferTopicAsValue) {
-                                    const displayVal = isCheckMark ? top : val;
-                                    return { value: displayVal, topic: top, isTextOption: true };
+            function matchTopic(topLower, aliasLower, isShortAlias) {
+                if (isShortAlias) {
+                    return topLower === aliasLower;
+                }
+                if (topLower.includes(aliasLower)) {
+                    return true;
+                }
+                // Smart Multi-token match for space-separated keywords
+                if (aliasLower.includes(' ')) {
+                    const tokens = aliasLower.split(/\s+/).filter(Boolean);
+                    if (tokens.length > 1 && tokens.every(tok => topLower.includes(tok))) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function searchModel(m) {
+                if (!m) return null;
+                // Priority 1: Check aliases in order of preference for active/present values
+                for (const alias of aliases) {
+                    const aliasLower = cleanThai(alias).toLowerCase();
+                    const isShortAlias = aliasLower.length <= 3;
+                    for (const specBlock of (m.specifications || [])) {
+                        for (const detail of (specBlock.details || [])) {
+                            const top = cleanThai(detail.topic || '').trim();
+                            const topLower = top.toLowerCase();
+                            const isMatch = matchTopic(topLower, aliasLower, isShortAlias);
+                            if (isMatch) {
+                                const val = (detail.value || '').trim();
+                                const isCheckMark = TRANSLATIONS[currentLang].yesWords.includes(val.toLowerCase());
+                                const isActive = val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none';
+                                
+                                if (isActive) {
+                                    if (preferTopicAsValue) {
+                                        const displayVal = isCheckMark ? top : val;
+                                        return { value: displayVal, topic: top, isTextOption: true };
+                                    }
+                                    return { value: val, topic: top, isTextOption: false };
                                 }
-                                return { value: val, topic: top, isTextOption: false };
                             }
                         }
                     }
                 }
+
+                // Priority 2: Check if any alias matched with '-' (explicitly not equipped)
+                for (const alias of aliases) {
+                    const aliasLower = cleanThai(alias).toLowerCase();
+                    const isShortAlias = aliasLower.length <= 3;
+                    for (const specBlock of (m.specifications || [])) {
+                        for (const detail of (specBlock.details || [])) {
+                            const top = cleanThai(detail.topic || '').trim();
+                            const topLower = top.toLowerCase();
+                            const isMatch = matchTopic(topLower, aliasLower, isShortAlias);
+                            if (isMatch) {
+                                // Check if compare enhancement overrides this '-'
+                                const enhancement = getModelEnhancement(m.modelName, specBlock.category, aliases);
+                                if (enhancement && enhancement.is_real_vehicle_verified) {
+                                    const eVal = enhancement.value || '■';
+                                    const displayVal = preferTopicAsValue ? (enhancement.topic || top) : eVal;
+                                    return {
+                                        value: displayVal,
+                                        topic: enhancement.topic || top,
+                                        isTextOption: preferTopicAsValue,
+                                        isRealVehicleVerified: true,
+                                        verifiedNote: enhancement.note || ''
+                                    };
+                                }
+                                return { value: '-', topic: top, isTextOption: false };
+                            }
+                        }
+                    }
+                }
+
+                // Priority 3: Check compare enhancement if omitted from brochure completely
+                const enhancement = getModelEnhancement(m.modelName, null, aliases);
+                if (enhancement && enhancement.is_real_vehicle_verified) {
+                    const eVal = enhancement.value || '■';
+                    const displayVal = preferTopicAsValue ? (enhancement.topic || aliases[0]) : eVal;
+                    return {
+                        value: displayVal,
+                        topic: enhancement.topic || aliases[0],
+                        isTextOption: preferTopicAsValue,
+                        isRealVehicleVerified: true,
+                        verifiedNote: enhancement.note || ''
+                    };
+                }
+
+                return null;
             }
 
-            // Priority 2: Check if any alias matched with '-' (explicitly not equipped)
-            for (const alias of aliases) {
-                const aliasLower = cleanThai(alias).toLowerCase();
-                const isShortAlias = aliasLower.length <= 3;
-                for (const specBlock of (model.specifications || [])) {
-                    for (const detail of (specBlock.details || [])) {
-                        const top = cleanThai(detail.topic || '').trim();
-                        const topLower = top.toLowerCase();
-                        const isMatch = isShortAlias ? (topLower === aliasLower) : topLower.includes(aliasLower);
-                        if (isMatch) {
-                            // Check if compare enhancement overrides this '-'
-                            const enhancement = getModelEnhancement(model.modelName, specBlock.category, aliases);
-                            if (enhancement && enhancement.is_real_vehicle_verified) {
-                                const eVal = enhancement.value || '■';
-                                const displayVal = preferTopicAsValue ? (enhancement.topic || top) : eVal;
-                                return {
-                                    value: displayVal,
-                                    topic: enhancement.topic || top,
-                                    isTextOption: preferTopicAsValue,
-                                    isRealVehicleVerified: true,
-                                    verifiedNote: enhancement.note || ''
-                                };
-                            }
-                            return { value: '-', topic: top, isTextOption: false };
-                        }
+            let res = searchModel(model);
+
+            // Cross-Language Fallback: If current language yielded null or '-', and we have counterpart catalog,
+            // cross-verify against opposite language for numeric / technical options
+            if ((!res || res.value === '-') && typeof getCounterpartModel === 'function') {
+                const cp = getCounterpartModel(model);
+                if (cp) {
+                    const cpRes = searchModel(cp);
+                    if (cpRes && cpRes.value && cpRes.value !== '-') {
+                        res = cpRes;
                     }
                 }
             }
 
-            // Priority 3: Check compare enhancement if omitted from brochure completely
-            const enhancement = getModelEnhancement(model.modelName, null, aliases);
-            if (enhancement && enhancement.is_real_vehicle_verified) {
-                const eVal = enhancement.value || '■';
-                const displayVal = preferTopicAsValue ? (enhancement.topic || aliases[0]) : eVal;
-                return {
-                    value: displayVal,
-                    topic: enhancement.topic || aliases[0],
-                    isTextOption: preferTopicAsValue,
-                    isRealVehicleVerified: true,
-                    verifiedNote: enhancement.note || ''
-                };
-            }
-
-            return { value: '-', topic: '', isTextOption: false };
+            return res || { value: '-', topic: '', isTextOption: false };
         }
 
         // 4. Populate Table Body
@@ -4978,6 +5027,36 @@
                             res = getAdditionalSafetyEquipment(m);
                         } else {
                             res = findSpecValueByAliases(m, tDef.aliases, tDef.preferTopicAsValue);
+                        }
+
+                        // Cross-Language Custom Extractor Fallback: Ensure numeric/technical specs never desync
+                        if ((!res || res.value === '-' || !res.value) && hasCustomExtractor && typeof getCounterpartModel === 'function') {
+                            const cp = getCounterpartModel(m);
+                            if (cp) {
+                                let cpRes = null;
+                                if (tDef.customPowerExtractor) cpRes = getPowerInfo(cp);
+                                else if (tDef.customTorqueExtractor) cpRes = getTorqueInfo(cp);
+                                else if (tDef.customChargingExtractor) cpRes = getChargingInfo(cp);
+                                else if (tDef.customElectricRangeExtractor) cpRes = getElectricRange(cp);
+                                else if (tDef.customFuelConsumptionExtractor) cpRes = getFuelConsumptionInfo(cp);
+                                else if (tDef.customElectricConsumptionExtractor) cpRes = getElectricConsumptionInfo(cp);
+                                else if (tDef.customConsumptionExtractor) cpRes = getConsumptionInfo(cp);
+                                else if (tDef.customCockpitExtractor) cpRes = getCockpitInfo(cp);
+                                else if (tDef.customHUDExtractor) cpRes = getHUDInfo(cp);
+                                else if (tDef.customDrivetrainExtractor) cpRes = getDrivetrainInfo(cp);
+                                else if (tDef.customActiveCruiseExtractor) cpRes = getActiveCruiseControlInfo(cp);
+                                else if (tDef.customAirbagExtractor) cpRes = getAirbagInfo(cp);
+                                else if (tDef.customIASExtractor) cpRes = getIASInfo(cp);
+                                else if (tDef.customACExtractor) cpRes = getAirConditioningInfo(cp);
+                                else if (tDef.customSunblindExtractor) cpRes = getSunblindInfo(cp);
+                                else if (tDef.customExteriorPackageExtractor) cpRes = getExteriorPackageInfo(cp);
+                                else if (tDef.customSpecialExteriorExtractor) cpRes = getSpecialExteriorEquipment(cp);
+                                else if (tDef.customSpecialInteriorExtractor) cpRes = getSpecialInteriorEquipment(cp);
+                                else if (tDef.customAdditionalSafetyExtractor) cpRes = getAdditionalSafetyEquipment(cp);
+                                if (cpRes && cpRes.value && cpRes.value !== '-') {
+                                    res = cpRes;
+                                }
+                            }
                         }
                         const specVal = res.value;
 
