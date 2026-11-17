@@ -30326,7 +30326,8 @@
                     }
                 ],
                 "images": {},
-                "image_status": "pending_configurator"
+                "image_status": "pending_configurator",
+                "is_custom_archived": false
             }
         ],
         "source_file": "7-20261014-01_TH.pdf.asset.1793099190290.pdf",
@@ -31450,7 +31451,8 @@
                     }
                 ],
                 "images": {},
-                "image_status": "pending_configurator"
+                "image_status": "pending_configurator",
+                "is_custom_archived": false
             }
         ],
         "source_file": "7-20261015-01_TH.pdf.asset.1793099190342.pdf",
