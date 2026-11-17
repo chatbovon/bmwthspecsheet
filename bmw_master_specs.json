@@ -34920,7 +34920,8 @@
                     "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_arctic_race_blue_metallic.webp",
                     "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_420i_coupe_m_sport_cape_york_green_metallic.webp"
                 },
-                "image_status": "reused_same_gen"
+                "image_status": "reused_same_gen",
+                "is_custom_archived": false
             },
             {
                 "model_name": "430i Coupé M Sport",
@@ -35342,7 +35343,8 @@
                     "Arctic Race Blue metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_arctic_race_blue_metallic.webp",
                     "Cape York Green metallic": "images/4_20260714_01_TH_.asset.1784613825348/bmw_430i_coupe_m_sport_cape_york_green_metallic.webp"
                 },
-                "image_status": "reused_same_gen"
+                "image_status": "reused_same_gen",
+                "is_custom_archived": false
             }
         ],
         "source_file": "4_SERIES_ALL_TH_.pdf.asset.1794805688627.pdf",
@@ -36825,7 +36827,8 @@
                     }
                 ],
                 "images": {},
-                "image_status": "new_model_scrape"
+                "image_status": "new_model_scrape",
+                "is_custom_archived": false
             },
             {
                 "model_name": "M2 M xDrive (M Racetrack)",
@@ -37220,7 +37223,8 @@
                     }
                 ],
                 "images": {},
-                "image_status": "new_model_scrape"
+                "image_status": "new_model_scrape",
+                "is_custom_archived": false
             }
         ],
         "source_file": "M2.-20260806-01_TH.pdf.asset.1794805688646.pdf",
@@ -38654,7 +38658,8 @@
                     }
                 ],
                 "images": {},
-                "image_status": "pending_configurator"
+                "image_status": "pending_configurator",
+                "is_custom_archived": false
             }
         ],
         "source_file": "X5-20261102-01_TH_Color.pdf.asset.1794811964576.pdf",
