@@ -3205,7 +3205,17 @@
                         canonicalNameTH: 'พวงมาลัยดีไซน์ M / M Sport',
                         canonicalNameEN: 'M Steering Wheel',
                         preferTopicAsValue: true,
-                        aliases: ['พวงมาลัยหุ้ม alcantara ดีไซน์ m', 'พวงมาลัยหุ้มหนังดีไซน์ m แบบ m performance', 'พวงมาลัยหุ้มหนังดีไซน์ m sport', 'พวงมาลัยหุ้มหนังดีไซน์ m', 'พวงมาลัยดีไซน์ m', 'm alcantara steering wheel', 'm leather steering wheel', 'พวงมาลัย m sport']
+                        aliases: [
+                            'พวงมาลัยหุ้ม alcantara ดีไซน์ m',
+                            'พวงมาลัยหุ้มหนังดีไซน์ m แบบ m performance',
+                            'พวงมาลัยหุ้มหนังดีไซน์ m sport',
+                            'พวงมาลัยหุ้มหนังดีไซน์ m',
+                            'พวงมาลัยดีไซน์ m',
+                            'm alcantara steering wheel',
+                            'm leather steering wheel',
+                            'm steering wheel',
+                            'พวงมาลัย m sport'
+                        ]
                     },
                     {
                         canonicalNameTH: 'คิ้วตกแต่งภายใน',
@@ -3234,6 +3244,9 @@
                             'ภายในตกแต่งด้วยลายไม้',
                             'ash grey blue',
                             'fine-wood trim',
+                            'm sport interior parts',
+                            'm interior parts',
+                            'interior parts',
                             'interior trim finishers',
                             'interior trim',
                             'คิ้วตกแต่ง',
@@ -4834,8 +4847,10 @@
                 for (const alias of aliases) {
                     const aliasLower = cleanThai(alias).toLowerCase();
                     const isShortAlias = aliasLower.length <= 3;
-                    for (const specBlock of (m.specifications || [])) {
-                        for (const detail of (specBlock.details || [])) {
+                    for (let cIdx = 0; cIdx < (m.specifications || []).length; cIdx++) {
+                        const specBlock = m.specifications[cIdx];
+                        for (let dIdx = 0; dIdx < (specBlock.details || []).length; dIdx++) {
+                            const detail = specBlock.details[dIdx];
                             const top = cleanThai(detail.topic || '').trim();
                             const topLower = top.toLowerCase();
                             const isMatch = matchTopic(topLower, aliasLower, isShortAlias);
@@ -4847,9 +4862,9 @@
                                 if (isActive) {
                                     if (preferTopicAsValue) {
                                         const displayVal = isCheckMark ? top : val;
-                                        return { value: displayVal, topic: top, isTextOption: true };
+                                        return { value: displayVal, topic: top, isTextOption: true, categoryIndex: cIdx, detailIndex: dIdx };
                                     }
-                                    return { value: val, topic: top, isTextOption: false };
+                                    return { value: val, topic: top, isTextOption: false, categoryIndex: cIdx, detailIndex: dIdx };
                                 }
                             }
                         }
@@ -4860,8 +4875,10 @@
                 for (const alias of aliases) {
                     const aliasLower = cleanThai(alias).toLowerCase();
                     const isShortAlias = aliasLower.length <= 3;
-                    for (const specBlock of (m.specifications || [])) {
-                        for (const detail of (specBlock.details || [])) {
+                    for (let cIdx = 0; cIdx < (m.specifications || []).length; cIdx++) {
+                        const specBlock = m.specifications[cIdx];
+                        for (let dIdx = 0; dIdx < (specBlock.details || []).length; dIdx++) {
+                            const detail = specBlock.details[dIdx];
                             const top = cleanThai(detail.topic || '').trim();
                             const topLower = top.toLowerCase();
                             const isMatch = matchTopic(topLower, aliasLower, isShortAlias);
@@ -4876,10 +4893,12 @@
                                         topic: enhancement.topic || top,
                                         isTextOption: preferTopicAsValue,
                                         isRealVehicleVerified: true,
-                                        verifiedNote: enhancement.note || ''
+                                        verifiedNote: enhancement.note || '',
+                                        categoryIndex: cIdx,
+                                        detailIndex: dIdx
                                     };
                                 }
-                                return { value: '-', topic: top, isTextOption: false };
+                                return { value: '-', topic: top, isTextOption: false, categoryIndex: cIdx, detailIndex: dIdx };
                             }
                         }
                     }
@@ -4911,7 +4930,70 @@
                 if (cp) {
                     const cpRes = searchModel(cp);
                     if (cpRes && cpRes.value && cpRes.value !== '-') {
-                        res = cpRes;
+                        if (preferTopicAsValue && cpRes.categoryIndex !== undefined && cpRes.detailIndex !== undefined) {
+                            // Symmetrical index resolution: Resolve topic from the active language model at the exact same index!
+                            const curSpecs = model.specifications || [];
+                            if (curSpecs[cpRes.categoryIndex] && curSpecs[cpRes.categoryIndex].details && curSpecs[cpRes.categoryIndex].details[cpRes.detailIndex]) {
+                                const curDetail = curSpecs[cpRes.categoryIndex].details[cpRes.detailIndex];
+                                const curVal = (curDetail.value || '').trim();
+                                const isCheckMark = TRANSLATIONS[currentLang].yesWords.includes(curVal.toLowerCase());
+                                const resolvedTop = cleanThai(curDetail.topic || '').trim();
+                                
+                                // Validate resolvedTop matches active language
+                                let langValid = true;
+                                if (currentLang === 'en' && /[\u0E00-\u0E7F]/.test(resolvedTop)) {
+                                    langValid = false;
+                                } else if (currentLang === 'th' && !/[\u0E00-\u0E7F]/.test(resolvedTop) && /[a-zA-Z]{3,}/.test(resolvedTop)) {
+                                    langValid = false;
+                                }
+                                
+                                if (langValid && resolvedTop) {
+                                    res = {
+                                        value: isCheckMark ? resolvedTop : (curVal || resolvedTop),
+                                        topic: resolvedTop,
+                                        isTextOption: true
+                                    };
+                                }
+                            }
+                        } else if (!preferTopicAsValue) {
+                            // Numeric / Universal fallback
+                            const cpVal = String(cpRes.value || '').trim();
+                            const hasThai = /[\u0E00-\u0E7F]/.test(cpVal);
+                            const hasEng = /[a-zA-Z]{3,}/.test(cpVal);
+                            
+                            // Strict Language Lock on Fallback:
+                            // When currentLang === 'en', NEVER allow Thai characters to leak
+                            if (currentLang === 'en') {
+                                if (!hasThai) {
+                                    res = cpRes;
+                                }
+                            }
+                            // When currentLang === 'th', NEVER allow raw English descriptive phrases to leak!
+                            // Only allow pure numeric/technical specs with standard units
+                            else if (currentLang === 'th') {
+                                if (!hasEng || /^[\d\s.,\/xX\-+()kwwhmclitresg%]+$/i.test(cpVal)) {
+                                    res = cpRes;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Final Strict Language Lock Guard for the returned result
+            if (res && res.value && res.value !== '-') {
+                const strVal = String(res.value);
+                if (currentLang === 'en') {
+                    // Lock EN: absolutely zero Thai characters allowed in EN view
+                    if (/[\u0E00-\u0E7F]/.test(strVal)) {
+                        res = { value: '-', topic: '', isTextOption: false };
+                    }
+                } else if (currentLang === 'th') {
+                    // Lock TH: in text option / preferTopicAsValue, block raw English text
+                    if (preferTopicAsValue || res.isTextOption) {
+                        if (!/[\u0E00-\u0E7F]/.test(strVal) && /[a-zA-Z]{3,}/.test(strVal)) {
+                            res = { value: '-', topic: '', isTextOption: false };
+                        }
                     }
                 }
             }
@@ -5054,7 +5136,17 @@
                                 else if (tDef.customSpecialInteriorExtractor) cpRes = getSpecialInteriorEquipment(cp);
                                 else if (tDef.customAdditionalSafetyExtractor) cpRes = getAdditionalSafetyEquipment(cp);
                                 if (cpRes && cpRes.value && cpRes.value !== '-') {
-                                    res = cpRes;
+                                    // Apply Strict Language Lock
+                                    const cpVal = String(cpRes.value || '').trim();
+                                    const hasThai = /[\u0E00-\u0E7F]/.test(cpVal);
+                                    const hasEng = /[a-zA-Z]{3,}/.test(cpVal);
+                                    if (currentLang === 'en' && hasThai) {
+                                        // Block Thai in EN mode
+                                    } else if (currentLang === 'th' && hasEng && !hasThai && !/^[\d\s.,\/xX\-+()kwwhmclitresg%]+$/i.test(cpVal)) {
+                                        // Block pure English text in TH mode unless numeric/units
+                                    } else {
+                                        res = cpRes;
+                                    }
                                 }
                             }
                         }
