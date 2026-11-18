@@ -2938,7 +2938,7 @@
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Local package code' (mapped: 'local package code'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
             }
         ],
-        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/X1-20260417-01_EN.pdf.asset.1778752587091.pdf",
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/X1-20260417-01_EN.pdf.asset.1778763270508.pdf",
         "pdf_sha256": "b1a34ad6e1bd46cb760e844463dd95430365cdc3f827cb6a9bc292774111557c"
     },
     {
@@ -4852,7 +4852,7 @@
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Package Code (Local Pack)' (mapped: 'package code (local pack)'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
             }
         ],
-        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/X3-20260116-01_EN.pdf.asset.1778752585748.pdf",
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/X3-20260116-01_EN.pdf.asset.1778763269996.pdf",
         "pdf_sha256": "708536f46f8a4afcfe350c4fc5d794c0219c160799aa194ddbe102e22485f837"
     },
     {
@@ -20365,7 +20365,7 @@
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Local package code' (mapped: 'local package code'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
             }
         ],
-        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/2-20260622-01_EN.pdf.asset.1782449002094.pdf",
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/2-20260622-01_EN.pdf.asset.1782449087646.pdf",
         "pdf_sha256": "052552025d94cf550cc576ad58406ff97290bb826c7481409a3f7b9ae93edf6c"
     },
     {
@@ -29293,7 +29293,7 @@
             }
         ],
         "source_file": "X7-20260529-01_EN.pdf.asset.1782449652955.pdf",
-        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/X7-20260529-01_EN.pdf.asset.1782449621294.pdf",
+        "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/X7-20260529-01_EN.pdf.asset.1782449652955.pdf",
         "low_confidence_flags": [
             {
                 "model_name": "X7 xDrive40d M Sport",
