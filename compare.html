@@ -4823,7 +4823,7 @@
         }
 
         // Helper: Find value from model's specifications matching a set of aliases (searches by alias priority)
-        function findSpecValueByAliases(model, aliases, preferTopicAsValue = false) {
+        function findSpecValueByAliases(model, aliases, preferTopicAsValue = false, targetLang = currentLang) {
             function matchTopic(topLower, aliasLower, isShortAlias) {
                 if (isShortAlias) {
                     return topLower === aliasLower;
@@ -4856,7 +4856,7 @@
                             const isMatch = matchTopic(topLower, aliasLower, isShortAlias);
                             if (isMatch) {
                                 const val = (detail.value || '').trim();
-                                const isCheckMark = TRANSLATIONS[currentLang].yesWords.includes(val.toLowerCase());
+                                const isCheckMark = TRANSLATIONS[targetLang].yesWords.includes(val.toLowerCase());
                                 const isActive = val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none';
                                 
                                 if (isActive) {
@@ -4936,14 +4936,14 @@
                             if (curSpecs[cpRes.categoryIndex] && curSpecs[cpRes.categoryIndex].details && curSpecs[cpRes.categoryIndex].details[cpRes.detailIndex]) {
                                 const curDetail = curSpecs[cpRes.categoryIndex].details[cpRes.detailIndex];
                                 const curVal = (curDetail.value || '').trim();
-                                const isCheckMark = TRANSLATIONS[currentLang].yesWords.includes(curVal.toLowerCase());
+                                const isCheckMark = TRANSLATIONS[targetLang].yesWords.includes(curVal.toLowerCase());
                                 const resolvedTop = cleanThai(curDetail.topic || '').trim();
                                 
                                 // Validate resolvedTop matches active language
                                 let langValid = true;
-                                if (currentLang === 'en' && /[\u0E00-\u0E7F]/.test(resolvedTop)) {
+                                if (targetLang === 'en' && /[\u0E00-\u0E7F]/.test(resolvedTop)) {
                                     langValid = false;
-                                } else if (currentLang === 'th' && !/[\u0E00-\u0E7F]/.test(resolvedTop) && /[a-zA-Z]{3,}/.test(resolvedTop)) {
+                                } else if (targetLang === 'th' && !/[\u0E00-\u0E7F]/.test(resolvedTop) && /[a-zA-Z]{3,}/.test(resolvedTop)) {
                                     langValid = false;
                                 }
                                 
@@ -4962,15 +4962,15 @@
                             const hasEng = /[a-zA-Z]{3,}/.test(cpVal);
                             
                             // Strict Language Lock on Fallback:
-                            // When currentLang === 'en', NEVER allow Thai characters to leak
-                            if (currentLang === 'en') {
+                            // When targetLang === 'en', NEVER allow Thai characters to leak
+                            if (targetLang === 'en') {
                                 if (!hasThai) {
                                     res = cpRes;
                                 }
                             }
-                            // When currentLang === 'th', NEVER allow raw English descriptive phrases to leak!
+                            // When targetLang === 'th', NEVER allow raw English descriptive phrases to leak!
                             // Only allow pure numeric/technical specs with standard units
-                            else if (currentLang === 'th') {
+                            else if (targetLang === 'th') {
                                 if (!hasEng || /^[\d\s.,\/xX\-+()kwwhmclitresg%]+$/i.test(cpVal)) {
                                     res = cpRes;
                                 }
@@ -4983,12 +4983,12 @@
             // Final Strict Language Lock Guard for the returned result
             if (res && res.value && res.value !== '-') {
                 const strVal = String(res.value);
-                if (currentLang === 'en') {
+                if (targetLang === 'en') {
                     // Lock EN: absolutely zero Thai characters allowed in EN view
                     if (/[\u0E00-\u0E7F]/.test(strVal)) {
                         res = { value: '-', topic: '', isTextOption: false };
                     }
-                } else if (currentLang === 'th') {
+                } else if (targetLang === 'th') {
                     // Lock TH: in text option / preferTopicAsValue, block raw English text
                     if (preferTopicAsValue || res.isTextOption) {
                         if (!/[\u0E00-\u0E7F]/.test(strVal) && /[a-zA-Z]{3,}/.test(strVal)) {
@@ -5218,11 +5218,11 @@
                             else if (tDef.customSpecialExteriorExtractor) res = getSpecialExteriorEquipment(cpModel);
                             else if (tDef.customSpecialInteriorExtractor) res = getSpecialInteriorEquipment(cpModel);
                             else if (tDef.customAdditionalSafetyExtractor) res = getAdditionalSafetyEquipment(cpModel);
-                            else res = findSpecValueByAliases(cpModel, tDef.aliases, tDef.preferTopicAsValue);
+                            else res = findSpecValueByAliases(cpModel, tDef.aliases, tDef.preferTopicAsValue, currentLang === 'en' ? 'th' : 'en');
                             return res ? res.value : null;
                         });
 
-                        if (cpValues.every(v => v !== null && v !== undefined && v !== '')) {
+                        if (cpValues.every(v => v !== null && v !== undefined && v !== '' && v !== '-' && v !== '__NO__')) {
                             let cpDiff = false;
                             for (let i = 1; i < cpValues.length; i++) {
                                 if (!areValuesEquivalent(cpValues[0], cpValues[i])) {
@@ -5399,7 +5399,7 @@
                             return null;
                         });
 
-                        if (cpValues.every(v => v !== null && v !== undefined && v !== '')) {
+                        if (cpValues.every(v => v !== null && v !== undefined && v !== '' && v !== '-' && v !== '__NO__')) {
                             let cpDiff = false;
                             for (let i = 1; i < cpValues.length; i++) {
                                 if (!areValuesEquivalent(cpValues[0], cpValues[i])) {
