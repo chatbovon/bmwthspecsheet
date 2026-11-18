@@ -2556,8 +2556,8 @@
                 "is_custom_archived": false
             }
         ],
-        "source_file": "X1-20260417-01_EN.pdf.asset.1778752587091.pdf",
-        "pdf_source": "X1-20260417-01_EN.pdf.asset.1778752587091.pdf",
+        "source_file": "X1-20260417-01_EN.pdf.asset.1778763270508.pdf",
+        "pdf_source": "X1-20260417-01_EN.pdf.asset.1778763270508.pdf",
         "low_confidence_flags": [
             {
                 "model_name": "X1 sDrive20i M Sport",
@@ -3770,8 +3770,8 @@
                 "is_custom_archived": false
             }
         ],
-        "source_file": "X3-20260116-01_EN.pdf.asset.1778752585748.pdf",
-        "pdf_source": "X3-20260116-01_EN.pdf.asset.1778752585748.pdf",
+        "source_file": "X3-20260116-01_EN.pdf.asset.1778763269996.pdf",
+        "pdf_source": "X3-20260116-01_EN.pdf.asset.1778763269996.pdf",
         "low_confidence_flags": [
             {
                 "model_name": "X3 20d xDrive M Sport Pro",
@@ -19948,8 +19948,8 @@
                 "is_custom_archived": false
             }
         ],
-        "source_file": "2-20260622-01_EN.pdf.asset.1782449002094.pdf",
-        "pdf_source": "2-20260622-01_EN.pdf.asset.1782449002094.pdf",
+        "source_file": "2-20260622-01_EN.pdf.asset.1782449087646.pdf",
+        "pdf_source": "2-20260622-01_EN.pdf.asset.1782449087646.pdf",
         "low_confidence_flags": [
             {
                 "model_name": "220 Gran Coupe M Sport Pro",
@@ -28846,7 +28846,7 @@
     },
     {
         "series": "BMW X7",
-        "pdf_source": "X7-20260529-01_EN.pdf.asset.1782449621294.pdf",
+        "pdf_source": "X7-20260529-01_EN.pdf.asset.1782449652955.pdf",
         "models": [
             {
                 "model_name": "X7 xDrive40d M Sport",
@@ -29292,7 +29292,7 @@
                 "is_custom_archived": false
             }
         ],
-        "source_file": "X7-20260529-01_EN.pdf.asset.1782449621294.pdf",
+        "source_file": "X7-20260529-01_EN.pdf.asset.1782449652955.pdf",
         "pdf_url": "https://www.bmw.co.th/content/dam/bmw/marketTH/bmw_co_th/specsheet/X7-20260529-01_EN.pdf.asset.1782449621294.pdf",
         "low_confidence_flags": [
             {
@@ -29911,7 +29911,8 @@
                 "type": "Cross-DB Discrepancy",
                 "reason": "Topic name mismatch/ordering difference in category 'Document References' at position 2: English is 'Local package code' (mapped: 'local package code'), Thai is 'รหัสแพ็กเกจ (Local Pack)' (mapped: 'รหัสแพ็กเกจ (local pack)')"
             }
-        ]
+        ],
+        "pdf_sha256": "6f48c83e8def5f07d16778b9a1eadd4324ca3139858a4b6f6c458636ebd896d5"
     },
     {
         "series": "BMW 7 Series",
