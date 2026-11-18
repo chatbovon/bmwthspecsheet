@@ -3174,9 +3174,22 @@
                         customSeatExtractor: true
                     },
                     {
-                        canonicalNameTH: 'ระบบระบายอากาศสำหรับเบาะนั่ง (Ventilation)',
+                        canonicalNameTH: 'ระบบระบายอากาศสำหรับเบาะนั่ง',
                         canonicalNameEN: 'Seat Ventilation',
+                        customSeatVentilationExtractor: true,
                         aliases: ['ระบบระบายอากาศสำหรับเบาะนั่ง', 'active seat ventilation']
+                    },
+                    {
+                        canonicalNameTH: 'ระบบอุ่นเบาะ (Seat Heating)',
+                        canonicalNameEN: 'Seat Heating',
+                        customSeatHeatingExtractor: true,
+                        aliases: ['ระบบอุ่นเบาะ', 'อุ่นเบาะ', 'seat heating', 'heater']
+                    },
+                    {
+                        canonicalNameTH: 'ฟังก์ชันนวดผ่อนคลาย (Massage Seats)',
+                        canonicalNameEN: 'Massage Seats',
+                        customSeatMassageExtractor: true,
+                        aliases: ['ฟังก์ชันนวดผ่อนคลาย', 'ฟังก์ชั่นนวดผ่อนคลาย', 'นวดผ่อนคลาย', 'massage function', 'massage']
                     },
                     {
                         canonicalNameTH: 'ระบบปรับอากาศอัตโนมัติ',
@@ -3530,6 +3543,119 @@
                 isTextOption: true,
                 isCustomHtml: true
             };
+        }
+
+        // Helper: Extract Seat Ventilation positioning (Front, Rear, Front & Rear, or -)
+        function getSeatVentilationInfo(model, lang = currentLang) {
+            const isTh = lang === 'th';
+            let hasFront = false;
+            let hasRear = false;
+
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = cleanThai(detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none';
+                    if (isActive) {
+                        if (topLower.includes('ระบายอากาศ') || topLower.includes('ventilation')) {
+                            if (topLower.includes('ตอนหลัง') || topLower.includes('rear')) {
+                                hasRear = true;
+                            } else {
+                                hasFront = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (hasFront && hasRear) {
+                return { value: isTh ? 'หน้า-หลัง' : 'Front & Rear', isTextOption: true };
+            }
+            if (hasFront) {
+                return { value: isTh ? 'คู่หน้า' : 'Front', isTextOption: true };
+            }
+            if (hasRear) {
+                return { value: isTh ? 'ตอนหลัง' : 'Rear', isTextOption: true };
+            }
+            return { value: '-', isTextOption: false };
+        }
+
+        // Helper: Extract Seat Heating positioning (Front, Rear, Front & Rear, or -)
+        function getSeatHeatingInfo(model, lang = currentLang) {
+            const isTh = lang === 'th';
+            let hasFrontAndRear = false;
+            let hasFront = false;
+            let hasRear = false;
+
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = cleanThai(detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none';
+                    if (isActive) {
+                        if ((topLower.includes('อุ่นเบาะ') || topLower.includes('heater') || topLower.includes('seat heating')) &&
+                            !topLower.includes('พวงมาลัย') && !topLower.includes('steering') &&
+                            !topLower.includes('ที่พักแขน') && !topLower.includes('armrest')) {
+                            if (topLower.includes('หน้าและหลัง') || topLower.includes('หน้า-หลัง') || topLower.includes('front and rear')) {
+                                hasFrontAndRear = true;
+                            } else if (topLower.includes('ตอนหลัง') || topLower.includes('เบาะหลัง') || topLower.includes('rear')) {
+                                hasRear = true;
+                            } else {
+                                hasFront = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (hasFrontAndRear || (hasFront && hasRear)) {
+                return { value: isTh ? 'หน้า-หลัง' : 'Front & Rear', isTextOption: true };
+            }
+            if (hasFront) {
+                return { value: isTh ? 'คู่หน้า' : 'Front', isTextOption: true };
+            }
+            if (hasRear) {
+                return { value: isTh ? 'ตอนหลัง' : 'Rear', isTextOption: true };
+            }
+            return { value: '-', isTextOption: false };
+        }
+
+        // Helper: Extract Massage Seat positioning (Front, Rear, Front & Rear, or -)
+        function getSeatMassageInfo(model, lang = currentLang) {
+            const isTh = lang === 'th';
+            let hasFront = false;
+            let hasRear = false;
+
+            for (const specBlock of (model.specifications || [])) {
+                for (const detail of (specBlock.details || [])) {
+                    const top = cleanThai(detail.topic || '').trim();
+                    const topLower = top.toLowerCase();
+                    const val = (detail.value || '').trim();
+                    const isActive = val !== '' && val !== '-' && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none';
+                    if (isActive) {
+                        if (topLower.includes('นวด') || topLower.includes('massage')) {
+                            if (topLower.includes('ตอนหลัง') || topLower.includes('rear')) {
+                                hasRear = true;
+                            } else {
+                                hasFront = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (hasFront && hasRear) {
+                return { value: isTh ? 'หน้า-หลัง' : 'Front & Rear', isTextOption: true };
+            }
+            if (hasFront) {
+                return { value: isTh ? 'คู่หน้า' : 'Front', isTextOption: true };
+            }
+            if (hasRear) {
+                return { value: isTh ? 'ตอนหลัง' : 'Rear', isTextOption: true };
+            }
+            return { value: '-', isTextOption: false };
         }
 
         // Helper: Extract accurate drivetrain platform (AWD, RWD, FWD, xDrive, M xDrive)
@@ -5049,6 +5175,7 @@
                             tDef.customChargingExtractor || tDef.customElectricRangeExtractor || 
                             tDef.customFuelConsumptionExtractor || tDef.customElectricConsumptionExtractor ||
                             tDef.customConsumptionExtractor || tDef.customSeatExtractor || 
+                            tDef.customSeatVentilationExtractor || tDef.customSeatHeatingExtractor || tDef.customSeatMassageExtractor ||
                             tDef.customCockpitExtractor || tDef.customHUDExtractor || 
                             tDef.customDrivetrainExtractor || tDef.customActiveCruiseExtractor || 
                             tDef.customAirbagExtractor || tDef.customIASExtractor || 
@@ -5083,6 +5210,12 @@
                             res = getConsumptionInfo(m);
                         } else if (tDef.customSeatExtractor) {
                             res = getCombinedSeatInfo(m);
+                        } else if (tDef.customSeatVentilationExtractor) {
+                            res = getSeatVentilationInfo(m);
+                        } else if (tDef.customSeatHeatingExtractor) {
+                            res = getSeatHeatingInfo(m);
+                        } else if (tDef.customSeatMassageExtractor) {
+                            res = getSeatMassageInfo(m);
                         } else if (tDef.customCockpitExtractor) {
                             res = getCockpitInfo(m);
                         } else if (tDef.customHUDExtractor) {
@@ -5123,6 +5256,10 @@
                                 else if (tDef.customFuelConsumptionExtractor) cpRes = getFuelConsumptionInfo(cp);
                                 else if (tDef.customElectricConsumptionExtractor) cpRes = getElectricConsumptionInfo(cp);
                                 else if (tDef.customConsumptionExtractor) cpRes = getConsumptionInfo(cp);
+                                else if (tDef.customSeatExtractor) cpRes = getCombinedSeatInfo(cp);
+                                else if (tDef.customSeatVentilationExtractor) cpRes = getSeatVentilationInfo(cp);
+                                else if (tDef.customSeatHeatingExtractor) cpRes = getSeatHeatingInfo(cp);
+                                else if (tDef.customSeatMassageExtractor) cpRes = getSeatMassageInfo(cp);
                                 else if (tDef.customCockpitExtractor) cpRes = getCockpitInfo(cp);
                                 else if (tDef.customHUDExtractor) cpRes = getHUDInfo(cp);
                                 else if (tDef.customDrivetrainExtractor) cpRes = getDrivetrainInfo(cp);
@@ -5206,6 +5343,9 @@
                             else if (tDef.customElectricConsumptionExtractor) res = getElectricConsumptionInfo(cpModel);
                             else if (tDef.customConsumptionExtractor) res = getConsumptionInfo(cpModel);
                             else if (tDef.customSeatExtractor) res = getCombinedSeatInfo(cpModel);
+                            else if (tDef.customSeatVentilationExtractor) res = getSeatVentilationInfo(cpModel, currentLang === 'en' ? 'th' : 'en');
+                            else if (tDef.customSeatHeatingExtractor) res = getSeatHeatingInfo(cpModel, currentLang === 'en' ? 'th' : 'en');
+                            else if (tDef.customSeatMassageExtractor) res = getSeatMassageInfo(cpModel, currentLang === 'en' ? 'th' : 'en');
                             else if (tDef.customCockpitExtractor) res = getCockpitInfo(cpModel);
                             else if (tDef.customHUDExtractor) res = getHUDInfo(cpModel);
                             else if (tDef.customDrivetrainExtractor) res = getDrivetrainInfo(cpModel);
