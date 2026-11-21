@@ -92,6 +92,11 @@ SCRAPE_CONFIGS = {
         "engine_keyword": "M50",
         "model_key_name": "BMW_X3_M50_xDrive"
     },
+    "iX3 40L xDrive M Sport": {
+        "base_url": "https://configure.bmw.co.th/th_TH/configure/NA6/22HTZMA",
+        "engine_keyword": "iX3 40L xDrive M Sport",
+        "model_key_name": "BMW_iX3_40L_xDrive_M_Sport"
+    },
     "iX3 50 xDrive M Sport": {
         "base_url": "https://configure.bmw.co.th/th_TH/configure/NA5/32HRZKS",
         "engine_keyword": "50",
@@ -230,174 +235,97 @@ async def show_viewport_overlays(page):
     }""")
     await asyncio.sleep(1)
 
-async def capture_360_canvas(page, filename):
-    print(f"  [VISUALIZER] Opening 360 view for screenshot...")
-    btn_360 = page.locator("con-360-button")
-    if await btn_360.count() > 0:
-        await btn_360.first.click()
-        await asyncio.sleep(6) # Wait for 360 view to render
-        
-        # Hide overlays using JS inline style
-        await page.evaluate("""() => {
-            try {
-                const modal = document.querySelector('con-app').shadowRoot
-                    .querySelector('con-modal-logic').shadowRoot
-                    .querySelector('con-modal-360-visualization').shadowRoot;
-                
-                const closeBtn = modal.querySelector('con-modal-template-a').shadowRoot.querySelector('#closeButton');
-                if (closeBtn) closeBtn.style.display = 'none';
-                
-                const controlLayer = modal.querySelector('con-stage-control-layer');
-                if (controlLayer) controlLayer.style.display = 'none';
-            } catch (e) {
-                console.error("Error hiding overlays:", e);
-            }
-        }""")
-        
-        # Take screenshot of con-modal-360-visualization canvas
-        temp_screen = filename if filename.endswith('.png') else os.path.splitext(filename)[0] + '.png'
-        canvas_el = page.locator("con-modal-360-visualization canvas").first
-        await canvas_el.screenshot(path=temp_screen)
-        
-        # Compress and resize to 50%
-        try:
-            from PIL import Image
-            with Image.open(temp_screen) as img:
-                w, h = img.size
-                resized_img = img.resize((w // 2, h // 2), Image.Resampling.LANCZOS)
-                fmt = "WEBP" if filename.endswith('.webp') else "PNG"
-                resized_img.save(filename, format=fmt, optimize=True, quality=85)
-            if temp_screen != filename and os.path.exists(temp_screen):
-                os.remove(temp_screen)
-            print(f"    [SUCCESS] Saved 360 screenshot & compressed (50%): {filename}")
-        except Exception as e:
-            print(f"    [WARNING] Failed to compress screenshot: {e}")
-        
-        # Show overlays using JS inline style
-        await page.evaluate("""() => {
-            try {
-                const modal = document.querySelector('con-app').shadowRoot
-                    .querySelector('con-modal-logic').shadowRoot
-                    .querySelector('con-modal-360-visualization').shadowRoot;
-                
-                const closeBtn = modal.querySelector('con-modal-template-a').shadowRoot.querySelector('#closeButton');
-                if (closeBtn) closeBtn.style.display = '';
-                
-                const controlLayer = modal.querySelector('con-stage-control-layer');
-                if (controlLayer) controlLayer.style.display = '';
-            } catch (e) {
-                console.error("Error showing overlays:", e);
-            }
-        }""")
-        
-        # Close 360 view
-        close_btn = page.locator("con-modal-360-visualization #closeButton")
-        if await close_btn.count() > 0:
-            await close_btn.first.click()
-            await asyncio.sleep(3)
-        return True
-    else:
-        print("  [WARNING] Could not find 360 button. Taking viewport screenshot instead.")
-        
-        # Hide overlays recursively before taking viewport screenshot
-        await hide_viewport_overlays(page)
-        
-        temp_screen = filename if filename.endswith('.png') else os.path.splitext(filename)[0] + '.png'
-        await page.screenshot(path=temp_screen)
-        if temp_screen != filename:
-            try:
-                from PIL import Image
-                with Image.open(temp_screen) as img:
-                    w, h = img.size
-                    resized_img = img.resize((w // 2, h // 2), Image.Resampling.LANCZOS)
-                    resized_img.save(filename, format="WEBP", quality=85)
-                if os.path.exists(temp_screen):
-                    os.remove(temp_screen)
-            except Exception as e:
-                print(f"    [WARNING] Viewport conversion error: {e}")
-        return True
-
-
 async def capture_stage_or_canvas(page, filename):
     """
-    Captures car image.
-    Primary: Extracts the direct 3/4 front view image URL from the stage slider,
-             downloads the clean native WebP image, and saves it.
-    Fallback: Opens 360 mode or captures viewport canvas if stage slider is unavailable.
+    Captures vehicle paint image directly from the Stage slider on the 'สี' (Paint) tab.
+    Extracts the clean native Front 3/4 view image URL from the stage slider,
+    downloads it with an unverified SSL context, applies 16:9 framing, and saves as WebP.
+    360 canvas fallbacks and buttons are completely eliminated.
     """
-    print(f"  [VISUALIZER] Attempting direct stage 3/4 front image capture...")
+    print(f"  [VISUALIZER] Attempting direct stage 3/4 front image capture from Paint tab...")
+
+    # Extract direct image URL from the active default Paint tab stage slide with retry
+    img_url = None
+    for _ in range(6):
+        img_url = await page.evaluate("""() => {
+            try {
+                const app = document.querySelector('con-app');
+                if (!app || !app.shadowRoot) return null;
+                const configure = app.shadowRoot.querySelector('con-configure');
+                if (!configure || !configure.shadowRoot) return null;
+                const stage = configure.shadowRoot.querySelector('con-stage-desktop');
+                if (!stage || !stage.shadowRoot) return null;
+                const slider = stage.shadowRoot.querySelector('con-slider-view');
+                if (!slider || !slider.shadowRoot) return null;
+                const nativeSlider = slider.shadowRoot.querySelector('con-native-slider');
+                if (!nativeSlider || !nativeSlider.shadowRoot) return null;
+                
+                const imgs = Array.from(nativeSlider.shadowRoot.querySelectorAll('img'));
+                const visibleCars = imgs.filter(img => {
+                    const r = img.getBoundingClientRect();
+                    return r.width > 500 && r.height > 500 && Math.abs(r.left) < 150 && img.src && img.complete;
+                });
+                return visibleCars.length > 0 ? visibleCars[0].src : null;
+            } catch (e) {
+                return null;
+            }
+        }""")
+        if img_url:
+            break
+        await asyncio.sleep(1)
     
-    img_url = await page.evaluate("""() => {
-        try {
-            const app = document.querySelector('con-app');
-            if (!app || !app.shadowRoot) return null;
-            const configure = app.shadowRoot.querySelector('con-configure');
-            if (!configure || !configure.shadowRoot) return null;
-            const stage = configure.shadowRoot.querySelector('con-stage-desktop');
-            if (!stage || !stage.shadowRoot) return null;
-            const slider = stage.shadowRoot.querySelector('con-slider-view');
-            if (!slider || !slider.shadowRoot) return null;
-            const nativeSlider = slider.shadowRoot.querySelector('con-native-slider');
-            if (!nativeSlider || !nativeSlider.shadowRoot) return null;
+    if not img_url:
+        print("  [ERROR] Direct stage image URL could not be resolved from Paint tab.")
+        return None
+
+    import ssl
+    import urllib.request
+    from PIL import Image
+    
+    webp_filename = filename if filename.endswith('.webp') else os.path.splitext(filename)[0] + '.webp'
+    temp_raw = webp_filename + '.tmp'
+    try:
+        ctx = ssl._create_unverified_context()
+        req = urllib.request.Request(img_url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
+        with urllib.request.urlopen(req, context=ctx, timeout=30) as resp, open(temp_raw, 'wb') as out_f:
+            out_f.write(resp.read())
             
-            const imgs = Array.from(nativeSlider.shadowRoot.querySelectorAll('img'));
-            const visibleCars = imgs.filter(img => {
-                const r = img.getBoundingClientRect();
-                return r.width > 500 && r.height > 500 && Math.abs(r.left) < 100;
-            });
-            return visibleCars.length > 0 ? visibleCars[0].src : null;
-        } catch (e) {
-            return null;
-        }
-    }""")
-    
-    if img_url:
-        import urllib.request
-        from PIL import Image
-        
-        webp_filename = filename if filename.endswith('.webp') else os.path.splitext(filename)[0] + '.webp'
-        temp_raw = webp_filename + '.tmp'
-        try:
-            urllib.request.urlretrieve(img_url, temp_raw)
-            with Image.open(temp_raw) as img:
-                w, h = img.size
-                
-                # Universal 16:9 Stage Crop Framing
-                # Cozy Cloud stage composite positions the vehicle in the lower-left area
-                # Target width: 72% of full canvas, Aspect ratio: 16:9, cx: 35.5%, cy: 51.5%
-                crop_w = int(w * 0.72)
-                crop_h = int(crop_w * 9 / 16)
-                cx = int(w * 0.355)
-                cy = int(h * 0.515)
+        with Image.open(temp_raw) as img:
+            w, h = img.size
+            
+            # Universal 16:9 Stage Crop Framing
+            # Cozy Cloud stage composite positions the vehicle in the lower-left area
+            # Target width: 72% of full canvas, Aspect ratio: 16:9, cx: 35.5%, cy: 51.5%
+            crop_w = int(w * 0.72)
+            crop_h = int(crop_w * 9 / 16)
+            cx = int(w * 0.355)
+            cy = int(h * 0.515)
 
-                x1 = max(0, cx - crop_w // 2)
-                y1 = max(0, cy - crop_h // 2)
-                x2 = min(w, x1 + crop_w)
-                y2 = min(h, y1 + crop_h)
+            x1 = max(0, cx - crop_w // 2)
+            y1 = max(0, cy - crop_h // 2)
+            x2 = min(w, x1 + crop_w)
+            y2 = min(h, y1 + crop_h)
 
-                if x1 == 0:
-                    x2 = min(w, crop_w)
-                if y1 == 0:
-                    y2 = min(h, crop_h)
+            if x1 == 0:
+                x2 = min(w, crop_w)
+            if y1 == 0:
+                y2 = min(h, crop_h)
 
-                cropped = img.crop((x1, y1, x2, y2))
-                cw, ch = cropped.size
-                resized = cropped.resize((cw // 2, ch // 2), Image.Resampling.LANCZOS)
-                resized.save(webp_filename, format="WEBP", quality=85, method=6)
-                
-            if os.path.exists(temp_raw):
-                os.remove(temp_raw)
-                
-            print(f"    [SUCCESS] Saved 3/4 front WebP image ({os.path.getsize(webp_filename)} bytes): {webp_filename}")
-            return webp_filename
-        except Exception as e:
-            print(f"    [WARNING] Direct stage download failed ({e}), falling back to 360 canvas.")
-            if os.path.exists(temp_raw):
-                os.remove(temp_raw)
-                
-    # Fallback to existing 360 canvas or viewport capture
-    await capture_360_canvas(page, filename)
-    return filename
+            cropped = img.crop((x1, y1, x2, y2))
+            cw, ch = cropped.size
+            resized = cropped.resize((cw // 2, ch // 2), Image.Resampling.LANCZOS)
+            resized.save(webp_filename, format="WEBP", quality=85, method=6)
+            
+        if os.path.exists(temp_raw):
+            os.remove(temp_raw)
+            
+        print(f"    [SUCCESS] Saved 3/4 front WebP image directly from Paint tab ({os.path.getsize(webp_filename)} bytes): {webp_filename}")
+        return webp_filename
+    except Exception as e:
+        print(f"    [ERROR] Direct stage download failed: {e}")
+        if os.path.exists(temp_raw):
+            os.remove(temp_raw)
+        return None
         
 def detect_body_style(model_name: str, series_name: str = ""):
     """Detect target body style and define required and forbidden tokens."""
