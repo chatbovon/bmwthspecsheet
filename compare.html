@@ -55,6 +55,7 @@
 
             /* Diff Specific Tokens */
             --diff-highlight-bg: rgba(254, 243, 199, 0.55);
+            --diff-highlight-hover-bg: #fde68a;
             --diff-badge-bg: #f59e0b;
             --diff-badge-text: #ffffff;
             --diff-row-accent: #f59e0b;
@@ -111,6 +112,7 @@
 
             /* Diff Specific Tokens (Dark) */
             --diff-highlight-bg: rgba(245, 158, 11, 0.12);
+            --diff-highlight-hover-bg: #3b2f13;
             --diff-badge-bg: #d97706;
             --diff-badge-text: #ffffff;
             --diff-row-accent: #fbbf24;
@@ -881,6 +883,9 @@
         /* Diff Highlighting */
         tr.row-diff td:not(:first-child) {
             background-color: var(--diff-highlight-bg);
+        }
+        tr.row-diff:hover td {
+            background-color: var(--diff-highlight-hover-bg) !important;
         }
         tr.row-diff td:first-child::after {
             content: "• DIFF";
