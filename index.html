@@ -237,74 +237,96 @@
 
         /* ตาราง */
         .table-container {
-            overflow: auto;
-            max-height: 75vh;
+            overflow-x: auto;
+            overflow-y: visible;
+            max-height: none;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             transition: border-color 0.3s ease;
+            -webkit-overflow-scrolling: touch;
         }
         .mobile-sticky-header {
             display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 950;
+            background: transparent;
+            pointer-events: none;
+        }
+        .mobile-sticky-header.visible {
+            display: block;
+        }
+        .mobile-sticky-header-inner {
+            overflow: hidden;
+            background: var(--bg-table-header);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+            border-radius: 0 0 8px 8px;
+        }
+        .mobile-sticky-header table {
+            border-collapse: separate;
+            border-spacing: 0;
+            table-layout: fixed;
+            margin: 0;
+        }
+        .mobile-sticky-header th {
+            position: static !important;
+            background-color: var(--bg-table-header);
+            color: #ffffff;
+            border-bottom: none;
+            border-right: 1px solid rgba(255, 255, 255, 0.14);
+            box-sizing: border-box;
+            vertical-align: middle;
+            text-align: center;
+            padding: 10px 12px;
+            font-size: 0.88em;
+            line-height: 1.25;
+        }
+        .mobile-sticky-header th:first-child {
+            position: sticky !important;
+            left: 0;
+            z-index: 20;
+            background-color: var(--bg-table-header-first);
+            border-right: 2px solid var(--border-sticky-col);
+            text-align: left;
+            padding: 10px 14px;
+            box-shadow: 2px 0 6px rgba(0, 0, 0, 0.18);
+        }
+        .mobile-sticky-header .btn-add-compare-th {
+            display: none !important;
+        }
+        .floating-hscroll {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            z-index: 940;
+            overflow-x: auto;
+            overflow-y: hidden;
+            height: 18px;
+            background: var(--bg-wrapper);
+            border-top: 1px solid var(--border-color);
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.12);
+        }
+        .floating-hscroll.visible {
+            display: block;
+        }
+        .floating-hscroll-spacer {
+            height: 1px;
+            pointer-events: none;
         }
         @media (max-width: 768px) {
-            .table-container {
-                max-height: none !important;
-                overflow-x: auto;
-                overflow-y: visible;
-                -webkit-overflow-scrolling: touch;
-            }
-            .mobile-sticky-header {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                z-index: 950;
-                background: var(--bg-table-header);
-                box-shadow: 0 3px 12px rgba(0, 0, 0, 0.22);
-                pointer-events: none;
-            }
-            .mobile-sticky-header.visible {
-                display: block;
-            }
             .mobile-sticky-header-inner {
-                overflow: hidden;
-                width: 100%;
-            }
-            .mobile-sticky-header table {
-                border-collapse: separate;
-                border-spacing: 0;
-                table-layout: fixed;
-                margin: 0;
+                border-radius: 0;
             }
             .mobile-sticky-header th {
-                position: static !important;
-                background-color: var(--bg-table-header);
-                color: #ffffff;
-                border-bottom: none;
-                border-right: 1px solid rgba(255, 255, 255, 0.14);
-                box-sizing: border-box;
-                vertical-align: middle;
-                text-align: center;
                 padding: 8px 6px !important;
                 font-size: 0.8em !important;
-                line-height: 1.25 !important;
-            }
-            .mobile-sticky-header th:first-child {
-                position: sticky !important;
-                left: 0;
-                z-index: 20;
-                background-color: var(--bg-table-header-first);
-                border-right: 2px solid var(--border-sticky-col);
-                text-align: left;
-                box-shadow: 2px 0 6px rgba(0, 0, 0, 0.18);
-            }
-            .mobile-sticky-header .btn-add-compare-th {
-                display: none !important;
             }
         }
         @media print {
-            .mobile-sticky-header {
+            .mobile-sticky-header,
+            .floating-hscroll {
                 display: none !important;
             }
         }
@@ -2124,13 +2146,45 @@
         bar.appendChild(inner);
         document.body.appendChild(bar);
 
+        // Floating Bottom Horizontal Scrollbar (for desktop/narrow windows)
+        const hScroll = document.createElement('div');
+        hScroll.id = 'floatingHScroll';
+        hScroll.className = 'floating-hscroll';
+        hScroll.setAttribute('aria-hidden', 'true');
+        const hSpacer = document.createElement('div');
+        hSpacer.className = 'floating-hscroll-spacer';
+        hScroll.appendChild(hSpacer);
+        document.body.appendChild(hScroll);
+
         let rafId = null;
+        let syncingFromContainer = false;
+        let syncingFromHScroll = false;
+
+        function updateHScroll() {
+            const hasOverflow = container.scrollWidth > container.clientWidth + 2;
+            const containerRect = container.getBoundingClientRect();
+            const shouldShowH = hasOverflow && containerRect.top < window.innerHeight - 60 && containerRect.bottom > window.innerHeight + 4;
+            if (shouldShowH) {
+                hScroll.style.left = Math.max(0, containerRect.left) + 'px';
+                hScroll.style.width = Math.min(window.innerWidth, containerRect.width) + 'px';
+                hSpacer.style.width = container.scrollWidth + 'px';
+                const tray = document.getElementById('floatingCompareTray');
+                if (tray && tray.classList.contains('visible')) {
+                    const trayRect = tray.getBoundingClientRect();
+                    hScroll.style.bottom = Math.max(0, window.innerHeight - trayRect.top + 4) + 'px';
+                } else {
+                    hScroll.style.bottom = '0px';
+                }
+                hScroll.classList.add('visible');
+                syncingFromContainer = true;
+                hScroll.scrollLeft = container.scrollLeft;
+                syncingFromContainer = false;
+            } else {
+                hScroll.classList.remove('visible');
+            }
+        }
 
         function syncHeaderStructure() {
-            if (window.innerWidth > 768) {
-                bar.classList.remove('visible');
-                return;
-            }
             const origThs = Array.from(headerRow.children);
             if (!origThs.length) return;
 
@@ -2165,10 +2219,6 @@
 
         function updateVisibility() {
             rafId = null;
-            if (window.innerWidth > 768) {
-                bar.classList.remove('visible');
-                return;
-            }
             const thead = table.querySelector('thead');
             if (!thead) return;
             const theadRect = thead.getBoundingClientRect();
@@ -2184,6 +2234,7 @@
             } else {
                 bar.classList.remove('visible');
             }
+            updateHScroll();
         }
 
         function scheduleUpdate() {
@@ -2195,6 +2246,20 @@
             if (bar.classList.contains('visible')) {
                 inner.scrollLeft = container.scrollLeft;
             }
+            if (!syncingFromHScroll && hScroll.classList.contains('visible')) {
+                syncingFromContainer = true;
+                hScroll.scrollLeft = container.scrollLeft;
+                syncingFromContainer = false;
+            }
+        }, { passive: true });
+        hScroll.addEventListener('scroll', () => {
+            if (syncingFromContainer) return;
+            syncingFromHScroll = true;
+            container.scrollLeft = hScroll.scrollLeft;
+            if (bar.classList.contains('visible')) {
+                inner.scrollLeft = hScroll.scrollLeft;
+            }
+            syncingFromHScroll = false;
         }, { passive: true });
         window.addEventListener('resize', () => {
             syncHeaderStructure();
