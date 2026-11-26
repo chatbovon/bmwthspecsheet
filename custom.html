@@ -243,6 +243,71 @@
             border-radius: 8px;
             transition: border-color 0.3s ease;
         }
+        .mobile-sticky-header {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .table-container {
+                max-height: none !important;
+                overflow-x: auto;
+                overflow-y: visible;
+                -webkit-overflow-scrolling: touch;
+            }
+            .mobile-sticky-header {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 950;
+                background: var(--bg-table-header);
+                box-shadow: 0 3px 12px rgba(0, 0, 0, 0.22);
+                pointer-events: none;
+            }
+            .mobile-sticky-header.visible {
+                display: block;
+            }
+            .mobile-sticky-header-inner {
+                overflow: hidden;
+                width: 100%;
+            }
+            .mobile-sticky-header table {
+                border-collapse: separate;
+                border-spacing: 0;
+                table-layout: fixed;
+                margin: 0;
+            }
+            .mobile-sticky-header th {
+                position: static !important;
+                background-color: var(--bg-table-header);
+                color: #ffffff;
+                border-bottom: none;
+                border-right: 1px solid rgba(255, 255, 255, 0.14);
+                box-sizing: border-box;
+                vertical-align: middle;
+                text-align: center;
+                padding: 8px 6px !important;
+                font-size: 0.8em !important;
+                line-height: 1.25 !important;
+            }
+            .mobile-sticky-header th:first-child {
+                position: sticky !important;
+                left: 0;
+                z-index: 20;
+                background-color: var(--bg-table-header-first);
+                border-right: 2px solid var(--border-sticky-col);
+                text-align: left;
+                box-shadow: 2px 0 6px rgba(0, 0, 0, 0.18);
+            }
+            .mobile-sticky-header .btn-add-compare-th {
+                display: none !important;
+            }
+        }
+        @media print {
+            .mobile-sticky-header {
+                display: none !important;
+            }
+        }
         table {
             border-collapse: separate;
             border-spacing: 0;
@@ -1999,6 +2064,111 @@
 
     // เริ่มต้นโหลดข้อมูล
     loadSpecsData();
+
+    // Mobile Floating Sticky Table Header (eliminates nested vertical scroll trap on mobile)
+    (function initMobileStickyHeader() {
+        const container = document.querySelector('.table-container');
+        const table = document.getElementById('specTable');
+        const headerRow = document.getElementById('tableHeader');
+        if (!container || !table || !headerRow) return;
+
+        const bar = document.createElement('div');
+        bar.id = 'mobileStickyHeader';
+        bar.className = 'mobile-sticky-header';
+        bar.setAttribute('aria-hidden', 'true');
+        const inner = document.createElement('div');
+        inner.className = 'mobile-sticky-header-inner';
+        const cloneTable = document.createElement('table');
+        cloneTable.id = 'mobileStickyHeaderTable';
+        inner.appendChild(cloneTable);
+        bar.appendChild(inner);
+        document.body.appendChild(bar);
+
+        let rafId = null;
+
+        function syncHeaderStructure() {
+            if (window.innerWidth > 768) {
+                bar.classList.remove('visible');
+                return;
+            }
+            const origThs = Array.from(headerRow.children);
+            if (!origThs.length) return;
+
+            const containerRect = container.getBoundingClientRect();
+            inner.style.marginLeft = Math.max(0, containerRect.left) + 'px';
+            inner.style.width = Math.min(window.innerWidth, containerRect.width) + 'px';
+
+            const thead = document.createElement('thead');
+            const tr = document.createElement('tr');
+            let totalWidth = 0;
+
+            origThs.forEach(th => {
+                const rect = th.getBoundingClientRect();
+                if (rect.width <= 0) return;
+                const cTh = th.cloneNode(true);
+                cTh.removeAttribute('id');
+                cTh.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+                const w = rect.width;
+                cTh.style.width = w + 'px';
+                cTh.style.minWidth = w + 'px';
+                cTh.style.maxWidth = w + 'px';
+                totalWidth += w;
+                tr.appendChild(cTh);
+            });
+
+            thead.appendChild(tr);
+            cloneTable.innerHTML = '';
+            cloneTable.style.width = totalWidth + 'px';
+            cloneTable.appendChild(thead);
+            inner.scrollLeft = container.scrollLeft;
+        }
+
+        function updateVisibility() {
+            rafId = null;
+            if (window.innerWidth > 768) {
+                bar.classList.remove('visible');
+                return;
+            }
+            const thead = table.querySelector('thead');
+            if (!thead) return;
+            const theadRect = thead.getBoundingClientRect();
+            const containerRect = container.getBoundingClientRect();
+            const shouldShow = theadRect.bottom <= 0 && containerRect.bottom > 70;
+
+            if (shouldShow) {
+                if (!bar.classList.contains('visible')) {
+                    syncHeaderStructure();
+                    bar.classList.add('visible');
+                }
+                inner.scrollLeft = container.scrollLeft;
+            } else {
+                bar.classList.remove('visible');
+            }
+        }
+
+        function scheduleUpdate() {
+            if (!rafId) rafId = requestAnimationFrame(updateVisibility);
+        }
+
+        window.addEventListener('scroll', scheduleUpdate, { passive: true });
+        container.addEventListener('scroll', () => {
+            if (bar.classList.contains('visible')) {
+                inner.scrollLeft = container.scrollLeft;
+            }
+        }, { passive: true });
+        window.addEventListener('resize', () => {
+            syncHeaderStructure();
+            scheduleUpdate();
+        }, { passive: true });
+
+        const observer = new MutationObserver(() => {
+            requestAnimationFrame(() => {
+                syncHeaderStructure();
+                updateVisibility();
+            });
+        });
+        observer.observe(headerRow, { childList: true, subtree: true, attributes: true });
+    })();
 </script>
 
 <!-- Floating Compare Tray -->
